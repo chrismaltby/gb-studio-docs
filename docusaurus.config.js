@@ -56,22 +56,27 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "My Site",
+        title: "GB Studio",
         logo: {
-          alt: "My Site Logo",
-          src: "img/logo.svg",
+          alt: "GB Studio Logo",
+          src: "img/icon.png",
         },
         items: [
+          { to: "/about", label: "About", position: "right" },
           {
             type: "doc",
-            docId: "intro",
-            position: "left",
-            label: "Tutorial",
+            docId: "actors",
+            position: "right",
+            label: "Docs",
           },
-          { to: "/blog", label: "Blog", position: "left" },
           {
-            href: "https://github.com/facebook/docusaurus",
+            href: "https://github.com/chrismaltby/gb-studio",
             label: "GitHub",
+            position: "right",
+          },
+          {
+            href: "https://chrismaltby.itch.io/gb-studio",
+            label: "Download",
             position: "right",
           },
         ],
