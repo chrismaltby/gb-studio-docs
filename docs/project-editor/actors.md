@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Actors
 
 Actors are the characters and objects in your scene that you can interact with.
