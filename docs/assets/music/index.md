@@ -12,10 +12,11 @@ Based on the [Music Driver](/docs/settings/#music-driver) that you have set for 
 
 This is the default and recommended driver for new projects. When using this driver you will need to create `.uge` music files and you will have the ability to edit your music files within GB Studio using the _Music Editor_.
 
-See the documentation for using [hUGE Driver](/docs/music-huge) for more information.
+See the documentation for using [hUGE Driver](/docs/assets/music/music-huge) for more information.
 
 ### GBT Player
 
 This is the driver used for GB Studio 2 and below. When using this driver you will need to create `.mod` music files using external Tracker software.
 
-See the documentation for using [GBT Player](/docs/music-gbt) for more information.
+See the documentation for using [GBT Player](/docs/assets/music/music-gbt) for more information.
+

@@ -6,7 +6,7 @@ sidebar_position: 7
 
 ## Play
 
-Clicking the _Play button_ in the top right of the _Project Editor_ window will start a build of your game and once complete will open a new window where you can play your game. See [Keyboard Shortcuts](/docs/keyboard-shortcuts) for details on how to play your game in the _Play Window_.
+Clicking the _Play button_ in the top right of the _Project Editor_ window will start a build of your game and once complete will open a new window where you can play your game. See [Keyboard Shortcuts](/docs/getting-started/keyboard-shortcuts) for details on how to play your game in the _Play Window_.
 
 ## Build Terminal
 

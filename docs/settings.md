@@ -12,7 +12,7 @@ GB Studio has support for GB Color when your game is run on compatible hardware 
 
 <img title="Color" src="/img/screenshots/color-palette-v3.png" width="650" className="drop-shadow" />
 
-Once color mode is enabled you can select up to 8 Default Background Palettes and 8 Default Sprite Palettes, these are the palettes that every new scene in your game will use unless you specifically override them. See [Colorizing a Scene](/docs/scenes/#colorizing-a-scene) for how to use background palettes.
+Once color mode is enabled you can select up to 8 Default Background Palettes and 8 Default Sprite Palettes, these are the palettes that every new scene in your game will use unless you specifically override them. See [Colorizing a Scene](/docs/project-editor/scenes/#colorizing-a-scene) for how to use background palettes.
 
 ## Super GB Options
 
@@ -26,7 +26,7 @@ The first time you build your game after enabling this mode a default border ima
 
 ## Default Player Sprites
 
-Each _Scene Type_ can have a different player sprite sheet, use this section to replace the default spritesheet that will be used for each type. You can override the sprite sheet used for individual scenes by editing the scene's properties or by using scripts, see [The Player](http://localhost:1313/docs/player/#default-sprite-sheet).
+Each _Scene Type_ can have a different player sprite sheet, use this section to replace the default spritesheet that will be used for each type. You can override the sprite sheet used for individual scenes by editing the scene's properties or by using scripts, see [The Player](/docs/project-editor/player/#default-sprite-sheet).
 
 <img title="Default Player Sprites" src="/img/screenshots/default-sprites.png" width="650" className="drop-shadow" />
 
@@ -66,7 +66,7 @@ The recommended setting is `hUGEDriver` (`.uge` files), as this enables you to u
 
 <img title="Music Driver" src="/img/screenshots/music-driver.png" width="650" className="drop-shadow" />
 
-See [Music](/docs/music) for more information.
+See [Music](/docs/assets/music) for more information.
 
 ## Engine Settings
 

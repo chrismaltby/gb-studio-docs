@@ -1,9 +1,8 @@
 ---
-title: "Event Glossary"
-draft: false
-next: "/docs/custom-scripts"
-nextTitle: "Custom Scripts"
+sidebar_position: 1
 ---
+
+# Event Glossary
 
 ## Actor
 
@@ -56,7 +55,7 @@ Set the animation speed of the specified actor.
 <img src="/img/events/actor-set-anim-speed-v3.png" className="event-preview" />
 
 #### Set Actor Animation State
-Sets the animation state of the specified actor, create animation states using the [Sprite Editor](/docs/sprites/#animation-states).
+Sets the animation state of the specified actor, create animation states using the [Sprite Editor](/docs/assets/sprites/#animation-states).
 <img src="/img/events/actor-set-anim-state-v3.png" className="event-preview" />
 
 #### Set Actor Collisions Disable
@@ -109,7 +108,7 @@ Show all sprites that were previously hidden.
 #### Show Emote Bubble
 Display an emote bubble above the specified actor.
 
-Emotes are created as `16px` x `16px` `.png` images in the `/assets/emotes` folder. See the [UI Elements](/docs/ui-elements/#emotes) documentation for my information.
+Emotes are created as `16px` x `16px` `.png` images in the `/assets/emotes` folder. See the [UI Elements](/docs/assets/ui-elements/#emotes) documentation for my information.
 <img src="/img/events/actor-emote-v3.png" className="event-preview" />
 
 #### Stop Actor's "On Update" Script
@@ -178,7 +177,7 @@ Replace the palette used for the UI (background palette #8).
 ## Control Flow
 
 #### Call Script
-Call one of your [Custom Scripts](/docs/custom-scripts/). Once you have chosen a script you will be able to hook up any parameters required.
+Call one of your [Custom Scripts](/docs/scripting/custom-scripts/). Once you have chosen a script you will be able to hook up any parameters required.
 <img src="/img/events/call-script-v3.png" className="event-preview" />
 
 #### If Actor At Position
@@ -204,7 +203,7 @@ Conditionally execute part of the script if game data has been saved into the se
 <img src="/img/events/if-saved-v3.png" className="event-preview" />
 
 #### If Joypad Input Held
-Conditionally execute part of the script if the specified joypad input is currently pressed. Will not wait for user input and will only execute once, if you wish to run a script every time a button is pressed use [Attach Script To Button](/docs/script-glossary#attach-script-to-button) instead.
+Conditionally execute part of the script if the specified joypad input is currently pressed. Will not wait for user input and will only execute once, if you wish to run a script every time a button is pressed use [Attach Script To Button](/docs/scripting/script-glossary#attach-script-to-button) instead.
 <img src="/img/events/if-joypad-held-v3.png" className="event-preview" />
 
 #### If Math Expression
@@ -278,7 +277,7 @@ When text is shown the dialogue box will slide up from the bottom of the screen 
 - You can change the text speed dynamically by typing `!s` and selecting from the menu.
 - You can optionally display an avatar image on the left hand side of the dialogue box by clicking _Add Avatar_ and selecting an image to use.
 
-  Avatars are created as `16px` x `16px` `.png` images in the `/assets/avatars` folder. See the [UI Elements](/docs/ui-elements/#avatars) documentation for my information.
+  Avatars are created as `16px` x `16px` `.png` images in the `/assets/avatars` folder. See the [UI Elements](/docs/assets/ui-elements/#avatars) documentation for my information.
 
 #### Display Menu
 Display a menu of multiple options and set the specified variable to the value of the chosen option.
@@ -313,7 +312,7 @@ Execute the specified script any time a joypad input button is pressed. If you a
 <img src="/img/events/input-attach-v3.png" className="event-preview" />
 
 #### If Joypad Input Held
-Conditionally execute part of the script if the specified joypad input is currently pressed. Will not wait for user input and will only execute once, if you wish to run a script every time a button is pressed use [Attach Script To Button](/docs/script-glossary#attach-script-to-button) instead.
+Conditionally execute part of the script if the specified joypad input is currently pressed. Will not wait for user input and will only execute once, if you wish to run a script every time a button is pressed use [Attach Script To Button](/docs/scripting/script-glossary#attach-script-to-button) instead.
 <img src="/img/events/if-joypad-held-v3.png" className="event-preview" />
 
 #### Pause Script Until Input Pressed
@@ -364,7 +363,7 @@ Plays a music .mod file, optionally looping the file when finished. If you play 
 <img src="/img/events/music-play-v3.png" className="event-preview" />
 
 #### Play Sound Effect
-Play a sound effect, choose from playing a beep with a given pitch, a tone with a given frequency or cymbal crash. Using [Custom Scripts](/docs/custom-scripts) you can combine multiple effects into a single reusable event to make jingles.
+Play a sound effect, choose from playing a beep with a given pitch, a tone with a given frequency or cymbal crash. Using [Custom Scripts](/docs/scripting/custom-scripts) you can combine multiple effects into a single reusable event to make jingles.
 <img src="/img/events/sound-effect-play-v3.png" className="event-preview" />
 
 #### Stop Music

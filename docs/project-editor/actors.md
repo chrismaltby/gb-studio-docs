@@ -43,4 +43,4 @@ To start building a script, select an actor, click the script type you want to e
 For more information see the documentation for [Scripting](/docs/scripting).
 
 ## Limits
-There are limits to how actors and their sprites can be used in GB Studio. These limits are to make sure your game appears as intended, as well as to keep your actor logic running smoothly. The exact limits depend on the complexity of the background image used in your scene, see [Scenes](/docs/scenes/#actor-limits) for more information.
+There are limits to how actors and their sprites can be used in GB Studio. These limits are to make sure your game appears as intended, as well as to keep your actor logic running smoothly. The exact limits depend on the complexity of the background image used in your scene, see [Scenes](/docs/project-editor/scenes/#actor-limits) for more information.

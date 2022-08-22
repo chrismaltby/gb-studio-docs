@@ -6,6 +6,6 @@ You can choose from playing a beep with a given pitch, a tone with a given frequ
 
 <img src="/img/events/sound-beep-v3.png" className="event-preview" />
 
-Using [Custom Scripts](/docs/custom-scripts) you can combine multiple effects into a single reusable event to make jingles.
+Using [Custom Scripts](/docs/scripting/custom-scripts) you can combine multiple effects into a single reusable event to make jingles.
 
 <img src="/img/screenshots/custom-event-jingle-v3.png" className="event-preview" />

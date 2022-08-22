@@ -10,7 +10,7 @@ The default view for the _Project Editor_ as shown below is the _Game World_. Th
 
 Use the _Editor Tools_ to switch between Select, Add, Erase, Collision, and Color Drawing modes.
 
-By default, your project's properties are shown in the _Editor Sidebar_ on the right. Here you can set the project name and choose the starting scene. This project view is also where initial values for the Player actor are set. See the page on [The Player](/docs/player) for more information on the Player.
+By default, your project's properties are shown in the _Editor Sidebar_ on the right. Here you can set the project name and choose the starting scene. This project view is also where initial values for the Player actor are set. See the page on [The Player](/docs/project-editor/player) for more information on the Player.
 
 To look at project properties again from the _Editor Sidebar_, click on any empty space between scenes.
 
@@ -26,7 +26,7 @@ To look at project properties again from the _Editor Sidebar_, click on any empt
 
 **Colorize tool:** Allows each tile to be given a different palette to use in place of GB Studio's default palette. The _Colorize tool_ also uses GB Studio's _Drawing mode_. The palettes used here are determined in the _Palette_ tab in the _Project Editor_.
 
-See the documentation on [Keyboard Shortcuts](/docs/keyboard-shortcuts) for editor tool shortcuts.
+See the documentation on [Keyboard Shortcuts](/docs/getting-started/keyboard-shortcuts) for editor tool shortcuts.
 
 ## Project Views
 
