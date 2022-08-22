@@ -6,7 +6,7 @@ sidebar_position: 2
 
 _Custom Scripts_ allow you to create reusable procedures in your game that can be called from any of your scripts.
 
-<img src="/img/screenshots/custom-script-list.png" className="drop-shadow" width="200" />
+<img src="/de/img/screenshots/custom-script-list.png" className="drop-shadow" width="200" />
 
 Your _Custom Scripts_ will be listed in the _Scripts_ section of the _Navigator_ while on the _Game World View_.
 
@@ -20,16 +20,16 @@ Whenever you add an event that reads a _Variable_ it will get added to the list 
 
 For example the following custom script makes `Actor A` rotate in a circle.
 
-<img src="/img/screenshots/custom-script-dance.png" className="event-preview" />
+<img src="/de/img/screenshots/custom-script-dance.png" className="event-preview" />
 
 ## Calling a Custom Script
 
 Once you have created a _Custom Script_ you can call it from any other script by adding a _Call Script_ event which will appear as follows.
 
-<img src="/img/screenshots/custom-script-call.png" className="event-preview" />
+<img src="/de/img/screenshots/custom-script-call.png" className="event-preview" />
 
 You first must choose the script which you wish to call, if that script has any variable or actor parameters you can then choose which inputs to use.
 
 If you ever want to edit the _Custom Script_ you can return to it using the list on the _Navigator_ or by selecting _Edit Custom Script_ from the event dropdown menu.
 
-<img src="/img/screenshots/custom-event-edit.png" className="event-preview" />
+<img src="/de/img/screenshots/custom-event-edit.png" className="event-preview" />

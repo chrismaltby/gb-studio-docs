@@ -10,7 +10,7 @@ Eine Szene ist eine einzelne Kulisse des Spiels, auf welches man mehrere [Darste
 
 Eine Szene kann dem Spiel hinzuzufügt werden, indem man auf dem _**+** Knopf_ in der oberen rechten _Editor Werkzeugleiste_ drückt und danach _Szene_ auswählt (alternativ auch mit der **S** Taste). Anschließend kann man auf eine leere Stelle innerhalb des _Projektfensters_ klicken und die neue Szene wird daraufhin dort platziert.
 
-<img src="/img/screenshots/add-scene.gif" style={{ width:300 }} />
+<img src="/de/img/screenshots/add-scene.gif" style={{ width:300 }} />
 
 Sobald die Szene hinzugefügt wurde, wird die _Editor Seitenleiste_ für die jeweilige Szene geöffnet. Darin können Szeneneinstellungen angepasst werden wie die Auswahl eines Hintergrundbildes oder das Umbenennen des Szenennamens. Weitere Informationen findet man in der Dokumentation für [Hintergründe](/docs/assets/backgrounds).
 

@@ -10,7 +10,7 @@ Auslöser sind festgelegte Bereiche innerhalb einer Szene. Sobald ein Spielchara
 
 Um einen Auslöser zur jeweiligen Szene hinzuzufügen, klickt man auf den _**+** button_ Knopf unter _Editor Werkzeugleiste_ und wählt die Option _Auslöser_ vom Menü aus (alternativ auch mit der **T** Taste). Danach kann der Auslöser beliebig auf der Szene platziert werden. Ebenso ist es dann möglich die Größe des Auslöserbereichs durch Ziehen und Loslassen der Ecken des Auslöserbereiches anzupassen.
 
-<img src="/img/screenshots/add-trigger.gif" style={{width: 300}} />
+<img src="/de/img/screenshots/add-trigger.gif" style={{width: 300}} />
 
 In der _Editor Seitenleiste_ kann der Auslöser dann konfiguriert werden wie Name, Positions- und Größenangabe und am Wichtigsten: Der auszuführende Skript falls der Auslöserbereich durch den Spielcharakter betreten wird.
 

@@ -6,11 +6,11 @@ sidebar_position: 2
 
 ## Startposition
 
-Die Startposition des Spielercharakters ist in der Spielwelt als <img src="/img/screenshots/player-start.png" style={{height:12}} /> Symbol angegeben.
+Die Startposition des Spielercharakters ist in der Spielwelt als <img src="/de/img/screenshots/player-start.png" style={{height:12}} /> Symbol angegeben.
 
 Durch das Drücken auf die graue Großfläche zwischen den Szenen, wechselt die Seitenleiste zum Projekteditor. Darin kann man die Startposition des Spielercharakters und die Blickrichtung festlegen. Zusätzlich kann man das [Sprite-Sheet](/docs/assets/sprites) für den Spielercharakter wählen.
 
-Man kann auch die Startposition des Spielercharakters direkt anpassen indem man das <img src="/img/screenshots/player-start.png" style={{height:12}} /> Symbol anklickt und es dann zur gewünschten Szene und Position zieht.
+Man kann auch die Startposition des Spielercharakters direkt anpassen indem man das <img src="/de/img/screenshots/player-start.png" style={{height:12}} /> Symbol anklickt und es dann zur gewünschten Szene und Position zieht.
 
 ## Skript Ereignisse
 

@@ -10,7 +10,7 @@ Darsteller sind Charaktere und Objekte innerhalb der Szene mit denen der Spielch
 
 Um einen Darsteller zur Szene hinzuzufügen, klickt man auf den _**+** Knopf_ in der oberen linken Ecke der _Editor Werkzeugleiste_ und dann auf _Darsteller_ (alternativ auch mit der **A** Taste). Danach kann man den Darsteller in einer beliebigen Szene an einer beliebigen Position platzieren.
 
-<img src="/img/screenshots/add-actor.gif" style={{ width: 300 }} />
+<img src="/de/img/screenshots/add-actor.gif" style={{ width: 300 }} />
 
 Die _Editor Seitenleiste_ wechselt anschließend zu den Darsteller Einstellungen wo man unter anderem den Darstellernamen angeben, die Darstellerposition festlegen (alternativ auch via Drag & Drop möglich), das Aussehen des Darstellers durch Angabe eines [Sprite-Sheet](/docs/assets/sprites) einstellen, die Blickrichtung des Darstellers angeben, die Bewegungsgeschwindigkeit bestimmen und ein Ereignisskript entwerfen kann. Letzteres wird immer dann ausgeführt wenn der Spielcharakter mit diesem Darsteller interagiert.
 

@@ -9,25 +9,25 @@ Falls eines der Bilddateien versehentlich gelöscht werden, so werden die Origin
 
 Die Bearbeitung dieser Datei verändert die im Spiel angezeigte Schriftart wenn Darsteller miteinander reden.
 
-<img src="/img/ui/ascii.png" class="HelpSprite" style={{width:384, height:"auto"}} />
+<img src="/de/img/ui/ascii.png" class="HelpSprite" style={{width:384, height:"auto"}} />
 
 ## frame.png
 
 Die Spielengine nutzt in Bezug auf dieser Bilddatei die [9-Scheiben Skalierung](https://en.wikipedia.org/wiki/9-slice_scaling) um die Textbox zu zeichnen. Die Bearbeitung dieser Datei verändert das Design dieser Textbox.
 
-<img src="/img/ui/frame.png" class="HelpSprite" style={{width:72, height:"auto"}} />
+<img src="/de/img/ui/frame.png" class="HelpSprite" style={{width:72, height:"auto"}} />
 
 ## cursor.png
 
 Diese Bilddatei wird verwendet um den Zeiger darzustellen wenn im Spiel zwischen mehreren Optionen gewählt werden muss.
 
-<img src="/img/ui/cursor.png" class="HelpSprite" style={{width:24, height:"auto"}} />
+<img src="/de/img/ui/cursor.png" class="HelpSprite" style={{width:24, height:"auto"}} />
 
 ## emotes.png
 
 Diese Bilddatei wird verwendet um die Emotionsblasen über den Darstellern zu zeichnen falls das Ereignis _Darsteller: Emotions-Blase_ ausgewählt wurde. Jedes der Blasen besitzt eine quadratische Größe von `16px` x `16px` und die Blasen repräsentieren von links nach rechts: _Shock/Ausrufezeichen_, _Question/Fragezeichen_, _Love/Herz_, _Pause/Dreipunkt_, _Anger/Zorn_, _Sweat/Schweißperle_, _Music/Musiknote_ and _Sleep/Schlaf_.
 
-<img src="/img/ui/emotes.png" class="HelpSprite" style={{width:384, height:"auto"}} />
+<img src="/de/img/ui/emotes.png" class="HelpSprite" style={{width:384, height:"auto"}} />
 
 ## Voraussetzungen
 

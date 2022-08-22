@@ -2,7 +2,7 @@
 
 Music can be played in your game using the [Play Music Track](/docs/scripting/#music-events) event in your *Actor*, *Trigger*, or *Scene* scripts.
 
-<img src="/img/events/music-play-v3.png" className="event-preview" />
+<img src="/de/img/events/music-play-v3.png" className="event-preview" />
 
 ## Music Driver
 
