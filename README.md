@@ -24,18 +24,51 @@ $ yarn build
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-### Deployment
+## Localisation
 
-Using SSH:
+### Adding a new locale
 
-```
-$ USE_SSH=true yarn deploy
-```
+Add your new locale to `./docusaurus.config.js` by adding a new country code to the `locales` array and adding the locale label to `localeConfigs`.
 
-Not using SSH:
 
 ```
-$ GIT_USER=<Your GitHub username> yarn deploy
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "de", "es", "pl"],
+    localeConfigs: {
+      en: {
+        label: "English",
+      },
+      de: {
+        label: "Deutsch",
+      },      
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+Create a new folder for the locale Markdown files
+
+```bash
+mkdir -p i18n/LOCALE_CODE/docusaurus-plugin-content-docs/current
+# e.g. mkdir -p i18n/de/docusaurus-plugin-content-docs/current
+```
+
+Then copy the current English files to your locale 
+```bash
+cp -r docs/* i18n/LOCALE_CODE/docusaurus-plugin-content-docs/current
+# e.g. cp -r docs/* i18n/de/docusaurus-plugin-content-docs/current
+```
+
+### Updating locale content
+
+You can edit the files in `i18n/LOCALE_CODE/docusaurus-plugin-content-docs/current` to update your locale's content.
+
+You can run your locale's site locally by using 
+
+```
+$ yarn start -- --locale LOCALE_CODE
+```
+
+e.g. to run the German site
+
+```
+$ yarn start -- --locale de
+```
