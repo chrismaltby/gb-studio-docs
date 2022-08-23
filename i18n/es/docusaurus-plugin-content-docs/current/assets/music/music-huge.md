@@ -36,7 +36,7 @@ right toolbar. The channels can be muted with the sound icon for each
 channel. The channels that aren't selected can be previewed by clicking the
 eye icon.
 
-<img title="Piano Roll" src="/img/screenshots/music-editor-piano.png" width="1241" />
+<img title="Piano Roll" src="/es/img/screenshots/music-editor-piano.png" width="1241" />
 
 To input a note, select the pen tool in the toolbar and click on a cell.
 The note will use the selected instrument in the toolbar.
@@ -58,13 +58,13 @@ from top to bottom, with each row representing a position of the song.
 There's one column for each channel, and each is divided in 3 cells:
 Note, Instrument and Effect.
 
-<img title="Tracker" src="/img/screenshots/music-editor-tracker.png" width="1241" />
+<img title="Tracker" src="/es/img/screenshots/music-editor-tracker.png" width="1241" />
 
 The song grid can be navigated with the cursor keys. Keys from Q to /
 are used to input the values in the note column of each channel. The
 base octave (used for the Q key) can be selected in the dropdown menu.
 
-<img title="Tracker" src="/img/screenshots/music-editor-keys.png" width="360" class="drop-shadow" />
+<img title="Tracker" src="/es/img/screenshots/music-editor-keys.png" width="360" class="drop-shadow" />
 
 
 The numeric keys are used to input the value in the instrument column. A
@@ -84,7 +84,7 @@ A pattern in the GB Studio music editor is unique group notes in each 4
 channels. Patterns can be repeated or arranged to form the full song
 using the pattern editor.
 
-<img title="Patterns" src="/img/screenshots/music-editor-patterns.png" width="710" class="drop-shadow" />
+<img title="Patterns" src="/es/img/screenshots/music-editor-patterns.png" width="710" class="drop-shadow" />
 
 The dropdown menu on each cell allows you to select one of the existing
 patterns or assign an empty one to the current position.

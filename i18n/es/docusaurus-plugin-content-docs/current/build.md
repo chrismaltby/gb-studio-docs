@@ -4,40 +4,30 @@ sidebar_position: 7
 
 # Building Your Game
 
-## Play
+## Ejecutar
 
-Clicking the _Play button_ in the top right of the _Project Editor_ window will start a build of your game and once complete will open a new window where you can play your game. See [Keyboard Shortcuts](/docs/getting-started/keyboard-shortcuts) for details on how to play your game in the _Play Window_.
+Al hacer clic en _Play button_ en la parte superior derecha del _Project Editor_ comenzará a compilarse tu juego y se abrirá en una nueva ventana. Para más información de como jugar a tu juego, dirígete a la sección [Keyboard Shortcuts](/docs/getting-started/keyboard-shortcuts).
 
-## Build Terminal
+## Compilar desde Terminal
 
-Clicking the _Project View Button_ and selecting _Build & Run_ will take you to the _Build Terminal_ where you can see a log of the project build. You also get to this screen by clicking the _Play_ button while a build is taking place. This screen will show you if there's any errors in your build to help you correct them.
+Al hacer clic en _Project View Button_ y seleccionar _Build & Run_ te llevará al _Build Terminal_ donde puodrás ver un log de la compilación del proyecto. También puedes ver esta pantalla haciendo clic en el botón _Play_ button mientras se compila. En esta pantalla podrás ver si hay algún error y así poder corregirlo.
 
-## Build as ROM
+## Compilar como ROM
 
-Clicking the _Export button_ and selecting _Export ROM_ will build your game and create a ROM file in your project's build folder as `$PROJECT_ROOT/build/rom/game.gb`. You can play this ROM file in any compatible emulator such as [OpenEMU](https://openemu.org/) or [KiGB](http://kigb.emuunlim.com/downloads.htm).
+Al hacer clic en _Export button_ y _Export ROM_ se compilará tu juego y crearás un fichero ROM en el directorio de tu proyecto `$PROJECT_ROOT/build/rom/game.gb`. Puedes ejecutar ese fichero ROM en cualquier emulador como puede ser [OpenEMU](https://openemu.org/) o [KiGB](http://kigb.emuunlim.com/downloads.htm).
 
-## Build and deploy for Web
+## Compilar para Web
 
-Clicking the _Export button_ and selecting _Export Web_ will build your game and create a HTML5 web build in the folder `$PROJECT_ROOT/build/web`. You can upload this folder to any web server and navigate to the `index.html` file to play your game in a web browser. If you use a mobile or tablet web browser the game will also include touch controls.
+Al hacer clic en _Export button_ y _Export Web_ se compilará tu juego y creará una pequeña web en formato HTML5 en el directorio de tu proyecto `$PROJECT_ROOT/build/web`. Puedes subir este directorio a un servidor web y cargar el fichero `index.html` para ejecutar tu juego en cualquier navegador web. Si usas un teléfono o una tablet el juego incluirá controles táctiles.
 
-If you zip the `build/web` folder you can upload it to [Itch.io](https://itch.io) as a HTML game. In this case the recommended viewport size to use is `480px` x `432px`.
+Si comprimes el directorio `build/web` puedes subirlo a [Itch.io](https://itch.io) como juego HTML. En ese caso recomendamos configurar el tamaño de visualización en `480px` x `432px`.
 
-## Build for Pocket
+## Problemas y soluciones
 
-Clicking the _Export button_ and selecting _Export Pocket_ will build your game as a `.pocket` file for use on [Analogue Pocket](https://www.analogue.co/pocket) devices.
-
-To play your `.pocket` game:
-- Create a folder at the root of a MicroSD card called `GB Studio`.
-- Copy the `.pocket` file into the `GB Studio` folder
-- Insert the MicroSD card into your Pocket device.
-- From the Pocket menu choose `Tools` / `GB Studio` / `Play Creations` and select your file from the list.
-
-## Troubleshooting
-
-On macOS if you're having trouble building or running your game you may also need to install Apple's Command Line Tools by opening `Applications/Terminal.app` and entering the following command.
+En macOS, si tienes problemas al compilar o al ejecutar el juego tendrás que instalar Apple's Command Line Tools. Abre `Applications/Terminal.app` y escribe el siguiente comando:
 
 ```
 xcode-select --install
 ```
 
-On Windows you may need to whitelist the application in your Anti Virus software to perform a build.
+En Windows debes incluir la aplicación en la lista blanca de tu Antivirus.

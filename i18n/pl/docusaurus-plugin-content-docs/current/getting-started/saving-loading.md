@@ -1,21 +1,19 @@
-# Saving and Loading
+# Zapisywanie i wczytanie
 
-## Saving
+## Zapisywanie
 
-To save your project select `File > Save` from the menu or press Ctrl/Cmd + S. If you try to close a project with unsaved changes GB Studio will warn you giving you a chance to save your project first. On macOS any unsaved changes in your project will be represented by a dot in the window close button.
+Aby zapisać projekt, wybierz z menu opcję `Plik> Zapisz` lub przy pomocy skrótu z klawiatury Ctrl / Cmd + S. Jeśli spróbujesz zamknąć projekt z niezapisanymi zmianami, to program powiadomi Cię o tym. GB Studio wyświetli odpowiedni komunikat, dzięki któremu będzie można najpierw zapisać projekt, a dopiero później będzie można wyjść z programu. W systemie macOS wszelkie niezapisane zmiany w projekcie będą reprezentowane przez kropkę na przycisku zamykania okna.
 
-## Loading
+## Wczytanie (ponowne otwarcie projektu)
 
-To load your project again, either use the _Open_ button on the _New Project_ window or select `File > Open` from the menu and navigate to your project's folder then select the `.gbsproj` file.
+Aby wczytać projekt nad którym się już pracowało to należy użyć przycisku _Otwórz_ w początkowym oknie _Nowy projekt_, lub można też otworzyć projekt z menu głównego programu `Plik> Otwórz`, a następnie należy przejść do folderu projektu i wybrać plik `.gbsproj`. 
 
-You can also return to the _Recent_Projects_ window by selecting `File > Switch Project` from the menu.
+## Kontrola wersji
 
-## Version Control
+Układ folderu projektu jak i plik `.gbsproj` zostały zaprojektowane w taki sposób aby współpracowały z systemami kontrolnymi wersji, takimi jak [Git](https://git-scm.com/). Systemu kontrolne wersji umożliwiają łatwe śledzenie historii przy każdej zmianie wprowadzanej przez aplikację w nowej linii w pliku danych. Jeśli chcesz użyć kontroli wersji w swoim projekcie, możesz po prostu utworzyć repozytorium w folderze głównym projektu. 
 
-The project folder layout and `.gbsproj` file is designed to work well with version control systems such as [Git](https://git-scm.com/) with each change by the application taking place on a new line in the data file allowing history to be tracked easily. If you want to use version control on your project you can just create the repository at the project root folder.
+Zaleca się zignorowanie folderu kompilacji (folderu `build`) z repozytorium za pomocą pliku `.gitignore` lub podobnego.
 
-It's recommended to ignore the `build` folder from your repository using a `.gitignore` file or similar.
+## Kopia zapasowa
 
-## Backups
-
-Each time you save your project the previous version is saved to your project folder with the extension `.gbsproj.bak`. If you ever wish to roll back to the previous version in your project you can rename this file to have the extension `.gbsproj` and open this file instead.
+Za każdym razem, gdy zapisujesz projekt, poprzednia wersja jest zapisywana w folderze projektu z rozszerzeniem `.gbsproj.bak`. Jeśli kiedykolwiek zajdzie potrzeba przywrócenia poprzedniej wersji projektu, to wystarczy zmienić nazwę tego pliku, aby mieć rozszerzenie `.gbsproj`, a następnie otworzyć ten plik.

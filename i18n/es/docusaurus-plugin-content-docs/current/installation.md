@@ -4,27 +4,27 @@ sidebar_position: 2
 
 # Installation
 
-Download your preferred version from the [Itch.io download page](https://chrismaltby.itch.io/gb-studio) or use [GitHub](https://github.com/chrismaltby/gb-studio/releases) for older releases.
+Descarga la versión que más se adecue a tus necesidades desde [Itch.io download page](https://chrismaltby.itch.io/gb-studio).
 
 ## Windows
 
-Two versions of GB Studio are available for Windows. The _Squirrel Installer_ version just requires you to unzip, double click and then wait a few seconds while the application installs to your C:\ drive. Once installed a shortcut will be added to your desktop automatically and the application will start. The application will be installed to `%LocalAppData%\gb_studio`, if you need to install to a different location use the _Manual_ version.
+Existen dos versiones de GB Studio para Windows. La versión _Squirrel Installer_, que solo tienes que descomprimir y se instalará en la unidad C:\. Una vez instalado se creará un acceso directo en el escritorio. La aplicación se instala en `%LocalAppData%\gb_studio`, pero si necesitas tenerlo en algún otro lugar usa la versión _Manual_.
 
-The _Manual_ version is a zip containing the application files, you can unzip this to any location. Once unzipped double click `gb-studio.exe` to start.
+La versión _Manual_ es la aplicación comprimida en un fichero que puedes descomprimir en cualquier lugar. Una vez descomprimido el fichero haz clic en `gb-studio.exe` para ejecutarlo.
 
 ## macOS
 
-For macOS unzip the downloaded file and move `GB Studio.app` to your _Applications_ folder. Double click to start.
+En macOS descomprime el fichero descargado y mueve `GB Studio.app` al directorio _Applications_. Haz doble clic para ejecutarlo.
 
-If you're having trouble building or running your game you may also need to install Apple's Command Line Tools by opening `Applications/Terminal.app` and entering the following command.
+Si tienes algún problema al compilar o ejecutar cualquier juego necesitas instalar Apple's Command Line Tools. Abre `Applications/Terminal.app` e introduce lo siguiente:
 
 ```
 xcode-select --install
 ```
 
-## Ubuntu / Debian-based Linux
+## Ubuntu / Linux basados en Debian
 
-For Debian-based Linux distros, download the .deb version and run the following commands (Tested on Ubuntu 18.10)
+Para distribuciones de Linux basadas en Debian, descarga la versión .deb y ejecuta los siguientes comandos (Probado en Ubuntu 18.10):
 
 ```
 > sudo apt-get update
@@ -33,9 +33,9 @@ For Debian-based Linux distros, download the .deb version and run the following 
 > gb-studio
 ```
 
-## Fedora / RPM-based Linux
+## Fedora / Linux basados en RPM
 
-For RPM-based Linux distros, download the .rpm version and run the following commands (Tested on Fedora 29)
+Para distribuciones de Linux basadas en RPM, descarga la version .rpm y ejecuta los siguientes comandos (Probado en Fedora 29)
 
 ```
 > sudo yum install libXScrnSaver make lsb

@@ -2,24 +2,19 @@
 sidebar_position: 2
 ---
 
-# The Player
+# Gracz
 
-## Start Position
+## Pozycja startowa gracza
 
-The player starting position is indicated in the game world view by the <img src="/img/screenshots/player-start.png" style={{height:12}} /> icon.
+Pozycja startowa gracza jest widoczna w trybie _Świat gry_ za pomocą ikony <img src="/pl/img/screenshots/player-start.png" style={{height:12}} />. 
 
-Clicking in the background between scenes switches the sidebar back to the Project Editor where you'll have options to set the player starting scene, position, and direction.
+Kliknięcie tła między scenami spowoduje wyświetlenie w _bocznym pasku_ informacji o projekcie, gdzie będzie możliwość ustawienia pozycji startowej gracza, obrót jak i grafikę gracza, którą można wybrać z arkusza dostępnych [obiektów](/docs/assets/sprites).
 
-You can also change the player start position by dragging the <img src="/img/screenshots/player-start.png" style={{height:12}} /> icon and can even drag between scenes.
+Można zmienić pozycję startową gracza, poprzez złapanie i przeciągnięcie ikony <img src="/pl/img/screenshots/player-start.png" style={{height:12}} /> w odpowiednie (nowe) miejsce. Ikonę pozycji startowej gracza można przeciągać między scenami.
 
-## Default Sprite Sheet
 
-Each scene type (_Top Down 2D_, _Platformer_ etc.) can have a different default player sprite sheet that will be used in any scenes of this type unless you override this for the specific scene.
+## Skryptowanie
 
-You can edit the default player sprite sheets for each scene type from the [Settings View](/docs/settings).
+Większość skryptów dla zdarzeń Aktora mogą zostać zastosowane do gracza. Dodatkowo można użyć polecenia _zmień grafikę gracza_, aby zmienić grafikę gracza podczas gry. Za pomocą tej metody, gracz będzie posiadał nową grafikę nawet w czasie przechodzenia między scenami. Jeżeli zmiana grafiki jest tymczasowa, to należy pamiętać o przywróceniu grafiki gracza do pierwotnego wizerunku.
 
-## Scripting
-
-Most actor script events can also be applied to the player. In addition you can use _Set Player Sprite Sheet_ event to change the graphics used for the player character mid-game. Changing the sprite sheet will only affect the current scene unless you choose to _Replace Default For Scene Type_ which will causes any other scenes of the same type to also use this player sprite (unless and override was provided).
-
-When switching between scenes the player will always become visible at the scene start location regardless of previous visibility options. if you want the player to be hidden on a scene e.g when showing a title screen or cutscene add a _Hide Actor_ event to the scene's _On Init_ script.
+Podczas przełączania między scenami gracz zawsze będzie widoczny w miejscu rozpoczęcia sceny, niezależnie od jego poprzednich opcji widoczności. Aby uzyskać efekt, gdzie gracz jest ukryty podczas uruchomienia sceny, np. Wyświetlając ekran tytułowy lub przerywnik scenowy, to należy dodać polecenie _Schowaj (Aktor: schowaj)_ i wskazać na gracza, przy skrypcie _uruchomienia (auto start)_. 

@@ -4,43 +4,46 @@ sidebar_position: 3
 
 # Actors
 
-Actors are the characters and objects in your scene that you can interact with.
+Los actores son los personajes y los objetos con los que puedes interactuar en las escenas.
 
-## Adding an Actor
-To add an actor to a scene click the _**+** button_ in the _Editor Tools_ and select _Actor_ from the menu (alternatively press the **A** key), then click on the scene and position where you wish to place the actor.
+## Añadiendo un actor
 
-<img src="/img/screenshots/add-actor.gif" style={{width:300}} />
+Para añadir un actor a una escena haz clic en _**+** button_ en _Editor Tools_ y selecciona _Actor_ en el menú (de forma alternativa puedes pulsar la tecla **A**). Después haz clic en la escena y posiciona al actor en el lugar que quieras.
 
-## Actor Properties
-- **Name** - Names your actor. Giving your actors a *name* helps organize them in your project. An actor's name will be visible in any drop-down menu that asks you to pick an actor, such as the *Actor: Hide* event.
-- **Position** - Sets the X and Y position where the actor will be positioned in a scene. You can also change this by dragging the actor around the the _Game World_.
-- **Pin to Screen** - Using the _Pin Button_ next to the actor position you can choose to pin the actor to the screen which cause it to not move as the game screen scrolls.
-- **Sprite Sheet** - Choose which sprite graphics should be used to display the actor.
-- **Movement Speed** - Choose how fast the actor should move when scripting events are used.
-- **Animation Speed** - Choose how fast the actor animations should play.
-- **Collision Group** - Choose if scripts should play automatically when colliding with this actor.
+<img src="/es/img/screenshots/add-actor.gif" style={{ width: 300 }} />
 
-### Pin to Screen
-When an actor is pinned, the actor will not move without a script, and does not create collisions with other actors in your scene.
+El _Editor Sidebar_ cambiará para mostrar la configuración del actor, y lo primero que deberías hacer es darle un nombre para tenerlo mejor identificado. También puedes volver a colocar al actor con coordenadas (aunque puedes arrastrar y soltar con el ratón), cambiar la [sprite sheet](/docs/assets/sprites), la dirección inicial donde mira, el tipo de movimiento o crear un script que se ejecutará cuando el jugador interactúe con el actor.
 
-Enabling this property will temporarily change your scene to be blacked-out, with a ``160px x 144px`` boundary in the top-left corner showing part of your original scene. Use your mouse to drag the actor to where you want it to be pinned to the screen.
+## Tipo de movimiento
 
-Select a different actor, the scene, or the project to return the blacked-out view of your scene to normal.
+Existen diferentes tipos de movimiento, y usar uno u otro dependerá de cómo quieres que se comporte el actor mientras el jugador camina por la escena e interactúa con ella.
 
-### Collision Groups
-Actors can be given a collision group in the _Editor Sidebar_. When enabled, the option to run scripts based on collisions will appear in the _Editor Sidebar_. To learn more about On Hit scripts, see the documentation for [Scripting](/docs/scripting).
+- **Estático** - El actor será un frame del spritesheet.  
+  Si la spritesheet contiene más de un frame podrás seleccionar cual mostrar, y este puede ser modificado después usando el evento _Actor: Set Animation Frame_. Las spritesheets con múltiples frames también tienen la habilidad de animar al actor haciendo ciclos entre todos los frames a una determinada velocidad, y esa velocidad puede ser modificada con el evento _Actor: Set Animation Speed_ .\
+  \
+  El actor solo mirará en la dirección inicial (a menos que la dirección se modifique más tarde usando un script). Si el jugador interactúa con este actor, no cambiará de dirección. Es útil para postes, señales u otros objetos que no se tendrán que mover.
+
+- **Interacción cara a cara** - El actor mirará en la dirección inicial pero cuando el jugador interactúe con el actor se girará para mirarlo antes de ejecutarse scripts del jugador. Es útil para que los personajes tengan más interacción con las acciones del jugador.
+
+- **Rotación aleatoria** - El actor mirará en la dirección inicial pero cambiará de dirección cada poco tiempo. Es útil para personajes que están mirando a su alrededor.
+
+- **Movimiento aleatorio** - El actor cambiará de dirección y se moverá por la escena de forma aleatoria. Es útil para personajes que están buscando algo. Los actores pueden bloquear el movimiento del jugador, así que hay que tener cuidado porque puede bloquearlo.
+
+_Note_ Si el actor usa una spritesheet estática (por ejempo con un solo frame) solo tendrá la opción de elegir el tipo de movimiento estático Y no tendrás opción de escoger ningún otro tipo de movimiento.
+
+## Límites de Frames
+
+Debido a las limitaciones de hardware solo se permiten **25 frames únicos** para actores en cada escena. Hasta donde sea posible es mejor no usar animaciones o spritesheet estáticas para ahorrar frames. Otra manera de ahorrar frames es reutilizar los mismos sprites con diferentes actores, ya que no se sumará en el total de frames.
 
 ## Scripting
-Actors can contain multiple scripts that will be called a different points in your game.
 
-- **On Interact:** This is called if the player stands in front of this actor and presses the _Interact_ button.
-- **On Hit:** (only if collision group is set) This is called when this actor collides with either the player or a projectile with a specified collision group
-- **On Init:** Called as soon as the scene is loaded in game.
-- **On Update:** Repeatedly called while the actor is on screen, and once the script finishes it will repeat. You can use this to create movement scripts
+Los actores cuentan con dos tipos de scripts, _On Interact_ y _On Init_. Puedes elegir que tipo de script estás editando usando las pestañas en el _Editor Sidebar_ cuando seleccionas el actor.
 
-To start building a script, select an actor, click the script type you want to edit and click the _Add Event button_ in the _Editor Sidebar_ to open the event menu. Select an event to add it to the script.
+El script _On Interact_ se ejecutará cuando el jugador pulse el botón _A_ mirando en la dirección de un actor.
 
-For more information see the documentation for [Scripting](/docs/scripting).
+El script _On Init_ se ejecutará tan pronto como se carge la escena, y se ejecutarán antes que cualquier evento en el script _On Init_ de la escena.
+.
 
-## Limits
-There are limits to how actors and their sprites can be used in GB Studio. These limits are to make sure your game appears as intended, as well as to keep your actor logic running smoothly. The exact limits depend on the complexity of the background image used in your scene, see [Scenes](/docs/project-editor/scenes/#actor-limits) for more information.
+Cuando seleccionas el actor, haz clic en _Add Event button_ desde la _Editor Sidebar_ para abrir el menú de eventos y emepezar a programar un script.
+
+Para más información, dirígete a la sección [Scripting](/docs/scripting) de la documentación.
