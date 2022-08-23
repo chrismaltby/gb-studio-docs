@@ -29,6 +29,11 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+.button.button--secondary {
+  color: var(--ifm-color-primary);
+
+}
+
 .event-preview {
   width: 100%;
   max-width: 301px;
