@@ -42,3 +42,7 @@
   border-radius: 8px;
   -webkit-filter: drop-shadow(0px 1px 10px rgba(0,0,0,.3));
 }
+
+.footer__links {
+  margin-bottom: 4rem;
+}

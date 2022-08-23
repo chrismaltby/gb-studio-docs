@@ -100,11 +100,15 @@ const config = {
         style: "dark",
         links: [
           {
-            title: "Docs",
+            title: "Learn",
             items: [
               {
-                label: "Tutorial",
-                to: "/docs/intro",
+                label: "Introduction",
+                href: "/docs/intro",
+              },
+              {
+                label: "Installation",
+                href: "/docs/installation",
               },
             ],
           },
@@ -112,34 +116,43 @@ const config = {
             title: "Community",
             items: [
               {
-                label: "Stack Overflow",
-                href: "https://stackoverflow.com/questions/tagged/docusaurus",
+                label: "Discord",
+                href: "https://discord.gg/bxerKnc",
               },
               {
-                label: "Discord",
-                href: "https://discordapp.com/invite/docusaurus",
+                label: "Reddit",
+                href: "https://www.reddit.com/r/gbstudio",
               },
               {
                 label: "Twitter",
-                href: "https://twitter.com/docusaurus",
+                href: "https://twitter.com/GBStudioDev",
               },
             ],
           },
           {
-            title: "More",
+            title: "Downloads",
             items: [
               {
-                label: "Blog",
-                to: "/blog",
+                href: "https://chrismaltby.itch.io/gb-studio",
+                label: "Download",
               },
               {
+                href: "https://github.com/chrismaltby/gb-studio",
                 label: "GitHub",
-                href: "https://github.com/facebook/docusaurus",
+              },
+            ],
+          },
+          {
+            title: "Press",
+            items: [
+              {
+                href: "https://drive.google.com/drive/folders/1gP7yfN7oc_jKIn1n9s3Tq4evRjsigcag?usp=sharing",
+                label: "Press Kit",
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `GB Studio Copyright © ${new Date().getFullYear()} Chris Maltby.`,
       },
       prism: {
         theme: lightCodeTheme,
