@@ -4,20 +4,59 @@
  */
 
 .heroBanner {
-  padding: 4rem 0;
-  text-align: center;
+  padding: 2rem;
+  text-align: left;
   position: relative;
   overflow: hidden;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+.heroText {
+  max-width: 450px;
+
+}
+
+.heroText p {
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1rem;
+  margin: 3rem 0;
+  font-weight: 300;
+}
+
+.heroText :global(p.hero__subtitle) {
+  color: #fff;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-weight: 300;
+}
+
+.hero3D {
+  width: 500px;
+  height: 500px;
+  flex-shrink: 0;
 }
 
 .buttons {
   display: flex;
-  align-items: center;
-  justify-content: center;
+}
+
+.buttons :global(.button.button--secondary) {
+  transition: transform .1s ease-in-out,-webkit-transform .1s ease-in-out;
+  background-color: #fff;
+  font-size: 1.5rem;
+}
+
+@media screen and (min-width: 996px) {
+  .heroBanner {
+    padding: 4rem 0;
+  }
+  .heroContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .buttons :global(.button.button--secondary:hover) {
+    transform: scale(1.2);
+    background-color: #fff;
+  }  
 }
