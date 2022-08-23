@@ -1,44 +1,44 @@
-# UI Elements
+# Elementy interfejsu
 
-Your project contains a number of files in `assets/ui` with fixed file names that define parts of your game's user interface. Editing these files allows you to change the default font, set the window frame and modify the selection cursor.
+Projekt zawiera wiele plików w folderze `assets/ui` ze stałymi nazwami plików, które definiują części interfejsu użytkownika twojej gry. Edycja tych plików pozwala zmienić domyślną czcionkę, ustawić ramkę okna i zmodyfikować kursor wyboru.
 
-If you remove any of the files in the ui folder they will be replaced with the default assets the next time you build your game allowing you to revert any unwanted changes.
+Jeśli usuniesz którykolwiek z plików w folderze interfejsu użytkownika, zostaną one zastąpione domyślnymi zasobami przy następnym tworzeniu gry, umożliwiając cofnięcie niepożądanych zmian.
+
+## ascii.png
+
+Edytuj ten plik, aby zmienić czcionkę gry podczas rozmowy z aktorami w grze.
+
+<img src="/pl/img/ui/ascii.png" class="HelpSprite" style={{ width:384, height: "auto" }} />
 
 ## frame.png
 
-The game engine uses [9-slice scaling](https://en.wikipedia.org/wiki/9-slice_scaling) of this image to create the frame around text boxes. Editing this image will allow you to change the frame design or set it to a solid color.
+Silnik gry używa [9-plasterkowego skalowania / 9-slice scaling](https://en.wikipedia.org/wiki/9-slice_scaling) poniższego obrazu, aby utworzyć ramkę dla pola tekstowego. Edycja tego obrazu pozwoli na zmianę ramki tekstu lub ustawić jednolity kolor dla tekstu.
 
-<img src="/img/ui/frame.png" class="HelpSprite" style={{width:72, height:"auto"}} />
+<img src="/pl/img/ui/frame.png" class="HelpSprite" style={{ width:72, height: "auto" }} />
 
 ## cursor.png
 
-This image is used as a selection cursor when showing multiple choice options in your game.
+Ten obraz jest używany jako kursor wyboru podczas pokazywania opcji wielokrotnego wyboru w grze.
 
-<img src="/img/ui/cursor.png" class="HelpSprite" style={{width:24, height:"auto"}} />
+<img src="/pl/img/ui/cursor.png" class="HelpSprite" style={{ width:24, height: "auto" }} />
 
-## Requirements
+## emotes.png
 
-UI PNGs must only contain the following four colors:
+Obraz ten odpowiada za wyświetlanie emotikonek w chmurce, które zostają wyświetlane nad aktorami przy pomocy skryptów. Każda chmurka posiada rozmiar `16px` x `16px` i każda z chmurek reprezentuje następujące emocje w kolejności od lewej do prawej: _wykrzyknik(!)_, _pytanie(?)_, _serce_, _cisze_, _zdenerwowanie_, _pot_, _nutkę muzyczną_, _sen_.
 
-<div><div class="Swatch" style={{background:"#071821"}}></div><div class="SwatchLabel">#071821</div></div>
-<div><div class="Swatch" style={{background:"#306850"}}></div><div class="SwatchLabel">#306850</div></div>
-<div><div class="Swatch" style={{background:"#86c06c"}}></div><div class="SwatchLabel">#86c06c</div></div>
-<div><div class="Swatch" style={{background:"#e0f8cf"}}></div><div class="SwatchLabel">#e0f8cf</div></div>
+<img src="/pl/img/ui/emotes.png" class="HelpSprite" style={{ width:384, height: "auto" }} />
+
+## Wymagania
+
+Z wyjątkiem pliku `emotes.png`, który spełnia standardowe wymagania sprite, plik PNG dla interfejsu użytkownika musi zawierać tylko następujące cztery kolory:
+
+<div><div class="Swatch" style={{ background: "#071821" }}></div><div class="SwatchLabel">#071821</div></div>
+<div><div class="Swatch" style={{ background: "#306850" }}></div><div class="SwatchLabel">#306850</div></div>
+<div><div class="Swatch" style={{ background: "#86c06c" }}></div><div class="SwatchLabel">#86c06c</div></div>
+<div><div class="Swatch" style={{ background: "#e0f8cf" }}></div><div class="SwatchLabel">#e0f8cf</div></div>
 
 <div class="InfoBox">
-Download the GB Studio Palette Swatches for:<br />
+Pobierz paletę kolorów GB Studio dla:<br />
 <a href="/assets/swatches/gb-studio-photoshop.aco">Adobe Photoshop</a><br />
 <a href="/assets/swatches/gb-studio-aseprite.aseprite">Aseprite</a>
 </div>
-
-## Fonts
-
-Fonts are stored in `assets/fonts`, see [Settings](/docs/settings/#ui-elements--fonts) for more information.
-
-## Emotes
-
-Emotes are stored in `assets/emotes` and must be defined as `16px x 16px` sized `.png` files following the same color requirements used for creating spritesheets. You can display an emote by using the `Show Emote Bubble` event in a script.
-
-## Avatars
-
-Avatars are stored in `assets/avatars` and must be defined as `16px x 16px` sized `.png` files following the same color requirements used for creating spritesheets. You can display an avatar in a `Display Text` event by clicking `Add Avatar` within the event.

@@ -4,16 +4,16 @@ sidebar_position: 3
 
 # Getting Started
 
-When you first open GB Studio you will see the _New Project_ window.
+Cuando ejecutes por primera vez GB Studio verás la ventana _New Project_.
 
-<img title="New Project" src="/img/screenshots/new-project-v3.png" width="752" />
+<img title="New Project" src="/es/img/screenshots/new-project.png" width="812" />
 
-If you have an existing project you can open it from here by clicking _Open_ and navigating to the `.gbsproj` file.
+Si tienes ya algún proyecto podrás abrirlo desde aquí haciendo clic en _Open_ y buscando el fichero `.gbsproj`.
 
-## New Project
+## Nuevo proyecto
 
-Give your project a name to get started (don't worry, you can change this later) and choose a project template. If you're new to GB Studio then I would recommend using the _Sample Project_ template which contains a few example scenes and scripts already set up so you can get a small idea of what's possible. Click _Create Project_ and you'll be taken to the _Project Editor_.
+El primer paso es dar un nombre al proyecto (tranquilo, se puede cambiar después) y elegir una plantilla. Si eres nuevo se recomienda usar la plantilla _Sample Project_. Esta tiene ya algunas escenas y scripts para que te puedas hacer una pequeña idea que todo lo que se puede hacer. Haz clic en _Create Project_ y te llevará al _Project Editor_.
 
-<img title="Getting Started" src="/img/screenshots/getting-started-v3.png" width="1258" />
+<img title="Getting Started" src="/es/img/screenshots/getting-started.png" width="1258" />
 
-As soon as you see this screen you can click the _Play button_ in the top right which will build and run the project. After playing the sample project you can try clicking around the editor to see how the project is set up. Select one of the people or signposts and edit the their dialogue using the sidebar on the right then try running the project again, you've just made your very own version of the game! Don't worry if you break anything, you can always make a new project with the sample template later.
+Sin hacer nada más ya puedes hacer clic en _Play button_ en la parte superior derecha y tu proyecto se ejecutará en unos pocos segundos. Después de ejecutarlo puedes intentar hacer clic alrededor para ver por encima como está configurado todo. Selecciona a un personaje o una señal y edita su cuadro de diálogo usando la barra lateral de la derecha y ejecuta el proyecto otra vez. ¡Y sin más ya tienes tu propia versión del juego! No te preocupes si haces algo mal  ya que la plantilla se puede generar siempre que quieras.

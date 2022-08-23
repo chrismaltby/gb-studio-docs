@@ -4,16 +4,16 @@ sidebar_position: 4
 
 # Triggers
 
-Triggers are areas in a scene that, when the player walks over them, will cause a script to play. They are useful for creating doorways between scenes and to start cutscenes when the player moves to a specific position.
+Los triggers son zonas en una escena de tal forma que si el player pasa por encima, se ejecuta un script. Son útiles para crear puertas y pasillos entre escenas, transportar al player entre diferentes posiciones o para ejecutar eventos.
 
-## Adding a Trigger
+## Añadir un trigger
 
-To add a trigger to a scene click the _**+** button_ button in the _Editor Tools_ and select _Trigger_ from the menu (alternatively press the **T** key), then click and drag across the scene where you wish to place the trigger setting the desired width and height.
+Para añadir un trigger a una escena haz clic en el botón **+** de las _Editor Tools_ y selecciona Trigger (o usa el atajo de teclado pulsando la tecla **T**). Después haz clic y arrastra en la escena donde quieres colocar el trigger. GB Studio interpreta un trigger en la escena con el color amarillo.
 
-<img src="/img/screenshots/add-trigger.gif" style={{width:300}} />
+<img src="/es/img/screenshots/add-trigger.gif" style={{ width: 300 }} />
 
-The _Editor Sidebar_ will switch to show the trigger settings where you can give the trigger a name for easier navigation later, reposition and scale the trigger and create the script that will play when the player walks on the trigger.
+La _Editor Sidebar_ cambiará para mostrar toda la configuración del trigger, donde puedes dar un nombre para facilitar su identificación más adelante, reposicionar y cambiar su tamañoo crear un script que se ejecutará cuando un player camine sobre él.
 
 ## Scripting
 
-When the trigger is selected click the _Add Event button_ in the _Editor Sidebar_ to open the event menu and start building the script. For more information see the documentation for [Scripting](/docs/scripting).
+Cuando selecciones un trigger puedes hacer clic en el botón _Add Event_ en el _Editor Sidebar_ para abrir el menu de eventos y empezar a construir un script. Para más información, dirígete a la sección [Scripting](/docs/scripting) de la documentación.

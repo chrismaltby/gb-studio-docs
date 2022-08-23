@@ -1,4 +1,4 @@
-# Backgrounds
+# Tła
 
 Each of your scenes requires a background image that defines how that scene should look. You can add backgrounds to your game by including PNG files in your project's `assets/backgrounds` folder.
 

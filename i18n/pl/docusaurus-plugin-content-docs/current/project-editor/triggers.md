@@ -2,18 +2,18 @@
 sidebar_position: 4
 ---
 
-# Triggers
+# Rozruch
 
-Triggers are areas in a scene that, when the player walks over them, will cause a script to play. They are useful for creating doorways between scenes and to start cutscenes when the player moves to a specific position.
+Rozruch jest to ustawiony obszar na scenie, które zostaje automatycznie uruchomione w momencie, gdy gracz nadepnie na obszar. Prościej mówiąc - rozruch to zdarzenie bez grafiki, które wykonuje skrypt jak tylko gracz na nie wejdzie. Tego typu zdarzenia przydadzą się podczas tworzenia drzwi między scenami, albo przerywników filmowych, gdy gracz przesunie się na określoną pozycję.
 
-## Adding a Trigger
+## Dodanie rozruchu
 
-To add a trigger to a scene click the _**+** button_ button in the _Editor Tools_ and select _Trigger_ from the menu (alternatively press the **T** key), then click and drag across the scene where you wish to place the trigger setting the desired width and height.
+Aby dodać rozruch, to należy nacisnąć przycisk _**+**_ na _narzędziach_ a następnie wybrać z menu pozycję _rozruch_ (albo należy użyć skrótu z klawiatury **T**). Następnie wystarczy kliknąć i przeciągnąć po scenie obszar, na który ma zostać nałożony rozruch ustawiając tym samym szarokość i wysokość rozruchu.
 
-<img src="/img/screenshots/add-trigger.gif" style={{width:300}} />
+<img src="/pl/img/screenshots/add-trigger.gif" style={{ width: 300 }} />
 
-The _Editor Sidebar_ will switch to show the trigger settings where you can give the trigger a name for easier navigation later, reposition and scale the trigger and create the script that will play when the player walks on the trigger.
+_Boczny pasek_ programu wyświetli ustawienia dla utworzonego rozruchu, gdzie można nadać nazwę w celu łatwiejszej nawigacji, zmienić położenie jak i rozmiar rozruchu oraz możliwość utworzenia _skryptu (dotknięcie)_, który będzie odtwarzany, gdy gracz nadepnie na pole rozruchu.
 
-## Scripting
+## Skryptowanie
 
-When the trigger is selected click the _Add Event button_ in the _Editor Sidebar_ to open the event menu and start building the script. For more information see the documentation for [Scripting](/docs/scripting).
+Kiedy rozruch jest zaznaczony, wystarczy wybrać przycisk _Dodaj polecenie_ na _bocznym pasku_ programu, aby otworzyć menu zdarzeń i rozpocząć tworzenie skryptu. Po więcej informacji zajrzyj do dokumentacji, działu [Skryptowanie (polecenia zdarzenia)](/docs/scripting).

@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-# Scripting Events
+# Skryptowanie
 
 Scripting events allow you to control parts of your game based on interactions from the player. They can be used to connect scenes together, change variables, give dialogue to characters, and more.
 
@@ -14,7 +14,7 @@ To start building a script, select an object and click the _Add Event button_ in
 
 After clicking the _Add Event_ button, a menu will appear to choose the event to add. If you start typing you can filter this list or you can click through the menu find what you're looking for. Click an event or press the _Enter_ key to add the highlighted event to your script.
 
-<img title="New Project" src="/img/events/add-event-menu.png" width="300" className="event-preview" />
+<img title="New Project" src="/pl/img/events/add-event-menu.png" width="300" className="event-preview" />
 
 ## Favourite Events
 

@@ -4,32 +4,24 @@ sidebar_position: 2
 
 # Custom Scripts
 
-_Custom Scripts_ allow you to create reusable procedures in your game that can be called from any of your scripts.
+_Custom Events_ te permite crear funciones reutilizables en tu juego que puedes usar en cualquier script.
 
-<img src="/img/screenshots/custom-script-list.png" className="drop-shadow" width="200" />
+Haciendo clic entre escenas podrás ver en el _Project Editor_ la lista de cualquier _Custom Events_ de tu proyecto y un botón de _Create Custom Event_.
 
-Your _Custom Scripts_ will be listed in the _Scripts_ section of the _Navigator_ while on the _Game World View_.
+Cuando hayas dado un nombre a tu _Custom Event_ puedes empezar a programarlo como cualquier _Actor_, _Trigger_ o _Scene_.
 
-Click the `+` button to create a new _Custom Script_ or select one to edit from the list.
+## Parámetros
 
-Once you've given your _Custom Script_ a name you can start building a script in the same way you would for _Actors_, _Triggers_ and _Scenes_.
+Cuando crees un evento que lea una _Variable_, se agregará a la lista de parámetros de entrada del _Custom Event_, donde podrás renombralo si necesitas darle un nombre mejor. Los eventos que afectan a _Actors_, por defecto, se aplicarán al jugador, pero si usa el selector de actores, también podrá configurar el evento para leer el valor _Actor_ de un parámetro de entrada.
 
-## Parameters
+Por ejemplo, el siguiente evento hace que el `Actor A` rote en círculo.
 
-Whenever you add an event that reads a _Variable_ it will get added to the list of input parameters for the _Custom Script_, where you are able to give that input a memorable name. Events that affect _Actors_ will, by default, apply to the player but if you use the actor selector you will be able to set the event to read the _Actor_ value from an input parameter also.
+<img src="/es/img/screenshots/custom-event-dance.png" className="event-preview" />
 
-For example the following custom script makes `Actor A` rotate in a circle.
+Entonces, puede usarse con el script de un _Actor_, un _Trigger_ y un _Scene_ que aparecerá como se muestra.
 
-<img src="/img/screenshots/custom-script-dance.png" className="event-preview" />
+<img src="/es/img/events/custom-event.png" className="event-preview" />
 
-## Calling a Custom Script
+Si quieres editar el _Custom Event_, puede volver a él utilizando la lista en el _Project Editor_ o seleccionando _Edit Custom Event_ en el menú desplegable del evento.
 
-Once you have created a _Custom Script_ you can call it from any other script by adding a _Call Script_ event which will appear as follows.
-
-<img src="/img/screenshots/custom-script-call.png" className="event-preview" />
-
-You first must choose the script which you wish to call, if that script has any variable or actor parameters you can then choose which inputs to use.
-
-If you ever want to edit the _Custom Script_ you can return to it using the list on the _Navigator_ or by selecting _Edit Custom Script_ from the event dropdown menu.
-
-<img src="/img/screenshots/custom-event-edit.png" className="event-preview" />
+<img src="/es/img/screenshots/custom-event-edit.png" className="event-preview" />

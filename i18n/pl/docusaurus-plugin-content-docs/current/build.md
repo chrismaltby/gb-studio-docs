@@ -2,42 +2,32 @@
 sidebar_position: 7
 ---
 
-# Building Your Game
+# Buduj swoją grę
 
-## Play
+## Gra
 
-Clicking the _Play button_ in the top right of the _Project Editor_ window will start a build of your game and once complete will open a new window where you can play your game. See [Keyboard Shortcuts](/docs/getting-started/keyboard-shortcuts) for details on how to play your game in the _Play Window_.
+Po kliknięciu przycisku _Uruchom_ (w prawym górnym rogu okna _edytora projektu_, przycisk play), program rozpocznie komplilację gry, a po jej zakończeniu otworzy okno, w którym można grać w aktualny projekt. Zobacz temat [Klawiatura - skróty klawiszy](/docs/getting-started/keyboard-shortcuts), aby uzyskać szczegółowe informacje na temat poruszania się (patrz na dział _sterowanie podczas gry_).
 
-## Build Terminal
+## Terminal
 
-Clicking the _Project View Button_ and selecting _Build & Run_ will take you to the _Build Terminal_ where you can see a log of the project build. You also get to this screen by clicking the _Play_ button while a build is taking place. This screen will show you if there's any errors in your build to help you correct them.
+W _nawigatorze projektu_ przejdź do menu _zbuduj i uruchom_, spowoduje to wyświetlenie _terminalu_, gdzie zostanie wyświetlony dziennik (log) kompilacji projektu. Można przejść do tego ekranu także poprzez naciśnięcie _uruchom_ podczas kompilacji. Ten ekran pokazuje, czy w kompilacji występują błędy, które mogą pomóc w ich poprawieniu.
 
-## Build as ROM
+## Eksportuj jako ROM
 
-Clicking the _Export button_ and selecting _Export ROM_ will build your game and create a ROM file in your project's build folder as `$PROJECT_ROOT/build/rom/game.gb`. You can play this ROM file in any compatible emulator such as [OpenEMU](https://openemu.org/) or [KiGB](http://kigb.emuunlim.com/downloads.htm).
+Kliknięcie w przycisk _eksportuj jako ROM_ i program rozpocznie proces utworzenia pliku ROM w folderze projektu `$ PROJECT_ROOT / build / rom / game.gb`. Plik ROM jest to plik gry, którą można otworzyć na dowolnym emulatorze obsługującym konsolę Nintendo Gam Boy, takim jak [OpenEMU](https://openemu.org/) lub [KiGB](http://kigb.emuunlim.com/downloads.htm). 
 
-## Build and deploy for Web
+## Eksportuj jako wersja Web
 
-Clicking the _Export button_ and selecting _Export Web_ will build your game and create a HTML5 web build in the folder `$PROJECT_ROOT/build/web`. You can upload this folder to any web server and navigate to the `index.html` file to play your game in a web browser. If you use a mobile or tablet web browser the game will also include touch controls.
+Możesz przesłać ten folder na dowolny serwer sieciowy i przejść do pliku `index.html`, aby zagrać w grę w przeglądarce internetowej. Jeśli korzystasz z przeglądarki internetowej na telefonie komórkowym lub tablecie, gra będzie również zawierać dotykowe elementy sterujące.
 
-If you zip the `build/web` folder you can upload it to [Itch.io](https://itch.io) as a HTML game. In this case the recommended viewport size to use is `480px` x `432px`.
+Jeśli spakujesz folder `build / web`, możesz przesłać go do [Itch.io](https://itch.io) jako gra HTML. W takim przypadku zalecany rozmiar okienka ekranu to `480px` x `432px`.
 
-## Build for Pocket
+## Rozwiązywanie problemów
 
-Clicking the _Export button_ and selecting _Export Pocket_ will build your game as a `.pocket` file for use on [Analogue Pocket](https://www.analogue.co/pocket) devices.
-
-To play your `.pocket` game:
-- Create a folder at the root of a MicroSD card called `GB Studio`.
-- Copy the `.pocket` file into the `GB Studio` folder
-- Insert the MicroSD card into your Pocket device.
-- From the Pocket menu choose `Tools` / `GB Studio` / `Play Creations` and select your file from the list.
-
-## Troubleshooting
-
-On macOS if you're having trouble building or running your game you may also need to install Apple's Command Line Tools by opening `Applications/Terminal.app` and entering the following command.
+W systemie macOS, jeśli masz problemy z budowaniem lub uruchomieniem gry, może być również konieczne zainstalowanie narzędzi wiersza polecenia Apple, otwierając `Applications / Terminal.app` i wprowadzając następujące polecenie.
 
 ```
 xcode-select --install
 ```
 
-On Windows you may need to whitelist the application in your Anti Virus software to perform a build.
+W systemie Windows konieczne może być dodanie aplikacji do białej listy/listy zaufanych programów w oprogramowaniu antywirusowym, aby wykonać kompilację.
