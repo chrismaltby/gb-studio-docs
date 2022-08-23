@@ -4,7 +4,7 @@
  */
 
 .heroBanner {
-  padding: 2rem;
+  padding: 0rem 1rem 2rem;
   text-align: left;
   position: relative;
   overflow: hidden;
@@ -12,7 +12,6 @@
 
 .heroText {
   max-width: 450px;
-
 }
 
 .heroText p {
@@ -31,8 +30,10 @@
 }
 
 .hero3D {
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  max-width: 500px;
+  min-height: 300px;
+  aspect-ratio: 1 / 1;
   flex-shrink: 0;
 }
 

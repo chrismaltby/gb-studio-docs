@@ -1,6 +1,13 @@
 import * as THREE from "three";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
-import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  Suspense,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import { TextureLoader } from "three/src/loaders/TextureLoader";
 import { sRGBEncoding, CustomBlending, OneFactor, SrcAlphaFactor } from "three";
@@ -8,6 +15,8 @@ import { Billboard } from "@react-three/drei";
 import CameraControls from "camera-controls";
 
 CameraControls.install({ THREE });
+
+const clamp01 = (v) => Math.max(0, Math.min(1, v));
 
 function Controls({
   pos = new THREE.Vector3(),
@@ -18,16 +27,8 @@ function Controls({
   return useFrame((state, delta) => {
     pos.set(destPosition[0], destPosition[1], destPosition[2]);
     look.set(lookAt[0], lookAt[1], lookAt[2]);
-
     state.camera.position.lerp(pos, 0.15);
     state.camera.updateProjectionMatrix();
-
-    console.log(
-      state.camera.position.x,
-      state.camera.position.y,
-      state.camera.position.z
-    );
-
     state.camera.lookAt(look);
   });
 }
@@ -139,12 +140,23 @@ export const GB3D = () => {
     distance * Math.cos(angle),
   ]);
 
+  const onTouchMove = useCallback((e) => {
+    console.log(e.touches);
+    console.log(e.touches[0].screenX);
+    const angle = 0.3 + -1.5 * clamp01(e.touches[0].pageX / window.innerWidth);
+    setPos([
+      distance * Math.sin(angle),
+      -2 + clamp01(e.touches[0].pageY / window.innerHeight) * 8,
+      distance * Math.cos(angle),
+    ]);
+  });
+
   useEffect(() => {
     const onMouseMove = (e) => {
-      const angle = 0.3 + -1.5 * (e.pageX / window.innerWidth);
+      const angle = 0.3 + -1.5 * clamp01(e.pageX / window.innerWidth);
       setPos([
         distance * Math.sin(angle),
-        -2 + (e.pageY / window.innerHeight) * 8,
+        -2 + clamp01(e.pageY / window.innerHeight) * 8,
         distance * Math.cos(angle),
       ]);
     };
@@ -155,7 +167,7 @@ export const GB3D = () => {
   });
 
   return (
-    <Suspense fallback={null} r3f>
+    <Suspense fallback={<img src="/img/hero/fallback.png" />} r3f>
       <Canvas
         camera={{
           fov: 35,
@@ -163,6 +175,7 @@ export const GB3D = () => {
           far: 1000,
           position: [distance * Math.sin(angle), 3, distance * Math.cos(angle)],
         }}
+        onTouchMove={onTouchMove}
       >
         <pointLight position={[-5, 2, -10]} intensity={0.4} />
         <pointLight position={[5, 0, 3]} intensity={1} />
