@@ -4,19 +4,13 @@ import styles from "./styles.module.css";
 import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/styles.css";
-
-const platform =
-  navigator?.userAgentData?.platform || navigator?.platform || "unknown";
-
-const showMac =
-  platform.indexOf("iP") > -1 || platform.toLowerCase().indexOf("mac") > -1;
+import useIsBrowser from "@docusaurus/useIsBrowser";
 
 const FeatureList = [
   {
     title: "Easy to Use",
-    img: showMac
-      ? "/img/home/screenshot_mac_1_v3.png"
-      : "/img/home/screenshot_win_1_v3.png",
+    macImg: "/img/home/screenshot_mac_1_v3.png",
+    winImg: "/img/home/screenshot_win_1_v3.png",
     description: (
       <>
         Drag and drop game creator with simple, no progamming knowledge
@@ -26,9 +20,8 @@ const FeatureList = [
   },
   {
     title: "Write Music",
-    img: showMac
-      ? "/img/home/screenshot_mac_3_v3.png"
-      : "/img/home/screenshot_win_3_v3.png",
+    macImg: "/img/home/screenshot_mac_3_v3.png",
+    winImg: "/img/home/screenshot_win_3_v3.png",
     description: (
       <>
         Inbuilt editor makes writing music easy. With both piano roll and
@@ -38,10 +31,8 @@ const FeatureList = [
   },
   {
     title: "Build ROMs",
-    img: showMac
-      ? "/img/home/screenshot_mac_4_v3.png"
-      : "/img/home/screenshot_win_4_v3.png",
-
+    macImg: "/img/home/screenshot_mac_4_v3.png",
+    winImg: "/img/home/screenshot_win_4_v3.png",
     description: (
       <>
         Create real ROM files and play on any GB emulator. Export for web with
@@ -52,11 +43,11 @@ const FeatureList = [
   },
 ];
 
-function Feature({ img, title, description, onOpen }) {
+function Feature({ winImg, macImg, title, description, onOpen, showMac }) {
   return (
     <div className={clsx("col col--4")}>
       <div className="text--center">
-        <img src={img} alt={title} onClick={onOpen} />
+        <img src={showMac ? macImg : winImg} alt={title} onClick={onOpen} />
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
@@ -68,13 +59,27 @@ function Feature({ img, title, description, onOpen }) {
 
 export default function HomepageFeatures() {
   const [index, setIndex] = React.useState(-1);
+  const isBrowser = useIsBrowser();
+
+  let showMac = false;
+  if (isBrowser) {
+    const platform =
+      navigator?.userAgentData?.platform || navigator?.platform || "unknown";
+    showMac =
+      platform.indexOf("iP") > -1 || platform.toLowerCase().indexOf("mac") > -1;
+  }
 
   return (
     <section className={styles.features}>
       <div className="container">
         <div className="row">
           {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} onOpen={() => setIndex(idx)} />
+            <Feature
+              key={idx}
+              {...props}
+              onOpen={() => setIndex(idx)}
+              showMac={showMac}
+            />
           ))}
         </div>
       </div>
