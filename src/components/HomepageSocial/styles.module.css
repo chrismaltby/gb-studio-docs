@@ -1,5 +1,5 @@
 .social {
-  background-color: #bc295a;
+  background-color: var(--ifm-color-primary-dark);
   color: #fff;
   display: flex;
   align-items: center;

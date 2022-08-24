@@ -1,9 +1,10 @@
 import React from "react";
+import clsx from "clsx";
 import styles from "./styles.module.css";
 
 export const HomepageSocial = () => {
   return (
-    <section className={styles.social}>
+    <section className={clsx("home--social", styles.social)}>
       <div className="container">
         <div className={styles.socialContent}>
           <div className={styles.socialIcons}>
