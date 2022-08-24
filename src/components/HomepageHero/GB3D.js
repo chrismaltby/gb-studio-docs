@@ -48,10 +48,16 @@ const screenSize = 2.5;
 const screenRatio = 160 / 144;
 
 function Scene(props) {
+  const colorMode = props.colorMode;
   const ref = useRef();
 
   const obj = useLoader(OBJLoader, "/img/hero/logo9.obj");
-  const texture = useLoader(TextureLoader, "/img/hero/texture.png");
+  const texture = useLoader(
+    TextureLoader,
+    colorMode === "dark"
+      ? "/img/hero/texture-dark.png"
+      : "/img/hero/texture.png"
+  );
   const normals = useLoader(TextureLoader, "/img/hero/normals.png");
   const roughness = useLoader(TextureLoader, "/img/hero/roughness4.png");
   const glow = useLoader(TextureLoader, "/img/hero/glow3.png");
@@ -144,7 +150,7 @@ function Scene(props) {
 const distance = 10;
 const angle = Math.PI * -0.2;
 
-export const GB3D = () => {
+export const GB3D = ({ colorMode }) => {
   const [pos, setPos] = useState([
     distance * Math.sin(angle),
     3,
@@ -194,7 +200,7 @@ export const GB3D = () => {
       >
         <pointLight position={[-5, 2, -10]} intensity={0.4} />
         <pointLight position={[5, 0, 3]} intensity={1} />
-        <Scene />
+        <Scene colorMode={colorMode} />
         <Controls destPosition={pos} lookAt={[0, -0.1, 0]} />
       </Canvas>
     </Suspense>

@@ -7,9 +7,12 @@ import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import { GB3D } from "../components/HomepageHero/GB3D";
 import styles from "./index.module.css";
 import { HomepageSocial } from "../components/HomepageSocial";
+import { useColorMode } from "@docusaurus/theme-common";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
+  const { colorMode } = useColorMode();
+
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className="container">
@@ -32,7 +35,7 @@ function HomepageHeader() {
           </div>
           <div className={clsx(styles.heroRight)}>
             <div className={clsx(styles.hero3D)}>
-              <GB3D />
+              <GB3D colorMode={colorMode} />
             </div>
           </div>
         </div>
