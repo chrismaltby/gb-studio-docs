@@ -6,6 +6,7 @@ import Layout from "@theme/Layout";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import { GB3D } from "../components/HomepageHero/GB3D";
 import styles from "./index.module.css";
+import { HomepageSocial } from "../components/HomepageSocial";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -13,11 +14,7 @@ function HomepageHeader() {
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className="container">
         <div className={clsx(styles.heroContent)}>
-          <div className={clsx(styles.hero3D)}>
-            <GB3D />
-          </div>
-          <div className={clsx(styles.heroText)}>
-            <h1 className="hero__title">{siteConfig.title}</h1>
+          <div className={clsx(styles.heroLeft)}>
             <p className="hero__subtitle">
               A <strong>quick</strong> and <strong>easy</strong> to use{" "}
               <strong>drag and drop</strong> retro <strong>game creator</strong>{" "}
@@ -33,6 +30,11 @@ function HomepageHeader() {
               </Link>
             </div>
           </div>
+          <div className={clsx(styles.heroRight)}>
+            <div className={clsx(styles.hero3D)}>
+              <GB3D />
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -44,6 +46,7 @@ export default function Home() {
   return (
     <Layout description={siteConfig.tagline}>
       <HomepageHeader />
+      <HomepageSocial />
       <main>
         <HomepageFeatures />
       </main>

@@ -14,6 +14,17 @@ import { sRGBEncoding, CustomBlending, OneFactor, SrcAlphaFactor } from "three";
 import { Billboard } from "@react-three/drei";
 import CameraControls from "camera-controls";
 
+let webglAvailable = true;
+
+try {
+  var canvas = document.createElement("canvas");
+  webglAvailable =
+    !!window.WebGLRenderingContext &&
+    (canvas.getContext("webgl") || canvas.getContext("experimental-webgl"));
+} catch (e) {
+  webglAvailable = false;
+}
+
 CameraControls.install({ THREE });
 
 const clamp01 = (v) => Math.max(0, Math.min(1, v));
@@ -141,8 +152,6 @@ export const GB3D = () => {
   ]);
 
   const onTouchMove = useCallback((e) => {
-    console.log(e.touches);
-    console.log(e.touches[0].screenX);
     const angle = 0.3 + -1.5 * clamp01(e.touches[0].pageX / window.innerWidth);
     setPos([
       distance * Math.sin(angle),
@@ -166,8 +175,14 @@ export const GB3D = () => {
     };
   });
 
+  const fallback = <img src="/img/hero/fallback.png" />;
+
+  if (!webglAvailable) {
+    return fallback;
+  }
+
   return (
-    <Suspense fallback={<img src="/img/hero/fallback.png" />} r3f>
+    <Suspense fallback={fallback} r3f>
       <Canvas
         camera={{
           fov: 35,

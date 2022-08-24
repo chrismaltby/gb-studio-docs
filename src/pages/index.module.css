@@ -4,29 +4,33 @@
  */
 
 .heroBanner {
-  padding: 0rem 1rem 2rem;
+  padding: 1rem 0 0;
   text-align: left;
   position: relative;
   overflow: hidden;
 }
 
-.heroText {
-  max-width: 450px;
-}
-
-.heroText p {
+.heroLeft p {
   color: #fff;
   font-size: 1rem;
   line-height: 1rem;
-  margin: 3rem 0;
+  margin: 2rem 0;
   font-weight: 300;
 }
 
-.heroText :global(p.hero__subtitle) {
+.heroLeft :global(p.hero__subtitle) {
   color: #fff;
   font-size: 2rem;
   line-height: 2.5rem;
   font-weight: 300;
+  margin-top: 0;
+}
+
+.heroRight {
+  display: flex;
+  width: 100%;
+  flex-grow: 1;
+  justify-content: center;
 }
 
 .hero3D {
@@ -49,13 +53,16 @@
 
 @media screen and (min-width: 996px) {
   .heroBanner {
-    padding: 4rem 0;
+    padding: 3rem 0 0;
   }
   .heroContent {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center;
+    justify-content: center; */
   }
+  .heroLeft {
+    max-width: 450px;
+  }  
   .buttons :global(.button.button--secondary:hover) {
     transform: scale(1.2);
     background-color: #fff;
