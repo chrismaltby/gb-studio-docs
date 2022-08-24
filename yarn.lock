@@ -7949,6 +7949,11 @@ yaml@^1.10.0, yaml@^1.10.2, yaml@^1.7.2:
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-1.10.2.tgz#2301c5ffbf12b467de8da2333a459e29e7920e4b"
   integrity sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==
 
+yet-another-react-lightbox@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/yet-another-react-lightbox/-/yet-another-react-lightbox-2.0.3.tgz#d38f4b67c03f4188bf4c92144b653285731b5068"
+  integrity sha512-3lvAXOoLJ8YRiHDUoU9iSc03sHdpLeQZ5QIYC9torpPFUVVHIBX0KiZ63BCYkr3QdIDQTiRk4n3QIFw0Oy4OYQ==
+
 yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"

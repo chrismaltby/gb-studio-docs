@@ -1,45 +1,62 @@
-import React from 'react';
-import clsx from 'clsx';
-import styles from './styles.module.css';
+import React from "react";
+import clsx from "clsx";
+import styles from "./styles.module.css";
+import Lightbox from "yet-another-react-lightbox";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import "yet-another-react-lightbox/styles.css";
+
+const platform =
+  navigator?.userAgentData?.platform || navigator?.platform || "unknown";
+
+const showMac =
+  platform.indexOf("iP") > -1 || platform.toLowerCase().indexOf("mac") > -1;
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: "Easy to Use",
+    img: showMac
+      ? "/img/home/screenshot_mac_1_v3.png"
+      : "/img/home/screenshot_win_1_v3.png",
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Drag and drop game creator with simple, no progamming knowledge
+        required, visual scripting. Multiple game genres supported.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: "Write Music",
+    img: showMac
+      ? "/img/home/screenshot_mac_3_v3.png"
+      : "/img/home/screenshot_win_3_v3.png",
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Inbuilt editor makes writing music easy. With both piano roll and
+        tracker modes.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: "Build ROMs",
+    img: showMac
+      ? "/img/home/screenshot_mac_4_v3.png"
+      : "/img/home/screenshot_win_4_v3.png",
+
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Create real ROM files and play on any GB emulator. Export for web with
+        great mobile controls, upload to Itch.io and share your game with the
+        world.
       </>
     ),
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({ img, title, description, onOpen }) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx("col col--4")}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        <img src={img} alt={title} onClick={onOpen} />
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
@@ -50,15 +67,38 @@ function Feature({Svg, title, description}) {
 }
 
 export default function HomepageFeatures() {
+  const [index, setIndex] = React.useState(-1);
+
   return (
     <section className={styles.features}>
       <div className="container">
         <div className="row">
           {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+            <Feature key={idx} {...props} onOpen={() => setIndex(idx)} />
           ))}
         </div>
       </div>
+      <Lightbox
+        open={index >= 0}
+        index={index}
+        close={() => setIndex(-1)}
+        slides={
+          showMac
+            ? [
+                { src: "/img/home/screenshot_mac_1_v3.png" },
+                { src: "/img/home/screenshot_mac_3_v3.png" },
+                { src: "/img/home/screenshot_mac_4_v3.png" },
+                { src: "/img/home/screenshot_mac_2_v3.png" },
+              ]
+            : [
+                { src: "/img/home/screenshot_win_1_v3.png" },
+                { src: "/img/home/screenshot_win_3_v3.png" },
+                { src: "/img/home/screenshot_win_4_v3.png" },
+                { src: "/img/home/screenshot_win_2_v3.png" },
+              ]
+        }
+        plugins={[Zoom]}
+      />
     </section>
   );
 }
