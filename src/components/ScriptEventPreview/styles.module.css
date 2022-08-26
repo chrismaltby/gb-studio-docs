@@ -1,0 +1,313 @@
+.wrapper {
+  width: 100%;
+  background-color: var(--gbs-event-bg);
+  max-width: 460px;
+  margin-top: 20px;
+  margin-right: 20px;
+  border-radius: 8px;
+  filter: drop-shadow(0px 1px 10px rgba(0, 0, 0, 0.2));
+  font-size: 0.8rem;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  padding: 0px 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  height: 25px;
+  background: linear-gradient(
+    0deg,
+    var(--gbs-event-header-bottom),
+    var(--gbs-event-header-top)
+  );
+  color: var(--gbs-event-header-fg);
+  line-height: 12px;
+  width: 100%;
+}
+
+.collapsableHeader {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  padding: 0px 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  height: 25px;
+  background: linear-gradient(
+    0deg,
+    var(--gbs-event-header-bottom),
+    var(--gbs-event-header-top)
+  );
+  color: var(--gbs-event-header-fg);
+  line-height: 12px;
+  margin: 0 -5px;
+  width: calc(100% + 10px);
+}
+
+.form {
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.field {
+  flex-grow: 1;
+  flex-grow: 1;
+  flex-basis: 300px;
+  margin: 5px;
+  max-width: calc(100% - 10px);
+}
+
+.group {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.fieldHalf {
+  width: 50%;
+  flex-basis: 100px;
+}
+
+.fieldInput {
+  display: flex;
+}
+
+.flexGrow {
+  flex-grow: 1;
+}
+
+.select {
+  border: 1px solid var(--gbs-event-input-border);
+  background: var(--gbs-event-input-bg);
+  color: var(--gbs-event-input-fg);
+  border-radius: 4px;
+  padding: 0px 5px;
+  width: 100%;
+  height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.select svg {
+  fill: var(--gbs-event-input-fg);
+  width: 16px;
+  height: 16px;
+}
+
+.selectActor {
+  margin-right: 5px;
+}
+
+.input {
+  border: 1px solid var(--gbs-event-input-border);
+  background: var(--gbs-event-input-bg);
+  color: var(--gbs-event-input-fg);
+  border-radius: 4px;
+  padding: 0px 5px;
+  width: 100%;
+  height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.textarea {
+  border: 1px solid var(--gbs-event-input-border);
+  background: var(--gbs-event-input-bg);
+  color: var(--gbs-event-input-fg);
+  border-radius: 4px;
+  padding: 5px;
+  width: 100%;
+  height: 64px;
+}
+
+.checkbox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 28px;
+}
+
+.checkbox input {
+  width: 16px;
+  margin: 0;
+  margin-right: 5px;
+}
+
+.toggleButtons {
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  width: 100%;
+  align-items: center;
+}
+
+.toggleButtonsRow {
+  display: flex;
+  height: 28px;
+  width: 100%;
+}
+
+.toggleButtonsOption {
+  /* border: 1px solid var(--gbs-event-input-border); */
+  background: var(--gbs-event-input-bg);
+  fill: var(--gbs-event-input-fg);
+  /* border-right: 1px solid #000; */
+  /* background: #c92c61; */
+  height: 28px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggleButtonsOptionSelected {
+  background: #c92c61;
+  fill: #fff;
+}
+
+.toggleButtonsRow:first-child .toggleButtonsOption:first-child {
+  border-top-left-radius: 4px;
+}
+
+.toggleButtonsRow:last-child .toggleButtonsOption:first-child {
+  border-bottom-left-radius: 4px;
+}
+
+.toggleButtonsRow:first-child .toggleButtonsOption:last-child {
+  border-top-right-radius: 4px;
+}
+
+.toggleButtonsRow:last-child .toggleButtonsOption:last-child {
+  border-bottom-right-radius: 4px;
+}
+
+.toggleButtonsOption svg {
+  width: 8px;
+  height: 8px;
+  fill: #ffffff;
+}
+
+.conditional {
+  margin: 5px;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 100%;
+  border-left: 1px dotted #e4e4e4;
+  padding-left: 10px;
+  padding-left: calc(max(10px, min(4%, 50px)));
+  box-sizing: border-box;
+  border-radius: 10px;
+  position: relative;
+  min-height: 50px;
+  border-left: 2px solid #ccc;
+  width: 100%;
+  max-width: 100%;
+  border-color: #b3e5fc;
+}
+
+.conditionalLabel {
+  position: absolute;
+  top: 50%;
+  left: -1px;
+  transform: translate(-50%, -50%) rotate(270deg);
+  font-size: 8px;
+  background: var(--gbs-event-bg);
+  padding: 0px 5px;
+  text-transform: uppercase;
+  color: #03a9f4;
+}
+
+.eventsWrapper {
+  border: 1px solid #000000;
+  border-right: 0px;
+  padding: 10px;
+}
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 11px;
+  border-radius: 4px;
+  height: 28px;
+  min-width: 24px;
+  white-space: nowrap;
+  padding: 0px 10px;
+  box-sizing: border-box;
+  font-weight: normal;
+  border-width: 1px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: linear-gradient(to bottom, #6a6d6e 0%, #616364 100%);
+  border: 1px solid transparent;
+  border-top: 1px solid #9f9e9e;
+  color: #fbfeff;
+}
+
+.button svg {
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 17px;
+  fill: #fbfeff;
+  opacity: 1;
+  width: 15px;
+  height: 15px;
+}
+
+.buttonSmall {
+  font-size: 11px;
+  height: 22px;
+  padding: 0 5px;
+}
+
+.eventButton {
+  width: 100%;
+}
+
+.eventButton svg {
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+}
+
+.unionSelect {
+  display: flex;
+  align-items: center;
+  margin-left: 2px;
+  height: 28px;
+}
+
+.unionSelect svg {
+  height: 10px;
+  width: 10px;
+  max-width: 10px;
+  max-height: 10px;
+  fill: #fbfeff;
+}
+
+.tabs {
+  margin-left: 20px;
+  margin-bottom: -10px;
+}
+
+.tab {
+  background-color: var(--gbs-event-bg);
+  padding: 5px;
+}
+
+.tabSelected {
+  background: var(--gbs-event-input-bg);
+}
+
+.unknown {
+  background: red;
+  color: #fff;
+}
