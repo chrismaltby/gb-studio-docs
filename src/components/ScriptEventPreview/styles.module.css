@@ -300,14 +300,32 @@
 
 .tab {
   background-color: var(--gbs-event-bg);
-  padding: 5px;
+  padding: 5px 10px;
 }
 
 .tabSelected {
   background: var(--gbs-event-input-bg);
 }
 
+.break {
+  width: 100%;
+}
+
 .unknown {
   background: red;
   color: #fff;
+}
+
+.paletteSwatch {
+  width: 16px;
+  height: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-right: 5px;
 }

@@ -47,6 +47,17 @@ function FakeSelect({ children }) {
   );
 }
 
+function FakePaletteSwatch() {
+  return (
+    <div className={styles.paletteSwatch}>
+      <div style={{ backgroundColor: "rgb(232, 248, 224)" }}></div>
+      <div style={{ backgroundColor: "rgb(176, 240, 136)" }}></div>
+      <div style={{ backgroundColor: "rgb(80, 152, 120)" }}></div>
+      <div style={{ backgroundColor: "rgb(32, 40, 80)" }}></div>
+    </div>
+  );
+}
+
 function FakeToggleButtons({ options, moreOptions, value }) {
   return (
     <div className={styles.toggleButtons}>
@@ -105,6 +116,28 @@ function ScriptEventFieldInput({ field }) {
       </FakeSelect>
     );
   }
+  if (field.type === "emote") {
+    return (
+      <FakeSelect>
+        <img
+          className={styles.selectActor}
+          src="/img/script-glossary/emote.png"
+        />
+        Love
+      </FakeSelect>
+    );
+  }
+  if (field.type === "avatar") {
+    return (
+      <FakeSelect>
+        <img
+          className={styles.selectActor}
+          src="/img/script-glossary/actor.png"
+        />
+        Avatar 1
+      </FakeSelect>
+    );
+  }
   if (field.type === "scene") {
     return <FakeSelect>Scene 1</FakeSelect>;
   }
@@ -129,7 +162,22 @@ function ScriptEventFieldInput({ field }) {
   if (field.type === "customEvent") {
     return <FakeSelect>My Custom Script</FakeSelect>;
   }
+  if (field.type === "engineField") {
+    return <FakeSelect>Jump Velocity</FakeSelect>;
+  }
+  if (field.type === "music") {
+    return <FakeSelect>My Track 1</FakeSelect>;
+  }
+  if (field.type === "music") {
+    return <FakeSelect>My Track 1</FakeSelect>;
+  }
+  if (field.type === "soundEffect") {
+    return <FakeSelect>Beep</FakeSelect>;
+  }
   if (field.type === "number") {
+    return <FakeInput>{field.placeholder || field.defaultValue}</FakeInput>;
+  }
+  if (field.type === "text") {
     return <FakeInput>{field.placeholder || field.defaultValue}</FakeInput>;
   }
   if (field.type === "matharea") {
@@ -161,8 +209,21 @@ function ScriptEventFieldInput({ field }) {
       </div>
     );
   }
+  if (field.type === "priority") {
+    return (
+      <div className={styles.button}>
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path d="M 8.17 6.493 C 8.09 5.692 8.72 5 9.521 5 C 10.322 5 10.952 5.692 10.872 6.493 L 10.071 14.503 C 10.042 14.785 9.805 15 9.521 15 C 9.237 15 9 14.785 8.971 14.502 L 8.17 6.493 Z M 9.521 19.25 C 8.831 19.25 8.271 18.69 8.271 18 C 8.271 17.31 8.831 16.75 9.521 16.75 C 10.211 16.75 10.771 17.31 10.771 18 C 10.771 18.69 10.211 19.25 9.521 19.25 Z" />
+          <path d="M 13.128 6.493 C 13.048 5.692 13.678 5 14.479 5 C 15.28 5 15.91 5.692 15.83 6.493 L 15.029 14.503 C 15 14.785 14.763 15 14.479 15 C 14.195 15 13.958 14.785 13.929 14.502 L 13.128 6.493 Z M 14.479 19.25 C 13.789 19.25 13.229 18.69 13.229 18 C 13.229 17.31 13.789 16.75 14.479 16.75 C 15.169 16.75 15.729 17.31 15.729 18 C 15.729 18.69 15.169 19.25 14.479 19.25 Z" />
+        </svg>
+      </div>
+    );
+  }
   if (field.type === "operator") {
-    return <div className={styles.input} children={field.defaultValue} />;
+    return <FakeSelect>{field.defaultValue}</FakeSelect>;
+  }
+  if (field.type === "mathOperator") {
+    return <FakeSelect>{field.defaultValue}</FakeSelect>;
   }
   if (field.type === "direction") {
     return (
@@ -254,6 +315,15 @@ function ScriptEventFieldInput({ field }) {
   if (field.type === "variable") {
     return <FakeSelect>$Variable0</FakeSelect>;
   }
+  if (field.type === "palette") {
+    return (
+      <FakeSelect>
+        <FakePaletteSwatch />
+        {field.paletteIndex !== undefined ? `${field.paletteIndex}: ` : ""}{" "}
+        Palette {field.paletteIndex}
+      </FakeSelect>
+    );
+  }
   if (field.type === "collisionMask") {
     return (
       <FakeToggleButtons
@@ -294,11 +364,9 @@ function ScriptEventFieldInput({ field }) {
   }
   if (field.type === "togglebuttons") {
     return (
-      <div className={styles.toggleButtons}>
-        {field.options.map((option, idx) => (
-          <div className={styles.toggleButtonsOption}>{option[1]}</div>
-        ))}
-      </div>
+      <FakeToggleButtons
+        options={field.options.map((o) => ({ label: o[1], value: o[0] }))}
+      ></FakeToggleButtons>
     );
   }
   if (field.type === "tabs") {
@@ -320,15 +388,34 @@ function ScriptEventFieldInput({ field }) {
   return <div className={styles.unknown}>Unknown Type {field.type}</div>;
 }
 
-function ScriptEventField({ field }) {
-  if ((!field.type && !field.label) || field.type === "break") {
+function ScriptEventField({ field, args }) {
+  if (!field.type && !field.label) {
     return;
   }
+  if (field.conditions) {
+    const showField = field.conditions.reduce((memo, condition) => {
+      const keyValue = args?.[condition.key];
+      return (
+        memo &&
+        (!condition.eq || keyValue === condition.eq) &&
+        (!condition.ne || keyValue !== condition.ne) &&
+        (!condition.gt || Number(keyValue) > Number(condition.gt)) &&
+        (!condition.gte || Number(keyValue) >= Number(condition.gte)) &&
+        (!condition.lt || Number(keyValue) > Number(condition.lt)) &&
+        (!condition.lte || Number(keyValue) >= Number(condition.lte)) &&
+        (!condition.in || condition.in.indexOf(keyValue) >= 0)
+      );
+    }, true);
+    if (!showField) {
+      return null;
+    }
+  }
+
   if (field.type === "group") {
     return (
       <div className={styles.group}>
         {field.fields.map((f, idx) => (
-          <ScriptEventField key={idx} field={f} />
+          <ScriptEventField key={idx} field={f} args={args} />
         ))}
       </div>
     );
@@ -380,7 +467,10 @@ function ScriptEventField({ field }) {
       union: true,
       defaultValue: field.defaultValue[field.defaultType],
     };
-    return <ScriptEventField field={defaultField} />;
+    return <ScriptEventField field={defaultField} args={args} />;
+  }
+  if (field.type === "break") {
+    return <div className={styles.break} />;
   }
 
   return (
@@ -403,16 +493,34 @@ function ScriptEventField({ field }) {
   );
 }
 
+const getDefaultsForFields = (fields, memo) => {
+  if (!memo) {
+    memo = {};
+  }
+  for (const field of fields) {
+    if (field.key && field.defaultValue !== undefined) {
+      memo[field.key] = field.defaultValue;
+    }
+    if (field.type === "group") {
+      getDefaultsForFields(field.fields, memo);
+    }
+  }
+  return memo;
+};
+
 export default function ScriptEventPreview({ title, fields }) {
+  const args = getDefaultsForFields(fields);
+
   return (
     <div className={clsx(styles.wrapper)}>
       <div className={clsx(styles.header)}>{title}</div>
       <div className={clsx(styles.form)}>
         {fields.map((field, idx) => (
-          <ScriptEventField key={idx} field={field} />
+          <ScriptEventField key={idx} field={field} args={args} />
         ))}
       </div>
-      <pre style={{ maxWidth: "100%" }}>{JSON.stringify(fields, null, 2)}</pre>
+      {/* <pre style={{ maxWidth: "100%" }}>{JSON.stringify(args, null, 2)}</pre> */}
+      {/* <pre style={{ maxWidth: "100%" }}>{JSON.stringify(fields, null, 2)}</pre> */}
     </div>
   );
 }
