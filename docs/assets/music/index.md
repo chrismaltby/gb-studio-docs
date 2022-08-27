@@ -1,5 +1,7 @@
 # Music
 
+GB Studio 3.0 adds support for `.uge` files on top of the existing `.mod` files from previous versions. A project can only support one type of music files, this can be configured on the [Settings View](/docs/settings/#music-driver) by selecting either GBT Player (for .mod files) or hUGEDriver (for .uge files) as the Music Driver.
+
 Music can be played in your game using the [Play Music Track](/docs/scripting/#music-events) event in your *Actor*, *Trigger*, or *Scene* scripts.
 
 <img src="/img/events/music-play-v3.png" className="event-preview" />
