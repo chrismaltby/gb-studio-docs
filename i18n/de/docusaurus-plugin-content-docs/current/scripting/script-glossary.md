@@ -8,6 +8,7 @@ sidebar_position: 1
 
 #### Actor Move To
 Make the actor walk to a specified position in the scene.
+
 <img src="/de/img/events/actor-move-v3.png" className="event-preview" />
 
 #### Actor Move Relative
