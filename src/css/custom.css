@@ -19,12 +19,16 @@
   --gbs-hero-fg: #ffffff;
   --gbs-event-bg: #ffffff;
   --gbs-event-fg: #000000;
+  --gbs-event-border: #cccccc;
   --gbs-event-header-top: #efefef;
   --gbs-event-header-bottom: #e4e4e4;
   --gbs-event-header-fg: #3b3a3b;
-  --gbs-event-input-bg: #efefef;
+  --gbs-event-input-bg: #ffffff;
   --gbs-event-input-fg: #3b3a3b;
   --gbs-event-input-border: #e4e4e4;
+  --gbs-event-button-bg: linear-gradient(to bottom, #fefdfe 0%, #f1f1f1 100%);
+  --gbs-event-button-fg: #3b3a3b;
+  --gbs-event-button-border: 1px solid #c5c5c5;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -41,13 +45,17 @@
   --gbs-hero-fg: #ffffff;
   --gbs-event-bg: #333333;
   --gbs-event-fg: #ffffff;
+  --gbs-event-border: #0000000;
   --gbs-event-header-top: #4e4e4e;
   --gbs-event-header-bottom: #444444;
   --gbs-event-header-fg: #ffffff;
   --gbs-event-input-bg: #000000;
   --gbs-event-input-fg: #b7babb;
   --gbs-event-input-border: #333333;
-
+  --gbs-event-button-bg: linear-gradient(to bottom, #6a6d6e 0%, #616364 100%);
+  --gbs-event-button-fg: #fbfeff;
+  --gbs-event-button-border: 1px solid transparent;
+  
 }
 
 .hero--primary {

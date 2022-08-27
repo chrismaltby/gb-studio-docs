@@ -1,6 +1,7 @@
 .wrapper {
   width: 100%;
   background-color: var(--gbs-event-bg);
+  border: 1px solid var(--gbs-event-border);
   max-width: 460px;
   margin-top: 20px;
   margin-right: 20px;
@@ -48,6 +49,10 @@
   line-height: 12px;
   margin: 0 -5px;
   width: calc(100% + 10px);
+}
+
+.collapsableHeader:last-child {
+  margin-bottom: -5px;
 }
 
 .form {
@@ -156,21 +161,31 @@
 }
 
 .toggleButtonsOption {
-  /* border: 1px solid var(--gbs-event-input-border); */
+  border: 1px solid var(--gbs-event-input-border);
   background: var(--gbs-event-input-bg);
+  color: var(--gbs-event-input-fg);
   fill: var(--gbs-event-input-fg);
-  /* border-right: 1px solid #000; */
-  /* background: #c92c61; */
   height: 28px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-left-width: 0px;
+  border-top-width: 0px;
+}
+
+.toggleButtonsOption:first-child {
+  border-left-width: 1px;
+}
+
+.toggleButtonsRow:first-child .toggleButtonsOption {
+  border-top-width: 1px;
 }
 
 .toggleButtonsOptionSelected {
   background: #c92c61;
-  fill: #fff;
+  color: #ffffff;
+  fill: #ffffff;
 }
 
 .toggleButtonsRow:first-child .toggleButtonsOption:first-child {
@@ -192,7 +207,7 @@
 .toggleButtonsOption svg {
   width: 8px;
   height: 8px;
-  fill: #ffffff;
+  fill: var(--gbs-event-input-fg);
 }
 
 .conditional {
@@ -226,9 +241,10 @@
 }
 
 .eventsWrapper {
-  border: 1px solid #000000;
+  border: 1px solid var(--gbs-event-input-border);
   border-right: 0px;
   padding: 10px;
+  margin-bottom: 5px;
 }
 
 .button {
@@ -246,17 +262,16 @@
   border-width: 1px;
   overflow: hidden;
   flex-shrink: 0;
-  background: linear-gradient(to bottom, #6a6d6e 0%, #616364 100%);
-  border: 1px solid transparent;
-  border-top: 1px solid #9f9e9e;
-  color: #fbfeff;
+  background: var(--gbs-event-button-bg);
+  border: var(--gbs-event-button-border);
+  color: var(--gbs-event-button-bg);
 }
 
 .button svg {
   max-width: 100%;
   max-height: 100%;
   min-width: 17px;
-  fill: #fbfeff;
+  fill: var(--gbs-event-button-fg);
   opacity: 1;
   width: 15px;
   height: 15px;
@@ -290,7 +305,7 @@
   width: 10px;
   max-width: 10px;
   max-height: 10px;
-  fill: #fbfeff;
+  fill: var(--gbs-event-fg);
 }
 
 .tabs {

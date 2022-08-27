@@ -366,6 +366,7 @@ function ScriptEventFieldInput({ field }) {
     return (
       <FakeToggleButtons
         options={field.options.map((o) => ({ label: o[1], value: o[0] }))}
+        value={field.defaultValue}
       ></FakeToggleButtons>
     );
   }
