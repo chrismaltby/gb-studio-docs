@@ -19,17 +19,14 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 ## Untätig
 <ScriptEventPreview title={"Untätig"} fields={[{"label":"Warte bis zum nächsten Frame"}]} />
 
-- **Warte bis zum nächsten Frame**  
 
 ## Timer: Timer-Skript deaktivieren
 <ScriptEventPreview title={"Timer: Timer-Skript deaktivieren"} fields={[{"label":"Timer-Skript deaktivieren"}]} />
 
-- **Timer-Skript deaktivieren**  
 
 ## Timer: Timer neu starten
 <ScriptEventPreview title={"Timer: Timer neu starten"} fields={[{"label":"Countdown-Timer neustarten"}]} />
 
-- **Countdown-Timer neustarten**  
 
 ## Warten
 <ScriptEventPreview title={"Warten"} fields={[{"type":"group","fields":[{"key":"time","type":"number","label":"Sekunden","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Frames","type":"number","min":0,"max":3600,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]}]}]} />

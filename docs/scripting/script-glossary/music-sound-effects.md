@@ -32,5 +32,4 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 ## Stop Music
 <ScriptEventPreview title={"Stop Music"} fields={[{"label":"Stops any music that was previously playing."}]} />
 
-- **Stops any music that was previously playing.**  
 

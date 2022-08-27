@@ -32,5 +32,4 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 ## Musik: Anhalten
 <ScriptEventPreview title={"Musik: Anhalten"} fields={[{"label":"Stoppt die Musik, die zuvor abgespielt wurde."}]} />
 
-- **Stoppt die Musik, die zuvor abgespielt wurde.**  
 

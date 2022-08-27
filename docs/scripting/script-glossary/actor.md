@@ -10,55 +10,63 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 # Actor
 
 ## Activate Actor
-<ScriptEventPreview title={"Activate Actor"} fields={[{"key":"actorId","label":"Actor","type":"actor","defaultValue":"$self$"}]} />
+Activate an actor, causing it to become visible (if not also hidden) and for its OnUpdate script to start.
+<ScriptEventPreview title={"Activate Actor"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to activate.","type":"actor","defaultValue":"$self$"}]} />
 
-- **Actor**  
+- **Actor**: The actor you want to activate.  
 
 ## Actor Move Cancel
-<ScriptEventPreview title={"Actor Move Cancel"} fields={[{"key":"actorId","label":"Actor","type":"actor","defaultValue":"$self$"}]} />
+Cancel any currently running "Actor Move" events affecting this actor. Causes the actor to stop in its current location.
+<ScriptEventPreview title={"Actor Move Cancel"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to cancel movement for.","type":"actor","defaultValue":"$self$"}]} />
 
-- **Actor**  
+- **Actor**: The actor you want to cancel movement for.  
 
 ## Actor Move Relative
-<ScriptEventPreview title={"Actor Move Relative"} fields={[{"key":"actorId","label":"Actor","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","type":"number","min":-31,"max":31,"width":"50%","defaultValue":0,"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","type":"number","min":-31,"max":31,"width":"50%","defaultValue":0,"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"moveType","type":"moveType","defaultValue":"horizontal","flexBasis":30,"flexGrow":0},{"key":"useCollisions","label":"Use Collisions","width":"50%","alignCheckbox":true,"type":"checkbox","defaultValue":false}]} />
+Move an actor relative to its current position.
+<ScriptEventPreview title={"Actor Move Relative"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to move.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"number","min":-31,"max":31,"width":"50%","defaultValue":0,"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"The vertical position.","type":"number","min":-31,"max":31,"width":"50%","defaultValue":0,"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"moveType","label":"Movement Type","description":"Choose if should move in horizontal/vertical axis first or if it should move diagonally to destination.","hideLabel":true,"type":"moveType","defaultValue":"horizontal","flexBasis":30,"flexGrow":0},{"key":"useCollisions","label":"Use Collisions","description":"Set if collisions with both scene and actors be taken into account while moving.","width":"50%","alignCheckbox":true,"type":"checkbox","defaultValue":false}]} />
 
-- **Actor**  
-- **X**  
-- **Y**  
-- **Use Collisions**  
+- **Actor**: The actor you want to move.  
+- **X**: The horizontal position.  
+- **Y**: The vertical position.  
+- **Movement Type**: Choose if should move in horizontal/vertical axis first or if it should move diagonally to destination.  
+- **Use Collisions**: Set if collisions with both scene and actors be taken into account while moving.  
 
 ## Actor Move To
-<ScriptEventPreview title={"Actor Move To"} fields={[{"key":"actorId","label":"Actor","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","type":"union","types":["number","variable","property"],"defaultType":"number","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"number":0,"variable":"LAST_VARIABLE","property":"$self$:xpos"}},{"key":"y","label":"Y","type":"union","types":["number","variable","property"],"defaultType":"number","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"number":0,"variable":"LAST_VARIABLE","property":"$self$:ypos"}}]},{"key":"moveType","type":"moveType","defaultValue":"horizontal","flexBasis":30,"flexGrow":0},{"key":"useCollisions","label":"Use Collisions","width":"50%","alignCheckbox":true,"type":"checkbox","defaultValue":false}]} />
+Move an actor to a new position.
+<ScriptEventPreview title={"Actor Move To"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to move.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"union","types":["number","variable","property"],"defaultType":"number","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"number":0,"variable":"LAST_VARIABLE","property":"$self$:xpos"}},{"key":"y","label":"Y","description":"The vertical position.","type":"union","types":["number","variable","property"],"defaultType":"number","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"number":0,"variable":"LAST_VARIABLE","property":"$self$:ypos"}}]},{"key":"moveType","label":"Movement Type","description":"Choose if should move in horizontal/vertical axis first or if it should move diagonally to destination.","hideLabel":true,"type":"moveType","defaultValue":"horizontal","flexBasis":30,"flexGrow":0},{"key":"useCollisions","label":"Use Collisions","description":"Set if collisions with both scene and actors be taken into account while moving.","width":"50%","alignCheckbox":true,"type":"checkbox","defaultValue":false}]} />
 
-- **Actor**  
-- **X**  
-- **Y**  
-- **Use Collisions**  
+- **Actor**: The actor you want to move.  
+- **X**: The horizontal position.  
+- **Y**: The vertical position.  
+- **Movement Type**: Choose if should move in horizontal/vertical axis first or if it should move diagonally to destination.  
+- **Use Collisions**: Set if collisions with both scene and actors be taken into account while moving.  
 
 ## Deactivate Actor
-<ScriptEventPreview title={"Deactivate Actor"} fields={[{"key":"actorId","label":"Actor","type":"actor","defaultValue":"$self$"}]} />
+Deactivate an actor, causing it to act as if it had gone offscreen. It will become invisible and its OnUpdate script will be stopped
+<ScriptEventPreview title={"Deactivate Actor"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to deactivate.","type":"actor","defaultValue":"$self$"}]} />
 
-- **Actor**  
+- **Actor**: The actor you want to deactivate.  
 
 ## Hide Actor
-<ScriptEventPreview title={"Hide Actor"} fields={[{"key":"actorId","label":"Actor","type":"actor","defaultValue":"$self$"}]} />
+Hide an actor, causing it to become invisible. Its OnUpdate script will continue to run while hidden.
+<ScriptEventPreview title={"Hide Actor"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to hide.","type":"actor","defaultValue":"$self$"}]} />
 
-- **Actor**  
+- **Actor**: The actor you want to hide.  
 
 ## Hide All Sprites
+Disable rendering of sprite layer causing all sprites to become hidden until sprite rendering is reenabled.
 <ScriptEventPreview title={"Hide All Sprites"} fields={[{"label":"Hide all sprites from screen."}]} />
 
-- **Hide all sprites from screen.**  
 
 ## If Actor At Position
-<ScriptEventPreview title={"If Actor At Position"} fields={[{"key":"actorId","label":"Actor","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","type":"number","min":0,"max":255,"width":"50%","defaultValue":0,"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","type":"number","min":0,"max":255,"width":"50%","defaultValue":0,"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+Conditionally run part of the script if an actor is at a specified position.
+<ScriptEventPreview title={"If Actor At Position"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to check.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"number","min":0,"max":255,"width":"50%","defaultValue":0,"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"The vertical position.","type":"number","min":0,"max":255,"width":"50%","defaultValue":0,"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"true","label":"True","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Actor**  
-- **X**  
-- **Y**  
-- **True**  
-- **Else**  
-- **False**  
+- **Actor**: The actor you want to check.  
+- **X**: The horizontal position.  
+- **Y**: The vertical position.  
+- **True**: The script to run if the condition is true.  
+- **False**: The script to run if the condition is false.  
 
 ## If Actor Distance From Actor
 <ScriptEventPreview title={"If Actor Distance From Actor"} fields={[{"key":"actorId","label":"Actor","type":"actor","defaultValue":"player","width":"50%"},{"type":"group","fields":[{"key":"operator","label":"Comparison","type":"operator","width":"50%","defaultValue":"<="},{"key":"distance","label":"Distance","type":"union","types":["number","variable"],"defaultType":"number","min":0,"max":181,"width":"50%","unitsDefault":"tiles","defaultValue":{"number":0,"variable":"LAST_VARIABLE"}}]},{"key":"otherActorId","label":"From","type":"actor","defaultValue":"$self$","width":"50%"},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
@@ -68,21 +76,18 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 - **Distance**  
 - **From**  
 - **True**  
-- **Else**  
 - **False**  
 
 ## If Actor Facing Direction
 <ScriptEventPreview title={"If Actor Facing Direction"} fields={[{"key":"actorId","type":"actor","defaultValue":"$self$"},{"key":"direction","type":"direction","defaultValue":"up"},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **True**  
-- **Else**  
 - **False**  
 
 ## If Actor Relative To Actor
 <ScriptEventPreview title={"If Actor Relative To Actor"} fields={[{"key":"actorId","type":"actor","defaultValue":"player"},{"key":"operation","type":"select","options":[["up","Is Above"],["down","Is Below"],["left","Is Left of"],["right","Is Right of"]],"defaultValue":"up","width":"50%"},{"key":"otherActorId","type":"actor","defaultValue":"$self$"},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **True**  
-- **Else**  
 - **False**  
 
 ## Launch Projectile
@@ -110,7 +115,6 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 <ScriptEventPreview title={"Player Bounce"} fields={[{"key":"height","type":"select","label":"Height","options":[["low","Low"],["medium","Medium"],["high","High"]],"defaultValue":"medium"},{"label":"Affects Platform scenes only"}]} />
 
 - **Height**  
-- **Affects Platform scenes only**  
 
 ## Push Actor Away From Player
 <ScriptEventPreview title={"Push Actor Away From Player"} fields={[{"key":"continue","label":"Slide Until Collision","type":"checkbox","defaultValue":false}]} />
@@ -178,7 +182,6 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 ## Show All Sprites
 <ScriptEventPreview title={"Show All Sprites"} fields={[{"label":"Unhide all active sprites."}]} />
 
-- **Unhide all active sprites.**  
 
 ## Show Emote Bubble
 <ScriptEventPreview title={"Show Emote Bubble"} fields={[{"key":"actorId","type":"actor","defaultValue":"$self$"},{"key":"emoteId","type":"emote","defaultValue":"LAST_EMOTE"}]} />

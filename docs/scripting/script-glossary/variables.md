@@ -17,14 +17,12 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 <ScriptEventPreview title={"If Variable Compare With Value"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operator","type":"operator","width":"50%","defaultValue":"=="},{"key":"comparator","type":"number","min":-32768,"max":32767,"width":"50%","defaultValue":"0"},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **True**  
-- **Else**  
 - **False**  
 
 ## If Variable Compare With Variable
 <ScriptEventPreview title={"If Variable Compare With Variable"} fields={[{"key":"vectorX","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operator","type":"operator","width":"50%","defaultValue":"=="},{"key":"vectorY","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **True**  
-- **Else**  
 - **False**  
 
 ## Math Functions
@@ -37,12 +35,10 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 ## Reset All Variables To 'False'
 <ScriptEventPreview title={"Reset All Variables To 'False'"} fields={[{"label":"Reset ALL variables back to 'False'."}]} />
 
-- **Reset ALL variables back to 'False'.**  
 
 ## Seed Random Number Generator
 <ScriptEventPreview title={"Seed Random Number Generator"} fields={[{"label":"Place this to run in response to user input to ensure random numbers change between playthroughs"}]} />
 
-- **Place this to run in response to user input to ensure random numbers change between playthroughs**  
 
 ## Store Actor Position In Variables
 <ScriptEventPreview title={"Store Actor Position In Variables"} fields={[{"key":"actorId","label":"Actor","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"vectorX","type":"variable","label":"X","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"vectorY","type":"variable","label":"Y","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]}]} />

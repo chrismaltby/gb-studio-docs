@@ -12,19 +12,16 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 ## Game Data Load
 <ScriptEventPreview title={"Game Data Load"} fields={[{"label":"Load game data from memory."},{"key":"saveSlot","label":"Save Slot","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0}]} />
 
-- **Load game data from memory.**  
 - **Save Slot**  
 
 ## Game Data Remove
 <ScriptEventPreview title={"Game Data Remove"} fields={[{"label":"Clear all saved game data from memory."},{"key":"saveSlot","label":"Save Slot","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0}]} />
 
-- **Clear all saved game data from memory.**  
 - **Save Slot**  
 
 ## Game Data Save
 <ScriptEventPreview title={"Game Data Save"} fields={[{"label":"Save current game data to memory. Requires cartridge type with BATTERY."},{"key":"saveSlot","label":"Save Slot","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0},{"key":"__scriptTabs","type":"tabs","defaultValue":"save","values":{"save":"On Save"}},{"key":"true","label":"On Save","type":"events"}]} />
 
-- **Save current game data to memory. Requires cartridge type with BATTERY.**  
 - **Save Slot**  
 - **On Save**  
 
@@ -32,9 +29,7 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 <ScriptEventPreview title={"If Game Data Saved"} fields={[{"key":"saveSlot","label":"Save Slot","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0},{"label":"Run if player has saved a game."},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Save Slot**  
-- **Run if player has saved a game.**  
 - **True**  
-- **Else**  
 - **False**  
 
 ## Store Variable from Game Data In Variable

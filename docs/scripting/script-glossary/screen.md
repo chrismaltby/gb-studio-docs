@@ -20,7 +20,6 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 ## Hide Overlay
 <ScriptEventPreview title={"Hide Overlay"} fields={[{"label":"Hides overlay window from screen."}]} />
 
-- **Hides overlay window from screen.**  
 
 ## Overlay Move To
 <ScriptEventPreview title={"Overlay Move To"} fields={[{"key":"x","label":"X","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"},{"key":"speed","type":"cameraSpeed","defaultValue":"0"}]} />

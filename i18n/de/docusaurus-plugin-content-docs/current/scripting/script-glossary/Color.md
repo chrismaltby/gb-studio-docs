@@ -13,21 +13,18 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 <ScriptEventPreview title={"Falls Farbmodus verfügbar ist"} fields={[{"key":"true","label":"Wahr","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Wahr**  
-- **Andernfalls**  
 - **Falsch**  
 
 ## Falls GBA-Modus verfügbar ist
 <ScriptEventPreview title={"Falls GBA-Modus verfügbar ist"} fields={[{"key":"true","label":"Wahr","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Wahr**  
-- **Andernfalls**  
 - **Falsch**  
 
 ## Falls Super-GB-Modus verfügbar ist
 <ScriptEventPreview title={"Falls Super-GB-Modus verfügbar ist"} fields={[{"key":"true","label":"Wahr","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Wahr**  
-- **Andernfalls**  
 - **Falsch**  
 
 ## Palette: Hintergrundpalette festlegen

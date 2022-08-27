@@ -12,19 +12,16 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 ## Spieldaten: Laden
 <ScriptEventPreview title={"Spieldaten: Laden"} fields={[{"label":"Spieldaten aus dem Speicher laden."},{"key":"saveSlot","label":"Speichere Slot","type":"togglebuttons","options":[[0,"Slot 1","Speichere Slot 1"],[1,"Slot 2","Speichere Slot 2"],[2,"Slot 3","Speichere Slot 3"]],"allowNone":false,"defaultValue":0}]} />
 
-- **Spieldaten aus dem Speicher laden.**  
 - **Speichere Slot**  
 
 ## Spieldaten: Löschen
 <ScriptEventPreview title={"Spieldaten: Löschen"} fields={[{"label":"Löscht alle gespeicherten Spieldaten aus dem Speicher."},{"key":"saveSlot","label":"Speichere Slot","type":"togglebuttons","options":[[0,"Slot 1","Speichere Slot 1"],[1,"Slot 2","Speichere Slot 2"],[2,"Slot 3","Speichere Slot 3"]],"allowNone":false,"defaultValue":0}]} />
 
-- **Löscht alle gespeicherten Spieldaten aus dem Speicher.**  
 - **Speichere Slot**  
 
 ## Spieldaten: Speichern
 <ScriptEventPreview title={"Spieldaten: Speichern"} fields={[{"label":"Speichert die aktuellen Spieldaten im Speicher. Benötigt Modultyp mit BATTERIE."},{"key":"saveSlot","label":"Speichere Slot","type":"togglebuttons","options":[[0,"Slot 1","Speichere Slot 1"],[1,"Slot 2","Speichere Slot 2"],[2,"Slot 3","Speichere Slot 3"]],"allowNone":false,"defaultValue":0},{"key":"__scriptTabs","type":"tabs","defaultValue":"save","values":{"save":"Beim Speichern"}},{"key":"true","label":"Beim Speichern","type":"events"}]} />
 
-- **Speichert die aktuellen Spieldaten im Speicher. Benötigt Modultyp mit BATTERIE.**  
 - **Speichere Slot**  
 - **Beim Speichern**  
 
@@ -32,9 +29,7 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 <ScriptEventPreview title={"Falls Spieldaten Gespeichert"} fields={[{"key":"saveSlot","label":"Speichere Slot","type":"togglebuttons","options":[[0,"Slot 1","Speichere Slot 1"],[1,"Slot 2","Speichere Slot 2"],[2,"Slot 3","Speichere Slot 3"]],"allowNone":false,"defaultValue":0},{"label":"Ausführen, falls der Spieler ein Spiel gespeichert hat."},{"key":"true","label":"Wahr","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Speichere Slot**  
-- **Ausführen, falls der Spieler ein Spiel gespeichert hat.**  
 - **Wahr**  
-- **Andernfalls**  
 - **Falsch**  
 
 ## Variable aus Spieldaten in Variable speichern

@@ -21,22 +21,18 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 ## Remove All From Scene Stack
 <ScriptEventPreview title={"Remove All From Scene Stack"} fields={[{"label":"Clears the stack of saved scene states."}]} />
 
-- **Clears the stack of saved scene states.**  
 
 ## Restore First Scene From Stack
 <ScriptEventPreview title={"Restore First Scene From Stack"} fields={[{"label":"Pop all scene state from stack."},{"type":"break"},{"key":"fadeSpeed","label":"Fade Speed","type":"fadeSpeed","defaultValue":"2","width":"50%"}]} />
 
-- **Pop all scene state from stack.**  
 - **Fade Speed**  
 
 ## Restore Previous Scene From Stack
 <ScriptEventPreview title={"Restore Previous Scene From Stack"} fields={[{"label":"Pop the top scene state from stack."},{"type":"break"},{"key":"fadeSpeed","label":"Fade Speed","type":"fadeSpeed","defaultValue":"2","width":"50%"}]} />
 
-- **Pop the top scene state from stack.**  
 - **Fade Speed**  
 
 ## Store Current Scene On Stack
 <ScriptEventPreview title={"Store Current Scene On Stack"} fields={[{"label":"Push scene state to stack."}]} />
 
-- **Push scene state to stack.**  
 

@@ -20,7 +20,6 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 - **Any of**  
 - **True**  
-- **Else**  
 - **False**  
 
 ## Pause Script Until Input Pressed

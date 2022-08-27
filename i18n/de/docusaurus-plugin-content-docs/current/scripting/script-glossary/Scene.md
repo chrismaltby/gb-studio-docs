@@ -21,22 +21,18 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 ## Szene: Leere Szenenstapel
 <ScriptEventPreview title={"Szene: Leere Szenenstapel"} fields={[{"label":"Entfernt alle gespeicherten Szenenzustände vom Szenenstapel."}]} />
 
-- **Entfernt alle gespeicherten Szenenzustände vom Szenenstapel.**  
 
 ## Szene: Gebe Allerersten Szenenzustand Vom Stapel Zurück
 <ScriptEventPreview title={"Szene: Gebe Allerersten Szenenzustand Vom Stapel Zurück"} fields={[{"label":"Entfernt alle Szenenzustände vom Szenenstapel."},{"type":"break"},{"key":"fadeSpeed","label":"Einblendegeschwindigkeit","type":"fadeSpeed","defaultValue":"2","width":"50%"}]} />
 
-- **Entfernt alle Szenenzustände vom Szenenstapel.**  
 - **Einblendegeschwindigkeit**  
 
 ## Szene: Gebe Vorherigen Szenenzustand Vom Stapel Zurück
 <ScriptEventPreview title={"Szene: Gebe Vorherigen Szenenzustand Vom Stapel Zurück"} fields={[{"label":"Gibt den obersten Szenenzustand des Szenenstapels wieder und entfernt diesen vom Szenenstapel."},{"type":"break"},{"key":"fadeSpeed","label":"Einblendegeschwindigkeit","type":"fadeSpeed","defaultValue":"2","width":"50%"}]} />
 
-- **Gibt den obersten Szenenzustand des Szenenstapels wieder und entfernt diesen vom Szenenstapel.**  
 - **Einblendegeschwindigkeit**  
 
 ## Szene: Speicher Derzeitigen Szenenzustand Auf Stapel
 <ScriptEventPreview title={"Szene: Speicher Derzeitigen Szenenzustand Auf Stapel"} fields={[{"label":"Derzeitigen Szenenzustand auf dem Szenenstapel legen."}]} />
 
-- **Derzeitigen Szenenzustand auf dem Szenenstapel legen.**  
 

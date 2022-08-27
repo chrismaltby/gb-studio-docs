@@ -485,7 +485,7 @@ function ScriptEventField({ field, args }) {
         flexShrink: field.flexShrink,
       }}
     >
-      {field.label}
+      {!field.hideLabel && field.label}
       <div className={styles.fieldInput}>
         {field.type && <ScriptEventFieldInput field={field} />}
         {field.union && <UnionSelect />}

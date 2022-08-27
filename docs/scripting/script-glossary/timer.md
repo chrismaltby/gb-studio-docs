@@ -19,17 +19,14 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 ## Idle
 <ScriptEventPreview title={"Idle"} fields={[{"label":"Wait until next frame"}]} />
 
-- **Wait until next frame**  
 
 ## Remove Timer Script
 <ScriptEventPreview title={"Remove Timer Script"} fields={[{"label":"Disable the timer script"}]} />
 
-- **Disable the timer script**  
 
 ## Restart Timer
 <ScriptEventPreview title={"Restart Timer"} fields={[{"label":"Restart the countdown timer"}]} />
 
-- **Restart the countdown timer**  
 
 ## Wait
 <ScriptEventPreview title={"Wait"} fields={[{"type":"group","fields":[{"key":"time","type":"number","label":"Seconds","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Frames","type":"number","min":0,"max":3600,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]}]}]} />

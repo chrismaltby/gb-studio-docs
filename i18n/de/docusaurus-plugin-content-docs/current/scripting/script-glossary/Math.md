@@ -17,7 +17,6 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 <ScriptEventPreview title={"Wenn Matheausdruck"} fields={[{"key":"expression","type":"matharea","rows":5,"placeholder":"e.g. $health >= 0...","defaultValue":""},{"key":"true","label":"Wahr","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Wahr**  
-- **Andernfalls**  
 - **Falsch**  
 
 ## Variable: Mathematische Funktionen
@@ -30,5 +29,4 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 ## Seed Zufallszahlengenerator
 <ScriptEventPreview title={"Seed Zufallszahlengenerator"} fields={[{"label":"Platzieren Sie dies als Reaktion auf Benutzereingaben, um sicherzustellen, dass sich die Zufallszahlen zwischen den Durchläufen ändern."}]} />
 
-- **Platzieren Sie dies als Reaktion auf Benutzereingaben, um sicherzustellen, dass sich die Zufallszahlen zwischen den Durchläufen ändern.**  
 

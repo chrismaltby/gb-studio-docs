@@ -20,7 +20,6 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 - **Beliebiges von**  
 - **Wahr**  
-- **Andernfalls**  
 - **Falsch**  
 
 ## Joypad-Eingabe: Skript Pausieren Bis Gedrückt

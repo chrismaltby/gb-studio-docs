@@ -20,7 +20,6 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 ## Überlagerung: Ausblenden
 <ScriptEventPreview title={"Überlagerung: Ausblenden"} fields={[{"label":"Blendet das Überlagerung-Fenster vom Bildschirm aus."}]} />
 
-- **Blendet das Überlagerung-Fenster vom Bildschirm aus.**  
 
 ## Überlagerung: Bewegen Zu Position
 <ScriptEventPreview title={"Überlagerung: Bewegen Zu Position"} fields={[{"key":"x","label":"X","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"},{"key":"speed","type":"cameraSpeed","defaultValue":"0"}]} />

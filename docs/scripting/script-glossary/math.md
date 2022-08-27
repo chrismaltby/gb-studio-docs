@@ -17,7 +17,6 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 <ScriptEventPreview title={"If Math Expression"} fields={[{"key":"expression","type":"matharea","rows":5,"placeholder":"e.g. $health >= 0...","defaultValue":""},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **True**  
-- **Else**  
 - **False**  
 
 ## Math Functions
@@ -30,5 +29,4 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 ## Seed Random Number Generator
 <ScriptEventPreview title={"Seed Random Number Generator"} fields={[{"label":"Place this to run in response to user input to ensure random numbers change between playthroughs"}]} />
 
-- **Place this to run in response to user input to ensure random numbers change between playthroughs**  
 

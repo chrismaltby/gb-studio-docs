@@ -14,14 +14,14 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 
 ## If Actor At Position
-<ScriptEventPreview title={"If Actor At Position"} fields={[{"key":"actorId","label":"Actor","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","type":"number","min":0,"max":255,"width":"50%","defaultValue":0,"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","type":"number","min":0,"max":255,"width":"50%","defaultValue":0,"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+Conditionally run part of the script if an actor is at a specified position.
+<ScriptEventPreview title={"If Actor At Position"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to check.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"number","min":0,"max":255,"width":"50%","defaultValue":0,"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"The vertical position.","type":"number","min":0,"max":255,"width":"50%","defaultValue":0,"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"true","label":"True","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Actor**  
-- **X**  
-- **Y**  
-- **True**  
-- **Else**  
-- **False**  
+- **Actor**: The actor you want to check.  
+- **X**: The horizontal position.  
+- **Y**: The vertical position.  
+- **True**: The script to run if the condition is true.  
+- **False**: The script to run if the condition is false.  
 
 ## If Actor Distance From Actor
 <ScriptEventPreview title={"If Actor Distance From Actor"} fields={[{"key":"actorId","label":"Actor","type":"actor","defaultValue":"player","width":"50%"},{"type":"group","fields":[{"key":"operator","label":"Comparison","type":"operator","width":"50%","defaultValue":"<="},{"key":"distance","label":"Distance","type":"union","types":["number","variable"],"defaultType":"number","min":0,"max":181,"width":"50%","unitsDefault":"tiles","defaultValue":{"number":0,"variable":"LAST_VARIABLE"}}]},{"key":"otherActorId","label":"From","type":"actor","defaultValue":"$self$","width":"50%"},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
@@ -31,44 +31,37 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 - **Distance**  
 - **From**  
 - **True**  
-- **Else**  
 - **False**  
 
 ## If Actor Facing Direction
 <ScriptEventPreview title={"If Actor Facing Direction"} fields={[{"key":"actorId","type":"actor","defaultValue":"$self$"},{"key":"direction","type":"direction","defaultValue":"up"},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **True**  
-- **Else**  
 - **False**  
 
 ## If Actor Relative To Actor
 <ScriptEventPreview title={"If Actor Relative To Actor"} fields={[{"key":"actorId","type":"actor","defaultValue":"player"},{"key":"operation","type":"select","options":[["up","Is Above"],["down","Is Below"],["left","Is Left of"],["right","Is Right of"]],"defaultValue":"up","width":"50%"},{"key":"otherActorId","type":"actor","defaultValue":"$self$"},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **True**  
-- **Else**  
 - **False**  
 
 ## If Color Mode Is Available
 <ScriptEventPreview title={"If Color Mode Is Available"} fields={[{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **True**  
-- **Else**  
 - **False**  
 
 ## If Game Data Saved
 <ScriptEventPreview title={"If Game Data Saved"} fields={[{"key":"saveSlot","label":"Save Slot","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0},{"label":"Run if player has saved a game."},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Save Slot**  
-- **Run if player has saved a game.**  
 - **True**  
-- **Else**  
 - **False**  
 
 ## If GBA Mode Is Available
 <ScriptEventPreview title={"If GBA Mode Is Available"} fields={[{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **True**  
-- **Else**  
 - **False**  
 
 ## If Joypad Input Held
@@ -76,56 +69,48 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 - **Any of**  
 - **True**  
-- **Else**  
 - **False**  
 
 ## If Math Expression
 <ScriptEventPreview title={"If Math Expression"} fields={[{"key":"expression","type":"matharea","rows":5,"placeholder":"e.g. $health >= 0...","defaultValue":""},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **True**  
-- **Else**  
 - **False**  
 
 ## If Super GB Mode Is Available
 <ScriptEventPreview title={"If Super GB Mode Is Available"} fields={[{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **True**  
-- **Else**  
 - **False**  
 
 ## If Variable Compare With Value
 <ScriptEventPreview title={"If Variable Compare With Value"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operator","type":"operator","width":"50%","defaultValue":"=="},{"key":"comparator","type":"number","min":-32768,"max":32767,"width":"50%","defaultValue":"0"},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **True**  
-- **Else**  
 - **False**  
 
 ## If Variable Compare With Variable
 <ScriptEventPreview title={"If Variable Compare With Variable"} fields={[{"key":"vectorX","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operator","type":"operator","width":"50%","defaultValue":"=="},{"key":"vectorY","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **True**  
-- **Else**  
 - **False**  
 
 ## If Variable Has Flag
 <ScriptEventPreview title={"If Variable Has Flag"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"flag","type":"select","options":[[0,"Flag 1"],[1,"Flag 2"],[2,"Flag 3"],[3,"Flag 4"],[4,"Flag 5"],[5,"Flag 6"],[6,"Flag 7"],[7,"Flag 8"],[8,"Flag 9"],[9,"Flag 10"],[10,"Flag 11"],[11,"Flag 12"],[12,"Flag 13"],[13,"Flag 14"],[14,"Flag 15"],[15,"Flag 16"]],"defaultValue":0},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **True**  
-- **Else**  
 - **False**  
 
 ## If Variable Is 'False'
 <ScriptEventPreview title={"If Variable Is 'False'"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **True**  
-- **Else**  
 - **False**  
 
 ## If Variable Is 'True'
 <ScriptEventPreview title={"If Variable Is 'True'"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **True**  
-- **Else**  
 - **False**  
 
 ## Loop
@@ -149,43 +134,25 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 ## Stop Script
 <ScriptEventPreview title={"Stop Script"} fields={[{"label":"Stops current script from running."}]} />
 
-- **Stops current script from running.**  
 
 ## Switch
 <ScriptEventPreview title={"Switch"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"choices","label":"Number of options","type":"number","min":1,"max":16,"defaultValue":2},{"key":"__collapseCase0","label":"When: $$value0$$","conditions":[{"key":"choices","gt":0}],"type":"collapsable","defaultValue":false},{"key":"value0","label":"Value","conditions":[{"key":"__collapseCase0","ne":true},{"key":"choices","gt":0}],"type":"number","min":-32768,"max":32767,"defaultValue":1},{"key":"true0","conditions":[{"key":"__collapseCase0","ne":true},{"key":"choices","gt":0}],"type":"events"},{"key":"__collapseCase1","label":"When: $$value1$$","conditions":[{"key":"choices","gt":1}],"type":"collapsable","defaultValue":false},{"key":"value1","label":"Value","conditions":[{"key":"__collapseCase1","ne":true},{"key":"choices","gt":1}],"type":"number","min":-32768,"max":32767,"defaultValue":2},{"key":"true1","conditions":[{"key":"__collapseCase1","ne":true},{"key":"choices","gt":1}],"type":"events"},{"key":"__collapseCase2","label":"When: $$value2$$","conditions":[{"key":"choices","gt":2}],"type":"collapsable","defaultValue":false},{"key":"value2","label":"Value","conditions":[{"key":"__collapseCase2","ne":true},{"key":"choices","gt":2}],"type":"number","min":-32768,"max":32767,"defaultValue":3},{"key":"true2","conditions":[{"key":"__collapseCase2","ne":true},{"key":"choices","gt":2}],"type":"events"},{"key":"__collapseCase3","label":"When: $$value3$$","conditions":[{"key":"choices","gt":3}],"type":"collapsable","defaultValue":false},{"key":"value3","label":"Value","conditions":[{"key":"__collapseCase3","ne":true},{"key":"choices","gt":3}],"type":"number","min":-32768,"max":32767,"defaultValue":4},{"key":"true3","conditions":[{"key":"__collapseCase3","ne":true},{"key":"choices","gt":3}],"type":"events"},{"key":"__collapseCase4","label":"When: $$value4$$","conditions":[{"key":"choices","gt":4}],"type":"collapsable","defaultValue":false},{"key":"value4","label":"Value","conditions":[{"key":"__collapseCase4","ne":true},{"key":"choices","gt":4}],"type":"number","min":-32768,"max":32767,"defaultValue":5},{"key":"true4","conditions":[{"key":"__collapseCase4","ne":true},{"key":"choices","gt":4}],"type":"events"},{"key":"__collapseCase5","label":"When: $$value5$$","conditions":[{"key":"choices","gt":5}],"type":"collapsable","defaultValue":false},{"key":"value5","label":"Value","conditions":[{"key":"__collapseCase5","ne":true},{"key":"choices","gt":5}],"type":"number","min":-32768,"max":32767,"defaultValue":6},{"key":"true5","conditions":[{"key":"__collapseCase5","ne":true},{"key":"choices","gt":5}],"type":"events"},{"key":"__collapseCase6","label":"When: $$value6$$","conditions":[{"key":"choices","gt":6}],"type":"collapsable","defaultValue":false},{"key":"value6","label":"Value","conditions":[{"key":"__collapseCase6","ne":true},{"key":"choices","gt":6}],"type":"number","min":-32768,"max":32767,"defaultValue":7},{"key":"true6","conditions":[{"key":"__collapseCase6","ne":true},{"key":"choices","gt":6}],"type":"events"},{"key":"__collapseCase7","label":"When: $$value7$$","conditions":[{"key":"choices","gt":7}],"type":"collapsable","defaultValue":false},{"key":"value7","label":"Value","conditions":[{"key":"__collapseCase7","ne":true},{"key":"choices","gt":7}],"type":"number","min":-32768,"max":32767,"defaultValue":8},{"key":"true7","conditions":[{"key":"__collapseCase7","ne":true},{"key":"choices","gt":7}],"type":"events"},{"key":"__collapseCase8","label":"When: $$value8$$","conditions":[{"key":"choices","gt":8}],"type":"collapsable","defaultValue":false},{"key":"value8","label":"Value","conditions":[{"key":"__collapseCase8","ne":true},{"key":"choices","gt":8}],"type":"number","min":-32768,"max":32767,"defaultValue":9},{"key":"true8","conditions":[{"key":"__collapseCase8","ne":true},{"key":"choices","gt":8}],"type":"events"},{"key":"__collapseCase9","label":"When: $$value9$$","conditions":[{"key":"choices","gt":9}],"type":"collapsable","defaultValue":false},{"key":"value9","label":"Value","conditions":[{"key":"__collapseCase9","ne":true},{"key":"choices","gt":9}],"type":"number","min":-32768,"max":32767,"defaultValue":10},{"key":"true9","conditions":[{"key":"__collapseCase9","ne":true},{"key":"choices","gt":9}],"type":"events"},{"key":"__collapseCase10","label":"When: $$value10$$","conditions":[{"key":"choices","gt":10}],"type":"collapsable","defaultValue":false},{"key":"value10","label":"Value","conditions":[{"key":"__collapseCase10","ne":true},{"key":"choices","gt":10}],"type":"number","min":-32768,"max":32767,"defaultValue":11},{"key":"true10","conditions":[{"key":"__collapseCase10","ne":true},{"key":"choices","gt":10}],"type":"events"},{"key":"__collapseCase11","label":"When: $$value11$$","conditions":[{"key":"choices","gt":11}],"type":"collapsable","defaultValue":false},{"key":"value11","label":"Value","conditions":[{"key":"__collapseCase11","ne":true},{"key":"choices","gt":11}],"type":"number","min":-32768,"max":32767,"defaultValue":12},{"key":"true11","conditions":[{"key":"__collapseCase11","ne":true},{"key":"choices","gt":11}],"type":"events"},{"key":"__collapseCase12","label":"When: $$value12$$","conditions":[{"key":"choices","gt":12}],"type":"collapsable","defaultValue":false},{"key":"value12","label":"Value","conditions":[{"key":"__collapseCase12","ne":true},{"key":"choices","gt":12}],"type":"number","min":-32768,"max":32767,"defaultValue":13},{"key":"true12","conditions":[{"key":"__collapseCase12","ne":true},{"key":"choices","gt":12}],"type":"events"},{"key":"__collapseCase13","label":"When: $$value13$$","conditions":[{"key":"choices","gt":13}],"type":"collapsable","defaultValue":false},{"key":"value13","label":"Value","conditions":[{"key":"__collapseCase13","ne":true},{"key":"choices","gt":13}],"type":"number","min":-32768,"max":32767,"defaultValue":14},{"key":"true13","conditions":[{"key":"__collapseCase13","ne":true},{"key":"choices","gt":13}],"type":"events"},{"key":"__collapseCase14","label":"When: $$value14$$","conditions":[{"key":"choices","gt":14}],"type":"collapsable","defaultValue":false},{"key":"value14","label":"Value","conditions":[{"key":"__collapseCase14","ne":true},{"key":"choices","gt":14}],"type":"number","min":-32768,"max":32767,"defaultValue":15},{"key":"true14","conditions":[{"key":"__collapseCase14","ne":true},{"key":"choices","gt":14}],"type":"events"},{"key":"__collapseCase15","label":"When: $$value15$$","conditions":[{"key":"choices","gt":15}],"type":"collapsable","defaultValue":false},{"key":"value15","label":"Value","conditions":[{"key":"__collapseCase15","ne":true},{"key":"choices","gt":15}],"type":"number","min":-32768,"max":32767,"defaultValue":16},{"key":"true15","conditions":[{"key":"__collapseCase15","ne":true},{"key":"choices","gt":15}],"type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":false,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Number of options**  
-- **When: $$value0$$**  
 - **Value**  
-- **When: $$value1$$**  
 - **Value**  
-- **When: $$value2$$**  
 - **Value**  
-- **When: $$value3$$**  
 - **Value**  
-- **When: $$value4$$**  
 - **Value**  
-- **When: $$value5$$**  
 - **Value**  
-- **When: $$value6$$**  
 - **Value**  
-- **When: $$value7$$**  
 - **Value**  
-- **When: $$value8$$**  
 - **Value**  
-- **When: $$value9$$**  
 - **Value**  
-- **When: $$value10$$**  
 - **Value**  
-- **When: $$value11$$**  
 - **Value**  
-- **When: $$value12$$**  
 - **Value**  
-- **When: $$value13$$**  
 - **Value**  
-- **When: $$value14$$**  
 - **Value**  
-- **When: $$value15$$**  
 - **Value**  
-- **Else**  
 

@@ -25,17 +25,14 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 ## Link: Close
 <ScriptEventPreview title={"Link: Close"} fields={[{"label":"Close the current link session."}]} />
 
-- **Close the current link session.**  
 
 ## Link: Host
 <ScriptEventPreview title={"Link: Host"} fields={[{"label":"Host a link session."}]} />
 
-- **Host a link session.**  
 
 ## Link: Join
 <ScriptEventPreview title={"Link: Join"} fields={[{"label":"Join a link session."}]} />
 
-- **Join a link session.**  
 
 ## Link: Transfer
 <ScriptEventPreview title={"Link: Transfer"} fields={[{"key":"sendVariable","label":"Send Variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"receiveVariable","label":"Receive Variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"size","label":"Packet Size","type":"number","defaultValue":1}]} />

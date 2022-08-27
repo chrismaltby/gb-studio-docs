@@ -17,14 +17,12 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 <ScriptEventPreview title={"Falls Variable Mit Wert Verglichen"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operator","type":"operator","width":"50%","defaultValue":"=="},{"key":"comparator","type":"number","min":-32768,"max":32767,"width":"50%","defaultValue":"0"},{"key":"true","label":"Wahr","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Wahr**  
-- **Andernfalls**  
 - **Falsch**  
 
 ## Falls Variable Mit Variable Verglichen
 <ScriptEventPreview title={"Falls Variable Mit Variable Verglichen"} fields={[{"key":"vectorX","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operator","type":"operator","width":"50%","defaultValue":"=="},{"key":"vectorY","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"true","label":"Wahr","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Wahr**  
-- **Andernfalls**  
 - **Falsch**  
 
 ## Variable: Mathematische Funktionen
@@ -37,12 +35,10 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 ## Variable: Alle Variablen Auf 'Falsch' Zurücksetzen
 <ScriptEventPreview title={"Variable: Alle Variablen Auf 'Falsch' Zurücksetzen"} fields={[{"label":"ALLE Variablen auf 'Falsch' zurücksetzen."}]} />
 
-- **ALLE Variablen auf 'Falsch' zurücksetzen.**  
 
 ## Seed Zufallszahlengenerator
 <ScriptEventPreview title={"Seed Zufallszahlengenerator"} fields={[{"label":"Platzieren Sie dies als Reaktion auf Benutzereingaben, um sicherzustellen, dass sich die Zufallszahlen zwischen den Durchläufen ändern."}]} />
 
-- **Platzieren Sie dies als Reaktion auf Benutzereingaben, um sicherzustellen, dass sich die Zufallszahlen zwischen den Durchläufen ändern.**  
 
 ## Darsteller: Position In Variablen Speichern
 <ScriptEventPreview title={"Darsteller: Position In Variablen Speichern"} fields={[{"key":"actorId","label":"Darsteller","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"vectorX","type":"variable","label":"X","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"vectorY","type":"variable","label":"Y","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]}]} />
