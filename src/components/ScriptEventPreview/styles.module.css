@@ -241,7 +241,7 @@
 }
 
 .eventsWrapper {
-  border: 1px solid var(--gbs-event-input-border);
+  border: var(--gbs-event-children-border);
   border-right: 0px;
   padding: 10px;
   margin-bottom: 5px;

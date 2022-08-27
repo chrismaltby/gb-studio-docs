@@ -29,10 +29,11 @@
   --gbs-event-button-bg: linear-gradient(to bottom, #fefdfe 0%, #f1f1f1 100%);
   --gbs-event-button-fg: #3b3a3b;
   --gbs-event-button-border: 1px solid #c5c5c5;
+  --gbs-event-children-border: 1px solid #e4e4e4;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
+[data-theme="dark"] {
   --ifm-color-primary: #c92c61;
   --ifm-color-primary-dark: #000000;
   --ifm-color-primary-darker: #1fa588;
@@ -55,7 +56,7 @@
   --gbs-event-button-bg: linear-gradient(to bottom, #6a6d6e 0%, #616364 100%);
   --gbs-event-button-fg: #fbfeff;
   --gbs-event-button-border: 1px solid transparent;
-  
+  --gbs-event-children-border: 1px solid #000000;
 }
 
 .hero--primary {
@@ -65,12 +66,10 @@
 
 .home--social {
   --ifm-hero-background-color: var(--gbs-hero-bg);
-
 }
 
 .button.button--secondary {
   color: var(--ifm-color-primary);
-
 }
 
 .event-preview {
@@ -79,12 +78,12 @@
   margin-top: 20px;
   margin-right: 20px;
   border-radius: 8px;
-  -webkit-filter: drop-shadow(0px 1px 10px rgba(0,0,0,.3));
+  -webkit-filter: drop-shadow(0px 1px 10px rgba(0, 0, 0, 0.3));
 }
 
 .drop-shadow {
   border-radius: 8px;
-  -webkit-filter: drop-shadow(0px 1px 10px rgba(0,0,0,.3));
+  -webkit-filter: drop-shadow(0px 1px 10px rgba(0, 0, 0, 0.3));
 }
 
 .footer__links {
