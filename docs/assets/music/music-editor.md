@@ -2,30 +2,39 @@
 sidebar_position: 1
 ---
 
-# hUGE Driver
+# Music Editor
 
-If you have your _Music Driver_ in the _Settings View_ set to `hUGEDriver` (the default in GB Studio 3 and above) you will need to provide music as `.uge` files.
+If you have your _Music Format_ in the _Settings View_ set to `UGE (hUGEDriver)` (the default in GB Studio 3 and above) you can add music to your game by including `.uge` files in your project's `assets/music` folder. 
+
+Those files can be edited using the `Music Editor` by clicking the `Project View` Button and selecting `Music`. The editor also allows to create new songs by pressing the `+` button on top of the Song list.
+
+>`.uge` files can also be edited using **[hUGETracker](https://nickfa.ro/index.php/HUGETracker)**
 
 ## Getting Started
 
-To compose .uge files you can use
-[hUGETracker](https://nickfa.ro/index.php/HUGETracker) or the
-new music tracker included in GB Studio 3.0. The tracker can be accessed in the Music section of the app. It'll display any `.uge` files in your project's `assets/music` folder. And it also allows you to create new songs by pressing the + button on top of the file list.
+The _Music Editor_ is divided in three parts:
 
-Each song uses 4 channels: Duty 1, Duty 2, Wave and Noise. Each channel can use 15 [instruments](#instruments) with a note pitch
-range from C3 to B8.
+-   **Navigator**: Contains the list of songs and instruments for the selected song
 
-The music editor is divided in three parts:
+-   **Song Composer**: The music editor itself. Has two views: [Piano Roll](#piano-roll) and [Tracker](#tracker). The first icon in the toolbar allows to change views.
 
--   **Left sidebar**: Contains the list of songs and instruments for the selected song
+-   **Editor Sidebar**: Allows to edit the song title, artist name and tempo and also shows the instrument or effect editor when selected.
 
--   **Middle panel**: The music editor itself. Has two views: [Piano Roll](#piano-roll) and [Tracker](#tracker). The first icon in the toolbar allows to change views.
+### Structure of a Song
 
--   **Right sidebar**: Allows to edit the song title, artist name and tempo (measured in ticks per row) and also shows the instrument and effect editor when selected.
+A song consists of:
+
+* Four _Channels_: Duty 1, Duty 2, Wave and Noise. 
+  * Each channel is better suited for a different type of sound (for example: the Noise channel is usually fit for drum rythyms).
+  * Each channel has its own set of 15 _[Instruments](#instruments)_. Duty 1 and Duty 2 share the same set of instruments.  
+* Multiple _Patterns_, a unique group of notes in each of the four channels. 
+  * Each pattern contains a sequence of up to 64 notes per channel, and each note is formed by a pitch ranging from `C-3` to `B-8`, an instrument and an effect.
+  * Patterns can be repeated or arranged to form the full song using the _[Pattern Editor](#pattern-editor)_.
+* A _Tempo_, how many ticks (64 per second) have to elapse before a row is complete. The greater the number of ticks, the slower the song is.
 
 ## Piano Roll
 
-In Piano Roll mode you use the mouse to add notes to a grid. It reads like a music sheet, the time is represented in the horizontal axis (columns) while the note pitch is represented on the vertical axis (rows).
+In Piano Roll mode you use the mouse to add notes to the pattern. It reads like a music sheet, the time is represented in the horizontal axis (columns) while the note pitch is represented on the vertical axis (rows).
 
 <img title="Piano Roll" src="/img/screenshots/music-editor-piano.png" width="1241" />
 
@@ -47,12 +56,11 @@ The song can be saved by pressing the save button or Ctrl/Cmd + S.
 
 ## Tracker
 
-In Tracker mode you use the keyboard to add notes. The song advances
-from top to bottom, with each row representing a position of the song. 
+In Tracker mode you use the keyboard to add notes to the pattern. The song advances from top to bottom, with each row representing a position of the song. 
 
 <img title="Tracker" src="/img/screenshots/music-editor-tracker.png" width="1241" />
 
-There's one column for each channel, and each column is divided in 3 cells: Note, Instrument and Effect. 
+There's one column for each channel, and each column is divided in 3 fields: Pitch (or Note), Instrument and Effect. 
 
 ```
 C-5 01 240
@@ -63,7 +71,7 @@ C-5 01 240
  +------------- Note and octave (A C note in the 5th octave. The dash can be a #, which signifies a sharp note e.g. C#, D#)
 ```
 
-Rows can be empty, or can only be partially filled (with just an effect, for example).
+Rows can be empty, or can be partially filled (with just an effect, for example).
 
 ### Using the Tracker
 
@@ -95,9 +103,7 @@ The song can be previewed at any time by pressing the play button.
 
 The song can be saved by pressing the save button or Ctrl/Cmd + S.
 
-## Patterns
-
-A pattern in the GB Studio music editor is unique group notes in each 4 channels. Patterns can be repeated or arranged to form the full song using the pattern editor.
+## Pattern Editor
 
 <img title="Patterns" src="/img/screenshots/music-editor-patterns.png" width="710" class="drop-shadow" />
 
@@ -178,5 +184,5 @@ manual](https://nickfa.ro/images/HUGETrackerManual.pdf)
 
 ## Keyboard Shortcuts
 
-See [Music Editor > Keyboard Shortcuts](/docs/getting-started/keyboard-shortcuts#music-editor)
+See [Keyboard Shortcuts > Music Editor](/docs/getting-started/keyboard-shortcuts#music-editor)
 
