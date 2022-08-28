@@ -12,8 +12,8 @@ A project can only support one type of music files, this can be configured on th
 
 `.uge` files can be created and edited with the _Music Editor_. 
 
-See the [Music Editor](/docs/assets/music/music-editor) documentation for more information.
+See the [Music Editor](/docs/assets/music/music-huge) documentation for more information.
 
 `.mod` files are created and edited using an external Tracker software. You can select the default application to open when clicking asset edit buttons in the _GB Studio Preferences_ window.
 
-See the [MOD files](/docs/assets/music/music-mod) documentation for more information.
+See the [MOD files](/docs/assets/music/music-gbt) documentation for more information.
