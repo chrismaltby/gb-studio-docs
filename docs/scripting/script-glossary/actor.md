@@ -69,47 +69,54 @@ Conditionally run part of the script if an actor is at a specified position.
 - **False**: The script to run if the condition is false.  
 
 ## If Actor Distance From Actor
-<ScriptEventPreview title={"If Actor Distance From Actor"} fields={[{"key":"actorId","label":"Actor","type":"actor","defaultValue":"player","width":"50%"},{"type":"group","fields":[{"key":"operator","label":"Comparison","type":"operator","width":"50%","defaultValue":"<="},{"key":"distance","label":"Distance","type":"union","types":["number","variable"],"defaultType":"number","min":0,"max":181,"width":"50%","unitsDefault":"tiles","defaultValue":{"number":0,"variable":"LAST_VARIABLE"}}]},{"key":"otherActorId","label":"From","type":"actor","defaultValue":"$self$","width":"50%"},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+Conditionally run part of the script if an actor is within a certain distance of another actor.
+<ScriptEventPreview title={"If Actor Distance From Actor"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to check.","type":"actor","defaultValue":"player","width":"50%"},{"type":"group","fields":[{"key":"operator","label":"Comparison","description":"The comparison operator to use e.g. 'Less Than' or 'Greater Than'.","type":"operator","width":"50%","defaultValue":"<="},{"key":"distance","label":"Distance","description":"The distance value.","type":"union","types":["number","variable"],"defaultType":"number","min":0,"max":181,"width":"50%","unitsDefault":"tiles","defaultValue":{"number":0,"variable":"LAST_VARIABLE"}}]},{"key":"otherActorId","label":"From","description":"The actor to compare distance with.","type":"actor","defaultValue":"$self$","width":"50%"},{"key":"true","label":"True","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Actor**  
-- **Comparison**  
-- **Distance**  
-- **From**  
-- **True**  
-- **False**  
+- **Actor**: The actor you want to check.  
+- **Comparison**: The comparison operator to use e.g. 'Less Than' or 'Greater Than'.  
+- **Distance**: The distance value.  
+- **From**: The actor to compare distance with.  
+- **True**: The script to run if the condition is true.  
+- **False**: The script to run if the condition is false.  
 
 ## If Actor Facing Direction
-<ScriptEventPreview title={"If Actor Facing Direction"} fields={[{"key":"actorId","type":"actor","defaultValue":"$self$"},{"key":"direction","type":"direction","defaultValue":"up"},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+Conditionally run part of the script if an actor is facing in a specified direction.
+<ScriptEventPreview title={"If Actor Facing Direction"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to check.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Direction","description":"The actor direction.","type":"direction","defaultValue":"up"},{"key":"true","label":"True","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **True**  
-- **False**  
+- **Actor**: The actor you want to check.  
+- **Direction**: The actor direction.  
+- **True**: The script to run if the condition is true.  
+- **False**: The script to run if the condition is false.  
 
 ## If Actor Relative To Actor
-<ScriptEventPreview title={"If Actor Relative To Actor"} fields={[{"key":"actorId","type":"actor","defaultValue":"player"},{"key":"operation","type":"select","options":[["up","Is Above"],["down","Is Below"],["left","Is Left of"],["right","Is Right of"]],"defaultValue":"up","width":"50%"},{"key":"otherActorId","type":"actor","defaultValue":"$self$"},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+Conditionally run part of the script based on the position of one actor relative to another.
+<ScriptEventPreview title={"If Actor Relative To Actor"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to check.","type":"actor","defaultValue":"player"},{"key":"operation","label":"Comparison","description":"The relative position comparison to use e.g. 'Is Above' or 'Is Below'.","type":"select","options":[["up","Is Above"],["down","Is Below"],["left","Is Left of"],["right","Is Right of"]],"defaultValue":"up","width":"50%"},{"key":"otherActorId","label":"Other Actor","description":"The actor to compare position with.","type":"actor","defaultValue":"$self$"},{"key":"true","label":"True","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **True**  
-- **False**  
+- **Actor**: The actor you want to check.  
+- **Comparison**: The relative position comparison to use e.g. 'Is Above' or 'Is Below'.  
+- **Other Actor**: The actor to compare position with.  
+- **True**: The script to run if the condition is true.  
+- **False**: The script to run if the condition is false.  
 
 ## Launch Projectile
-<ScriptEventPreview title={"Launch Projectile"} fields={[{"type":"group","fields":[{"key":"spriteSheetId","type":"sprite","label":"Sprite Sheet","defaultValue":"LAST_SPRITE"},{"key":"spriteStateId","type":"animationstate","label":"Animation State","defaultValue":""}]},{"key":"actorId","type":"actor","label":"Source","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"Offset X","type":"number","min":-256,"max":256,"width":"50%","defaultValue":0},{"key":"y","label":"Offset Y","type":"number","min":-256,"max":256,"width":"50%","defaultValue":0}]},{"type":"group","width":"50%","fields":[{"key":"otherActorId","label":"Direction","type":"actor","defaultValue":"$self$","conditions":[{"key":"directionType","eq":"actor"}]},{"key":"direction","label":"Direction","type":"direction","defaultValue":"right","conditions":[{"key":"directionType","eq":"direction"}]},{"key":"angle","label":"Angle","type":"number","defaultValue":0,"conditions":[{"key":"directionType","eq":"angle"}]},{"key":"angleVariable","label":"Angle","type":"variable","defaultValue":"LAST_VARIABLE","conditions":[{"key":"directionType","eq":"anglevar"}]},{"key":"directionType","type":"selectbutton","options":[["direction","Fixed Direction"],["actor","Actor Direction"],["angle","Angle"],["anglevar","Angle Variable"]],"inline":true,"defaultValue":"direction"}]},{"key":"initialOffset","label":"Direction Offset","type":"number","min":0,"max":256,"width":"50%","defaultValue":0},{"type":"group","fields":[{"key":"speed","label":"Speed","type":"moveSpeed","allowNone":true,"defaultValue":2,"width":"50%"},{"key":"animSpeed","label":"Animation Speed","type":"animSpeed","defaultValue":15,"width":"50%"}]},{"key":"lifeTime","label":"Life Time","type":"number","min":0,"max":4,"step":0.1,"width":"50%","defaultValue":1},{"type":"group","fields":[{"key":"loopAnim","label":"Loop Animation","type":"checkbox","alignCheckbox":true,"defaultValue":true},{"key":"destroyOnHit","label":"Destroy On Hit","type":"checkbox","alignCheckbox":true,"defaultValue":true}]},{"type":"group","fields":[{"key":"collisionGroup","label":"Collision Group","type":"collisionMask","width":"50%","includePlayer":false,"defaultValue":"3"},{"key":"collisionMask","label":"Collide With","type":"collisionMask","width":"50%","includePlayer":true,"defaultValue":["1"]}]}]} />
+Launch a projectile from an actor in a specified direction. When a project collides with other actors it will trigger their OnHit scripts.
+<ScriptEventPreview title={"Launch Projectile"} fields={[{"type":"group","fields":[{"key":"spriteSheetId","type":"sprite","label":"Sprite Sheet","description":"The sprite to use for rendering the projectile.","defaultValue":"LAST_SPRITE"},{"key":"spriteStateId","type":"animationstate","label":"Animation State","description":"The sprite's animation state to use.","defaultValue":""}]},{"key":"actorId","type":"actor","label":"Source","description":"The actor to launch the projectile from.","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"Offset X","description":"The horizontal offset from the source actors position to start launching the projectile.","type":"number","min":-256,"max":256,"width":"50%","defaultValue":0},{"key":"y","label":"Offset Y","description":"The vertical offset from the source actors position to start launching the projectile.","type":"number","min":-256,"max":256,"width":"50%","defaultValue":0}]},{"type":"group","width":"50%","fields":[{"key":"otherActorId","label":"Direction","description":"The direction to launch the projectile. Can either be a fixed direction or based on an actor's current direction.","type":"actor","defaultValue":"$self$","conditions":[{"key":"directionType","eq":"actor"}]},{"key":"direction","label":"Direction","description":"The direction to launch the projectile. Can either be a fixed direction or based on an actor's current direction.","type":"direction","defaultValue":"right","conditions":[{"key":"directionType","eq":"direction"}]},{"key":"angle","label":"Angle","description":"The angle to launch the projectile.","type":"number","defaultValue":0,"conditions":[{"key":"directionType","eq":"angle"}]},{"key":"angleVariable","label":"Angle","description":"The angle to launch the projectile.","type":"variable","defaultValue":"LAST_VARIABLE","conditions":[{"key":"directionType","eq":"anglevar"}]},{"key":"directionType","type":"selectbutton","options":[["direction","Fixed Direction"],["actor","Actor Direction"],["angle","Angle"],["anglevar","Angle Variable"]],"inline":true,"defaultValue":"direction"}]},{"key":"initialOffset","label":"Direction Offset","description":"The distance the projectile should move from launch position in its launch direction before becoming visible.","type":"number","min":0,"max":256,"width":"50%","defaultValue":0},{"type":"group","fields":[{"key":"speed","label":"Speed","description":"The movement speed.","type":"moveSpeed","allowNone":true,"defaultValue":2,"width":"50%"},{"key":"animSpeed","label":"Animation Speed","description":"The animation speed.","type":"animSpeed","defaultValue":15,"width":"50%"}]},{"key":"lifeTime","label":"Life Time","description":"The amount of time in seconds that the projectile will live for.","type":"number","min":0,"max":4,"step":0.1,"width":"50%","defaultValue":1},{"type":"group","fields":[{"key":"loopAnim","label":"Loop Animation","description":"Set if animation should loop.","type":"checkbox","alignCheckbox":true,"defaultValue":true},{"key":"destroyOnHit","label":"Destroy On Hit","description":"Set if the projectile should be destroyed after its first collision.","type":"checkbox","alignCheckbox":true,"defaultValue":true}]},{"type":"group","fields":[{"key":"collisionGroup","label":"Collision Group","description":"The collision group that should be used when registering collisions with actors.","type":"collisionMask","width":"50%","includePlayer":false,"defaultValue":"3"},{"key":"collisionMask","label":"Collide With","description":"The groups of actors that will be checked for collisions. e.g. If it should pass through any actors but the player set this field to just 'Player'.","type":"collisionMask","width":"50%","includePlayer":true,"defaultValue":["1"]}]}]} />
 
-- **Sprite Sheet**  
-- **Animation State**  
-- **Source**  
-- **Offset X**  
-- **Offset Y**  
-- **Direction**  
-- **Direction**  
-- **Angle**  
-- **Angle**  
-- **Direction Offset**  
-- **Speed**  
-- **Animation Speed**  
-- **Life Time**  
-- **Loop Animation**  
-- **Destroy On Hit**  
-- **Collision Group**  
-- **Collide With**  
+- **Sprite Sheet**: The sprite to use for rendering the projectile.  
+- **Animation State**: The sprite's animation state to use.  
+- **Source**: The actor to launch the projectile from.  
+- **Offset X**: The horizontal offset from the source actors position to start launching the projectile.  
+- **Offset Y**: The vertical offset from the source actors position to start launching the projectile.  
+- **Direction**: The direction to launch the projectile. Can either be a fixed direction or based on an actor's current direction.  
+- **Angle**: The angle to launch the projectile.  
+- **Direction Offset**: The distance the projectile should move from launch position in its launch direction before becoming visible.  
+- **Speed**: The movement speed.  
+- **Animation Speed**: The animation speed.  
+- **Life Time**: The amount of time in seconds that the projectile will live for.  
+- **Loop Animation**: Set if animation should loop.  
+- **Destroy On Hit**: Set if the projectile should be destroyed after its first collision.  
+- **Collision Group**: The collision group that should be used when registering collisions with actors.  
+- **Collide With**: The groups of actors that will be checked for collisions. e.g. If it should pass through any actors but the player set this field to just 'Player'.  
 
 ## Player Bounce
 <ScriptEventPreview title={"Player Bounce"} fields={[{"key":"height","type":"select","label":"Height","options":[["low","Low"],["medium","Medium"],["high","High"]],"defaultValue":"medium"},{"label":"Affects Platform scenes only"}]} />
