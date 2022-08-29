@@ -26,11 +26,12 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 - **On Save**  
 
 ## If Game Data Saved
-<ScriptEventPreview title={"If Game Data Saved"} fields={[{"key":"saveSlot","label":"Save Slot","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0},{"label":"Run if player has saved a game."},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+Conditionally run part of the script if save data is present within the specified save slot.
+<ScriptEventPreview title={"If Game Data Saved"} fields={[{"key":"saveSlot","label":"Save Slot","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0},{"label":"Run if player has saved a game."},{"key":"true","label":"True","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Save Slot**  
-- **True**  
-- **False**  
+- **Save Slot**: The save slot to use.  
+- **True**: The script to run if the condition is true.  
+- **False**: The script to run if the condition is false.  
 
 ## Store Variable from Game Data In Variable
 <ScriptEventPreview title={"Store Variable from Game Data In Variable"} fields={[{"key":"variableDest","label":"Set Variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"To Variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"From Save Slot","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0}]}]} />

@@ -10,42 +10,58 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 # Variablen
 
 ## Matheausdruck auswerten
-<ScriptEventPreview title={"Matheausdruck auswerten"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
+Set a variable to the result of evaluating a math expression.
 
+**Referenzen**  
+[/docs/scripting/math-expressions](/docs/scripting/math-expressions)<ScriptEventPreview title={"Matheausdruck auswerten"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Expression","description":"The expression to evaluate.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
+
+- **Variable**: The variable to use.  
+- **Expression**: The expression to evaluate.  
 
 ## Falls Variable Mit Wert Verglichen
-<ScriptEventPreview title={"Falls Variable Mit Wert Verglichen"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operator","type":"operator","width":"50%","defaultValue":"=="},{"key":"comparator","type":"number","min":-32768,"max":32767,"width":"50%","defaultValue":"0"},{"key":"true","label":"Wahr","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+Conditionally run part of the script based on the value of a variable compared with a value.
+<ScriptEventPreview title={"Falls Variable Mit Wert Verglichen"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operator","label":"Comparison","description":"The comparison operator to use e.g. 'Less Than' or 'Greater Than'.","type":"operator","width":"50%","defaultValue":"=="},{"key":"comparator","label":"VWert","description":"The value to compare with.","type":"number","min":-32768,"max":32767,"width":"50%","defaultValue":"0"},{"key":"true","label":"Wahr","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Wahr**  
-- **Falsch**  
+- **Variable**: The variable to use.  
+- **Comparison**: The comparison operator to use e.g. 'Less Than' or 'Greater Than'.  
+- **VWert**: The value to compare with.  
+- **Wahr**: The script to run if the condition is true.  
+- **Falsch**: The script to run if the condition is false.  
 
 ## Falls Variable Mit Variable Verglichen
-<ScriptEventPreview title={"Falls Variable Mit Variable Verglichen"} fields={[{"key":"vectorX","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operator","type":"operator","width":"50%","defaultValue":"=="},{"key":"vectorY","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"true","label":"Wahr","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+Conditionally run part of the script based on the value of a variable compared with another variable.
+<ScriptEventPreview title={"Falls Variable Mit Variable Verglichen"} fields={[{"key":"vectorX","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operator","label":"Comparison","description":"The comparison operator to use e.g. 'Less Than' or 'Greater Than'.","type":"operator","width":"50%","defaultValue":"=="},{"key":"vectorY","label":"Other Variable","description":"The variable to compare with.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"true","label":"Wahr","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Wahr**  
-- **Falsch**  
+- **Variable**: The variable to use.  
+- **Comparison**: The comparison operator to use e.g. 'Less Than' or 'Greater Than'.  
+- **Other Variable**: The variable to compare with.  
+- **Wahr**: The script to run if the condition is true.  
+- **Falsch**: The script to run if the condition is false.  
 
 ## Variable: Mathematische Funktionen
-<ScriptEventPreview title={"Variable: Mathematische Funktionen"} fields={[{"key":"vectorX","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operation","type":"select","options":[["set","Einstellen"],["add","Hinzufügen"],["sub","Subtrahieren"],["mul","Multiplizieren"],["div","Teilen"],["mod","Modulus"]],"defaultValue":"set","width":"50%"},{"key":"other","type":"select","options":[["true","Wahr"],["false","Falsch"],["var","Variable"],["val","VWert"],["rnd","Zufällig"]],"defaultValue":"true","width":"50%"},{"key":"vectorY","type":"variable","conditions":[{"key":"other","eq":"var"}],"defaultValue":"LAST_VARIABLE"},{"key":"value","type":"number","conditions":[{"key":"other","eq":"val"}],"min":-32768,"max":32767,"defaultValue":"0"},{"key":"minValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Minimaler Wert","defaultValue":"0","width":"50%"},{"key":"maxValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Maximaler Wert","defaultValue":"32767","width":"50%"},{"key":"clamp","type":"checkbox","label":"Klammerwert zwischen 0 und 255","conditions":[{"key":"operation","in":["add","sub","mul"]}],"defaultValue":false,"alignCheckbox":true}]} />
+Allows you to perform various maths functions on a variable to add/subtract/multiply/divide/modulus a value/variable/random number.
+<ScriptEventPreview title={"Variable: Mathematische Funktionen"} fields={[{"key":"vectorX","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operation","label":"Operation","description":"The operation to use for modifying the variable value.","type":"select","options":[["set","Einstellen"],["add","Hinzufügen"],["sub","Subtrahieren"],["mul","Multiplizieren"],["div","Teilen"],["mod","Modulus"]],"defaultValue":"set","width":"50%"},{"key":"other","label":"VWert","description":"The value to combine with the variable using the selected operation.","type":"select","options":[["true","Wahr"],["false","Falsch"],["var","Variable"],["val","VWert"],["rnd","Zufällig"]],"defaultValue":"true","width":"50%"},{"key":"vectorY","type":"variable","conditions":[{"key":"other","eq":"var"}],"defaultValue":"LAST_VARIABLE"},{"key":"value","type":"number","conditions":[{"key":"other","eq":"val"}],"min":-32768,"max":32767,"defaultValue":"0"},{"type":"group","fields":[{"key":"minValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Minimaler Wert","description":"The minimum value for the random range.","hideFromDocs":true,"defaultValue":"0","width":"50%"},{"key":"maxValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Maximaler Wert","description":"The maximum value for the random range.","hideFromDocs":true,"defaultValue":"32767","width":"50%"}]},{"key":"clamp","type":"checkbox","label":"Klammerwert zwischen 0 und 255","hideFromDocs":true,"conditions":[{"key":"operation","in":["add","sub","mul"]}],"defaultValue":false,"alignCheckbox":true}]} />
 
-- **Minimaler Wert**  
-- **Maximaler Wert**  
-- **Klammerwert zwischen 0 und 255**  
+- **Variable**: The variable to use.  
+- **Operation**: The operation to use for modifying the variable value.  
+- **VWert**: The value to combine with the variable using the selected operation.  
 
 ## Variable: Alle Variablen Auf 'Falsch' Zurücksetzen
 <ScriptEventPreview title={"Variable: Alle Variablen Auf 'Falsch' Zurücksetzen"} fields={[{"label":"ALLE Variablen auf 'Falsch' zurücksetzen."}]} />
 
 
 ## Seed Zufallszahlengenerator
+Place this to run in response to user input to ensure random numbers change between playthroughs.
 <ScriptEventPreview title={"Seed Zufallszahlengenerator"} fields={[{"label":"Platzieren Sie dies als Reaktion auf Benutzereingaben, um sicherzustellen, dass sich die Zufallszahlen zwischen den Durchläufen ändern."}]} />
 
 
 ## Darsteller: Position In Variablen Speichern
-<ScriptEventPreview title={"Darsteller: Position In Variablen Speichern"} fields={[{"key":"actorId","label":"Darsteller","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"vectorX","type":"variable","label":"X","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"vectorY","type":"variable","label":"Y","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]}]} />
+Store the current position of an actor within two variables, one to store the horizontal position and another to store the vertical position.
+<ScriptEventPreview title={"Darsteller: Position In Variablen Speichern"} fields={[{"key":"actorId","label":"Darsteller","description":"The actor you want to check.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"vectorX","type":"variable","label":"X","description":"The variable to use for the horizontal position.","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"vectorY","type":"variable","label":"Y","description":"The variable to use for the vertical position.","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]}]} />
 
-- **Darsteller**  
-- **X**  
-- **Y**  
+- **Darsteller**: The actor you want to check.  
+- **X**: The variable to use for the horizontal position.  
+- **Y**: The variable to use for the vertical position.  
 
 ## Engine: Einstellungen in Variable speichern
 <ScriptEventPreview title={"Engine: Einstellungen in Variable speichern"} fields={[{"type":"engineField","key":"engineFieldKey"}]} />
@@ -59,72 +75,42 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 - **Von Speicher Slot**  
 
 ## Variable: Um 1 vermindern
-<ScriptEventPreview title={"Variable: Um 1 vermindern"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
+Decrease the value of the specified variable by one.
+<ScriptEventPreview title={"Variable: Um 1 vermindern"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
 
+- **Variable**: The variable to use.  
 
 ## Variable: Add Flags
-<ScriptEventPreview title={"Variable: Add Flags"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flag 1","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flag 2","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flag 3","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flag 4","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flag 5","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flag 6","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flag 7","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flag 8","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flag 9","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flag 10","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flag 11","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flag 12","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flag 13","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flag 14","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flag 15","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flag 16","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false}]} />
+Set selected flags to true on a variable. All unselected flags will keep their previous value.
+<ScriptEventPreview title={"Variable: Add Flags"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flag 1","description":"Set flag 1 to true.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flag 2","description":"Set flag 2 to true.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flag 3","description":"Set flag 3 to true.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flag 4","description":"Set flag 4 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flag 5","description":"Set flag 5 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flag 6","description":"Set flag 6 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flag 7","description":"Set flag 7 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flag 8","description":"Set flag 8 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flag 9","description":"Set flag 9 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flag 10","description":"Set flag 10 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flag 11","description":"Set flag 11 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flag 12","description":"Set flag 12 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flag 13","description":"Set flag 13 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flag 14","description":"Set flag 14 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flag 15","description":"Set flag 15 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flag 16","description":"Set flag 16 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false}]} />
 
-- **Flag 1**  
-- **Flag 2**  
-- **Flag 3**  
-- **Flag 4**  
-- **Flag 5**  
-- **Flag 6**  
-- **Flag 7**  
-- **Flag 8**  
-- **Flag 9**  
-- **Flag 10**  
-- **Flag 11**  
-- **Flag 12**  
-- **Flag 13**  
-- **Flag 14**  
-- **Flag 15**  
-- **Flag 16**  
+- **Flag 1**: Set flag 1 to true.  
+- **Flag 2**: Set flag 2 to true.  
+- **Flag 3**: Set flag 3 to true.  
 
 ## Variable: Flags hinzufügen
-<ScriptEventPreview title={"Variable: Flags hinzufügen"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flag 1","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flag 2","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flag 3","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flag 4","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flag 5","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flag 6","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flag 7","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flag 8","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flag 9","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flag 10","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flag 11","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flag 12","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flag 13","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flag 14","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flag 15","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flag 16","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false}]} />
+Set selected flags to false on a variable. All unselected flags will keep their previous value.
+<ScriptEventPreview title={"Variable: Flags hinzufügen"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flag 1","description":"Set flag 1 to false.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flag 2","description":"Set flag 2 to false.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flag 3","description":"Set flag 3 to false.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flag 4","description":"Set flag 4 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flag 5","description":"Set flag 5 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flag 6","description":"Set flag 6 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flag 7","description":"Set flag 7 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flag 8","description":"Set flag 8 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flag 9","description":"Set flag 9 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flag 10","description":"Set flag 10 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flag 11","description":"Set flag 11 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flag 12","description":"Set flag 12 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flag 13","description":"Set flag 13 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flag 14","description":"Set flag 14 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flag 15","description":"Set flag 15 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flag 16","description":"Set flag 16 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false}]} />
 
-- **Flag 1**  
-- **Flag 2**  
-- **Flag 3**  
-- **Flag 4**  
-- **Flag 5**  
-- **Flag 6**  
-- **Flag 7**  
-- **Flag 8**  
-- **Flag 9**  
-- **Flag 10**  
-- **Flag 11**  
-- **Flag 12**  
-- **Flag 13**  
-- **Flag 14**  
-- **Flag 15**  
-- **Flag 16**  
+- **Variable**: The variable to use.  
+- **Flag 1**: Set flag 1 to false.  
+- **Flag 2**: Set flag 2 to false.  
+- **Flag 3**: Set flag 3 to false.  
 
 ## Variable: Flags setzen
-<ScriptEventPreview title={"Variable: Flags setzen"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flag 1","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flag 2","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flag 3","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flag 4","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flag 5","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flag 6","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flag 7","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flag 8","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flag 9","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flag 10","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flag 11","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flag 12","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flag 13","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flag 14","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flag 15","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flag 16","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false}]} />
+Set the value of a variable by enabling individual bits of the 16-bit number. Allows 16 true/false values to be stored within a single variable. Setting the flags will replace the previous value of the variable.
+<ScriptEventPreview title={"Variable: Flags setzen"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flag 1","description":"Set flag 1 to true.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flag 2","description":"Set flag 2 to true.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flag 3","description":"Set flag 3 to true.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flag 4","description":"Set flag 4 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flag 5","description":"Set flag 5 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flag 6","description":"Set flag 6 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flag 7","description":"Set flag 7 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flag 8","description":"Set flag 8 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flag 9","description":"Set flag 9 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flag 10","description":"Set flag 10 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flag 11","description":"Set flag 11 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flag 12","description":"Set flag 12 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flag 13","description":"Set flag 13 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flag 14","description":"Set flag 14 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flag 15","description":"Set flag 15 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flag 16","description":"Set flag 16 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false}]} />
 
-- **Flag 1**  
-- **Flag 2**  
-- **Flag 3**  
-- **Flag 4**  
-- **Flag 5**  
-- **Flag 6**  
-- **Flag 7**  
-- **Flag 8**  
-- **Flag 9**  
-- **Flag 10**  
-- **Flag 11**  
-- **Flag 12**  
-- **Flag 13**  
-- **Flag 14**  
-- **Flag 15**  
-- **Flag 16**  
+- **Variable**: The variable to use.  
+- **Flag 1**: Set flag 1 to true.  
+- **Flag 2**: Set flag 2 to true.  
+- **Flag 3**: Set flag 3 to true.  
 
 ## Variable: Um 1 erhöhen
-<ScriptEventPreview title={"Variable: Um 1 erhöhen"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
+Increase the value of the specified variable by one.
+<ScriptEventPreview title={"Variable: Um 1 erhöhen"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
 
+- **Variable**: The variable to use.  
 
 ## Variable: Auf 'Falsch' Setzen
 <ScriptEventPreview title={"Variable: Auf 'Falsch' Setzen"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE"}]} />

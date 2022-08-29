@@ -10,12 +10,16 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 # Screen
 
 ## Fade Screen In
-<ScriptEventPreview title={"Fade Screen In"} fields={[{"key":"speed","type":"fadeSpeed","defaultValue":"2"}]} />
+Fade the scene from a blank screen.
+<ScriptEventPreview title={"Fade Screen In"} fields={[{"key":"speed","label":"Speed","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2"}]} />
 
+- **Speed**: The speed of the fade animation.  
 
 ## Fade Screen Out
-<ScriptEventPreview title={"Fade Screen Out"} fields={[{"key":"speed","type":"fadeSpeed","defaultValue":"2"}]} />
+Fade the scene to a blank screen.
+<ScriptEventPreview title={"Fade Screen Out"} fields={[{"key":"speed","label":"Speed","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2"}]} />
 
+- **Speed**: The speed of the fade animation.  
 
 ## Hide Overlay
 <ScriptEventPreview title={"Hide Overlay"} fields={[{"label":"Hides overlay window from screen."}]} />

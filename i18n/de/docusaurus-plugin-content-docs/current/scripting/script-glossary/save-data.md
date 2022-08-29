@@ -26,11 +26,12 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 - **Beim Speichern**  
 
 ## Falls Spieldaten Gespeichert
-<ScriptEventPreview title={"Falls Spieldaten Gespeichert"} fields={[{"key":"saveSlot","label":"Speichere Slot","type":"togglebuttons","options":[[0,"Slot 1","Speichere Slot 1"],[1,"Slot 2","Speichere Slot 2"],[2,"Slot 3","Speichere Slot 3"]],"allowNone":false,"defaultValue":0},{"label":"Ausführen, falls der Spieler ein Spiel gespeichert hat."},{"key":"true","label":"Wahr","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+Conditionally run part of the script if save data is present within the specified save slot.
+<ScriptEventPreview title={"Falls Spieldaten Gespeichert"} fields={[{"key":"saveSlot","label":"Speichere Slot","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Slot 1","Speichere Slot 1"],[1,"Slot 2","Speichere Slot 2"],[2,"Slot 3","Speichere Slot 3"]],"allowNone":false,"defaultValue":0},{"label":"Ausführen, falls der Spieler ein Spiel gespeichert hat."},{"key":"true","label":"Wahr","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Speichere Slot**  
-- **Wahr**  
-- **Falsch**  
+- **Speichere Slot**: The save slot to use.  
+- **Wahr**: The script to run if the condition is true.  
+- **Falsch**: The script to run if the condition is false.  
 
 ## Variable aus Spieldaten in Variable speichern
 <ScriptEventPreview title={"Variable aus Spieldaten in Variable speichern"} fields={[{"key":"variableDest","label":"Variable festlegen","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"Zu Variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"Von Speicher Slot","type":"togglebuttons","options":[[0,"Slot 1","Speichere Slot 1"],[1,"Slot 2","Speichere Slot 2"],[2,"Slot 3","Speichere Slot 3"]],"allowNone":false,"defaultValue":0}]}]} />

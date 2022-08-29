@@ -10,23 +10,34 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 # Mathe
 
 ## Matheausdruck auswerten
-<ScriptEventPreview title={"Matheausdruck auswerten"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
+Set a variable to the result of evaluating a math expression.
 
+**Referenzen**  
+[/docs/scripting/math-expressions](/docs/scripting/math-expressions)<ScriptEventPreview title={"Matheausdruck auswerten"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Expression","description":"The expression to evaluate.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
+
+- **Variable**: The variable to use.  
+- **Expression**: The expression to evaluate.  
 
 ## Wenn Matheausdruck
-<ScriptEventPreview title={"Wenn Matheausdruck"} fields={[{"key":"expression","type":"matharea","rows":5,"placeholder":"e.g. $health >= 0...","defaultValue":""},{"key":"true","label":"Wahr","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+Conditionally execute part of the script if the specified math expression evaluates to true.
 
-- **Wahr**  
-- **Falsch**  
+**Referenzen**  
+[/docs/scripting/math-expressions](/docs/scripting/math-expressions)<ScriptEventPreview title={"Wenn Matheausdruck"} fields={[{"key":"expression","label":"Expression","description":"The expression to evaluate.","type":"matharea","rows":5,"placeholder":"e.g. $health >= 0...","defaultValue":""},{"key":"true","label":"Wahr","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Expression**: The expression to evaluate.  
+- **Wahr**: The script to run if the condition is true.  
+- **Falsch**: The script to run if the condition is false.  
 
 ## Variable: Mathematische Funktionen
-<ScriptEventPreview title={"Variable: Mathematische Funktionen"} fields={[{"key":"vectorX","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operation","type":"select","options":[["set","Einstellen"],["add","Hinzufügen"],["sub","Subtrahieren"],["mul","Multiplizieren"],["div","Teilen"],["mod","Modulus"]],"defaultValue":"set","width":"50%"},{"key":"other","type":"select","options":[["true","Wahr"],["false","Falsch"],["var","Variable"],["val","VWert"],["rnd","Zufällig"]],"defaultValue":"true","width":"50%"},{"key":"vectorY","type":"variable","conditions":[{"key":"other","eq":"var"}],"defaultValue":"LAST_VARIABLE"},{"key":"value","type":"number","conditions":[{"key":"other","eq":"val"}],"min":-32768,"max":32767,"defaultValue":"0"},{"key":"minValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Minimaler Wert","defaultValue":"0","width":"50%"},{"key":"maxValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Maximaler Wert","defaultValue":"32767","width":"50%"},{"key":"clamp","type":"checkbox","label":"Klammerwert zwischen 0 und 255","conditions":[{"key":"operation","in":["add","sub","mul"]}],"defaultValue":false,"alignCheckbox":true}]} />
+Allows you to perform various maths functions on a variable to add/subtract/multiply/divide/modulus a value/variable/random number.
+<ScriptEventPreview title={"Variable: Mathematische Funktionen"} fields={[{"key":"vectorX","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operation","label":"Operation","description":"The operation to use for modifying the variable value.","type":"select","options":[["set","Einstellen"],["add","Hinzufügen"],["sub","Subtrahieren"],["mul","Multiplizieren"],["div","Teilen"],["mod","Modulus"]],"defaultValue":"set","width":"50%"},{"key":"other","label":"VWert","description":"The value to combine with the variable using the selected operation.","type":"select","options":[["true","Wahr"],["false","Falsch"],["var","Variable"],["val","VWert"],["rnd","Zufällig"]],"defaultValue":"true","width":"50%"},{"key":"vectorY","type":"variable","conditions":[{"key":"other","eq":"var"}],"defaultValue":"LAST_VARIABLE"},{"key":"value","type":"number","conditions":[{"key":"other","eq":"val"}],"min":-32768,"max":32767,"defaultValue":"0"},{"type":"group","fields":[{"key":"minValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Minimaler Wert","description":"The minimum value for the random range.","hideFromDocs":true,"defaultValue":"0","width":"50%"},{"key":"maxValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Maximaler Wert","description":"The maximum value for the random range.","hideFromDocs":true,"defaultValue":"32767","width":"50%"}]},{"key":"clamp","type":"checkbox","label":"Klammerwert zwischen 0 und 255","hideFromDocs":true,"conditions":[{"key":"operation","in":["add","sub","mul"]}],"defaultValue":false,"alignCheckbox":true}]} />
 
-- **Minimaler Wert**  
-- **Maximaler Wert**  
-- **Klammerwert zwischen 0 und 255**  
+- **Variable**: The variable to use.  
+- **Operation**: The operation to use for modifying the variable value.  
+- **VWert**: The value to combine with the variable using the selected operation.  
 
 ## Seed Zufallszahlengenerator
+Place this to run in response to user input to ensure random numbers change between playthroughs.
 <ScriptEventPreview title={"Seed Zufallszahlengenerator"} fields={[{"label":"Platzieren Sie dies als Reaktion auf Benutzereingaben, um sicherzustellen, dass sich die Zufallszahlen zwischen den Durchläufen ändern."}]} />
 
 

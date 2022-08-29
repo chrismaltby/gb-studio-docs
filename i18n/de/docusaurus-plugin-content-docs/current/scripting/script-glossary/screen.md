@@ -10,12 +10,16 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 # Bildschirm
 
 ## Bildschirm: Einblenden
-<ScriptEventPreview title={"Bildschirm: Einblenden"} fields={[{"key":"speed","type":"fadeSpeed","defaultValue":"2"}]} />
+Fade the scene from a blank screen.
+<ScriptEventPreview title={"Bildschirm: Einblenden"} fields={[{"key":"speed","label":"Geschwindigkeit","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2"}]} />
 
+- **Geschwindigkeit**: The speed of the fade animation.  
 
 ## Bildschirm: Ausblenden
-<ScriptEventPreview title={"Bildschirm: Ausblenden"} fields={[{"key":"speed","type":"fadeSpeed","defaultValue":"2"}]} />
+Fade the scene to a blank screen.
+<ScriptEventPreview title={"Bildschirm: Ausblenden"} fields={[{"key":"speed","label":"Geschwindigkeit","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2"}]} />
 
+- **Geschwindigkeit**: The speed of the fade animation.  
 
 ## Überlagerung: Ausblenden
 <ScriptEventPreview title={"Überlagerung: Ausblenden"} fields={[{"label":"Blendet das Überlagerung-Fenster vom Bildschirm aus."}]} />

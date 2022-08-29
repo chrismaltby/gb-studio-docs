@@ -47,7 +47,7 @@
   );
   color: var(--gbs-event-header-fg);
   line-height: 12px;
-  margin: 0 -5px;
+  margin: 5px -5px;
   width: calc(100% + 10px);
 }
 
@@ -320,6 +320,8 @@
 
 .tabSelected {
   background: var(--gbs-event-input-bg);
+  border: 1px solid var(--gbs-event-input-border);
+  border-bottom: 0;
 }
 
 .break {

@@ -14,13 +14,13 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 
 ## Sound: Effekt abspielen
-<ScriptEventPreview title={"Sound: Effekt abspielen"} fields={[{"key":"type","type":"soundEffect","label":"Sound-Effekte","defaultValue":"beep","flexBasis":"60%"},{"key":"priority","label":"Priorität","type":"priority","options":[["low","Niedrig"],["medium","Mittel"],["high","Hoch"]],"defaultValue":"medium","flexBasis":"15%"},{"key":"pitch","type":"number","label":"Tonhöhe","conditions":[{"key":"type","eq":"beep"}],"min":1,"max":8,"step":1,"defaultValue":4},{"key":"frequency","type":"number","label":"Frequenz in Hz","conditions":[{"key":"type","eq":"tone"}],"min":0,"max":20000,"step":1,"defaultValue":200},{"key":"duration","type":"number","label":"Duration in seconds","conditions":[{"key":"type","in":["beep","crash","tone"]}],"min":0,"max":4.25,"step":0.01,"defaultValue":0.5},{"key":"wait","type":"checkbox","label":"Warten bis zum Ende","conditions":[{"key":"type","in":["beep","crash","tone"]}],"defaultValue":true,"flexBasis":"100%"},{"key":"effect","type":"number","label":"Effekt Index","min":0,"max":60,"defaultValue":0,"conditions":[{"key":"type","soundType":"fxhammer"}]}]} />
+<ScriptEventPreview title={"Sound: Effekt abspielen"} fields={[{"key":"type","type":"soundEffect","label":"Sound-Effekte","defaultValue":"beep","flexBasis":"60%"},{"key":"priority","label":"Priorität","type":"priority","options":[["low","Niedrig"],["medium","Mittel"],["high","Hoch"]],"defaultValue":"medium","flexBasis":"15%"},{"key":"pitch","type":"number","label":"Tonhöhe","conditions":[{"key":"type","eq":"beep"}],"min":1,"max":8,"step":1,"defaultValue":4},{"key":"frequency","type":"number","label":"Frequenz in Hz","conditions":[{"key":"type","eq":"tone"}],"min":0,"max":20000,"step":1,"defaultValue":200},{"key":"duration","type":"number","label":"Duration","unitsField":"units","unitsDefault":"time","conditions":[{"key":"type","in":["beep","crash","tone"]}],"min":0,"max":4.25,"step":0.01,"defaultValue":0.5},{"key":"wait","type":"checkbox","label":"Warten bis zum Ende","conditions":[{"key":"type","in":["beep","crash","tone"]}],"defaultValue":true,"flexBasis":"100%"},{"key":"effect","type":"number","label":"Effekt Index","min":0,"max":60,"defaultValue":0,"conditions":[{"key":"type","soundType":"fxhammer"}]}]} />
 
 - **Sound-Effekte**  
 - **Priorität**  
 - **Tonhöhe**  
 - **Frequenz in Hz**  
-- **Duration in seconds**  
+- **Duration**  
 - **Warten bis zum Ende**  
 - **Effekt Index**  
 
