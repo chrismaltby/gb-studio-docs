@@ -58,11 +58,11 @@ In this example using a `ヲ` character will now display character 166 from your
 
 **Please note** that as the first 32 ASCII characters are not included in your image you need to account for this in your mapping, for example if you wanted to map the character `?` to the second tile in your `.png` you would set the mapping to be `"?": 33`
 
-## Music Driver
+## Music Format
 
-The music driver chooses which music engine to use in your game, this in turn determines the format of the music files supported in your project.
+The music format chooses which music engine to use in your game, this in turn determines the format of the music files supported in your project.
 
-The recommended setting is `hUGEDriver` (`.uge` files), as this enables you to use the inbuilt music editor, though if you have created a project in GB Studio 2.0 or below you will need to keep this setting as `GBT Player` (`.mod` files) to maintain compatibility with your existing music files. 
+The recommended setting is `UGE (hUGEDriver)` (`.uge` files), as this enables you to use the inbuilt music editor, though if you have created a project in GB Studio 2.0 or below you will need to keep this setting as `MOD (GBT Player)` (`.mod` files) to maintain compatibility with your existing music files. 
 
 <img title="Music Driver" src="/img/screenshots/music-driver.png" width="650" className="drop-shadow" />
 

@@ -79,4 +79,38 @@ These are only available when using the _Colorize tool_.
 
 These are only available when using the _Music Editor_.
 
+**Save Song** - Ctrl/Cmd + S  
+**Play/Pause** - Space  
+**Play from position** - Alt/Option + Space  
+**Switch to Tracker/Piano Roll** - `  
+
+### Tracker
+
+**Navigate grid** - Arrow keys  
+**Next Column** - Tab  
+**Previous Column** - Shift + Tab  
+
+**Cell Selection** - Shift + Arrow Keys *or* Click to set first cell, hold shift, click to set next cell  
+**Select Column** - Ctrl/Cmd + A  
+**Select Pattern** - Ctrl/Cmd + A, Ctrl/Cmd + A   
+**Copy Selection** - Ctrl/Cmd + C  
+**Paste Selection** - Ctrl/Cmd + V  
+**Delete Selection** - Backspace/Delete
+
+**Transpose Selection (small step up)** - Ctrl + = *or* Ctrl + Q  
+**Transpose Selection (small step down)** - Ctrl + - *or* Ctrl + A  
+**Transpose Selection (big step up)** - Ctrl + Shift + = *or* Ctrl + Shift + Q  
+**Transpose Selection (big step down)** - Ctrl + Shift + - *or* Ctrl + Shift + A  
+
+### Piano roll
+
 **Change Instrument** - 1-9  
+**Quick Select** - Shift + drag and drop mouse  
+**Duplicate Selection** - Alt/Option (while moving selected notes)
+
+**Select Channel** - Ctrl/Cmd + A  
+**Copy Selection** - Ctrl/Cmd + C  
+**Paste Selection** - Ctrl/Cmd + V  
+**Paste and Replace Channel** - Ctrl/Cmd + Shift + V  
+**Delete Selection** - Backspace/Delete
+

@@ -1,22 +1,19 @@
+import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
+
 # Music
 
 Music can be played in your game using the [Play Music Track](/docs/scripting/#music-events) event in your *Actor*, *Trigger*, or *Scene* scripts.
 
-<img src="/img/events/music-play-v3.png" className="event-preview" />
+<ScriptEventPreview title={"Play Music Track"} fields={[{"key":"musicId","type":"music","defaultValue":"LAST_MUSIC"}]} />
 
-## Music Driver
+You can add music to your game by including `.uge` or `.mod` files in your project's `assets/music` folder.
 
-Based on the [Music Driver](/docs/settings/#music-driver) that you have set for your project the file format you need to use for music files will be different
+A project can only support one type of music files, this can be configured on the [Settings View](/docs/settings/#music-driver) by selecting either MOD or UGE as the Music Format.
 
-### hUGE Driver
+`.uge` files can be created and edited with the _Music Editor_. 
 
-This is the default and recommended driver for new projects. When using this driver you will need to create `.uge` music files and you will have the ability to edit your music files within GB Studio using the _Music Editor_.
+See the [Music Editor](/docs/assets/music/music-huge) documentation for more information.
 
-See the documentation for using [hUGE Driver](/docs/assets/music/music-huge) for more information.
+`.mod` files are created and edited using an external Tracker software. You can select the default application to open when clicking asset edit buttons in the _GB Studio Preferences_ window.
 
-### GBT Player
-
-This is the driver used for GB Studio 2 and below. When using this driver you will need to create `.mod` music files using external Tracker software.
-
-See the documentation for using [GBT Player](/docs/assets/music/music-gbt) for more information.
-
+See the [MOD files](/docs/assets/music/music-gbt) documentation for more information.

@@ -1,12 +1,6 @@
----
-title: "GBT Player"
-draft: false
-next: "/docs/sound-effects"
-nextTitle: "Sound Effects"
----
+# MOD Music
 
-If you have your _Music Driver_ in the _Settings View_ set to [GBT Player](https://github.com/AntonioND/gbt-player) (the default in GB Studio 2 and below) you will need to provide music as `.mod` files.
-
+If you have your _Music Format_ in the _Settings View_ set to [UGE (GBT Player)](https://github.com/AntonioND/gbt-player) (the default in GB Studio 2 and below) you will need to provide music as `.mod` files.
 
 ## Requirements
 
