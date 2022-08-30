@@ -10,20 +10,23 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 # Save Data
 
 ## Game Data Load
-<ScriptEventPreview title={"Game Data Load"} fields={[{"label":"Load game data from memory."},{"key":"saveSlot","label":"Save Slot","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0}]} />
+Load the saved game data from the selected slot.
+<ScriptEventPreview title={"Game Data Load"} fields={[{"label":"Load game data from memory."},{"key":"saveSlot","label":"Save Slot","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0}]} />
 
-- **Save Slot**  
+- **Save Slot**: The save slot to use.  
 
 ## Game Data Remove
-<ScriptEventPreview title={"Game Data Remove"} fields={[{"label":"Clear all saved game data from memory."},{"key":"saveSlot","label":"Save Slot","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0}]} />
+Remove any previously saved game data in the selected slot.
+<ScriptEventPreview title={"Game Data Remove"} fields={[{"label":"Clear all saved game data from memory."},{"key":"saveSlot","label":"Save Slot","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0}]} />
 
-- **Save Slot**  
+- **Save Slot**: The save slot to use.  
 
 ## Game Data Save
-<ScriptEventPreview title={"Game Data Save"} fields={[{"label":"Save current game data to memory. Requires cartridge type with BATTERY."},{"key":"saveSlot","label":"Save Slot","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0},{"key":"__scriptTabs","type":"tabs","defaultValue":"save","values":{"save":"On Save"}},{"key":"true","label":"On Save","type":"events"}]} />
+Save the current game data into the selected slot.
+<ScriptEventPreview title={"Game Data Save"} fields={[{"label":"Save current game data to memory. Requires cartridge type with BATTERY."},{"key":"saveSlot","label":"Save Slot","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0},{"key":"__scriptTabs","type":"tabs","defaultValue":"save","values":{"save":"On Save"}},{"key":"true","label":"On Save","description":"A script to run after the save is completed. This won't be run on game load so you can use it show a 'Save Was Successful' message.","type":"events"}]} />
 
-- **Save Slot**  
-- **On Save**  
+- **Save Slot**: The save slot to use.  
+- **On Save**: A script to run after the save is completed. This won't be run on game load so you can use it show a 'Save Was Successful' message.  
 
 ## If Game Data Saved
 Conditionally run part of the script if save data is present within the specified save slot.
@@ -34,9 +37,10 @@ Conditionally run part of the script if save data is present within the specifie
 - **False**: The script to run if the condition is false.  
 
 ## Store Variable from Game Data In Variable
-<ScriptEventPreview title={"Store Variable from Game Data In Variable"} fields={[{"key":"variableDest","label":"Set Variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"To Variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"From Save Slot","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0}]}]} />
+Read a variable's value from a specified save slot and store it in a variable.
+<ScriptEventPreview title={"Store Variable from Game Data In Variable"} fields={[{"key":"variableDest","label":"Set Variable","description":"The variable to update.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"To Variable","description":"The variable to read the value of.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"From Save Slot","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0}]}]} />
 
-- **Set Variable**  
-- **To Variable**  
-- **From Save Slot**  
+- **Set Variable**: The variable to update.  
+- **To Variable**: The variable to read the value of.  
+- **From Save Slot**: The save slot to use.  
 

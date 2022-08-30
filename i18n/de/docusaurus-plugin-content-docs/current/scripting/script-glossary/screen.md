@@ -22,18 +22,23 @@ Fade the scene to a blank screen.
 - **Geschwindigkeit**: The speed of the fade animation.  
 
 ## Überlagerung: Ausblenden
+Hides the screen overlay.
 <ScriptEventPreview title={"Überlagerung: Ausblenden"} fields={[{"label":"Blendet das Überlagerung-Fenster vom Bildschirm aus."}]} />
 
 
 ## Überlagerung: Bewegen Zu Position
-<ScriptEventPreview title={"Überlagerung: Bewegen Zu Position"} fields={[{"key":"x","label":"X","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"},{"key":"speed","type":"cameraSpeed","defaultValue":"0"}]} />
+Moves the overlay to a new position on the screen.
+<ScriptEventPreview title={"Überlagerung: Bewegen Zu Position"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"The vertical position.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]},{"key":"speed","label":"Geschwindigkeit","description":"The movement speed.","type":"cameraSpeed","defaultValue":"0"}]} />
 
-- **X**  
-- **Y**  
+- **X**: The horizontal position.  
+- **Y**: The vertical position.  
+- **Geschwindigkeit**: The movement speed.  
 
 ## Überlagerung: Einblenden
-<ScriptEventPreview title={"Überlagerung: Einblenden"} fields={[{"key":"color","type":"overlayColor","defaultValue":"black"},{"key":"x","label":"X","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]} />
+Show either a black or white window over the top of the current game screen. Can be used to obscure and then reveal parts of the scene background for example on the sample project logo screen.
+<ScriptEventPreview title={"Überlagerung: Einblenden"} fields={[{"key":"color","label":"Fill Color","description":"The color to fill the overlay with, either black or white.","type":"overlayColor","defaultValue":"black"},{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"The vertical position.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]}]} />
 
-- **X**  
-- **Y**  
+- **Fill Color**: The color to fill the overlay with, either black or white.  
+- **X**: The horizontal position.  
+- **Y**: The vertical position.  
 

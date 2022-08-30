@@ -26,9 +26,9 @@ Move the camera to a new position.
 
 ## Camera Shake
 Shake the camera for a period of time.
-<ScriptEventPreview title={"Camera Shake"} fields={[{"type":"group","fields":[{"key":"time","type":"number","label":"Duration","description":"Length of time to shake camera for in seconds or frames.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Duration","description":"Length of time to shake camera for in seconds or frames.","type":"number","min":0,"max":3600,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]},{"key":"shakeDirection","label":"Movement Type","description":"Choose if camera should shake only in horizontal or vertical axis or if should shake in both directions.","hideLabel":true,"type":"moveType","defaultValue":"horizontal","flexBasis":30,"flexGrow":0}]}]} />
+<ScriptEventPreview title={"Camera Shake"} fields={[{"type":"group","fields":[{"key":"time","type":"number","label":"Duration","description":"The length of time to shake camera for in seconds or frames.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Duration","description":"The length of time to shake camera for in seconds or frames.","type":"number","min":0,"max":3600,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]},{"key":"shakeDirection","label":"Movement Type","description":"Choose if camera should shake only in horizontal or vertical axis or if should shake in both directions.","hideLabel":true,"type":"moveType","defaultValue":"horizontal","flexBasis":30,"flexGrow":0}]}]} />
 
-- **Duration**: Length of time to shake camera for in seconds or frames.  
+- **Duration**: The length of time to shake camera for in seconds or frames.  
 - **Movement Type**: Choose if camera should shake only in horizontal or vertical axis or if should shake in both directions.  
 
 ## Fade Screen In

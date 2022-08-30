@@ -10,10 +10,18 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 # Engine Beschreibung
 
 ## Engine: Einstellungen aktualisieren
-<ScriptEventPreview title={"Engine: Einstellungen aktualisieren"} fields={[{"type":"engineField","key":"engineFieldKey"}]} />
+Change the value of an Engine Field.
 
+**Referenzen**  
+[/docs/settings/#engine-settings](/docs/settings/#engine-settings)<ScriptEventPreview title={"Engine: Einstellungen aktualisieren"} fields={[{"type":"engineField","label":"Engine Field","description":"The engine field to update.","key":"engineFieldKey"}]} />
+
+- **Engine Field**: The engine field to update.  
 
 ## Engine: Einstellungen in Variable speichern
-<ScriptEventPreview title={"Engine: Einstellungen in Variable speichern"} fields={[{"type":"engineField","key":"engineFieldKey"}]} />
+Store the value of an Engine Field in a variable.
 
+**Referenzen**  
+[/docs/settings/#engine-settings](/docs/settings/#engine-settings)<ScriptEventPreview title={"Engine: Einstellungen in Variable speichern"} fields={[{"type":"engineField","label":"Engine Field","description":"The engine field to read the value of.","key":"engineFieldKey"}]} />
+
+- **Engine Field**: The engine field to read the value of.  
 

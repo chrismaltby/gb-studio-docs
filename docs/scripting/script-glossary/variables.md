@@ -64,15 +64,20 @@ Store the current position of an actor within two variables, one to store the ho
 - **Y**: The variable to use for the vertical position.  
 
 ## Store Engine Field In Variable
-<ScriptEventPreview title={"Store Engine Field In Variable"} fields={[{"type":"engineField","key":"engineFieldKey"}]} />
+Store the value of an Engine Field in a variable.
 
+**References**  
+[/docs/settings/#engine-settings](/docs/settings/#engine-settings)<ScriptEventPreview title={"Store Engine Field In Variable"} fields={[{"type":"engineField","label":"Engine Field","description":"The engine field to read the value of.","key":"engineFieldKey"}]} />
+
+- **Engine Field**: The engine field to read the value of.  
 
 ## Store Variable from Game Data In Variable
-<ScriptEventPreview title={"Store Variable from Game Data In Variable"} fields={[{"key":"variableDest","label":"Set Variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"To Variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"From Save Slot","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0}]}]} />
+Read a variable's value from a specified save slot and store it in a variable.
+<ScriptEventPreview title={"Store Variable from Game Data In Variable"} fields={[{"key":"variableDest","label":"Set Variable","description":"The variable to update.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"To Variable","description":"The variable to read the value of.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"From Save Slot","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0}]}]} />
 
-- **Set Variable**  
-- **To Variable**  
-- **From Save Slot**  
+- **Set Variable**: The variable to update.  
+- **To Variable**: The variable to read the value of.  
+- **From Save Slot**: The save slot to use.  
 
 ## Variable Decrement By 1
 Decrease the value of the specified variable by one.
@@ -82,8 +87,9 @@ Decrease the value of the specified variable by one.
 
 ## Variable Flags Add
 Set selected flags to true on a variable. All unselected flags will keep their previous value.
-<ScriptEventPreview title={"Variable Flags Add"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flag 1","description":"Set flag 1 to true.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flag 2","description":"Set flag 2 to true.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flag 3","description":"Set flag 3 to true.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flag 4","description":"Set flag 4 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flag 5","description":"Set flag 5 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flag 6","description":"Set flag 6 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flag 7","description":"Set flag 7 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flag 8","description":"Set flag 8 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flag 9","description":"Set flag 9 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flag 10","description":"Set flag 10 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flag 11","description":"Set flag 11 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flag 12","description":"Set flag 12 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flag 13","description":"Set flag 13 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flag 14","description":"Set flag 14 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flag 15","description":"Set flag 15 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flag 16","description":"Set flag 16 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false}]} />
+<ScriptEventPreview title={"Variable Flags Add"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flag 1","description":"Set flag 1 to true.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flag 2","description":"Set flag 2 to true.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flag 3","description":"Set flag 3 to true.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flag 4","description":"Set flag 4 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flag 5","description":"Set flag 5 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flag 6","description":"Set flag 6 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flag 7","description":"Set flag 7 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flag 8","description":"Set flag 8 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flag 9","description":"Set flag 9 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flag 10","description":"Set flag 10 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flag 11","description":"Set flag 11 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flag 12","description":"Set flag 12 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flag 13","description":"Set flag 13 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flag 14","description":"Set flag 14 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flag 15","description":"Set flag 15 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flag 16","description":"Set flag 16 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false}]} />
 
+- **Variable**: The variable to use.  
 - **Flag 1**: Set flag 1 to true.  
 - **Flag 2**: Set flag 2 to true.  
 - **Flag 3**: Set flag 3 to true.  
@@ -113,14 +119,21 @@ Increase the value of the specified variable by one.
 - **Variable**: The variable to use.  
 
 ## Variable Set To 'False'
-<ScriptEventPreview title={"Variable Set To 'False'"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
+Set the value of the specified variable to false.
+<ScriptEventPreview title={"Variable Set To 'False'"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
 
+- **Variable**: The variable to use.  
 
 ## Variable Set To 'True'
-<ScriptEventPreview title={"Variable Set To 'True'"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
+Set the value of the specified variable to true.
+<ScriptEventPreview title={"Variable Set To 'True'"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
 
+- **Variable**: The variable to use.  
 
 ## Variable Set To Value
-<ScriptEventPreview title={"Variable Set To Value"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"value","type":"union","types":["number","variable","property"],"defaultType":"number","min":-32768,"max":32767,"defaultValue":{"number":0,"variable":"LAST_VARIABLE","property":"$self$:xpos"}}]} />
+Set the specified variable to a defined value.
+<ScriptEventPreview title={"Variable Set To Value"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"value","label":"Value","description":"The value to set the selected variable to.","type":"union","types":["number","variable","property"],"defaultType":"number","min":-32768,"max":32767,"defaultValue":{"number":0,"variable":"LAST_VARIABLE","property":"$self$:xpos"}}]} />
 
+- **Variable**: The variable to use.  
+- **Value**: The value to set the selected variable to.  
 

@@ -10,27 +10,30 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 # Timer
 
 ## Attach Timer Script
-<ScriptEventPreview title={"Attach Timer Script"} fields={[{"type":"group","fields":[{"key":"duration","type":"number","label":"Seconds","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Frames","type":"number","min":0,"max":3600,"step":16,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]}]},{"key":"__scriptTabs","type":"tabs","defaultValue":"end","values":{"end":"On Tick"}},{"key":"script","label":"On Tick","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"end"]}]}]} />
+Run the specified script repeatedly after a time interval. The script will keep running in the background until a Remove Timer Script event is called or the scene is changed using a Change Scene event.
+<ScriptEventPreview title={"Attach Timer Script"} fields={[{"type":"group","fields":[{"key":"duration","type":"number","label":"Time Interval","description":"The length of time to wait before running the script each time.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Time Interval","description":"The length of time to wait before running the script each time.","type":"number","min":0,"max":3600,"step":16,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]}]},{"key":"__scriptTabs","type":"tabs","defaultValue":"end","values":{"end":"On Tick"}},{"key":"script","label":"On Tick","description":"The script to run when the timer is triggered.","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"end"]}]}]} />
 
-- **Seconds**  
-- **Frames**  
-- **On Tick**  
+- **Time Interval**: The length of time to wait before running the script each time.  
+- **On Tick**: The script to run when the timer is triggered.  
 
 ## Idle
+Pause the script for a single frame.
 <ScriptEventPreview title={"Idle"} fields={[{"label":"Wait until next frame"}]} />
 
 
 ## Remove Timer Script
+Remove the timer script so it will no longer be called.
 <ScriptEventPreview title={"Remove Timer Script"} fields={[{"label":"Disable the timer script"}]} />
 
 
 ## Restart Timer
+Reset the countdown timer back to zero. The script will call again after the time specified originally.
 <ScriptEventPreview title={"Restart Timer"} fields={[{"label":"Restart the countdown timer"}]} />
 
 
 ## Wait
-<ScriptEventPreview title={"Wait"} fields={[{"type":"group","fields":[{"key":"time","type":"number","label":"Seconds","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Frames","type":"number","min":0,"max":3600,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]}]}]} />
+Pause the script for a period of time.
+<ScriptEventPreview title={"Wait"} fields={[{"type":"group","fields":[{"key":"time","type":"number","label":"Duration","description":"The length of time to pause the script for in seconds or frames.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Duration","description":"The length of time to pause the script for in seconds or frames.","type":"number","min":0,"max":3600,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]}]}]} />
 
-- **Seconds**  
-- **Frames**  
+- **Duration**: The length of time to pause the script for in seconds or frames.  
 

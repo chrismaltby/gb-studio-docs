@@ -64,15 +64,20 @@ Store the current position of an actor within two variables, one to store the ho
 - **Y**: The variable to use for the vertical position.  
 
 ## Engine: Einstellungen in Variable speichern
-<ScriptEventPreview title={"Engine: Einstellungen in Variable speichern"} fields={[{"type":"engineField","key":"engineFieldKey"}]} />
+Store the value of an Engine Field in a variable.
 
+**Referenzen**  
+[/docs/settings/#engine-settings](/docs/settings/#engine-settings)<ScriptEventPreview title={"Engine: Einstellungen in Variable speichern"} fields={[{"type":"engineField","label":"Engine Field","description":"The engine field to read the value of.","key":"engineFieldKey"}]} />
+
+- **Engine Field**: The engine field to read the value of.  
 
 ## Variable aus Spieldaten in Variable speichern
-<ScriptEventPreview title={"Variable aus Spieldaten in Variable speichern"} fields={[{"key":"variableDest","label":"Variable festlegen","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"Zu Variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"Von Speicher Slot","type":"togglebuttons","options":[[0,"Slot 1","Speichere Slot 1"],[1,"Slot 2","Speichere Slot 2"],[2,"Slot 3","Speichere Slot 3"]],"allowNone":false,"defaultValue":0}]}]} />
+Read a variable's value from a specified save slot and store it in a variable.
+<ScriptEventPreview title={"Variable aus Spieldaten in Variable speichern"} fields={[{"key":"variableDest","label":"Variable festlegen","description":"The variable to update.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"Zu Variable","description":"The variable to read the value of.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"Von Speicher Slot","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Slot 1","Speichere Slot 1"],[1,"Slot 2","Speichere Slot 2"],[2,"Slot 3","Speichere Slot 3"]],"allowNone":false,"defaultValue":0}]}]} />
 
-- **Variable festlegen**  
-- **Zu Variable**  
-- **Von Speicher Slot**  
+- **Variable festlegen**: The variable to update.  
+- **Zu Variable**: The variable to read the value of.  
+- **Von Speicher Slot**: The save slot to use.  
 
 ## Variable: Um 1 vermindern
 Decrease the value of the specified variable by one.
@@ -82,8 +87,9 @@ Decrease the value of the specified variable by one.
 
 ## Variable: Add Flags
 Set selected flags to true on a variable. All unselected flags will keep their previous value.
-<ScriptEventPreview title={"Variable: Add Flags"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flag 1","description":"Set flag 1 to true.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flag 2","description":"Set flag 2 to true.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flag 3","description":"Set flag 3 to true.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flag 4","description":"Set flag 4 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flag 5","description":"Set flag 5 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flag 6","description":"Set flag 6 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flag 7","description":"Set flag 7 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flag 8","description":"Set flag 8 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flag 9","description":"Set flag 9 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flag 10","description":"Set flag 10 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flag 11","description":"Set flag 11 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flag 12","description":"Set flag 12 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flag 13","description":"Set flag 13 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flag 14","description":"Set flag 14 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flag 15","description":"Set flag 15 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flag 16","description":"Set flag 16 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false}]} />
+<ScriptEventPreview title={"Variable: Add Flags"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flag 1","description":"Set flag 1 to true.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flag 2","description":"Set flag 2 to true.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flag 3","description":"Set flag 3 to true.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flag 4","description":"Set flag 4 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flag 5","description":"Set flag 5 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flag 6","description":"Set flag 6 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flag 7","description":"Set flag 7 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flag 8","description":"Set flag 8 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flag 9","description":"Set flag 9 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flag 10","description":"Set flag 10 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flag 11","description":"Set flag 11 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flag 12","description":"Set flag 12 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flag 13","description":"Set flag 13 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flag 14","description":"Set flag 14 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flag 15","description":"Set flag 15 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flag 16","description":"Set flag 16 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false}]} />
 
+- **Variable**: The variable to use.  
 - **Flag 1**: Set flag 1 to true.  
 - **Flag 2**: Set flag 2 to true.  
 - **Flag 3**: Set flag 3 to true.  
@@ -113,14 +119,21 @@ Increase the value of the specified variable by one.
 - **Variable**: The variable to use.  
 
 ## Variable: Auf 'Falsch' Setzen
-<ScriptEventPreview title={"Variable: Auf 'Falsch' Setzen"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
+Set the value of the specified variable to false.
+<ScriptEventPreview title={"Variable: Auf 'Falsch' Setzen"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
 
+- **Variable**: The variable to use.  
 
 ## Variable: Auf 'Wahr' Setzen
-<ScriptEventPreview title={"Variable: Auf 'Wahr' Setzen"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
+Set the value of the specified variable to true.
+<ScriptEventPreview title={"Variable: Auf 'Wahr' Setzen"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
 
+- **Variable**: The variable to use.  
 
 ## Variable: Auf Wert Setzen
-<ScriptEventPreview title={"Variable: Auf Wert Setzen"} fields={[{"key":"variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"value","type":"union","types":["number","variable","property"],"defaultType":"number","min":-32768,"max":32767,"defaultValue":{"number":0,"variable":"LAST_VARIABLE","property":"$self$:xpos"}}]} />
+Set the specified variable to a defined value.
+<ScriptEventPreview title={"Variable: Auf Wert Setzen"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"value","label":"VWert","description":"The value to set the selected variable to.","type":"union","types":["number","variable","property"],"defaultType":"number","min":-32768,"max":32767,"defaultValue":{"number":0,"variable":"LAST_VARIABLE","property":"$self$:xpos"}}]} />
 
+- **Variable**: The variable to use.  
+- **VWert**: The value to set the selected variable to.  
 

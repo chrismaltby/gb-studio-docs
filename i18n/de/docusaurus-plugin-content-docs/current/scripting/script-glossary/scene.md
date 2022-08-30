@@ -10,29 +10,34 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 # Szene
 
 ## Szene: Szene Wechseln
-<ScriptEventPreview title={"Szene: Szene Wechseln"} fields={[{"key":"sceneId","label":"Szene","type":"scene","defaultValue":"LAST_SCENE"},{"key":"x","label":"X","type":"number","min":0,"max":255,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","type":"number","min":0,"max":255,"defaultValue":0,"width":"50%"},{"key":"direction","label":"Blickrichtung","type":"direction","width":"50%","defaultValue":""},{"key":"fadeSpeed","label":"Einblendegeschwindigkeit","type":"fadeSpeed","defaultValue":"2","width":"50%"}]} />
+Transition to a new scene with player at a specified position and direction. A connection line will be drawn between the source of the event and the destination scene with an icon appearing at the destination position. It's possible to drag this icon around and between scenes to modify the event.
+<ScriptEventPreview title={"Szene: Szene Wechseln"} fields={[{"key":"sceneId","label":"Szene","description":"The scene to transition to.","type":"scene","defaultValue":"LAST_SCENE"},{"type":"group","fields":[{"key":"x","label":"X","description":"The initial player horizontal position in the new scene.","type":"number","min":0,"max":255,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"The initial player vertical position in the new scene.","type":"number","min":0,"max":255,"defaultValue":0,"width":"50%"}]},{"key":"direction","label":"Blickrichtung","description":"The initial player direction.","type":"direction","width":"50%","defaultValue":""},{"key":"fadeSpeed","label":"Einblendegeschwindigkeit","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2","width":"50%"}]} />
 
-- **Szene**  
-- **X**  
-- **Y**  
-- **Blickrichtung**  
-- **Einblendegeschwindigkeit**  
+- **Szene**: The scene to transition to.  
+- **X**: The initial player horizontal position in the new scene.  
+- **Y**: The initial player vertical position in the new scene.  
+- **Blickrichtung**: The initial player direction.  
+- **Einblendegeschwindigkeit**: The speed of the fade animation.  
 
 ## Szene: Leere Szenenstapel
+Remove all scenes from the scene stack without leaving the current scene.
 <ScriptEventPreview title={"Szene: Leere Szenenstapel"} fields={[{"label":"Entfernt alle gespeicherten Szenenzustände vom Szenenstapel."}]} />
 
 
 ## Szene: Gebe Allerersten Szenenzustand Vom Stapel Zurück
-<ScriptEventPreview title={"Szene: Gebe Allerersten Szenenzustand Vom Stapel Zurück"} fields={[{"label":"Entfernt alle Szenenzustände vom Szenenstapel."},{"type":"break"},{"key":"fadeSpeed","label":"Einblendegeschwindigkeit","type":"fadeSpeed","defaultValue":"2","width":"50%"}]} />
+Transition to the very first scene stored on the stack, for instance if you had multiple levels of menu scenes you could use this to imediately return to the game scene. This event will cause the scene stack to become empty.
+<ScriptEventPreview title={"Szene: Gebe Allerersten Szenenzustand Vom Stapel Zurück"} fields={[{"label":"Entfernt alle Szenenzustände vom Szenenstapel."},{"type":"break"},{"key":"fadeSpeed","label":"Einblendegeschwindigkeit","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2","width":"50%"}]} />
 
-- **Einblendegeschwindigkeit**  
+- **Einblendegeschwindigkeit**: The speed of the fade animation.  
 
 ## Szene: Gebe Vorherigen Szenenzustand Vom Stapel Zurück
-<ScriptEventPreview title={"Szene: Gebe Vorherigen Szenenzustand Vom Stapel Zurück"} fields={[{"label":"Gibt den obersten Szenenzustand des Szenenstapels wieder und entfernt diesen vom Szenenstapel."},{"type":"break"},{"key":"fadeSpeed","label":"Einblendegeschwindigkeit","type":"fadeSpeed","defaultValue":"2","width":"50%"}]} />
+Transition to the last stored scene from the scene stack using the specified fade speed. The previous scene will then be removed from the stack so the next time this event is used it will transition to the scene before that.
+<ScriptEventPreview title={"Szene: Gebe Vorherigen Szenenzustand Vom Stapel Zurück"} fields={[{"label":"Gibt den obersten Szenenzustand des Szenenstapels wieder und entfernt diesen vom Szenenstapel."},{"type":"break"},{"key":"fadeSpeed","label":"Einblendegeschwindigkeit","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2","width":"50%"}]} />
 
-- **Einblendegeschwindigkeit**  
+- **Einblendegeschwindigkeit**: The speed of the fade animation.  
 
 ## Szene: Speicher Derzeitigen Szenenzustand Auf Stapel
+Store the current scene and player state on to the scene stack, this allows you to return to this exact location later using the Scene Restore events. A common use of this event would be to include in a script just before a Change Scene event to open a menu scene, in the menu scene you could wait for the player to press a close button and then use the Restore Previous From Stack event to return to where the player opened the menu.
 <ScriptEventPreview title={"Szene: Speicher Derzeitigen Szenenzustand Auf Stapel"} fields={[{"label":"Derzeitigen Szenenzustand auf dem Szenenstapel legen."}]} />
 
 
