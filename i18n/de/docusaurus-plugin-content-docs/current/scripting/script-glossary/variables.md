@@ -47,6 +47,7 @@ Allows you to perform various maths functions on a variable to add/subtract/mult
 - **VWert**: The value to combine with the variable using the selected operation.  
 
 ## Variable: Alle Variablen Auf 'Falsch' Zurücksetzen
+Reset all variables used by your project back to false.
 <ScriptEventPreview title={"Variable: Alle Variablen Auf 'Falsch' Zurücksetzen"} fields={[{"label":"ALLE Variablen auf 'Falsch' zurücksetzen."}]} />
 
 

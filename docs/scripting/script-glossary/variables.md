@@ -47,6 +47,7 @@ Allows you to perform various maths functions on a variable to add/subtract/mult
 - **Value**: The value to combine with the variable using the selected operation.  
 
 ## Reset All Variables To 'False'
+Reset all variables used by your project back to false.
 <ScriptEventPreview title={"Reset All Variables To 'False'"} fields={[{"label":"Reset ALL variables back to 'False'."}]} />
 
 

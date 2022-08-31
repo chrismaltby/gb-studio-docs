@@ -10,10 +10,12 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 # Sonstiges
 
 ## Kommentar
+Allows you to leave notes within your scripts. Provides no functionality in-game. The text you type automatically gets set in the event title, so you can collapse the comment and still read its content.
 <ScriptEventPreview title={"Kommentar"} fields={[{"key":"text","type":"textarea","maxPerLine":50,"placeholder":"Text...","multiple":false,"defaultValue":""}]} />
 
 
 ## Ereignisgruppe
+Alows you to group together parts of your script for organizational purposes.
 <ScriptEventPreview title={"Ereignisgruppe"} fields={[{"key":"true","type":"events"}]} />
 
 

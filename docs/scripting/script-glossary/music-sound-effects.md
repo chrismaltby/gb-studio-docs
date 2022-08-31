@@ -16,15 +16,16 @@ Plays a music file. If you play a new song while another song is playing, the ol
 - **Song**: The song to play.  
 
 ## Play Sound Effect
-<ScriptEventPreview title={"Play Sound Effect"} fields={[{"key":"type","type":"soundEffect","label":"Sound Effect","defaultValue":"beep","flexBasis":"60%"},{"key":"priority","label":"Priority","type":"priority","options":[["low","Low"],["medium","Medium"],["high","High"]],"defaultValue":"medium","flexBasis":"15%"},{"key":"pitch","type":"number","label":"Pitch","conditions":[{"key":"type","eq":"beep"}],"min":1,"max":8,"step":1,"defaultValue":4},{"key":"frequency","type":"number","label":"Frequency in hz","conditions":[{"key":"type","eq":"tone"}],"min":0,"max":20000,"step":1,"defaultValue":200},{"key":"duration","type":"number","label":"Duration","unitsField":"units","unitsDefault":"time","conditions":[{"key":"type","in":["beep","crash","tone"]}],"min":0,"max":4.25,"step":0.01,"defaultValue":0.5},{"key":"wait","type":"checkbox","label":"Wait until finished","conditions":[{"key":"type","in":["beep","crash","tone"]}],"defaultValue":true,"flexBasis":"100%"},{"key":"effect","type":"number","label":"Effect Index","min":0,"max":60,"defaultValue":0,"conditions":[{"key":"type","soundType":"fxhammer"}]}]} />
+Play a sound effect, choose from playing a .WAV, .VGM, or .SAV (fxhammer) file from `/assets/sounds` or a preset sound effect.
+<ScriptEventPreview title={"Play Sound Effect"} fields={[{"key":"type","type":"soundEffect","label":"Sound Effect","description":"The sound effect to play. Can choose from files within `/assets/sounds` or from preset sounds like `Beep`, `Pitch` and `Tone`.","defaultValue":"beep","flexBasis":"60%"},{"key":"priority","label":"Priority","description":"The priority of the effect, high, medium or low. If two sound effects are playing at the same time then higher priority sound effects will take precedence.","type":"priority","options":[["low","Low"],["medium","Medium"],["high","High"]],"defaultValue":"medium","flexBasis":"15%"},{"key":"pitch","type":"number","label":"Pitch","description":"The pitch of the sound effect (Beep effect only).","conditions":[{"key":"type","eq":"beep"}],"min":1,"max":8,"step":1,"defaultValue":4},{"key":"frequency","type":"number","label":"Frequency in hz","description":"The frequency of the sound effect in hz (Tone effect only).","conditions":[{"key":"type","eq":"tone"}],"min":0,"max":20000,"step":1,"defaultValue":200},{"key":"duration","type":"number","label":"Duration","description":"The length of time to play the sound effect.","unitsField":"units","unitsDefault":"time","conditions":[{"key":"type","in":["beep","crash","tone"]}],"min":0,"max":4.25,"step":0.01,"defaultValue":0.5},{"key":"wait","type":"checkbox","label":"Wait until finished","description":"Set if script should pause until sound effect has finished playing.","conditions":[{"key":"type","in":["beep","crash","tone"]}],"defaultValue":true,"flexBasis":"100%"},{"key":"effect","type":"number","label":"Effect Index","description":"The effect number to play (for fxhammer only).","min":0,"max":60,"defaultValue":0,"conditions":[{"key":"type","soundType":"fxhammer"}]}]} />
 
-- **Sound Effect**  
-- **Priority**  
-- **Pitch**  
-- **Frequency in hz**  
-- **Duration**  
-- **Wait until finished**  
-- **Effect Index**  
+- **Sound Effect**: The sound effect to play. Can choose from files within `/assets/sounds` or from preset sounds like `Beep`, `Pitch` and `Tone`.  
+- **Priority**: The priority of the effect, high, medium or low. If two sound effects are playing at the same time then higher priority sound effects will take precedence.  
+- **Pitch**: The pitch of the sound effect (Beep effect only).  
+- **Frequency in hz**: The frequency of the sound effect in hz (Tone effect only).  
+- **Duration**: The length of time to play the sound effect.  
+- **Wait until finished**: Set if script should pause until sound effect has finished playing.  
+- **Effect Index**: The effect number to play (for fxhammer only).  
 
 ## Set Music Routine
 Attach a script to one of the four music routines that can be triggered from a .uge file. In the music editor you are able to use the call routine effect in your songs to trigger these scripts in time to music.
