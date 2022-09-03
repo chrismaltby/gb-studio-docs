@@ -7,990 +7,1294 @@ sidebar_position: 2
 
 # GBVM Operations
 
-bytecode  
-calling convention  
-args: big-endian  
-order: left-to-right (leftmost argument pushed first)  
-exception ID's  
-```gbvm
-EXCEPTION_RESET	        = 1
-EXCEPTION_CHANGE_SCENE	= 2
-EXCEPTION_SAVE          = 3
-EXCEPTION_LOAD          = 4
-```
-aliases  
-```gbvm
-.ARG0 = -1
-.ARG1 = -2
-.ARG2 = -3
-.ARG3 = -4
-.ARG4 = -5
-.ARG5 = -6
-.ARG6 = -7
-.ARG7 = -8
-.ARG8 = -9
-.ARG9 = -10
-.ARG10 = -11
-.ARG11 = -12
-.ARG12 = -13
-.ARG13 = -14
-.ARG14 = -15
-.ARG15 = -16
-.ARG16 = -17
-.PARAM0 = .ARG2
-.PARAM1 = .ARG3
-.PARAM2 = .ARG4
-.PARAM3 = .ARG5
-.PARAM4 = .ARG6
-.PARAM5 = .ARG7
-.PARAM6 = .ARG8
-.PARAM7 = .ARG9
-.PARAM8 = .ARG10
-.PARAM9 = .ARG11
-.PARAM10 = .ARG12
-.PARAM11 = .ARG13
-.PARAM12 = .ARG14
-.PARAM13 = .ARG15
-.PARAM14 = .ARG16
-.PARAM15 = -18
-.PARAM16 = -19
-```
-stops execution of context  
-```gbvm
-OP_VM_STOP         = 0x00
-```
-## VM_STOP
-stops execution of context  
+# VM_STOP
 
 ```gbvm
 VM_STOP
 ```
-## VM_PUSH_CONST
-push immediate value onto VM stack  
-- **ARG0**:  A value to push onto the stack  
+ Stops execution of context  
+
+# VM_PUSH_CONST
 
 ```gbvm
 VM_PUSH_CONST ARG0
 ```
-## VM_POP
-removes ARG0 values from VM stack  
-- **ARG0**:  Num values to pop from stack  
+ Pushes immediate value to the top of the VM stack  
+- **ARG0**:  immediate value to be pushed  
+
+# VM_POP
 
 ```gbvm
 VM_POP ARG0
 ```
-## VM_CALL
-call by near address  
-- **ARG0**:  Function address  
+ Removes the top values from the VM stack  
+- **ARG0**:  number of values to be removed from the stack  
+
+# VM_CALL
 
 ```gbvm
 VM_CALL ARG0
 ```
-## VM_RET
-return from near call  
+ Call script by near address  
+- **ARG0**:  address of the script subroutine  
+
+# VM_RET
 
 ```gbvm
 VM_RET
 ```
-return from near call without changing stack  
+ Returns from the near call  
+
+# VM_RET_N
 
 ```gbvm
 VM_RET_N N
 ```
-return from near call and remove N arguments on stack  
-- **ARG0**:  Num arguments to pop from stack  
+ Returns from the near call and clear N arguments on stack  
+- **N**:  number of arguments to be removed from the stack  
 
-## VM_GET_FAR
-get byte or word by far pointer into variable  
+# VM_GET_FAR
 
-```gbvm
-.GET_BYTE          = 0
-.GET_WORD          = 1
-```
 ```gbvm
 VM_GET_FAR IDX, SIZE, BANK, ADDR
 ```
-## VM_LOOP
-loop by near address, IDX is a counter, remove N arguments on stack  
+ Get byte or word by the far pointer into variable  
+- **IDX**:  Target variable  
+- **SIZE**:  Size of the ojject to be acquired:  
+.GET_BYTE  - get 8-bit value  
+.GET_WORD  - get 16-bit value  
+- **BANK**:  Bank number of the object  
+- **ADDR**:  Address of the object  
+
+# VM_LOOP
 
 ```gbvm
 VM_LOOP IDX, LABEL, N
 ```
-## VM_SWITCH
-switch table IDX is a variable, SIZE is a size of a table, remove N arguments on stack  
+ Loops while variable is not zero, by the near address  
+- **IDX**:  Loop counter variable  
+- **LABEL**:  Jump label for the next iteration  
+- **N**:  amount of values to be removed from stack on exit  
+
+# .CASE
+
+```gbvm
+.CASE VAL, LBL
+```
+# VM_SWITCH
 
 ```gbvm
 VM_SWITCH IDX, SIZE, N
 ```
-## VM_JUMP
-loop by near address  
-- **Destination**:  address  
+ Compares variable with a set of values, and if equal jump to the specified label.  
+values for testing may be defined with the .CASE macro, where VAL parameter is a value for testing and LBL is a jump label  
+- **IDX**:  variable for compare  
+- **SIZE**:  amount of entries for test.  
+- **N**:  amount of values to de cleaned from stack on exit  
+
+# VM_JUMP
 
 ```gbvm
 VM_JUMP ARG0
 ```
-## VM_CALL_FAR
-call far (inter-bank call)  
+ Jumps to near address  
+- **ARG0**:  jump label  
+
+# VM_CALL_FAR
 
 ```gbvm
 VM_CALL_FAR ARG0, ARG1
 ```
-## VM_RET_FAR
-rerurn from far call  
+ Call far routine (inter-bank call)  
+- **ARG0**:  Bank number of the routine  
+- **ARG1**:  Address of the routine  
+
+# VM_RET_FAR
 
 ```gbvm
 VM_RET_FAR
 ```
+ Rerurn from the far call  
+
+# VM_RET_FAR_N
+
 ```gbvm
 VM_RET_FAR_N N
 ```
-rerurn from far call and remove N arguments on stack  
+ Rerurn from the far call and remove N arguments from stack  
+- **N**:  Number of arguments to be removed from stack  
 
-## VM_INVOKE
-invokes &lt;bank&gt;:&lt;address&gt; C function until it returns true  
+# VM_INVOKE
 
 ```gbvm
 VM_INVOKE ARG0, ARG1, ARG2, ARG3
 ```
-## VM_BEGINTHREAD
-spawns a thread in a separate context  
+ Invokes C function until it returns true.  
+- **ARG0**:  Bank number of the function  
+- **ARG1**:  Address of the function, currently 2 functions are implemented:  
+_wait_frames   - wait for N vblank intervals  
+_camera_shake  - shake camera N times  
+- **ARG2**:  Number of arguments to be removed from stack on return  
+- **ARG3**:  Points the first parameter to be passed into the C function  
+
+# VM_BEGINTHREAD
 
 ```gbvm
 VM_BEGINTHREAD BANK, THREADPROC, HTHREAD, NARGS
 ```
-## VM_IF
-condition  
+ Spawns a thread in a separate context  
+- **BANK**:  Bank number of a thread function  
+- **THREADPROC**:  Address of a thread function  
+- **HTHREAD**:  Variable that receives the thread handle  
+- **NARGS**:  Amount of values from the stack to be copied into the stack of the new context  
 
-```gbvm
-.EQ                = 1
-.LT                = 2
-.LTE               = 3
-.GT                = 4
-.GTE               = 5
-.NE                = 6
-.AND               = 7
-.OR                = 8
-```
+# VM_IF
+
 ```gbvm
 VM_IF CONDITION, IDXA, IDXB, LABEL, N
 ```
-## VM_PUSH_VALUE_IND
-pushes a value on VM stack or a global indirectly from an index in the variable on VM stack or in a global onto VM stack  
+ Compares two variables using for condition.  
+- **CONDITION**:  Condition for test:  
+.EQ   - variables are equal  
+.LT   - A is lower than B  
+.LTE  - A is lower or equal than B  
+.GT   - A is greater than B  
+.GTE  - A is greater or equal than B  
+.NE   - A is not equal to B  
+- **IDXA**:  A variable  
+- **IDXB**:  B variable  
+- **LABEL**:  Jump label when result is TRUE  
+- **N**:  Number of values to be removed from stack if the result is true  
+
+# VM_PUSH_VALUE_IND
 
 ```gbvm
 VM_PUSH_VALUE_IND ARG0
 ```
-## VM_PUSH_VALUE
-pushes a value on VM stack or a global onto VM stack  
+ Pushes a value on VM stack or a global indirectly from an index in the variable  
+- **ARG0**:  variable that contains the index of the variable to be pushed on stack  
+
+# VM_PUSH_VALUE
 
 ```gbvm
 VM_PUSH_VALUE ARG0
 ```
-## VM_RESERVE
-similar to pop  
+ Pushes a value of the variable onto stack  
+- **ARG0**:  variable to be pushed  
+
+# VM_RESERVE
 
 ```gbvm
 VM_RESERVE ARG0
 ```
-## VM_SET
-assignes a value on VM stack or a global to a value on VM stack or a global  
+ Reserves or disposes amount of values on stack  
+- **ARG0**:  positive value - amount of variables to be reserved on stack, negative value - amount of variables to be popped from stack  
+
+# VM_SET
 
 ```gbvm
 VM_SET IDXA, IDXB
 ```
-## VM_SET_CONST
-assignes a value on VM stack or a global to immediate  
+ Assigns variable B to variable A  
+- **IDXA**:  Variable A  
+- **IDXB**:  Variable B  
+
+# VM_SET_CONST
 
 ```gbvm
 VM_SET_CONST IDX, VAL
 ```
-## VM_RPN
-rpn calculator, returns result on VM stack  
+ Assigns immediate value to the variable  
+- **IDX**:  Target variable  
+- **VAL**:  Source immediate value  
 
-```gbvm
-.ADD               = '+'
-.SUB               = '-'
-.MUL               = '*'
-.DIV               = '/'
-.MOD               = '%'
-.B_AND             = '&'
-.B_OR              = '|'
-.B_XOR             = '^'
-.B_NOT             = '~'
-.ABS               = '@'
-.MIN               = 'm'
-.MAX               = 'M'
-.ISQRT             = 'Q'
-;.EQ                = 1
-;.LT                = 2
-;.LTE               = 3
-;.GT                = 4
-;.GTE               = 5
-;.NE                = 6
-;.AND               = 7
-;.OR                = 8
-.NOT               = 9
-```
+# VM_RPN
+
 ```gbvm
 VM_RPN
 ```
+ Reverse Polish Notation (RPN) calculator, returns result(s) on the VM stack  
+
+# .R_INT8
+
 ```gbvm
 .R_INT8 ARG0
 ```
+# .R_INT16
+
 ```gbvm
 .R_INT16 ARG0
 ```
+# .R_REF
+
 ```gbvm
 .R_REF ARG0
 ```
+# .R_REF_IND
+
 ```gbvm
 .R_REF_IND ARG0
 ```
+# .R_REF_SET
+
 ```gbvm
 .R_REF_SET ARG0
 ```
+# .R_OPERATOR
+
 ```gbvm
 .R_OPERATOR ARG0
 ```
+# .R_STOP
+
 ```gbvm
 .R_STOP
 ```
-## VM_JOIN
-joins a thread  
+# VM_JOIN
 
 ```gbvm
 VM_JOIN IDX
 ```
-## VM_TERMINATE
-kills a thread  
+ Joins a thread  
+- **IDX**:  Thread handle for joining  
+
+# VM_TERMINATE
 
 ```gbvm
 VM_TERMINATE IDX
 ```
-## VM_IDLE
-signals runner that context in a waitable state  
+ Kills a thread  
+- **IDX**:  Thread handle for killing  
+
+# VM_IDLE
 
 ```gbvm
 VM_IDLE
 ```
-## VM_GET_TLOCAL=
-gets thread local variable. non-negative index of second argument points to  
-a thread local variable (parameters, passed into thread)  
+ Signals thread runner, that context is in a waitable state  
+
+# VM_GET_TLOCAL
 
 ```gbvm
 VM_GET_TLOCAL IDXA, IDXB
 ```
-## VM_IF_CONST
-compares variable or value on stack with a constant  
+ Gets thread local variable.  
+- **IDXA**:  Target variable  
+- **IDXB**:  Thread local variable index  
+
+# VM_IF_CONST
 
 ```gbvm
 VM_IF_CONST CONDITION, IDXA, B, LABEL, N
 ```
-## VM_GET_UINT8
-gets unsigned int8 from WRAM. second argument is an address of unsigned int8  
+ Compares a variable to an immediate value  
+- **CONDITION**:  Condition for test:  
+.EQ   - variables are equal  
+.LT   - A is lower than B  
+.LTE  - A is lower or equal than B  
+.GT   - A is greater than B  
+.GTE  - A is greater or equal than B  
+.NE   - A is not equal to B  
+- **IDXA**:  A variable  
+- **B**:  immediate value to be compared with  
+- **LABEL**:  Jump label when result is TRUE  
+- **N**:  Number of values to be removed from stack if the result is true  
+
+# VM_GET_UINT8
 
 ```gbvm
 VM_GET_UINT8 IDXA, ADDR
 ```
-## VM_GET_INT8
-gets int8 from WRAM. second argument is an address of int8  
+ Gets unsigned int8 from WRAM  
+- **IDXA**:  Target variable  
+- **ADDR**:  Address of the unsigned 8-bit value in WRAM  
+
+# VM_GET_INT8
 
 ```gbvm
 VM_GET_INT8 IDXA, ADDR
 ```
-## VM_GET_INT16
-gets int16 from WRAM. second argument is an address of int16  
+ Gets signed int8 from WRAM  
+- **IDXA**:  Target variable  
+- **ADDR**:  Address of the signed 8-bit value in WRAM  
+
+# VM_GET_INT16
 
 ```gbvm
 VM_GET_INT16 IDXA, ADDR
 ```
-## VM_SET_UINT8
-sets unsigned int8 in WRAM. first argument is an address of unsigned int8  
+ Gets signed int16 from WRAM  
+- **IDXA**:  Target variable  
+- **ADDR**:  Address of the signed 16-bit value in WRAM  
+
+# VM_SET_UINT8
 
 ```gbvm
 VM_SET_UINT8 ADDR, IDXA
 ```
-## VM_SET_INT8
-sets int8 in WRAM. first argument is an address of int8  
+ Sets unsigned int8 in WRAM from variable  
+- **ADDR**:  Address of the unsigned 8-bit value in WRAM  
+- **IDXA**:  Source variable  
+
+# VM_SET_INT8
 
 ```gbvm
 VM_SET_INT8 ADDR, IDXA
 ```
-## VM_SET_INT16
-sets int16 in WRAM. first argument is an address of int16  
+ Sets signed int8 in WRAM from variable  
+- **ADDR**:  Address of the signed 8-bit value in WRAM  
+- **IDXA**:  Source variable  
+
+# VM_SET_INT16
 
 ```gbvm
 VM_SET_INT16 ADDR, IDXA
 ```
-## VM_SET_CONST_INT8
-sets int8 in WRAM to a const. first argument is an address of int8  
+ Sets signed int16 in WRAM from variable  
+- **ADDR**:  Address of the signed 16-bit value in WRAM  
+- **IDXA**:  Source variable  
+
+# VM_SET_CONST_INT8
 
 ```gbvm
 VM_SET_CONST_INT8 ADDR, V
 ```
+ Sets signed int8 in WRAM to the immediate value  
+- **ADDR**:  Address of the signed 8-bit value in WRAM  
+- **V**:  Immediate value  
+
+# VM_SET_CONST_UINT8
+
 ```gbvm
 VM_SET_CONST_UINT8 ADDR, V
 ```
-sets unsigned int8 in WRAM to a const. first argument is an address of unsigned int8  
+ Sets unsigned int8 in WRAM to the immediate value  
+- **ADDR**:  Address of the unsigned 8-bit value in WRAM  
+- **V**:  Immediate value  
 
-## VM_SET_CONST_INT16
-sets int16 in WRAM to a const. first argument is an address of int16  
+# VM_SET_CONST_INT16
 
 ```gbvm
 VM_SET_CONST_INT16 ADDR, V
 ```
-## VM_INIT_RNG
-Initializes RNG seed  
+ Sets signed int16 in WRAM to the immediate value  
+- **ADDR**:  Address of the signed 16-bit value in WRAM  
+- **V**:  Immediate value  
+
+# VM_INIT_RNG
 
 ```gbvm
 VM_INIT_RNG IDX
 ```
+ Initializes RNG seed with the value from the variable  
+- **IDX**:  Seed value  
+
+# VM_RANDOMIZE
+
 ```gbvm
 VM_RANDOMIZE
 ```
-## VM_RAND
-Returns random value between MIN and MIN+LIMIT  
+ Initializes RNG seed  
+
+# VM_RAND
 
 ```gbvm
 VM_RAND IDX, MIN, LIMIT
 ```
-- **IDX**:  Address to store random number  
-- **MIN**:  Minimum number to generate  
-- **LIMIT**:  Range of random value  
+ Returns random value between MIN and MIN + LIMIT  
+- **IDX**:  Target variable  
+- **MIN**:  Minimal random value  
+- **LIMIT**:  range of the random values  
 
-## VM_LOCK
-Locks VM  
+# VM_LOCK
 
 ```gbvm
 VM_LOCK
 ```
-## VM_UNLOCK
-Unlocks VM  
+ Disable switching of VM threads  
+
+# VM_UNLOCK
 
 ```gbvm
 VM_UNLOCK
 ```
-## VM_RAISE
-Raises VM exception  
+ Enable switching of VM threads  
+
+# VM_RAISE
 
 ```gbvm
 VM_RAISE CODE, SIZE
 ```
-## VM_SET_INDIRECT
-assignes a value on VM stack or a global indirectly to a value on VM stack ar a global  
+ Raises an exception  
+- **CODE**:  Exception code:  
+EXCEPTION_RESET        - Resets the device.  
+EXCEPTION_CHANGE_SCENE - Changes to a new scene.  
+EXCEPTION_SAVE         - Saves the state of the game.  
+EXCEPTION_LOAD         - Loads the saved state of the game.  
+- **SIZE**:  Length of the parameters to be passed into the exception handler  
+
+# VM_SET_INDIRECT
 
 ```gbvm
 VM_SET_INDIRECT IDXA, IDXB
 ```
-## VM_GET_INDIRECT
-assignes a value on VM stack or a global to a value on VM stack ar a global indirectly  
+ Assigns variable that is addressed indirectly to the other variable  
+- **IDXA**:  Variable that contains the index of the target variable  
+- **IDXB**:  Source variable that contains the value to be assigned  
+
+# VM_GET_INDIRECT
 
 ```gbvm
 VM_GET_INDIRECT IDXA, IDXB
 ```
-## VM_TEST_TERMINATE
-Terminates unit-testing immediately  
+ Assigns a variable to the value of variable that is addressed indirectly  
+- **IDXA**:  Target variable  
+- **IDXB**:  Variable that contains the index of the source variable  
 
-```gbvm
-.TEST_WAIT_VBL        = 1
-```
+# VM_TEST_TERMINATE
+
 ```gbvm
 VM_TEST_TERMINATE FLAGS
 ```
-## VM_POLL_LOADED
-Checks that VM state was restored and reset the restore flag  
+ Terminates unit-testing immediately  
+- **FLAGS**:  terminate flags:  
+.TEST_WAIT_VBL wait for VBlank before terminating  
+
+# VM_POLL_LOADED
 
 ```gbvm
 VM_POLL_LOADED IDX
 ```
-## VM_PUSH_REFERENCE
-Translates idx into absolute index and pushes result to VM stack  
+ Checks that VM state was restored and reset the restore flag  
+- **IDX**:  Target result variable  
+
+# VM_PUSH_REFERENCE
 
 ```gbvm
 VM_PUSH_REFERENCE IDX
 ```
-## VM_CALL_NATIVE
-call native code by far pointer  
+ Translates IDX into absolute index and pushes result to VM stack  
+- **IDX**:  index of the variable  
+
+# VM_CALL_NATIVE
 
 ```gbvm
 VM_CALL_NATIVE BANK, PTR
 ```
-## VM_MEMSET
-clear VM memory  
+ Calls native code by the far pointer  
+- **BANK**:  Bank number of the native routine  
+- **PTR**:  Address of the native routine  
+
+# VM_MEMSET
 
 ```gbvm
 VM_MEMSET DEST, VALUE, COUNT
 ```
-## VM_MEMCPY
-copy VM memory  
+ Clear VM memory  
+- **DEST**:  First variable to be cleared  
+- **VALUE**:  Variable containing the value to be filled with  
+- **COUNT**:  Number of variables to be filled  
+
+# VM_MEMCPY
 
 ```gbvm
 VM_MEMCPY DEST, SOUR, COUNT
 ```
+ copy VM memory  
+- **DEST**:  First destination variable  
+- **SOUR**:  First source variable  
+- **COUNT**:  Number of variables to be copied  
+
+# .SAVE_SLOT
+
 ```gbvm
 .SAVE_SLOT SLOT
 ```
-## VM_SAVE_PEEK
-Reads count variables from save slot into dest and puts result of the operation into res  
+--- engine-specific instructions ------------------------------------------  
+--- LOAD/SAVE --------------------------------------  
+
+# VM_SAVE_PEEK
 
 ```gbvm
 VM_SAVE_PEEK RES, DEST, SOUR, COUNT, SLOT
 ```
-## VM_SAVE_CLEAR
-Erases data in save slot  
+ Reads variables from the save slot  
+- **RES**:  Result of the operation  
+- **DEST**:  First destination variable to be read into  
+- **SOUR**:  First source variable in the save slot  
+- **COUNT**:  Number of variables to be read  
+- **SLOT**:  Save slot number  
+
+# VM_SAVE_CLEAR
 
 ```gbvm
 VM_SAVE_CLEAR SLOT
 ```
-## VM_ACTOR_MOVE_TO
-```gbvm
-.ACTOR_ATTR_H_FIRST             = 0x01
-.ACTOR_ATTR_CHECK_COLL          = 0x02
-.ACTOR_ATTR_DIAGONAL            = 0x04
-```
+ Erases data in save slot  
+- **SLOT**:  Slot number  
+
+# VM_ACTOR_MOVE_TO
+
 ```gbvm
 VM_ACTOR_MOVE_TO IDX
 ```
-## VM_ACTOR_MOVE_CANCEL
+--- ACTOR ------------------------------------------  
+
+# VM_ACTOR_MOVE_CANCEL
+
 ```gbvm
 VM_ACTOR_MOVE_CANCEL ACTOR
 ```
-## VM_ACTOR_ACTIVATE
+# VM_ACTOR_ACTIVATE
+
 ```gbvm
 VM_ACTOR_ACTIVATE ACTOR
 ```
-## VM_ACTOR_SET_DIR
-```gbvm
-.DIR_DOWN                       = 0
-.DIR_RIGHT                      = 1
-.DIR_UP                         = 2
-.DIR_LEFT                       = 3
-```
+# VM_ACTOR_SET_DIR
+
 ```gbvm
 VM_ACTOR_SET_DIR ACTOR, DIR
 ```
-## VM_ACTOR_DEACTIVATE
+# VM_ACTOR_DEACTIVATE
+
 ```gbvm
 VM_ACTOR_DEACTIVATE ACTOR
 ```
-## VM_ACTOR_SET_ANIM
+# VM_ACTOR_SET_ANIM
+
 ```gbvm
 VM_ACTOR_SET_ANIM ACTOR, ANIM
 ```
-## VM_ACTOR_SET_POS
+# VM_ACTOR_SET_POS
+
 ```gbvm
 VM_ACTOR_SET_POS IDX
 ```
-## VM_ACTOR_EMOTE
+# VM_ACTOR_EMOTE
+
 ```gbvm
 VM_ACTOR_EMOTE ACTOR, AVATAR_BANK, AVATAR
 ```
-## VM_ACTOR_SET_BOUNDS
+# VM_ACTOR_SET_BOUNDS
+
 ```gbvm
 VM_ACTOR_SET_BOUNDS ACTOR, LEFT, RIGHT, TOP, BOTTOM
 ```
-## VM_ACTOR_SET_SPRITESHEET
+# VM_ACTOR_SET_SPRITESHEET
+
 ```gbvm
 VM_ACTOR_SET_SPRITESHEET ACTOR, SHEET_BANK, SHEET
 ```
-## VM_ACTOR_SET_SPRITESHEET_BY_REF
+# VM_ACTOR_SET_SPRITESHEET_BY_REF
+
 ```gbvm
 VM_ACTOR_SET_SPRITESHEET_BY_REF ACTOR, FAR_PTR
 ```
-## VM_ACTOR_REPLACE_TILE
+# VM_ACTOR_REPLACE_TILE
+
 ```gbvm
 VM_ACTOR_REPLACE_TILE ACTOR, TARGET_TILE, TILEDATA_BANK, TILEDATA, START, LEN
 ```
-## VM_ACTOR_GET_POS
+# VM_ACTOR_GET_POS
+
 ```gbvm
 VM_ACTOR_GET_POS IDX
 ```
-## VM_ACTOR_GET_DIR
+# VM_ACTOR_GET_DIR
+
 ```gbvm
 VM_ACTOR_GET_DIR IDX, DEST
 ```
-## VM_ACTOR_GET_ANGLE
+# VM_ACTOR_GET_ANGLE
+
 ```gbvm
 VM_ACTOR_GET_ANGLE IDX, DEST
 ```
-## VM_ACTOR_SET_ANIM_TICK
+# VM_ACTOR_SET_ANIM_TICK
+
 ```gbvm
 VM_ACTOR_SET_ANIM_TICK ACTOR, TICK
 ```
-## VM_ACTOR_SET_MOVE_SPEED
+# VM_ACTOR_SET_MOVE_SPEED
+
 ```gbvm
 VM_ACTOR_SET_MOVE_SPEED ACTOR, SPEED
 ```
-## VM_ACTOR_SET_FLAGS
-```gbvm
-.ACTOR_FLAG_PINNED              = 0x01
-.ACTOR_FLAG_HIDDEN              = 0x02
-.ACTOR_FLAG_ANIM_NOLOOP         = 0x04
-.ACTOR_FLAG_COLLISION           = 0x08
-.ACTOR_FLAG_PERSISTENT          = 0x10
-```
+# VM_ACTOR_SET_FLAGS
+
 ```gbvm
 VM_ACTOR_SET_FLAGS ACTOR, FLAGS, MASK
 ```
-```gbvm
-.ACTOR_VISIBLE                  = 0
-.ACTOR_HIDDEN                   = 1
-```
+# VM_ACTOR_SET_HIDDEN
+
 ```gbvm
 VM_ACTOR_SET_HIDDEN ACTOR, HIDDEN
 ```
-```gbvm
-.ACTOR_COLLISION_DISABLED       = 0
-.ACTOR_COLLISION_ENABLED        = 1
-```
+# VM_ACTOR_SET_COLL_ENABLED
+
 ```gbvm
 VM_ACTOR_SET_COLL_ENABLED ACTOR, ENABLED
 ```
-## VM_ACTOR_TERMINATE_UPDATE
+# VM_ACTOR_TERMINATE_UPDATE
+
 ```gbvm
 VM_ACTOR_TERMINATE_UPDATE ACTOR
 ```
-## VM_ACTOR_SET_ANIM_FRAME
+# VM_ACTOR_SET_ANIM_FRAME
+
 ```gbvm
 VM_ACTOR_SET_ANIM_FRAME ACTOR
 ```
-## VM_ACTOR_GET_ANIM_FRAME
+# VM_ACTOR_GET_ANIM_FRAME
+
 ```gbvm
 VM_ACTOR_GET_ANIM_FRAME ACTOR
 ```
-## VM_ACTOR_SET_ANIM_SET
+# VM_ACTOR_SET_ANIM_SET
+
 ```gbvm
 VM_ACTOR_SET_ANIM_SET ACTOR, OFFSET
 ```
-## VM_LOAD_TEXT
+# VM_LOAD_TEXT
+
 ```gbvm
 VM_LOAD_TEXT ARG0
 ```
-## VM_DISPLAY_TEXT
+ Loads a text in memory  
+- **ARG0**:  Amount of arguments that are passed before the null-terminated string  
+  
+The text string is defined using the `.asciz` command:  
+  
+```  
+VM_LOAD_TEXT   0  
+.asciz "text to render"  
+```  
+  
+#### Displaying variables:  
+The following format specifiers allow to render variables as part of the text:  
+* `%d`  Render a variable value  
+* `%Dn` Render a variable value with `n` length  
+* `%c`  Render a character based on the variable value  
+The variables need to be defined before the `.asciz` call using `.dw` followed by a list of `N` variables in the order they'll be rendered.  
+```  
+VM_LOAD_TEXT   3  
+.dw VAR_0, VAR_1, VAR_1  
+.asciz "Var 0 is %d, Var 1 is %d, Var 2 is %d"  
+```  
+#### Escape Sequences:  
+The text string can contain escape sequence that modify the behavior or apparence of the text.  
+* `\001\x` Sets the text speed for the next characters in the current text. `x` is a value between `1` and `8` that represents the number of frames between the render of a character using `2^(x-2)`.  
+* `\002\x` Sets the text font  
+* `\003\x\y` Sets the position for the next character  
+* `\004\x\y` Sets the position for the next character relative to the last character  
+* `\005\` TBD  
+* `\006\mask` Wait for input to continue to the next character.  
+* `\007\n` Inverts the colors of the following characters.  
+* `\n` Next line  
+* `\r` Scroll text one line up  
+
+# VM_DISPLAY_TEXT_EX
+
 ```gbvm
-.DISPLAY_DEFAULT        = 0
-.DISPLAY_PRESERVE_POS   = 1
+VM_DISPLAY_TEXT_EX OPTIONS, START_TILE
 ```
-```gbvm
-VM_DISPLAY_TEXT_EX OPTIONS
-```
+ Renders the text in the defined layer (overlay, by default)  
+- **OPTIONS**:  Text rendering options:  
+.DISPLAY_DEFAULT      - default behavior  
+.DISPLAY_PRESERVE_POS - preserve text position  
+- **START**: _TILE Tile number within the text rendering area to be rendered from; use .TEXT_TILE_CONTINUE to proceed from the current position  
+
+# VM_DISPLAY_TEXT
+
 ```gbvm
 VM_DISPLAY_TEXT
 ```
-## VM_SWITCH_TEXT_LAYER
-```gbvm
-.TEXT_LAYER_BKG         = 0
-.TEXT_LAYER_WIN         = 1
-```
+ Renders the text in the defined layer (obsolete)  
+
+# VM_SWITCH_TEXT_LAYER
+
 ```gbvm
 VM_SWITCH_TEXT_LAYER LAYER
 ```
-## VM_OVERLAY_SETPOS
+ Changes the `LAYER` where the text will be rendered.  
+- **LAYER**:   
+.TEXT_LAYER_BKG    - Render text in the background layer  
+.TEXT_LAYER_WIN    - Render text in the overlay layer  
+
+# VM_OVERLAY_SETPOS
+
 ```gbvm
 VM_OVERLAY_SETPOS X, Y
 ```
-```gbvm
-.MENU_CLOSED_Y          = 0x12
-```
+ Set position of the overlay window in tiles  
+- **X**:  X-coordinate of the overlay window in tiles  
+- **Y**:  Y-coordinate of the overlay window in tiles  
+
+# VM_OVERLAY_HIDE
+
 ```gbvm
 VM_OVERLAY_HIDE
 ```
-## VM_OVERLAY_WAIT
-```gbvm
-.UI_NONMODAL            = 0
-.UI_MODAL               = 1
-.UI_WAIT_NONE           = 0
-.UI_WAIT_WINDOW         = 1
-.UI_WAIT_TEXT           = 2
-.UI_WAIT_BTN_A          = 4
-.UI_WAIT_BTN_B          = 8
-.UI_WAIT_BTN_ANY        = 16
-```
+ Hide the overlay window  
+
+# VM_OVERLAY_WAIT
+
 ```gbvm
 VM_OVERLAY_WAIT IS_MODAL, WAIT_FLAGS
 ```
-## VM_OVERLAY_MOVE_TO
-```gbvm
-.OVERLAY_IN_SPEED       = -1
-.OVERLAY_TEXT_IN_SPEED  = -1    ; obsolete
-.OVERLAY_OUT_SPEED      = -2
-.OVERLAY_TEXT_OUT_SPEED = -2    ; obsolete
-.OVERLAY_SPEED_INSTANT  = -3
-```
+ Wait for the UI operation(s) completion  
+- **IS**: _MODAL indicates whether the operation is modal: .UI_MODAL, or not: .UI_NONMODAL  
+- **WAIT**: _FLAGS bit field, set of events to be waited for:  
+.UI_WAIT_NONE     - No wait  
+.UI_WAIT_WINDOW   - Wait until the window moved to its final position  
+.UI_WAIT_TEXT     - Wait until all the text finished rendering  
+.UI_WAIT_BTN_A    - Wait until "A" is pressed  
+.UI_WAIT_BTN_B    - Wait until "B" is pressed  
+.UI_WAIT_BTN_ANY  - Wait until any button is pressed  
+
+# VM_OVERLAY_MOVE_TO
+
 ```gbvm
 VM_OVERLAY_MOVE_TO X, Y, SPEED
 ```
-## VM_OVERLAY_SHOW
-```gbvm
-.UI_COLOR_BLACK         = 0
-.UI_COLOR_WHITE         = 1
-.UI_DRAW_FRAME          = 1
-.UI_AUTO_SCROLL         = 2
-```
+ Animated move of the overlay window to the new position  
+- **X**:  X-coordinate of the new position  
+- **Y**:  Y-coordinate of the new position  
+- **SPEED**:  speed of the movement:  
+.OVERLAY_IN_SPEED       - default speed for appearing of the overlay  
+.OVERLAY_OUT_SPEED      - default speed for disappearing of the overlay  
+.OVERLAY_SPEED_INSTANT  - instant movement  
+
+# VM_OVERLAY_SHOW
+
 ```gbvm
 VM_OVERLAY_SHOW X, Y, COLOR, OPTIONS
 ```
-## VM_OVERLAY_CLEAR
+ Show the overlay window  
+- **X**:  X-coordinate of the new position  
+- **Y**:  Y-coordinate of the new position  
+- **COLOR**:  initial color of the overlay window:  
+.UI_COLOR_BLACK     - black overlay window  
+.UI_COLOR_WHITE     - white overlay window  
+- **OPTIONS**:  display options:  
+.UI_DRAW_FRAME      - draw overlay frame  
+.UI_AUTO_SCROLL     - set automatic text scroll area; text will be scrolled up when printing more lines than the overlay height.  
+
+# VM_OVERLAY_CLEAR
+
 ```gbvm
 VM_OVERLAY_CLEAR X, Y, W, H, COLOR, OPTIONS
 ```
-## VM_CHOICE
-```gbvm
-.UI_MENU_STANDARD       = 0
-.UI_MENU_LAST_0         = 1
-.UI_MENU_CANCEL_B       = 2
-.UI_MENU_SET_START      = 4
-```
-```gbvm
-VM_CHOICE IDX, OPTIONS, COUNT
-```
+ Clear the rectangle area of the overlay window  
+- **X**:  X-Coordinate in tiles of the upper left corner  
+- **Y**:  Y-Coordinate in tiles of the upper left corner  
+- **W**:  Width in tiles of the rectangle area  
+- **H**:  Height in tiles of the rectangle area  
+- **COLOR**:  initial color of the overlay window:  
+.UI_COLOR_BLACK     - black overlay window  
+.UI_COLOR_WHITE     - white overlay window  
+- **OPTIONS**:  display options:  
+.UI_DRAW_FRAME      - draw overlay frame  
+.UI_AUTO_SCROLL     - set automatic text scroll area; text will be scrolled up when printing more lines than the overlay height.  
+
+# .MENUITEM
+
 ```gbvm
 .MENUITEM X, Y, iL, iR, iU, iD
 ```
-## VM_SET_FONT
+# VM_CHOICE
+
+```gbvm
+VM_CHOICE IDX, OPTIONS, COUNT
+```
+ Execute menu  
+- **IDX**:  Variable that receive the result of the menu execution  
+- **OPTIONS**:  bit field, set of the possible menu options:  
+.UI_MENU_STANDARD    - default menu behavior  
+.UI_MENU_LAST_0      - last item return result of 0  
+.UI_MENU_CANCEL_B    - B button cancels the menu execution  
+.UI_MENU_SET_START   - if set IDX may contain the initial item index  
+- **COUNT**:  number of menu items  
+  
+instruction must be followed by the COUNT of .MENUITEM definitions:  
+.MENUITEM X, Y, iL, iR, iU, iD  
+where:  
+X - X-Coordinate of the cursor pointer in tiles  
+Y - Y-Coordinate of the cursor pointer in tiles  
+iL - menu item number, where the cursor must move, when you press LEFT  
+iR - menu item number, where the cursor must move, when you press RIGHT  
+iU - menu item number, where the cursor must move, when you press UP  
+iD - menu item number, where the cursor must move, when you press DOWN  
+
+# VM_SET_FONT
+
 ```gbvm
 VM_SET_FONT FONT_INDEX
 ```
-```gbvm
-.UI_PRINT_LEFTTORIGHT   = 0
-.UI_PRINT_RIGHTTOLEFT   = 1
-```
+ Sets active font  
+- **FONT**: _INDEX the index of the font to be activated  
+
+# VM_SET_PRINT_DIR
+
 ```gbvm
 VM_SET_PRINT_DIR DIRECTION
 ```
-## VM_OVERLAY_SET_SUBMAP_EX
+ Sets print direction  
+- **DIRECTION**:  direction of the text rendering:  
+.UI_PRINT_LEFTTORIGHT  - text is rendered from left to right (left justify)  
+.UI_PRINT_RIGHTTOLEFT  - text is rendered from right to left (right justify)  
+
+# VM_OVERLAY_SET_SUBMAP_EX
+
 ```gbvm
 VM_OVERLAY_SET_SUBMAP_EX PARAMS_IDX
 ```
-## VM_OVERLAY_SCROLL
+ Copies rectange area of the background map onto the overlay window  
+- **PARAMS**: _IDX points to the beginning of the pseudo-structure that contains these members:  
+x       - X-Coordinate within the overlay window in tiles  
+y       - Y-Coordinate tithin the overlay window in tiles  
+w       - Width of the copied area in tiles  
+h       - Height of the copied area in tiles  
+scene_x - X-Coordinate within the background map in tiles  
+scene_y - Y-Coordinate within the background map in tiles  
+
+# VM_OVERLAY_SCROLL
+
 ```gbvm
 VM_OVERLAY_SCROLL X, Y, W, H, COLOR
 ```
-## VM_OVERLAY_SET_SCROLL
+ Scrolls the rectangle area  
+- **X**:  X-Coordinate of the upper left corner in tiles  
+- **Y**:  Y-Coordinate of the upper left corner in tiles  
+- **W**:  Width of the area in tiles  
+- **H**:  Height of the area in tiles  
+- **COLOR**:  Color of the empty row of tiles that appear at the bottom of the scroll area  
+
+# VM_OVERLAY_SET_SCROLL
+
 ```gbvm
 VM_OVERLAY_SET_SCROLL X, Y, W, H, COLOR
 ```
-## VM_OVERLAY_SET_SUBMAP
+ Defines the scroll area for the overlay  
+When the text overflows that area it'll scroll up by 1 row  
+- **X**:  X-Coordinate of the upper left corner in tiles  
+- **Y**:  Y-Coordinate of the upper left corner in tiles  
+- **W**:  Width of the area in tiles  
+- **H**:  Height of the area in tiles  
+- **COLOR**:  Color of the empty row of tiles that appear at the bottom of the scroll area  
+
+# VM_OVERLAY_SET_SUBMAP
+
 ```gbvm
 VM_OVERLAY_SET_SUBMAP X, Y, W, H, SX, SY
 ```
-## VM_LOAD_TILES
-```gbvm
-.FRAME_TILE_ID          = 0xC0
-.FRAME_LENGTH           = 9
-.CURSOR_TILE_ID         = 0xCB
-.CURSOR_LENGTH          = 1
-```
+ Copies a rectange area of tiles from the scene background  
+- **X**:  X-Coordinate within the overlay window of the upper left corner in tiles  
+- **Y**:  Y-Coordinate within the overlay window of the upper left corner in tiles  
+- **W**:  Width of the area in tiles  
+- **H**:  Height of the area in tiles  
+- **SX**:  X-Coordinate within the level background map  
+- **SY**:  Y-Coordinate within the level background map  
+
+# VM_LOAD_TILES
+
 ```gbvm
 VM_LOAD_TILES ID, LEN, BANK, ADDR
 ```
-## VM_LOAD_TILESET
+--- GAMEBOY ------------------------------------------  
+
+# VM_LOAD_TILESET
+
 ```gbvm
 VM_LOAD_TILESET IDX, BANK, BKG
 ```
-## VM_SET_SPRITE_VISIBLE
-```gbvm
-.SPRITES_SHOW           = 0
-.SPRITES_HIDE           = 1
-```
+Loads a new tileset into the background VRAM tiles starting at a given tile id (`IDX`).  
+
+# VM_SET_SPRITE_VISIBLE
+
 ```gbvm
 VM_SET_SPRITE_VISIBLE MODE
 ```
+# VM_SHOW_SPRITES
+
 ```gbvm
 VM_SHOW_SPRITES
 ```
+# VM_HIDE_SPRITES
+
 ```gbvm
 VM_HIDE_SPRITES
 ```
-## VM_INPUT_WAIT
+# VM_INPUT_WAIT
+
 ```gbvm
 VM_INPUT_WAIT MASK
 ```
-## VM_INPUT_ATTACH
-```gbvm
-.OVERRIDE_DEFAULT       = 0x80
-```
+# VM_INPUT_ATTACH
+
 ```gbvm
 VM_INPUT_ATTACH MASK, SLOT
 ```
-## VM_INPUT_GET
-```gbvm
-.JOY0                   = 0
-.JOY1                   = 1
-.JOY2                   = 2
-.JOY3                   = 3
-```
+# VM_INPUT_GET
+
 ```gbvm
 VM_INPUT_GET IDX, JOYID
 ```
-## VM_CONTEXT_PREPARE
+# VM_CONTEXT_PREPARE
+
 ```gbvm
 VM_CONTEXT_PREPARE SLOT, BANK, ADDR
 ```
-## VM_OVERLAY_SET_MAP
+# VM_OVERLAY_SET_MAP
+
 ```gbvm
 VM_OVERLAY_SET_MAP IDX, X_IDX, Y_IDX, BANK, BKG
 ```
-## VM_FADE
-```gbvm
-.FADE_NONMODAL          = 0x00
-.FADE_MODAL             = 0x01
-.FADE_OUT               = 0x00
-.FADE_IN                = 0x02
-```
+# VM_FADE
+
 ```gbvm
 VM_FADE FLAGS
 ```
+# VM_FADE_IN
+
 ```gbvm
 VM_FADE_IN IS_MODAL
 ```
+# VM_FADE_OUT
+
 ```gbvm
 VM_FADE_OUT IS_MODAL
 ```
-## VM_TIMER_PREPARE
-Load script into timer context  
+# VM_TIMER_PREPARE
 
 ```gbvm
 VM_TIMER_PREPARE TIMER, BANK, ADDR
 ```
-## VM_TIMER_SET
-Start a timer calling once every interval*16 frames  
+Load script into timer context  
+
+# VM_TIMER_SET
 
 ```gbvm
 VM_TIMER_SET TIMER, INTERVAL
 ```
-## VM_TIMER_STOP
-Stop a timer  
+Start a timer calling once every `INTERVAL` * 16 frames  
+
+# VM_TIMER_STOP
 
 ```gbvm
 VM_TIMER_STOP TIMER
 ```
-## VM_TIMER_RESET
-Reset a timers countdown to 0  
+Stop a timer  
+
+# VM_TIMER_RESET
 
 ```gbvm
 VM_TIMER_RESET TIMER
 ```
-## VM_GET_TILE_XY
+Reset a timers countdown to 0  
+
+# VM_GET_TILE_XY
+
 ```gbvm
 VM_GET_TILE_XY TILE_IDX, X_IDX, Y_IDX
 ```
-## VM_REPLACE_TILE
+# VM_REPLACE_TILE
+
 ```gbvm
 VM_REPLACE_TILE TARGET_TILE_IDX, TILEDATA_BANK, TILEDATA, START_IDX, LEN
 ```
-## VM_POLL
+# VM_POLL
+
 ```gbvm
 VM_POLL IDX_EVENT, IDX_VALUE, MASK
 ```
-## VM_SET_SPRITE_MODE
-```gbvm
-.MODE_8X8               = 0
-.MODE_8X16              = 1
-```
+# VM_SET_SPRITE_MODE
+
 ```gbvm
 VM_SET_SPRITE_MODE MODE
 ```
-## VM_REPLACE_TILE_XY
+# VM_REPLACE_TILE_XY
+
 ```gbvm
 VM_REPLACE_TILE_XY X, Y, TILEDATA_BANK, TILEDATA, START_IDX
 ```
-## VM_INPUT_DETACH
+# VM_INPUT_DETACH
+
 ```gbvm
 VM_INPUT_DETACH MASK
 ```
-## VM_MUSIC_PLAY
-Starts playing of music track  
+# VM_MUSIC_PLAY
 
-```gbvm
-.MUSIC_NO_LOOP          = 0
-.MUSIC_LOOP             = 1
-```
 ```gbvm
 VM_MUSIC_PLAY TRACK_BANK, TRACK, LOOP
 ```
-## VM_MUSIC_STOP
-Stops playing of music track  
+--- MUSIC AND SOUND -------------------------------  
+Starts playing of music track  
+
+# VM_MUSIC_STOP
 
 ```gbvm
 VM_MUSIC_STOP
 ```
-## VM_MUSIC_MUTE
-Mutes/unmutes channels by mask  
+Stops playing of music track  
+
+# VM_MUSIC_MUTE
 
 ```gbvm
 VM_MUSIC_MUTE MASK
 ```
-## VM_SOUND_MASTERVOL
-Sets master volume  
+ Mutes/unmutes channels using `MASK`. The 4 lower bits of the mask represent the 4 audio channels.  
+  
+| `Mask`   | Channel 1 | Channel 2 | Channel 3 | Channel 4 |  
+| -------- | --------- | --------- | --------- | --------- |  
+| `0b0000` | Muted     | Muted     | Muted     | Muted     |  
+| `0b0001` | Muted     | Muted     | Muted     | Not Muted |  
+| `0b0010` | Muted     | Muted     | Not Muted | Muted     |  
+| `0b0011` | Muted     | Muted     | Not Muted | Not Muted |  
+| `0b0100` | Muted     | Not Muted | Muted     | Muted     |  
+| `0b0101` | Muted     | Not Muted | Muted     | Not Muted |  
+| `0b0110` | Muted     | Not Muted | Not Muted | Muted     |  
+| `0b0111` | Muted     | Not Muted | Not Muted | Not Muted |  
+| `0b1000` | Not Muted | Muted     | Muted     | Muted     |  
+| `0b1001` | Not Muted | Muted     | Muted     | Not Muted |  
+| `0b1010` | Not Muted | Muted     | Not Muted | Muted     |  
+| `0b1011` | Not Muted | Muted     | Not Muted | Not Muted |  
+| `0b1100` | Not Muted | Not Muted | Muted     | Muted     |  
+| `0b1101` | Not Muted | Not Muted | Muted     | Not Muted |  
+| `0b1110` | Not Muted | Not Muted | Not Muted | Muted     |  
+| `0b1111` | Not Muted | Not Muted | Not Muted | Not Muted |  
+
+# VM_SOUND_MASTERVOL
 
 ```gbvm
 VM_SOUND_MASTERVOL VOL
 ```
-## VM_MUSIC_ROUTINE
-Attach script to music event  
+Sets master volume to `VOL`  
+
+# VM_MUSIC_ROUTINE
 
 ```gbvm
 VM_MUSIC_ROUTINE ROUTINE, BANK, ADDR
 ```
-## VM_SFX_PLAY
-Plays SFX  
+Attach script to music event  
 
-```gbvm
-.SFX_PRIORITY_MINIMAL   = 0
-.SFX_PRIORITY_NORMAL    = 4
-.SFX_PRIORITY_HIGH      = 8
-```
+# VM_SFX_PLAY
+
 ```gbvm
 VM_SFX_PLAY BANK, ADDR, MASK, PRIO
 ```
-## VM_MUSIC_SETPOS
-Sets music playback position  
+Play a sound effect asset  
+
+# VM_MUSIC_SETPOS
 
 ```gbvm
 VM_MUSIC_SETPOS PATTERN, ROW
 ```
-## VM_SCENE_PUSH
+Sets music playback position  
+
+# VM_SCENE_PUSH
+
 ```gbvm
 VM_SCENE_PUSH
 ```
-## VM_SCENE_POP
+--- SCENES -------------------------------  
+To load a new scene raise a `EXCEPTION_CHANGE_SCENE` exception using `VM_RAISE`.  
+The scene to load is defined using `IMPORT_FAR_PTR_DATA` followed by the scene symbol.  
+For example to load `scene 10`:  
+```  
+VM_RAISE  	EXCEPTION_CHANGE_SCENE, 3  
+IMPORT_FAR_PTR_DATA _scene_10  
+```  
+Pushes the current scene to the scene stack.  
+
+# VM_SCENE_POP
+
 ```gbvm
 VM_SCENE_POP
 ```
-## VM_SCENE_POP_ALL
+Removes the last scene from the scene stack an loads it.  
+
+# VM_SCENE_POP_ALL
+
 ```gbvm
 VM_SCENE_POP_ALL
 ```
-## VM_SCENE_STACK_RESET
+Removes all scenes from the scene stack and loads the first one.  
+
+# VM_SCENE_STACK_RESET
+
 ```gbvm
 VM_SCENE_STACK_RESET
 ```
-## VM_SIO_SET_MODE
-```gbvm
-.SIO_MODE_NONE          = 0
-.SIO_MODE_MASTER        = 1
-.SIO_MODE_SLAVE         = 2
-```
+Removes all the scenes from the scene stack.  
+
+# VM_SIO_SET_MODE
+
 ```gbvm
 VM_SIO_SET_MODE MODE
 ```
-## VM_SIO_EXCHANGE
+--- SIO ----------------------------------  
+
+# VM_SIO_EXCHANGE
+
 ```gbvm
 VM_SIO_EXCHANGE SOUR, DEST, SIZE
 ```
-## VM_CAMERA_MOVE_TO
+# VM_CAMERA_MOVE_TO
+
 ```gbvm
 VM_CAMERA_MOVE_TO IDX, SPEED, AFTER_LOCK
 ```
-```gbvm
-.CAMERA_LOCK             = 0b00000011
-.CAMERA_LOCK_X           = 0b00000001
-.CAMERA_LOCK_Y           = 0b00000010
-.CAMERA_UNLOCK           = 0b00000000
-```
-## VM_CAMERA_SET_POS
+ Moves the camera to the new position  
+- **IDX**:  Start of the pseudo-structure which contains the new camera position  
+- **SPEED**:  Speed of the camera movement  
+- **AFTER**: _LOCK Lock status of the camera after the movement  
+.CAMERA_LOCK   - lock camera by X and Y  
+.CAMERA_LOCK_X - lock camera by X  
+.CAMERA_LOCK_Y - lock camera by Y  
+.CAMERA_UNLOCK - unlock camera  
+
+# VM_CAMERA_SET_POS
+
 ```gbvm
 VM_CAMERA_SET_POS IDX
 ```
-```gbvm
-.CAMERA_SHAKE_X          = 1
-.CAMERA_SHAKE_Y          = 2
-```
-## VM_RTC_LATCH
-Latch RTC value for access  
+ Sets the camera position  
+- **IDX**:  Start of the pseudo-structure which contains the new camera position  
+
+# VM_RTC_LATCH
 
 ```gbvm
 VM_RTC_LATCH
 ```
-## VM_RTC_GET
-Read RTC value  
+ Latch RTC value for access  
 
-```gbvm
-.RTC_SECONDS             = 0x00
-.RTC_MINUTES             = 0x01
-.RTC_HOURS               = 0x02
-.RTC_DAYS                = 0x03
-```
+# VM_RTC_GET
+
 ```gbvm
 VM_RTC_GET IDX, WHAT
 ```
-## VM_RTC_SET
-Write RTC value  
+ Read RTC value  
+- **IDX**:  Target variable  
+- **WHAT**:  RTC value to be read  
+.RTC_SECONDS - Seconds  
+.RTC_MINUTES - Minutes  
+.RTC_HOURS   - Hours  
+.RTC_DAYS    - Days  
+
+# VM_RTC_SET
 
 ```gbvm
 VM_RTC_SET IDX, WHAT
 ```
-## VM_RTC_START
-Start or stop RTC  
+ Write RTC value  
+- **IDX**:  Source variable  
+- **WHAT**:  RTC value to be written  
+.RTC_SECONDS - Seconds  
+.RTC_MINUTES - Minutes  
+.RTC_HOURS   - Hours  
+.RTC_DAYS    - Days  
 
-```gbvm
-.RTC_STOP                = 0
-.RTC_START               = 1
-```
+# VM_RTC_START
+
 ```gbvm
 VM_RTC_START START
 ```
-## VM_LOAD_PALETTE
-```gbvm
-.PALETTE_COMMIT          = 1
-.PALETTE_BKG             = 2
-.PALETTE_SPRITE          = 4
-```
+ Start or stop RTC  
+- **START**:  Start or stop flag  
+.RTC_STOP    - stop RTC  
+.RTC_START   - start RTC  
+
+# .DMG_PAL
+
 ```gbvm
 .DMG_PAL COL1, COL2, COL3, COL4
 ```
+--- COLOR ---------------------------------------  
+
+# .CGB_PAL
+
 ```gbvm
 .CGB_PAL R1,G1,B1 R2,G2,B2 R3,G3,B3 R4,G4,B4
 ```
+# VM_LOAD_PALETTE
+
 ```gbvm
 VM_LOAD_PALETTE MASK, OPTIONS
 ```
-## VM_SGB_TRANSFER
-transfers SGB packet(s)  
+# VM_SGB_TRANSFER
 
 ```gbvm
 VM_SGB_TRANSFER
 ```
-## VM_RUMBLE
+ Transfers SGB packet(s). Data of variable length is placed after this instruction, for example:  
+  
+```  
+VM_SGB_TRANSFER  
+.db ((0x04 &lt;&lt; 3) | 1), 1, 0x07, ((0x01 &lt;&lt; 4) | (0x02 &lt;&lt; 2) | 0x03), 5,5, 10,10,  0, 0, 0, 0, 0, 0, 0, 0 ; ATTR_BLK packet  
+```  
+  
+SGB packet size is a multiple of 16 bytes and encoded in the packet itself.  
+
+# VM_RUMBLE
+
 ```gbvm
 VM_RUMBLE ENABLE
 ```
-## VM_PROJECTILE_LAUNCH
-```gbvm
-.PROJECTILE_ANIM_ONCE    = 0x01
-.PROJECTILE_STRONG       = 0x02
-```
+ Enables or disables rumble on a cart that has that function  
+- **ENABLE**:  1 - enable or 0 - disable  
+
+# VM_PROJECTILE_LAUNCH
+
 ```gbvm
 VM_PROJECTILE_LAUNCH TYPE, IDX
 ```
-## VM_PROJECTILE_LOAD_TYPE
+--- PROJECTILES ---------------------------------  
+
+# VM_PROJECTILE_LOAD_TYPE
+
 ```gbvm
 VM_PROJECTILE_LOAD_TYPE TYPE, BANK, ADDR
 ```
-## VM_SIN_SCALE
+# VM_SIN_SCALE
+
 ```gbvm
 VM_SIN_SCALE IDX, IDX_ANGLE, SCALE
 ```
-## VM_COS_SCALE
+--- MATH -------------------------------------------  
+
+# VM_COS_SCALE
+
 ```gbvm
 VM_COS_SCALE IDX, IDX_ANGLE, SCALE
 ```
-## VM_SET_TEXT_SOUND
-Set sound effect for text  
+# VM_SET_TEXT_SOUND
 
 ```gbvm
 VM_SET_TEXT_SOUND BANK, ADDR, MASK
 ```
-## VM_PRINTER_DETECT
-Detect printer  
+ Set the sound effect for the text output  
+- **BANK**:  Bank number of the effect  
+- **ADDR**:  Address of the effect  
+- **MASK**:  Mute mask of the effect  
+
+# VM_PRINTER_DETECT
 
 ```gbvm
 VM_PRINTER_DETECT ERROR, DELAY
 ```
-## VM_PRINT_OVERLAY
-Print up to HEIGHT rows of the overlay window (must be multiple of 2)  
+ Detect printer  
+- **ERROR**:  Target variable that receives the result of detection  
+- **DELAY**:  Detection timeout  
+
+# VM_PRINT_OVERLAY
 
 ```gbvm
-VM_PRINT_OVERLAY ERROR, START, HEIGHT
+VM_PRINT_OVERLAY ERROR, START, HEIGHT, MARGIN
 ```
+ Print up to HEIGHT rows of the overlay window (must be multiple of 2)  
+- **ERROR**:  Target variable that receives the result of printing  
+- **START**:  Start line of the overlay window  
+- **HEIGHT**:  Amount of lines to print  
+- **MARGIN**:  Lines to feed after the printing is finished  
+
