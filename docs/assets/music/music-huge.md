@@ -6,7 +6,7 @@ sidebar_position: 1
 
 If you have your _Music Format_ in the _Settings View_ set to `UGE (hUGEDriver)` (the default in GB Studio 3 and above) you can add music to your game by including `.uge` files in your project's `assets/music` folder. 
 
-Those files can be edited using the `Music Editor` by clicking the `Project View` Button and selecting `Music`. The editor also allows to create new songs by pressing the `+` button on top of the Song list.
+Those files can be edited using the _Music Editor_ by clicking the _Project View Button_ and selecting _Music_. The editor also allows to create new songs by pressing the `+` button on top of the Song list.
 
 >`.uge` files can also be edited using **[hUGETracker](https://nickfa.ro/index.php/HUGETracker)**
 
@@ -29,16 +29,16 @@ A song consists of:
   * Each channel has its own set of 15 _[Instruments](#instruments)_. Duty 1 and Duty 2 share the same set of instruments.  
 * Multiple _Patterns_, a unique group of notes in each of the four channels. 
   * Each pattern contains a sequence of up to 64 notes per channel, and each note is formed by a pitch ranging from `C-3` to `B-8`, an instrument and an effect.
-  * Patterns can be repeated or arranged to form the full song using the _[Pattern Editor](#pattern-editor)_.
+  * Patterns can be repeated or arranged to form the full song using the _[Pattern Editor](#pattern-navigator)_.
 * A _Tempo_, how many ticks (64 per second) have to elapse before a row is complete. The greater the number of ticks, the slower the song is.
 
 ## Piano Roll
 
 In Piano Roll mode you use the mouse to add notes to the pattern. It reads like a music sheet, the time is represented in the horizontal axis (columns) while the note pitch is represented on the vertical axis (rows).
 
-<img title="Piano Roll" src="/img/screenshots/music-editor-piano.png" width="1241" />
+<img title="Piano Roll" src="/img/screenshots/music-editor-piano-roll-v3.1.png" width="1241" />
 
-You can only add notes to one channel at a time, selectable on the top right toolbar. The channels can be muted with the sound icon for each channel. The channels that aren't selected can be previewed by clicking the eye icon.
+You can only add notes to one channel at a time, selectable on the top right toolbar. The channels can be muted with the speaker icon for each channel. The channels that aren't selected can be previewed by clicking the eye icon.
 
 ### Using the Piano Roll
 
@@ -46,9 +46,9 @@ To input a note, select the pen tool in the toolbar and click on a cell. The not
 
 To remove a note, select the eraser tool in the toolbar and click on an existing note. You can also right click on an existing note to remove it.
 
-The selector tool can be used to select a group of notes and drag and drop them anywhere else in the grid.
+To select a note, select the selector tool or press `Shift`. Once selected a group of notes and drag and drop them anywhere else in the grid.
 
-The effect bar allows to add an [effect](#effects) to a given note using the effect editor in the right pange.
+The effect bar, at the bottom of the piano grid, allows to add an [effect](#effects) to a given note using the effect editor in the right pange.
 
 The song can be previewed at any time by pressing the play button.
 
@@ -58,7 +58,7 @@ The song can be saved by pressing the save button or Ctrl/Cmd + S.
 
 In Tracker mode you use the keyboard to add notes to the pattern. The song advances from top to bottom, with each row representing a position of the song. 
 
-<img title="Tracker" src="/img/screenshots/music-editor-tracker.png" width="1241" />
+<img title="Tracker" src="/img/screenshots/music-editor-tracker-v3.1.png" width="1241" />
 
 There's one column for each channel, and each column is divided in 3 fields: Pitch (or Note), Instrument and Effect. 
 
@@ -82,14 +82,14 @@ There's two keyboard layouts to input the values in the note column. The layout 
 ***Linear layout*** 
 <img title="Tracker" src="/img/screenshots/music-editor-keys-openmpt.png" width="360" class="drop-shadow" />
 
-*This is the layout layout used by trackers like OpenMPT and hUGETracker.*
+*This is the layout used by trackers like OpenMPT and hUGETracker.*
 
 Each keyboard row (or "line") represents one octave on a piano. Keys from `Q` to `/` are used to input the values, starting with `C` in the base octave (3 by default). 
 
 ***Piano layout***
 <img title="Tracker" src="/img/screenshots/music-editor-keys-milkyt.png" width="360" class="drop-shadow" />
 
-*This is the layout layout used by trackers like MilkyTracker or FastTracker2.* 
+*This is the layout used by trackers like MilkyTracker or FastTracker2.* 
 
 The keyboard is split in two of groups of two rows of keys. On each group the top keys represent the black keys of a piano, andthe bottom keys the white ones. Keys from `2` to `/` are used to input the values, starting with `C` in the base octave + 1 (4 by default).
 
@@ -103,7 +103,7 @@ The song can be previewed at any time by pressing the play button.
 
 The song can be saved by pressing the save button or Ctrl/Cmd + S.
 
-## Pattern Editor
+## Pattern Navigator
 
 <img title="Patterns" src="/img/screenshots/music-editor-patterns.png" width="710" class="drop-shadow" />
 
