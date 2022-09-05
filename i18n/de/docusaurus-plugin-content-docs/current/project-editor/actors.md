@@ -45,4 +45,4 @@ Der _On Init/Szenenstart_ Skript wird immer dann ausgeführt sobald die Szene ge
 
 Falls der Darsteller ausgewählt ist, kann man durch den _Ereignis hinzufügen_ Knopf in der _Editor Seitenleiste_ ein Ereignismenü öffnen und das jeweilige Skript zusammenstellen.
 
-Weitere Informationen findet man in der Dokumentation für [Skript Ereignisse](/docs/scripting/script-glossary).
+Weitere Informationen findet man in der Dokumentation für [Skript Ereignisse](/docs/category/event-glossary).
