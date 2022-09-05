@@ -181,7 +181,15 @@ export const GB3D = ({ colorMode }) => {
     };
   });
 
-  const fallback = <img src="/img/hero/fallback.png" />;
+  const fallback = (
+    <img
+      src={
+        colorMode === "dark"
+          ? "/img/hero/fallback-dark.png"
+          : "/img/hero/fallback.png"
+      }
+    />
+  );
 
   if (!webglAvailable) {
     return fallback;
