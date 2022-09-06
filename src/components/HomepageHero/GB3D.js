@@ -13,6 +13,8 @@ import { TextureLoader } from "three/src/loaders/TextureLoader";
 import { sRGBEncoding, CustomBlending, OneFactor, SrcAlphaFactor } from "three";
 import { Billboard } from "@react-three/drei";
 import CameraControls from "camera-controls";
+import ThemedImage from "@theme/ThemedImage";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 let webglAvailable = true;
 
@@ -182,12 +184,11 @@ export const GB3D = ({ colorMode }) => {
   });
 
   const fallback = (
-    <img
-      src={
-        colorMode === "dark"
-          ? "/img/hero/fallback-dark.png"
-          : "/img/hero/fallback.png"
-      }
+    <ThemedImage
+      sources={{
+        light: useBaseUrl("/img/hero/fallback.png"),
+        dark: useBaseUrl("/img/hero/fallback-dark.png"),
+      }}
     />
   );
 
