@@ -131,6 +131,13 @@
   padding: 5px;
   width: 100%;
   height: 64px;
+  overflow: hidden;
+}
+
+.code {
+  font-family: monospace;
+  white-space: pre;
+  height: 96px;
 }
 
 .checkbox {

@@ -29,6 +29,12 @@ function FakeTextarea({ children }) {
   return <div className={styles.textarea} children={children} />;
 }
 
+function FakeCodeTextarea({ children }) {
+  return (
+    <div className={clsx(styles.textarea, styles.code)} children={children} />
+  );
+}
+
 function FakeSelect({ children }) {
   return (
     <div className={styles.select}>
@@ -190,7 +196,9 @@ function ScriptEventFieldInput({ field }) {
   }
   if (field.type === "code") {
     return (
-      <FakeTextarea>{field.placeholder || field.defaultValue}</FakeTextarea>
+      <FakeCodeTextarea>
+        {field.placeholder || field.defaultValue}
+      </FakeCodeTextarea>
     );
   }
   if (field.type === "references") {
