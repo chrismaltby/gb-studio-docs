@@ -30,7 +30,7 @@ To create a script event plugin first create a new folder within your `plugins` 
 
 ## Engine Plugins
 
-An engine plugin allows similar functionality to [ejecting your engine](/docs/engine-eject) but allows just changing single files or you can use it to add completely new files to the engine. 
+An engine plugin allows similar functionality to [ejecting your engine](/docs/extending-gbstudio/engine-eject) but allows just changing single files or you can use it to add completely new files to the engine. 
 
 Engine plugins contain an `engine` folder which follows the same structure as an ejected game engine. Below you can download an example plugin that adds a new game engine function that causes the screen to flash (only when Color mode is disabled) and also includes a script event plugin to allow calling the new function.
 
