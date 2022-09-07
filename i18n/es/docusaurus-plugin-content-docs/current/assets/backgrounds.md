@@ -1,15 +1,17 @@
 # Backgrounds
 
+import { Swatch } from '@site/src/components/Swatch';
+
 Each of your scenes requires a background image that defines how that scene should look. You can add backgrounds to your game by including PNG files in your project's `assets/backgrounds` folder.
 
 ## Color Requirements
 
 Background PNGs must only contain the following four colors:
 
-<div><div class="Swatch" style={{background:"#071821"}}></div><div class="SwatchLabel">#071821</div></div>
-<div><div class="Swatch" style={{background:"#306850"}}></div><div class="SwatchLabel">#306850</div></div>
-<div><div class="Swatch" style={{background:"#86c06c"}}></div><div class="SwatchLabel">#86c06c</div></div>
-<div><div class="Swatch" style={{background:"#e0f8cf"}}></div><div class="SwatchLabel">#e0f8cf</div></div>
+<Swatch color="#071821" />
+<Swatch color="#306850" />
+<Swatch color="#86c06c" />
+<Swatch color="#e0f8cf" />
 
 <div class="InfoBox">
 Download the GB Studio Palette Swatches for:<br />

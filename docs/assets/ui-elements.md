@@ -1,5 +1,7 @@
 # UI Elements
 
+import { Swatch } from '@site/src/components/Swatch';
+
 Your project contains a number of files in `assets/ui` with fixed file names that define parts of your game's user interface. Editing these files allows you to change the default font, set the window frame and modify the selection cursor.
 
 If you remove any of the files in the ui folder they will be replaced with the default assets the next time you build your game allowing you to revert any unwanted changes.
@@ -20,10 +22,10 @@ This image is used as a selection cursor when showing multiple choice options in
 
 UI PNGs must only contain the following four colors:
 
-<div><div class="Swatch" style={{background:"#071821"}}></div><div class="SwatchLabel">#071821</div></div>
-<div><div class="Swatch" style={{background:"#306850"}}></div><div class="SwatchLabel">#306850</div></div>
-<div><div class="Swatch" style={{background:"#86c06c"}}></div><div class="SwatchLabel">#86c06c</div></div>
-<div><div class="Swatch" style={{background:"#e0f8cf"}}></div><div class="SwatchLabel">#e0f8cf</div></div>
+<Swatch color="#071821" />
+<Swatch color="#306850" />
+<Swatch color="#86c06c" />
+<Swatch color="#e0f8cf" />
 
 <div class="InfoBox">
 Download the GB Studio Palette Swatches for:<br />

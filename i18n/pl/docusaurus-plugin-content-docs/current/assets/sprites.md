@@ -2,6 +2,8 @@
 sidebar_position: 1
 ---
 
+import { Swatch } from '@site/src/components/Swatch';
+
 # Obiekty (sprites)
 
 Sprites are the graphics used by playable or interactive characters in your scenes. Add sprites to your game by including `.png` files in your project's `assets/sprites` folder.
@@ -87,10 +89,10 @@ To delete a tile or frame, select it in either the _Frame Canvas_ or _Frames Nav
 
 Sprite `.png`s must only contain the following four colors:
 
-<div><div className="Swatch" style={{background:"#071821"}}></div><div className="SwatchLabel">#071821</div></div>
-<div><div className="Swatch" style={{background:"#86c06c"}}></div><div className="SwatchLabel">#86c06c</div></div>
-<div><div className="Swatch" style={{background:"#e0f8cf"}}></div><div className="SwatchLabel">#e0f8cf</div></div>
-<div><div className="Swatch" style={{background:"#65ff00"}}></div><div className="SwatchLabel">#65ff00</div></div>
+<Swatch color="#071821" />
+<Swatch color="#86c06c" />
+<Swatch color="#e0f8cf" />
+<Swatch color="#65ff00" />
 
 <div className="InfoBox">
 Download the GB Studio Palette Swatches for:<br />

@@ -1,0 +1,20 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    background-color: var(--ifm-code-background);
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--ifm-code-border-radius);
+    max-width: 150px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.swatch {
+    background: #071821;
+    width: 28px;
+    height: 28px;
+    border-radius: 3px;
+    margin-right: 5px;
+    vertical-align: middle;
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
+}

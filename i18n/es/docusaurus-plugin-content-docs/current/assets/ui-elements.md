@@ -1,5 +1,7 @@
 # UI Elements
 
+import { Swatch } from '@site/src/components/Swatch';
+
 Los proyectos contienen ficheros en el directorio assets/ui with con nombres específicos que se usan en el juego. Editarlos te permite cambiar la fuente del juego, los marcos de los cuadros de diálogos, etc.
 
 Si eliminas cualquier fichero de ese directorio sera reemplazado por el recurso por defecto de nuevo la próxima vez que compiles el juego.
@@ -32,10 +34,10 @@ Fichero donde se encuentras las emociones que pueden expresar los actores. Cada 
 
 Con excepción de 'emotes.png', el cual sigue el estándar de los requerimientos de los sprites, los ficheros de UI son solo de cuatro colores:
 
-<div><div class="Swatch" style={{ background: "#071821" }}></div><div class="SwatchLabel">#071821</div></div>
-<div><div class="Swatch" style={{ background: "#306850" }}></div><div class="SwatchLabel">#306850</div></div>
-<div><div class="Swatch" style={{ background: "#86c06c" }}></div><div class="SwatchLabel">#86c06c</div></div>
-<div><div class="Swatch" style={{ background: "#e0f8cf" }}></div><div class="SwatchLabel">#e0f8cf</div></div>
+<Swatch color="#071821" />
+<Swatch color="#306850" />
+<Swatch color="#86c06c" />
+<Swatch color="#e0f8cf" />
 
 <div class="InfoBox">
 Descarga la paleta de cuatro colores para:<br />

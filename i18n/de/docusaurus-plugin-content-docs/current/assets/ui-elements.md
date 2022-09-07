@@ -1,5 +1,7 @@
 # UI Elemente
 
+import { Swatch } from '@site/src/components/Swatch';
+
 Das Spielprojekt besitzt eine Reihe von Bilddateien im Unterverzeichnis `assets/ui` mit fest vorgeschriebenen Dateinamen. Diese Bilddateien sind essentiell für die Definierung der Oberflächengestaltung des Spiels. Durch die Bearbeitung dieser Bilddateien kann man unter anderem die ausgegebene Schriftart, das Design der Textbox und das Aussehen des UI Zeigers bearbeiten.
 Your project contains a number of files in `assets/ui` with fixed file names that define parts of your game's user interface. Editing these files allows you to change the default font, set the window frame and modify the selection cursor.
 
@@ -33,10 +35,10 @@ Diese Bilddatei wird verwendet um die Emotionsblasen über den Darstellern zu ze
 
 Mit Ausnahme der `emotes.png` Bilddatei, welches den üblichen Sprite-Voraussetzungen unterliegt, dürfen die restlichen Bilddateien nur die folgenden vier Farben beinhalten:
 
-<div><div class="Swatch" style={{ background: "#071821" }}></div><div class="SwatchLabel">#071821</div></div>
-<div><div class="Swatch" style={{ background: "#306850" }}></div><div class="SwatchLabel">#306850</div></div>
-<div><div class="Swatch" style={{ background: "#86c06c" }}></div><div class="SwatchLabel">#86c06c</div></div>
-<div><div class="Swatch" style={{ background: "#e0f8cf" }}></div><div class="SwatchLabel">#e0f8cf</div></div>
+<Swatch color="#071821" />
+<Swatch color="#306850" />
+<Swatch color="#86c06c" />
+<Swatch color="#e0f8cf" />
 
 <div class="InfoBox">
 Downloade die GB Studio Palette Swatches für folgende Software:<br />
