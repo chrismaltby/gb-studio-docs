@@ -22,6 +22,16 @@ For example the following custom script makes `Actor A` rotate in a circle.
 
 <img src="/img/screenshots/custom-script-dance.png" className="event-preview" />
 
+## Passing by Reference or Value
+
+When using variables in a custom script you have the choice to pass by reference (_By Ref_) or to pass by value (_By Val_) by clicking the drop down button next to each variable in the parameters list.
+
+<img src="/img/screenshots/custom-script-by-ref.png" className="event-preview" />
+
+- **Pass By Reference** Allows the custom script to modify the value of a variable parameter. Any changes to the variable's value from inside the script will also update the variable's value outside of the script. Use this if you want the custom script to be able to change the value of a variable that was passed in.
+
+- **Pass By Value** Copies the current value of the variable at call time so that any changes to the variable parameter from within the script will not affect the variable that was passed in. Use this if you want the custom script to **NOT** be able to change the variable that was passed in.
+
 ## Calling a Custom Script
 
 Once you have created a _Custom Script_ you can call it from any other script by adding a _Call Script_ event which will appear as follows.
