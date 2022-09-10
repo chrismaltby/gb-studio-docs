@@ -10,6 +10,6 @@ You can choose from playing a beep with a given pitch, a tone with a given frequ
 
 You can also place the following file types into `assets/sounds` which then become available:
 
-- **.wav** WAV audio file, preferably very short in length (a few seconds at most) and 8-bit mono (though GB Studio will attempt to convert files not in this format).
+- **.wav** WAV audio file, preferably very short in length (3.64 seconds is about the limit!) and 8-bit mono (though GB Studio will attempt to convert files not in this format).
 - **.vgm** VGM audio file (Game Boy format only).
 - **.sav** FX HAMMER sound effects.
