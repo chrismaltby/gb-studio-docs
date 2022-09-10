@@ -21,7 +21,8 @@ Run the specified script any time a joypad button is pressed.
 Conditionally run part of the script if the specified joypad button is currently pressed. Will not wait for user input and will only execute once, if you wish to run a script every time a button is pressed use Attach Script To Button instead.
 
 **Referenzen**  
-[/docs/scripting/script-glossary/input#attach-script-to-button](/docs/scripting/script-glossary/input#attach-script-to-button)<ScriptEventPreview title={"Falls Joypad-Eingabe Gedrückt"} fields={[{"key":"input","label":"Beliebiges von","description":"The input buttons to check.","type":"input","defaultValue":["a","b"]},{"key":"true","label":"Wahr","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+[/docs/scripting/script-glossary/input#attach-script-to-button](/docs/scripting/script-glossary/input#attach-script-to-button)  
+<ScriptEventPreview title={"Falls Joypad-Eingabe Gedrückt"} fields={[{"key":"input","label":"Beliebiges von","description":"The input buttons to check.","type":"input","defaultValue":["a","b"]},{"key":"true","label":"Wahr","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Beliebiges von**: The input buttons to check.  
 - **Wahr**: The script to run if the condition is true.  

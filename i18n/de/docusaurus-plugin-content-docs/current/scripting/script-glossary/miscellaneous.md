@@ -20,9 +20,15 @@ Alows you to group together parts of your script for organizational purposes.
 
 
 ## GBVM Skript
-<ScriptEventPreview title={"GBVM Skript"} fields={[{"key":"script","type":"code","flexBasis":"100%"},{"key":"references","type":"references","label":"Referenzen"}]} />
+Run a GBVM script.
 
-- **Referenzen**  
+**Referenzen**  
+[/docs/scripting/gbvm/](/docs/scripting/gbvm/)  
+[/docs/scripting/gbvm/gbvm-operations](/docs/scripting/gbvm/gbvm-operations)  
+<ScriptEventPreview title={"GBVM Skript"} fields={[{"key":"script","label":"Script","description":"A valid GBVM Script to execute.","type":"code","flexBasis":"100%"},{"key":"references","type":"references","label":"Referenzen","description":"A list of the assets and entities used in your GBVM script. Use this to let GB Studio know that a file is needed by your script, preventing it from being excluded in the final build."}]} />
+
+- **Script**: A valid GBVM Script to execute.  
+- **Referenzen**: A list of the assets and entities used in your GBVM script. Use this to let GB Studio know that a file is needed by your script, preventing it from being excluded in the final build.  
 
 ## Link: Schließen
 <ScriptEventPreview title={"Link: Schließen"} fields={[{"label":"Schließe die derzeitige Link-Verbindung."}]} />

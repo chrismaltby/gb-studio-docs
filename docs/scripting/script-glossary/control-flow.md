@@ -13,7 +13,8 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 Call one of your custom scripts. Once you have chosen a script you will be able to hook up any parameters required.
 
 **References**  
-[/docs/scripting/custom-scripts](/docs/scripting/custom-scripts)<ScriptEventPreview title={"Call Script"} fields={[{"type":"customEvent","label":"Script","description":"The script to run.","key":"customEventId"},{"type":"break"}]} />
+[/docs/scripting/custom-scripts](/docs/scripting/custom-scripts)  
+<ScriptEventPreview title={"Call Script"} fields={[{"type":"customEvent","label":"Script","description":"The script to run.","key":"customEventId"},{"type":"break"}]} />
 
 - **Script**: The script to run.  
 
@@ -83,7 +84,8 @@ Conditionally run part of the script if the game is being played on a device or 
 Conditionally run part of the script if the specified joypad button is currently pressed. Will not wait for user input and will only execute once, if you wish to run a script every time a button is pressed use Attach Script To Button instead.
 
 **References**  
-[/docs/scripting/script-glossary/input#attach-script-to-button](/docs/scripting/script-glossary/input#attach-script-to-button)<ScriptEventPreview title={"If Joypad Input Held"} fields={[{"key":"input","label":"Any of","description":"The input buttons to check.","type":"input","defaultValue":["a","b"]},{"key":"true","label":"True","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+[/docs/scripting/script-glossary/input#attach-script-to-button](/docs/scripting/script-glossary/input#attach-script-to-button)  
+<ScriptEventPreview title={"If Joypad Input Held"} fields={[{"key":"input","label":"Any of","description":"The input buttons to check.","type":"input","defaultValue":["a","b"]},{"key":"true","label":"True","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Any of**: The input buttons to check.  
 - **True**: The script to run if the condition is true.  
@@ -93,7 +95,8 @@ Conditionally run part of the script if the specified joypad button is currently
 Conditionally execute part of the script if the specified math expression evaluates to true.
 
 **References**  
-[/docs/scripting/math-expressions](/docs/scripting/math-expressions)<ScriptEventPreview title={"If Math Expression"} fields={[{"key":"expression","label":"Expression","description":"The expression to evaluate.","type":"matharea","rows":5,"placeholder":"e.g. $health >= 0...","defaultValue":""},{"key":"true","label":"True","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+[/docs/scripting/math-expressions](/docs/scripting/math-expressions)  
+<ScriptEventPreview title={"If Math Expression"} fields={[{"key":"expression","label":"Expression","description":"The expression to evaluate.","type":"matharea","rows":5,"placeholder":"e.g. $health >= 0...","defaultValue":""},{"key":"true","label":"True","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Expression**: The expression to evaluate.  
 - **True**: The script to run if the condition is true.  

@@ -13,7 +13,8 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 Set a variable to the result of evaluating a math expression.
 
 **References**  
-[/docs/scripting/math-expressions](/docs/scripting/math-expressions)<ScriptEventPreview title={"Evaluate Math Expression"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Expression","description":"The expression to evaluate.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
+[/docs/scripting/math-expressions](/docs/scripting/math-expressions)  
+<ScriptEventPreview title={"Evaluate Math Expression"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Expression","description":"The expression to evaluate.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
 
 - **Variable**: The variable to use.  
 - **Expression**: The expression to evaluate.  
@@ -68,7 +69,8 @@ Store the current position of an actor within two variables, one to store the ho
 Store the value of an Engine Field in a variable.
 
 **References**  
-[/docs/settings/#engine-settings](/docs/settings/#engine-settings)<ScriptEventPreview title={"Store Engine Field In Variable"} fields={[{"type":"engineField","label":"Engine Field","description":"The engine field to read the value of.","key":"engineFieldKey"}]} />
+[/docs/settings/#engine-settings](/docs/settings/#engine-settings)  
+<ScriptEventPreview title={"Store Engine Field In Variable"} fields={[{"type":"engineField","label":"Engine Field","description":"The engine field to read the value of.","key":"engineFieldKey"}]} />
 
 - **Engine Field**: The engine field to read the value of.  
 

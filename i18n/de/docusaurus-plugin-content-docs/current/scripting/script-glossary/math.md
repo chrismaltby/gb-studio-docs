@@ -13,7 +13,8 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 Set a variable to the result of evaluating a math expression.
 
 **Referenzen**  
-[/docs/scripting/math-expressions](/docs/scripting/math-expressions)<ScriptEventPreview title={"Matheausdruck auswerten"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Expression","description":"The expression to evaluate.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
+[/docs/scripting/math-expressions](/docs/scripting/math-expressions)  
+<ScriptEventPreview title={"Matheausdruck auswerten"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Expression","description":"The expression to evaluate.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
 
 - **Variable**: The variable to use.  
 - **Expression**: The expression to evaluate.  
@@ -22,7 +23,8 @@ Set a variable to the result of evaluating a math expression.
 Conditionally execute part of the script if the specified math expression evaluates to true.
 
 **Referenzen**  
-[/docs/scripting/math-expressions](/docs/scripting/math-expressions)<ScriptEventPreview title={"Wenn Matheausdruck"} fields={[{"key":"expression","label":"Expression","description":"The expression to evaluate.","type":"matharea","rows":5,"placeholder":"e.g. $health >= 0...","defaultValue":""},{"key":"true","label":"Wahr","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+[/docs/scripting/math-expressions](/docs/scripting/math-expressions)  
+<ScriptEventPreview title={"Wenn Matheausdruck"} fields={[{"key":"expression","label":"Expression","description":"The expression to evaluate.","type":"matharea","rows":5,"placeholder":"e.g. $health >= 0...","defaultValue":""},{"key":"true","label":"Wahr","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Expression**: The expression to evaluate.  
 - **Wahr**: The script to run if the condition is true.  

@@ -31,7 +31,8 @@ Play a sound effect, choose from playing a .WAV, .VGM, or .SAV (fxhammer) file f
 Attach a script to one of the four music routines that can be triggered from a .uge file. In the music editor you are able to use the call routine effect in your songs to trigger these scripts in time to music.
 
 **Referenzen**  
-[/docs/assets/music/music-huge#effects](/docs/assets/music/music-huge#effects)<ScriptEventPreview title={"Musik Routine setzen"} fields={[{"key":"routine","label":"Routine","description":"The music routine, either 0, 1, 2 or 3.","type":"number","defaultValue":0,"min":0,"max":3},{"key":"__scriptTabs","type":"tabs","defaultValue":"trigger","values":{"trigger":"On Call"}},{"key":"true","label":"On Call","description":"The script to run when the routine is called.","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"trigger"]}]}]} />
+[/docs/assets/music/music-huge#effects](/docs/assets/music/music-huge#effects)  
+<ScriptEventPreview title={"Musik Routine setzen"} fields={[{"key":"routine","label":"Routine","description":"The music routine, either 0, 1, 2 or 3.","type":"number","defaultValue":0,"min":0,"max":3},{"key":"__scriptTabs","type":"tabs","defaultValue":"trigger","values":{"trigger":"On Call"}},{"key":"true","label":"On Call","description":"The script to run when the routine is called.","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"trigger"]}]}]} />
 
 - **Routine**: The music routine, either 0, 1, 2 or 3.  
 - **On Call**: The script to run when the routine is called.  
