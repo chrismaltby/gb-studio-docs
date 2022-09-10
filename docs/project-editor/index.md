@@ -33,12 +33,19 @@ See the documentation on [Keyboard Shortcuts](/docs/getting-started/keyboard-sho
 Using the _Project View Button_ you can switch between different views of your project and its assets.
 
 **Game World:** Create your game by combining scenes, actors and triggers.
+
 **Sprites:** Edit your sprites and create animations.
+
 **Backgrounds:** Preview your background assets.
+
 **Music:** Preview and edit (hUGEDriver only) your music files.
+
 **Palettes:** Edit your palettes for GBC games.
+
 **Dialogue Review:** Preview and edit all the text in your game.
+
 **Build and Run:** View logs of progress while building your game.
+
 **Settings:** Change your project's settings such as default sprites, color palettes and keyboard controls.
 
 See the documentation on [Assets](/docs/assets) for more information on how to add new assets.
