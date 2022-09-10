@@ -76,7 +76,7 @@ Store the value of an Engine Field in a variable.
 
 ## Zmienna: wartość z zapisu do zmiennej
 Read a variable's value from a specified save slot and store it in a variable.
-<ScriptEventPreview title={"Zmienna: wartość z zapisu do zmiennej"} fields={[{"key":"variableDest","label":"Ustaw zmienną","description":"The variable to update.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"Dodaj do zmiennej","description":"The variable to read the value of.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"Zapisz z pliku","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Plik &#123;numer&#125;","Zapisz plik &#123;numer&#125;"],[1,"Plik &#123;numer&#125;","Zapisz plik &#123;numer&#125;"],[2,"Plik &#123;numer&#125;","Zapisz plik &#123;numer&#125;"]],"allowNone":false,"defaultValue":0}]}]} />
+<ScriptEventPreview title={"Zmienna: wartość z zapisu do zmiennej"} fields={[{"key":"variableDest","label":"Ustaw zmienną","description":"The variable to update.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"Dodaj do zmiennej","description":"The variable to read the value of.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"Zapisz z pliku","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Plik 1","Zapisz plik 1"],[1,"Plik 2","Zapisz plik 2"],[2,"Plik 3","Zapisz plik 3"]],"allowNone":false,"defaultValue":0}]}]} />
 
 - **Ustaw zmienną**: The variable to update.  
 - **Dodaj do zmiennej**: The variable to read the value of.  
