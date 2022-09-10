@@ -10,3 +10,6 @@ GB Studio's game engine runs on a stack based virtual machine called [GBVM game 
 
 <ScriptEventPreview title={"GBVM Script"} fields={[{"key":"script","type":"code","flexBasis":"100%", "defaultValue": "VM_PUSH_CONST           0       ; Y coord\nVM_PUSH_CONST           0       ; X coord\nVM_PUSH_CONST           128\nVM_LOAD_TILESET         .ARG0, ___bank_bg_cave, _bg_cave\nVM_OVERLAY_SET_MAP      .ARG0, .ARG1, .ARG2, ___bank_bg_cave, _bg_cave\nVM_POP                  3"},{"key":"references","type":"references","label":"References"}]} />
 
+## Learning GBVM
+
+If you want to know more about GBVM and how to use it then check out GB Studio Central's getting started guide, [Learning GBVM](https://gbstudiocentral.com/tips/learning-gbvm/).
