@@ -78,6 +78,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      image: "img/share.png",
       navbar: {
         title: "GB Studio",
         logo: {
