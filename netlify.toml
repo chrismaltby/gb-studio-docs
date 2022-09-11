@@ -83,3 +83,8 @@
   from = "/docs/engine-eject"
   to = "/docs/extending-gbstudio/engine-eject"
   status = 301
+
+[[redirects]]
+  from = "/migrate"
+  to = "/docs/migrate"
+  status = 301
