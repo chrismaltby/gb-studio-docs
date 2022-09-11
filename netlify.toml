@@ -1,0 +1,85 @@
+[[redirects]]
+  from = "/download"
+  to = "https://chrismaltby.itch.io/gb-studio"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/docs/keyboard-shortcuts"
+  to = "/docs/getting-started/keyboard-shortcuts"
+  status = 301
+
+[[redirects]]
+  from = "/docs/saving-loading"
+  to = "/docs/getting-started/saving-loading"
+  status = 301
+
+[[redirects]]
+  from = "/docs/scenes"
+  to = "/docs/project-editor/scenes"
+  status = 301
+
+[[redirects]]
+  from = "/docs/player"
+  to = "/docs/project-editor/player"
+  status = 301
+
+[[redirects]]
+  from = "/docs/actors"
+  to = "/docs/project-editor/actors"
+  status = 301
+
+[[redirects]]
+  from = "/docs/triggers"
+  to = "/docs/project-editor/triggers"
+  status = 301
+
+[[redirects]]
+  from = "/docs/script-glossary"
+  to = "/docs/category/event-glossary"
+  status = 301
+
+[[redirects]]
+  from = "/docs/custom-scripts"
+  to = "/docs/scripting/custom-scripts"
+  status = 301
+
+[[redirects]]
+  from = "/docs/sprites"
+  to = "/docs/assets/sprites"
+  status = 301
+
+[[redirects]]
+  from = "/docs/backgrounds"
+  to = "/docs/assets/backgrounds"
+  status = 301
+
+[[redirects]]
+  from = "/docs/ui-elements"
+  to = "/docs/assets/ui-elements"
+  status = 301
+
+[[redirects]]
+  from = "/docs/music"
+  to = "/docs/assets/music"
+  status = 301
+
+[[redirects]]
+  from = "/docs/music/music-huge"
+  to = "/docs/assets/music/music-huge"
+  status = 301
+
+[[redirects]]
+  from = "/docs/music/music-gbt"
+  to = "/docs/assets/music/music-gbt"
+  status = 301
+
+[[redirects]]
+  from = "/docs/sound-effects"
+  to = "/docs/assets/sound-effects"
+  status = 301
+
+[[redirects]]
+  from = "/docs/engine-eject"
+  to = "/docs/extending-gbstudio/engine-eject"
+  status = 301
