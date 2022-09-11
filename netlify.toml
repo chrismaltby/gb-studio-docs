@@ -65,12 +65,12 @@
   status = 301
 
 [[redirects]]
-  from = "/docs/music/music-huge"
+  from = "/docs/music-huge"
   to = "/docs/assets/music/music-huge"
   status = 301
 
 [[redirects]]
-  from = "/docs/music/music-gbt"
+  from = "/docs/music-gbt"
   to = "/docs/assets/music/music-gbt"
   status = 301
 
