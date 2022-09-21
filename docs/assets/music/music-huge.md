@@ -52,6 +52,8 @@ The effect bar, at the bottom of the piano grid, allows to add an [effect](#effe
 
 The song can be previewed at any time by pressing the play button.
 
+To set the playback starting position, click the area above the piano roll, where the playback head is shown.
+
 The song can be saved by pressing the save button or Ctrl/Cmd + S.
 
 ## Tracker
@@ -100,6 +102,8 @@ The numeric keys are used to input the value in the instrument column. A default
 The numeric keys, and keys `A` through `F` are used to input values in the [effect](#effects) column.
 
 The song can be previewed at any time by pressing the play button.
+
+To set the playback starting position, click the row number on the left side of the tracker grid.
 
 The song can be saved by pressing the save button or Ctrl/Cmd + S.
 
@@ -177,7 +181,7 @@ manual](https://nickfa.ro/images/HUGETrackerManual.pdf)
 | 9xx    | Set Duty Cycle     | Select duty cycle for either the Duty 1 or Duty 2 channels. If this effect appears on the Noise or Wave channels, it will affect the Duty 2 channel. Valid values for `xx` are 00, 40, 80, C0. Under the hood, the `xx` value is loaded directly into Duty 1 or Duty 2's length register, so you could theoretically achieve other effects than just duty cycle changing.|
 | Axy    | Volume Slide       | Slide the note's volume up by `x` units, and then down by `y` units.<br/>This effect actually retriggers the note on each tick, which might not be noticeable for instruments without length/envelope, but could potentially sound bad if those are present.<br/>Recommended to use either instrument envelopes, or the `C` command instead if you can.<br/>**This effect does not work in the same cell as a note/instrument!**|
 | Bxx    | Position Jump      | Jump to the start of pattern `xx`. If `xx` is `00` jump to the next pattern.|
-| Cxx    | Set Volume         | Set the volume of the channel to  `xx`. Must be accompanied by a note  and instrument to work (except on the Wave channel). Valid values range from 00-0F.|
+| Cev    | Set Volume         | Set the envelope `e` and volume `v` of the channel. Must be accompanied by a note  and instrument to work (except on the Wave channel).<br/>Valid volumes range from 00-0F (00,04,08,0F for Wave channel).<br/>Valid envelopes for `Cev` 00-F0, 0 use instrument, 8 no fade, 1-7 fade quieter, 9-F fade louder, smaller values fade faster. |
 | Dxx    | Pattern Break      | Jump to the next pattern early, and start on row `xx`.|
 | Exx    | Note Cut           | Cut the note short after `xx` ticks.|
 | Fxx    | Set Speed          | Set the number of ticks per row to  `xx`. Can be used in an alternating fashion to create a swing beat.|
