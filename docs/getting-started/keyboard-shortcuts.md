@@ -97,7 +97,7 @@ These are only available when using the _Music Editor_.
 **Paste Selection** - `Ctrl/Cmd` + `V`  
 **Delete Selection** - `Backspace/Delete`
 
-**Transpose Selection (small step up)** - `Ctrl` + `=`  
+**Transpose Selection (small step up)** - `Ctrl` + `=` *or* `Ctrl` + `Scroll wheel`   
 **Transpose Selection (small step down)** - `Ctrl` + `-`   
 **Transpose Selection (big step up)** - `Ctrl` + `Shift` + `=` *or* `Ctrl` + `Shift` + `Q`  
 **Transpose Selection (big step down)** - `Ctrl` + `Shift` + `-` *or* `Ctrl` + `Shift` + `A`  
