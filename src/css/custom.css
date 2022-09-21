@@ -111,3 +111,36 @@ select:focus,
 textarea {
   font-size: 1rem !important;
 }
+
+@media print {
+  @page {
+    size: auto;
+    margin: 6.35mm;
+  }
+
+  .markdown {
+    --ifm-h1-vertical-rhythm-top: 3;
+    --ifm-h2-vertical-rhythm-top: 2;
+    --ifm-h3-vertical-rhythm-top: 1.5;
+    --ifm-heading-vertical-rhythm-top: 0.5;
+    --ifm-h1-vertical-rhythm-bottom: 1;
+    --ifm-heading-vertical-rhythm-bottom: 0.5;
+    --ifm-leading: 10px;
+  }
+
+  body {
+    font-size: 0.8rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+}
