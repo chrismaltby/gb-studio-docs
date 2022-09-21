@@ -16,3 +16,5 @@ You can generate ROM files that can be run in an emulator, on a web page or on r
 
 You can get latest version of GB Studio from the
 [Itch.io download page](https://chrismaltby.itch.io/gb-studio) and older releases are archived on [GitHub](https://github.com/chrismaltby/gb-studio/releases).
+
+This documentation is also [available in PDF format](/assets/pdf/www.gbstudio.dev-docs.pdf).
