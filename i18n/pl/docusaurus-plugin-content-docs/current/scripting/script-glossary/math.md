@@ -10,36 +10,36 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 # Matematyka
 
 ## Zmienna: wzór matematyczny
-Set a variable to the result of evaluating a math expression.
+Polecenie ustawi zmienną na wynik oceny wyrażenia matematycznego.
 
 **Odniesienia**  
 [/docs/scripting/math-expressions](/docs/scripting/math-expressions)  
-<ScriptEventPreview title={"Zmienna: wzór matematyczny"} fields={[{"key":"variable","label":"Zmienna","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Expression","description":"The expression to evaluate.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
+<ScriptEventPreview title={"Zmienna: wzór matematyczny"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Wyrażenie","description":"Wprowadź wyrażenie do oceny.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
 
-- **Zmienna**: The variable to use.  
-- **Expression**: The expression to evaluate.  
+- **Zmienna**: Wskaż zmienną do użycia.  
+- **Wyrażenie**: Wprowadź wyrażenie do oceny.  
 
 ## Warunel: wyrażenie matematycznee
-Conditionally execute part of the script if the specified math expression evaluates to true.
+Warunkowe wykonanie części skryptu, jeżeli określone wyrażenie matematyczne ma wartość 'prawda'.
 
 **Odniesienia**  
 [/docs/scripting/math-expressions](/docs/scripting/math-expressions)  
-<ScriptEventPreview title={"Warunel: wyrażenie matematycznee"} fields={[{"key":"expression","label":"Expression","description":"The expression to evaluate.","type":"matharea","rows":5,"placeholder":"e.g. $health >= 0...","defaultValue":""},{"key":"true","label":"Prawda","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"Warunel: wyrażenie matematycznee"} fields={[{"key":"expression","label":"Wyrażenie","description":"Wprowadź wyrażenie do oceny.","type":"matharea","rows":5,"placeholder":"e.g. $health >= 0...","defaultValue":""},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Expression**: The expression to evaluate.  
-- **Prawda**: The script to run if the condition is true.  
-- **Fałsz**: The script to run if the condition is false.  
+- **Wyrażenie**: Wprowadź wyrażenie do oceny.  
+- **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
+- **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
 
 ## Zmienna: funkcje matematyczne
-Allows you to perform various maths functions on a variable to add/subtract/multiply/divide/modulus a value/variable/random number.
-<ScriptEventPreview title={"Zmienna: funkcje matematyczne"} fields={[{"key":"vectorX","label":"Zmienna","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operation","label":"Operacja","description":"The operation to use for modifying the variable value.","type":"select","options":[["set","Ustaw"],["add","Dodaj"],["sub","Odejmij"],["mul","Pomnóż"],["div","Podziel"],["mod","Modulo"]],"defaultValue":"set","width":"50%"},{"key":"other","label":"Wartość","description":"The value to combine with the variable using the selected operation.","type":"select","options":[["true","Prawda"],["false","Fałsz"],["var","Zmienna"],["val","Wartość"],["rnd","Losowa"]],"defaultValue":"true","width":"50%"},{"key":"vectorY","type":"variable","conditions":[{"key":"other","eq":"var"}],"defaultValue":"LAST_VARIABLE"},{"key":"value","type":"number","conditions":[{"key":"other","eq":"val"}],"min":-32768,"max":32767,"defaultValue":"0"},{"type":"group","fields":[{"key":"minValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Wartość minimalna","description":"The minimum value for the random range.","hideFromDocs":true,"defaultValue":"0","width":"50%"},{"key":"maxValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Wartość maksymalna","description":"The maximum value for the random range.","hideFromDocs":true,"defaultValue":"32767","width":"50%"}]},{"key":"clamp","type":"checkbox","label":"Wartość zasisku 0 - 255","hideFromDocs":true,"conditions":[{"key":"operation","in":["add","sub","mul"]}],"defaultValue":false,"alignCheckbox":true}]} />
+Polecenie umożliwia wykonanie różnych funkcji matematycznych na zmiennej w celu dodania/odjęcia/mnożenia/dzielenia/modułu określonej wartości/zmiennej/losowej liczby.
+<ScriptEventPreview title={"Zmienna: funkcje matematyczne"} fields={[{"key":"vectorX","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operation","label":"Operacja","description":"Operacja używana do modyfikacji wartości zmiennej.","type":"select","options":[["set","Ustaw"],["add","Dodaj"],["sub","Odejmij"],["mul","Pomnóż"],["div","Podziel"],["mod","Modulo"]],"defaultValue":"set","width":"50%"},{"key":"other","label":"Wartość","description":"Wartość do połączenia ze zmienną przy użyciu wybranej operacji.","type":"select","options":[["true","Prawda"],["false","Fałsz"],["var","Zmienna"],["val","Wartość"],["rnd","Losowa"]],"defaultValue":"true","width":"50%"},{"key":"vectorY","type":"variable","conditions":[{"key":"other","eq":"var"}],"defaultValue":"LAST_VARIABLE"},{"key":"value","type":"number","conditions":[{"key":"other","eq":"val"}],"min":-32768,"max":32767,"defaultValue":"0"},{"type":"group","fields":[{"key":"minValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Wartość minimalna","description":"Ustalenie wartości minimalnej zasięgu losowego.","hideFromDocs":true,"defaultValue":"0","width":"50%"},{"key":"maxValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Wartość maksymalna","description":"Ustalenie wartości maksymalnej zasięgu losowego.","hideFromDocs":true,"defaultValue":"32767","width":"50%"}]},{"key":"clamp","type":"checkbox","label":"Wartość zasisku 0 - 255","hideFromDocs":true,"conditions":[{"key":"operation","in":["add","sub","mul"]}],"defaultValue":false,"alignCheckbox":true}]} />
 
-- **Zmienna**: The variable to use.  
-- **Operacja**: The operation to use for modifying the variable value.  
-- **Wartość**: The value to combine with the variable using the selected operation.  
+- **Zmienna**: Wskaż zmienną do użycia.  
+- **Operacja**: Operacja używana do modyfikacji wartości zmiennej.  
+- **Wartość**: Wartość do połączenia ze zmienną przy użyciu wybranej operacji.  
 
 ## Generator losowych liczb
-Place this to run in response to user input to ensure random numbers change between playthroughs.
+Polecenie odpowiada za dane wejściowe użytkownika, tak, aby zapewnić zmianę losowych liczb między rozgrywakami.
 <ScriptEventPreview title={"Generator losowych liczb"} fields={[{"label":"Umieść to, aby uruchomić w odpowiedzi na dane wejściowe użytkownika, zmianę losowych liczb między rozgrywkami"}]} />
 
 

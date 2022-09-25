@@ -10,25 +10,25 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 # Inne polecenia
 
 ## Komentarz
-Allows you to leave notes within your scripts. Provides no functionality in-game. The text you type automatically gets set in the event title, so you can collapse the comment and still read its content.
+Polecenie pozostawia notatkę w skryptach. Komentarze nie posiadają żadnej funkcji w grze. Wprowadzony tekst jest automatycznie ustawiony jako tytuł zdarzenia, dzięki czemu nawet gdy kometarz będzie zwinięty, to nadal można czytać jego zawartość.
 <ScriptEventPreview title={"Komentarz"} fields={[{"key":"text","type":"textarea","maxPerLine":50,"placeholder":"Tekst...","multiple":false,"defaultValue":""}]} />
 
 
-## Grupa poleceń
-Alows you to group together parts of your script for organizational purposes.
-<ScriptEventPreview title={"Grupa poleceń"} fields={[{"key":"true","type":"events"}]} />
+## Grupowanie poleceń
+Polecenie pozwala na grupowanie części skryptu w celach organizacyjnych.
+<ScriptEventPreview title={"Grupowanie poleceń"} fields={[{"key":"true","type":"events"}]} />
 
 
 ## Skrypt GBVM
-Run a GBVM script.
+Polecenie uruchomi skrypt GBVM.
 
 **Odniesienia**  
 [/docs/scripting/gbvm/](/docs/scripting/gbvm/)  
 [/docs/scripting/gbvm/gbvm-operations](/docs/scripting/gbvm/gbvm-operations)  
-<ScriptEventPreview title={"Skrypt GBVM"} fields={[{"key":"script","label":"Script","description":"A valid GBVM Script to execute.","type":"code","flexBasis":"100%"},{"key":"references","type":"references","label":"Odniesienia","description":"A list of the assets and entities used in your GBVM script. Use this to let GB Studio know that a file is needed by your script, preventing it from being excluded in the final build."}]} />
+<ScriptEventPreview title={"Skrypt GBVM"} fields={[{"key":"script","label":"Skrypt (GBVM)","description":"Polecenie uruchomi prawidłowy skrypt GBVM do wykonania.","type":"code","flexBasis":"100%"},{"key":"references","type":"references","label":"Odniesienia","description":"Lista zasobów i jednostek używanych w skrypcie GBVM. Użyj tego, aby poinformować GB Studio, że plik jest potrzebny Twojemu skryptowi, zapobiegając wykluczeniu go w ostatecznej kompilacji."}]} />
 
-- **Script**: A valid GBVM Script to execute.  
-- **Odniesienia**: A list of the assets and entities used in your GBVM script. Use this to let GB Studio know that a file is needed by your script, preventing it from being excluded in the final build.  
+- **Skrypt (GBVM)**: Polecenie uruchomi prawidłowy skrypt GBVM do wykonania.  
+- **Odniesienia**: Lista zasobów i jednostek używanych w skrypcie GBVM. Użyj tego, aby poinformować GB Studio, że plik jest potrzebny Twojemu skryptowi, zapobiegając wykluczeniu go w ostatecznej kompilacji.  
 
 ## Link: Zamknij
 <ScriptEventPreview title={"Link: Zamknij"} fields={[{"label":"Zamknij aktualną sesję łączenia (link)."}]} />

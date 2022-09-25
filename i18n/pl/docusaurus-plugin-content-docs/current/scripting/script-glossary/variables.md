@@ -10,133 +10,133 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 # Zmienne
 
 ## Zmienna: wzór matematyczny
-Set a variable to the result of evaluating a math expression.
+Polecenie ustawi zmienną na wynik oceny wyrażenia matematycznego.
 
 **Odniesienia**  
 [/docs/scripting/math-expressions](/docs/scripting/math-expressions)  
-<ScriptEventPreview title={"Zmienna: wzór matematyczny"} fields={[{"key":"variable","label":"Zmienna","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Expression","description":"The expression to evaluate.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
+<ScriptEventPreview title={"Zmienna: wzór matematyczny"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Wyrażenie","description":"Wprowadź wyrażenie do oceny.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
 
-- **Zmienna**: The variable to use.  
-- **Expression**: The expression to evaluate.  
+- **Zmienna**: Wskaż zmienną do użycia.  
+- **Wyrażenie**: Wprowadź wyrażenie do oceny.  
 
 ## Warunek: zmienna porównuje się do wartości
-Conditionally run part of the script based on the value of a variable compared with a value.
-<ScriptEventPreview title={"Warunek: zmienna porównuje się do wartości"} fields={[{"key":"variable","label":"Zmienna","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operator","label":"Porównanie","description":"The comparison operator to use e.g. 'Less Than' or 'Greater Than'.","type":"operator","width":"50%","defaultValue":"=="},{"key":"comparator","label":"Wartość","description":"The value to compare with.","type":"number","min":-32768,"max":32767,"width":"50%","defaultValue":"0"},{"key":"true","label":"Prawda","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+Warunkowe uruchomienie części skryptu na podstawie wartości zmiennej w porównaniu z wartością.
+<ScriptEventPreview title={"Warunek: zmienna porównuje się do wartości"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operator","label":"Porównanie","description":"Operator porównania do wykorzystania m.in. 'Mniej niż' lub 'Większe niż;.","type":"operator","width":"50%","defaultValue":"=="},{"key":"comparator","label":"Wartość","description":"Wartość do porównania.","type":"number","min":-32768,"max":32767,"width":"50%","defaultValue":"0"},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Zmienna**: The variable to use.  
-- **Porównanie**: The comparison operator to use e.g. 'Less Than' or 'Greater Than'.  
-- **Wartość**: The value to compare with.  
-- **Prawda**: The script to run if the condition is true.  
-- **Fałsz**: The script to run if the condition is false.  
+- **Zmienna**: Wskaż zmienną do użycia.  
+- **Porównanie**: Operator porównania do wykorzystania m.in. 'Mniej niż' lub 'Większe niż;.  
+- **Wartość**: Wartość do porównania.  
+- **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
+- **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
 
 ## Warunek: zmienna porównuje się do zmiennej
-Conditionally run part of the script based on the value of a variable compared with another variable.
-<ScriptEventPreview title={"Warunek: zmienna porównuje się do zmiennej"} fields={[{"key":"vectorX","label":"Zmienna","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operator","label":"Porównanie","description":"The comparison operator to use e.g. 'Less Than' or 'Greater Than'.","type":"operator","width":"50%","defaultValue":"=="},{"key":"vectorY","label":"Other Variable","description":"The variable to compare with.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"true","label":"Prawda","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+Warunkowe uruchomienie części skryptu na podstawie wartości zmiennej w porównaniu z inną zmienną.
+<ScriptEventPreview title={"Warunek: zmienna porównuje się do zmiennej"} fields={[{"key":"vectorX","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operator","label":"Porównanie","description":"Operator porównania do wykorzystania m.in. 'Mniej niż' lub 'Większe niż;.","type":"operator","width":"50%","defaultValue":"=="},{"key":"vectorY","label":"Inna zmienna","description":"Wybierz zmienną do porównania.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Zmienna**: The variable to use.  
-- **Porównanie**: The comparison operator to use e.g. 'Less Than' or 'Greater Than'.  
-- **Other Variable**: The variable to compare with.  
-- **Prawda**: The script to run if the condition is true.  
-- **Fałsz**: The script to run if the condition is false.  
+- **Zmienna**: Wskaż zmienną do użycia.  
+- **Porównanie**: Operator porównania do wykorzystania m.in. 'Mniej niż' lub 'Większe niż;.  
+- **Inna zmienna**: Wybierz zmienną do porównania.  
+- **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
+- **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
 
 ## Zmienna: funkcje matematyczne
-Allows you to perform various maths functions on a variable to add/subtract/multiply/divide/modulus a value/variable/random number.
-<ScriptEventPreview title={"Zmienna: funkcje matematyczne"} fields={[{"key":"vectorX","label":"Zmienna","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operation","label":"Operacja","description":"The operation to use for modifying the variable value.","type":"select","options":[["set","Ustaw"],["add","Dodaj"],["sub","Odejmij"],["mul","Pomnóż"],["div","Podziel"],["mod","Modulo"]],"defaultValue":"set","width":"50%"},{"key":"other","label":"Wartość","description":"The value to combine with the variable using the selected operation.","type":"select","options":[["true","Prawda"],["false","Fałsz"],["var","Zmienna"],["val","Wartość"],["rnd","Losowa"]],"defaultValue":"true","width":"50%"},{"key":"vectorY","type":"variable","conditions":[{"key":"other","eq":"var"}],"defaultValue":"LAST_VARIABLE"},{"key":"value","type":"number","conditions":[{"key":"other","eq":"val"}],"min":-32768,"max":32767,"defaultValue":"0"},{"type":"group","fields":[{"key":"minValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Wartość minimalna","description":"The minimum value for the random range.","hideFromDocs":true,"defaultValue":"0","width":"50%"},{"key":"maxValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Wartość maksymalna","description":"The maximum value for the random range.","hideFromDocs":true,"defaultValue":"32767","width":"50%"}]},{"key":"clamp","type":"checkbox","label":"Wartość zasisku 0 - 255","hideFromDocs":true,"conditions":[{"key":"operation","in":["add","sub","mul"]}],"defaultValue":false,"alignCheckbox":true}]} />
+Polecenie umożliwia wykonanie różnych funkcji matematycznych na zmiennej w celu dodania/odjęcia/mnożenia/dzielenia/modułu określonej wartości/zmiennej/losowej liczby.
+<ScriptEventPreview title={"Zmienna: funkcje matematyczne"} fields={[{"key":"vectorX","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operation","label":"Operacja","description":"Operacja używana do modyfikacji wartości zmiennej.","type":"select","options":[["set","Ustaw"],["add","Dodaj"],["sub","Odejmij"],["mul","Pomnóż"],["div","Podziel"],["mod","Modulo"]],"defaultValue":"set","width":"50%"},{"key":"other","label":"Wartość","description":"Wartość do połączenia ze zmienną przy użyciu wybranej operacji.","type":"select","options":[["true","Prawda"],["false","Fałsz"],["var","Zmienna"],["val","Wartość"],["rnd","Losowa"]],"defaultValue":"true","width":"50%"},{"key":"vectorY","type":"variable","conditions":[{"key":"other","eq":"var"}],"defaultValue":"LAST_VARIABLE"},{"key":"value","type":"number","conditions":[{"key":"other","eq":"val"}],"min":-32768,"max":32767,"defaultValue":"0"},{"type":"group","fields":[{"key":"minValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Wartość minimalna","description":"Ustalenie wartości minimalnej zasięgu losowego.","hideFromDocs":true,"defaultValue":"0","width":"50%"},{"key":"maxValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Wartość maksymalna","description":"Ustalenie wartości maksymalnej zasięgu losowego.","hideFromDocs":true,"defaultValue":"32767","width":"50%"}]},{"key":"clamp","type":"checkbox","label":"Wartość zasisku 0 - 255","hideFromDocs":true,"conditions":[{"key":"operation","in":["add","sub","mul"]}],"defaultValue":false,"alignCheckbox":true}]} />
 
-- **Zmienna**: The variable to use.  
-- **Operacja**: The operation to use for modifying the variable value.  
-- **Wartość**: The value to combine with the variable using the selected operation.  
+- **Zmienna**: Wskaż zmienną do użycia.  
+- **Operacja**: Operacja używana do modyfikacji wartości zmiennej.  
+- **Wartość**: Wartość do połączenia ze zmienną przy użyciu wybranej operacji.  
 
 ## Zmienna: resetuj wszystkie zmienne do ''Fałsz''
-Reset all variables used by your project back to false.
+Polecenie resetuje wszystkie zmienne użyte w projekcie, przywracając im wartość 'fałsz'.
 <ScriptEventPreview title={"Zmienna: resetuj wszystkie zmienne do ''Fałsz''"} fields={[{"label":"Resetuj WSZYSTKIE zmienne do ''Fałsz''."}]} />
 
 
 ## Generator losowych liczb
-Place this to run in response to user input to ensure random numbers change between playthroughs.
+Polecenie odpowiada za dane wejściowe użytkownika, tak, aby zapewnić zmianę losowych liczb między rozgrywakami.
 <ScriptEventPreview title={"Generator losowych liczb"} fields={[{"label":"Umieść to, aby uruchomić w odpowiedzi na dane wejściowe użytkownika, zmianę losowych liczb między rozgrywkami"}]} />
 
 
 ## Aktor: zapisz położenie w zmiennych
-Store the current position of an actor within two variables, one to store the horizontal position and another to store the vertical position.
-<ScriptEventPreview title={"Aktor: zapisz położenie w zmiennych"} fields={[{"key":"actorId","label":"Aktor","description":"The actor you want to check.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"vectorX","type":"variable","label":"X","description":"The variable to use for the horizontal position.","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"vectorY","type":"variable","label":"Y","description":"The variable to use for the vertical position.","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]}]} />
+Polecenie zapisuje bieżącą pozycję aktora w dwóch zmiennych. Jedna przechowuje pozycję poziomą, a druga pozycję pionową.
+<ScriptEventPreview title={"Aktor: zapisz położenie w zmiennych"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do sprawdzenia.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"vectorX","type":"variable","label":"X","description":"Zmienna używana dla pozycji poziomej.","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"vectorY","type":"variable","label":"Y","description":"Zmienna używana dla pozycji pionowej.","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]}]} />
 
-- **Aktor**: The actor you want to check.  
-- **X**: The variable to use for the horizontal position.  
-- **Y**: The variable to use for the vertical position.  
+- **Aktor**: Wybierz aktora do sprawdzenia.  
+- **X**: Zmienna używana dla pozycji poziomej.  
+- **Y**: Zmienna używana dla pozycji pionowej.  
 
 ## Silnik: zapisz pole w zmiennej
-Store the value of an Engine Field in a variable.
+Polecenie zapisuje wartość wybranego pola silnika do zmiennej.
 
 **Odniesienia**  
 [/docs/settings/#engine-settings](/docs/settings/#engine-settings)  
-<ScriptEventPreview title={"Silnik: zapisz pole w zmiennej"} fields={[{"type":"engineField","label":"Engine Field","description":"The engine field to read the value of.","key":"engineFieldKey"}]} />
+<ScriptEventPreview title={"Silnik: zapisz pole w zmiennej"} fields={[{"type":"engineField","label":"Pole silnika","description":"Pole silnika do odczytania wartości.","key":"engineFieldKey"}]} />
 
-- **Engine Field**: The engine field to read the value of.  
+- **Pole silnika**: Pole silnika do odczytania wartości.  
 
 ## Zmienna: wartość z zapisu do zmiennej
-Read a variable's value from a specified save slot and store it in a variable.
-<ScriptEventPreview title={"Zmienna: wartość z zapisu do zmiennej"} fields={[{"key":"variableDest","label":"Ustaw zmienną","description":"The variable to update.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"Dodaj do zmiennej","description":"The variable to read the value of.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"Zapisz z pliku","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Plik 1","Zapisz plik 1"],[1,"Plik 2","Zapisz plik 2"],[2,"Plik 3","Zapisz plik 3"]],"allowNone":false,"defaultValue":0}]}]} />
+Polecenie odczytuje wartość zmiennej z określonego miejsca zapisu, a następnie zapisuje ją do zmiennej.
+<ScriptEventPreview title={"Zmienna: wartość z zapisu do zmiennej"} fields={[{"key":"variableDest","label":"Ustaw zmienną","description":"Zmienna do aktualizacji.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"Dodaj do zmiennej","description":"Zmienna do odczytania wartości.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"Zapisz z pliku","description":"Określenie miejsca zapisu.","type":"togglebuttons","options":[[0,"Plik 1","Zapisz plik 1"],[1,"Plik 2","Zapisz plik 2"],[2,"Plik 3","Zapisz plik 3"]],"allowNone":false,"defaultValue":0}]}]} />
 
-- **Ustaw zmienną**: The variable to update.  
-- **Dodaj do zmiennej**: The variable to read the value of.  
-- **Zapisz z pliku**: The save slot to use.  
+- **Ustaw zmienną**: Zmienna do aktualizacji.  
+- **Dodaj do zmiennej**: Zmienna do odczytania wartości.  
+- **Zapisz z pliku**: Określenie miejsca zapisu.  
 
 ## Zmienna: zmniejsz o 1
-Decrease the value of the specified variable by one.
-<ScriptEventPreview title={"Zmienna: zmniejsz o 1"} fields={[{"key":"variable","label":"Zmienna","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
+Zmniejszenie wartości wybranej zmiennej o 1.
+<ScriptEventPreview title={"Zmienna: zmniejsz o 1"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
 
-- **Zmienna**: The variable to use.  
+- **Zmienna**: Wskaż zmienną do użycia.  
 
 ## Zmienna: dodaj flagę
-Set selected flags to true on a variable. All unselected flags will keep their previous value.
-<ScriptEventPreview title={"Zmienna: dodaj flagę"} fields={[{"key":"variable","label":"Zmienna","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flaga 1","description":"Set flag 1 to true.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flaga 2","description":"Set flag 2 to true.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flaga 3","description":"Set flag 3 to true.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flaga 4","description":"Set flag 4 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flaga 5","description":"Set flag 5 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flaga 6","description":"Set flag 6 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flaga 7","description":"Set flag 7 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flaga 8","description":"Set flag 8 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flaga 9","description":"Set flag 9 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flaga 10","description":"Set flag 10 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flaga 11","description":"Set flag 11 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flaga 12","description":"Set flag 12 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flaga 13","description":"Set flag 13 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flaga 14","description":"Set flag 14 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flaga 15","description":"Set flag 15 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flaga 16","description":"Set flag 16 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false}]} />
+Polecenie ustawi wybraną flagę jako 'prawda' dla zmiennej. Wszystkie niewybrane flagi zachowają swoją poprzednią wartość.
+<ScriptEventPreview title={"Zmienna: dodaj flagę"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flaga 1","description":"Ustaw flagę 1 jako prawda.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flaga 2","description":"Ustaw flagę 2 jako prawda.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flaga 3","description":"Ustaw flagę 3 jako prawda.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flaga 4","description":"Ustaw flagę 4 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flaga 5","description":"Ustaw flagę 5 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flaga 6","description":"Ustaw flagę 6 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flaga 7","description":"Ustaw flagę 7 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flaga 8","description":"Ustaw flagę 8 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flaga 9","description":"Ustaw flagę 9 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flaga 10","description":"Ustaw flagę 10 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flaga 11","description":"Ustaw flagę 11 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flaga 12","description":"Ustaw flagę 12 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flaga 13","description":"Ustaw flagę 13 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flaga 14","description":"Ustaw flagę 14 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flaga 15","description":"Ustaw flagę 15 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flaga 16","description":"Ustaw flagę 16 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false}]} />
 
-- **Zmienna**: The variable to use.  
-- **Flaga 1**: Set flag 1 to true.  
-- **Flaga 2**: Set flag 2 to true.  
-- **Flaga 3**: Set flag 3 to true.  
+- **Zmienna**: Wskaż zmienną do użycia.  
+- **Flaga 1**: Ustaw flagę 1 jako prawda.  
+- **Flaga 2**: Ustaw flagę 2 jako prawda.  
+- **Flaga 3**: Ustaw flagę 3 jako prawda.  
 
 ## Zmienna: czyść flagę
-Set selected flags to false on a variable. All unselected flags will keep their previous value.
-<ScriptEventPreview title={"Zmienna: czyść flagę"} fields={[{"key":"variable","label":"Zmienna","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flaga 1","description":"Set flag 1 to false.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flaga 2","description":"Set flag 2 to false.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flaga 3","description":"Set flag 3 to false.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flaga 4","description":"Set flag 4 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flaga 5","description":"Set flag 5 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flaga 6","description":"Set flag 6 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flaga 7","description":"Set flag 7 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flaga 8","description":"Set flag 8 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flaga 9","description":"Set flag 9 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flaga 10","description":"Set flag 10 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flaga 11","description":"Set flag 11 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flaga 12","description":"Set flag 12 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flaga 13","description":"Set flag 13 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flaga 14","description":"Set flag 14 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flaga 15","description":"Set flag 15 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flaga 16","description":"Set flag 16 to false.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false}]} />
+Polecenie ustawi wybrane flagi jako 'fałsz' dla zmiennej. Wszystkie niewybrane flagi zachowają swoją poprzednią wartość.
+<ScriptEventPreview title={"Zmienna: czyść flagę"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flaga 1","description":"Ustaw flagę 1 jako fałsz.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flaga 2","description":"Ustaw flagę 2 jako fałsz.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flaga 3","description":"Ustaw flagę 3 jako fałsz.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flaga 4","description":"Ustaw flagę 4 jako fałsz.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flaga 5","description":"Ustaw flagę 5 jako fałsz.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flaga 6","description":"Ustaw flagę 6 jako fałsz.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flaga 7","description":"Ustaw flagę 7 jako fałsz.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flaga 8","description":"Ustaw flagę 8 jako fałsz.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flaga 9","description":"Ustaw flagę 9 jako fałsz.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flaga 10","description":"Ustaw flagę 10 jako fałsz.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flaga 11","description":"Ustaw flagę 11 jako fałsz.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flaga 12","description":"Ustaw flagę 12 jako fałsz.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flaga 13","description":"Ustaw flagę 13 jako fałsz.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flaga 14","description":"Ustaw flagę 14 jako fałsz.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flaga 15","description":"Ustaw flagę 15 jako fałsz.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flaga 16","description":"Ustaw flagę 16 jako fałsz.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false}]} />
 
-- **Zmienna**: The variable to use.  
-- **Flaga 1**: Set flag 1 to false.  
-- **Flaga 2**: Set flag 2 to false.  
-- **Flaga 3**: Set flag 3 to false.  
+- **Zmienna**: Wskaż zmienną do użycia.  
+- **Flaga 1**: Ustaw flagę 1 jako fałsz.  
+- **Flaga 2**: Ustaw flagę 2 jako fałsz.  
+- **Flaga 3**: Ustaw flagę 3 jako fałsz.  
 
 ## Zmienna: ustaw flagę
-Set the value of a variable by enabling individual bits of the 16-bit number. Allows 16 true/false values to be stored within a single variable. Setting the flags will replace the previous value of the variable.
-<ScriptEventPreview title={"Zmienna: ustaw flagę"} fields={[{"key":"variable","label":"Zmienna","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flaga 1","description":"Set flag 1 to true.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flaga 2","description":"Set flag 2 to true.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flaga 3","description":"Set flag 3 to true.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flaga 4","description":"Set flag 4 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flaga 5","description":"Set flag 5 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flaga 6","description":"Set flag 6 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flaga 7","description":"Set flag 7 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flaga 8","description":"Set flag 8 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flaga 9","description":"Set flag 9 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flaga 10","description":"Set flag 10 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flaga 11","description":"Set flag 11 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flaga 12","description":"Set flag 12 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flaga 13","description":"Set flag 13 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flaga 14","description":"Set flag 14 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flaga 15","description":"Set flag 15 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flaga 16","description":"Set flag 16 to true.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false}]} />
+Polecenie ustawi wartość zmiennej, włączając poszczególne bity 16-bitowej liczby. Umożliwia przechowywanie 16 wartości prawda/fałsz w jednej zmiennej. Ustawienie flag zastąpi poprzednią wartość zmiennej.
+<ScriptEventPreview title={"Zmienna: ustaw flagę"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flaga 1","description":"Ustaw flagę 1 jako prawda.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flaga 2","description":"Ustaw flagę 2 jako prawda.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flaga 3","description":"Ustaw flagę 3 jako prawda.","type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flaga 4","description":"Ustaw flagę 4 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flaga 5","description":"Ustaw flagę 5 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flaga 6","description":"Ustaw flagę 6 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flaga 7","description":"Ustaw flagę 7 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flaga 8","description":"Ustaw flagę 8 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flaga 9","description":"Ustaw flagę 9 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flaga 10","description":"Ustaw flagę 10 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flaga 11","description":"Ustaw flagę 11 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flaga 12","description":"Ustaw flagę 12 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flaga 13","description":"Ustaw flagę 13 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flaga 14","description":"Ustaw flagę 14 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flaga 15","description":"Ustaw flagę 15 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flaga 16","description":"Ustaw flagę 16 jako prawda.","hideFromDocs":true,"type":"checkbox","width":"50%","flexBasis":"40%","defaultValue":false}]} />
 
-- **Zmienna**: The variable to use.  
-- **Flaga 1**: Set flag 1 to true.  
-- **Flaga 2**: Set flag 2 to true.  
-- **Flaga 3**: Set flag 3 to true.  
+- **Zmienna**: Wskaż zmienną do użycia.  
+- **Flaga 1**: Ustaw flagę 1 jako prawda.  
+- **Flaga 2**: Ustaw flagę 2 jako prawda.  
+- **Flaga 3**: Ustaw flagę 3 jako prawda.  
 
 ## Zmienna: zwiększ o 1
-Increase the value of the specified variable by one.
-<ScriptEventPreview title={"Zmienna: zwiększ o 1"} fields={[{"key":"variable","label":"Zmienna","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
+Zwiększenie wartości wybranej zmiennej o 1.
+<ScriptEventPreview title={"Zmienna: zwiększ o 1"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
 
-- **Zmienna**: The variable to use.  
+- **Zmienna**: Wskaż zmienną do użycia.  
 
 ## Zmienna: ustaw na ''Fałsz''
-Set the value of the specified variable to false.
-<ScriptEventPreview title={"Zmienna: ustaw na ''Fałsz''"} fields={[{"key":"variable","label":"Zmienna","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
+Ustawienie wartości wybranej zmiennej na 'Fałsz'.
+<ScriptEventPreview title={"Zmienna: ustaw na ''Fałsz''"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
 
-- **Zmienna**: The variable to use.  
+- **Zmienna**: Wskaż zmienną do użycia.  
 
 ## Zmienna: ustaw na ''Prawda''
-Set the value of the specified variable to true.
-<ScriptEventPreview title={"Zmienna: ustaw na ''Prawda''"} fields={[{"key":"variable","label":"Zmienna","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
+Ustawienie wartości wybranej zmiennej na 'Prawda'.
+<ScriptEventPreview title={"Zmienna: ustaw na ''Prawda''"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
 
-- **Zmienna**: The variable to use.  
+- **Zmienna**: Wskaż zmienną do użycia.  
 
 ## Zmienna: ustaw wartość
-Set the specified variable to a defined value.
-<ScriptEventPreview title={"Zmienna: ustaw wartość"} fields={[{"key":"variable","label":"Zmienna","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"value","label":"Wartość","description":"The value to set the selected variable to.","type":"union","types":["number","variable","property"],"defaultType":"number","min":-32768,"max":32767,"defaultValue":{"number":0,"variable":"LAST_VARIABLE","property":"$self$:xpos"}}]} />
+Ustawienie wybranej zmiennej na określoną wartość.
+<ScriptEventPreview title={"Zmienna: ustaw wartość"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"value","label":"Wartość","description":"Wartość do ustawienia wybranej zmiennej.","type":"union","types":["number","variable","property"],"defaultType":"number","min":-32768,"max":32767,"defaultValue":{"number":0,"variable":"LAST_VARIABLE","property":"$self$:xpos"}}]} />
 
-- **Zmienna**: The variable to use.  
-- **Wartość**: The value to set the selected variable to.  
+- **Zmienna**: Wskaż zmienną do użycia.  
+- **Wartość**: Wartość do ustawienia wybranej zmiennej.  
 

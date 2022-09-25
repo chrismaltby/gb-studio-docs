@@ -10,35 +10,35 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 # Muzyka i dźwięk
 
 ## Muzyka: odegraj utwór
-Plays a music file. If you play a new song while another song is playing, the old song will stop automatically.
-<ScriptEventPreview title={"Muzyka: odegraj utwór"} fields={[{"key":"musicId","label":"Song","description":"The song to play.","type":"music","defaultValue":"LAST_MUSIC"}]} />
+Polecenie odegra utwór muzyczny. Jeśli odtworzysz nowy utwór podczas odtwarzania innego utworu, stary utwór zostanie automatycznie zatrzymany.
+<ScriptEventPreview title={"Muzyka: odegraj utwór"} fields={[{"key":"musicId","label":"Muzyka","description":"Wybierz muzykę do odtworzenia.","type":"music","defaultValue":"LAST_MUSIC"}]} />
 
-- **Song**: The song to play.  
+- **Muzyka**: Wybierz muzykę do odtworzenia.  
 
 ## Dźwięk: odegraj SE
-Play a sound effect, choose from playing a .WAV, .VGM, or .SAV (fxhammer) file from `/assets/sounds` or a preset sound effect.
-<ScriptEventPreview title={"Dźwięk: odegraj SE"} fields={[{"key":"type","type":"soundEffect","label":"Dźwięk","description":"The sound effect to play. Can choose from files within `/assets/sounds` or from preset sounds like `Beep`, `Pitch` and `Tone`.","defaultValue":"beep","flexBasis":"60%"},{"key":"priority","label":"Pierwszeństwo","description":"The priority of the effect, high, medium or low. If two sound effects are playing at the same time then higher priority sound effects will take precedence.","type":"priority","options":[["low","Nisko"],["medium","Średnio"],["high","Wysoko"]],"defaultValue":"medium","flexBasis":"15%"},{"key":"pitch","type":"number","label":"Ton","description":"The pitch of the sound effect (Beep effect only).","conditions":[{"key":"type","eq":"beep"}],"min":1,"max":8,"step":1,"defaultValue":4},{"key":"frequency","type":"number","label":"Częstotliwość w Hz","description":"The frequency of the sound effect in hz (Tone effect only).","conditions":[{"key":"type","eq":"tone"}],"min":0,"max":20000,"step":1,"defaultValue":200},{"key":"duration","type":"number","label":"Czas trwania","description":"The length of time to play the sound effect.","unitsField":"units","unitsDefault":"time","conditions":[{"key":"type","in":["beep","crash","tone"]}],"min":0,"max":4.25,"step":0.01,"defaultValue":0.5},{"key":"wait","type":"checkbox","label":"Czekaj na zakończenie","description":"Set if script should pause until sound effect has finished playing.","conditions":[{"key":"type","in":["beep","crash","tone"]}],"defaultValue":true,"flexBasis":"100%"},{"key":"effect","type":"number","label":"Spis efektów","description":"The effect number to play (for fxhammer only).","min":0,"max":60,"defaultValue":0,"conditions":[{"key":"type","soundType":"fxhammer"}]}]} />
+Polecenie odtworzy efekt dźwiękowy. Należy wybrać odtwarzanie pliku .WAV, .VGM lub .SAV (fxhammer) z folderu projektu `/assets/sounds` lub wstępnie ustawionego efektu dźwiękowego.
+<ScriptEventPreview title={"Dźwięk: odegraj SE"} fields={[{"key":"type","type":"soundEffect","label":"Dźwięk","description":"Efekt dźwiękowy do odtworzenia. Można wybierać spośród plików w `/assets/sounds` lub spośród gotowych dźwięków, takich jak `Beep`, `Pitch` i `Tone`.","defaultValue":"beep","flexBasis":"60%"},{"key":"priority","label":"Pierwszeństwo","description":"Priorytet efektu, wysoki, średni lub niski. Jeśli dwa efekty dźwiękowe są odtwarzane w tym samym czasie, pierwszeństwo będą miały efekty dźwiękowe o wyższym priorytecie.","type":"priority","options":[["low","Nisko"],["medium","Średnio"],["high","Wysoko"]],"defaultValue":"medium","flexBasis":"15%"},{"key":"pitch","type":"number","label":"Ton","description":"Wysokość tonu efektu dźwiękowego (tylko efekt Beep).","conditions":[{"key":"type","eq":"beep"}],"min":1,"max":8,"step":1,"defaultValue":4},{"key":"frequency","type":"number","label":"Częstotliwość w Hz","description":"Częstotliwość efektu dźwiękowego w Hz (tylko efekt tonowy).","conditions":[{"key":"type","eq":"tone"}],"min":0,"max":20000,"step":1,"defaultValue":200},{"key":"duration","type":"number","label":"Czas trwania","description":"Czas odtwarzania efektu dźwiękowego.","unitsField":"units","unitsDefault":"time","conditions":[{"key":"type","in":["beep","crash","tone"]}],"min":0,"max":4.25,"step":0.01,"defaultValue":0.5},{"key":"wait","type":"checkbox","label":"Czekaj na zakończenie","description":"Ustawienie wstrzymuje skrypt do momentu zakończenia odtwarzania efektu dźwiękowego.","conditions":[{"key":"type","in":["beep","crash","tone"]}],"defaultValue":true,"flexBasis":"100%"},{"key":"effect","type":"number","label":"Spis efektów","description":"Numer efektu do odtworzenia (tylko dla fxhammer).","min":0,"max":60,"defaultValue":0,"conditions":[{"key":"type","soundType":"fxhammer"}]}]} />
 
-- **Dźwięk**: The sound effect to play. Can choose from files within `/assets/sounds` or from preset sounds like `Beep`, `Pitch` and `Tone`.  
-- **Pierwszeństwo**: The priority of the effect, high, medium or low. If two sound effects are playing at the same time then higher priority sound effects will take precedence.  
-- **Ton**: The pitch of the sound effect (Beep effect only).  
-- **Częstotliwość w Hz**: The frequency of the sound effect in hz (Tone effect only).  
-- **Czas trwania**: The length of time to play the sound effect.  
-- **Czekaj na zakończenie**: Set if script should pause until sound effect has finished playing.  
-- **Spis efektów**: The effect number to play (for fxhammer only).  
+- **Dźwięk**: Efekt dźwiękowy do odtworzenia. Można wybierać spośród plików w `/assets/sounds` lub spośród gotowych dźwięków, takich jak `Beep`, `Pitch` i `Tone`.  
+- **Pierwszeństwo**: Priorytet efektu, wysoki, średni lub niski. Jeśli dwa efekty dźwiękowe są odtwarzane w tym samym czasie, pierwszeństwo będą miały efekty dźwiękowe o wyższym priorytecie.  
+- **Ton**: Wysokość tonu efektu dźwiękowego (tylko efekt Beep).  
+- **Częstotliwość w Hz**: Częstotliwość efektu dźwiękowego w Hz (tylko efekt tonowy).  
+- **Czas trwania**: Czas odtwarzania efektu dźwiękowego.  
+- **Czekaj na zakończenie**: Ustawienie wstrzymuje skrypt do momentu zakończenia odtwarzania efektu dźwiękowego.  
+- **Spis efektów**: Numer efektu do odtworzenia (tylko dla fxhammer).  
 
 ## Muzyka: ustaw rutynę
-Attach a script to one of the four music routines that can be triggered from a .uge file. In the music editor you are able to use the call routine effect in your songs to trigger these scripts in time to music.
+Dołącz skrypt do jednej z czterech procedur muzycznych, które można uruchomić z pliku .uge. W edytorze muzycznym możesz użyć efektu rutyny połączeń w swoich utworach, aby uruchomić te skrypty w rytm muzyki.
 
 **Odniesienia**  
 [/docs/assets/music/music-huge#effects](/docs/assets/music/music-huge#effects)  
-<ScriptEventPreview title={"Muzyka: ustaw rutynę"} fields={[{"key":"routine","label":"Routine","description":"The music routine, either 0, 1, 2 or 3.","type":"number","defaultValue":0,"min":0,"max":3},{"key":"__scriptTabs","type":"tabs","defaultValue":"trigger","values":{"trigger":"Wywołaj"}},{"key":"true","label":"Wywołaj","description":"The script to run when the routine is called.","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"trigger"]}]}]} />
+<ScriptEventPreview title={"Muzyka: ustaw rutynę"} fields={[{"key":"routine","label":"Rutyna","description":"Rutyna muzyczna, może być 0, 1, 2 lub 3.","type":"number","defaultValue":0,"min":0,"max":3},{"key":"__scriptTabs","type":"tabs","defaultValue":"trigger","values":{"trigger":"Wywołaj"}},{"key":"true","label":"Wywołaj","description":"Skrypt do uruchomienia po wywołaniu procedury.","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"trigger"]}]}]} />
 
-- **Routine**: The music routine, either 0, 1, 2 or 3.  
-- **Wywołaj**: The script to run when the routine is called.  
+- **Rutyna**: Rutyna muzyczna, może być 0, 1, 2 lub 3.  
+- **Wywołaj**: Skrypt do uruchomienia po wywołaniu procedury.  
 
 ## Muzyka: stop
-Stops any currently playing music.
+Polecenie zatrzymuje aktualną odtwarzaną muzykę.
 <ScriptEventPreview title={"Muzyka: stop"} fields={[{"label":"Zatrzymanie muzyki, która była odtwarzana."}]} />
 
 

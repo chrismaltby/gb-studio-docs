@@ -10,20 +10,20 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 # Silnik
 
 ## Silnik: aktualizacja ustawień
-Change the value of an Engine Field.
+Polecenie zmienia wartość wybranego pola silnika.
 
 **Odniesienia**  
 [/docs/settings/#engine-settings](/docs/settings/#engine-settings)  
-<ScriptEventPreview title={"Silnik: aktualizacja ustawień"} fields={[{"type":"engineField","label":"Engine Field","description":"The engine field to update.","key":"engineFieldKey"}]} />
+<ScriptEventPreview title={"Silnik: aktualizacja ustawień"} fields={[{"type":"engineField","label":"Pole silnika","description":"Pole silnika do aktualizacji.","key":"engineFieldKey"}]} />
 
-- **Engine Field**: The engine field to update.  
+- **Pole silnika**: Pole silnika do aktualizacji.  
 
 ## Silnik: zapisz pole w zmiennej
-Store the value of an Engine Field in a variable.
+Polecenie zapisuje wartość wybranego pola silnika do zmiennej.
 
 **Odniesienia**  
 [/docs/settings/#engine-settings](/docs/settings/#engine-settings)  
-<ScriptEventPreview title={"Silnik: zapisz pole w zmiennej"} fields={[{"type":"engineField","label":"Engine Field","description":"The engine field to read the value of.","key":"engineFieldKey"}]} />
+<ScriptEventPreview title={"Silnik: zapisz pole w zmiennej"} fields={[{"type":"engineField","label":"Pole silnika","description":"Pole silnika do odczytania wartości.","key":"engineFieldKey"}]} />
 
-- **Engine Field**: The engine field to read the value of.  
+- **Pole silnika**: Pole silnika do odczytania wartości.  
 
