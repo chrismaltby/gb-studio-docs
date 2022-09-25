@@ -40,8 +40,6 @@ Mit Ausnahme der `emotes.png` Bilddatei, welches den üblichen Sprite-Voraussetz
 <Swatch color="#86c06c" />
 <Swatch color="#e0f8cf" />
 
-<div class="InfoBox">
-Downloade die GB Studio Palette Swatches für folgende Software:<br />
-<a href="/assets/swatches/gb-studio-photoshop.aco">Adobe Photoshop</a><br />
-<a href="/assets/swatches/gb-studio-aseprite.aseprite">Aseprite</a>
-</div>
+Downloade die GB Studio Palette Swatches für folgende Software:  
+[Adobe Photoshop](/assets/swatches/gb-studio-photoshop.aco)  
+[Aseprite](/assets/swatches/gb-studio-aseprite.aseprite)  

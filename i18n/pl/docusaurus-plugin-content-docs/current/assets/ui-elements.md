@@ -39,8 +39,6 @@ Z wyjątkiem pliku `emotes.png`, który spełnia standardowe wymagania sprite, p
 <Swatch color="#86c06c" />
 <Swatch color="#e0f8cf" />
 
-<div class="InfoBox">
-Pobierz paletę kolorów GB Studio dla:<br />
-<a href="/assets/swatches/gb-studio-photoshop.aco">Adobe Photoshop</a><br />
-<a href="/assets/swatches/gb-studio-aseprite.aseprite">Aseprite</a>
-</div>
+Pobierz paletę kolorów GB Studio dla:  
+[Adobe Photoshop](/assets/swatches/gb-studio-photoshop.aco)  
+[Aseprite](/assets/swatches/gb-studio-aseprite.aseprite)  

@@ -96,11 +96,9 @@ Sprite `.png`s must only contain the following four colors:
 <Swatch color="#e0f8cf" />
 <Swatch color="#65ff00" />
 
-<div className="InfoBox">
-Download the GB Studio Palette Swatches for:<br />
-<a href="/assets/swatches/gb-studio-photoshop.aco">Adobe Photoshop</a><br />
-<a href="/assets/swatches/gb-studio-aseprite.aseprite">Aseprite</a>
-</div>
+Download the GB Studio Palette Swatches for:  
+[Adobe Photoshop](/assets/swatches/gb-studio-photoshop.aco)  
+[Aseprite](/assets/swatches/gb-studio-aseprite.aseprite)  
 
 The color `#65ff00` is used to represent a transparent background in game and will be invisible in-game and in the _World Editor_.
 

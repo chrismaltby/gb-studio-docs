@@ -27,11 +27,9 @@ UI PNGs must only contain the following four colors:
 <Swatch color="#86c06c" />
 <Swatch color="#e0f8cf" />
 
-<div class="InfoBox">
-Download the GB Studio Palette Swatches for:<br />
-<a href="/assets/swatches/gb-studio-photoshop.aco">Adobe Photoshop</a><br />
-<a href="/assets/swatches/gb-studio-aseprite.aseprite">Aseprite</a>
-</div>
+Download the GB Studio Palette Swatches for:  
+[Adobe Photoshop](/assets/swatches/gb-studio-photoshop.aco)  
+[Aseprite](/assets/swatches/gb-studio-aseprite.aseprite)  
 
 ## Fonts
 
