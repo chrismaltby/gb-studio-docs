@@ -1,54 +1,39 @@
 # MOD Music
 
-If you have your _Music Format_ in the _Settings View_ set to [MOD (GBT Player)](https://github.com/AntonioND/gbt-player) (the default in GB Studio 2 and below) you will need to provide music as `.mod` files.
+GBT Player is a _legacy driver_. By default, new projects use the built-in [Music Editor](https://www.gbstudio.dev/docs/assets/music/music-huge).
+
+You can enable GBT Player by setting _Music Format_ in the _Settings View_ to MOD (GBT Player).
 
 ## Requirements
 
-Add music to your game by including .mod files in your project's `assets/music` folder. GBT Player is a driver that takes .mod files and converts them to instructions for the Gameboy. GBT Player interprets .mod files differently than the Amiga computers that the .mod format was originally designed for, so every .mod file that GBT Player reads should be composed/arranged to be used with GBT Player.
+Add music to your game by including .mod files in your project's `assets/music` folder.
 
-You can also browse the [GB Studio Community Assets](https://github.com/DeerTears/GB-Studio-Community-Assets) to find free, GBT-compatible music under the MIT licence.
+Every .mod file that GBT Player reads should be composed/arranged to be used with GBT Player. You can browse the [GB Studio Community Assets](https://github.com/DeerTears/GB-Studio-Community-Assets) to find free, GBT-compatible music under the MIT licence.
 
-To compose GBT-compatible .mod files, you can use software such as [**OpenMPT**](https://openmpt.org/) (for Windows or Linux using Wine), [**MilkyTracker**](https://milkytracker.titandemo.org/) (for Windows, Mac and Linux), [**ProTracker**](https://16-bits.org/pt.php), and [**BassoonTracker**](https://www.stef.be/bassoontracker/) (browser-based) to name a few. Any software that loads and exports .mod files can write files that are compatible with GBT Player.
+To compose GBT-compatible .mod files, you can use software such as [**OpenMPT**](https://openmpt.org/) (for Windows or Linux using Wine), [**MilkyTracker**](https://milkytracker.titandemo.org/) (for Windows, Mac and Linux), [**ProTracker**](https://16-bits.org/pt.php), and [**BassoonTracker**](https://www.stef.be/bassoontracker/) (browser-based) to name a few.
 
 ## Resources
 
-It is recomended you read through your tracker's documentation to learn about your tracker:
+It is recommended you read through your tracker's documentation:
 - [OpenMPT's Documentation](https://wiki.openmpt.org/Tutorial:_Getting_Started)
 - [MilkyTracker's Documentation](https://milkytracker.org/docs/MilkyTracker.html#shortcuts)
 - [BassoonTracker's Documentation](https://www.stef.be/bassoontracker/docs/#about)
 
-Lastly, the [GB Studio Discord](https://discord.gg/v9xAJCJ) also has a dedicated #music-help channel and a #tutorials channel in case you get stuck.
+Lastly, the [GB Studio Discord](https://discord.gg/v9xAJCJ) also has a dedicated #music-help channel.
 
 ## Getting Started
 
-1. Create a blank GB Studio project, find the file `assets/music/template.mod` and open it with your tracker of choice.
+1. Create a blank GB Studio project
+2. Find the file `assets/music/template.mod` and open it with your tracker of choice.
    - **You must edit this file to get an accurate representation of the instruments you can use.**
-   - MilkyTracker users should save this file as an `.XM` file. Saving a .mod file in MilkyTracker will corrupt it. Export your song as a .mod file every time you want to test your song in-game.
-2. Use the instrument list shown later in this document to pick the sounds you want. Changing the samples in your tracker will not affect how they sound in-game.
+3. Use the instrument list shown later in this document to pick the sounds you want. Changing the samples in your tracker will not affect how they sound in-game.
+4. Add a `Play Music Track` event to your game and select your song from the dropdown.
 
-When done, add your .mod files to the `assets/music` folder of your project. **Test your song in-game often to keep track of any audible in-game differences.**
-
-Here is a quick rundown of how a tracker works:
-
-```
-C-5 01 v64 ...
---- -- --- ---
- |   |  |   |
- |   |  |   +-- Effect column (Volume changes, arpeggios, panning, etc.)
- |   |  +------ Volume value, this is irrelevant in .MOD. (Most examples here omit this
- |   |          and instead display three dots in its place)
- |   +--------- Instrument
- +------------- Note and octave (A C note in the 5th octave. The dash can be a #, which signifies a sharp note e.g. C#, D#)
-```
-
-This is what comprises of a channel's row. Rows can be empty, or can only be partially filled (with just an effect, for example). There's 4 of those columns in total.
-
-Any part in this documentation where you see data that starts with `ModPlug Tracker MOD`, you can copy that entire block into OpenMPT as-is. Any data copied from OpenMPT looks like that when you paste it into any text application.
+Because the .mod file format is not exclusively designed for gameboy, you should test your song in-game or in the Music preview window to catch audible between your tracker playback and GBT Player's output.
 
 ## GBT Player's Channel Limitations
 
-.MOD files need to use 4 channels. Loading a copy of template.mod before composing will ensure this is set-up correctly.
-
+.mod files have 4 channels. Loading a copy of template.mod (included in every sample project) before composing will ensure this is set-up correctly.
 
 | Channel #     | Sound type | Note Range<sup>1</sup> | Instruments | Effects               |
 | ------------- | ---------- | ---------------------- | ----------- | --------------------- |
@@ -195,32 +180,100 @@ Pseudorandom Noise:
 30. (1Ehx) "scream" - The same as 29 but faster
 31. (1Fhx) "static" - etc.
 
-As of GB Studio 1.2.1 there are no GBT Player-readable instruments beyond 31. (1Fhx)
-
 ## Effects
 
-There are two types of effects: Note-effects and Command-effects.
+### Song effects
 
-The only restrictions on effects is the Command-effects with Channel 3. It can use them when it's not trying to play a note/set the instrument on the same row.
+| Effect | Name | Description | Usable by |
+| ------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -- |
+| **Bxx** | Jump | Jump to a specific pattern in the song. | 1, 2, 3<sup>1</sup>, 4
+| **Dxx** | Pattern break | Jumps to the next pattern early, starting the pattern at row `xx`. This is the only way to shorten a pattern's length. | 1, 2, 3<sup>1</sup>, 4 |
+| **Fxx** | Set speed | Sets the song speed to `xx`, from 0x1 (fast) to 0x1F (slow). This is the intended alternative to adjusting song tempo. `xx` represents the number of ticks per row. See [Speed Table](#speed-table) for more info. | 1, 2, 3<sup>1</sup>, 4 |
 
-**Note-effects** (uses bit 3) - All channels can use these effects freely
+<sup>1</sup> Cannot be used by Channel 3 on rows where Channel 3 is playing a new note.
 
-| Effect  | Name		  | Notes on effect usage																						|
-| ------- | ------------- | ----------------------------------------------------------------------------------------------------------- |
-| **0xy** |   Arpeggio    | Rapidly cycles between 3 notes. `x` and `y` both represent the # of semitones above the note the arpeggio effect is attached to. |
-| **Cxx** |    Volume     | Sets the volume to `xx`. See **Volume Limitations** for more info.											|
-| **E8x** |      Pan      | Sets the panning to `x`. `0-3` = Left, `4-B` = Centre, `C-F` = Right.									|
-| **ECx** |   Note cut    | Cuts the note after `x` frames. Must be below the `Fxx` speed for the cut to be heard. `EC0` will reset the duty cycle instead of cutting the note. |
+### Channel effects
 
-**Command-effects** (uses bit 4) - Channel 3 can use these effects if it's not trying to play a note/instrument on the same row.
+Persists on the channel until the effect is set again. See [Effect Persistence](#effect-persistence) for more info.
 
-| Effect  | Name		  | Notes on effect usage																						|
-| ------- | ------------- | ----------------------------------------------------------------------------------------------------------- |
-| **Bxx** |     Jump      | Jump to a specific position in the song, `xx`.               |
-| **Dxx** | Pattern break | Jumps to the next pattern early, where `xx` is the row it should jump to in the next pattern. Using this on the last pattern will break the song by reading garbage data beyond the song. |
-| **Fxx** |   Set speed   | Sets the song speed to `xx`. Valid values are `01` to `1F`. The value represents how many frames should the song wait before moving on to another row. Setting BPM speed has no effect upon conversion. |
+| Effect | Name | Description | Usable by |
+| ------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -- |
+| **9ve** | Volume Envelope | Sets the note's starting volume at `v` (0-F), and adds a volume fade envelope. Fade direction and speed is set by `e`. 1-7 decreases volume over time, with 1 being fast. 9-F increases volume over time, with 9 being fast. 8 removes the envelope. Using `9ve` after `Cxx` overrides `Cxx`. | 1, 2, 4 |
+| **Cxx** | Volume | Sets the channel volume to `xx`. See [Cxx Volume Limitations](#cxx-volume-limitations) for more info. Using `Cxx` after `9ve` overrides the `v` value, but keeps `e` the same.| 1, 2, 3, 4 |
+| **E8x** | Pan | Sets the panning to one of three values. `0-3` = 100% Left, `4-B` = Centre, `C-F` = 100% Right. | 1, 2, 3, 4 |
 
-For Channel 3 only, the instrument data is too large to allow the 4th bit of a Command effect to occur while it's trying to play a note/set the instrument. Command-effects will ignore new notes on Channel 3 to compensate.
+### Note effects
+
+Affects a note individually.
+
+| Effect | Name | Description | Usable by |
+| ------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -- |
+| **0xy** | Arpeggio | Rapidly cycles between 3 notes. `x` and `y` represent the # of semitones above the starting note. | 1, 2, 3, 4 |
+| **1xx**| Pitch slide up | Slides the pitch up by `xx` ticks. Putting `100` after a previous `1xx` setting uses the same value as the previous setting. | 1, 2, 3 |
+| **2xx**| Pitch slide down | Slides the pitch down by `xx` ticks. Putting `200` after a previous 2xx setting uses the same value as the previous setting. | 1, 2, 3 |
+| **ECx** | Note cut | Cuts the note after `x` frames. Must be below the `Fxx` speed to be heard. | 1, 2, 3, 4 |
+
+## Effect Persistence
+
+Once set, a channel effect will persist on that channel's notes until the same effect is set again.
+
+In most trackers, if a note is played without a volume command, the note's volume is reset to the maximum. When a .mod file is converted by GBT Player, notes without a volume effect will play at the same volume as the previous `Cxx` effect.
+
+**Example:**
+
+```
+ModPlug Tracker MOD
+|C-502...C40|
+|...........|
+|...........|
+|...........|
+|........C00|
+|...........|
+|E-502......|
+```
+
+In any .mod tracker, the E-5 note will resume at full volume after the C00 effect.
+
+In-game, you will not hear the E-5 note. This is because the C00 persists until another Cxx effect is set. To make this note heard in-game, the volume must be set again:
+
+```
+ModPlug Tracker MOD
+|C-502...C40|
+|...........|
+|...........|
+|...........|
+|........C00|
+|...........|
+|E-502...C40|
+```
+
+You can use `EC0` as an alternative to `C00` to cut notes and preserve the last volume effect.
+
+## Cxx Volume Limitations
+
+`Cxx` sets the volume of a channel until `Cxx` effect or `9ve` is used.
+
+The Gameboy has 16 unique volume settings for Channels 1, 2 and 4. Although .mod files allow for volumes between 0 and 40hx, GBT Player will round-down these values effects to multiples of 4 to maintain compatibility. Here are the valid volume values for each of the channels:
+
+### Cxx Settings for Channels 1, 2 and 4:
+
+`00, 04, 08, 0C, 10, 14, 18, 1C, 20, 24, 28, 2C, 30, 34, 38, 3C`
+
+Any `Cxx` value that's not a multiple of 4 will be rounded-down to one of the above numbers.
+
+**Example:** Entering `C01`, `C02` and `C03` will sound the same as entering `C00`.
+
+**Example:** Entering `C40` will sound the same as entering `C3C`.
+
+### Unique Volume Settings for Channel 3:
+
+Channel 3 is an exception, with only 4 unique volume settings:
+
+`00, 10, 20, 40`
+
+GBT Player will round `Cxx` effects on Channel 3 toward the nearest number listed above.
+
+**Example:** Entering `C30` will round the volume up to `C40`.
 
 ### Speed Table
 
