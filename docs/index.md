@@ -6,7 +6,7 @@ sidebar_position: 1
 
 GB Studio is drag and drop game creator for making Game Boy games.
 
-It is designed to be usable by people with little to no previous programming knowledge using simple visual scripting but also provides multiple access points for advanced users to access the game engine's virtual machine (GBVM) and to directly modify game engine's C and Z80 assembly code through plugins.
+It is designed to be usable by people with little to no previous programming knowledge using simple visual scripting but also provides multiple access points for advanced users to access the game engine's virtual machine (GBVM) and to directly modify the game engine's C and Z80 assembly code through plugins.
 
 You can generate ROM files that can be run in an emulator, on a web page or on real Game Boy hardware.
 
