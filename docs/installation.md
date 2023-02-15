@@ -33,11 +33,6 @@ For Debian-based Linux distros, download the .deb version and run the following 
 > gb-studio
 ```
 
-If you have issues with graphical glitches appearing on Ubuntu try running GB Studio using the following command.
-```
-> gb-studio --disable-gpu
-```
-
 ## Fedora / RPM-based Linux
 
 For RPM-based Linux distros, download the .rpm version and run the following commands (Tested on Fedora 29)
@@ -46,4 +41,12 @@ For RPM-based Linux distros, download the .rpm version and run the following com
 > sudo yum install libXScrnSaver make lsb
 > sudo rpm --ignoreos -i gb-studio-1.0.0.x86_64.rpm
 > gb-studio
+```
+
+## Troubleshooting
+
+If in Linux issues are seen with graphical glitches, or if gb-studio fails to start, try running GB Studio using this following command:
+
+```
+> gb-studio --disable-gpu-sandbox
 ```
