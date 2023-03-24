@@ -4,7 +4,7 @@ sidebar_position: 8
 
 # Engine Eject
 
-Engine Eject copies the [GBVM game engine](https://github.com/chrismaltby/gbvm) that GB Studio uses into a folder in your project, named `assets/engine`. You can edit these source files to your liking using an IDE to have more control over how your GB Studio game is built. This feature is only recomended for developers familiar with GBDK.
+Engine Eject copies the [GBVM game engine](https://github.com/chrismaltby/gbvm) that GB Studio uses into a folder in your project, named `assets/engine`. You can edit these source files to your liking using an IDE to have more control over how your GB Studio game is built. This feature is only recommended for developers familiar with GBDK.
 
 To use Engine Eject, click on _Game_ at the top of the GB Studio window and navigate to the _Advanced_ tab to show the _Engine Eject_ button.
 
