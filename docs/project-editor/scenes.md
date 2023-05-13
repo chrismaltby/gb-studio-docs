@@ -62,7 +62,7 @@ Each scene can have a maxmimum of 20 actors, and 30 triggers, and between 96 and
 ### Actor Limits
 Each scene can have a maximum of 20 actors. Ideally, there should never be more than 10 actors within a 20 x 18 tile boundary, equivalent to ``160px x 144px``. Clustering more than 10 actors together in a scene will cause some actors to become invisible in-game. GB Studio will warn you if it thinks this will be the case for a scene:
 
-<img src ="https://user-images.githubusercontent.com/16776042/94731004-03c44100-035c-11eb-917f-c0589052e604.png" style={{width: 300}} />
+<img title="Actor limits" src="/img/screenshots/actor-limits.png" width="500" />
 
 You can address this message by moving or deleting actors so no more than 10 will be seen in a 20 x 18 tile boundary. You can use the [Eraser Tool](/docs/getting-started/keyboard-shortcuts/#Game-World) to delete actors. Actors will still become invisible if more than 10 actors move into the screenspace after the scene starts.
 
