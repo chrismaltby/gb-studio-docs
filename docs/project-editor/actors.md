@@ -31,7 +31,7 @@ Select a different actor, the scene, or the project to return the blacked-out vi
 Actors can be given a collision group in the _Editor Sidebar_. When enabled, the option to run scripts based on collisions will appear in the _Editor Sidebar_. To learn more about On Hit scripts, see the documentation for [Scripting](/docs/scripting).
 
 ## Scripting
-Actors can contain multiple scripts that will be called a different points in your game.
+Actors can contain multiple scripts that will be called at different points in your game.
 
 - **On Interact:** This is called if the player stands in front of this actor and presses the _Interact_ button.
 - **On Hit:** (only if collision group is set) This is called when this actor collides with either the player or a projectile with a specified collision group
