@@ -16,6 +16,7 @@ Background PNGs must only contain the following four colors:
 Download the GB Studio Palette Swatches for:  
 [Adobe Photoshop](/assets/swatches/gb-studio-photoshop.aco)  
 [Aseprite](/assets/swatches/gb-studio-aseprite.aseprite)  
+[Piskel](/assets/swatches/gb-studio-piskel-background-palette.gpl)  
 
 Colors that are not one of the above hex codes will be matched to the nearest color. Unlike sprites, the color `#65ff00` can not be used in backgrounds.
 

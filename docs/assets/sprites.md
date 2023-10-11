@@ -99,6 +99,7 @@ Sprite `.png`s must only contain the following four colors:
 Download the GB Studio Palette Swatches for:  
 [Adobe Photoshop](/assets/swatches/gb-studio-photoshop.aco)  
 [Aseprite](/assets/swatches/gb-studio-aseprite.aseprite)  
+[Piskel](/assets/swatches/gb-studio-piskel-sprites-palette.gpl)  
 
 The color `#65ff00` is used to represent a transparent background in game and will be invisible in-game and in the _World Editor_.
 
