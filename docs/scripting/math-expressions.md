@@ -15,9 +15,9 @@ Expressions allow you to use many mathematical operations such as:
 -  `-` subtract
 -  `*` multiply
 -  `/` divide
-- `==` Equal to
-- `!=` Not equal to
-- `>=` Greater than or equal to
+- `==` equal to
+- `!=` not equal to
+- `>=` greater than or equal to
 
 You are also able to use the following functions
 - `min(a, b)` return the minimum of two values a and b
@@ -25,3 +25,9 @@ You are also able to use the following functions
 - `abs(a)` return the absolute value of a
 
 You can use variables in expressions by typing `$` and searching for the variable's name.
+
+If you want to combine multiple expressions, you can use the following:
+- `||` or\
+(e.g., `$Local0 == 0 || $Local1 == 0`: if either variable Local0 equals 0 or variable Local1 equals 0)
+- `&&` and\
+(e.g., `$Local0 == 0 && $Local1 == 0`: if both variable Local0 equals 0 and variable Local1 equals 0)
