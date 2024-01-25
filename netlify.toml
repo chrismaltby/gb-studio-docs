@@ -88,3 +88,8 @@
   from = "/migrate"
   to = "/docs/migrate"
   status = 301
+
+[[redirects]]
+  from = "/docs/error"
+  to = "/error"
+  status = 301
