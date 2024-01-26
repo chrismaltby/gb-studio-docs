@@ -36,7 +36,7 @@ To start building a script, select a scene, click the script type you want to ed
 For more information see the documentation for [Scripting](/docs/scripting).
 
 ## Adding Collision to a Scene
-Select the _Collision Tool_ from the _Editor Tools_. There are 6 collision types that can be added.
+Select the _Collision Tool_ from the _Editor Tools_. There are 6 default collision types that can be added.
 
 - **Solid** Stops colliding actors from entering the tile on any side.
 - **Top/Bottom/Left/Right** Stops colliding actors from entering the tile from that specific side. This is useful for one-way collision and semi-solid platforms.
@@ -44,12 +44,33 @@ Select the _Collision Tool_ from the _Editor Tools_. There are 6 collision types
 
 Each tile can hold a maximum of 1 ladder and 3 collision sides. Adding 4 collision sides will replace the sides with a single solid block. Ladders will not replace existing collision when placed on top of another collision.
 
+Additionally there is a dropdown menu allowing you view additional tiles:
+
+- **Slope Tiles** - These tiles can be used to add slopes to your scene (Platformer only), you might find it easier to use the [Slope Brush](#drawing-slopes) instead rather than placing these tiles manually
+- **Extra Tiles** - These tiles are currently unused by GB Studio and may be given a purpose at some point in the future, you may place them now and [modify your game engine](/docs/extending-gbstudio/engine-eject) to use them but this may prevent you from moving your project to newer GB Studio versions.
+
+## Drawing Slopes
+The Slope Brush is a quick way to add slope collisions to your scenes (Platformer only). With the brush selected click on the starting tile and drag to one tile __after__ where you want the slope to be placed. When placing a shallow slope you can hold `Shift` while dragging to offset the slope vertically.
+
+It's also possible to use this tool to draw horizontal and vertical collisions by holding `Ctrl` while dragging. When dragging left to right you will create a Top collision, right to left creates a Bottom collision, top to bottom creates a Left collision and bottom to top creates a Right collision. Holding `Ctrl + Shift` will flip the collision direction (Top will become Bottom etc).
+
+<img src="/img/screenshots/slopes.gif" style={{width:500}} />
+
 ## Colorizing a Scene
 Select the _Colorizer Tool_ from the _Editor Tools_. There are 8 palettes types that can be added to a scene with Color Mode enabled. Palettes can be adjusted in Settings. Note that the 8th palette in a scene will also be used for _Dialogue Windows_ and menus.
 
 The palettes used in the _Colorizer Tool_ can be swapped out for existing palettes (such as the UI palette) by long-clicking on a palette.
 
 For more information about the drawing mode used for the _Colorize Tool_ and the _Collision Tool_, see [Keyboard Shortcuts](/docs/getting-started/keyboard-shortcuts).
+
+## Tile Priority
+When colorizing a scene you can use the `<!>` button to set priority tiles, these tiles will appear in front of actors (on GB Color games only) allowing you to create depth in your scenes. Note that the first color in the tile's palette will be transparent and drawn behind the actors.
+
+<img src="/img/screenshots/tile-priority.png" style={{width:500}} />
+
+## Magic Brush
+The Magic Brush is available when adding collisions or colorizing a scene and can be used to paint every tile in the scene that matches the one you clicked instantly.
+<img src="/img/screenshots/magic-brush.gif" style={{width:500}} />
 
 ## Scene Limits
 There are several limits that GB Studio has put in place to keep game performance consistent, and to minimize visual issues.
