@@ -91,6 +91,21 @@
   margin-bottom: 4rem;
 }
 
+.donate-btn {
+  border: 2px solid #fff;
+  background: #c92c61;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+.donate-btn:hover {
+  background: #c92c61;
+  color: #fff;
+  border: 2px solid #9a1743;
+  cursor: pointer;
+}
+
 /* Fix text zoom on iOS Safari when searching */
 input[type="color"],
 input[type="date"],

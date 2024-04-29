@@ -106,6 +106,16 @@ const config = {
             label: "Download",
             position: "right",
           },
+          {
+            type: "search",
+            position: "right",
+          },
+          {
+            href: "https://www.patreon.com/gbstudiodev",
+            label: "Donate",
+            position: "right",
+            className: "donate-btn",
+          },
         ],
       },
       footer: {
