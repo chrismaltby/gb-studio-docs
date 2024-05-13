@@ -36,13 +36,12 @@ Use this section to view the frame image used for dialogue windows in your game,
 
 <img title="UI Elements" src="/img/screenshots/ui-elements-v3.png" width="650" className="drop-shadow" />
 
-Fonts can be found in `assets/fonts` and consist of a `.png` image and `.json` definition file.
+### Fonts
+Fonts can be found in `assets/fonts` and consist of a `.png` image and `.json` definition file sharing the same name. For example, `gbs-mono.png` and `gbs-mono.json`. A font's .png image should contain characters with a maximum size of 8px by 8px, arranged in rows 16 characters wide.
 
-You can create variable width fonts (with characters less than 8px wide) by filling the right edge of your font's characters with magenta `#ff00ff` like the example below.
+<img title="GBS Mono example" src="/img/screenshots/gbs-mono.png" width="256" className="drop-shadow" />
 
-<img src="/img/screenshots/gbs-var.png" width="256" className="drop-shadow" />
-
-By default fonts use an ASCII mapping with character code 32 (Space) mapping to the top left character in your font. You can provide a custom mapping by editing your font's `.json` file as follows.
+By default, fonts use an [ASCII mapping](https://en.wikipedia.org/wiki/ASCII#Character_set) with character code 32 (Space) mapping to the top left character in your font. You can provide a custom mapping by editing your font's `.json` file as follows.
 
 ```
 {
@@ -57,6 +56,12 @@ By default fonts use an ASCII mapping with character code 32 (Space) mapping to 
 In this example using a `ヲ` character will now display character 166 from your `.png`.
 
 **Please note** that as the first 32 ASCII characters are not included in your image you need to account for this in your mapping, for example if you wanted to map the character `?` to the second tile in your `.png` you would set the mapping to be `"?": 33`
+
+You can create variable width fonts (with characters less than 8px wide) by filling the right edge of your font's characters with magenta `#ff00ff` like the example below.
+
+<img src="/img/screenshots/gbs-var.png" width="256" className="drop-shadow" />
+
+When [Color Mode](#gb-color-options) is enabled, UI elements and fonts adopt the colors chosen for GB Color background palette #8. See [Colorizing a Scene](/docs/project-editor/scenes/#colorizing-a-scene) for how to use background palettes.
 
 ## Music Format
 
