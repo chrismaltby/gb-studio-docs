@@ -11,8 +11,9 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 ## Attach Timer Script
 Run the specified script repeatedly after a time interval. The script will keep running in the background until a Remove Timer Script event is called or the scene is changed using a Change Scene event.
-<ScriptEventPreview title={"Attach Timer Script"} fields={[{"type":"group","fields":[{"key":"duration","type":"number","label":"Time Interval","description":"The length of time to wait before running the script each time.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Time Interval","description":"The length of time to wait before running the script each time.","type":"number","min":0,"max":3600,"step":16,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]}]},{"key":"__scriptTabs","type":"tabs","defaultValue":"end","values":{"end":"On Tick"}},{"key":"script","label":"On Tick","description":"The script to run when the timer is triggered.","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"end"]}]}]} />
+<ScriptEventPreview title={"Attach Timer Script"} fields={[{"key":"timer","label":"Timer","description":"The timer that should be modified, each scene can use up to four timers at once.","type":"togglebuttons","options":[[1,"1","Timer 1"],[2,"2","Timer 2"],[3,"3","Timer 3"],[4,"4","Timer 4"]],"allowNone":false,"defaultValue":1},{"type":"group","fields":[{"key":"duration","type":"number","label":"Time Interval","description":"The length of time to wait before running the script each time.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Time Interval","description":"The length of time to wait before running the script each time.","type":"number","min":0,"max":3600,"step":16,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]}]},{"key":"__scriptTabs","type":"tabs","defaultValue":"end","values":{"end":"On Tick"}},{"key":"script","label":"On Tick","description":"The script to run when the timer is triggered.","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"end"]}]}]} />
 
+- **Timer**: The timer that should be modified, each scene can use up to four timers at once.  
 - **Time Interval**: The length of time to wait before running the script each time.  
 - **On Tick**: The script to run when the timer is triggered.  
 
@@ -23,13 +24,15 @@ Pause the script for a single frame.
 
 ## Remove Timer Script
 Remove the timer script so it will no longer be called.
-<ScriptEventPreview title={"Remove Timer Script"} fields={[{"label":"Disable the timer script"}]} />
+<ScriptEventPreview title={"Remove Timer Script"} fields={[{"key":"timer","label":"Timer","description":"The timer that should be modified, each scene can use up to four timers at once.","type":"togglebuttons","options":[[1,"1","Timer 1"],[2,"2","Timer 2"],[3,"3","Timer 3"],[4,"4","Timer 4"]],"allowNone":false,"defaultValue":1,"flexBasis":"100%"},{"label":"Disable the timer script"}]} />
 
+- **Timer**: The timer that should be modified, each scene can use up to four timers at once.  
 
 ## Restart Timer
 Reset the countdown timer back to zero. The script will call again after the time specified originally.
-<ScriptEventPreview title={"Restart Timer"} fields={[{"label":"Restart the countdown timer"}]} />
+<ScriptEventPreview title={"Restart Timer"} fields={[{"key":"timer","label":"Timer","description":"The timer that should be modified, each scene can use up to four timers at once.","type":"togglebuttons","options":[[1,"1","Timer 1"],[2,"2","Timer 2"],[3,"3","Timer 3"],[4,"4","Timer 4"]],"allowNone":false,"defaultValue":1,"flexBasis":"100%"},{"label":"Restart the countdown timer"}]} />
 
+- **Timer**: The timer that should be modified, each scene can use up to four timers at once.  
 
 ## Wait
 Pause the script for a period of time.

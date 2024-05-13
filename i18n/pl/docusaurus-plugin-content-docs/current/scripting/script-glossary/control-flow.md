@@ -18,9 +18,17 @@ Polecenie wywoła jeden z niestandardowych skryptów. Po wybraniu skryptu będzi
 
 - **Własne zdarzenie**: Skrypt do uruchomienia.  
 
+## If
+Uruchomienie części skryptu warunkowo, jeżeli określona wartość jest prawdziwa.
+<ScriptEventPreview title={"If"} fields={[{"key":"condition","label":"Warunek","description":"Warunek do oceny.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":1}}},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Warunek**: Warunek do oceny.  
+- **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
+- **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
+
 ## Warunek: położenie aktora (współrzędne)
 Warunkowe uruchomienie części skryptu, jeśli aktor znajduje się na określonej pozycji.
-<ScriptEventPreview title={"Warunek: położenie aktora (współrzędne)"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do sprawdzenia.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"number","min":0,"max":255,"width":"50%","defaultValue":0,"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"number","min":0,"max":255,"width":"50%","defaultValue":0,"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"Warunek: położenie aktora (współrzędne)"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do sprawdzenia.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Aktor**: Wybierz aktora do sprawdzenia.  
 - **X**: Pozycja pozioma.  
@@ -30,7 +38,7 @@ Warunkowe uruchomienie części skryptu, jeśli aktor znajduje się na określon
 
 ## Warunek: odległość aktora względem aktora
 Warunkowe uruchomienie części skryptu, jeśli aktor znajduje się w pewnej odległości od innego aktora.
-<ScriptEventPreview title={"Warunek: odległość aktora względem aktora"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do sprawdzenia.","type":"actor","defaultValue":"player","width":"50%"},{"type":"group","fields":[{"key":"operator","label":"Porównanie","description":"Operator porównania do wykorzystania m.in. 'Mniej niż' lub 'Większe niż;.","type":"operator","width":"50%","defaultValue":"<="},{"key":"distance","label":"Odległość","description":"Wartość odległości.","type":"union","types":["number","variable"],"defaultType":"number","min":0,"max":181,"width":"50%","unitsDefault":"tiles","defaultValue":{"number":0,"variable":"LAST_VARIABLE"}}]},{"key":"otherActorId","label":"Od","description":"Wybierz aktora z którym ma zostać porównana odległość.","type":"actor","defaultValue":"$self$","width":"50%"},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"Warunek: odległość aktora względem aktora"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do sprawdzenia.","type":"actor","defaultValue":"player","width":"50%"},{"type":"group","fields":[{"key":"operator","label":"Porównanie","description":"Operator porównania do wykorzystania m.in. 'Mniej niż' lub 'Większe niż;.","type":"operator","width":"50%","defaultValue":"<="},{"key":"distance","label":"Odległość","description":"Wartość odległości.","type":"value","min":0,"max":181,"width":"50%","unitsDefault":"tiles","defaultValue":{"type":"number","value":0}}]},{"key":"otherActorId","label":"Od","description":"Wybierz aktora z którym ma zostać porównana odległość.","type":"actor","defaultValue":"$self$","width":"50%"},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Aktor**: Wybierz aktora do sprawdzenia.  
 - **Porównanie**: Operator porównania do wykorzystania m.in. 'Mniej niż' lub 'Większe niż;.  
@@ -41,7 +49,7 @@ Warunkowe uruchomienie części skryptu, jeśli aktor znajduje się w pewnej odl
 
 ## Warunek: kierunek obrotu aktora
 Warunkowe uruchomienie części skryptu, jeżeli aktor jest w określonym kierunku.
-<ScriptEventPreview title={"Warunek: kierunek obrotu aktora"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do sprawdzenia.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Kierunek","description":"Ustawienie kierunku aktora.","type":"direction","defaultValue":"up"},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"Warunek: kierunek obrotu aktora"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do sprawdzenia.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Kierunek","description":"Ustawienie kierunku aktora.","type":"value","defaultValue":{"type":"direction","value":"up"}},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Aktor**: Wybierz aktora do sprawdzenia.  
 - **Kierunek**: Ustawienie kierunku aktora.  
@@ -64,6 +72,13 @@ Warunkowe uruchomienie części skryptu, jeżeli gra jest uruchomiona na urządz
 
 - **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
 - **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
+
+## Warunek aktualna scena
+<ScriptEventPreview title={"Warunek aktualna scena"} fields={[{"key":"sceneId","label":"Scena","type":"scene","defaultValue":"LAST_SCENE"},{"key":"true","label":"Prawda","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Scena**  
+- **Prawda**  
+- **Fałsz**  
 
 ## Warunek: stan gry zapisano
 Warunkowe uruchomienie części skryptu, jeżeli stan zapisu jest w określonym miejscu zapisu.
@@ -91,17 +106,6 @@ Warunkowe uruchomienie części skryptu, jeśli określony przycisk joypada jest
 - **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
 - **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
 
-## Warunel: wyrażenie matematycznee
-Warunkowe wykonanie części skryptu, jeżeli określone wyrażenie matematyczne ma wartość 'prawda'.
-
-**Odniesienia**  
-[/docs/scripting/math-expressions](/docs/scripting/math-expressions)  
-<ScriptEventPreview title={"Warunel: wyrażenie matematycznee"} fields={[{"key":"expression","label":"Wyrażenie","description":"Wprowadź wyrażenie do oceny.","type":"matharea","rows":5,"placeholder":"e.g. $health >= 0...","defaultValue":""},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Wyrażenie**: Wprowadź wyrażenie do oceny.  
-- **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
-- **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
-
 ## Warunek: tryb Super GB jest aktywny
 Warunkowe uruchomienie części skryptu, jeżeli gra jest uruchomiona na urządzeniu lub emulatorze obsługującym gry Super GB.
 <ScriptEventPreview title={"Warunek: tryb Super GB jest aktywny"} fields={[{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
@@ -109,48 +113,12 @@ Warunkowe uruchomienie części skryptu, jeżeli gra jest uruchomiona na urządz
 - **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
 - **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
 
-## Warunek: zmienna porównuje się do wartości
-Warunkowe uruchomienie części skryptu na podstawie wartości zmiennej w porównaniu z wartością.
-<ScriptEventPreview title={"Warunek: zmienna porównuje się do wartości"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operator","label":"Porównanie","description":"Operator porównania do wykorzystania m.in. 'Mniej niż' lub 'Większe niż;.","type":"operator","width":"50%","defaultValue":"=="},{"key":"comparator","label":"Wartość","description":"Wartość do porównania.","type":"number","min":-32768,"max":32767,"width":"50%","defaultValue":"0"},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Zmienna**: Wskaż zmienną do użycia.  
-- **Porównanie**: Operator porównania do wykorzystania m.in. 'Mniej niż' lub 'Większe niż;.  
-- **Wartość**: Wartość do porównania.  
-- **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
-- **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
-
-## Warunek: zmienna porównuje się do zmiennej
-Warunkowe uruchomienie części skryptu na podstawie wartości zmiennej w porównaniu z inną zmienną.
-<ScriptEventPreview title={"Warunek: zmienna porównuje się do zmiennej"} fields={[{"key":"vectorX","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operator","label":"Porównanie","description":"Operator porównania do wykorzystania m.in. 'Mniej niż' lub 'Większe niż;.","type":"operator","width":"50%","defaultValue":"=="},{"key":"vectorY","label":"Inna zmienna","description":"Wybierz zmienną do porównania.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Zmienna**: Wskaż zmienną do użycia.  
-- **Porównanie**: Operator porównania do wykorzystania m.in. 'Mniej niż' lub 'Większe niż;.  
-- **Inna zmienna**: Wybierz zmienną do porównania.  
-- **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
-- **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
-
 ## Warunek: zmienna ma flagę
 Warunkowe uruchomienie części skryptu, jeżeli flaga wybranej zmiennej jest ustawiona jako 'prawda'.
-<ScriptEventPreview title={"Warunek: zmienna ma flagę"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"flag","label":"Flaga","description":"Flaga do zaznaczenia.","type":"select","options":[[0,"Flaga 1"],[1,"Flaga 2"],[2,"Flaga 3"],[3,"Flaga 4"],[4,"Flaga 5"],[5,"Flaga 6"],[6,"Flaga 7"],[7,"Flaga 8"],[8,"Flaga 9"],[9,"Flaga 10"],[10,"Flaga 11"],[11,"Flaga 12"],[12,"Flaga 13"],[13,"Flaga 14"],[14,"Flaga 15"],[15,"Flaga 16"]],"defaultValue":0},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"Warunek: zmienna ma flagę"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"flag","label":"Flaga","description":"Flaga do zaznaczenia.","type":"selectFlags","defaultValue":0},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Zmienna**: Wskaż zmienną do użycia.  
 - **Flaga**: Flaga do zaznaczenia.  
-- **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
-- **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
-
-## Warunek: zmienna jest ''Fałsz''
-Warunkowe uruchomienie części skryptu, jeżeli wskazana zmienna ma wartość 'fałsz'.
-<ScriptEventPreview title={"Warunek: zmienna jest ''Fałsz''"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Zmienna**: Wskaż zmienną do użycia.  
-- **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
-- **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
-
-## Warunek: zmienna jest ''Prawda''
-Warunkowe uruchomienie części skryptu, jeżeli wskazana zmienna ma wartość 'prawda'.
-<ScriptEventPreview title={"Warunek: zmienna jest ''Prawda''"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Zmienna**: Wskaż zmienną do użycia.  
 - **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
 - **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
 
@@ -159,9 +127,9 @@ Uruchomienie części skryptu w nieskończącej się pętli. Pamiętaj, aby doda
 <ScriptEventPreview title={"Pętla"} fields={[{"key":"true","type":"events"}]} />
 
 
-## Petla przez
+## Pętla przez
 Uruchomienie części skryptu w pętli, podczas gdy zmienna licznika jest w określonym zakresie. W każdej pętli zmienna licznika jest modyfikowana przed następnym wykonaniem.
-<ScriptEventPreview title={"Petla przez"} fields={[{"key":"variable","label":"Przez","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"from","label":"Od","description":"Początkowa wartość licznika zmiennej.","type":"union","types":["number","variable"],"defaultType":"number","min":-32768,"max":32767,"defaultValue":{"number":0,"variable":"LAST_VARIABLE"}},{"key":"comparison","label":"Porównanie","description":"Operator porównania do wykorzystania m.in. 'Mniej niż' lub 'Większe niż;.","type":"operator","defaultValue":"<="},{"key":"to","label":"Do","description":"Końcowa wartość licznika zmiennej.","type":"union","types":["number","variable"],"defaultType":"number","min":-32768,"max":32767,"defaultValue":{"number":10,"variable":"LAST_VARIABLE"}}],"flexBasis":200},{"type":"group","fields":[{"key":"operation","label":"Operacja","description":"Operacja używana do łączenia wartości ze zmienną licznika po każdej pętli.","type":"mathOperator","defaultValue":"+="},{"key":"value","label":"Wartość","description":"Wartość do połączenia ze zmienną licznika po każdej pętli.","type":"union","types":["number","variable"],"defaultType":"number","min":-32768,"max":32767,"defaultValue":{"number":1,"variable":"LAST_VARIABLE"}}],"flexBasis":150},{"key":"true","type":"events"}]} />
+<ScriptEventPreview title={"Pętla przez"} fields={[{"key":"variable","label":"Przez","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"from","label":"Od","description":"Początkowa wartość licznika zmiennej.","type":"value","min":-32768,"max":32767,"defaultValue":{"type":"number","value":0}},{"key":"comparison","label":"Porównanie","description":"Operator porównania do wykorzystania m.in. 'Mniej niż' lub 'Większe niż;.","type":"operator","defaultValue":"<="},{"key":"to","label":"Do","description":"Końcowa wartość licznika zmiennej.","type":"value","min":-32768,"max":32767,"defaultValue":{"type":"number","value":10}}],"flexBasis":200},{"type":"group","fields":[{"key":"operation","label":"Operacja","description":"Operacja używana do łączenia wartości ze zmienną licznika po każdej pętli.","type":"mathOperator","defaultValue":"+="},{"key":"value","label":"Wartość","description":"Wartość do połączenia ze zmienną licznika po każdej pętli.","type":"value","min":-32768,"max":32767,"defaultValue":{"type":"number","value":1}}],"flexBasis":150},{"key":"true","type":"events"}]} />
 
 - **Przez**: Wskaż zmienną do użycia.  
 - **Od**: Początkowa wartość licznika zmiennej.  
@@ -170,11 +138,11 @@ Uruchomienie części skryptu w pętli, podczas gdy zmienna licznika jest w okre
 - **Operacja**: Operacja używana do łączenia wartości ze zmienną licznika po każdej pętli.  
 - **Wartość**: Wartość do połączenia ze zmienną licznika po każdej pętli.  
 
-## Petla gdy
-Uruchomienie części skryptu w pętli, podczas gdy wyrażenie jest prawdą..
-<ScriptEventPreview title={"Petla gdy"} fields={[{"key":"expression","label":"Wyrażenie","description":"Wprowadź wyrażenie do oceny.","type":"matharea","rows":5,"placeholder":"e.g. $health >= 0...","defaultValue":""},{"key":"true","type":"events"}]} />
+## Pętla gdy
+Uruchomienie części skryptu w pętli, podczas gdy wyrażenie jest prawdą...
+<ScriptEventPreview title={"Pętla gdy"} fields={[{"key":"condition","label":"Warunek","description":"Warunek do oceny.","type":"value","defaultValue":{"type":"lt","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":10}}},{"key":"true","type":"events"}]} />
 
-- **Wyrażenie**: Wprowadź wyrażenie do oceny.  
+- **Warunek**: Warunek do oceny.  
 
 ## Skrypt: zatrzymaj skrypt (stop)
 Polecenie zatrzymuje aktualny skrypt przed dalszym wykonywaniem.

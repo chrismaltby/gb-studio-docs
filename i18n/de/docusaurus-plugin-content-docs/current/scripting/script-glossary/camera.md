@@ -11,35 +11,43 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 ## Kamera: An Spieler Binden
 Move the camera back to centering on the player, locking into position when the player moves. Optionally allows locking to follow player in only horizontal or vertical axis.
-<ScriptEventPreview title={"Kamera: An Spieler Binden"} fields={[{"key":"speed","width":"50%","label":"Geschwindigkeit","description":"The movement speed, use 'Instant' to immediately move to the new location.","type":"cameraSpeed","defaultValue":0},{"key":"axis","width":"50%","label":"Achse sperren","description":"Set if either horizontal axis, vertical axis or both should be locked.","type":"togglebuttons","options":[["x","H","Horizontal"],["y","V","Vertikal"]],"allowMultiple":true,"allowNone":false,"defaultValue":["x","y"]}]} />
+<ScriptEventPreview title={"Kamera: An Spieler Binden"} fields={[{"key":"speed","width":"50%","label":"Geschwindigkeit","description":"Die Bewegungsgeschwindigkeit, 'Instant' benutzen um unmittelbar zur neuen Position zu bewegen.","type":"moveSpeed","defaultValue":0,"allowNone":true,"noneLabel":"Sofort"},{"key":"axis","width":"50%","label":"Achse sperren","description":"Legt fest, ob entweder die horizontale, die vertikale oder beide Achsen gesperrt werden sollen.","type":"togglebuttons","options":[["x","H","Horizontal"],["y","V","Vertikal"]],"allowMultiple":true,"allowNone":false,"defaultValue":["x","y"]}]} />
 
-- **Geschwindigkeit**: The movement speed, use 'Instant' to immediately move to the new location.  
-- **Achse sperren**: Set if either horizontal axis, vertical axis or both should be locked.  
+- **Geschwindigkeit**: Die Bewegungsgeschwindigkeit, 'Instant' benutzen um unmittelbar zur neuen Position zu bewegen.  
+- **Achse sperren**: Legt fest, ob entweder die horizontale, die vertikale oder beide Achsen gesperrt werden sollen.  
 
-## Kamera: Bewegen Zu Position
-Move the camera to a new position.
-<ScriptEventPreview title={"Kamera: Bewegen Zu Position"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"union","types":["number","variable","property"],"defaultType":"number","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"number":0,"variable":"LAST_VARIABLE","property":"$self$:xpos"}},{"key":"y","label":"Y","description":"The vertical position.","type":"union","types":["number","variable","property"],"defaultType":"number","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"number":0,"variable":"LAST_VARIABLE","property":"$self$:ypos"}}]},{"key":"speed","label":"Geschwindigkeit","description":"The movement speed, use 'Instant' to immediately move to the new location.","type":"cameraSpeed","defaultValue":0}]} />
+## Kamera: Zu Position Bewegen
+Die Kamera zu einer neuen Position bewegen.
+<ScriptEventPreview title={"Kamera: Zu Position Bewegen"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"Die horizontale Position.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"Die vertikale Position.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]},{"key":"speed","label":"Geschwindigkeit","description":"Die Bewegungsgeschwindigkeit, 'Instant' benutzen um unmittelbar zur neuen Position zu bewegen.","type":"moveSpeed","defaultValue":0,"allowNone":true,"noneLabel":"Sofort"}]} />
 
-- **X**: The horizontal position.  
-- **Y**: The vertical position.  
-- **Geschwindigkeit**: The movement speed, use 'Instant' to immediately move to the new location.  
+- **X**: Die horizontale Position.  
+- **Y**: Die vertikale Position.  
+- **Geschwindigkeit**: Die Bewegungsgeschwindigkeit, 'Instant' benutzen um unmittelbar zur neuen Position zu bewegen.  
 
-## Kamera: Rütteln
-Shake the camera for a period of time.
-<ScriptEventPreview title={"Kamera: Rütteln"} fields={[{"type":"group","fields":[{"key":"time","type":"number","label":"Duration","description":"The length of time to shake camera for in seconds or frames.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Duration","description":"The length of time to shake camera for in seconds or frames.","type":"number","min":0,"max":3600,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]},{"key":"shakeDirection","label":"Movement Type","description":"Choose if camera should shake only in horizontal or vertical axis or if should shake in both directions.","hideLabel":true,"type":"moveType","defaultValue":"horizontal","flexBasis":30,"flexGrow":0}]}]} />
+## Kamera: Schütteln
+Die Kamera für eine gewisse Zeit schütteln.
+<ScriptEventPreview title={"Kamera: Schütteln"} fields={[{"type":"group","fields":[{"key":"time","type":"number","label":"Länge","description":"Die Dauer des Schüttelns der Kamera in Sekunden oder Frames.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Länge","description":"Die Dauer des Schüttelns der Kamera in Sekunden oder Frames.","type":"number","min":0,"max":3600,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]},{"key":"shakeDirection","label":"Bewegungstyp","description":"Auswählen ob die Kamera nur in der horizontalen oder vertikalen Achse oder in beide Richtungen verwackeln soll.","hideLabel":true,"type":"moveType","defaultValue":"horizontal","flexBasis":30,"flexGrow":0,"alignBottom":true}]},{"key":"magnitude","label":"Magnitude","description":"The amount of camera movement during a camera shake.","type":"value","min":1,"max":255,"defaultValue":{"type":"number","value":5}}]} />
 
-- **Duration**: The length of time to shake camera for in seconds or frames.  
-- **Movement Type**: Choose if camera should shake only in horizontal or vertical axis or if should shake in both directions.  
+- **Länge**: Die Dauer des Schüttelns der Kamera in Sekunden oder Frames.  
+- **Bewegungstyp**: Auswählen ob die Kamera nur in der horizontalen oder vertikalen Achse oder in beide Richtungen verwackeln soll.  
+- **Magnitude**: The amount of camera movement during a camera shake.  
 
 ## Bildschirm: Einblenden
-Fade the scene from a blank screen.
-<ScriptEventPreview title={"Bildschirm: Einblenden"} fields={[{"key":"speed","label":"Geschwindigkeit","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2"}]} />
+Die Szene von einem leeren Bildschirm einblenden.
+<ScriptEventPreview title={"Bildschirm: Einblenden"} fields={[{"key":"speed","label":"Geschwindigkeit","description":"Die Einblendegeschwindigkeit.","type":"fadeSpeed","defaultValue":"2"}]} />
 
-- **Geschwindigkeit**: The speed of the fade animation.  
+- **Geschwindigkeit**: Die Einblendegeschwindigkeit.  
 
 ## Bildschirm: Ausblenden
-Fade the scene to a blank screen.
-<ScriptEventPreview title={"Bildschirm: Ausblenden"} fields={[{"key":"speed","label":"Geschwindigkeit","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2"}]} />
+Die Szene zu einem leeren Bildschirm ausblenden
+<ScriptEventPreview title={"Bildschirm: Ausblenden"} fields={[{"key":"speed","label":"Geschwindigkeit","description":"Die Einblendegeschwindigkeit.","type":"fadeSpeed","defaultValue":"2"}]} />
 
-- **Geschwindigkeit**: The speed of the fade animation.  
+- **Geschwindigkeit**: Die Einblendegeschwindigkeit.  
+
+## Set Camera Position
+Die Kamera zu einer neuen Position bewegen.
+<ScriptEventPreview title={"Set Camera Position"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"Die horizontale Position.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"Die vertikale Position.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]}]} />
+
+- **X**: Die horizontale Position.  
+- **Y**: Die vertikale Position.  
 

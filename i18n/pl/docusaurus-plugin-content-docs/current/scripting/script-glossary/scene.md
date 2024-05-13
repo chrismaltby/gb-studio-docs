@@ -11,7 +11,7 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 ## Scena: zmień scenę (teleport)
 Przejście do nowej sceny z graczem w określonej pozycji i kierunku. Pomiędzy źródłem zdarzenia a sceną docelową zostanie narysowana linia połączenia z ikoną pojawiającą się w miejscu docelowym. Możliwe jest przeciąganie tej ikony dookoła i pomiędzy scenami, aby zmodyfikować wydarzenie.
-<ScriptEventPreview title={"Scena: zmień scenę (teleport)"} fields={[{"key":"sceneId","label":"Scena","description":"Wybierz scenę do przejścia.","type":"scene","defaultValue":"LAST_SCENE"},{"type":"group","fields":[{"key":"x","label":"X","description":"Początkowa pozycja pozioma gracza w nowej scenie.","type":"number","min":0,"max":255,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"Początkowa pozycja pionowa gracza w nowej scenie","type":"number","min":0,"max":255,"defaultValue":0,"width":"50%"}]},{"key":"direction","label":"Kierunek","description":"Początkowy kierunek gracza.","type":"direction","width":"50%","defaultValue":""},{"key":"fadeSpeed","label":"Szybkość przejścia","description":"Ustawienie szybkości przejścia.","type":"fadeSpeed","defaultValue":"2","width":"50%"}]} />
+<ScriptEventPreview title={"Scena: zmień scenę (teleport)"} fields={[{"key":"sceneId","label":"Scena","description":"Wybierz scenę do przejścia.","type":"scene","defaultValue":"LAST_SCENE"},{"type":"group","fields":[{"key":"x","label":"X","description":"Początkowa pozycja pozioma gracza w nowej scenie.","type":"value","min":0,"max":255,"defaultValue":{"type":"number","value":0},"width":"50%"},{"key":"y","label":"Y","description":"Początkowa pozycja pionowa gracza w nowej scenie","type":"value","min":0,"max":255,"defaultValue":{"type":"number","value":0},"width":"50%"}]},{"key":"direction","label":"Kierunek","description":"Początkowy kierunek gracza.","type":"direction","width":"50%","defaultValue":""},{"key":"fadeSpeed","label":"Szybkość przejścia","description":"Ustawienie szybkości przejścia.","type":"fadeSpeed","allowNone":true,"defaultValue":"2","width":"50%"}]} />
 
 - **Scena**: Wybierz scenę do przejścia.  
 - **X**: Początkowa pozycja pozioma gracza w nowej scenie.  
@@ -19,10 +19,37 @@ Przejście do nowej sceny z graczem w określonej pozycji i kierunku. Pomiędzy 
 - **Kierunek**: Początkowy kierunek gracza.  
 - **Szybkość przejścia**: Ustawienie szybkości przejścia.  
 
+## Warunek aktualna scena
+<ScriptEventPreview title={"Warunek aktualna scena"} fields={[{"key":"sceneId","label":"Scena","type":"scene","defaultValue":"LAST_SCENE"},{"key":"true","label":"Prawda","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Scena**  
+- **Prawda**  
+- **Fałsz**  
+
 ## Scena: wyczyść stan pamięci
 Usunięcie wszystkich scen z pamięci stosu scen bez opuszczania bieżącej sceny.
 <ScriptEventPreview title={"Scena: wyczyść stan pamięci"} fields={[{"label":"Wyczyszczenie pamięci z zapamiętanych układów scen."}]} />
 
+
+## Zastąp taflę
+Zastąpienie tafli o podanych współrzędnych inną taflą z tilesetu.
+<ScriptEventPreview title={"Zastąp taflę"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"number","min":0,"max":255,"width":"50%","defaultValue":0},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"number","min":0,"max":255,"width":"50%","defaultValue":0}]},{"type":"group","fields":[{"key":"tilesetId","type":"tileset","label":"Tileset","description":"Tileset z którego pobrane są tafle","defaultValue":"LAST_TILESET","unitsField":"tileSize","unitsDefault":"8px","unitsAllowed":["8px","16px"]},{"key":"tileIndex","label":"Tafla","description":"Przesunięcie tafli wewnątrz tilesetu","type":"value","min":0,"defaultValue":{"type":"number","value":0}}]}]} />
+
+- **X**: Pozycja pozioma.  
+- **Y**: Pozycja pionowa.  
+- **Tileset**: Tileset z którego pobrane są tafle  
+- **Tafla**: Przesunięcie tafli wewnątrz tilesetu  
+
+## Zastąp ciąg tafli
+Zastąp ciąg tafli o podanych współrzędnych, innym ciągiem tafli z tilesetu.
+<ScriptEventPreview title={"Zastąp ciąg tafli"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"number","min":0,"max":255,"width":"50%","defaultValue":0},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"number","min":0,"max":255,"width":"50%","defaultValue":0}]},{"key":"tilesetId","type":"tileset","label":"Tileset","description":"Tileset z którego pobrane są tafle","defaultValue":"LAST_TILESET","unitsField":"tileSize","unitsDefault":"8px","unitsAllowed":["8px","16px"]},{"type":"group","fields":[{"key":"tileIndex","label":"Od tafli","description":"Początkowe przesunięcie tafli wewnątrz tilesetu","type":"value","min":0,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"frames","label":"Klatki animacji","description":"Liczba klatek animacji do odtwarzania w cyklu.","type":"value","min":1,"width":"50%","defaultValue":{"type":"number","value":1}}]},{"key":"variable","label":"Zmienna stanu","description":"Zmienna przechowywująca aktualny stan tego zdarzenia","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
+
+- **X**: Pozycja pozioma.  
+- **Y**: Pozycja pionowa.  
+- **Tileset**: Tileset z którego pobrane są tafle  
+- **Od tafli**: Początkowe przesunięcie tafli wewnątrz tilesetu  
+- **Klatki animacji**: Liczba klatek animacji do odtwarzania w cyklu.  
+- **Zmienna stanu**: Zmienna przechowywująca aktualny stan tego zdarzenia  
 
 ## Scena: wczytaj pierwszą z pamięci
 Przejście do pierwszej sceny przechowywanej na stosie, na przykład jeśli masz wiele poziomów scen menu, możesz użyć tego, aby natychmiast powrócić do sceny gry. To zdarzenie spowoduje, że stos scen stanie się pusty.

@@ -11,7 +11,7 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 ## Escena: Cambiar escena
 Transition to a new scene with player at a specified position and direction. A connection line will be drawn between the source of the event and the destination scene with an icon appearing at the destination position. It's possible to drag this icon around and between scenes to modify the event.
-<ScriptEventPreview title={"Escena: Cambiar escena"} fields={[{"key":"sceneId","label":"Escena","description":"The scene to transition to.","type":"scene","defaultValue":"LAST_SCENE"},{"type":"group","fields":[{"key":"x","label":"X","description":"The initial player horizontal position in the new scene.","type":"number","min":0,"max":255,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"The initial player vertical position in the new scene.","type":"number","min":0,"max":255,"defaultValue":0,"width":"50%"}]},{"key":"direction","label":"Dirección","description":"The initial player direction.","type":"direction","width":"50%","defaultValue":""},{"key":"fadeSpeed","label":"Velocidad para desvanecer","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2","width":"50%"}]} />
+<ScriptEventPreview title={"Escena: Cambiar escena"} fields={[{"key":"sceneId","label":"Escena","description":"The scene to transition to.","type":"scene","defaultValue":"LAST_SCENE"},{"type":"group","fields":[{"key":"x","label":"X","description":"The initial player horizontal position in the new scene.","type":"value","min":0,"max":255,"defaultValue":{"type":"number","value":0},"width":"50%"},{"key":"y","label":"Y","description":"The initial player vertical position in the new scene.","type":"value","min":0,"max":255,"defaultValue":{"type":"number","value":0},"width":"50%"}]},{"key":"direction","label":"Dirección","description":"The initial player direction.","type":"direction","width":"50%","defaultValue":""},{"key":"fadeSpeed","label":"Velocidad para desvanecer","description":"The speed of the fade animation.","type":"fadeSpeed","allowNone":true,"defaultValue":"2","width":"50%"}]} />
 
 - **Escena**: The scene to transition to.  
 - **X**: The initial player horizontal position in the new scene.  
@@ -19,10 +19,37 @@ Transition to a new scene with player at a specified position and direction. A c
 - **Dirección**: The initial player direction.  
 - **Velocidad para desvanecer**: The speed of the fade animation.  
 
+## If Current Scene Is
+<ScriptEventPreview title={"If Current Scene Is"} fields={[{"key":"sceneId","label":"Escena","type":"scene","defaultValue":"LAST_SCENE"},{"key":"true","label":"Verdadero","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Escena**  
+- **Verdadero**  
+- **Falso**  
+
 ## Escena: Vaciar escena de pila
 Remove all scenes from the scene stack without leaving the current scene.
 <ScriptEventPreview title={"Escena: Vaciar escena de pila"} fields={[{"label":"Limpia la pila de los estados de escena guardados."}]} />
 
+
+## Replace Tile At Position
+Replace a tile at a specified coordinate with another from a tileset.
+<ScriptEventPreview title={"Replace Tile At Position"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"number","min":0,"max":255,"width":"50%","defaultValue":0},{"key":"y","label":"Y","description":"The vertical position.","type":"number","min":0,"max":255,"width":"50%","defaultValue":0}]},{"type":"group","fields":[{"key":"tilesetId","type":"tileset","label":"Tileset","description":"The tileset to fetch tiles from","defaultValue":"LAST_TILESET","unitsField":"tileSize","unitsDefault":"8px","unitsAllowed":["8px","16px"]},{"key":"tileIndex","label":"Tile","description":"The tile offset inside tileset","type":"value","min":0,"defaultValue":{"type":"number","value":0}}]}]} />
+
+- **X**: The horizontal position.  
+- **Y**: The vertical position.  
+- **Tileset**: The tileset to fetch tiles from  
+- **Tile**: The tile offset inside tileset  
+
+## Replace Tile At Position From Sequence
+Replace a tile at a specified coordinate with another from a tileset in a sequence.
+<ScriptEventPreview title={"Replace Tile At Position From Sequence"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"number","min":0,"max":255,"width":"50%","defaultValue":0},{"key":"y","label":"Y","description":"The vertical position.","type":"number","min":0,"max":255,"width":"50%","defaultValue":0}]},{"key":"tilesetId","type":"tileset","label":"Tileset","description":"The tileset to fetch tiles from","defaultValue":"LAST_TILESET","unitsField":"tileSize","unitsDefault":"8px","unitsAllowed":["8px","16px"]},{"type":"group","fields":[{"key":"tileIndex","label":"From Tile","description":"The starting tile offset inside tileset","type":"value","min":0,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"frames","label":"Animation Frames","description":"The number of animation frames to cycle through.","type":"value","min":1,"width":"50%","defaultValue":{"type":"number","value":1}}]},{"key":"variable","label":"State Variable","description":"A variable to store the current state of this event","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
+
+- **X**: The horizontal position.  
+- **Y**: The vertical position.  
+- **Tileset**: The tileset to fetch tiles from  
+- **From Tile**: The starting tile offset inside tileset  
+- **Animation Frames**: The number of animation frames to cycle through.  
+- **State Variable**: A variable to store the current state of this event  
 
 ## Escena: Restaurar primera desde pila
 Transition to the very first scene stored on the stack, for instance if you had multiple levels of menu scenes you could use this to imediately return to the game scene. This event will cause the scene stack to become empty.

@@ -18,9 +18,17 @@ Call one of your custom scripts. Once you have chosen a script you will be able 
 
 - **Script**: The script to run.  
 
+## If
+Conditionally run part of the script if the specified value evaluates to true.
+<ScriptEventPreview title={"If"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":1}}},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
+- **Verdadero**: The script to run if the condition is true.  
+- **Falso**: The script to run if the condition is false.  
+
 ## Si el actor esta en posición
 Conditionally run part of the script if an actor is at a specified position.
-<ScriptEventPreview title={"Si el actor esta en posición"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to check.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"number","min":0,"max":255,"width":"50%","defaultValue":0,"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"The vertical position.","type":"number","min":0,"max":255,"width":"50%","defaultValue":0,"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"Si el actor esta en posición"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to check.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"The vertical position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Actor**: The actor you want to check.  
 - **X**: The horizontal position.  
@@ -30,7 +38,7 @@ Conditionally run part of the script if an actor is at a specified position.
 
 ## If Actor Distance From Actor
 Conditionally run part of the script if an actor is within a certain distance of another actor.
-<ScriptEventPreview title={"If Actor Distance From Actor"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to check.","type":"actor","defaultValue":"player","width":"50%"},{"type":"group","fields":[{"key":"operator","label":"Comparison","description":"The comparison operator to use e.g. 'Less Than' or 'Greater Than'.","type":"operator","width":"50%","defaultValue":"<="},{"key":"distance","label":"Distance","description":"The distance value.","type":"union","types":["number","variable"],"defaultType":"number","min":0,"max":181,"width":"50%","unitsDefault":"tiles","defaultValue":{"number":0,"variable":"LAST_VARIABLE"}}]},{"key":"otherActorId","label":"From","description":"The actor to compare distance with.","type":"actor","defaultValue":"$self$","width":"50%"},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"If Actor Distance From Actor"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to check.","type":"actor","defaultValue":"player","width":"50%"},{"type":"group","fields":[{"key":"operator","label":"Comparison","description":"The comparison operator to use e.g. 'Less Than' or 'Greater Than'.","type":"operator","width":"50%","defaultValue":"<="},{"key":"distance","label":"Distance","description":"The distance value.","type":"value","min":0,"max":181,"width":"50%","unitsDefault":"tiles","defaultValue":{"type":"number","value":0}}]},{"key":"otherActorId","label":"From","description":"The actor to compare distance with.","type":"actor","defaultValue":"$self$","width":"50%"},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Actor**: The actor you want to check.  
 - **Comparison**: The comparison operator to use e.g. 'Less Than' or 'Greater Than'.  
@@ -41,7 +49,7 @@ Conditionally run part of the script if an actor is within a certain distance of
 
 ## Si el actor esta en dirección
 Conditionally run part of the script if an actor is facing in a specified direction.
-<ScriptEventPreview title={"Si el actor esta en dirección"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to check.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Dirección","description":"The actor direction.","type":"direction","defaultValue":"up"},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"Si el actor esta en dirección"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to check.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Dirección","description":"The actor direction.","type":"value","defaultValue":{"type":"direction","value":"up"}},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Actor**: The actor you want to check.  
 - **Dirección**: The actor direction.  
@@ -64,6 +72,13 @@ Conditionally run part of the script if the game is being played on a device or 
 
 - **Verdadero**: The script to run if the condition is true.  
 - **Falso**: The script to run if the condition is false.  
+
+## If Current Scene Is
+<ScriptEventPreview title={"If Current Scene Is"} fields={[{"key":"sceneId","label":"Escena","type":"scene","defaultValue":"LAST_SCENE"},{"key":"true","label":"Verdadero","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Escena**  
+- **Verdadero**  
+- **Falso**  
 
 ## Si los datos de juego fueron guardados
 Conditionally run part of the script if save data is present within the specified save slot.
@@ -91,17 +106,6 @@ Conditionally run part of the script if the specified joypad button is currently
 - **Verdadero**: The script to run if the condition is true.  
 - **Falso**: The script to run if the condition is false.  
 
-## If Math Expression
-Conditionally execute part of the script if the specified math expression evaluates to true.
-
-**References**  
-[/docs/scripting/math-expressions](/docs/scripting/math-expressions)  
-<ScriptEventPreview title={"If Math Expression"} fields={[{"key":"expression","label":"Expression","description":"The expression to evaluate.","type":"matharea","rows":5,"placeholder":"e.g. $health >= 0...","defaultValue":""},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Expression**: The expression to evaluate.  
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
-
 ## If Super GB Mode Is Available
 Conditionally run part of the script if the game is being played on a device or emulator that supports Super GB games.
 <ScriptEventPreview title={"If Super GB Mode Is Available"} fields={[{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
@@ -109,48 +113,12 @@ Conditionally run part of the script if the game is being played on a device or 
 - **Verdadero**: The script to run if the condition is true.  
 - **Falso**: The script to run if the condition is false.  
 
-## Si la variable se compara con valor
-Conditionally run part of the script based on the value of a variable compared with a value.
-<ScriptEventPreview title={"Si la variable se compara con valor"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operator","label":"Comparison","description":"The comparison operator to use e.g. 'Less Than' or 'Greater Than'.","type":"operator","width":"50%","defaultValue":"=="},{"key":"comparator","label":"Valor","description":"The value to compare with.","type":"number","min":-32768,"max":32767,"width":"50%","defaultValue":"0"},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Variable**: The variable to use.  
-- **Comparison**: The comparison operator to use e.g. 'Less Than' or 'Greater Than'.  
-- **Valor**: The value to compare with.  
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
-
-## Si la variable se compara con variable
-Conditionally run part of the script based on the value of a variable compared with another variable.
-<ScriptEventPreview title={"Si la variable se compara con variable"} fields={[{"key":"vectorX","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operator","label":"Comparison","description":"The comparison operator to use e.g. 'Less Than' or 'Greater Than'.","type":"operator","width":"50%","defaultValue":"=="},{"key":"vectorY","label":"Other Variable","description":"The variable to compare with.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Variable**: The variable to use.  
-- **Comparison**: The comparison operator to use e.g. 'Less Than' or 'Greater Than'.  
-- **Other Variable**: The variable to compare with.  
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
-
 ## If Variable Has Flag
 Conditionally run part of the script if the specified variable has the chosen flag set as true.
-<ScriptEventPreview title={"If Variable Has Flag"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"flag","label":"Flag","description":"The flag to check.","type":"select","options":[[0,"Flag 1"],[1,"Flag 2"],[2,"Flag 3"],[3,"Flag 4"],[4,"Flag 5"],[5,"Flag 6"],[6,"Flag 7"],[7,"Flag 8"],[8,"Flag 9"],[9,"Flag 10"],[10,"Flag 11"],[11,"Flag 12"],[12,"Flag 13"],[13,"Flag 14"],[14,"Flag 15"],[15,"Flag 16"]],"defaultValue":0},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"If Variable Has Flag"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"flag","label":"Flag","description":"The flag to check.","type":"selectFlags","defaultValue":0},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Variable**: The variable to use.  
 - **Flag**: The flag to check.  
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
-
-## Si la variable es 'Falso'
-Conditionally run part of the script if the specified variable is set to false.
-<ScriptEventPreview title={"Si la variable es 'Falso'"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Variable**: The variable to use.  
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
-
-## Si la variable es 'Verdadero'
-Conditionally run part of the script if the specified variable is set to true.
-<ScriptEventPreview title={"Si la variable es 'Verdadero'"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Variable**: The variable to use.  
 - **Verdadero**: The script to run if the condition is true.  
 - **Falso**: The script to run if the condition is false.  
 
@@ -161,7 +129,7 @@ Run part of the script in a loop forever. Remember to break out of the loop othe
 
 ## Loop For
 Run part of the script in a loop while a counter variable is within a specified range. On each loop the counter variable is modified before the next check.
-<ScriptEventPreview title={"Loop For"} fields={[{"key":"variable","label":"For","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"from","label":"From","description":"The initial value of the counter variable.","type":"union","types":["number","variable"],"defaultType":"number","min":-32768,"max":32767,"defaultValue":{"number":0,"variable":"LAST_VARIABLE"}},{"key":"comparison","label":"Comparison","description":"The comparison operator to use e.g. 'Less Than' or 'Greater Than'.","type":"operator","defaultValue":"<="},{"key":"to","label":"To","description":"The end value of the counter variable.","type":"union","types":["number","variable"],"defaultType":"number","min":-32768,"max":32767,"defaultValue":{"number":10,"variable":"LAST_VARIABLE"}}],"flexBasis":200},{"type":"group","fields":[{"key":"operation","label":"Operation","description":"The operation to use for combining a value with the counter variable after each loop.","type":"mathOperator","defaultValue":"+="},{"key":"value","label":"Valor","description":"The value to combine with the counter variable after each loop.","type":"union","types":["number","variable"],"defaultType":"number","min":-32768,"max":32767,"defaultValue":{"number":1,"variable":"LAST_VARIABLE"}}],"flexBasis":150},{"key":"true","type":"events"}]} />
+<ScriptEventPreview title={"Loop For"} fields={[{"key":"variable","label":"For","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"from","label":"From","description":"The initial value of the counter variable.","type":"value","min":-32768,"max":32767,"defaultValue":{"type":"number","value":0}},{"key":"comparison","label":"Comparison","description":"The comparison operator to use e.g. 'Less Than' or 'Greater Than'.","type":"operator","defaultValue":"<="},{"key":"to","label":"To","description":"The end value of the counter variable.","type":"value","min":-32768,"max":32767,"defaultValue":{"type":"number","value":10}}],"flexBasis":200},{"type":"group","fields":[{"key":"operation","label":"Operation","description":"The operation to use for combining a value with the counter variable after each loop.","type":"mathOperator","defaultValue":"+="},{"key":"value","label":"Valor","description":"The value to combine with the counter variable after each loop.","type":"value","min":-32768,"max":32767,"defaultValue":{"type":"number","value":1}}],"flexBasis":150},{"key":"true","type":"events"}]} />
 
 - **For**: The variable to use.  
 - **From**: The initial value of the counter variable.  
@@ -172,9 +140,9 @@ Run part of the script in a loop while a counter variable is within a specified 
 
 ## Loop While
 Run part of the script in a loop while an expression is true.
-<ScriptEventPreview title={"Loop While"} fields={[{"key":"expression","label":"Expression","description":"The expression to evaluate.","type":"matharea","rows":5,"placeholder":"e.g. $health >= 0...","defaultValue":""},{"key":"true","type":"events"}]} />
+<ScriptEventPreview title={"Loop While"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"lt","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":10}}},{"key":"true","type":"events"}]} />
 
-- **Expression**: The expression to evaluate.  
+- **Condition**: The condition to evaluate.  
 
 ## Script: Detener
 Stops the current script from running.

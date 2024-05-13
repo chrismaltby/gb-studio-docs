@@ -49,3 +49,13 @@ Polecenie uruchomi skrypt GBVM.
 - **Wczytaj zmienną**  
 - **Rozmiar pakietu**  
 
+## Zablokuj skrypt
+Wstrzymaj inne skrypty i aktualizacje sceny do momentu zakończenia tego skryptu lub odblokowania.
+<ScriptEventPreview title={"Zablokuj skrypt"} fields={[{"label":"Wstrzymaj inne skrypty i aktualizacje sceny do momentu zakończenia tego skryptu lub odblokowania."}]} />
+
+
+## Odblokuj skrypt
+Jeśli jest zablokowany, odblokuj ten skrypt, aby inne skrypty mogły działać i scena mogła być aktualizowana.
+<ScriptEventPreview title={"Odblokuj skrypt"} fields={[{"label":"Jeśli jest zablokowany, odblokuj ten skrypt, aby inne skrypty mogły działać i scena mogła być aktualizowana."}]} />
+
+

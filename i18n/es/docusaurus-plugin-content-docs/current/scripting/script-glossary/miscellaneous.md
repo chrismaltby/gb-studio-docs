@@ -49,3 +49,13 @@ Run a GBVM script.
 - **Receive Variable**  
 - **Packet Size**  
 
+## Script Lock
+Pause other scripts and scene updates until this script has finished or is unlocked.
+<ScriptEventPreview title={"Script Lock"} fields={[{"label":"Pause other scripts and scene updates until this script has finished or is unlocked."}]} />
+
+
+## Script Unlock
+If locked, unlock this script so other scripts can run and the scene can update.
+<ScriptEventPreview title={"Script Unlock"} fields={[{"label":"If locked, unlock this script so other scripts can run and the scene can update."}]} />
+
+

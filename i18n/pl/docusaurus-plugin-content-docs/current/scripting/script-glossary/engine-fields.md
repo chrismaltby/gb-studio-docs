@@ -14,7 +14,7 @@ Polecenie zmienia wartość wybranego pola silnika.
 
 **Odniesienia**  
 [/docs/settings/#engine-settings](/docs/settings/#engine-settings)  
-<ScriptEventPreview title={"Silnik: aktualizacja ustawień"} fields={[{"type":"engineField","label":"Pole silnika","description":"Pole silnika do aktualizacji.","key":"engineFieldKey"}]} />
+<ScriptEventPreview title={"Silnik: aktualizacja ustawień"} fields={[{"type":"engineField","label":"Pole silnika","description":"Pole silnika do aktualizacji.","key":"engineFieldKey"},{"key":"value","type":"engineFieldValue","defaultValue":{"type":"number","value":0},"conditions":[{"key":"engineFieldKey","set":true}]}]} />
 
 - **Pole silnika**: Pole silnika do aktualizacji.  
 
@@ -23,7 +23,8 @@ Polecenie zapisuje wartość wybranego pola silnika do zmiennej.
 
 **Odniesienia**  
 [/docs/settings/#engine-settings](/docs/settings/#engine-settings)  
-<ScriptEventPreview title={"Silnik: zapisz pole w zmiennej"} fields={[{"type":"engineField","label":"Pole silnika","description":"Pole silnika do odczytania wartości.","key":"engineFieldKey"}]} />
+<ScriptEventPreview title={"Silnik: zapisz pole w zmiennej"} fields={[{"type":"engineField","label":"Pole silnika","description":"Pole silnika do odczytania wartości.","key":"engineFieldKey"},{"key":"value","type":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","defaultValue":"LAST_VARIABLE","conditions":[{"key":"engineFieldKey","set":true}]}]} />
 
 - **Pole silnika**: Pole silnika do odczytania wartości.  
+- **Zmienna**: Wskaż zmienną do użycia.  
 

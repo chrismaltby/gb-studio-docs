@@ -14,29 +14,18 @@ Set a variable to the result of evaluating a math expression.
 
 **Referenzen**  
 [/docs/scripting/math-expressions](/docs/scripting/math-expressions)  
-<ScriptEventPreview title={"Matheausdruck auswerten"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Expression","description":"The expression to evaluate.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
+<ScriptEventPreview title={"Matheausdruck auswerten"} fields={[{"key":"variable","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Ausdruck","description":"Der auszuwertende Ausdruck.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
 
-- **Variable**: The variable to use.  
-- **Expression**: The expression to evaluate.  
-
-## Wenn Matheausdruck
-Conditionally execute part of the script if the specified math expression evaluates to true.
-
-**Referenzen**  
-[/docs/scripting/math-expressions](/docs/scripting/math-expressions)  
-<ScriptEventPreview title={"Wenn Matheausdruck"} fields={[{"key":"expression","label":"Expression","description":"The expression to evaluate.","type":"matharea","rows":5,"placeholder":"e.g. $health >= 0...","defaultValue":""},{"key":"true","label":"Wahr","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Expression**: The expression to evaluate.  
-- **Wahr**: The script to run if the condition is true.  
-- **Falsch**: The script to run if the condition is false.  
+- **Variable**: Die zu nutzende Variable.  
+- **Ausdruck**: Der auszuwertende Ausdruck.  
 
 ## Variable: Mathematische Funktionen
 Allows you to perform various maths functions on a variable to add/subtract/multiply/divide/modulus a value/variable/random number.
-<ScriptEventPreview title={"Variable: Mathematische Funktionen"} fields={[{"key":"vectorX","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operation","label":"Operation","description":"The operation to use for modifying the variable value.","type":"select","options":[["set","Einstellen"],["add","Hinzufügen"],["sub","Subtrahieren"],["mul","Multiplizieren"],["div","Teilen"],["mod","Modulus"]],"defaultValue":"set","width":"50%"},{"key":"other","label":"VWert","description":"The value to combine with the variable using the selected operation.","type":"select","options":[["true","Wahr"],["false","Falsch"],["var","Variable"],["val","VWert"],["rnd","Zufällig"]],"defaultValue":"true","width":"50%"},{"key":"vectorY","type":"variable","conditions":[{"key":"other","eq":"var"}],"defaultValue":"LAST_VARIABLE"},{"key":"value","type":"number","conditions":[{"key":"other","eq":"val"}],"min":-32768,"max":32767,"defaultValue":"0"},{"type":"group","fields":[{"key":"minValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Minimaler Wert","description":"The minimum value for the random range.","hideFromDocs":true,"defaultValue":"0","width":"50%"},{"key":"maxValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Maximaler Wert","description":"The maximum value for the random range.","hideFromDocs":true,"defaultValue":"32767","width":"50%"}]},{"key":"clamp","type":"checkbox","label":"Klammerwert zwischen 0 und 255","hideFromDocs":true,"conditions":[{"key":"operation","in":["add","sub","mul"]}],"defaultValue":false,"alignCheckbox":true}]} />
+<ScriptEventPreview title={"Variable: Mathematische Funktionen"} fields={[{"key":"vectorX","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operation","label":"Operation","description":"Die Operation, die zur Änderung des Variablenwerts verwendet werden soll.","type":"select","options":[["set","Einstellen"],["add","Hinzufügen"],["sub","Subtrahieren"],["mul","Multiplizieren"],["div","Teilen"],["mod","Modulo"]],"defaultValue":"set","width":"50%"},{"key":"other","label":"Wert","description":"Der Wert, der mit der Variablen durch die gewählte Operation kombiniert werden soll.","type":"select","options":[["true","Wahr"],["false","Falsch"],["var","Variable"],["val","Wert"],["rnd","Zufällig"]],"defaultValue":"true","width":"50%"},{"key":"vectorY","type":"variable","conditions":[{"key":"other","eq":"var"}],"defaultValue":"LAST_VARIABLE"},{"key":"value","type":"number","conditions":[{"key":"other","eq":"val"}],"min":-32768,"max":32767,"defaultValue":"0"},{"type":"group","fields":[{"key":"minValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Minimaler Wert","description":"Der minimale Wert für den Zufallsbereich.","hideFromDocs":true,"defaultValue":"0","width":"50%"},{"key":"maxValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Maximaler Wert","description":"Der maximale Wert für den Zufallsbereich.","hideFromDocs":true,"defaultValue":"32767","width":"50%"}]},{"key":"clamp","type":"checkbox","label":"Klammerwert zwischen 0 und 255","hideFromDocs":true,"conditions":[{"key":"operation","in":["add","sub","mul"]}],"defaultValue":false}]} />
 
-- **Variable**: The variable to use.  
-- **Operation**: The operation to use for modifying the variable value.  
-- **VWert**: The value to combine with the variable using the selected operation.  
+- **Variable**: Die zu nutzende Variable.  
+- **Operation**: Die Operation, die zur Änderung des Variablenwerts verwendet werden soll.  
+- **Wert**: Der Wert, der mit der Variablen durch die gewählte Operation kombiniert werden soll.  
 
 ## Seed Zufallszahlengenerator
 Place this to run in response to user input to ensure random numbers change between playthroughs.

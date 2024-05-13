@@ -11,14 +11,14 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 ## Cámara: Fijar al jugador
 Move the camera back to centering on the player, locking into position when the player moves. Optionally allows locking to follow player in only horizontal or vertical axis.
-<ScriptEventPreview title={"Cámara: Fijar al jugador"} fields={[{"key":"speed","width":"50%","label":"Velocidad","description":"The movement speed, use 'Instant' to immediately move to the new location.","type":"cameraSpeed","defaultValue":0},{"key":"axis","width":"50%","label":"Lock Axis","description":"Set if either horizontal axis, vertical axis or both should be locked.","type":"togglebuttons","options":[["x","H","Horizontal"],["y","V","Vertical"]],"allowMultiple":true,"allowNone":false,"defaultValue":["x","y"]}]} />
+<ScriptEventPreview title={"Cámara: Fijar al jugador"} fields={[{"key":"speed","width":"50%","label":"Velocidad","description":"The movement speed, use 'Instant' to immediately move to the new location.","type":"moveSpeed","defaultValue":0,"allowNone":true,"noneLabel":"Instant"},{"key":"axis","width":"50%","label":"Lock Axis","description":"Set if either horizontal axis, vertical axis or both should be locked.","type":"togglebuttons","options":[["x","H","Horizontal"],["y","V","Vertical"]],"allowMultiple":true,"allowNone":false,"defaultValue":["x","y"]}]} />
 
 - **Velocidad**: The movement speed, use 'Instant' to immediately move to the new location.  
 - **Lock Axis**: Set if either horizontal axis, vertical axis or both should be locked.  
 
 ## Cámara: Mover hacia
 Move the camera to a new position.
-<ScriptEventPreview title={"Cámara: Mover hacia"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"union","types":["number","variable","property"],"defaultType":"number","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"number":0,"variable":"LAST_VARIABLE","property":"$self$:xpos"}},{"key":"y","label":"Y","description":"The vertical position.","type":"union","types":["number","variable","property"],"defaultType":"number","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"number":0,"variable":"LAST_VARIABLE","property":"$self$:ypos"}}]},{"key":"speed","label":"Velocidad","description":"The movement speed, use 'Instant' to immediately move to the new location.","type":"cameraSpeed","defaultValue":0}]} />
+<ScriptEventPreview title={"Cámara: Mover hacia"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"The vertical position.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]},{"key":"speed","label":"Velocidad","description":"The movement speed, use 'Instant' to immediately move to the new location.","type":"moveSpeed","defaultValue":0,"allowNone":true,"noneLabel":"Instant"}]} />
 
 - **X**: The horizontal position.  
 - **Y**: The vertical position.  
@@ -26,10 +26,11 @@ Move the camera to a new position.
 
 ## Camara: Vibrar
 Shake the camera for a period of time.
-<ScriptEventPreview title={"Camara: Vibrar"} fields={[{"type":"group","fields":[{"key":"time","type":"number","label":"Duration","description":"The length of time to shake camera for in seconds or frames.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Duration","description":"The length of time to shake camera for in seconds or frames.","type":"number","min":0,"max":3600,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]},{"key":"shakeDirection","label":"Movement Type","description":"Choose if camera should shake only in horizontal or vertical axis or if should shake in both directions.","hideLabel":true,"type":"moveType","defaultValue":"horizontal","flexBasis":30,"flexGrow":0}]}]} />
+<ScriptEventPreview title={"Camara: Vibrar"} fields={[{"type":"group","fields":[{"key":"time","type":"number","label":"Duration","description":"The length of time to shake camera for in seconds or frames.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Duration","description":"The length of time to shake camera for in seconds or frames.","type":"number","min":0,"max":3600,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]},{"key":"shakeDirection","label":"Movement Type","description":"Choose if camera should shake only in horizontal or vertical axis or if should shake in both directions.","hideLabel":true,"type":"moveType","defaultValue":"horizontal","flexBasis":30,"flexGrow":0,"alignBottom":true}]},{"key":"magnitude","label":"Magnitude","description":"The amount of camera movement during a camera shake.","type":"value","min":1,"max":255,"defaultValue":{"type":"number","value":5}}]} />
 
 - **Duration**: The length of time to shake camera for in seconds or frames.  
 - **Movement Type**: Choose if camera should shake only in horizontal or vertical axis or if should shake in both directions.  
+- **Magnitude**: The amount of camera movement during a camera shake.  
 
 ## Pantalla: Aparecer gradualmente
 Fade the scene from a blank screen.
@@ -42,4 +43,11 @@ Fade the scene to a blank screen.
 <ScriptEventPreview title={"Pantalla: Desaparecer gradualmente"} fields={[{"key":"speed","label":"Velocidad","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2"}]} />
 
 - **Velocidad**: The speed of the fade animation.  
+
+## Set Camera Position
+Move the camera to a new position.
+<ScriptEventPreview title={"Set Camera Position"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"The vertical position.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]}]} />
+
+- **X**: The horizontal position.  
+- **Y**: The vertical position.  
 

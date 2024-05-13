@@ -11,8 +11,9 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 ## Stoper: ustaw stoper
 Polecenie uruchomi określony skrypt wielokrotnie po upływie określonego czasu. Skrypt będzie działał w tle, dopóki nie zostanie wywołane polecenie usuń stoper lub scena zostanie zmieniona za pomocą polecenia zmień scenę.
-<ScriptEventPreview title={"Stoper: ustaw stoper"} fields={[{"type":"group","fields":[{"key":"duration","type":"number","label":"Interwał czasu","description":"Czas oczekiwania przed każdym uruchomieniem skryptu.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Interwał czasu","description":"Czas oczekiwania przed każdym uruchomieniem skryptu.","type":"number","min":0,"max":3600,"step":16,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]}]},{"key":"__scriptTabs","type":"tabs","defaultValue":"end","values":{"end":"Na tyknięcie"}},{"key":"script","label":"Na tyknięcie","description":"Skrypt do wykonania, gdy stoper zostanie uruchomiony..","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"end"]}]}]} />
+<ScriptEventPreview title={"Stoper: ustaw stoper"} fields={[{"key":"timer","label":"Czas","description":"Czas, który należy zmodyfikować. Każda scena może użwać do czterech czasów jednocześnie.","type":"togglebuttons","options":[[1,"1","Czas 1"],[2,"2","Czas 2"],[3,"3","Czas 3"],[4,"4","Czas 4"]],"allowNone":false,"defaultValue":1},{"type":"group","fields":[{"key":"duration","type":"number","label":"Interwał czasu","description":"Czas oczekiwania przed każdym uruchomieniem skryptu.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Interwał czasu","description":"Czas oczekiwania przed każdym uruchomieniem skryptu.","type":"number","min":0,"max":3600,"step":16,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]}]},{"key":"__scriptTabs","type":"tabs","defaultValue":"end","values":{"end":"Na tyknięcie"}},{"key":"script","label":"Na tyknięcie","description":"Skrypt do wykonania, gdy stoper zostanie uruchomiony..","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"end"]}]}]} />
 
+- **Czas**: Czas, który należy zmodyfikować. Każda scena może użwać do czterech czasów jednocześnie.  
 - **Interwał czasu**: Czas oczekiwania przed każdym uruchomieniem skryptu.  
 - **Na tyknięcie**: Skrypt do wykonania, gdy stoper zostanie uruchomiony..  
 
@@ -23,13 +24,15 @@ Polecenie zatrzyma wykonanie skryptu na pojedyńczą klatkę.
 
 ## Stoper: usuń stoper
 Polecenie usunie stoper, aby nie był już wywoływany przez skrypt.
-<ScriptEventPreview title={"Stoper: usuń stoper"} fields={[{"label":"Wyłącz skrypt stopera"}]} />
+<ScriptEventPreview title={"Stoper: usuń stoper"} fields={[{"key":"timer","label":"Czas","description":"Czas, który należy zmodyfikować. Każda scena może użwać do czterech czasów jednocześnie.","type":"togglebuttons","options":[[1,"1","Czas 1"],[2,"2","Czas 2"],[3,"3","Czas 3"],[4,"4","Czas 4"]],"allowNone":false,"defaultValue":1,"flexBasis":"100%"},{"label":"Wyłącz skrypt stopera"}]} />
 
+- **Czas**: Czas, który należy zmodyfikować. Każda scena może użwać do czterech czasów jednocześnie.  
 
 ## Stoper: resetuj stoper
 Polecenie zeruje stoper z powrotem do zera. Skrypt zostanie wywołany ponownie po określonym czasie.
-<ScriptEventPreview title={"Stoper: resetuj stoper"} fields={[{"label":"Resetuj stoper do odliczania"}]} />
+<ScriptEventPreview title={"Stoper: resetuj stoper"} fields={[{"key":"timer","label":"Czas","description":"Czas, który należy zmodyfikować. Każda scena może użwać do czterech czasów jednocześnie.","type":"togglebuttons","options":[[1,"1","Czas 1"],[2,"2","Czas 2"],[3,"3","Czas 3"],[4,"4","Czas 4"]],"allowNone":false,"defaultValue":1,"flexBasis":"100%"},{"label":"Resetuj stoper do odliczania"}]} />
 
+- **Czas**: Czas, który należy zmodyfikować. Każda scena może użwać do czterech czasów jednocześnie.  
 
 ## Czekaj
 Wstrzymanie wykonywanie skryptu na określony czas.

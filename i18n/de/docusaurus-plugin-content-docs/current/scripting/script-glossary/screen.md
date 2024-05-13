@@ -10,35 +10,35 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 # Bildschirm
 
 ## Bildschirm: Einblenden
-Fade the scene from a blank screen.
-<ScriptEventPreview title={"Bildschirm: Einblenden"} fields={[{"key":"speed","label":"Geschwindigkeit","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2"}]} />
+Die Szene von einem leeren Bildschirm einblenden.
+<ScriptEventPreview title={"Bildschirm: Einblenden"} fields={[{"key":"speed","label":"Geschwindigkeit","description":"Die Einblendegeschwindigkeit.","type":"fadeSpeed","defaultValue":"2"}]} />
 
-- **Geschwindigkeit**: The speed of the fade animation.  
+- **Geschwindigkeit**: Die Einblendegeschwindigkeit.  
 
 ## Bildschirm: Ausblenden
-Fade the scene to a blank screen.
-<ScriptEventPreview title={"Bildschirm: Ausblenden"} fields={[{"key":"speed","label":"Geschwindigkeit","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2"}]} />
+Die Szene zu einem leeren Bildschirm ausblenden
+<ScriptEventPreview title={"Bildschirm: Ausblenden"} fields={[{"key":"speed","label":"Geschwindigkeit","description":"Die Einblendegeschwindigkeit.","type":"fadeSpeed","defaultValue":"2"}]} />
 
-- **Geschwindigkeit**: The speed of the fade animation.  
+- **Geschwindigkeit**: Die Einblendegeschwindigkeit.  
 
 ## Überlagerung: Ausblenden
-Hides the screen overlay.
+Blendet die Bildschirmüberlagerung aus.
 <ScriptEventPreview title={"Überlagerung: Ausblenden"} fields={[{"label":"Blendet das Überlagerung-Fenster vom Bildschirm aus."}]} />
 
 
-## Überlagerung: Bewegen Zu Position
+## Überlagerung: Zu Position Bewegen
 Moves the overlay to a new position on the screen.
-<ScriptEventPreview title={"Überlagerung: Bewegen Zu Position"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"The vertical position.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]},{"key":"speed","label":"Geschwindigkeit","description":"The movement speed.","type":"cameraSpeed","defaultValue":"0"}]} />
+<ScriptEventPreview title={"Überlagerung: Zu Position Bewegen"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"Die horizontale Position.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"Die vertikale Position.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]},{"key":"speed","label":"Geschwindigkeit","description":"Die Bewegungsgeschwindigkeit.","type":"cameraSpeed","defaultValue":"0"}]} />
 
-- **X**: The horizontal position.  
-- **Y**: The vertical position.  
-- **Geschwindigkeit**: The movement speed.  
+- **X**: Die horizontale Position.  
+- **Y**: Die vertikale Position.  
+- **Geschwindigkeit**: Die Bewegungsgeschwindigkeit.  
 
 ## Überlagerung: Einblenden
 Show either a black or white window over the top of the current game screen. Can be used to obscure and then reveal parts of the scene background for example on the sample project logo screen.
-<ScriptEventPreview title={"Überlagerung: Einblenden"} fields={[{"key":"color","label":"Fill Color","description":"The color to fill the overlay with, either black or white.","type":"overlayColor","defaultValue":"black"},{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"The vertical position.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]}]} />
+<ScriptEventPreview title={"Überlagerung: Einblenden"} fields={[{"key":"color","label":"Füllfarbe","description":"Die Farbe, mit der das Überlagerungsbild gefüllt werden soll, entweder schwarz oder weiß.","type":"overlayColor","defaultValue":"black"},{"type":"group","fields":[{"key":"x","label":"X","description":"Die horizontale Position.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"Die vertikale Position.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]}]} />
 
-- **Fill Color**: The color to fill the overlay with, either black or white.  
-- **X**: The horizontal position.  
-- **Y**: The vertical position.  
+- **Füllfarbe**: Die Farbe, mit der das Überlagerungsbild gefüllt werden soll, entweder schwarz oder weiß.  
+- **X**: Die horizontale Position.  
+- **Y**: Die vertikale Position.  
 
