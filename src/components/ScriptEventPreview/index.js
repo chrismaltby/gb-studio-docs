@@ -25,6 +25,24 @@ function FakeInput({ children }) {
   return <div className={styles.input} children={children} />;
 }
 
+function FakeValue({ children }) {
+  return (
+    <div className={styles.valueInput}>
+      <div className={styles.valueInputButton}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path d="M22.548 9l.452-2h-5.364l1.364-6h-2l-1.364 6h-5l1.364-6h-2l-1.364 6h-6.184l-.452 2h6.182l-1.364 6h-5.36l-.458 2h5.364l-1.364 6h2l1.364-6h5l-1.364 6h2l1.364-6h6.185l.451-2h-6.182l1.364-6h5.366zm-8.73 6h-5l1.364-6h5l-1.364 6z"></path>
+        </svg>
+      </div>
+      <div className={styles.input}>{children}</div>
+    </div>
+  );
+}
+
 function FakeTextarea({ children }) {
   return <div className={styles.textarea} children={children} />;
 }
@@ -115,7 +133,7 @@ function ScriptEventFieldInput({ field }) {
     return (
       <FakeSelect>
         <img
-          className={styles.selectActor}
+          className={styles.selectIcon}
           src="/img/script-glossary/actor.png"
         />
         {field.defaultValue === "player" ? "Player" : "Actor 1"}
@@ -126,7 +144,7 @@ function ScriptEventFieldInput({ field }) {
     return (
       <FakeSelect>
         <img
-          className={styles.selectActor}
+          className={styles.selectIcon}
           src="/img/script-glossary/emote.png"
         />
         Love
@@ -137,7 +155,7 @@ function ScriptEventFieldInput({ field }) {
     return (
       <FakeSelect>
         <img
-          className={styles.selectActor}
+          className={styles.selectIcon}
           src="/img/script-glossary/actor.png"
         />
         Avatar 1
@@ -180,6 +198,9 @@ function ScriptEventFieldInput({ field }) {
   if (field.type === "soundEffect") {
     return <FakeSelect>Beep</FakeSelect>;
   }
+  if (field.type === "engineFieldValue") {
+    return <FakeValue>0</FakeValue>;
+  }
   if (field.type === "number") {
     return <FakeInput>{field.placeholder || field.defaultValue}</FakeInput>;
   }
@@ -189,7 +210,10 @@ function ScriptEventFieldInput({ field }) {
   if (field.type === "matharea") {
     return <FakeInput>{field.placeholder || field.defaultValue}</FakeInput>;
   }
-  if (field.type === "textarea") {
+  if (field.type === "textarea" && field.singleLine) {
+    return <FakeInput>{field.placeholder || field.defaultValue}</FakeInput>;
+  }
+  if (field.type === "textarea" && !field.singleLine) {
     return (
       <FakeTextarea>{field.placeholder || field.defaultValue}</FakeTextarea>
     );
@@ -313,15 +337,29 @@ function ScriptEventFieldInput({ field }) {
     return (
       <FakeSelect>
         <img
-          className={styles.selectActor}
+          className={styles.selectIcon}
           src="/img/script-glossary/actor.png"
         />
         <div className={styles.flexGrow}>cat</div>
       </FakeSelect>
     );
   }
+  if (field.type === "tileset") {
+    return (
+      <FakeSelect>
+        <img
+          className={styles.selectIcon}
+          src="/img/script-glossary/tileset.png"
+        />
+        <div className={styles.flexGrow}>flowers</div>
+      </FakeSelect>
+    );
+  }
   if (field.type === "variable") {
     return <FakeSelect>$Variable0</FakeSelect>;
+  }
+  if (field.type === "selectFlags") {
+    return <FakeSelect>Flag 1</FakeSelect>;
   }
   if (field.type === "palette") {
     return (
@@ -394,6 +432,9 @@ function ScriptEventFieldInput({ field }) {
       </div>
     );
   }
+  if (field.type === "value") {
+    return <FakeValue>0</FakeValue>;
+  }
   return <div className={styles.unknown}>Unknown Type {field.type}</div>;
 }
 
@@ -442,7 +483,38 @@ function ScriptEventField({ field, args }) {
         }}
       >
         <div className={styles.checkbox}>
-          <input type="checkbox" checked={field.defaultValue} /> {field.label}
+          <div
+            className={clsx(styles.checkboxInput, {
+              [styles.checkboxInputChecked]: field.defaultValue,
+            })}
+          >
+            <svg viewBox="0 0 24 24">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </div>{" "}
+          {field.label}
+        </div>
+      </div>
+    );
+  }
+  if (field.type === "flag") {
+    return (
+      <div
+        className={clsx(styles.field, {
+          [styles.fieldHalf]: field.width === "50%",
+        })}
+        style={{
+          flexBasis: field.flexBasis,
+          flexGrow: field.flexGrow,
+          flexShrink: field.flexShrink,
+        }}
+      >
+        <div className={styles.checkbox}>
+          <input
+            className={styles.checkboxInput}
+            checked={field.defaultValue}
+          />{" "}
+          {field.label}
         </div>
       </div>
     );
