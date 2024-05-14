@@ -9,7 +9,7 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Scene
 
-## Change Scene
+### Change Scene
 Transition to a new scene with player at a specified position and direction. A connection line will be drawn between the source of the event and the destination scene with an icon appearing at the destination position. It's possible to drag this icon around and between scenes to modify the event.
 <ScriptEventPreview title={"Change Scene"} fields={[{"key":"sceneId","label":"Scene","description":"The scene to transition to.","type":"scene","defaultValue":"LAST_SCENE"},{"type":"group","fields":[{"key":"x","label":"X","description":"The initial player horizontal position in the new scene.","type":"value","min":0,"max":255,"defaultValue":{"type":"number","value":0},"width":"50%"},{"key":"y","label":"Y","description":"The initial player vertical position in the new scene.","type":"value","min":0,"max":255,"defaultValue":{"type":"number","value":0},"width":"50%"}]},{"key":"direction","label":"Direction","description":"The initial player direction.","type":"direction","width":"50%","defaultValue":""},{"key":"fadeSpeed","label":"Fade Speed","description":"The speed of the fade animation.","type":"fadeSpeed","allowNone":true,"defaultValue":"2","width":"50%"}]} />
 
@@ -19,19 +19,39 @@ Transition to a new scene with player at a specified position and direction. A c
 - **Direction**: The initial player direction.  
 - **Fade Speed**: The speed of the fade animation.  
 
-## If Current Scene Is
+## Control Flow
+### If Current Scene Is
 <ScriptEventPreview title={"If Current Scene Is"} fields={[{"key":"sceneId","label":"Scene","type":"scene","defaultValue":"LAST_SCENE"},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Scene**  
 - **True**  
 - **False**  
 
-## Remove All From Scene Stack
+## Scene Stack
+### Remove All From Scene Stack
 Remove all scenes from the scene stack without leaving the current scene.
 <ScriptEventPreview title={"Remove All From Scene Stack"} fields={[{"label":"Clears the stack of saved scene states."}]} />
 
 
-## Replace Tile At Position
+### Restore First Scene From Stack
+Transition to the very first scene stored on the stack, for instance if you had multiple levels of menu scenes you could use this to imediately return to the game scene. This event will cause the scene stack to become empty.
+<ScriptEventPreview title={"Restore First Scene From Stack"} fields={[{"label":"Pop all scene state from stack."},{"type":"break"},{"key":"fadeSpeed","label":"Fade Speed","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2","width":"50%"}]} />
+
+- **Fade Speed**: The speed of the fade animation.  
+
+### Restore Previous Scene From Stack
+Transition to the last stored scene from the scene stack using the specified fade speed. The previous scene will then be removed from the stack so the next time this event is used it will transition to the scene before that.
+<ScriptEventPreview title={"Restore Previous Scene From Stack"} fields={[{"label":"Pop the top scene state from stack."},{"type":"break"},{"key":"fadeSpeed","label":"Fade Speed","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2","width":"50%"}]} />
+
+- **Fade Speed**: The speed of the fade animation.  
+
+### Store Current Scene On Stack
+Store the current scene and player state on to the scene stack, this allows you to return to this exact location later using the Scene Restore events. A common use of this event would be to include in a script just before a Change Scene event to open a menu scene, in the menu scene you could wait for the player to press a close button and then use the Restore Previous From Stack event to return to where the player opened the menu.
+<ScriptEventPreview title={"Store Current Scene On Stack"} fields={[{"label":"Push scene state to stack."}]} />
+
+
+## Tiles
+### Replace Tile At Position
 Replace a tile at a specified coordinate with another from a tileset.
 <ScriptEventPreview title={"Replace Tile At Position"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"number","min":0,"max":255,"width":"50%","defaultValue":0},{"key":"y","label":"Y","description":"The vertical position.","type":"number","min":0,"max":255,"width":"50%","defaultValue":0}]},{"type":"group","fields":[{"key":"tilesetId","type":"tileset","label":"Tileset","description":"The tileset to fetch tiles from","defaultValue":"LAST_TILESET","unitsField":"tileSize","unitsDefault":"8px","unitsAllowed":["8px","16px"]},{"key":"tileIndex","label":"Tile","description":"The tile offset inside tileset","type":"value","min":0,"defaultValue":{"type":"number","value":0}}]}]} />
 
@@ -40,7 +60,7 @@ Replace a tile at a specified coordinate with another from a tileset.
 - **Tileset**: The tileset to fetch tiles from  
 - **Tile**: The tile offset inside tileset  
 
-## Replace Tile At Position From Sequence
+### Replace Tile At Position From Sequence
 Replace a tile at a specified coordinate with another from a tileset in a sequence.
 <ScriptEventPreview title={"Replace Tile At Position From Sequence"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"number","min":0,"max":255,"width":"50%","defaultValue":0},{"key":"y","label":"Y","description":"The vertical position.","type":"number","min":0,"max":255,"width":"50%","defaultValue":0}]},{"key":"tilesetId","type":"tileset","label":"Tileset","description":"The tileset to fetch tiles from","defaultValue":"LAST_TILESET","unitsField":"tileSize","unitsDefault":"8px","unitsAllowed":["8px","16px"]},{"type":"group","fields":[{"key":"tileIndex","label":"From Tile","description":"The starting tile offset inside tileset","type":"value","min":0,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"frames","label":"Animation Frames","description":"The number of animation frames to cycle through.","type":"value","min":1,"width":"50%","defaultValue":{"type":"number","value":1}}]},{"key":"variable","label":"State Variable","description":"A variable to store the current state of this event","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
 
@@ -50,21 +70,4 @@ Replace a tile at a specified coordinate with another from a tileset in a sequen
 - **From Tile**: The starting tile offset inside tileset  
 - **Animation Frames**: The number of animation frames to cycle through.  
 - **State Variable**: A variable to store the current state of this event  
-
-## Restore First Scene From Stack
-Transition to the very first scene stored on the stack, for instance if you had multiple levels of menu scenes you could use this to imediately return to the game scene. This event will cause the scene stack to become empty.
-<ScriptEventPreview title={"Restore First Scene From Stack"} fields={[{"label":"Pop all scene state from stack."},{"type":"break"},{"key":"fadeSpeed","label":"Fade Speed","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2","width":"50%"}]} />
-
-- **Fade Speed**: The speed of the fade animation.  
-
-## Restore Previous Scene From Stack
-Transition to the last stored scene from the scene stack using the specified fade speed. The previous scene will then be removed from the stack so the next time this event is used it will transition to the scene before that.
-<ScriptEventPreview title={"Restore Previous Scene From Stack"} fields={[{"label":"Pop the top scene state from stack."},{"type":"break"},{"key":"fadeSpeed","label":"Fade Speed","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2","width":"50%"}]} />
-
-- **Fade Speed**: The speed of the fade animation.  
-
-## Store Current Scene On Stack
-Store the current scene and player state on to the scene stack, this allows you to return to this exact location later using the Scene Restore events. A common use of this event would be to include in a script just before a Change Scene event to open a menu scene, in the menu scene you could wait for the player to press a close button and then use the Restore Previous From Stack event to return to where the player opened the menu.
-<ScriptEventPreview title={"Store Current Scene On Stack"} fields={[{"label":"Push scene state to stack."}]} />
-
 

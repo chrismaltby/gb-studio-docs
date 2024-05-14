@@ -9,24 +9,25 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Screen
 
-## Fade Screen In
+### Fade Screen In
 Fade the scene from a blank screen.
 <ScriptEventPreview title={"Fade Screen In"} fields={[{"key":"speed","label":"Speed","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2"}]} />
 
 - **Speed**: The speed of the fade animation.  
 
-## Fade Screen Out
+### Fade Screen Out
 Fade the scene to a blank screen.
 <ScriptEventPreview title={"Fade Screen Out"} fields={[{"key":"speed","label":"Speed","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2"}]} />
 
 - **Speed**: The speed of the fade animation.  
 
-## Hide Overlay
+## Overlay
+### Hide Overlay
 Hides the screen overlay.
 <ScriptEventPreview title={"Hide Overlay"} fields={[{"label":"Hides overlay window from screen."}]} />
 
 
-## Overlay Move To
+### Overlay Move To
 Moves the overlay to a new position on the screen.
 <ScriptEventPreview title={"Overlay Move To"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"The vertical position.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]},{"key":"speed","label":"Speed","description":"The movement speed.","type":"cameraSpeed","defaultValue":"0"}]} />
 
@@ -34,7 +35,7 @@ Moves the overlay to a new position on the screen.
 - **Y**: The vertical position.  
 - **Speed**: The movement speed.  
 
-## Show Overlay
+### Show Overlay
 Show either a black or white window over the top of the current game screen. Can be used to obscure and then reveal parts of the scene background for example on the sample project logo screen.
 <ScriptEventPreview title={"Show Overlay"} fields={[{"key":"color","label":"Fill Color","description":"The color to fill the overlay with, either black or white.","type":"overlayColor","defaultValue":"black"},{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"The vertical position.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]}]} />
 

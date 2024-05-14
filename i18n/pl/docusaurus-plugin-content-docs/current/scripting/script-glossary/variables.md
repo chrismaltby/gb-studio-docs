@@ -9,42 +9,22 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Zmienne
 
-## Zmienna: wzór matematyczny
-Polecenie ustawi zmienną na wynik oceny wyrażenia matematycznego.
-
-**Odniesienia**  
-[/docs/scripting/math-expressions](/docs/scripting/math-expressions)  
-<ScriptEventPreview title={"Zmienna: wzór matematyczny"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Wyrażenie","description":"Wprowadź wyrażenie do oceny.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
+### Zmienna: ustaw wartość
+Ustawienie wybranej zmiennej na określoną wartość.
+<ScriptEventPreview title={"Zmienna: ustaw wartość"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE","flexBasis":0,"minWidth":150},{"key":"value","label":"Wartość","description":"Wartość do ustawienia wybranej zmiennej.","type":"value","defaultValue":{"type":"number","value":0}}]} />
 
 - **Zmienna**: Wskaż zmienną do użycia.  
-- **Wyrażenie**: Wprowadź wyrażenie do oceny.  
+- **Wartość**: Wartość do ustawienia wybranej zmiennej.  
 
-## Zmienna: funkcje matematyczne
-Polecenie umożliwia wykonanie różnych funkcji matematycznych na zmiennej w celu dodania/odjęcia/mnożenia/dzielenia/modułu określonej wartości/zmiennej/losowej liczby.
-<ScriptEventPreview title={"Zmienna: funkcje matematyczne"} fields={[{"key":"vectorX","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operation","label":"Operacja","description":"Operacja używana do modyfikacji wartości zmiennej.","type":"select","options":[["set","Ustaw"],["add","Dodaj"],["sub","Odejmij"],["mul","Pomnóż"],["div","Podziel"],["mod","Modulo"]],"defaultValue":"set","width":"50%"},{"key":"other","label":"Wartość","description":"Wartość do połączenia ze zmienną przy użyciu wybranej operacji.","type":"select","options":[["true","Prawda"],["false","Fałsz"],["var","Zmienna"],["val","Wartość"],["rnd","Losowa"]],"defaultValue":"true","width":"50%"},{"key":"vectorY","type":"variable","conditions":[{"key":"other","eq":"var"}],"defaultValue":"LAST_VARIABLE"},{"key":"value","type":"number","conditions":[{"key":"other","eq":"val"}],"min":-32768,"max":32767,"defaultValue":"0"},{"type":"group","fields":[{"key":"minValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Wartość minimalna","description":"Ustalenie wartości minimalnej zasięgu losowego.","hideFromDocs":true,"defaultValue":"0","width":"50%"},{"key":"maxValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Wartość maksymalna","description":"Ustalenie wartości maksymalnej zasięgu losowego.","hideFromDocs":true,"defaultValue":"32767","width":"50%"}]},{"key":"clamp","type":"checkbox","label":"Wartość zasisku 0 - 255","hideFromDocs":true,"conditions":[{"key":"operation","in":["add","sub","mul"]}],"defaultValue":false}]} />
-
-- **Zmienna**: Wskaż zmienną do użycia.  
-- **Operacja**: Operacja używana do modyfikacji wartości zmiennej.  
-- **Wartość**: Wartość do połączenia ze zmienną przy użyciu wybranej operacji.  
-
-## Zmienna: resetuj wszystkie zmienne do ''Fałsz''
-Polecenie resetuje wszystkie zmienne użyte w projekcie, przywracając im wartość 'fałsz'.
-<ScriptEventPreview title={"Zmienna: resetuj wszystkie zmienne do ''Fałsz''"} fields={[{"label":"Resetuj WSZYSTKIE zmienne do ''Fałsz''."}]} />
-
-
-## Generator losowych liczb
-Polecenie odpowiada za dane wejściowe użytkownika, tak, aby zapewnić zmianę losowych liczb między rozgrywakami.
-<ScriptEventPreview title={"Generator losowych liczb"} fields={[{"label":"Umieść to, aby uruchomić w odpowiedzi na dane wejściowe użytkownika, zmianę losowych liczb między rozgrywkami"}]} />
-
-
-## Aktor: zapisz obrót w zmiennej
+## Actor
+### Aktor: zapisz obrót w zmiennej
 Polecenie zapisuje bieżący kierunek aktora do zmiennej.
 <ScriptEventPreview title={"Aktor: zapisz obrót w zmiennej"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do sprawdzenia.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Zmienna","description":"Zmienna używana dla kierunku.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
 
 - **Aktor**: Wybierz aktora do sprawdzenia.  
 - **Zmienna**: Zmienna używana dla kierunku.  
 
-## Aktor: zapisz położenie w zmiennych
+### Aktor: zapisz położenie w zmiennych
 Polecenie zapisuje bieżącą pozycję aktora w dwóch zmiennych. Jedna przechowuje pozycję poziomą, a druga pozycję pionową.
 <ScriptEventPreview title={"Aktor: zapisz położenie w zmiennych"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do sprawdzenia.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"vectorX","type":"variable","label":"X","description":"Zmienna używana dla pozycji poziomej.","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"vectorY","type":"variable","label":"Y","description":"Zmienna używana dla pozycji pionowej.","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]}]} />
 
@@ -52,7 +32,21 @@ Polecenie zapisuje bieżącą pozycję aktora w dwóch zmiennych. Jedna przechow
 - **X**: Zmienna używana dla pozycji poziomej.  
 - **Y**: Zmienna używana dla pozycji pionowej.  
 
-## Silnik: zapisz pole w zmiennej
+## Counter
+### Zmienna: zmniejsz o 1
+Zmniejszenie wartości wybranej zmiennej o 1.
+<ScriptEventPreview title={"Zmienna: zmniejsz o 1"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
+
+- **Zmienna**: Wskaż zmienną do użycia.  
+
+### Zmienna: zwiększ o 1
+Zwiększenie wartości wybranej zmiennej o 1.
+<ScriptEventPreview title={"Zmienna: zwiększ o 1"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
+
+- **Zmienna**: Wskaż zmienną do użycia.  
+
+## Engine Fields
+### Silnik: zapisz pole w zmiennej
 Polecenie zapisuje wartość wybranego pola silnika do zmiennej.
 
 **Odniesienia**  
@@ -62,21 +56,8 @@ Polecenie zapisuje wartość wybranego pola silnika do zmiennej.
 - **Pole silnika**: Pole silnika do odczytania wartości.  
 - **Zmienna**: Wskaż zmienną do użycia.  
 
-## Zmienna: wartość z zapisu do zmiennej
-Polecenie odczytuje wartość zmiennej z określonego miejsca zapisu, a następnie zapisuje ją do zmiennej.
-<ScriptEventPreview title={"Zmienna: wartość z zapisu do zmiennej"} fields={[{"key":"variableDest","label":"Ustaw zmienną","description":"Zmienna do aktualizacji.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"Dodaj do zmiennej","description":"Zmienna do odczytania wartości.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"Zapisz z pliku","description":"Określenie miejsca zapisu.","type":"togglebuttons","options":[[0,"Plik 1","Zapisz plik 1"],[1,"Plik 2","Zapisz plik 2"],[2,"Plik 3","Zapisz plik 3"]],"allowNone":false,"defaultValue":0}]}]} />
-
-- **Ustaw zmienną**: Zmienna do aktualizacji.  
-- **Dodaj do zmiennej**: Zmienna do odczytania wartości.  
-- **Zapisz z pliku**: Określenie miejsca zapisu.  
-
-## Zmienna: zmniejsz o 1
-Zmniejszenie wartości wybranej zmiennej o 1.
-<ScriptEventPreview title={"Zmienna: zmniejsz o 1"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
-
-- **Zmienna**: Wskaż zmienną do użycia.  
-
-## Zmienna: dodaj flagę
+## Flags
+### Zmienna: dodaj flagę
 Polecenie ustawi wybraną flagę jako 'prawda' dla zmiennej. Wszystkie niewybrane flagi zachowają swoją poprzednią wartość.
 <ScriptEventPreview title={"Zmienna: dodaj flagę"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flaga 1","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flaga 2","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flaga 3","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flaga 4","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flaga 5","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flaga 6","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flaga 7","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flaga 8","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flaga 9","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flaga 10","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flaga 11","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flaga 12","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flaga 13","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flaga 14","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flaga 15","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flaga 16","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false}]} />
 
@@ -86,7 +67,7 @@ Polecenie ustawi wybraną flagę jako 'prawda' dla zmiennej. Wszystkie niewybran
 - **Flaga 3**: FIELD_FLAG_ADD_N_DESC  
 - **Flaga 4**: FIELD_FLAG_ADD_N_DESC  
 
-## Zmienna: czyść flagę
+### Zmienna: czyść flagę
 Polecenie ustawi wybrane flagi jako 'fałsz' dla zmiennej. Wszystkie niewybrane flagi zachowają swoją poprzednią wartość.
 <ScriptEventPreview title={"Zmienna: czyść flagę"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flaga 1","description":"Ustaw flagę 1 jako fałsz.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flaga 2","description":"Ustaw flagę 2 jako fałsz.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flaga 3","description":"Ustaw flagę 3 jako fałsz.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flaga 4","description":"Ustaw flagę 4 jako fałsz.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flaga 5","description":"Ustaw flagę 5 jako fałsz.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flaga 6","description":"Ustaw flagę 6 jako fałsz.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flaga 7","description":"Ustaw flagę 7 jako fałsz.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flaga 8","description":"Ustaw flagę 8 jako fałsz.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flaga 9","description":"Ustaw flagę 9 jako fałsz.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flaga 10","description":"Ustaw flagę 10 jako fałsz.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flaga 11","description":"Ustaw flagę 11 jako fałsz.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flaga 12","description":"Ustaw flagę 12 jako fałsz.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flaga 13","description":"Ustaw flagę 13 jako fałsz.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flaga 14","description":"Ustaw flagę 14 jako fałsz.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flaga 15","description":"Ustaw flagę 15 jako fałsz.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flaga 16","description":"Ustaw flagę 16 jako fałsz.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false}]} />
 
@@ -96,7 +77,7 @@ Polecenie ustawi wybrane flagi jako 'fałsz' dla zmiennej. Wszystkie niewybrane 
 - **Flaga 3**: Ustaw flagę 3 jako fałsz.  
 - **Flaga 4**: Ustaw flagę 4 jako fałsz.  
 
-## Zmienna: ustaw flagę
+### Zmienna: ustaw flagę
 Polecenie ustawi wartość zmiennej, włączając poszczególne bity 16-bitowej liczby. Umożliwia przechowywanie 16 wartości prawda/fałsz w jednej zmiennej. Ustawienie flag zastąpi poprzednią wartość zmiennej.
 <ScriptEventPreview title={"Zmienna: ustaw flagę"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flaga 1","description":"Ustaw flagę 1 jako prawda.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flaga 2","description":"Ustaw flagę 2 jako prawda.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flaga 3","description":"Ustaw flagę 3 jako prawda.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flaga 4","description":"Ustaw flagę 4 jako prawda.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flaga 5","description":"Ustaw flagę 5 jako prawda.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flaga 6","description":"Ustaw flagę 6 jako prawda.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flaga 7","description":"Ustaw flagę 7 jako prawda.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flaga 8","description":"Ustaw flagę 8 jako prawda.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flaga 9","description":"Ustaw flagę 9 jako prawda.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flaga 10","description":"Ustaw flagę 10 jako prawda.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flaga 11","description":"Ustaw flagę 11 jako prawda.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flaga 12","description":"Ustaw flagę 12 jako prawda.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flaga 13","description":"Ustaw flagę 13 jako prawda.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flaga 14","description":"Ustaw flagę 14 jako prawda.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flaga 15","description":"Ustaw flagę 15 jako prawda.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flaga 16","description":"Ustaw flagę 16 jako prawda.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false}]} />
 
@@ -106,16 +87,43 @@ Polecenie ustawi wartość zmiennej, włączając poszczególne bity 16-bitowej 
 - **Flaga 3**: Ustaw flagę 3 jako prawda.  
 - **Flaga 4**: Ustaw flagę 4 jako prawda.  
 
-## Zmienna: zwiększ o 1
-Zwiększenie wartości wybranej zmiennej o 1.
-<ScriptEventPreview title={"Zmienna: zwiększ o 1"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
+## Math
+### Zmienna: wzór matematyczny
+Polecenie ustawi zmienną na wynik oceny wyrażenia matematycznego.
+
+**Odniesienia**  
+[/docs/scripting/math-expressions](/docs/scripting/math-expressions)  
+<ScriptEventPreview title={"Zmienna: wzór matematyczny"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Wyrażenie","description":"Wprowadź wyrażenie do oceny.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
 
 - **Zmienna**: Wskaż zmienną do użycia.  
+- **Wyrażenie**: Wprowadź wyrażenie do oceny.  
 
-## Zmienna: ustaw wartość
-Ustawienie wybranej zmiennej na określoną wartość.
-<ScriptEventPreview title={"Zmienna: ustaw wartość"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE","flexBasis":0,"minWidth":150},{"key":"value","label":"Wartość","description":"Wartość do ustawienia wybranej zmiennej.","type":"value","defaultValue":{"type":"number","value":0}}]} />
+### Zmienna: funkcje matematyczne
+Polecenie umożliwia wykonanie różnych funkcji matematycznych na zmiennej w celu dodania/odjęcia/mnożenia/dzielenia/modułu określonej wartości/zmiennej/losowej liczby.
+<ScriptEventPreview title={"Zmienna: funkcje matematyczne"} fields={[{"key":"vectorX","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operation","label":"Operacja","description":"Operacja używana do modyfikacji wartości zmiennej.","type":"select","options":[["set","Ustaw"],["add","Dodaj"],["sub","Odejmij"],["mul","Pomnóż"],["div","Podziel"],["mod","Modulo"]],"defaultValue":"set","width":"50%"},{"key":"other","label":"Wartość","description":"Wartość do połączenia ze zmienną przy użyciu wybranej operacji.","type":"select","options":[["true","Prawda"],["false","Fałsz"],["var","Zmienna"],["val","Wartość"],["rnd","Losowa"]],"defaultValue":"true","width":"50%"},{"key":"vectorY","type":"variable","conditions":[{"key":"other","eq":"var"}],"defaultValue":"LAST_VARIABLE"},{"key":"value","type":"number","conditions":[{"key":"other","eq":"val"}],"min":-32768,"max":32767,"defaultValue":"0"},{"type":"group","fields":[{"key":"minValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Wartość minimalna","description":"Ustalenie wartości minimalnej zasięgu losowego.","hideFromDocs":true,"defaultValue":"0","width":"50%"},{"key":"maxValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Wartość maksymalna","description":"Ustalenie wartości maksymalnej zasięgu losowego.","hideFromDocs":true,"defaultValue":"32767","width":"50%"}]},{"key":"clamp","type":"checkbox","label":"Wartość zasisku 0 - 255","hideFromDocs":true,"conditions":[{"key":"operation","in":["add","sub","mul"]}],"defaultValue":false}]} />
 
 - **Zmienna**: Wskaż zmienną do użycia.  
-- **Wartość**: Wartość do ustawienia wybranej zmiennej.  
+- **Operacja**: Operacja używana do modyfikacji wartości zmiennej.  
+- **Wartość**: Wartość do połączenia ze zmienną przy użyciu wybranej operacji.  
+
+## Random
+### Generator losowych liczb
+Polecenie odpowiada za dane wejściowe użytkownika, tak, aby zapewnić zmianę losowych liczb między rozgrywakami.
+<ScriptEventPreview title={"Generator losowych liczb"} fields={[{"label":"Umieść to, aby uruchomić w odpowiedzi na dane wejściowe użytkownika, zmianę losowych liczb między rozgrywkami"}]} />
+
+
+## Reset
+### Zmienna: resetuj wszystkie zmienne do ''Fałsz''
+Polecenie resetuje wszystkie zmienne użyte w projekcie, przywracając im wartość 'fałsz'.
+<ScriptEventPreview title={"Zmienna: resetuj wszystkie zmienne do ''Fałsz''"} fields={[{"label":"Resetuj WSZYSTKIE zmienne do ''Fałsz''."}]} />
+
+
+## Save Data
+### Zmienna: wartość z zapisu do zmiennej
+Polecenie odczytuje wartość zmiennej z określonego miejsca zapisu, a następnie zapisuje ją do zmiennej.
+<ScriptEventPreview title={"Zmienna: wartość z zapisu do zmiennej"} fields={[{"key":"variableDest","label":"Ustaw zmienną","description":"Zmienna do aktualizacji.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"Dodaj do zmiennej","description":"Zmienna do odczytania wartości.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"Zapisz z pliku","description":"Określenie miejsca zapisu.","type":"togglebuttons","options":[[0,"Plik 1","Zapisz plik 1"],[1,"Plik 2","Zapisz plik 2"],[2,"Plik 3","Zapisz plik 3"]],"allowNone":false,"defaultValue":0}]}]} />
+
+- **Ustaw zmienną**: Zmienna do aktualizacji.  
+- **Dodaj do zmiennej**: Zmienna do odczytania wartości.  
+- **Zapisz z pliku**: Określenie miejsca zapisu.  
 

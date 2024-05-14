@@ -9,7 +9,7 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Input
 
-## Entrada de control: Adjuntar script a botón
+### Entrada de control: Adjuntar script a botón
 Run the specified script any time a joypad button is pressed.
 <ScriptEventPreview title={"Entrada de control: Adjuntar script a botón"} fields={[{"key":"input","label":"Button","description":"The joypad button to check.","type":"input","defaultValue":["b"]},{"key":"override","type":"checkbox","label":"Override default button action","description":"Set if the script should replace the default game action for the specified button.","defaultValue":true},{"key":"__scriptTabs","type":"tabs","defaultValue":"press","values":{"press":"En Presionado"}},{"key":"true","label":"En Presionado","description":"The script to run when the button is pressed.","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"press"]}]}]} />
 
@@ -17,7 +17,20 @@ Run the specified script any time a joypad button is pressed.
 - **Override default button action**: Set if the script should replace the default game action for the specified button.  
 - **En Presionado**: The script to run when the button is pressed.  
 
-## Si un botón es presionado
+### Entrada De Control: Pausar script hasta presionar
+Pauses the script until one of the specified joypad buttons are pressed.
+<ScriptEventPreview title={"Entrada De Control: Pausar script hasta presionar"} fields={[{"key":"input","label":"Cualquiera de","description":"The input buttons to check.","type":"input","defaultValue":["a","b"]}]} />
+
+- **Cualquiera de**: The input buttons to check.  
+
+### Entrada De Control: Remover script adjunto
+Remove an attached script from a joypad button restoring the default functionality of the button.
+<ScriptEventPreview title={"Entrada De Control: Remover script adjunto"} fields={[{"key":"input","label":"Remover script adjunto al input","description":"The joypad button to remove the attached script from.","type":"input","defaultValue":["b"]}]} />
+
+- **Remover script adjunto al input**: The joypad button to remove the attached script from.  
+
+## Control Flow
+### Si un botón es presionado
 Conditionally run part of the script if the specified joypad button is currently pressed. Will not wait for user input and will only execute once, if you wish to run a script every time a button is pressed use Attach Script To Button instead.
 
 **References**  
@@ -27,16 +40,4 @@ Conditionally run part of the script if the specified joypad button is currently
 - **Cualquiera de**: The input buttons to check.  
 - **Verdadero**: The script to run if the condition is true.  
 - **Falso**: The script to run if the condition is false.  
-
-## Entrada De Control: Pausar script hasta presionar
-Pauses the script until one of the specified joypad buttons are pressed.
-<ScriptEventPreview title={"Entrada De Control: Pausar script hasta presionar"} fields={[{"key":"input","label":"Cualquiera de","description":"The input buttons to check.","type":"input","defaultValue":["a","b"]}]} />
-
-- **Cualquiera de**: The input buttons to check.  
-
-## Entrada De Control: Remover script adjunto
-Remove an attached script from a joypad button restoring the default functionality of the button.
-<ScriptEventPreview title={"Entrada De Control: Remover script adjunto"} fields={[{"key":"input","label":"Remover script adjunto al input","description":"The joypad button to remove the attached script from.","type":"input","defaultValue":["b"]}]} />
-
-- **Remover script adjunto al input**: The joypad button to remove the attached script from.  
 

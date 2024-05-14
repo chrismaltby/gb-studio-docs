@@ -9,7 +9,14 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Math
 
-## Evaluate Math Expression
+## Random
+### Seed Random Number Generator
+Place this to run in response to user input to ensure random numbers change between playthroughs.
+<ScriptEventPreview title={"Seed Random Number Generator"} fields={[{"label":"Place this to run in response to user input to ensure random numbers change between playthroughs"}]} />
+
+
+## Variables
+### Evaluate Math Expression
 Set a variable to the result of evaluating a math expression.
 
 **References**  
@@ -19,16 +26,11 @@ Set a variable to the result of evaluating a math expression.
 - **Variable**: The variable to use.  
 - **Expression**: The expression to evaluate.  
 
-## Math Functions
+### Math Functions
 Allows you to perform various maths functions on a variable to add/subtract/multiply/divide/modulus a value/variable/random number.
 <ScriptEventPreview title={"Math Functions"} fields={[{"key":"vectorX","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operation","label":"Operation","description":"The operation to use for modifying the variable value.","type":"select","options":[["set","Set To"],["add","Add"],["sub","Subtract"],["mul","Multiply"],["div","Divide"],["mod","Modulus"]],"defaultValue":"set","width":"50%"},{"key":"other","label":"Value","description":"The value to combine with the variable using the selected operation.","type":"select","options":[["true","True"],["false","False"],["var","Variable"],["val","Value"],["rnd","Random"]],"defaultValue":"true","width":"50%"},{"key":"vectorY","type":"variable","conditions":[{"key":"other","eq":"var"}],"defaultValue":"LAST_VARIABLE"},{"key":"value","type":"number","conditions":[{"key":"other","eq":"val"}],"min":-32768,"max":32767,"defaultValue":"0"},{"type":"group","fields":[{"key":"minValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Min value","description":"The minimum value for the random range.","hideFromDocs":true,"defaultValue":"0","width":"50%"},{"key":"maxValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Max value","description":"The maximum value for the random range.","hideFromDocs":true,"defaultValue":"32767","width":"50%"}]},{"key":"clamp","type":"checkbox","label":"Clamp value between 0 and 255","hideFromDocs":true,"conditions":[{"key":"operation","in":["add","sub","mul"]}],"defaultValue":false}]} />
 
 - **Variable**: The variable to use.  
 - **Operation**: The operation to use for modifying the variable value.  
 - **Value**: The value to combine with the variable using the selected operation.  
-
-## Seed Random Number Generator
-Place this to run in response to user input to ensure random numbers change between playthroughs.
-<ScriptEventPreview title={"Seed Random Number Generator"} fields={[{"label":"Place this to run in response to user input to ensure random numbers change between playthroughs"}]} />
-
 

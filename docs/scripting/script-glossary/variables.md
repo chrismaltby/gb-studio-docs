@@ -9,42 +9,22 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Variables
 
-## Evaluate Math Expression
-Set a variable to the result of evaluating a math expression.
-
-**References**  
-[/docs/scripting/math-expressions](/docs/scripting/math-expressions)  
-<ScriptEventPreview title={"Evaluate Math Expression"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Expression","description":"The expression to evaluate.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
+### Variable Set To Value
+Set the specified variable to a defined value.
+<ScriptEventPreview title={"Variable Set To Value"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE","flexBasis":0,"minWidth":150},{"key":"value","label":"Value","description":"The value to set the selected variable to.","type":"value","defaultValue":{"type":"number","value":0}}]} />
 
 - **Variable**: The variable to use.  
-- **Expression**: The expression to evaluate.  
+- **Value**: The value to set the selected variable to.  
 
-## Math Functions
-Allows you to perform various maths functions on a variable to add/subtract/multiply/divide/modulus a value/variable/random number.
-<ScriptEventPreview title={"Math Functions"} fields={[{"key":"vectorX","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operation","label":"Operation","description":"The operation to use for modifying the variable value.","type":"select","options":[["set","Set To"],["add","Add"],["sub","Subtract"],["mul","Multiply"],["div","Divide"],["mod","Modulus"]],"defaultValue":"set","width":"50%"},{"key":"other","label":"Value","description":"The value to combine with the variable using the selected operation.","type":"select","options":[["true","True"],["false","False"],["var","Variable"],["val","Value"],["rnd","Random"]],"defaultValue":"true","width":"50%"},{"key":"vectorY","type":"variable","conditions":[{"key":"other","eq":"var"}],"defaultValue":"LAST_VARIABLE"},{"key":"value","type":"number","conditions":[{"key":"other","eq":"val"}],"min":-32768,"max":32767,"defaultValue":"0"},{"type":"group","fields":[{"key":"minValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Min value","description":"The minimum value for the random range.","hideFromDocs":true,"defaultValue":"0","width":"50%"},{"key":"maxValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Max value","description":"The maximum value for the random range.","hideFromDocs":true,"defaultValue":"32767","width":"50%"}]},{"key":"clamp","type":"checkbox","label":"Clamp value between 0 and 255","hideFromDocs":true,"conditions":[{"key":"operation","in":["add","sub","mul"]}],"defaultValue":false}]} />
-
-- **Variable**: The variable to use.  
-- **Operation**: The operation to use for modifying the variable value.  
-- **Value**: The value to combine with the variable using the selected operation.  
-
-## Reset All Variables To 'False'
-Reset all variables used by your project back to false.
-<ScriptEventPreview title={"Reset All Variables To 'False'"} fields={[{"label":"Reset ALL variables back to 'False'."}]} />
-
-
-## Seed Random Number Generator
-Place this to run in response to user input to ensure random numbers change between playthroughs.
-<ScriptEventPreview title={"Seed Random Number Generator"} fields={[{"label":"Place this to run in response to user input to ensure random numbers change between playthroughs"}]} />
-
-
-## Store Actor Direction In Variable
+## Actor
+### Store Actor Direction In Variable
 Store the current direction of an actor within a variable.
 <ScriptEventPreview title={"Store Actor Direction In Variable"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to check.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Variable","description":"The variable to use for the direction.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
 
 - **Actor**: The actor you want to check.  
 - **Variable**: The variable to use for the direction.  
 
-## Store Actor Position In Variables
+### Store Actor Position In Variables
 Store the current position of an actor within two variables, one to store the horizontal position and another to store the vertical position.
 <ScriptEventPreview title={"Store Actor Position In Variables"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to check.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"vectorX","type":"variable","label":"X","description":"The variable to use for the horizontal position.","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"vectorY","type":"variable","label":"Y","description":"The variable to use for the vertical position.","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]}]} />
 
@@ -52,7 +32,21 @@ Store the current position of an actor within two variables, one to store the ho
 - **X**: The variable to use for the horizontal position.  
 - **Y**: The variable to use for the vertical position.  
 
-## Store Engine Field In Variable
+## Counter
+### Variable Decrement By 1
+Decrease the value of the specified variable by one.
+<ScriptEventPreview title={"Variable Decrement By 1"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
+
+- **Variable**: The variable to use.  
+
+### Variable Increment By 1
+Increase the value of the specified variable by one.
+<ScriptEventPreview title={"Variable Increment By 1"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
+
+- **Variable**: The variable to use.  
+
+## Engine Fields
+### Store Engine Field In Variable
 Store the value of an Engine Field in a variable.
 
 **References**  
@@ -62,21 +56,8 @@ Store the value of an Engine Field in a variable.
 - **Engine Field**: The engine field to read the value of.  
 - **Variable**: The variable to use.  
 
-## Store Variable from Game Data In Variable
-Read a variable's value from a specified save slot and store it in a variable.
-<ScriptEventPreview title={"Store Variable from Game Data In Variable"} fields={[{"key":"variableDest","label":"Set Variable","description":"The variable to update.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"To Variable","description":"The variable to read the value of.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"From Save Slot","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0}]}]} />
-
-- **Set Variable**: The variable to update.  
-- **To Variable**: The variable to read the value of.  
-- **From Save Slot**: The save slot to use.  
-
-## Variable Decrement By 1
-Decrease the value of the specified variable by one.
-<ScriptEventPreview title={"Variable Decrement By 1"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
-
-- **Variable**: The variable to use.  
-
-## Variable Flags Add
+## Flags
+### Variable Flags Add
 Set selected flags to true on a variable. All unselected flags will keep their previous value.
 <ScriptEventPreview title={"Variable Flags Add"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flag 1","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flag 2","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flag 3","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flag 4","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flag 5","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flag 6","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flag 7","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flag 8","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flag 9","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flag 10","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flag 11","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flag 12","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flag 13","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flag 14","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flag 15","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flag 16","description":"FIELD_FLAG_ADD_N_DESC","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false}]} />
 
@@ -86,7 +67,7 @@ Set selected flags to true on a variable. All unselected flags will keep their p
 - **Flag 3**: FIELD_FLAG_ADD_N_DESC  
 - **Flag 4**: FIELD_FLAG_ADD_N_DESC  
 
-## Variable Flags Clear
+### Variable Flags Clear
 Set selected flags to false on a variable. All unselected flags will keep their previous value.
 <ScriptEventPreview title={"Variable Flags Clear"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flag 1","description":"Set flag 1 to false.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flag 2","description":"Set flag 2 to false.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flag 3","description":"Set flag 3 to false.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flag 4","description":"Set flag 4 to false.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flag 5","description":"Set flag 5 to false.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flag 6","description":"Set flag 6 to false.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flag 7","description":"Set flag 7 to false.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flag 8","description":"Set flag 8 to false.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flag 9","description":"Set flag 9 to false.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flag 10","description":"Set flag 10 to false.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flag 11","description":"Set flag 11 to false.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flag 12","description":"Set flag 12 to false.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flag 13","description":"Set flag 13 to false.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flag 14","description":"Set flag 14 to false.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flag 15","description":"Set flag 15 to false.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flag 16","description":"Set flag 16 to false.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false}]} />
 
@@ -96,7 +77,7 @@ Set selected flags to false on a variable. All unselected flags will keep their 
 - **Flag 3**: Set flag 3 to false.  
 - **Flag 4**: Set flag 4 to false.  
 
-## Variable Flags Set
+### Variable Flags Set
 Set the value of a variable by enabling individual bits of the 16-bit number. Allows 16 true/false values to be stored within a single variable. Setting the flags will replace the previous value of the variable.
 <ScriptEventPreview title={"Variable Flags Set"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flag 1","description":"Set flag 1 to true.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flag 2","description":"Set flag 2 to true.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flag 3","description":"Set flag 3 to true.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flag 4","description":"Set flag 4 to true.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flag 5","description":"Set flag 5 to true.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flag 6","description":"Set flag 6 to true.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flag 7","description":"Set flag 7 to true.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flag 8","description":"Set flag 8 to true.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flag 9","description":"Set flag 9 to true.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flag 10","description":"Set flag 10 to true.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flag 11","description":"Set flag 11 to true.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flag 12","description":"Set flag 12 to true.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flag 13","description":"Set flag 13 to true.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flag 14","description":"Set flag 14 to true.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flag 15","description":"Set flag 15 to true.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flag 16","description":"Set flag 16 to true.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false}]} />
 
@@ -106,16 +87,43 @@ Set the value of a variable by enabling individual bits of the 16-bit number. Al
 - **Flag 3**: Set flag 3 to true.  
 - **Flag 4**: Set flag 4 to true.  
 
-## Variable Increment By 1
-Increase the value of the specified variable by one.
-<ScriptEventPreview title={"Variable Increment By 1"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
+## Math
+### Evaluate Math Expression
+Set a variable to the result of evaluating a math expression.
+
+**References**  
+[/docs/scripting/math-expressions](/docs/scripting/math-expressions)  
+<ScriptEventPreview title={"Evaluate Math Expression"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Expression","description":"The expression to evaluate.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
 
 - **Variable**: The variable to use.  
+- **Expression**: The expression to evaluate.  
 
-## Variable Set To Value
-Set the specified variable to a defined value.
-<ScriptEventPreview title={"Variable Set To Value"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE","flexBasis":0,"minWidth":150},{"key":"value","label":"Value","description":"The value to set the selected variable to.","type":"value","defaultValue":{"type":"number","value":0}}]} />
+### Math Functions
+Allows you to perform various maths functions on a variable to add/subtract/multiply/divide/modulus a value/variable/random number.
+<ScriptEventPreview title={"Math Functions"} fields={[{"key":"vectorX","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operation","label":"Operation","description":"The operation to use for modifying the variable value.","type":"select","options":[["set","Set To"],["add","Add"],["sub","Subtract"],["mul","Multiply"],["div","Divide"],["mod","Modulus"]],"defaultValue":"set","width":"50%"},{"key":"other","label":"Value","description":"The value to combine with the variable using the selected operation.","type":"select","options":[["true","True"],["false","False"],["var","Variable"],["val","Value"],["rnd","Random"]],"defaultValue":"true","width":"50%"},{"key":"vectorY","type":"variable","conditions":[{"key":"other","eq":"var"}],"defaultValue":"LAST_VARIABLE"},{"key":"value","type":"number","conditions":[{"key":"other","eq":"val"}],"min":-32768,"max":32767,"defaultValue":"0"},{"type":"group","fields":[{"key":"minValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Min value","description":"The minimum value for the random range.","hideFromDocs":true,"defaultValue":"0","width":"50%"},{"key":"maxValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Max value","description":"The maximum value for the random range.","hideFromDocs":true,"defaultValue":"32767","width":"50%"}]},{"key":"clamp","type":"checkbox","label":"Clamp value between 0 and 255","hideFromDocs":true,"conditions":[{"key":"operation","in":["add","sub","mul"]}],"defaultValue":false}]} />
 
 - **Variable**: The variable to use.  
-- **Value**: The value to set the selected variable to.  
+- **Operation**: The operation to use for modifying the variable value.  
+- **Value**: The value to combine with the variable using the selected operation.  
+
+## Random
+### Seed Random Number Generator
+Place this to run in response to user input to ensure random numbers change between playthroughs.
+<ScriptEventPreview title={"Seed Random Number Generator"} fields={[{"label":"Place this to run in response to user input to ensure random numbers change between playthroughs"}]} />
+
+
+## Reset
+### Reset All Variables To 'False'
+Reset all variables used by your project back to false.
+<ScriptEventPreview title={"Reset All Variables To 'False'"} fields={[{"label":"Reset ALL variables back to 'False'."}]} />
+
+
+## Save Data
+### Store Variable from Game Data In Variable
+Read a variable's value from a specified save slot and store it in a variable.
+<ScriptEventPreview title={"Store Variable from Game Data In Variable"} fields={[{"key":"variableDest","label":"Set Variable","description":"The variable to update.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"To Variable","description":"The variable to read the value of.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"From Save Slot","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0}]}]} />
+
+- **Set Variable**: The variable to update.  
+- **To Variable**: The variable to read the value of.  
+- **From Save Slot**: The save slot to use.  
 

@@ -9,96 +9,8 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Darsteller
 
-## Darsteller Aktivieren
-Activate an actor, causing it to become visible (if not also hidden) and for its OnUpdate script to start.
-<ScriptEventPreview title={"Darsteller Aktivieren"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktivierende Darsteller.","type":"actor","defaultValue":"$self$"}]} />
-
-- **Darsteller**: Der zu aktivierende Darsteller.  
-
-## Darsteller: Bewegung abbrechen
-Cancel any currently running "Actor Move" events affecting this actor. Causes the actor to stop in its current location.
-<ScriptEventPreview title={"Darsteller: Bewegung abbrechen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der Darsteller dessen Bewegung abgebrochen werden soll","type":"actor","defaultValue":"$self$"}]} />
-
-- **Darsteller**: Der Darsteller dessen Bewegung abgebrochen werden soll  
-
-## Darsteller: Relativ Bewegen
-Einen Darsteller relativ zu seiner aktuellen Position bewegen.
-<ScriptEventPreview title={"Darsteller: Relativ Bewegen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu bewegende Darsteller.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","description":"Der horizontale Offset relativ zur aktuellen Position.","type":"value","min":-31,"max":31,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"Der vertikale Offset relativ zur aktuellen Position.","type":"value","min":-31,"max":31,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"moveType","label":"Bewegungstyp","description":"Auswählen ob die Bewegung zuerst in der horizontalen/vertikalen Achse oder diagonal zum Ziel erfolgen soll.","hideLabel":true,"type":"moveType","defaultValue":"horizontal","flexBasis":30,"flexGrow":0,"alignBottom":true},{"key":"useCollisions","label":"Kollisionen verwenden","description":"Legt fest, ob Kollisionen mit der Szene oder den Darstellern beim Bewegen berücksichtigt werden sollen.","width":"50%","type":"checkbox","defaultValue":false}]} />
-
-- **Darsteller**: Der zu bewegende Darsteller.  
-- **X**: Der horizontale Offset relativ zur aktuellen Position.  
-- **Y**: Der vertikale Offset relativ zur aktuellen Position.  
-- **Bewegungstyp**: Auswählen ob die Bewegung zuerst in der horizontalen/vertikalen Achse oder diagonal zum Ziel erfolgen soll.  
-- **Kollisionen verwenden**: Legt fest, ob Kollisionen mit der Szene oder den Darstellern beim Bewegen berücksichtigt werden sollen.  
-
-## Darsteller: Bewegen Zu Position
-Einen Darsteller zu einer neuen Position bewegen.
-<ScriptEventPreview title={"Darsteller: Bewegen Zu Position"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu bewegende Darsteller.","type":"actor","defaultValue":"$self$","flexBasis":0,"minWidth":150},{"type":"group","wrapItems":true,"fields":[{"key":"x","label":"X","description":"Die horizontale Position.","type":"value","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"Die vertikale Position.","type":"value","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]},{"type":"group","flexBasis":0,"minWidth":150,"alignBottom":true,"fields":[{"key":"moveType","label":"Bewegungstyp","description":"Auswählen ob die Bewegung zuerst in der horizontalen/vertikalen Achse oder diagonal zum Ziel erfolgen soll.","hideLabel":true,"type":"moveType","defaultValue":"horizontal","flexBasis":35,"flexGrow":0,"alignBottom":true},{"key":"useCollisions","label":"Kollisionen verwenden","description":"Legt fest, ob Kollisionen mit der Szene oder den Darstellern beim Bewegen berücksichtigt werden sollen.","width":"50%","type":"checkbox","defaultValue":false,"alignBottom":true}]}]} />
-
-- **Darsteller**: Der zu bewegende Darsteller.  
-- **X**: Die horizontale Position.  
-- **Y**: Die vertikale Position.  
-- **Bewegungstyp**: Auswählen ob die Bewegung zuerst in der horizontalen/vertikalen Achse oder diagonal zum Ziel erfolgen soll.  
-- **Kollisionen verwenden**: Legt fest, ob Kollisionen mit der Szene oder den Darstellern beim Bewegen berücksichtigt werden sollen.  
-
-## Darsteller Deaktivieren
-Deactivate an actor, causing it to act as if it had gone offscreen. It will become invisible and its OnUpdate script will be stopped.
-<ScriptEventPreview title={"Darsteller Deaktivieren"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu deaktivierende Darsteller.","type":"actor","defaultValue":"$self$"}]} />
-
-- **Darsteller**: Der zu deaktivierende Darsteller.  
-
-## Darsteller: Ausblenden
-Hide an actor, causing it to become invisible. Its OnUpdate script will continue to run while hidden.
-<ScriptEventPreview title={"Darsteller: Ausblenden"} fields={[{"key":"actorId","label":"Darsteller","description":"Der auszublendende Darsteller.","type":"actor","defaultValue":"$self$"}]} />
-
-- **Darsteller**: Der auszublendende Darsteller.  
-
-## Sprites: Alle Ausblenden
-Disable rendering of sprite layer causing all sprites to become hidden until sprite rendering is reenabled.
-<ScriptEventPreview title={"Sprites: Alle Ausblenden"} fields={[{"label":"Blende alle Sprites vom Bildschirm aus."}]} />
-
-
-## Falls Darsteller An Position
-Einen Teil des Skripts bedingt ausführen, wenn sich ein Darsteller an einer bestimmten Position befindet.
-<ScriptEventPreview title={"Falls Darsteller An Position"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","description":"Die horizontale Position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"Die vertikale Position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Darsteller**: Der zu überprüfende Darsteller.  
-- **X**: Die horizontale Position.  
-- **Y**: Die vertikale Position.  
-- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
-- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
-
-## If Actor Distance From Actor
-Conditionally run part of the script if an actor is within a certain distance of another actor.
-<ScriptEventPreview title={"If Actor Distance From Actor"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"player","width":"50%"},{"type":"group","fields":[{"key":"operator","label":"Vergleich","description":"Der zu verwendende Vergleichsoperator, z. B. 'Kleiner als' oder 'Größer als'.","type":"operator","width":"50%","defaultValue":"<="},{"key":"distance","label":"Abstand","description":"Der Abstandswert.","type":"value","min":0,"max":181,"width":"50%","unitsDefault":"tiles","defaultValue":{"type":"number","value":0}}]},{"key":"otherActorId","label":"Von","description":"Der Darsteller, dessen Entfernung verglichen wird.","type":"actor","defaultValue":"$self$","width":"50%"},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Darsteller**: Der zu überprüfende Darsteller.  
-- **Vergleich**: Der zu verwendende Vergleichsoperator, z. B. 'Kleiner als' oder 'Größer als'.  
-- **Abstand**: Der Abstandswert.  
-- **Von**: Der Darsteller, dessen Entfernung verglichen wird.  
-- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
-- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
-
-## Falls Blickrichtung Des Darstellers
-Einen Teil des Skripts bedingt ausführen, wenn ein Darsteller in die angegebene Richtung schauet.
-<ScriptEventPreview title={"Falls Blickrichtung Des Darstellers"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Blickrichtung","description":"Die Blickrichtung des Darstellers.","type":"value","defaultValue":{"type":"direction","value":"up"}},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Darsteller**: Der zu überprüfende Darsteller.  
-- **Blickrichtung**: Die Blickrichtung des Darstellers.  
-- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
-- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
-
-## Falls Darsteller relativ zum Darsteller
-Conditionally run part of the script based on the position of one actor relative to another.
-<ScriptEventPreview title={"Falls Darsteller relativ zum Darsteller"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"player"},{"key":"operation","label":"Vergleich","description":"Der zu verwendende relative Positionsvergleich, z. B. 'Ist über' oder 'Ist unter'.","type":"select","options":[["up","Ist über"],["down","Ist unter"],["left","Ist links von"],["right","Ist rechts von"]],"defaultValue":"up","width":"50%"},{"key":"otherActorId","label":"Anderer Darsteller","description":"Der Darsteller, dessen Position verglichen wird.","type":"actor","defaultValue":"$self$"},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Darsteller**: Der zu überprüfende Darsteller.  
-- **Vergleich**: Der zu verwendende relative Positionsvergleich, z. B. 'Ist über' oder 'Ist unter'.  
-- **Anderer Darsteller**: Der Darsteller, dessen Position verglichen wird.  
-- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
-- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
-
-## Gegenstand: Projektil starten
+## Actions
+### Gegenstand: Projektil starten
 Launch a projectile from an actor in a specified direction. When a project collides with other actors it will trigger their OnHit scripts.
 <ScriptEventPreview title={"Gegenstand: Projektil starten"} fields={[{"type":"group","fields":[{"key":"spriteSheetId","type":"sprite","label":"Sprite-Sheet","description":"Das zum Rendern des Projektils zu benutzende Sprite.","defaultValue":"LAST_SPRITE"},{"key":"spriteStateId","type":"animationstate","label":"Animationszustand","description":"Der zu nutzende Sprite-Animationszustand.","defaultValue":""}]},{"key":"actorId","type":"actor","label":"Quelle","description":"Der Darsteller, von dem das Projektil gestartet wird.","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"Offset X","description":"Der horizontale Offset von der Position des ursprünglichen Darstellers zum Start des Geschosses.","type":"number","min":-256,"max":256,"width":"50%","defaultValue":0},{"key":"y","label":"Offset Y","description":"Der vertikale Offset von der Position des ursprünglichen Darstellers zum Start des Geschosses.","type":"number","min":-256,"max":256,"width":"50%","defaultValue":0}]},{"type":"group","fields":[{"label":"Launch At","key":"directionType","type":"select","options":[["direction","Feste Richtung"],["actor","Darsteller Richtung"],["target","Zieldarsteller"],["angle","Winkel"],["anglevar","Winkel-Variable"]],"defaultValue":"direction","alignBottom":true},{"key":"otherActorId","label":"Blickrichtung","description":"Die Richtung, in die das Projektil gestartet wird. Kann entweder eine feste Richtung sein oder auf der aktuellen Richtung des Darstellers basieren.","type":"actor","defaultValue":"$self$","conditions":[{"key":"directionType","eq":"actor"}]},{"key":"direction","label":"Blickrichtung","description":"Die Richtung, in die das Projektil gestartet wird. Kann entweder eine feste Richtung sein oder auf der aktuellen Richtung des Darstellers basieren.","type":"direction","defaultValue":"right","conditions":[{"key":"directionType","eq":"direction"}]},{"key":"angle","label":"Winkel","description":"Der Startwinkel für das Projektil.","type":"angle","defaultValue":0,"min":-256,"max":256,"conditions":[{"key":"directionType","eq":"angle"}]},{"key":"angleVariable","label":"Winkel","description":"Der Startwinkel für das Projektil.","type":"variable","defaultValue":"LAST_VARIABLE","conditions":[{"key":"directionType","eq":"anglevar"}]},{"key":"targetActorId","label":"Ziel","description":"The actor to launch the projectile towards","type":"actor","defaultValue":"$self$","conditions":[{"key":"directionType","eq":"target"}]}]},{"key":"initialOffset","label":"Richtungs-Versatz","description":"Die Entfernung, die das Geschoss von der Startposition in seiner Startrichtung zurücklegen soll, bevor es sichtbar wird.","type":"number","min":0,"max":256,"width":"50%","defaultValue":0},{"type":"group","fields":[{"key":"speed","label":"Geschwindigkeit","description":"Die Bewegungsgeschwindigkeit.","type":"moveSpeed","allowNone":true,"defaultValue":2,"width":"50%"},{"key":"animSpeed","label":"Animationsgeschwindigkeit","description":"Die Animationsgeschwindigkeit.","type":"animSpeed","defaultValue":15,"width":"50%"}]},{"key":"lifeTime","label":"Lebensdauer","description":"Die Zeitspanne in Sekunden, die das Projektil besteht.","type":"number","min":0,"max":4,"step":0.1,"width":"50%","defaultValue":1},{"type":"group","alignBottom":true,"fields":[{"key":"loopAnim","label":"Wiederhole Animation","description":"Legt fest, ob die Animation in einer Schleife laufen soll.","type":"checkbox","defaultValue":true},{"key":"destroyOnHit","label":"Bei Treffer zerstören","description":"Legt fest, ob das Projektil nach seiner ersten Kollision zerstört werden soll.","type":"checkbox","defaultValue":true}]},{"type":"group","fields":[{"key":"collisionGroup","label":"Kollisionsgruppe","description":"Die bei Erkennung von Kollisionen mit Darstellern zu verwendende Kollisionsgruppe.","type":"collisionMask","width":"50%","includePlayer":false,"defaultValue":"3"},{"key":"collisionMask","label":"Kollision mit","description":"Die auf Kollision zu überprüfenden Gruppen von Darstellern. Wenn es z.B. durch alle Darsteller außer dem Spieler durchgehen soll, setze dieses Feld einfach auf 'Spieler'.","type":"collisionMask","width":"50%","includePlayer":true,"defaultValue":["1"]}]}]} />
 
@@ -120,67 +32,88 @@ Launch a projectile from an actor in a specified direction. When a project colli
 - **Kollisionsgruppe**: Die bei Erkennung von Kollisionen mit Darstellern zu verwendende Kollisionsgruppe.  
 - **Kollision mit**: Die auf Kollision zu überprüfenden Gruppen von Darstellern. Wenn es z.B. durch alle Darsteller außer dem Spieler durchgehen soll, setze dieses Feld einfach auf 'Spieler'.  
 
-## Darsteller: Spieler-Abprall
-In platform scenes causes the player to bounce upwards by setting the player's velocity Y value.
-<ScriptEventPreview title={"Darsteller: Spieler-Abprall"} fields={[{"key":"height","type":"select","label":"Höhe","description":"Wie hoch der Spieler abprallen soll.","options":[["low","Niedrig"],["medium","Mittel"],["high","Hoch"]],"defaultValue":"medium"},{"label":"Betrifft nur Plattformszenen"}]} />
+### Darsteller: Emotions-Blase
+Show an emote image above a specified actor. The image will be positioned centrally above the actor's collision bounding box.
+<ScriptEventPreview title={"Darsteller: Emotions-Blase"} fields={[{"key":"actorId","label":"Darsteller","description":"Der Darsteller, über den eine Emote-Grafik angezeigt wird.","type":"actor","defaultValue":"$self$"},{"key":"emoteId","label":"Emote","description":"Die anzuzeigende Emote-Grafik.","type":"emote","defaultValue":"LAST_EMOTE"}]} />
 
-- **Höhe**: Wie hoch der Spieler abprallen soll.  
+- **Darsteller**: Der Darsteller, über den eine Emote-Grafik angezeigt wird.  
+- **Emote**: Die anzuzeigende Emote-Grafik.  
 
-## Darsteller: Von Spieler Wegschieben
+## Control Flow
+### Falls Darsteller An Position
+Einen Teil des Skripts bedingt ausführen, wenn sich ein Darsteller an einer bestimmten Position befindet.
+<ScriptEventPreview title={"Falls Darsteller An Position"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","description":"Die horizontale Position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"Die vertikale Position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Darsteller**: Der zu überprüfende Darsteller.  
+- **X**: Die horizontale Position.  
+- **Y**: Die vertikale Position.  
+- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
+- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+
+### If Actor Distance From Actor
+Conditionally run part of the script if an actor is within a certain distance of another actor.
+<ScriptEventPreview title={"If Actor Distance From Actor"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"player","width":"50%"},{"type":"group","fields":[{"key":"operator","label":"Vergleich","description":"Der zu verwendende Vergleichsoperator, z. B. 'Kleiner als' oder 'Größer als'.","type":"operator","width":"50%","defaultValue":"<="},{"key":"distance","label":"Abstand","description":"Der Abstandswert.","type":"value","min":0,"max":181,"width":"50%","unitsDefault":"tiles","defaultValue":{"type":"number","value":0}}]},{"key":"otherActorId","label":"Von","description":"Der Darsteller, dessen Entfernung verglichen wird.","type":"actor","defaultValue":"$self$","width":"50%"},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Darsteller**: Der zu überprüfende Darsteller.  
+- **Vergleich**: Der zu verwendende Vergleichsoperator, z. B. 'Kleiner als' oder 'Größer als'.  
+- **Abstand**: Der Abstandswert.  
+- **Von**: Der Darsteller, dessen Entfernung verglichen wird.  
+- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
+- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+
+### Falls Blickrichtung Des Darstellers
+Einen Teil des Skripts bedingt ausführen, wenn ein Darsteller in die angegebene Richtung schauet.
+<ScriptEventPreview title={"Falls Blickrichtung Des Darstellers"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Blickrichtung","description":"Die Blickrichtung des Darstellers.","type":"value","defaultValue":{"type":"direction","value":"up"}},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Darsteller**: Der zu überprüfende Darsteller.  
+- **Blickrichtung**: Die Blickrichtung des Darstellers.  
+- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
+- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+
+### Falls Darsteller relativ zum Darsteller
+Conditionally run part of the script based on the position of one actor relative to another.
+<ScriptEventPreview title={"Falls Darsteller relativ zum Darsteller"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"player"},{"key":"operation","label":"Vergleich","description":"Der zu verwendende relative Positionsvergleich, z. B. 'Ist über' oder 'Ist unter'.","type":"select","options":[["up","Ist über"],["down","Ist unter"],["left","Ist links von"],["right","Ist rechts von"]],"defaultValue":"up","width":"50%"},{"key":"otherActorId","label":"Anderer Darsteller","description":"Der Darsteller, dessen Position verglichen wird.","type":"actor","defaultValue":"$self$"},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Darsteller**: Der zu überprüfende Darsteller.  
+- **Vergleich**: Der zu verwendende relative Positionsvergleich, z. B. 'Ist über' oder 'Ist unter'.  
+- **Anderer Darsteller**: Der Darsteller, dessen Position verglichen wird.  
+- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
+- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+
+## Movement
+### Darsteller: Bewegung abbrechen
+Cancel any currently running "Actor Move" events affecting this actor. Causes the actor to stop in its current location.
+<ScriptEventPreview title={"Darsteller: Bewegung abbrechen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der Darsteller dessen Bewegung abgebrochen werden soll","type":"actor","defaultValue":"$self$"}]} />
+
+- **Darsteller**: Der Darsteller dessen Bewegung abgebrochen werden soll  
+
+### Darsteller: Relativ Bewegen
+Einen Darsteller relativ zu seiner aktuellen Position bewegen.
+<ScriptEventPreview title={"Darsteller: Relativ Bewegen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu bewegende Darsteller.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","description":"Der horizontale Offset relativ zur aktuellen Position.","type":"value","min":-31,"max":31,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"Der vertikale Offset relativ zur aktuellen Position.","type":"value","min":-31,"max":31,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"moveType","label":"Bewegungstyp","description":"Auswählen ob die Bewegung zuerst in der horizontalen/vertikalen Achse oder diagonal zum Ziel erfolgen soll.","hideLabel":true,"type":"moveType","defaultValue":"horizontal","flexBasis":30,"flexGrow":0,"alignBottom":true},{"key":"useCollisions","label":"Kollisionen verwenden","description":"Legt fest, ob Kollisionen mit der Szene oder den Darstellern beim Bewegen berücksichtigt werden sollen.","width":"50%","type":"checkbox","defaultValue":false}]} />
+
+- **Darsteller**: Der zu bewegende Darsteller.  
+- **X**: Der horizontale Offset relativ zur aktuellen Position.  
+- **Y**: Der vertikale Offset relativ zur aktuellen Position.  
+- **Bewegungstyp**: Auswählen ob die Bewegung zuerst in der horizontalen/vertikalen Achse oder diagonal zum Ziel erfolgen soll.  
+- **Kollisionen verwenden**: Legt fest, ob Kollisionen mit der Szene oder den Darstellern beim Bewegen berücksichtigt werden sollen.  
+
+### Darsteller: Bewegen Zu Position
+Einen Darsteller zu einer neuen Position bewegen.
+<ScriptEventPreview title={"Darsteller: Bewegen Zu Position"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu bewegende Darsteller.","type":"actor","defaultValue":"$self$","flexBasis":0,"minWidth":150},{"type":"group","wrapItems":true,"fields":[{"key":"x","label":"X","description":"Die horizontale Position.","type":"value","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"Die vertikale Position.","type":"value","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]},{"type":"group","flexBasis":0,"minWidth":150,"alignBottom":true,"fields":[{"key":"moveType","label":"Bewegungstyp","description":"Auswählen ob die Bewegung zuerst in der horizontalen/vertikalen Achse oder diagonal zum Ziel erfolgen soll.","hideLabel":true,"type":"moveType","defaultValue":"horizontal","flexBasis":35,"flexGrow":0,"alignBottom":true},{"key":"useCollisions","label":"Kollisionen verwenden","description":"Legt fest, ob Kollisionen mit der Szene oder den Darstellern beim Bewegen berücksichtigt werden sollen.","width":"50%","type":"checkbox","defaultValue":false,"alignBottom":true}]}]} />
+
+- **Darsteller**: Der zu bewegende Darsteller.  
+- **X**: Die horizontale Position.  
+- **Y**: Die vertikale Position.  
+- **Bewegungstyp**: Auswählen ob die Bewegung zuerst in der horizontalen/vertikalen Achse oder diagonal zum Ziel erfolgen soll.  
+- **Kollisionen verwenden**: Legt fest, ob Kollisionen mit der Szene oder den Darstellern beim Bewegen berücksichtigt werden sollen.  
+
+### Darsteller: Von Spieler Wegschieben
 Causes the specified actor to be moved in the direction that the player is currently facing. Useful for creating block puzzles.
 <ScriptEventPreview title={"Darsteller: Von Spieler Wegschieben"} fields={[{"key":"continue","label":"Rutsche bis zur Kollision","description":"Legt fest, dass der Darsteller sich so lange bewegt, bis es zu einer Kollision mit einem anderen Darsteller oder der Szene kommt.","type":"checkbox","defaultValue":false}]} />
 
 - **Rutsche bis zur Kollision**: Legt fest, dass der Darsteller sich so lange bewegt, bis es zu einer Kollision mit einem anderen Darsteller oder der Szene kommt.  
 
-## Darsteller: Animationsframe Festlegen
-Set an actor's animation to a specified frame value.
-<ScriptEventPreview title={"Darsteller: Animationsframe Festlegen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"frame","label":"Animationsframe","description":"Der Wert des Animations-Frames.","type":"value","min":0,"max":25,"defaultValue":{"type":"number","value":0}}]} />
-
-- **Darsteller**: Der zu aktualisierende Darsteller.  
-- **Animationsframe**: Der Wert des Animations-Frames.  
-
-## Darsteller: Animationsgeschwindigkeit Festlegen
-Set the animation speed of an actor to a new value.
-<ScriptEventPreview title={"Darsteller: Animationsgeschwindigkeit Festlegen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"speed","label":"Animationsgeschwindigkeit","description":"Die Animationsgeschwindigkeit.","type":"animSpeed","defaultValue":15}]} />
-
-- **Darsteller**: Der zu aktualisierende Darsteller.  
-- **Animationsgeschwindigkeit**: Die Animationsgeschwindigkeit.  
-
-## Darsteller Animation-Status setzen
-Change the sprite animation state for a specified actor.
-<ScriptEventPreview title={"Darsteller Animation-Status setzen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"spriteStateId","label":"Animationszustand","description":"Der zu nutzende Sprite-Animationszustand.","type":"animationstate","defaultValue":"","width":"50%"},{"key":"loopAnim","label":"Wiederhole Animation","description":"Legt fest, ob die Animation in einer Schleife laufen soll.","type":"checkbox","defaultValue":true,"width":"50%"}]} />
-
-- **Darsteller**: Der zu aktualisierende Darsteller.  
-- **Animationszustand**: Der zu nutzende Sprite-Animationszustand.  
-- **Wiederhole Animation**: Legt fest, ob die Animation in einer Schleife laufen soll.  
-
-## Darsteller: Kollisionen deaktivieren
-Disable all collision checks for an actor allowing the player and all other actor's to pass through it while moving.
-<ScriptEventPreview title={"Darsteller: Kollisionen deaktivieren"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"}]} />
-
-- **Darsteller**: Der zu aktualisierende Darsteller.  
-
-## Darsteller: Kollisionen aktivieren
-Re-enable collisions for an actor causing it to become solid again if collisions had previously been disabled.
-<ScriptEventPreview title={"Darsteller: Kollisionen aktivieren"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"}]} />
-
-- **Darsteller**: Der zu aktualisierende Darsteller.  
-
-## Darsteller: Blickrichtung Festlegen
-Change the direction that an actor is currently facing.
-<ScriptEventPreview title={"Darsteller: Blickrichtung Festlegen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Blickrichtung","description":"Die Blickrichtung des Darstellers.","type":"value","defaultValue":{"type":"direction","value":"up"}}]} />
-
-- **Darsteller**: Der zu aktualisierende Darsteller.  
-- **Blickrichtung**: Die Blickrichtung des Darstellers.  
-
-## Darsteller: Bewegungsgeschwindigkeit Festlegen
-Set the movement speed of an actor to a new value.
-<ScriptEventPreview title={"Darsteller: Bewegungsgeschwindigkeit Festlegen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"speed","label":"Geschwindigkeit","description":"Die Bewegungsgeschwindigkeit.","type":"moveSpeed","defaultValue":1}]} />
-
-- **Darsteller**: Der zu aktualisierende Darsteller.  
-- **Geschwindigkeit**: Die Bewegungsgeschwindigkeit.  
-
-## Darsteller: Position Festlegen
+### Darsteller: Position Festlegen
 Set the position of an actor, causing it to instantly move to the new location.
 <ScriptEventPreview title={"Darsteller: Position Festlegen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$","flexBasis":0,"minWidth":150},{"type":"group","wrapItems":true,"fields":[{"key":"x","label":"X","description":"Die horizontale Position.","type":"value","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"Die vertikale Position.","type":"value","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]}]} />
 
@@ -188,7 +121,7 @@ Set the position of an actor, causing it to instantly move to the new location.
 - **X**: Die horizontale Position.  
 - **Y**: Die vertikale Position.  
 
-## Darsteller: Relative Position Festlegen
+### Darsteller: Relative Position Festlegen
 Set the position of an actor relative to it's previous position, causing it to instantly move to the new location.
 <ScriptEventPreview title={"Darsteller: Relative Position Festlegen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","description":"Der horizontale Offset relativ zur aktuellen Position.","type":"value","min":-31,"max":31,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"Der vertikale Offset relativ zur aktuellen Position.","type":"value","min":-31,"max":31,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]}]} />
 
@@ -196,62 +129,137 @@ Set the position of an actor relative to it's previous position, causing it to i
 - **X**: Der horizontale Offset relativ zur aktuellen Position.  
 - **Y**: Der vertikale Offset relativ zur aktuellen Position.  
 
-## Darsteller: Sprite-Sheet festlegen
+## Platformer
+### Darsteller: Spieler-Abprall
+In platform scenes causes the player to bounce upwards by setting the player's velocity Y value.
+<ScriptEventPreview title={"Darsteller: Spieler-Abprall"} fields={[{"key":"height","type":"select","label":"Höhe","description":"Wie hoch der Spieler abprallen soll.","options":[["low","Niedrig"],["medium","Mittel"],["high","Hoch"]],"defaultValue":"medium"},{"label":"Betrifft nur Plattformszenen"}]} />
+
+- **Höhe**: Wie hoch der Spieler abprallen soll.  
+
+## Properties
+### Darsteller Aktivieren
+Activate an actor, causing it to become visible (if not also hidden) and for its OnUpdate script to start.
+<ScriptEventPreview title={"Darsteller Aktivieren"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktivierende Darsteller.","type":"actor","defaultValue":"$self$"}]} />
+
+- **Darsteller**: Der zu aktivierende Darsteller.  
+
+### Darsteller Deaktivieren
+Deactivate an actor, causing it to act as if it had gone offscreen. It will become invisible and its OnUpdate script will be stopped.
+<ScriptEventPreview title={"Darsteller Deaktivieren"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu deaktivierende Darsteller.","type":"actor","defaultValue":"$self$"}]} />
+
+- **Darsteller**: Der zu deaktivierende Darsteller.  
+
+### Darsteller: Animationsframe Festlegen
+Set an actor's animation to a specified frame value.
+<ScriptEventPreview title={"Darsteller: Animationsframe Festlegen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"frame","label":"Animationsframe","description":"Der Wert des Animations-Frames.","type":"value","min":0,"max":25,"defaultValue":{"type":"number","value":0}}]} />
+
+- **Darsteller**: Der zu aktualisierende Darsteller.  
+- **Animationsframe**: Der Wert des Animations-Frames.  
+
+### Darsteller: Animationsgeschwindigkeit Festlegen
+Set the animation speed of an actor to a new value.
+<ScriptEventPreview title={"Darsteller: Animationsgeschwindigkeit Festlegen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"speed","label":"Animationsgeschwindigkeit","description":"Die Animationsgeschwindigkeit.","type":"animSpeed","defaultValue":15}]} />
+
+- **Darsteller**: Der zu aktualisierende Darsteller.  
+- **Animationsgeschwindigkeit**: Die Animationsgeschwindigkeit.  
+
+### Darsteller Animation-Status setzen
+Change the sprite animation state for a specified actor.
+<ScriptEventPreview title={"Darsteller Animation-Status setzen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"spriteStateId","label":"Animationszustand","description":"Der zu nutzende Sprite-Animationszustand.","type":"animationstate","defaultValue":"","width":"50%"},{"key":"loopAnim","label":"Wiederhole Animation","description":"Legt fest, ob die Animation in einer Schleife laufen soll.","type":"checkbox","defaultValue":true,"width":"50%"}]} />
+
+- **Darsteller**: Der zu aktualisierende Darsteller.  
+- **Animationszustand**: Der zu nutzende Sprite-Animationszustand.  
+- **Wiederhole Animation**: Legt fest, ob die Animation in einer Schleife laufen soll.  
+
+### Darsteller: Kollisionen deaktivieren
+Disable all collision checks for an actor allowing the player and all other actor's to pass through it while moving.
+<ScriptEventPreview title={"Darsteller: Kollisionen deaktivieren"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"}]} />
+
+- **Darsteller**: Der zu aktualisierende Darsteller.  
+
+### Darsteller: Kollisionen aktivieren
+Re-enable collisions for an actor causing it to become solid again if collisions had previously been disabled.
+<ScriptEventPreview title={"Darsteller: Kollisionen aktivieren"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"}]} />
+
+- **Darsteller**: Der zu aktualisierende Darsteller.  
+
+### Darsteller: Blickrichtung Festlegen
+Change the direction that an actor is currently facing.
+<ScriptEventPreview title={"Darsteller: Blickrichtung Festlegen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Blickrichtung","description":"Die Blickrichtung des Darstellers.","type":"value","defaultValue":{"type":"direction","value":"up"}}]} />
+
+- **Darsteller**: Der zu aktualisierende Darsteller.  
+- **Blickrichtung**: Die Blickrichtung des Darstellers.  
+
+### Darsteller: Bewegungsgeschwindigkeit Festlegen
+Set the movement speed of an actor to a new value.
+<ScriptEventPreview title={"Darsteller: Bewegungsgeschwindigkeit Festlegen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"speed","label":"Geschwindigkeit","description":"Die Bewegungsgeschwindigkeit.","type":"moveSpeed","defaultValue":1}]} />
+
+- **Darsteller**: Der zu aktualisierende Darsteller.  
+- **Geschwindigkeit**: Die Bewegungsgeschwindigkeit.  
+
+### Darsteller: Sprite-Sheet festlegen
 Set the sprite that should be used to render an actor.
 <ScriptEventPreview title={"Darsteller: Sprite-Sheet festlegen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"spriteSheetId","label":"Sprite-Sheet","description":"Das zum Rendern des Darstellers zu benutzende Sprite.","type":"sprite","defaultValue":"LAST_SPRITE"}]} />
 
 - **Darsteller**: Der zu aktualisierende Darsteller.  
 - **Sprite-Sheet**: Das zum Rendern des Darstellers zu benutzende Sprite.  
 
-## Spieler: Setze Spieler Sprite-Sheet
+### Spieler: Setze Spieler Sprite-Sheet
 Set the sprite that should be used to render the player.
 <ScriptEventPreview title={"Spieler: Setze Spieler Sprite-Sheet"} fields={[{"key":"spriteSheetId","label":"Sprite-Sheet","description":"Das zum Rendern des Spielers zu benutzende Sprite.","type":"sprite","defaultValue":"LAST_SPRITE"},{"key":"persist","label":"Standardwert für Szenentyp ersetzen","description":"Bewirkt das Ersetzen des Standard-Sprites für alle Szenen des aktuellen Typs mit diesem Sprite. D.h. wenn man gerade in einer Platformer-Szene ist, werden alle anderen Platformer-Szenen, die das Standard-Sprite verwenden, nun automatisch mit diesem Ersatz-Sprite geladen.","type":"checkbox","defaultValue":false}]} />
 
 - **Sprite-Sheet**: Das zum Rendern des Spielers zu benutzende Sprite.  
 - **Standardwert für Szenentyp ersetzen**: Bewirkt das Ersetzen des Standard-Sprites für alle Szenen des aktuellen Typs mit diesem Sprite. D.h. wenn man gerade in einer Platformer-Szene ist, werden alle anderen Platformer-Szenen, die das Standard-Sprite verwenden, nun automatisch mit diesem Ersatz-Sprite geladen.  
 
-## Darsteller: Einblenden
-Einen bislang versteckten Darsteller einblenden.
-<ScriptEventPreview title={"Darsteller: Einblenden"} fields={[{"key":"actorId","label":"Darsteller","description":"Der anzuzeigende Darsteller.","type":"actor","defaultValue":"$self$"}]} />
-
-- **Darsteller**: Der anzuzeigende Darsteller.  
-
-## Sprites: Alle Einblenden
-Re-enable rendering of the sprite layer if previously disabled.
-<ScriptEventPreview title={"Sprites: Alle Einblenden"} fields={[{"label":"Blende alle aktiven Sprites ein."}]} />
-
-
-## Darsteller: Emotions-Blase
-Show an emote image above a specified actor. The image will be positioned centrally above the actor's collision bounding box.
-<ScriptEventPreview title={"Darsteller: Emotions-Blase"} fields={[{"key":"actorId","label":"Darsteller","description":"Der Darsteller, über den eine Emote-Grafik angezeigt wird.","type":"actor","defaultValue":"$self$"},{"key":"emoteId","label":"Emote","description":"Die anzuzeigende Emote-Grafik.","type":"emote","defaultValue":"LAST_EMOTE"}]} />
-
-- **Darsteller**: Der Darsteller, über den eine Emote-Grafik angezeigt wird.  
-- **Emote**: Die anzuzeigende Emote-Grafik.  
-
-## Start Actor's "On Update" Script
+## Script
+### Start Actor's "On Update" Script
 Start an actors OnUpdate script if it is not currently running. If the actor is currently offscreen its script may become deactivated causing the script to stop running again, to prevent this set the 'Keep Running While Offscreen' setting for the actor's OnUpdate script.
 <ScriptEventPreview title={"Start Actor's \"On Update\" Script"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"}]} />
 
 - **Darsteller**: Der zu aktualisierende Darsteller.  
 
-## Darsteller: Stoppt "Bei Update" Skript
+### Darsteller: Stoppt "Bei Update" Skript
 Stop an actors OnUpdate script if it was currently running.
 <ScriptEventPreview title={"Darsteller: Stoppt \"Bei Update\" Skript"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"}]} />
 
 - **Darsteller**: Der zu aktualisierende Darsteller.  
 
-## Darsteller: Blickrichtung In Variablen Speichern
+## Variables
+### Darsteller: Blickrichtung In Variablen Speichern
 Store the current direction of an actor within a variable.
 <ScriptEventPreview title={"Darsteller: Blickrichtung In Variablen Speichern"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Variable","description":"Die als Richtung zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
 
 - **Darsteller**: Der zu überprüfende Darsteller.  
 - **Variable**: Die als Richtung zu nutzende Variable.  
 
-## Darsteller: Position In Variablen Speichern
+### Darsteller: Position In Variablen Speichern
 Store the current position of an actor within two variables, one to store the horizontal position and another to store the vertical position.
 <ScriptEventPreview title={"Darsteller: Position In Variablen Speichern"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"vectorX","type":"variable","label":"X","description":"Die als horizontale Position zu nutzende Variable.","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"vectorY","type":"variable","label":"Y","description":"Die als vertikale Position zu nutzende Variable.","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]}]} />
 
 - **Darsteller**: Der zu überprüfende Darsteller.  
 - **X**: Die als horizontale Position zu nutzende Variable.  
 - **Y**: Die als vertikale Position zu nutzende Variable.  
+
+## Visibility
+### Darsteller: Ausblenden
+Hide an actor, causing it to become invisible. Its OnUpdate script will continue to run while hidden.
+<ScriptEventPreview title={"Darsteller: Ausblenden"} fields={[{"key":"actorId","label":"Darsteller","description":"Der auszublendende Darsteller.","type":"actor","defaultValue":"$self$"}]} />
+
+- **Darsteller**: Der auszublendende Darsteller.  
+
+### Sprites: Alle Ausblenden
+Disable rendering of sprite layer causing all sprites to become hidden until sprite rendering is reenabled.
+<ScriptEventPreview title={"Sprites: Alle Ausblenden"} fields={[{"label":"Blende alle Sprites vom Bildschirm aus."}]} />
+
+
+### Darsteller: Einblenden
+Einen bislang versteckten Darsteller einblenden.
+<ScriptEventPreview title={"Darsteller: Einblenden"} fields={[{"key":"actorId","label":"Darsteller","description":"Der anzuzeigende Darsteller.","type":"actor","defaultValue":"$self$"}]} />
+
+- **Darsteller**: Der anzuzeigende Darsteller.  
+
+### Sprites: Alle Einblenden
+Re-enable rendering of the sprite layer if previously disabled.
+<ScriptEventPreview title={"Sprites: Alle Einblenden"} fields={[{"label":"Blende alle aktiven Sprites ein."}]} />
+
 

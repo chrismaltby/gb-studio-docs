@@ -9,17 +9,17 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Miscellaneous
 
-## Comment
+### Comment
 Allows you to leave notes within your scripts. Provides no functionality in-game. The text you type automatically gets set in the event title, so you can collapse the comment and still read its content.
 <ScriptEventPreview title={"Comment"} fields={[{"key":"text","type":"textarea","maxPerLine":50,"placeholder":"Text...","multiple":false,"defaultValue":""}]} />
 
 
-## Event Group
+### Event Group
 Alows you to group together parts of your script for organizational purposes.
 <ScriptEventPreview title={"Event Group"} fields={[{"key":"true","type":"events"}]} />
 
 
-## GBVM Script
+### GBVM Script
 Run a GBVM script.
 
 **References**  
@@ -30,32 +30,33 @@ Run a GBVM script.
 - **Script**: A valid GBVM Script to execute.  
 - **References**: A list of the assets and entities used in your GBVM script. Use this to let GB Studio know that a file is needed by your script, preventing it from being excluded in the final build.  
 
-## Link: Close
+### Script Lock
+Pause other scripts and scene updates until this script has finished or is unlocked.
+<ScriptEventPreview title={"Script Lock"} fields={[{"label":"Pause other scripts and scene updates until this script has finished or is unlocked."}]} />
+
+
+### Script Unlock
+If locked, unlock this script so other scripts can run and the scene can update.
+<ScriptEventPreview title={"Script Unlock"} fields={[{"label":"If locked, unlock this script so other scripts can run and the scene can update."}]} />
+
+
+## Multiplayer
+### Link: Close
 <ScriptEventPreview title={"Link: Close"} fields={[{"label":"Close the current link session."}]} />
 
 
-## Link: Host
+### Link: Host
 <ScriptEventPreview title={"Link: Host"} fields={[{"label":"Host a link session."}]} />
 
 
-## Link: Join
+### Link: Join
 <ScriptEventPreview title={"Link: Join"} fields={[{"label":"Join a link session."}]} />
 
 
-## Link: Transfer
+### Link: Transfer
 <ScriptEventPreview title={"Link: Transfer"} fields={[{"key":"sendVariable","label":"Send Variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"receiveVariable","label":"Receive Variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"size","label":"Packet Size","type":"number","defaultValue":1}]} />
 
 - **Send Variable**  
 - **Receive Variable**  
 - **Packet Size**  
-
-## Script Lock
-Pause other scripts and scene updates until this script has finished or is unlocked.
-<ScriptEventPreview title={"Script Lock"} fields={[{"label":"Pause other scripts and scene updates until this script has finished or is unlocked."}]} />
-
-
-## Script Unlock
-If locked, unlock this script so other scripts can run and the scene can update.
-<ScriptEventPreview title={"Script Unlock"} fields={[{"label":"If locked, unlock this script so other scripts can run and the scene can update."}]} />
-
 

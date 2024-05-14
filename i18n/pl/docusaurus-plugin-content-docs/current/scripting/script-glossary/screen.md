@@ -9,24 +9,25 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Ekran
 
-## Ekran: wyczyszczenie
+### Ekran: wyczyszczenie
 Polecenie przejścia, pozbędzie się czarnego pustego ekranu.
 <ScriptEventPreview title={"Ekran: wyczyszczenie"} fields={[{"key":"speed","label":"Szybkość","description":"Ustawienie szybkości przejścia.","type":"fadeSpeed","defaultValue":"2"}]} />
 
 - **Szybkość**: Ustawienie szybkości przejścia.  
 
-## Ekran: pojawienie
+### Ekran: pojawienie
 Polecenie przejścia, przejście do czarnego pustego ekranu.
 <ScriptEventPreview title={"Ekran: pojawienie"} fields={[{"key":"speed","label":"Szybkość","description":"Ustawienie szybkości przejścia.","type":"fadeSpeed","defaultValue":"2"}]} />
 
 - **Szybkość**: Ustawienie szybkości przejścia.  
 
-## Narzuta: schowaj (nie widzialna)
+## Overlay
+### Narzuta: schowaj (nie widzialna)
 Polecenie ukrywa nakładkę, nałożoną na ekran.
 <ScriptEventPreview title={"Narzuta: schowaj (nie widzialna)"} fields={[{"label":"Schowanie nakładanego okna na ekranie."}]} />
 
 
-## Narzuta: przesuń
+### Narzuta: przesuń
 Polecenie przesunie nakładkę w nowe położenie na ekranie.
 <ScriptEventPreview title={"Narzuta: przesuń"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]},{"key":"speed","label":"Szybkość","description":"Ustawienie szybkości.","type":"cameraSpeed","defaultValue":"0"}]} />
 
@@ -34,7 +35,7 @@ Polecenie przesunie nakładkę w nowe położenie na ekranie.
 - **Y**: Pozycja pionowa.  
 - **Szybkość**: Ustawienie szybkości.  
 
-## Narzuta: pokaż (widzialna)
+### Narzuta: pokaż (widzialna)
 Polecenie wyświetli nakładkę - czarne lub białe okno zasłaniając bieżący ekran gry. Polecenie można zastosować do zasłonięcia, a następnie odsłonięcia części tła sceny, tak jak to zostało zastosowane na ekranie logo przykładowego projektu.
 <ScriptEventPreview title={"Narzuta: pokaż (widzialna)"} fields={[{"key":"color","label":"Kolor wypełnienia","description":"Kolor do wypełnienia warstwy, może być czarny lub biały.","type":"overlayColor","defaultValue":"black"},{"type":"group","fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]}]} />
 

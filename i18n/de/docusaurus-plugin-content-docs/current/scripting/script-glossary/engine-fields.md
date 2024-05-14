@@ -9,7 +9,7 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Engine Beschreibung
 
-## Engine: Einstellungen aktualisieren
+### Engine: Einstellungen aktualisieren
 Den Wert eines Engine Felds ändern
 
 **Referenzen**  
@@ -18,7 +18,8 @@ Den Wert eines Engine Felds ändern
 
 - **Engine Einstellung**: Die zu aktualisierende Engineeinstellung.  
 
-## Engine: Einstellungen in Variable speichern
+## Variables
+### Engine: Einstellungen in Variable speichern
 Store the value of an Engine Field in a variable.
 
 **Referenzen**  

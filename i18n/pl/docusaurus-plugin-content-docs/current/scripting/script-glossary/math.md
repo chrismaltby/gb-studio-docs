@@ -9,7 +9,14 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Matematyka
 
-## Zmienna: wzór matematyczny
+## Random
+### Generator losowych liczb
+Polecenie odpowiada za dane wejściowe użytkownika, tak, aby zapewnić zmianę losowych liczb między rozgrywakami.
+<ScriptEventPreview title={"Generator losowych liczb"} fields={[{"label":"Umieść to, aby uruchomić w odpowiedzi na dane wejściowe użytkownika, zmianę losowych liczb między rozgrywkami"}]} />
+
+
+## Variables
+### Zmienna: wzór matematyczny
 Polecenie ustawi zmienną na wynik oceny wyrażenia matematycznego.
 
 **Odniesienia**  
@@ -19,16 +26,11 @@ Polecenie ustawi zmienną na wynik oceny wyrażenia matematycznego.
 - **Zmienna**: Wskaż zmienną do użycia.  
 - **Wyrażenie**: Wprowadź wyrażenie do oceny.  
 
-## Zmienna: funkcje matematyczne
+### Zmienna: funkcje matematyczne
 Polecenie umożliwia wykonanie różnych funkcji matematycznych na zmiennej w celu dodania/odjęcia/mnożenia/dzielenia/modułu określonej wartości/zmiennej/losowej liczby.
 <ScriptEventPreview title={"Zmienna: funkcje matematyczne"} fields={[{"key":"vectorX","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operation","label":"Operacja","description":"Operacja używana do modyfikacji wartości zmiennej.","type":"select","options":[["set","Ustaw"],["add","Dodaj"],["sub","Odejmij"],["mul","Pomnóż"],["div","Podziel"],["mod","Modulo"]],"defaultValue":"set","width":"50%"},{"key":"other","label":"Wartość","description":"Wartość do połączenia ze zmienną przy użyciu wybranej operacji.","type":"select","options":[["true","Prawda"],["false","Fałsz"],["var","Zmienna"],["val","Wartość"],["rnd","Losowa"]],"defaultValue":"true","width":"50%"},{"key":"vectorY","type":"variable","conditions":[{"key":"other","eq":"var"}],"defaultValue":"LAST_VARIABLE"},{"key":"value","type":"number","conditions":[{"key":"other","eq":"val"}],"min":-32768,"max":32767,"defaultValue":"0"},{"type":"group","fields":[{"key":"minValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Wartość minimalna","description":"Ustalenie wartości minimalnej zasięgu losowego.","hideFromDocs":true,"defaultValue":"0","width":"50%"},{"key":"maxValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Wartość maksymalna","description":"Ustalenie wartości maksymalnej zasięgu losowego.","hideFromDocs":true,"defaultValue":"32767","width":"50%"}]},{"key":"clamp","type":"checkbox","label":"Wartość zasisku 0 - 255","hideFromDocs":true,"conditions":[{"key":"operation","in":["add","sub","mul"]}],"defaultValue":false}]} />
 
 - **Zmienna**: Wskaż zmienną do użycia.  
 - **Operacja**: Operacja używana do modyfikacji wartości zmiennej.  
 - **Wartość**: Wartość do połączenia ze zmienną przy użyciu wybranej operacji.  
-
-## Generator losowych liczb
-Polecenie odpowiada za dane wejściowe użytkownika, tak, aby zapewnić zmianę losowych liczb między rozgrywakami.
-<ScriptEventPreview title={"Generator losowych liczb"} fields={[{"label":"Umieść to, aby uruchomić w odpowiedzi na dane wejściowe użytkownika, zmianę losowych liczb między rozgrywkami"}]} />
-
 

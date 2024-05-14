@@ -9,26 +9,27 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Save Data
 
-## Game Data Load
+### Game Data Load
 Load the saved game data from the selected slot.
 <ScriptEventPreview title={"Game Data Load"} fields={[{"label":"Load game data from memory."},{"key":"saveSlot","label":"Save Slot","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0}]} />
 
 - **Save Slot**: The save slot to use.  
 
-## Game Data Remove
+### Game Data Remove
 Remove any previously saved game data in the selected slot.
 <ScriptEventPreview title={"Game Data Remove"} fields={[{"label":"Clear all saved game data from memory."},{"key":"saveSlot","label":"Save Slot","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0}]} />
 
 - **Save Slot**: The save slot to use.  
 
-## Game Data Save
+### Game Data Save
 Save the current game data into the selected slot.
 <ScriptEventPreview title={"Game Data Save"} fields={[{"label":"Save current game data to memory. Requires cartridge type with BATTERY."},{"key":"saveSlot","label":"Save Slot","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0},{"key":"__scriptTabs","type":"tabs","defaultValue":"save","values":{"save":"On Save"}},{"key":"true","label":"On Save","description":"A script to run after the save is completed. This won't be run on game load so you can use it show a 'Save Was Successful' message.","type":"events"}]} />
 
 - **Save Slot**: The save slot to use.  
 - **On Save**: A script to run after the save is completed. This won't be run on game load so you can use it show a 'Save Was Successful' message.  
 
-## If Game Data Saved
+## Control Flow
+### If Game Data Saved
 Conditionally run part of the script if save data is present within the specified save slot.
 <ScriptEventPreview title={"If Game Data Saved"} fields={[{"key":"saveSlot","label":"Save Slot","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0},{"label":"Run if player has saved a game."},{"key":"true","label":"True","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
@@ -36,7 +37,8 @@ Conditionally run part of the script if save data is present within the specifie
 - **True**: The script to run if the condition is true.  
 - **False**: The script to run if the condition is false.  
 
-## Store Variable from Game Data In Variable
+## Variables
+### Store Variable from Game Data In Variable
 Read a variable's value from a specified save slot and store it in a variable.
 <ScriptEventPreview title={"Store Variable from Game Data In Variable"} fields={[{"key":"variableDest","label":"Set Variable","description":"The variable to update.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"To Variable","description":"The variable to read the value of.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"From Save Slot","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0}]}]} />
 

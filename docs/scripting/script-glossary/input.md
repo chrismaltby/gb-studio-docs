@@ -9,7 +9,7 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Input
 
-## Attach Script To Button
+### Attach Script To Button
 Run the specified script any time a joypad button is pressed.
 <ScriptEventPreview title={"Attach Script To Button"} fields={[{"key":"input","label":"Button","description":"The joypad button to check.","type":"input","defaultValue":["b"]},{"key":"override","type":"checkbox","label":"Override default button action","description":"Set if the script should replace the default game action for the specified button.","defaultValue":true},{"key":"__scriptTabs","type":"tabs","defaultValue":"press","values":{"press":"On Press"}},{"key":"true","label":"On Press","description":"The script to run when the button is pressed.","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"press"]}]}]} />
 
@@ -17,7 +17,20 @@ Run the specified script any time a joypad button is pressed.
 - **Override default button action**: Set if the script should replace the default game action for the specified button.  
 - **On Press**: The script to run when the button is pressed.  
 
-## If Joypad Input Held
+### Pause Script Until Input Pressed
+Pauses the script until one of the specified joypad buttons are pressed.
+<ScriptEventPreview title={"Pause Script Until Input Pressed"} fields={[{"key":"input","label":"Any of","description":"The input buttons to check.","type":"input","defaultValue":["a","b"]}]} />
+
+- **Any of**: The input buttons to check.  
+
+### Remove Button Script
+Remove an attached script from a joypad button restoring the default functionality of the button.
+<ScriptEventPreview title={"Remove Button Script"} fields={[{"key":"input","label":"Remove script attached to input","description":"The joypad button to remove the attached script from.","type":"input","defaultValue":["b"]}]} />
+
+- **Remove script attached to input**: The joypad button to remove the attached script from.  
+
+## Control Flow
+### If Joypad Input Held
 Conditionally run part of the script if the specified joypad button is currently pressed. Will not wait for user input and will only execute once, if you wish to run a script every time a button is pressed use Attach Script To Button instead.
 
 **References**  
@@ -27,16 +40,4 @@ Conditionally run part of the script if the specified joypad button is currently
 - **Any of**: The input buttons to check.  
 - **True**: The script to run if the condition is true.  
 - **False**: The script to run if the condition is false.  
-
-## Pause Script Until Input Pressed
-Pauses the script until one of the specified joypad buttons are pressed.
-<ScriptEventPreview title={"Pause Script Until Input Pressed"} fields={[{"key":"input","label":"Any of","description":"The input buttons to check.","type":"input","defaultValue":["a","b"]}]} />
-
-- **Any of**: The input buttons to check.  
-
-## Remove Button Script
-Remove an attached script from a joypad button restoring the default functionality of the button.
-<ScriptEventPreview title={"Remove Button Script"} fields={[{"key":"input","label":"Remove script attached to input","description":"The joypad button to remove the attached script from.","type":"input","defaultValue":["b"]}]} />
-
-- **Remove script attached to input**: The joypad button to remove the attached script from.  
 

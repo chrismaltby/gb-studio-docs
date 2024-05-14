@@ -9,13 +9,13 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Musik & Sound Effekte
 
-## Musik: Titel Abspielen
+### Musik: Titel Abspielen
 Plays a music file. If you play a new song while another song is playing, the old song will stop automatically.
 <ScriptEventPreview title={"Musik: Titel Abspielen"} fields={[{"key":"musicId","label":"Musikstück","description":"Das abzuspielende Musikstück.","type":"music","defaultValue":"LAST_MUSIC"}]} />
 
 - **Musikstück**: Das abzuspielende Musikstück.  
 
-## Sound: Effekt abspielen
+### Sound: Effekt abspielen
 Play a sound effect, choose from playing a .WAV, .VGM, or .SAV (fxhammer) file from `/assets/sounds` or a preset sound effect.
 <ScriptEventPreview title={"Sound: Effekt abspielen"} fields={[{"key":"type","type":"soundEffect","label":"Klangeffekt","description":"Der abzuspielende Soundeffekt. Es kann aus Dateien unter `/assets/sounds` oder aus voreingestellten Klängen wie `Beep`, `Pitch` und `Tone` gewählt werden.","defaultValue":"beep","flexBasis":"60%"},{"key":"priority","label":"Priorität","description":"Die Priorität des Effekts, hoch, mittel oder niedrig. Wenn zwei Klangeffekte gleichzeitig abgespielt werden, haben die Klangeffekte mit der höheren Priorität Vorrang.","type":"priority","options":[["low","Niedrig"],["medium","Mittel"],["high","Hoch"]],"defaultValue":"medium","flexBasis":"15%"},{"key":"pitch","type":"number","label":"Tonhöhe","description":"Die Tonhöhe des Klangeffekts (nur Beep-Effekt).","conditions":[{"key":"type","eq":"beep"}],"min":1,"max":8,"step":1,"defaultValue":4},{"key":"frequency","type":"number","label":"Frequenz in Hz","description":"Die Frequenz des Klangeffekts in hz (nur Ton-Effekt).","conditions":[{"key":"type","eq":"tone"}],"min":0,"max":20000,"step":1,"defaultValue":200},{"key":"duration","type":"number","label":"Länge","description":"Die Dauer der Wiedergabe des Klangeffekts.","unitsField":"units","unitsDefault":"time","conditions":[{"key":"type","in":["beep","crash","tone"]}],"min":0,"max":4.25,"step":0.01,"defaultValue":0.5},{"key":"wait","type":"checkbox","label":"Warten bis zum Ende","description":"Legt fest, ob das Skript anhalten soll, bis die Wiedergabe des Klangeffekts abgeschlossen ist.","conditions":[{"key":"type","in":["beep","crash","tone"]}],"defaultValue":true,"flexBasis":"100%"},{"key":"effect","type":"number","label":"Effekt Index","description":"Die Nummer des abzuspielenden Effekts (nur für fxhammer).","min":0,"max":60,"defaultValue":0,"conditions":[{"key":"type","soundType":"fxhammer"}]}]} />
 
@@ -27,7 +27,13 @@ Play a sound effect, choose from playing a .WAV, .VGM, or .SAV (fxhammer) file f
 - **Warten bis zum Ende**: Legt fest, ob das Skript anhalten soll, bis die Wiedergabe des Klangeffekts abgeschlossen ist.  
 - **Effekt Index**: Die Nummer des abzuspielenden Effekts (nur für fxhammer).  
 
-## Musik Routine setzen
+### Musik: Anhalten
+Die aktuell spielende Musik anhalten.
+<ScriptEventPreview title={"Musik: Anhalten"} fields={[{"label":"Stoppt die zuvor abgespielte Musik."}]} />
+
+
+## Script
+### Musik Routine setzen
 Attach a script to one of the four music routines that can be triggered from a .uge file. In the music editor you are able to use the call routine effect in your songs to trigger these scripts in time to music.
 
 **Referenzen**  
@@ -36,9 +42,4 @@ Attach a script to one of the four music routines that can be triggered from a .
 
 - **Routine**: Die Musik-Routine, entweder 0, 1, 2 oder 3.  
 - **Bei Aufruf**: Das Skript, das beim Aufruf der Routine ausgeführt wird.  
-
-## Musik: Anhalten
-Die aktuell spielende Musik anhalten.
-<ScriptEventPreview title={"Musik: Anhalten"} fields={[{"label":"Stoppt die zuvor abgespielte Musik."}]} />
-
 

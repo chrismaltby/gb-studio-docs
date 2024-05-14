@@ -9,7 +9,14 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Mathe
 
-## Matheausdruck auswerten
+## Random
+### Seed Zufallszahlengenerator
+Place this to run in response to user input to ensure random numbers change between playthroughs.
+<ScriptEventPreview title={"Seed Zufallszahlengenerator"} fields={[{"label":"Platzieren Sie dies als Reaktion auf Benutzereingaben, um sicherzustellen, dass sich die Zufallszahlen zwischen den Durchläufen ändern."}]} />
+
+
+## Variables
+### Matheausdruck auswerten
 Set a variable to the result of evaluating a math expression.
 
 **Referenzen**  
@@ -19,16 +26,11 @@ Set a variable to the result of evaluating a math expression.
 - **Variable**: Die zu nutzende Variable.  
 - **Ausdruck**: Der auszuwertende Ausdruck.  
 
-## Variable: Mathematische Funktionen
+### Variable: Mathematische Funktionen
 Allows you to perform various maths functions on a variable to add/subtract/multiply/divide/modulus a value/variable/random number.
 <ScriptEventPreview title={"Variable: Mathematische Funktionen"} fields={[{"key":"vectorX","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operation","label":"Operation","description":"Die Operation, die zur Änderung des Variablenwerts verwendet werden soll.","type":"select","options":[["set","Einstellen"],["add","Hinzufügen"],["sub","Subtrahieren"],["mul","Multiplizieren"],["div","Teilen"],["mod","Modulo"]],"defaultValue":"set","width":"50%"},{"key":"other","label":"Wert","description":"Der Wert, der mit der Variablen durch die gewählte Operation kombiniert werden soll.","type":"select","options":[["true","Wahr"],["false","Falsch"],["var","Variable"],["val","Wert"],["rnd","Zufällig"]],"defaultValue":"true","width":"50%"},{"key":"vectorY","type":"variable","conditions":[{"key":"other","eq":"var"}],"defaultValue":"LAST_VARIABLE"},{"key":"value","type":"number","conditions":[{"key":"other","eq":"val"}],"min":-32768,"max":32767,"defaultValue":"0"},{"type":"group","fields":[{"key":"minValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Minimaler Wert","description":"Der minimale Wert für den Zufallsbereich.","hideFromDocs":true,"defaultValue":"0","width":"50%"},{"key":"maxValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Maximaler Wert","description":"Der maximale Wert für den Zufallsbereich.","hideFromDocs":true,"defaultValue":"32767","width":"50%"}]},{"key":"clamp","type":"checkbox","label":"Klammerwert zwischen 0 und 255","hideFromDocs":true,"conditions":[{"key":"operation","in":["add","sub","mul"]}],"defaultValue":false}]} />
 
 - **Variable**: Die zu nutzende Variable.  
 - **Operation**: Die Operation, die zur Änderung des Variablenwerts verwendet werden soll.  
 - **Wert**: Der Wert, der mit der Variablen durch die gewählte Operation kombiniert werden soll.  
-
-## Seed Zufallszahlengenerator
-Place this to run in response to user input to ensure random numbers change between playthroughs.
-<ScriptEventPreview title={"Seed Zufallszahlengenerator"} fields={[{"label":"Platzieren Sie dies als Reaktion auf Benutzereingaben, um sicherzustellen, dass sich die Zufallszahlen zwischen den Durchläufen ändern."}]} />
-
 

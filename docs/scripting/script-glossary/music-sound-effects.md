@@ -9,13 +9,13 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Music & Sound Effects
 
-## Play Music Track
+### Play Music Track
 Plays a music file. If you play a new song while another song is playing, the old song will stop automatically.
 <ScriptEventPreview title={"Play Music Track"} fields={[{"key":"musicId","label":"Song","description":"The song to play.","type":"music","defaultValue":"LAST_MUSIC"}]} />
 
 - **Song**: The song to play.  
 
-## Play Sound Effect
+### Play Sound Effect
 Play a sound effect, choose from playing a .WAV, .VGM, or .SAV (fxhammer) file from `/assets/sounds` or a preset sound effect.
 <ScriptEventPreview title={"Play Sound Effect"} fields={[{"key":"type","type":"soundEffect","label":"Sound Effect","description":"The sound effect to play. Can choose from files within `/assets/sounds` or from preset sounds like `Beep`, `Pitch` and `Tone`.","defaultValue":"beep","flexBasis":"60%"},{"key":"priority","label":"Priority","description":"The priority of the effect, high, medium or low. If two sound effects are playing at the same time then higher priority sound effects will take precedence.","type":"priority","options":[["low","Low"],["medium","Medium"],["high","High"]],"defaultValue":"medium","flexBasis":"15%"},{"key":"pitch","type":"number","label":"Pitch","description":"The pitch of the sound effect (Beep effect only).","conditions":[{"key":"type","eq":"beep"}],"min":1,"max":8,"step":1,"defaultValue":4},{"key":"frequency","type":"number","label":"Frequency in hz","description":"The frequency of the sound effect in hz (Tone effect only).","conditions":[{"key":"type","eq":"tone"}],"min":0,"max":20000,"step":1,"defaultValue":200},{"key":"duration","type":"number","label":"Duration","description":"The length of time to play the sound effect.","unitsField":"units","unitsDefault":"time","conditions":[{"key":"type","in":["beep","crash","tone"]}],"min":0,"max":4.25,"step":0.01,"defaultValue":0.5},{"key":"wait","type":"checkbox","label":"Wait until finished","description":"Set if script should pause until sound effect has finished playing.","conditions":[{"key":"type","in":["beep","crash","tone"]}],"defaultValue":true,"flexBasis":"100%"},{"key":"effect","type":"number","label":"Effect Index","description":"The effect number to play (for fxhammer only).","min":0,"max":60,"defaultValue":0,"conditions":[{"key":"type","soundType":"fxhammer"}]}]} />
 
@@ -27,7 +27,13 @@ Play a sound effect, choose from playing a .WAV, .VGM, or .SAV (fxhammer) file f
 - **Wait until finished**: Set if script should pause until sound effect has finished playing.  
 - **Effect Index**: The effect number to play (for fxhammer only).  
 
-## Set Music Routine
+### Stop Music
+Stops any currently playing music.
+<ScriptEventPreview title={"Stop Music"} fields={[{"label":"Stops any music that was previously playing."}]} />
+
+
+## Script
+### Set Music Routine
 Attach a script to one of the four music routines that can be triggered from a .uge file. In the music editor you are able to use the call routine effect in your songs to trigger these scripts in time to music.
 
 **References**  
@@ -36,9 +42,4 @@ Attach a script to one of the four music routines that can be triggered from a .
 
 - **Routine**: The music routine, either 0, 1, 2 or 3.  
 - **On Call**: The script to run when the routine is called.  
-
-## Stop Music
-Stops any currently playing music.
-<ScriptEventPreview title={"Stop Music"} fields={[{"label":"Stops any music that was previously playing."}]} />
-
 

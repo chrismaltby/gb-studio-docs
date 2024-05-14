@@ -9,7 +9,7 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Silnik
 
-## Silnik: aktualizacja ustawień
+### Silnik: aktualizacja ustawień
 Polecenie zmienia wartość wybranego pola silnika.
 
 **Odniesienia**  
@@ -18,7 +18,8 @@ Polecenie zmienia wartość wybranego pola silnika.
 
 - **Pole silnika**: Pole silnika do aktualizacji.  
 
-## Silnik: zapisz pole w zmiennej
+## Variables
+### Silnik: zapisz pole w zmiennej
 Polecenie zapisuje wartość wybranego pola silnika do zmiennej.
 
 **Odniesienia**  

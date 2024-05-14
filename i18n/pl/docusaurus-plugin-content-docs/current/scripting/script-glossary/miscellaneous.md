@@ -9,17 +9,17 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Inne polecenia
 
-## Komentarz
+### Komentarz
 Polecenie pozostawia notatkę w skryptach. Komentarze nie posiadają żadnej funkcji w grze. Wprowadzony tekst jest automatycznie ustawiony jako tytuł zdarzenia, dzięki czemu nawet gdy kometarz będzie zwinięty, to nadal można czytać jego zawartość.
 <ScriptEventPreview title={"Komentarz"} fields={[{"key":"text","type":"textarea","maxPerLine":50,"placeholder":"Tekst...","multiple":false,"defaultValue":""}]} />
 
 
-## Grupowanie poleceń
+### Grupowanie poleceń
 Polecenie pozwala na grupowanie części skryptu w celach organizacyjnych.
 <ScriptEventPreview title={"Grupowanie poleceń"} fields={[{"key":"true","type":"events"}]} />
 
 
-## Skrypt GBVM
+### Skrypt GBVM
 Polecenie uruchomi skrypt GBVM.
 
 **Odniesienia**  
@@ -30,32 +30,33 @@ Polecenie uruchomi skrypt GBVM.
 - **Skrypt (GBVM)**: Polecenie uruchomi prawidłowy skrypt GBVM do wykonania.  
 - **Odniesienia**: Lista zasobów i jednostek używanych w skrypcie GBVM. Użyj tego, aby poinformować GB Studio, że plik jest potrzebny Twojemu skryptowi, zapobiegając wykluczeniu go w ostatecznej kompilacji.  
 
-## Link: Zamknij
+### Zablokuj skrypt
+Wstrzymaj inne skrypty i aktualizacje sceny do momentu zakończenia tego skryptu lub odblokowania.
+<ScriptEventPreview title={"Zablokuj skrypt"} fields={[{"label":"Wstrzymaj inne skrypty i aktualizacje sceny do momentu zakończenia tego skryptu lub odblokowania."}]} />
+
+
+### Odblokuj skrypt
+Jeśli jest zablokowany, odblokuj ten skrypt, aby inne skrypty mogły działać i scena mogła być aktualizowana.
+<ScriptEventPreview title={"Odblokuj skrypt"} fields={[{"label":"Jeśli jest zablokowany, odblokuj ten skrypt, aby inne skrypty mogły działać i scena mogła być aktualizowana."}]} />
+
+
+## Multiplayer
+### Link: Zamknij
 <ScriptEventPreview title={"Link: Zamknij"} fields={[{"label":"Zamknij aktualną sesję łączenia (link)."}]} />
 
 
-## Link: Hostuj
+### Link: Hostuj
 <ScriptEventPreview title={"Link: Hostuj"} fields={[{"label":"Hostuj sesję (link)."}]} />
 
 
-## Link: Połącz
+### Link: Połącz
 <ScriptEventPreview title={"Link: Połącz"} fields={[{"label":"Dołącz do sesji (link)."}]} />
 
 
-## Link: Transfer
+### Link: Transfer
 <ScriptEventPreview title={"Link: Transfer"} fields={[{"key":"sendVariable","label":"Wyślij zmienną","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"receiveVariable","label":"Wczytaj zmienną","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"size","label":"Rozmiar pakietu","type":"number","defaultValue":1}]} />
 
 - **Wyślij zmienną**  
 - **Wczytaj zmienną**  
 - **Rozmiar pakietu**  
-
-## Zablokuj skrypt
-Wstrzymaj inne skrypty i aktualizacje sceny do momentu zakończenia tego skryptu lub odblokowania.
-<ScriptEventPreview title={"Zablokuj skrypt"} fields={[{"label":"Wstrzymaj inne skrypty i aktualizacje sceny do momentu zakończenia tego skryptu lub odblokowania."}]} />
-
-
-## Odblokuj skrypt
-Jeśli jest zablokowany, odblokuj ten skrypt, aby inne skrypty mogły działać i scena mogła być aktualizowana.
-<ScriptEventPreview title={"Odblokuj skrypt"} fields={[{"label":"Jeśli jest zablokowany, odblokuj ten skrypt, aby inne skrypty mogły działać i scena mogła być aktualizowana."}]} />
-
 

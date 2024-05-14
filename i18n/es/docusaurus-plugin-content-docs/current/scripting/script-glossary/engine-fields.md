@@ -9,7 +9,7 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Engine Fields
 
-## Engine Field Update
+### Engine Field Update
 Change the value of an Engine Field.
 
 **References**  
@@ -18,7 +18,8 @@ Change the value of an Engine Field.
 
 - **Engine Field**: The engine field to update.  
 
-## Store Engine Field In Variable
+## Variables
+### Store Engine Field In Variable
 Store the value of an Engine Field in a variable.
 
 **References**  

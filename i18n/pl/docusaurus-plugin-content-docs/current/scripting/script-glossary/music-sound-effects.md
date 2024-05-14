@@ -9,13 +9,13 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Muzyka i dźwięk
 
-## Muzyka: odegraj utwór
+### Muzyka: odegraj utwór
 Polecenie odegra utwór muzyczny. Jeśli odtworzysz nowy utwór podczas odtwarzania innego utworu, stary utwór zostanie automatycznie zatrzymany.
 <ScriptEventPreview title={"Muzyka: odegraj utwór"} fields={[{"key":"musicId","label":"Muzyka","description":"Wybierz muzykę do odtworzenia.","type":"music","defaultValue":"LAST_MUSIC"}]} />
 
 - **Muzyka**: Wybierz muzykę do odtworzenia.  
 
-## Dźwięk: odegraj SE
+### Dźwięk: odegraj SE
 Polecenie odtworzy efekt dźwiękowy. Należy wybrać odtwarzanie pliku .WAV, .VGM lub .SAV (fxhammer) z folderu projektu `/assets/sounds` lub wstępnie ustawionego efektu dźwiękowego.
 <ScriptEventPreview title={"Dźwięk: odegraj SE"} fields={[{"key":"type","type":"soundEffect","label":"Dźwięk","description":"Efekt dźwiękowy do odtworzenia. Można wybierać spośród plików w `/assets/sounds` lub spośród gotowych dźwięków, takich jak `Beep`, `Pitch` i `Tone`.","defaultValue":"beep","flexBasis":"60%"},{"key":"priority","label":"Pierwszeństwo","description":"Priorytet efektu, wysoki, średni lub niski. Jeśli dwa efekty dźwiękowe są odtwarzane w tym samym czasie, pierwszeństwo będą miały efekty dźwiękowe o wyższym priorytecie.","type":"priority","options":[["low","Nisko"],["medium","Średnio"],["high","Wysoko"]],"defaultValue":"medium","flexBasis":"15%"},{"key":"pitch","type":"number","label":"Ton","description":"Wysokość tonu efektu dźwiękowego (tylko efekt Beep).","conditions":[{"key":"type","eq":"beep"}],"min":1,"max":8,"step":1,"defaultValue":4},{"key":"frequency","type":"number","label":"Częstotliwość w Hz","description":"Częstotliwość efektu dźwiękowego w Hz (tylko efekt tonowy).","conditions":[{"key":"type","eq":"tone"}],"min":0,"max":20000,"step":1,"defaultValue":200},{"key":"duration","type":"number","label":"Czas trwania","description":"Czas odtwarzania efektu dźwiękowego.","unitsField":"units","unitsDefault":"time","conditions":[{"key":"type","in":["beep","crash","tone"]}],"min":0,"max":4.25,"step":0.01,"defaultValue":0.5},{"key":"wait","type":"checkbox","label":"Czekaj na zakończenie","description":"Ustawienie wstrzymuje skrypt do momentu zakończenia odtwarzania efektu dźwiękowego.","conditions":[{"key":"type","in":["beep","crash","tone"]}],"defaultValue":true,"flexBasis":"100%"},{"key":"effect","type":"number","label":"Spis efektów","description":"Numer efektu do odtworzenia (tylko dla fxhammer).","min":0,"max":60,"defaultValue":0,"conditions":[{"key":"type","soundType":"fxhammer"}]}]} />
 
@@ -27,7 +27,13 @@ Polecenie odtworzy efekt dźwiękowy. Należy wybrać odtwarzanie pliku .WAV, .V
 - **Czekaj na zakończenie**: Ustawienie wstrzymuje skrypt do momentu zakończenia odtwarzania efektu dźwiękowego.  
 - **Spis efektów**: Numer efektu do odtworzenia (tylko dla fxhammer).  
 
-## Muzyka: ustaw rutynę
+### Muzyka: stop
+Polecenie zatrzymuje aktualną odtwarzaną muzykę.
+<ScriptEventPreview title={"Muzyka: stop"} fields={[{"label":"Zatrzymanie muzyki, która była odtwarzana."}]} />
+
+
+## Script
+### Muzyka: ustaw rutynę
 Dołącz skrypt do jednej z czterech procedur muzycznych, które można uruchomić z pliku .uge. W edytorze muzycznym możesz użyć efektu rutyny połączeń w swoich utworach, aby uruchomić te skrypty w rytm muzyki.
 
 **Odniesienia**  
@@ -36,9 +42,4 @@ Dołącz skrypt do jednej z czterech procedur muzycznych, które można uruchomi
 
 - **Rutyna**: Rutyna muzyczna, może być 0, 1, 2 lub 3.  
 - **Wywołaj**: Skrypt do uruchomienia po wywołaniu procedury.  
-
-## Muzyka: stop
-Polecenie zatrzymuje aktualną odtwarzaną muzykę.
-<ScriptEventPreview title={"Muzyka: stop"} fields={[{"label":"Zatrzymanie muzyki, która była odtwarzana."}]} />
-
 

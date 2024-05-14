@@ -9,7 +9,7 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Kontrollablauf
 
-## Skript aufrufen
+### Skript aufrufen
 Call one of your custom scripts. Once you have chosen a script you will be able to hook up any parameters required.
 
 **Referenzen**  
@@ -18,7 +18,7 @@ Call one of your custom scripts. Once you have chosen a script you will be able 
 
 - **Benutzerdefiniertes Ereignis**: Das auszuführende Skript.  
 
-## If
+### If
 Conditionally run part of the script if the specified value evaluates to true.
 <ScriptEventPreview title={"If"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":1}}},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
@@ -26,108 +26,12 @@ Conditionally run part of the script if the specified value evaluates to true.
 - **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
 - **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
 
-## Falls Darsteller An Position
-Einen Teil des Skripts bedingt ausführen, wenn sich ein Darsteller an einer bestimmten Position befindet.
-<ScriptEventPreview title={"Falls Darsteller An Position"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","description":"Die horizontale Position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"Die vertikale Position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Darsteller**: Der zu überprüfende Darsteller.  
-- **X**: Die horizontale Position.  
-- **Y**: Die vertikale Position.  
-- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
-- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
-
-## If Actor Distance From Actor
-Conditionally run part of the script if an actor is within a certain distance of another actor.
-<ScriptEventPreview title={"If Actor Distance From Actor"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"player","width":"50%"},{"type":"group","fields":[{"key":"operator","label":"Vergleich","description":"Der zu verwendende Vergleichsoperator, z. B. 'Kleiner als' oder 'Größer als'.","type":"operator","width":"50%","defaultValue":"<="},{"key":"distance","label":"Abstand","description":"Der Abstandswert.","type":"value","min":0,"max":181,"width":"50%","unitsDefault":"tiles","defaultValue":{"type":"number","value":0}}]},{"key":"otherActorId","label":"Von","description":"Der Darsteller, dessen Entfernung verglichen wird.","type":"actor","defaultValue":"$self$","width":"50%"},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Darsteller**: Der zu überprüfende Darsteller.  
-- **Vergleich**: Der zu verwendende Vergleichsoperator, z. B. 'Kleiner als' oder 'Größer als'.  
-- **Abstand**: Der Abstandswert.  
-- **Von**: Der Darsteller, dessen Entfernung verglichen wird.  
-- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
-- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
-
-## Falls Blickrichtung Des Darstellers
-Einen Teil des Skripts bedingt ausführen, wenn ein Darsteller in die angegebene Richtung schauet.
-<ScriptEventPreview title={"Falls Blickrichtung Des Darstellers"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Blickrichtung","description":"Die Blickrichtung des Darstellers.","type":"value","defaultValue":{"type":"direction","value":"up"}},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Darsteller**: Der zu überprüfende Darsteller.  
-- **Blickrichtung**: Die Blickrichtung des Darstellers.  
-- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
-- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
-
-## Falls Darsteller relativ zum Darsteller
-Conditionally run part of the script based on the position of one actor relative to another.
-<ScriptEventPreview title={"Falls Darsteller relativ zum Darsteller"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"player"},{"key":"operation","label":"Vergleich","description":"Der zu verwendende relative Positionsvergleich, z. B. 'Ist über' oder 'Ist unter'.","type":"select","options":[["up","Ist über"],["down","Ist unter"],["left","Ist links von"],["right","Ist rechts von"]],"defaultValue":"up","width":"50%"},{"key":"otherActorId","label":"Anderer Darsteller","description":"Der Darsteller, dessen Position verglichen wird.","type":"actor","defaultValue":"$self$"},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Darsteller**: Der zu überprüfende Darsteller.  
-- **Vergleich**: Der zu verwendende relative Positionsvergleich, z. B. 'Ist über' oder 'Ist unter'.  
-- **Anderer Darsteller**: Der Darsteller, dessen Position verglichen wird.  
-- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
-- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
-
-## Falls Farbmodus verfügbar ist
-Conditionally run part of the script if the game is being played on a device or emulator that supports color games.
-<ScriptEventPreview title={"Falls Farbmodus verfügbar ist"} fields={[{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
-- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
-
-## Falls die aktuelle Szene ist
-<ScriptEventPreview title={"Falls die aktuelle Szene ist"} fields={[{"key":"sceneId","label":"Szene","type":"scene","defaultValue":"LAST_SCENE"},{"key":"true","label":"Wahr","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Szene**  
-- **Wahr**  
-- **Falsch**  
-
-## Falls Spieldaten Gespeichert
-Conditionally run part of the script if save data is present within the specified save slot.
-<ScriptEventPreview title={"Falls Spieldaten Gespeichert"} fields={[{"key":"saveSlot","label":"Speichere Slot","description":"Der zu nutzende Speicherslot.","type":"togglebuttons","options":[[0,"Slot 1","Speichere Slot 1"],[1,"Slot 2","Speichere Slot 2"],[2,"Slot 3","Speichere Slot 3"]],"allowNone":false,"defaultValue":0},{"label":"Ausführen, falls der Spieler ein Spiel gespeichert hat."},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Speichere Slot**: Der zu nutzende Speicherslot.  
-- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
-- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
-
-## Falls GBA-Modus verfügbar ist
-Conditionally run part of the script if the game is being played on a device or emulator that supports GBA games.
-<ScriptEventPreview title={"Falls GBA-Modus verfügbar ist"} fields={[{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
-- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
-
-## Falls Joypad-Eingabe Gedrückt
-Einen Teil des Skripts bedingt ausführen, wenn die angegebene Joypad-Taste gedrückt ist. Wartet nicht auf Nutzereingaben und wird nur einmal ausgeführt. Wenn ein Skript jedes Mal ausgeführt werden soll, wenn eine Taste gedrückt wird, ist stattdessen 'Skript an Taste anhängen' zu nutzen.
-
-**Referenzen**  
-[/docs/scripting/script-glossary/input#attach-script-to-button](/docs/scripting/script-glossary/input#attach-script-to-button)  
-<ScriptEventPreview title={"Falls Joypad-Eingabe Gedrückt"} fields={[{"key":"input","label":"Beliebiges von","description":"Die zu überprüfenden Eingabetasten.","type":"input","defaultValue":["a","b"]},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Beliebiges von**: Die zu überprüfenden Eingabetasten.  
-- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
-- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
-
-## Falls Super-GB-Modus verfügbar ist
-Conditionally run part of the script if the game is being played on a device or emulator that supports Super GB games.
-<ScriptEventPreview title={"Falls Super-GB-Modus verfügbar ist"} fields={[{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
-- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
-
-## Falls Variable Flag hat
-Conditionally run part of the script if the specified variable has the chosen flag set as true.
-<ScriptEventPreview title={"Falls Variable Flag hat"} fields={[{"key":"variable","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"flag","label":"Flag","description":"Das zu prüfende Flag.","type":"selectFlags","defaultValue":0},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
-
-- **Variable**: Die zu nutzende Variable.  
-- **Flag**: Das zu prüfende Flag.  
-- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
-- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
-
-## Endlos-Schleife
+### Endlos-Schleife
 Ein Teil des Scripts wird in einer Endlosschleife ausgeführt. Man muss daran denke die Schleife zu beenden, da ansonsten der Spieler feststeckt. Die schleife kann mittels 'Script: Anhalten' oder 'Wechsle zu Szene' Ereignis beendet werden.
 <ScriptEventPreview title={"Endlos-Schleife"} fields={[{"key":"true","type":"events"}]} />
 
 
-## Zählschleife
+### Zählschleife
 Run part of the script in a loop while a counter variable is within a specified range. On each loop the counter variable is modified before the next check.
 <ScriptEventPreview title={"Zählschleife"} fields={[{"key":"variable","label":"Für","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"from","label":"Von","description":"Der Anfangswert der Zählervariable.","type":"value","min":-32768,"max":32767,"defaultValue":{"type":"number","value":0}},{"key":"comparison","label":"Vergleich","description":"Der zu verwendende Vergleichsoperator, z. B. 'Kleiner als' oder 'Größer als'.","type":"operator","defaultValue":"<="},{"key":"to","label":"zu","description":"Der Endwert der Zählervariable.","type":"value","min":-32768,"max":32767,"defaultValue":{"type":"number","value":10}}],"flexBasis":200},{"type":"group","fields":[{"key":"operation","label":"Operation","description":"Die Operation, mit der bei jedem Schleifendurchlauf ein Wert mit der Zählervariablen kombiniert wird.","type":"mathOperator","defaultValue":"+="},{"key":"value","label":"Wert","description":"Der Wert, der nach jedem Schleifendurchlauf mit der Zählervariablen kombiniert wird.","type":"value","min":-32768,"max":32767,"defaultValue":{"type":"number","value":1}}],"flexBasis":150},{"key":"true","type":"events"}]} />
 
@@ -138,22 +42,124 @@ Run part of the script in a loop while a counter variable is within a specified 
 - **Operation**: Die Operation, mit der bei jedem Schleifendurchlauf ein Wert mit der Zählervariablen kombiniert wird.  
 - **Wert**: Der Wert, der nach jedem Schleifendurchlauf mit der Zählervariablen kombiniert wird.  
 
-## Bedingte Schleife
+### Bedingte Schleife
 Ein Teil des Scripts wird in einer Schleife ausgeführt, solange eine bestimmte Bedingung erfüllt ist.
 <ScriptEventPreview title={"Bedingte Schleife"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"lt","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":10}}},{"key":"true","type":"events"}]} />
 
 - **Condition**: The condition to evaluate.  
 
-## Skript: Anhalten
+### Skript: Anhalten
 Das aktuell ausgeführte Skript anhalten.
 <ScriptEventPreview title={"Skript: Anhalten"} fields={[{"label":"Stoppt das aktuell ausgeführte Skript."}]} />
 
 
-## Schalter
+### Schalter
 Conditionally run from multiple options depending on the value of the specified variable. First choose how many options you want to compare the variable against, then set the values to compare and what scripts to execute when the value is matched.
 <ScriptEventPreview title={"Schalter"} fields={[{"key":"variable","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"choices","label":"Anzahl der Optionen","description":"Die Anzahl der benötigten Optionen.","type":"number","min":1,"max":16,"defaultValue":2},{"key":"__collapseCase0","label":"Wenn: $$value0$$","conditions":[{"key":"choices","gt":0}],"type":"collapsable","defaultValue":false},{"key":"value0","label":"Wert","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase0","ne":true},{"key":"choices","gt":0}],"type":"number","min":-32768,"max":32767,"defaultValue":1},{"key":"true0","conditions":[{"key":"__collapseCase0","ne":true},{"key":"choices","gt":0}],"type":"events"},{"key":"__collapseCase1","label":"Wenn: $$value1$$","conditions":[{"key":"choices","gt":1}],"type":"collapsable","defaultValue":false},{"key":"value1","label":"Wert","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase1","ne":true},{"key":"choices","gt":1}],"type":"number","min":-32768,"max":32767,"defaultValue":2},{"key":"true1","conditions":[{"key":"__collapseCase1","ne":true},{"key":"choices","gt":1}],"type":"events"},{"key":"__collapseCase2","label":"Wenn: $$value2$$","conditions":[{"key":"choices","gt":2}],"type":"collapsable","defaultValue":false},{"key":"value2","label":"Wert","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase2","ne":true},{"key":"choices","gt":2}],"type":"number","min":-32768,"max":32767,"defaultValue":3},{"key":"true2","conditions":[{"key":"__collapseCase2","ne":true},{"key":"choices","gt":2}],"type":"events"},{"key":"__collapseCase3","label":"Wenn: $$value3$$","conditions":[{"key":"choices","gt":3}],"type":"collapsable","defaultValue":false},{"key":"value3","label":"Wert","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase3","ne":true},{"key":"choices","gt":3}],"type":"number","min":-32768,"max":32767,"defaultValue":4},{"key":"true3","conditions":[{"key":"__collapseCase3","ne":true},{"key":"choices","gt":3}],"type":"events"},{"key":"__collapseCase4","label":"Wenn: $$value4$$","conditions":[{"key":"choices","gt":4}],"type":"collapsable","defaultValue":false},{"key":"value4","label":"Wert","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase4","ne":true},{"key":"choices","gt":4}],"type":"number","min":-32768,"max":32767,"defaultValue":5},{"key":"true4","conditions":[{"key":"__collapseCase4","ne":true},{"key":"choices","gt":4}],"type":"events"},{"key":"__collapseCase5","label":"Wenn: $$value5$$","conditions":[{"key":"choices","gt":5}],"type":"collapsable","defaultValue":false},{"key":"value5","label":"Wert","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase5","ne":true},{"key":"choices","gt":5}],"type":"number","min":-32768,"max":32767,"defaultValue":6},{"key":"true5","conditions":[{"key":"__collapseCase5","ne":true},{"key":"choices","gt":5}],"type":"events"},{"key":"__collapseCase6","label":"Wenn: $$value6$$","conditions":[{"key":"choices","gt":6}],"type":"collapsable","defaultValue":false},{"key":"value6","label":"Wert","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase6","ne":true},{"key":"choices","gt":6}],"type":"number","min":-32768,"max":32767,"defaultValue":7},{"key":"true6","conditions":[{"key":"__collapseCase6","ne":true},{"key":"choices","gt":6}],"type":"events"},{"key":"__collapseCase7","label":"Wenn: $$value7$$","conditions":[{"key":"choices","gt":7}],"type":"collapsable","defaultValue":false},{"key":"value7","label":"Wert","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase7","ne":true},{"key":"choices","gt":7}],"type":"number","min":-32768,"max":32767,"defaultValue":8},{"key":"true7","conditions":[{"key":"__collapseCase7","ne":true},{"key":"choices","gt":7}],"type":"events"},{"key":"__collapseCase8","label":"Wenn: $$value8$$","conditions":[{"key":"choices","gt":8}],"type":"collapsable","defaultValue":false},{"key":"value8","label":"Wert","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase8","ne":true},{"key":"choices","gt":8}],"type":"number","min":-32768,"max":32767,"defaultValue":9},{"key":"true8","conditions":[{"key":"__collapseCase8","ne":true},{"key":"choices","gt":8}],"type":"events"},{"key":"__collapseCase9","label":"Wenn: $$value9$$","conditions":[{"key":"choices","gt":9}],"type":"collapsable","defaultValue":false},{"key":"value9","label":"Wert","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase9","ne":true},{"key":"choices","gt":9}],"type":"number","min":-32768,"max":32767,"defaultValue":10},{"key":"true9","conditions":[{"key":"__collapseCase9","ne":true},{"key":"choices","gt":9}],"type":"events"},{"key":"__collapseCase10","label":"Wenn: $$value10$$","conditions":[{"key":"choices","gt":10}],"type":"collapsable","defaultValue":false},{"key":"value10","label":"Wert","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase10","ne":true},{"key":"choices","gt":10}],"type":"number","min":-32768,"max":32767,"defaultValue":11},{"key":"true10","conditions":[{"key":"__collapseCase10","ne":true},{"key":"choices","gt":10}],"type":"events"},{"key":"__collapseCase11","label":"Wenn: $$value11$$","conditions":[{"key":"choices","gt":11}],"type":"collapsable","defaultValue":false},{"key":"value11","label":"Wert","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase11","ne":true},{"key":"choices","gt":11}],"type":"number","min":-32768,"max":32767,"defaultValue":12},{"key":"true11","conditions":[{"key":"__collapseCase11","ne":true},{"key":"choices","gt":11}],"type":"events"},{"key":"__collapseCase12","label":"Wenn: $$value12$$","conditions":[{"key":"choices","gt":12}],"type":"collapsable","defaultValue":false},{"key":"value12","label":"Wert","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase12","ne":true},{"key":"choices","gt":12}],"type":"number","min":-32768,"max":32767,"defaultValue":13},{"key":"true12","conditions":[{"key":"__collapseCase12","ne":true},{"key":"choices","gt":12}],"type":"events"},{"key":"__collapseCase13","label":"Wenn: $$value13$$","conditions":[{"key":"choices","gt":13}],"type":"collapsable","defaultValue":false},{"key":"value13","label":"Wert","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase13","ne":true},{"key":"choices","gt":13}],"type":"number","min":-32768,"max":32767,"defaultValue":14},{"key":"true13","conditions":[{"key":"__collapseCase13","ne":true},{"key":"choices","gt":13}],"type":"events"},{"key":"__collapseCase14","label":"Wenn: $$value14$$","conditions":[{"key":"choices","gt":14}],"type":"collapsable","defaultValue":false},{"key":"value14","label":"Wert","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase14","ne":true},{"key":"choices","gt":14}],"type":"number","min":-32768,"max":32767,"defaultValue":15},{"key":"true14","conditions":[{"key":"__collapseCase14","ne":true},{"key":"choices","gt":14}],"type":"events"},{"key":"__collapseCase15","label":"Wenn: $$value15$$","conditions":[{"key":"choices","gt":15}],"type":"collapsable","defaultValue":false},{"key":"value15","label":"Wert","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase15","ne":true},{"key":"choices","gt":15}],"type":"number","min":-32768,"max":32767,"defaultValue":16},{"key":"true15","conditions":[{"key":"__collapseCase15","ne":true},{"key":"choices","gt":15}],"type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":false,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Variable**: Die zu nutzende Variable.  
 - **Anzahl der Optionen**: Die Anzahl der benötigten Optionen.  
 - **Wert**: The value to compare the variable with for running this branch of the script.  
+
+## Actor
+### Falls Darsteller An Position
+Einen Teil des Skripts bedingt ausführen, wenn sich ein Darsteller an einer bestimmten Position befindet.
+<ScriptEventPreview title={"Falls Darsteller An Position"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","description":"Die horizontale Position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"Die vertikale Position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Darsteller**: Der zu überprüfende Darsteller.  
+- **X**: Die horizontale Position.  
+- **Y**: Die vertikale Position.  
+- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
+- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+
+### If Actor Distance From Actor
+Conditionally run part of the script if an actor is within a certain distance of another actor.
+<ScriptEventPreview title={"If Actor Distance From Actor"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"player","width":"50%"},{"type":"group","fields":[{"key":"operator","label":"Vergleich","description":"Der zu verwendende Vergleichsoperator, z. B. 'Kleiner als' oder 'Größer als'.","type":"operator","width":"50%","defaultValue":"<="},{"key":"distance","label":"Abstand","description":"Der Abstandswert.","type":"value","min":0,"max":181,"width":"50%","unitsDefault":"tiles","defaultValue":{"type":"number","value":0}}]},{"key":"otherActorId","label":"Von","description":"Der Darsteller, dessen Entfernung verglichen wird.","type":"actor","defaultValue":"$self$","width":"50%"},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Darsteller**: Der zu überprüfende Darsteller.  
+- **Vergleich**: Der zu verwendende Vergleichsoperator, z. B. 'Kleiner als' oder 'Größer als'.  
+- **Abstand**: Der Abstandswert.  
+- **Von**: Der Darsteller, dessen Entfernung verglichen wird.  
+- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
+- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+
+### Falls Blickrichtung Des Darstellers
+Einen Teil des Skripts bedingt ausführen, wenn ein Darsteller in die angegebene Richtung schauet.
+<ScriptEventPreview title={"Falls Blickrichtung Des Darstellers"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Blickrichtung","description":"Die Blickrichtung des Darstellers.","type":"value","defaultValue":{"type":"direction","value":"up"}},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Darsteller**: Der zu überprüfende Darsteller.  
+- **Blickrichtung**: Die Blickrichtung des Darstellers.  
+- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
+- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+
+### Falls Darsteller relativ zum Darsteller
+Conditionally run part of the script based on the position of one actor relative to another.
+<ScriptEventPreview title={"Falls Darsteller relativ zum Darsteller"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"player"},{"key":"operation","label":"Vergleich","description":"Der zu verwendende relative Positionsvergleich, z. B. 'Ist über' oder 'Ist unter'.","type":"select","options":[["up","Ist über"],["down","Ist unter"],["left","Ist links von"],["right","Ist rechts von"]],"defaultValue":"up","width":"50%"},{"key":"otherActorId","label":"Anderer Darsteller","description":"Der Darsteller, dessen Position verglichen wird.","type":"actor","defaultValue":"$self$"},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Darsteller**: Der zu überprüfende Darsteller.  
+- **Vergleich**: Der zu verwendende relative Positionsvergleich, z. B. 'Ist über' oder 'Ist unter'.  
+- **Anderer Darsteller**: Der Darsteller, dessen Position verglichen wird.  
+- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
+- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+
+## Device
+### Falls Farbmodus verfügbar ist
+Conditionally run part of the script if the game is being played on a device or emulator that supports color games.
+<ScriptEventPreview title={"Falls Farbmodus verfügbar ist"} fields={[{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
+- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+
+### Falls GBA-Modus verfügbar ist
+Conditionally run part of the script if the game is being played on a device or emulator that supports GBA games.
+<ScriptEventPreview title={"Falls GBA-Modus verfügbar ist"} fields={[{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
+- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+
+### Falls Super-GB-Modus verfügbar ist
+Conditionally run part of the script if the game is being played on a device or emulator that supports Super GB games.
+<ScriptEventPreview title={"Falls Super-GB-Modus verfügbar ist"} fields={[{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
+- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+
+## Input
+### Falls Joypad-Eingabe Gedrückt
+Einen Teil des Skripts bedingt ausführen, wenn die angegebene Joypad-Taste gedrückt ist. Wartet nicht auf Nutzereingaben und wird nur einmal ausgeführt. Wenn ein Skript jedes Mal ausgeführt werden soll, wenn eine Taste gedrückt wird, ist stattdessen 'Skript an Taste anhängen' zu nutzen.
+
+**Referenzen**  
+[/docs/scripting/script-glossary/input#attach-script-to-button](/docs/scripting/script-glossary/input#attach-script-to-button)  
+<ScriptEventPreview title={"Falls Joypad-Eingabe Gedrückt"} fields={[{"key":"input","label":"Beliebiges von","description":"Die zu überprüfenden Eingabetasten.","type":"input","defaultValue":["a","b"]},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Beliebiges von**: Die zu überprüfenden Eingabetasten.  
+- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
+- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+
+## Save Data
+### Falls Spieldaten Gespeichert
+Conditionally run part of the script if save data is present within the specified save slot.
+<ScriptEventPreview title={"Falls Spieldaten Gespeichert"} fields={[{"key":"saveSlot","label":"Speichere Slot","description":"Der zu nutzende Speicherslot.","type":"togglebuttons","options":[[0,"Slot 1","Speichere Slot 1"],[1,"Slot 2","Speichere Slot 2"],[2,"Slot 3","Speichere Slot 3"]],"allowNone":false,"defaultValue":0},{"label":"Ausführen, falls der Spieler ein Spiel gespeichert hat."},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Speichere Slot**: Der zu nutzende Speicherslot.  
+- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
+- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+
+## Scene
+### Falls die aktuelle Szene ist
+<ScriptEventPreview title={"Falls die aktuelle Szene ist"} fields={[{"key":"sceneId","label":"Szene","type":"scene","defaultValue":"LAST_SCENE"},{"key":"true","label":"Wahr","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Szene**  
+- **Wahr**  
+- **Falsch**  
+
+## Variables
+### Falls Variable Flag hat
+Conditionally run part of the script if the specified variable has the chosen flag set as true.
+<ScriptEventPreview title={"Falls Variable Flag hat"} fields={[{"key":"variable","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"flag","label":"Flag","description":"Das zu prüfende Flag.","type":"selectFlags","defaultValue":0},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Variable**: Die zu nutzende Variable.  
+- **Flag**: Das zu prüfende Flag.  
+- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
+- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
 

@@ -9,24 +9,25 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Screen
 
-## Pantalla: Aparecer gradualmente
+### Pantalla: Aparecer gradualmente
 Fade the scene from a blank screen.
 <ScriptEventPreview title={"Pantalla: Aparecer gradualmente"} fields={[{"key":"speed","label":"Velocidad","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2"}]} />
 
 - **Velocidad**: The speed of the fade animation.  
 
-## Pantalla: Desaparecer gradualmente
+### Pantalla: Desaparecer gradualmente
 Fade the scene to a blank screen.
 <ScriptEventPreview title={"Pantalla: Desaparecer gradualmente"} fields={[{"key":"speed","label":"Velocidad","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2"}]} />
 
 - **Velocidad**: The speed of the fade animation.  
 
-## Capa Sobrepuesta: Esconder
+## Overlay
+### Capa Sobrepuesta: Esconder
 Hides the screen overlay.
 <ScriptEventPreview title={"Capa Sobrepuesta: Esconder"} fields={[{"label":"Oculta la ventana sobrepuesta de la pantalla."}]} />
 
 
-## Capa Sobrepuesta: Mover hacia
+### Capa Sobrepuesta: Mover hacia
 Moves the overlay to a new position on the screen.
 <ScriptEventPreview title={"Capa Sobrepuesta: Mover hacia"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"The vertical position.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]},{"key":"speed","label":"Velocidad","description":"The movement speed.","type":"cameraSpeed","defaultValue":"0"}]} />
 
@@ -34,7 +35,7 @@ Moves the overlay to a new position on the screen.
 - **Y**: The vertical position.  
 - **Velocidad**: The movement speed.  
 
-## Capa Sobrepuesta: Mostrar
+### Capa Sobrepuesta: Mostrar
 Show either a black or white window over the top of the current game screen. Can be used to obscure and then reveal parts of the scene background for example on the sample project logo screen.
 <ScriptEventPreview title={"Capa Sobrepuesta: Mostrar"} fields={[{"key":"color","label":"Fill Color","description":"The color to fill the overlay with, either black or white.","type":"overlayColor","defaultValue":"black"},{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"The vertical position.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]}]} />
 
