@@ -6,13 +6,25 @@ sidebar_position: 11
 
 Clicking the _Project View Button_ and selecting _Settings_ will take you to a list of your project's settings.
 
-## GB Color Options
+## Color Options
 
-GB Studio has support for GB Color when your game is run on compatible hardware or emulators. Click the `Enable Color Mode` checkbox to enable.
+GB Studio has support for multiple color modes, each provides different features, [limitations](/docs/project-editor/scenes#scene-limits) and device compatibility. 
 
-<img title="Color" src="/img/screenshots/color-palette-v3.png" width="650" className="drop-shadow" />
+- **Monochrome**  
+  Allows your game to run on all devices, using four colors only.  
+  Supported platforms: **GB**, **GB Color**, **Super GB**, **Analogue Pocket**
 
-Once color mode is enabled you can select up to 8 Default Background Palettes and 8 Default Sprite Palettes, these are the palettes that every new scene in your game will use unless you specifically override them. See [Colorizing a Scene](/docs/project-editor/scenes/#colorizing-a-scene) for how to use background palettes.
+- **Color + Monochrome** - 
+  Allows your game to run on monochrome and color devices.  
+  Color palettes can be used to [color your scenes](http://localhost:3001/docs/project-editor/scenes#colorizing-a-scene) on compatible devices.  
+  Supported platforms: **GB** (Monochrome only), **GB Color**, **Super GB**, **Analogue Pocket**
+
+- **Color Only** Increases the amount of [tiles available](/docs/project-editor/scenes#scene-limits) in each scene for displaying backgrounds and sprites. Allows your game to run on color devices only.  
+  Supported platforms: **GB Color**, **Analogue Pocket**
+
+<img title="Color" src="/img/screenshots/color-palette-v4.png" width="650" className="drop-shadow" />
+
+When color mode is either `Color + Monochrome` or `Color Only` you can select up to 8 Default Background Palettes and 8 Default Sprite Palettes, these are the palettes that every new scene in your game will use unless you specifically override them. See [Colorizing a Scene](/docs/project-editor/scenes/#colorizing-a-scene) for how to use background palettes.
 
 ## Super GB Options
 
@@ -96,6 +108,17 @@ To reset to the original controls you can use the _Restore Default_ button.
 The _Cartridge Type_ section allows you to choose which Memory Bank Controller you want to use and if you want to enable Batteryless Saving for compatible Flash Carts.
 
 If you don't know what these settings mean it's best to keep this as the default of MBC5, with Batteryless disabled which you can do by using the _Restore Default_ button.
+
+## Build Options
+
+The _Build Options_ section allows you to modify settings relating to building your project.
+
+<img title="Build Options" src="/img/screenshots/build-settings-v4.png" width="650" className="drop-shadow" />
+
+- **Open Build Log On Warnings**  
+  Choose if the `Build Log` should be displayed automatically when warnings are displayed such as "too many unique tiles or palettes used in a scene". If you're choosing to ignore these warnings it can be helpful to disable them, otherwise you'll be taken to the `Build Log` every time your game runs. Please note that _errors_ building your project will always open the `Build Log` regardless of this setting.
+- **Generate Debugging Files**  
+  When using `Export ROM`, additional debugging files (such as `game.cdb`) are generated which allow improved debugging when testing your game in compatible emulators such as [Emulicious](https://emulicious.net/).
 
 ## Custom HTML Header
 
