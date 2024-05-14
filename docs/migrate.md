@@ -4,9 +4,15 @@ sidebar_position: 10
 
 # Migration Guide
 
+## GB Studio 3 to 4
+
+### Music
+
+## GB Studio 2 to 3
+
 GB Studio 3.0 introduces a number of changes to previous versions in an effort to improve and future proof the game engine and project format. While we try our best to automate as much of the migration as possible there are a few instances where it was not possible to do that this time and you may need to make some changes to your project if you wish to migrate from previous GB Studio versions.
 
-## Actors
+### Actors
 
 - Actors will now always animate while stationary (allowing idle animations), which may cause issues when you want to step through animations manually (like checkboxes in the GB Studio 2.0 sample game menu scenes), if you wish to control an animation manually as before, set the Actor’s animation speed to “None”. You should also consider using the new [Sprite Editor](/docs/assets/sprites/#sprite-editor) and [Animation States](/docs/assets/sprites/#animation-states) as you can accomplish similar goals with a lot more flexibility.
 
@@ -14,7 +20,7 @@ GB Studio 3.0 introduces a number of changes to previous versions in an effort t
 
 - If you are migrating from GB Studio 2 you may notice the per scene actor limits is now reduced to 20 actors per scene, this may increase in future releases. Depending on how you were using actors you may be able to use larger sprites to achieve the same effect.
 
-## Sprites
+### Sprites
 
 - The default player sprite is now set per scene type (_Top Down 2D_, _Platformer_, etc), so there is no need to switch to a different player sprite manually anymore in the scene init script, unless you wish to do so conditionally. When migrating a project using multiple scene types you will need to set the default player sprite for each scene type from the [Settings View](/docs/settings/#default-player-sprites).
 
@@ -22,10 +28,10 @@ GB Studio 3.0 introduces a number of changes to previous versions in an effort t
 
 - Platformer player sprites now have a custom jump and climb animation which you will need to configure. To use these go into the [Sprite Editor](/docs/assets/sprites/#sprite-editor), select your platform player sprite, and in the right hand sidebar set the animation type to “Platform Player” which adds a few more animations you can define for the sprite, see [Animation Settings](/docs/assets/sprites/#animation-settings) for more information.
 
-## Scenes
+### Scenes
 
 - Ladder tiles now snap the player sprite to the center of the tile while climbing. If you are using ladders in your game, make sure to test them as you may need to reposition the collision tiles to match the new alignment.
 
-## Save / Load
+### Save / Load
 
 - When loading a saved game, the game engine now continues any scripts that were previously running. This means that if you included a message such as “It is now safe to turn off your system.” immediately after the save, it will also be shown when loading that game. The save data event now includes an _On Save_ callback. This will only be called when you save, and not when you load the game back. If you were previously displaying a message after saving, you will likely need to move it into the _On Save_ script. See the save points in the latest example projects for how to implement this.
