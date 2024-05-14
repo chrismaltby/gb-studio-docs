@@ -40,7 +40,8 @@ While editing the game world you can use the following keys to quickly manipulat
 **Collisions Mode** - `C`  
 **Set Player Start Position** - `P` (while hovering over desired location)  
 **Pan View** - Hold `Space` (while clicking and dragging on _Game World_)  
-**Zoom** - Hold `Ctrl/Cmd` + `Scroll wheel`
+**Zoom** - Hold `Ctrl/Cmd` + `Scroll wheel`  
+**Focus on Scene Search** - `/`  
 
 ## Drawing Mode
 
@@ -56,7 +57,7 @@ Drawing mode is automatically enabled in the _Collision tool_ and the _Colorize 
 
 ## Collision Types
 
-These are only available when using the _Collision tool_.
+These are only available when using the [Collision tool](/docs/project-editor/scenes#adding-collision-to-a-scene).
 
 Each tile can hold a maximum of 1 ladder and 3 collision sides. Ladders will not replace existing collision when placed on top of other colliders.
 
@@ -71,14 +72,14 @@ Each tile can hold a maximum of 1 ladder and 3 collision sides. Ladders will not
 
 ## Colorize Palettes
 
-These are only available when using the _Colorize tool_.
+These are only available when using the [Colorize tool](/docs/project-editor/scenes#colorizing-a-scene).
 
 **Change Brush Palette** - `1-6`  
 **Change Palettes** - Hold click on existing palette
 
 ## Music Editor
 
-These are only available when using the _Music Editor_.
+These are only available when using the [Music Editor](/docs/assets/music/music-huge).
 
 **Save Song** - `Ctrl/Cmd` + `S`  
 **Play/Pause** - `Space`  
@@ -115,3 +116,10 @@ These are only available when using the _Music Editor_.
 **Paste and Replace Channel** - `Ctrl/Cmd` + `Shift` + `V`  
 **Delete Selection** - `Backspace/Delete`
 
+## Debugger
+
+When the [Debugger](/docs/debugger) is enabled, you can use the following keyboard shortcuts in both the _Project Window_ and _Play Window_:
+
+**Pause/Resume** - `F8`  
+**Step Forward One Instruction** - `F9`  
+**Step Forward One Frame** - `F10`  
