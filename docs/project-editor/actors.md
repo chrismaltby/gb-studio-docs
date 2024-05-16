@@ -12,7 +12,7 @@ To add an actor to a scene click the _**+** button_ in the _Editor Tools_ and se
 <img src="/img/screenshots/add-actor.gif" style={{width:300}} />
 
 ## Actor Properties
-- **Name** - Names your actor. Giving your actors a *name* helps organize them in your project. An actor's name will be visible in any drop-down menu that asks you to pick an actor, such as the *Actor: Hide* event.
+- **Name** - Names your actor. Giving your actors a *name* helps organize them in your project. An actor's name will be visible in any drop-down menu that asks you to pick an actor, such as the [Hide Actor](/docs/scripting/script-glossary/actor#hide-actor) event.
 - **Position** - Sets the X and Y position where the actor will be positioned in a scene. You can also change this by dragging the actor around the the _Game World_.
 - **Pin to Screen** - Using the _Pin Button_ next to the actor position you can choose to pin the actor to the screen which cause it to not move as the game screen scrolls.
 - **Sprite Sheet** - Choose which sprite graphics should be used to display the actor.
@@ -21,7 +21,7 @@ To add an actor to a scene click the _**+** button_ in the _Editor Tools_ and se
 - **Collision Group** - Choose if scripts should play automatically when colliding with this actor.
 
 ### Pin to Screen
-When an actor is pinned, the actor will not move without a script, and does not create collisions with other actors in your scene.
+When an actor is pinned it will appear in a fixed location as your game camera moves. The pinned actor will not move without a script, and does not create collisions with other actors in your scene.
 
 Enabling this property will temporarily change your scene to be blacked-out, with a ``160px x 144px`` boundary in the top-left corner showing part of your original scene. Use your mouse to drag the actor to where you want it to be pinned to the screen.
 
