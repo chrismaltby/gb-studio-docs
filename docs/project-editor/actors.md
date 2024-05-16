@@ -7,7 +7,7 @@ sidebar_position: 3
 Actors are the characters and objects in your scene that you can interact with.
 
 ## Adding an Actor
-To add an actor to a scene click the _**+** button_ in the _Editor Tools_ and select _Actor_ from the menu (alternatively press the **A** key), then click on the scene and position where you wish to place the actor.
+To add an actor to a scene click the **` + `** button in the _Editor Tools_ and select _Actor_ from the menu (alternatively press the **A** key), then click on the scene and position where you wish to place the actor.
 
 <img src="/img/screenshots/add-actor.gif" style={{width:300}} />
 
