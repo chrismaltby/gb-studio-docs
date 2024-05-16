@@ -8,7 +8,7 @@ Triggers are areas in a scene that, when the player walks over them, will cause 
 
 ## Adding a Trigger
 
-To add a trigger to a scene click the _**+** button_ button in the _Editor Tools_ and select _Trigger_ from the menu (alternatively press the **T** key), then click and drag across the scene where you wish to place the trigger setting the desired width and height.
+To add a trigger to a scene click the **` + `** button button in the _Editor Tools_ and select _Trigger_ from the menu (alternatively press the **T** key), then click and drag across the scene where you wish to place the trigger setting the desired width and height.
 
 <img src="/img/screenshots/add-trigger.gif" style={{width:300}} />
 
