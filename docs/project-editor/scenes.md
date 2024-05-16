@@ -104,7 +104,7 @@ The palettes used in the _Colorizer Tool_ can be swapped out for existing palett
 
 For more information about the drawing mode used for the _Colorize Tool_ and the _Collision Tool_, see [Keyboard Shortcuts](/docs/getting-started/keyboard-shortcuts).
 
-# Automatic Color
+## Automatic Color
 
 If your image is already a color `.png` file you can try switching to using `Automatic` Background Palettes using the _Editor Sidebar_.
 
