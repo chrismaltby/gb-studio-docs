@@ -22,6 +22,9 @@ Clicking any scenes, actors, or triggers will update the _Editor Sidebar_ to sho
 
 :::tip
 If you hold `Shift` while clicking on scenes you can add and remove them from your selection. This allows you to drag multiple scenes together or right click to delete multiple at once. You can also hold `Shift` while dragging to create a box selection.
+
+<img title="Scene box selection" src="/img/screenshots/multi-select.gif" width="320" className="drop-shadow" />
+
 :::
 
 ### Add tool
@@ -43,7 +46,7 @@ Allows you to [add collisions](/docs/project-editor/scenes#adding-collision-to-a
 
 ### Colorize tool
 
-Allows each tile to be given a different palette to use in place of GB Studio's default palette. The _Colorize tool_ also uses GB Studio's _Drawing mode_. The palettes used here are determined in the _Palette_ tab in the _Project Editor_.
+Allows you to [paint tiles](/docs/project-editor/scenes#colorizing-a-scene) in your scene with with up to 8 color palettes per scene. The _Colorize tool_ also uses GB Studio's _Drawing mode_. The palettes used here are determined in the _Palette_ tab in the _Project Editor_.
 
 See the documentation on [Keyboard Shortcuts](/docs/getting-started/keyboard-shortcuts) for editor tool shortcuts.
 
@@ -51,20 +54,20 @@ See the documentation on [Keyboard Shortcuts](/docs/getting-started/keyboard-sho
 
 Using the _Project View Button_ you can switch between different views of your project and its assets.
 
-**Game World:** Create your game by combining scenes, actors and triggers.
+<img title="Scene box selection" src="/img/screenshots/project-view-btn.gif" width="320" className="drop-shadow" />
 
-**Sprites:** Edit your sprites and create animations.
+- **Game World:** Create your game by combining [scenes](/docs/project-editor/scenes), [actors](/docs/project-editor/actors) and [triggers](/docs/project-editor/triggers).
 
-**Backgrounds:** Preview your background assets.
+- **Sprites:** Edit your [sprites](/docs/assets/sprites) and [create animations](/docs/assets/sprites#sprite-editor).
 
-**Music:** Preview and edit (hUGEDriver only) your music files.
+- **Images:** Preview your [background](/docs/assets/backgrounds) and [tileset](/docs/assets/tilesets) assets.
 
-**Palettes:** Edit your palettes for GBC games.
+- **Music:** Preview and edit your [music](/docs/assets/music) files.
 
-**Dialogue Review:** Preview and edit all the text in your game.
+- **Palettes:** Edit your palettes for color games.
 
-**Build and Run:** View logs of progress while building your game.
+- **Dialogue Review:** Preview and edit all the text in your game.
 
-**Settings:** Change your project's settings such as default sprites, color palettes and keyboard controls.
+- **Settings:** Change your [project's settings](/docs/settings) such as default sprites, color palettes and keyboard controls.
 
 See the documentation on [Assets](/docs/assets) for more information on how to add new assets.
