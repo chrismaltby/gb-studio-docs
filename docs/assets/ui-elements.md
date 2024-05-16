@@ -41,4 +41,4 @@ Emotes are stored in `assets/emotes` and must be defined as `16px x 16px` sized 
 
 ## Avatars
 
-Avatars are stored in `assets/avatars` and must be defined as `16px x 16px` sized `.png` files following the same color requirements used for creating spritesheets. You can display an avatar in a `Display Text` event by clicking `Add Avatar` within the event.
+Avatars are stored in `assets/avatars` and must be defined as `16px x 16px` sized `.png` files following the same color requirements used for creating spritesheets. You can display an avatar in a [Display Dialogue](/docs/scripting/script-glossary/dialogue-menus#display-dialogue) event by clicking `Add Avatar` within the event.
