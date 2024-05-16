@@ -16,7 +16,7 @@ To revert any GBDK file back to its GB Studio default, delete it from the `asset
 
 ## Compile Errors
 
-If you have bugged or incompatible files in the `/engine` folder, GB Studio will not be able to build your game. Error messages can be found in the _Build & Run_ window.
+If you have broken or incompatible files in the `/engine` folder, GB Studio will not be able to build your game. Error messages can be found in the [Build Log](/docs/debugger#build-log).
 
 The error message will often explain which files have problems and point you to the line number where the problem was found, for example this error is showing that line 77 of `src/core/actor.c` is using a variable that has not yet been defined:
 
