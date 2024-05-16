@@ -87,6 +87,17 @@
   -webkit-filter: drop-shadow(0px 1px 10px rgba(0, 0, 0, 0.3));
 }
 
+.clip-bottom {
+  display: flex;
+  overflow: hidden;
+  border-radius: 8px;
+  clip-path: inset(0px 0px 1px 0px); 
+}
+
+.margin-bottom {
+  margin-bottom: var(--ifm-leading);
+}
+
 .footer__links {
   margin-bottom: 4rem;
 }

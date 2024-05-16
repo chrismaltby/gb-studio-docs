@@ -32,3 +32,9 @@ Colors that are not one of the above hex codes will be matched to the nearest co
 In most scene types a background image can contain no more than **192** unique `8px` x `8px` tiles at once due to memory limits. This means that even using the smallest background size possible you must repeat about half of your tiles. Where possible repeat tiles between images as they will be grouped together saving on total game size. It is recommended to use a tile map editor such as [Tiled](https://www.mapeditor.org/) to ensure your backgrounds conform to the pixel grid.
 
 The exception to this is scenes with their _Scene Type_ set as _Logo_, these scenes can use a `160px` x `144px` sized image with no limits on unique tiles but note that in _Logo_ scenes you are unable to use _Actors_ or display a _Player_.
+
+## Color Images
+
+
+## Monochrome Overrides
+
