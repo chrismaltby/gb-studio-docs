@@ -4,6 +4,10 @@ sidebar_position: 1
 
 # Music Editor
 
+:::info
+If you've recently upgraded to GB Studio 4 from an earlier version, please review this [migration guide](/docs/migrate) to ensure your music is properly updated.
+:::
+
 If you have your _Music Format_ in the _Settings View_ set to `UGE (hUGEDriver)` (the default in GB Studio 3 and above) you can add music to your game by including `.uge` files in your project's `assets/music` folder. 
 
 Those files can be edited using the _Music Editor_ by clicking the _Project View Button_ and selecting _Music_. The editor also allows to create new songs by pressing the `+` button on top of the Song list.
