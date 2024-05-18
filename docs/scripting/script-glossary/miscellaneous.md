@@ -31,21 +31,28 @@ Run a GBVM script.
 - **References**: A list of the assets and entities used in your GBVM script. Use this to let GB Studio know that a file is needed by your script, preventing it from being excluded in the final build.  
 
 ## Link: Close
+Closes an active link session.
 <ScriptEventPreview title={"Link: Close"} fields={[{"label":"Close the current link session."}]} />
 
-
 ## Link: Host
+The Link: Host event creates a new link session on P1, (similar to creating a public match in an online game) which allows P2 to use the Link: Join event to join the link session.
 <ScriptEventPreview title={"Link: Host"} fields={[{"label":"Host a link session."}]} />
 
 
 ## Link: Join
+The Link: Join event allows the gameboy on the other side of the link cable to join an active link session. This event must be executed before any kind of data transfer between P1 and P2. Trying to send or receive data before this event will immediately fail and or freeze the game.
 <ScriptEventPreview title={"Link: Join"} fields={[{"label":"Join a link session."}]} />
 
 
 ## Link: Transfer
+The Link: Transfer event allows two gameboy systems to transfer variables.
 <ScriptEventPreview title={"Link: Transfer"} fields={[{"key":"sendVariable","label":"Send Variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"receiveVariable","label":"Receive Variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"size","label":"Packet Size","type":"number","defaultValue":1}]} />
 
-- **Send Variable**  
-- **Receive Variable**  
+- **Send Variable**
+This field is where you would enter the variable you want to send to P2. It would require the Receive Variable field on P2’s Link: Transfer event to be the same as this field in order to transfer properly. 
+NOTE: It is possible to send a variable without needing to receive one. In order to do this, you could set the Receive Variable to $Temp 0, but you would need to reflect that onto P2’s Send Variable Field.
+- **Receive Variable**
+This field is where you would enter the variable you want to receive from P2. 
+NOTE: It is possible to receive a variable without needing to send one. In order to do this, you could set the Send Variable to $Temp 0, but you would need to reflect that onto P2’s Receive Variable Field.  
 - **Packet Size**  
-
+This field is used to determine how many variables are sent/received using the Link: Transfer event. The Send Variable field determines which variable to start with. The packet size determines the variable to stop at. For example, if you set the Send Variable to $Variable 1 and the packet size to 5, it would send $Variable 1, $Variable 2, $Variable 3, $Variable 4, and $Variable 5 all in one transfer. This of course, would take more time than just transferring one variable. It is also important to note that the packet size on P2’s Link: Transfer event will need to be the same as P1’s.
