@@ -5,16 +5,7 @@
 
 When playing your game inside GB Studio use the following keyboard controls:
 
-**Up** - `Up Arrow` / `W`  
-**Down** - `Down Arrow` / `S`  
-**Left** - `Left Arrow` / `A`  
-**Right** - `Right Arrow` / `D`  
-**A** - `Alt` / `Z` / `J`  
-**B** - `Ctrl` / `K` / `X`  
-**Start** - `Enter`  
-**Select** - `Shift`
-
-These controls can be modified at any time by going to the _Settings View_ under the _Controls_ section.
+<object data="/img/manual/keyboard-controls.svg" class="margin-bottom" />
 
 You can also control the _Play Window_ using a supported gamepad. If your web browser has gamepad support you can also use it when running a web build.
 
