@@ -124,7 +124,7 @@ Warunkowe uruchomienie części skryptu, jeżeli gra jest uruchomiona na urządz
 - **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
 - **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
 
-## Input
+## Joypad Input
 ### Warunek: naciśnięty przycisk joypada
 Warunkowe uruchomienie części skryptu, jeśli określony przycisk joypada jest aktualnie naciśnięty. Polecenie nie czeka na dane wejściowe użytkownika i zostanie wykonane tylko raz, jeśli chcesz uruchomić skrypt za każdym razem, gdy zostanie naciśnięty przycisk, użyj polecenia 'Przypisz skrypt'.
 

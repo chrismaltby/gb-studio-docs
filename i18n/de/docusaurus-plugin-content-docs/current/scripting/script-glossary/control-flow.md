@@ -124,7 +124,7 @@ Conditionally run part of the script if the game is being played on a device or 
 - **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
 - **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
 
-## Input
+## Joypad Input
 ### Falls Joypad-Eingabe Gedrückt
 Einen Teil des Skripts bedingt ausführen, wenn die angegebene Joypad-Taste gedrückt ist. Wartet nicht auf Nutzereingaben und wird nur einmal ausgeführt. Wenn ein Skript jedes Mal ausgeführt werden soll, wenn eine Taste gedrückt wird, ist stattdessen 'Skript an Taste anhängen' zu nutzen.
 

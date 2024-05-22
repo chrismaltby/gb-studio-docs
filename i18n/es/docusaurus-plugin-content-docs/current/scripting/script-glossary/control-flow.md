@@ -124,7 +124,7 @@ Conditionally run part of the script if the game is being played on a device or 
 - **Verdadero**: The script to run if the condition is true.  
 - **Falso**: The script to run if the condition is false.  
 
-## Input
+## Joypad Input
 ### Si un botón es presionado
 Conditionally run part of the script if the specified joypad button is currently pressed. Will not wait for user input and will only execute once, if you wish to run a script every time a button is pressed use Attach Script To Button instead.
 
