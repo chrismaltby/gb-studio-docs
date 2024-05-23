@@ -111,7 +111,7 @@ If your image is already a color `.png` file you can try switching to using `Aut
 <div className="drop-shadow margin-bottom"><img src="/img/screenshots/auto-color.gif" width="320" className="clip-bottom" /></div>
 
 :::info
-You will need to be careful to follow the same requirements about unique colors per scene and tile when using Automatic Background Palettes if you want your images to display correctly.
+You will need to be careful to follow the same requirements about unique colors per scene and tile when using Automatic Background Palettes if you want your images to display correctly. For example, using more than 7 unique color palettes will cause palette 8 to be overwritten meaning dialogue and menu windows may not appear correctly for that scene.
 
 When using Automatic Background Palettes, Monochrome tiles are also created automatically. If you want to support both Color and Monochrome devices you may want to provide a [Monochrome Override](/docs/assets/backgrounds#monochrome-overrides) image to give more control how the background appears on Monochrome devices.
 :::
