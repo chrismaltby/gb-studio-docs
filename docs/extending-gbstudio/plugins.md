@@ -34,4 +34,62 @@ An engine plugin allows similar functionality to [ejecting your engine](/docs/ex
 
 Engine plugins contain an `engine` folder which follows the same structure as an ejected game engine. Below you can download an example plugin that adds a new game engine function that causes the screen to flash (only when Color mode is disabled) and also includes a script event plugin to allow calling the new function.
 
+:::info
+Your engine plugin needs to specify which version of the GB Studio engine is supported, you can do this by making sure you include `engine/engine.json` in your plugin with at least the supported engine version included `{"version": "4.0.0-e0"}` 
+:::
+
 [Download Example Script Event Plugin](/assets/plugins/engineExamplePlugin.zip)
+
+### Engine Fields
+
+Engine plugins can define additional fields that will appear in your [Engine Settings](/docs/settings/#engine-settings).
+
+By defining the following field, and adding the variable `max_jump_height` to your version of `platform.c` in the plugin you can expose variables for updating from settings or scripts using [Engine Field](/docs/scripting/script-glossary/engine-fields) events.
+
+```
+{
+  "version": "4.0.0-e0",
+  "fields": [
+    {
+      "key": "max_jump_height",
+      "label": "Max Jump Height",
+      "group": "GAMETYPE_PLATFORMER",
+      "type": "slider",
+      "cType": "WORD",
+      "defaultValue": 16,
+      "min": 0,
+      "max": 64
+    }
+  ]
+}
+```
+
+To see how engine fields can be used within your plugin you can review the inbuilt [engine.json](https://github.com/chrismaltby/gb-studio/blob/develop/appData/src/gb/engine.json) file.
+
+### Additional Scene Types
+
+Engine plugins can also define additional scene types which will appear in the [type dropdown](/docs/project-editor/scenes#scene-properties) when editing scenes.
+
+```
+{
+  "version": "4.0.0-e0",
+  "sceneTypes": [
+    {
+      "key": "battle",
+      "label": "Battle"
+    }
+  ]
+}
+```
+
+When adding additional scene types you will also need to define two functions in your custom engine:
+```
+void SCENEKEY_init(void) BANKED { }
+```
+and
+```
+void SCENEKEY_update(void) BANKED { }
+```
+In this case those functions would be named `battle_init` and `battle_update`.
+
+The `init` function will be called once as the scene is loaded and the `update` function will be called every frame allowing you to create custom game modes.
