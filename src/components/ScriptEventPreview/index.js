@@ -2,6 +2,63 @@ import React from "react";
 import clsx from "clsx";
 import styles from "./styles.module.css";
 
+export const valueAtomTypes = [
+  "number",
+  "direction",
+  "variable",
+  "indirect",
+  "property",
+  "expression",
+  "true",
+  "false",
+];
+
+export const valueOperatorTypes = [
+  "add",
+  "sub",
+  "mul",
+  "div",
+  "mod",
+  "min",
+  "max",
+  "eq",
+  "ne",
+  "gt",
+  "gte",
+  "lt",
+  "lte",
+  "and",
+  "or",
+  "atan2",
+  // Bitwise
+  "shl",
+  "shr",
+  "bAND",
+  "bOR",
+  "bXOR",
+];
+
+export const valueUnaryOperatorTypes = [
+  "rnd",
+  "not",
+  "isqrt",
+  "abs",
+  // Bitwise
+  "bNOT",
+];
+
+export const isUnaryOperation = (value) => {
+  return !!value && valueUnaryOperatorTypes.includes(value.type);
+};
+
+export const isValueOperation = (value) => {
+  return !!value && valueOperatorTypes.includes(value.type);
+};
+
+export const isValueAtom = (value) => {
+  return !!value && valueAtomTypes.includes(value.type);
+};
+
 function UnionSelect() {
   return (
     <div className={styles.unionSelect}>
@@ -26,19 +83,93 @@ function FakeInput({ children }) {
 }
 
 function FakeValue({ children }) {
-  return (
-    <div className={styles.valueInput}>
-      <div className={styles.valueInputButton}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-        >
-          <path d="M22.548 9l.452-2h-5.364l1.364-6h-2l-1.364 6h-5l1.364-6h-2l-1.364 6h-6.184l-.452 2h6.182l-1.364 6h-5.36l-.458 2h5.364l-1.364 6h2l1.364-6h5l-1.364 6h2l1.364-6h6.185l.451-2h-6.182l1.364-6h5.366zm-8.73 6h-5l1.364-6h5l-1.364 6z"></path>
-        </svg>
+  if (isValueAtom(children)) {
+    return <FakeValueAtom type={children.type} value={children.defaultValue} />;
+  }
+  if (isValueOperation(children)) {
+    let op = children.type;
+    if (op === "eq") {
+      op = "==";
+    } else if (op === "lt") {
+      op = "<";
+    } else {
+      op = "==";
+    }
+    return (
+      <div className={styles.valueInputBrackets}>
+        <FakeValue>{children.valueA}</FakeValue>
+        <div className={styles.valueInputOperationButton}>{op}</div>
+        <FakeValue>{children.valueB}</FakeValue>
       </div>
-      <div className={styles.input}>{children}</div>
+    );
+  }
+  return <FakeValueAtom type="variable" />;
+}
+
+function FakeValueAtom({ type, value }) {
+  let displayValue = value ?? 0;
+  if (type === "true") {
+    displayValue = "True";
+  } else if (type === "false") {
+    displayValue = "False";
+  } else if (type === "expression") {
+    displayValue = "6 * $health";
+  } else if (type === "variable") {
+    displayValue = "$Variable0";
+  }
+  return (
+    <div className={styles.valueAtomInput}>
+      <div className={styles.valueAtomInputButton}>
+        {type === "number" && (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path d="M22.548 9l.452-2h-5.364l1.364-6h-2l-1.364 6h-5l1.364-6h-2l-1.364 6h-6.184l-.452 2h6.182l-1.364 6h-5.36l-.458 2h5.364l-1.364 6h2l1.364-6h5l-1.364 6h2l1.364-6h6.185l.451-2h-6.182l1.364-6h5.366zm-8.73 6h-5l1.364-6h5l-1.364 6z"></path>
+          </svg>
+        )}
+        {type === "direction" && (
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path d="M14.145 8.633l-2.145-8.633-2.148 8.636c-.572.366-1.034.877-1.358 1.477l-8.494 1.887 8.494 1.887c.324.6.786 1.111 1.358 1.477l2.148 8.636 2.157-8.64c.571-.367 1.03-.879 1.353-1.479l8.49-1.881-8.492-1.884c-.324-.603-.788-1.116-1.363-1.483zm-2.145 5.367c-1.104 0-2-.896-2-2s.896-2 2-2 2 .896 2 2-.896 2-2 2zm7 5l-3.43-2.186c.474-.352.893-.771 1.245-1.245l2.185 3.431zm-3.521-11.882l3.521-2.117-2.119 3.519c-.386-.542-.86-1.015-1.402-1.402zm-6.955 9.767l-3.524 2.115 2.118-3.521c.387.543.862 1.018 1.406 1.406zm-1.34-8.453l-2.184-3.431 3.431 2.184c-.474.352-.894.772-1.247 1.247z" />
+          </svg>
+        )}
+        {type === "true" && (
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path d="M21.5 2H2.5V7H9V22H15V7H21.5V2Z" />
+          </svg>
+        )}
+        {type === "false" && (
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path d="M18.5 2H6V22H12V14.5H17V10.5H12V6.5H18.5V2Z" />
+          </svg>
+        )}
+        {type === "variable" && (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12.7148438,22.1757812 L12.714,20.229 L12.7800926,20.2258391 C13.6949267,20.1603492 14.530599,19.9802517 15.2871094,19.6855469 C16.2597656,19.3066406 17.0253906,18.7519531 17.5839844,18.0214844 C18.1425781,17.2910156 18.421875,16.40625 18.421875,15.3671875 L18.421875,15.34375 C18.421875,14.0625 18.0097656,13.0683594 17.1855469,12.3613281 C16.3613281,11.6542969 15.1484375,11.1210938 13.546875,10.7617188 L12.714,10.579 L12.714,6.513 L12.8085938,6.52539062 C13.0585938,6.56835938 13.2929688,6.6328125 13.5117188,6.71875 C13.9492188,6.890625 14.3046875,7.14257812 14.578125,7.47460938 C14.8515625,7.80664062 15.015625,8.21875 15.0703125,8.7109375 L15.0820312,8.734375 L18.1875,8.72265625 L18.1992188,8.7109375 C18.1601562,7.71875 17.8769531,6.85742188 17.3496094,6.12695312 C16.8222656,5.39648438 16.0996094,4.83203125 15.1816406,4.43359375 C14.5390625,4.1546875 13.8208789,3.97339844 13.0270898,3.88972656 L12.714,3.863 L12.7148438,1.890625 L11.3671875,1.890625 L11.367,3.856 L11.2021123,3.86429398 C10.3338638,3.9304591 9.54123264,4.11241319 8.82421875,4.41015625 C7.90234375,4.79296875 7.17578125,5.33984375 6.64453125,6.05078125 C6.11328125,6.76171875 5.84765625,7.609375 5.84765625,8.59375 L5.84765625,8.6171875 C5.84765625,9.875 6.25390625,10.8671875 7.06640625,11.59375 C7.87890625,12.3203125 9.05078125,12.859375 10.5820312,13.2109375 L11.367,13.384 L11.367,17.597 L11.2177136,17.5815529 C10.8854432,17.5394611 10.5876116,17.469308 10.3242188,17.3710938 C9.86328125,17.1992188 9.50195312,16.9511719 9.24023438,16.6269531 C8.97851562,16.3027344 8.80859375,15.921875 8.73046875,15.484375 L8.73046875,15.4609375 L5.6015625,15.4609375 L5.58984375,15.484375 C5.62890625,16.5078125 5.92773438,17.375 6.48632812,18.0859375 C7.04492188,18.796875 7.79882812,19.3359375 8.74804688,19.703125 C9.48632812,19.9887153 10.3014082,20.1632427 11.193287,20.2267072 L11.367,20.236 L11.3671875,22.1757812 L12.7148438,22.1757812 Z M11.367,10.268 L11.2575,10.2376563 C10.59,10.0464062 10.0875,9.82265625 9.75,9.56640625 C9.328125,9.24609375 9.1171875,8.84375 9.1171875,8.359375 L9.1171875,8.3359375 C9.1171875,7.9765625 9.2265625,7.65625 9.4453125,7.375 C9.6640625,7.09375 9.98828125,6.87109375 10.4179688,6.70703125 C10.6635045,6.61328125 10.9422034,6.54631696 11.2540657,6.50613839 L11.367,6.495 L11.367,10.268 Z M12.714,17.6 L12.714,13.69 L12.8831676,13.7330514 C13.6502131,13.9410834 14.201527,14.1713423 14.5371094,14.4238281 C14.9472656,14.7324219 15.1523438,15.15625 15.1523438,15.6953125 L15.1523438,15.71875 C15.1523438,16.109375 15.0371094,16.4492188 14.8066406,16.7382812 C14.5761719,17.0273438 14.2304688,17.2480469 13.7695312,17.4003906 C13.5061384,17.4874442 13.2032047,17.5496253 12.8607302,17.586934 L12.714,17.6 Z"
+              fillRule="nonzero"
+            ></path>
+          </svg>
+        )}
+        {type === "expression" && (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path d="M0.445923 0H23.5541V5.65642H19.4566V4.09756H9.22323L15.8426 12L9.22323 19.9024H19.4567V18.3436H23.5543V24H0.445923L10.4974 12L0.445923 0Z" />
+          </svg>
+        )}
+      </div>
+      <div className={styles.input}>{displayValue}</div>
     </div>
   );
 }
@@ -433,7 +564,7 @@ function ScriptEventFieldInput({ field }) {
     );
   }
   if (field.type === "value") {
-    return <FakeValue>0</FakeValue>;
+    return <FakeValue>{field.defaultValue}</FakeValue>;
   }
   return <div className={styles.unknown}>Unknown Type {field.type}</div>;
 }

@@ -32,6 +32,38 @@ Store the current position of an actor within two variables, one to store the ho
 - **X**: The variable to use for the horizontal position.  
 - **Y**: The variable to use for the vertical position.  
 
+## Boolean
+### Variable Set To 'False'
+Set the value of the specified variable to false.
+<ScriptEventPreview title={"Variable Set To 'False'"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE","flexBasis":0,"minWidth":150},{"key":"value","label":"Value","description":"The value to set the selected variable to.","type":"value","defaultValue":{"type":"false"}}]} />
+
+- **Variable**: The variable to use.  
+- **Value**: The value to set the selected variable to.  
+
+### Variable Set To 'True'
+Set the value of the specified variable to true.
+<ScriptEventPreview title={"Variable Set To 'True'"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE","flexBasis":0,"minWidth":150},{"key":"value","label":"Value","description":"The value to set the selected variable to.","type":"value","defaultValue":{"type":"true"}}]} />
+
+- **Variable**: The variable to use.  
+- **Value**: The value to set the selected variable to.  
+
+## Control Flow
+### If Variable Compare With Value
+Conditionally run part of the script based on the value of a variable compared with a value.
+<ScriptEventPreview title={"If Variable Compare With Value"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":0}}},{"key":"true","label":"True","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
+- **True**: The script to run if the condition is true.  
+- **False**: The script to run if the condition is false.  
+
+### If Variable Compare With Variable
+Conditionally run part of the script based on the value of a variable compared with another variable.
+<ScriptEventPreview title={"If Variable Compare With Variable"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"variable","value":"LAST_VARIABLE"}}},{"key":"true","label":"True","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
+- **True**: The script to run if the condition is true.  
+- **False**: The script to run if the condition is false.  
+
 ## Counter
 ### Variable Decrement By 1
 Decrease the value of the specified variable by one.

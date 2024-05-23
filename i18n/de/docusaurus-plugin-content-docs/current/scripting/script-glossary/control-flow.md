@@ -136,6 +136,21 @@ Einen Teil des Skripts bedingt ausführen, wenn die angegebene Joypad-Taste gedr
 - **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
 - **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
 
+## Math
+### Falls Matheausdruck
+Conditionally execute part of the script if the specified math expression evaluates to true.
+<ScriptEventPreview title={"Falls Matheausdruck"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"expression","value":""}},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
+- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
+- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+
+### Loop While Math Expression
+Ein Teil des Scripts wird in einer Schleife ausgeführt, solange eine bestimmte Bedingung erfüllt ist.
+<ScriptEventPreview title={"Loop While Math Expression"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"expression","value":""}},{"key":"true","type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
+
 ## Save Data
 ### Falls Spieldaten Gespeichert
 Conditionally run part of the script if save data is present within the specified save slot.
@@ -154,12 +169,44 @@ Conditionally run part of the script if save data is present within the specifie
 - **Falsch**  
 
 ## Variables
+### Falls Variable Mit Wert Verglichen
+Einen Teil des Skripts bedingt ausführen, wenn die angegebene Variable einem bestimmten Wert entspricht.
+<ScriptEventPreview title={"Falls Variable Mit Wert Verglichen"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":0}}},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
+- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
+- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+
+### Falls Variable mit Variable Verglichen
+Einen Teil des Skripts bedingt ausführen, wenn die angegebene Variable dem Wert einer anderen Variable entspricht.
+<ScriptEventPreview title={"Falls Variable mit Variable Verglichen"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"variable","value":"LAST_VARIABLE"}}},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
+- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
+- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+
 ### Falls Variable Flag hat
 Conditionally run part of the script if the specified variable has the chosen flag set as true.
 <ScriptEventPreview title={"Falls Variable Flag hat"} fields={[{"key":"variable","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"flag","label":"Flag","description":"Das zu prüfende Flag.","type":"selectFlags","defaultValue":0},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Variable**: Die zu nutzende Variable.  
 - **Flag**: Das zu prüfende Flag.  
+- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
+- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+
+### Falls Variable 'Falsch' Ist
+Einen Teil des Skripts bedingt ausführen, wenn die angegebene Variable auf 'falsch' gesetzt ist.
+<ScriptEventPreview title={"Falls Variable 'Falsch' Ist"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"false"}}},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
+- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
+- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+
+### Falls Variable 'Wahr' Ist
+Einen Teil des Skripts bedingt ausführen, wenn die angegebene Variable auf 'wahr' gesetzt ist.
+<ScriptEventPreview title={"Falls Variable 'Wahr' Ist"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"true"}}},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
 - **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
 - **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
 

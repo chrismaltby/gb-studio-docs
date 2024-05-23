@@ -9,6 +9,21 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Math
 
+## Control Flow
+### If Math Expression
+Conditionally execute part of the script if the specified math expression evaluates to true.
+<ScriptEventPreview title={"If Math Expression"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"expression","value":""}},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
+- **Verdadero**: The script to run if the condition is true.  
+- **Falso**: The script to run if the condition is false.  
+
+### Loop While Math Expression
+Run part of the script in a loop while an expression is true.
+<ScriptEventPreview title={"Loop While Math Expression"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"expression","value":""}},{"key":"true","type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
+
 ## Random
 ### Seed Random Number Generator
 Place this to run in response to user input to ensure random numbers change between playthroughs.

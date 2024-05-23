@@ -136,6 +136,21 @@ Conditionally run part of the script if the specified joypad button is currently
 - **Verdadero**: The script to run if the condition is true.  
 - **Falso**: The script to run if the condition is false.  
 
+## Math
+### If Math Expression
+Conditionally execute part of the script if the specified math expression evaluates to true.
+<ScriptEventPreview title={"If Math Expression"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"expression","value":""}},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
+- **Verdadero**: The script to run if the condition is true.  
+- **Falso**: The script to run if the condition is false.  
+
+### Loop While Math Expression
+Run part of the script in a loop while an expression is true.
+<ScriptEventPreview title={"Loop While Math Expression"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"expression","value":""}},{"key":"true","type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
+
 ## Save Data
 ### Si los datos de juego fueron guardados
 Conditionally run part of the script if save data is present within the specified save slot.
@@ -154,12 +169,44 @@ Conditionally run part of the script if save data is present within the specifie
 - **Falso**  
 
 ## Variables
+### Si la variable se compara con valor
+Conditionally run part of the script based on the value of a variable compared with a value.
+<ScriptEventPreview title={"Si la variable se compara con valor"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":0}}},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
+- **Verdadero**: The script to run if the condition is true.  
+- **Falso**: The script to run if the condition is false.  
+
+### Si la variable se compara con variable
+Conditionally run part of the script based on the value of a variable compared with another variable.
+<ScriptEventPreview title={"Si la variable se compara con variable"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"variable","value":"LAST_VARIABLE"}}},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
+- **Verdadero**: The script to run if the condition is true.  
+- **Falso**: The script to run if the condition is false.  
+
 ### If Variable Has Flag
 Conditionally run part of the script if the specified variable has the chosen flag set as true.
 <ScriptEventPreview title={"If Variable Has Flag"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"flag","label":"Flag","description":"The flag to check.","type":"selectFlags","defaultValue":0},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Variable**: The variable to use.  
 - **Flag**: The flag to check.  
+- **Verdadero**: The script to run if the condition is true.  
+- **Falso**: The script to run if the condition is false.  
+
+### Si la variable es 'Falso'
+Conditionally run part of the script if the specified variable is set to false.
+<ScriptEventPreview title={"Si la variable es 'Falso'"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"false"}}},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
+- **Verdadero**: The script to run if the condition is true.  
+- **Falso**: The script to run if the condition is false.  
+
+### Si la variable es 'Verdadero'
+Conditionally run part of the script if the specified variable is set to true.
+<ScriptEventPreview title={"Si la variable es 'Verdadero'"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"true"}}},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
 - **Verdadero**: The script to run if the condition is true.  
 - **Falso**: The script to run if the condition is false.  
 

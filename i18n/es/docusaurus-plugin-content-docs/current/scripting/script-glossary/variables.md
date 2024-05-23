@@ -32,6 +32,38 @@ Store the current position of an actor within two variables, one to store the ho
 - **X**: The variable to use for the horizontal position.  
 - **Y**: The variable to use for the vertical position.  
 
+## Boolean
+### Variable: Cambiar a 'Falso'
+Set the value of the specified variable to false.
+<ScriptEventPreview title={"Variable: Cambiar a 'Falso'"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE","flexBasis":0,"minWidth":150},{"key":"value","label":"Valor","description":"The value to set the selected variable to.","type":"value","defaultValue":{"type":"false"}}]} />
+
+- **Variable**: The variable to use.  
+- **Valor**: The value to set the selected variable to.  
+
+### Variable: Cambiar a 'Verdadero'
+Set the value of the specified variable to true.
+<ScriptEventPreview title={"Variable: Cambiar a 'Verdadero'"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE","flexBasis":0,"minWidth":150},{"key":"value","label":"Valor","description":"The value to set the selected variable to.","type":"value","defaultValue":{"type":"true"}}]} />
+
+- **Variable**: The variable to use.  
+- **Valor**: The value to set the selected variable to.  
+
+## Control Flow
+### Si la variable se compara con valor
+Conditionally run part of the script based on the value of a variable compared with a value.
+<ScriptEventPreview title={"Si la variable se compara con valor"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":0}}},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
+- **Verdadero**: The script to run if the condition is true.  
+- **Falso**: The script to run if the condition is false.  
+
+### Si la variable se compara con variable
+Conditionally run part of the script based on the value of a variable compared with another variable.
+<ScriptEventPreview title={"Si la variable se compara con variable"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"variable","value":"LAST_VARIABLE"}}},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
+- **Verdadero**: The script to run if the condition is true.  
+- **Falso**: The script to run if the condition is false.  
+
 ## Counter
 ### Variable: Disminuir por 1
 Decrease the value of the specified variable by one.

@@ -32,6 +32,38 @@ Polecenie zapisuje bieżącą pozycję aktora w dwóch zmiennych. Jedna przechow
 - **X**: Zmienna używana dla pozycji poziomej.  
 - **Y**: Zmienna używana dla pozycji pionowej.  
 
+## Boolean
+### Zmienna: ustaw na ''Fałsz''
+Ustawienie wartości wybranej zmiennej na 'Fałsz'.
+<ScriptEventPreview title={"Zmienna: ustaw na ''Fałsz''"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE","flexBasis":0,"minWidth":150},{"key":"value","label":"Wartość","description":"Wartość do ustawienia wybranej zmiennej.","type":"value","defaultValue":{"type":"false"}}]} />
+
+- **Zmienna**: Wskaż zmienną do użycia.  
+- **Wartość**: Wartość do ustawienia wybranej zmiennej.  
+
+### Zmienna: ustaw na ''Prawda''
+Ustawienie wartości wybranej zmiennej na 'Prawda'.
+<ScriptEventPreview title={"Zmienna: ustaw na ''Prawda''"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE","flexBasis":0,"minWidth":150},{"key":"value","label":"Wartość","description":"Wartość do ustawienia wybranej zmiennej.","type":"value","defaultValue":{"type":"true"}}]} />
+
+- **Zmienna**: Wskaż zmienną do użycia.  
+- **Wartość**: Wartość do ustawienia wybranej zmiennej.  
+
+## Control Flow
+### Warunek: zmienna porównuje się do wartości
+Warunkowe uruchomienie części skryptu na podstawie wartości zmiennej w porównaniu z wartością.
+<ScriptEventPreview title={"Warunek: zmienna porównuje się do wartości"} fields={[{"key":"condition","label":"Warunek","description":"Warunek do oceny.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":0}}},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Warunek**: Warunek do oceny.  
+- **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
+- **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
+
+### Warunek: zmienna porównuje się do zmiennej
+Warunkowe uruchomienie części skryptu na podstawie wartości zmiennej w porównaniu z inną zmienną.
+<ScriptEventPreview title={"Warunek: zmienna porównuje się do zmiennej"} fields={[{"key":"condition","label":"Warunek","description":"Warunek do oceny.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"variable","value":"LAST_VARIABLE"}}},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Warunek**: Warunek do oceny.  
+- **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
+- **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
+
 ## Counter
 ### Zmienna: zmniejsz o 1
 Zmniejszenie wartości wybranej zmiennej o 1.

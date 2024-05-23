@@ -32,6 +32,38 @@ Store the current position of an actor within two variables, one to store the ho
 - **X**: Die als horizontale Position zu nutzende Variable.  
 - **Y**: Die als vertikale Position zu nutzende Variable.  
 
+## Boolean
+### Variable: Auf 'Falsch' Setzen
+Setzt den Wert einer bestimmten Variable auf 'Falsch'.
+<ScriptEventPreview title={"Variable: Auf 'Falsch' Setzen"} fields={[{"key":"variable","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE","flexBasis":0,"minWidth":150},{"key":"value","label":"Wert","description":"Der Wert auf den die gewählte Variable gesetzt werden soll.","type":"value","defaultValue":{"type":"false"}}]} />
+
+- **Variable**: Die zu nutzende Variable.  
+- **Wert**: Der Wert auf den die gewählte Variable gesetzt werden soll.  
+
+### Variable: Auf 'Wahr' Setzen
+Setzt den Wert einer bestimmten Variable auf 'Wahr'.
+<ScriptEventPreview title={"Variable: Auf 'Wahr' Setzen"} fields={[{"key":"variable","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE","flexBasis":0,"minWidth":150},{"key":"value","label":"Wert","description":"Der Wert auf den die gewählte Variable gesetzt werden soll.","type":"value","defaultValue":{"type":"true"}}]} />
+
+- **Variable**: Die zu nutzende Variable.  
+- **Wert**: Der Wert auf den die gewählte Variable gesetzt werden soll.  
+
+## Control Flow
+### Falls Variable Mit Wert Verglichen
+Einen Teil des Skripts bedingt ausführen, wenn die angegebene Variable einem bestimmten Wert entspricht.
+<ScriptEventPreview title={"Falls Variable Mit Wert Verglichen"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":0}}},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
+- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
+- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+
+### Falls Variable mit Variable Verglichen
+Einen Teil des Skripts bedingt ausführen, wenn die angegebene Variable dem Wert einer anderen Variable entspricht.
+<ScriptEventPreview title={"Falls Variable mit Variable Verglichen"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"variable","value":"LAST_VARIABLE"}}},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
+- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
+- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+
 ## Counter
 ### Variable: Um 1 verringern
 Verringert den Wert der angegebenen Variable um eins.

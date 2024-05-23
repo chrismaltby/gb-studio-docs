@@ -9,6 +9,21 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Mathe
 
+## Control Flow
+### Falls Matheausdruck
+Conditionally execute part of the script if the specified math expression evaluates to true.
+<ScriptEventPreview title={"Falls Matheausdruck"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"expression","value":""}},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
+- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
+- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+
+### Loop While Math Expression
+Ein Teil des Scripts wird in einer Schleife ausgeführt, solange eine bestimmte Bedingung erfüllt ist.
+<ScriptEventPreview title={"Loop While Math Expression"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"expression","value":""}},{"key":"true","type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
+
 ## Random
 ### Seed Zufallszahlengenerator
 Place this to run in response to user input to ensure random numbers change between playthroughs.

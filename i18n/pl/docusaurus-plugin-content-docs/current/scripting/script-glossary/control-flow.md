@@ -136,6 +136,21 @@ Warunkowe uruchomienie części skryptu, jeśli określony przycisk joypada jest
 - **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
 - **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
 
+## Math
+### Warunek: wyrażenie matematyczne
+Warunkowe wykonanie części skryptu, jeżeli określone wyrażenie matematyczne ma wartość 'prawda'.
+<ScriptEventPreview title={"Warunek: wyrażenie matematyczne"} fields={[{"key":"condition","label":"Warunek","description":"Warunek do oceny.","type":"value","defaultValue":{"type":"expression","value":""}},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Warunek**: Warunek do oceny.  
+- **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
+- **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
+
+### Pętla podczas wyrażenia matematycznego
+Uruchomienie części skryptu w pętli, podczas gdy wyrażenie jest prawdą...
+<ScriptEventPreview title={"Pętla podczas wyrażenia matematycznego"} fields={[{"key":"condition","label":"Warunek","description":"Warunek do oceny.","type":"value","defaultValue":{"type":"expression","value":""}},{"key":"true","type":"events"}]} />
+
+- **Warunek**: Warunek do oceny.  
+
 ## Save Data
 ### Warunek: stan gry zapisano
 Warunkowe uruchomienie części skryptu, jeżeli stan zapisu jest w określonym miejscu zapisu.
@@ -154,12 +169,44 @@ Warunkowe uruchomienie części skryptu, jeżeli stan zapisu jest w określonym 
 - **Fałsz**  
 
 ## Variables
+### Warunek: zmienna porównuje się do wartości
+Warunkowe uruchomienie części skryptu na podstawie wartości zmiennej w porównaniu z wartością.
+<ScriptEventPreview title={"Warunek: zmienna porównuje się do wartości"} fields={[{"key":"condition","label":"Warunek","description":"Warunek do oceny.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":0}}},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Warunek**: Warunek do oceny.  
+- **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
+- **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
+
+### Warunek: zmienna porównuje się do zmiennej
+Warunkowe uruchomienie części skryptu na podstawie wartości zmiennej w porównaniu z inną zmienną.
+<ScriptEventPreview title={"Warunek: zmienna porównuje się do zmiennej"} fields={[{"key":"condition","label":"Warunek","description":"Warunek do oceny.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"variable","value":"LAST_VARIABLE"}}},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Warunek**: Warunek do oceny.  
+- **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
+- **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
+
 ### Warunek: zmienna ma flagę
 Warunkowe uruchomienie części skryptu, jeżeli flaga wybranej zmiennej jest ustawiona jako 'prawda'.
 <ScriptEventPreview title={"Warunek: zmienna ma flagę"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"flag","label":"Flaga","description":"Flaga do zaznaczenia.","type":"selectFlags","defaultValue":0},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Zmienna**: Wskaż zmienną do użycia.  
 - **Flaga**: Flaga do zaznaczenia.  
+- **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
+- **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
+
+### Warunek: zmienna jest ''Fałsz''
+Warunkowe uruchomienie części skryptu, jeżeli wskazana zmienna ma wartość 'fałsz'.
+<ScriptEventPreview title={"Warunek: zmienna jest ''Fałsz''"} fields={[{"key":"condition","label":"Warunek","description":"Warunek do oceny.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"false"}}},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Warunek**: Warunek do oceny.  
+- **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
+- **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
+
+### Warunek: zmienna jest ''Prawda''
+Warunkowe uruchomienie części skryptu, jeżeli wskazana zmienna ma wartość 'prawda'.
+<ScriptEventPreview title={"Warunek: zmienna jest ''Prawda''"} fields={[{"key":"condition","label":"Warunek","description":"Warunek do oceny.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"true"}}},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Warunek**: Warunek do oceny.  
 - **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
 - **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
 
