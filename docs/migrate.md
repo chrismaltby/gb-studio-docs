@@ -10,9 +10,13 @@ sidebar_position: 10
 
 GB Studio 3.2.1 and below had an issue where wave instrument lengths were being saved in a way that was incompatible with hUGETracker. From 4.0.0 onwards this issue has been fixed but `.uge` files created with older GB Studio versions may not sound correct if you have set length values on your wave instruments.
 
-If you find that your music is affected by this issue you can use this migrator tool to fix your files. 
+If you find that your music is affected by this issue you can use this migrator tool to fix your files.
 
 https://chrismaltby.github.io/gbs-uge-migrator/
+
+### Engine Plugins
+
+If your existing project uses any [engine plugins](/docs/extending-gbstudio/plugins#engine-plugins) then it's possible they may need updating to support the latest GB Studio. Engine plugins now need to contain an `engine.json` file stating which version of the GB Studio game engine they are compatible with, allowing you to make sure you have the right plugin for your project.
 
 ## GB Studio 2 to 3
 
