@@ -4,9 +4,9 @@ sidebar_position: 8
 
 # Debugger
 
-The debugger pane enables you to examine the current state of your game in real-time, assisting you in identifying and resolving issues as you develop your game scripts.
+The **Debugger** pane enables you to examine the current state of your game in real-time, assisting you in identifying and resolving issues as you develop your game scripts.
 
-You can access the debugger by clicking to open the pane at the bottom of the _Game World_ view or by selecting `Game > Run With Debugging` from the menu.
+You can access the Debugger by clicking to open the pane at the bottom of the _Game World_ view or by selecting `Game > Run With Debugging` from the menu.
 
 <img title="Debugger" src="/img/screenshots/debugger-v4.png" width="1458" />
 
@@ -56,4 +56,36 @@ You can watch variables by hovering over the list item and clicking the **` ★
 
 ## Active Script Threads
 
+When your game is paused you will be able to navigate through the currently running scripts. You can pause the game either by clicking the **` ⏸ `** button at the top right of the debugger, by pressing `F8` or by triggering a [breakpoint](/docs/debugger#breakpoints).
+
+### Script View
+
+At the top right of the **Active Script Threads** pane are tabs to switch between viewing the Events Editor (the default) or seeing the generated [GBVM script](/docs/scripting/gbvm). In the Editor view, you can modify the script including adding and removing events. However, note that any changes made here will not take effect until you rebuild your game.
+
+### Stepping Through Your Game
+
+When your game is paused you can use the _Step Buttons_ or [keyboard shortcuts](/docs/debugger#keyboard-shortcuts) to slowly step through your game to follow the progress of any running scripts.
+
+<img title="Stepping Through Your Game" src="/img/screenshots/debugger-step-controls-v4.png" width="296" className="margin-bottom" />
+
+- **Pause/Resume** Toggles between playing and paused modes.
+- **Step** Run the game until the next script event starts, allowing you to follow through the logic of your scripts.
+- **Step Forward One Frame** Run the game until the next frame of animation starts. This is useful for understanding what is happening every frame during events that take time such as [Actor Move To](/docs/scripting/script-glossary/actor#actor-move-to).
+
+### Keyboard Shortcuts
+
+When the debugger is enabled, you can use the following keyboard shortcuts in both the _Project Window_ and _Play Window_:
+
+**Pause/Resume** - `F8`  
+**Step Forward One Instruction** - `F9`  
+**Step Forward One Frame** - `F10`
+
 ## Build Log
+
+The **Build Log** allows you to see the current progress as your game is being compiled. It also lists any warnings such as issues with the complexity of your scenes or incompatibility with plugins.
+
+You can access the Build Log by clicking the `Build Log` toggle button on the top right of the Debugger pane. To dismiss the Build Log you can click the button a second time.
+
+The Build Log will open automatically if your project has warnings, if you would prefer this not to happen you can disable the feature in your [project settings](/docs/settings#build-options).
+
+<img title="Build Log" src="/img/screenshots/build-log-v4.png" width="864" className="drop-shadow margin-bottom" />
