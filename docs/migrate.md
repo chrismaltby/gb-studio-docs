@@ -14,9 +14,15 @@ If you find that your music is affected by this issue you can use this migrator 
 
 https://chrismaltby.github.io/gbs-uge-migrator/
 
-### Engine Plugins
+### Plugins
 
-If your existing project uses any [engine plugins](/docs/extending-gbstudio/plugins#engine-plugins) then it's possible they may need updating to support the latest GB Studio. Engine plugins now need to contain an `engine.json` file stating which version of the GB Studio game engine they are compatible with, allowing you to make sure you have the right plugin for your project.
+If your project uses any [plugins](/docs/extending-gbstudio/plugins) then it's possible you may need to download newer versions for compatibility with GB Studio 4.
+
+If using [engine plugins](/docs/extending-gbstudio/plugins#engine-plugins) it is now a requirement that the plugin contain an `engine.json` file stating which engine version it is intended to work with. Plugin authors will need to create a file `PLUGIN/engine/engine.json` containing at least the following:
+```
+{"version": "4.0.0-e0"}
+```
+Replacing `4.0.0-e0` with the engine version the plugin supports.
 
 ## GB Studio 2 to 3
 
