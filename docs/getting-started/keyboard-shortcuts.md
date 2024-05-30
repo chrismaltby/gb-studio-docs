@@ -34,6 +34,17 @@ While editing the game world you can use the following keys to quickly manipulat
 **Zoom** - Hold `Ctrl/Cmd` + `Scroll wheel`  
 **Focus on Scene Search** - `/`  
 
+## Navigator
+
+The [Navigator](/docs/project-editor/navigator) is the sidebar on the left which allows quickly navigating through your project.
+
+**Move selection up** - `Arrow Up`  
+**Move selection down** - `Arrow Down`  
+**Open folder** - `Arrow Right`  
+**Close folder** - `Arrow Left`  
+**Rename** - `Enter`  
+**Select multiple items** (Scenes only) - `Shift` while clicking
+
 ## Drawing Mode
 
 Drawing mode is automatically enabled in the _Collision tool_ and the _Colorize tool_.
