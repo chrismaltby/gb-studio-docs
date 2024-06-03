@@ -82,7 +82,7 @@ function FakeInput({ children }) {
   return <div className={styles.input} children={children} />;
 }
 
-function FakeValue({ children }) {
+export function FakeValue({ children }) {
   if (isValueAtom(children)) {
     return <FakeValueAtom type={children.type} value={children.defaultValue} />;
   }

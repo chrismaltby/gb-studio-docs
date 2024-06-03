@@ -157,26 +157,28 @@
   color: var(--gbs-event-input-fg);
   border-radius: 4px;
   margin-right: 5px;
-  svg {
-    opacity: 0;
-    width: 16px;
-    height: 16px;
-    fill: none;
-    stroke: white;
-    stroke-width: 2px;
-    opacity: 0;
-  }
+}
+
+.checkboxInput svg {
+  opacity: 0;
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: white;
+  stroke-width: 2px;
+  opacity: 0;
 }
 
 .checkboxInputChecked {
   background: #c92c61;
   border: 1px solid #c92c61;
-  svg {
-    opacity: 1;
-    fill: none;
-    stroke: white;
-    stroke-width: 2px;
-  }
+}
+
+.checkboxInputChecked svg {
+  opacity: 1;
+  fill: none;
+  stroke: white;
+  stroke-width: 2px;
 }
 
 .toggleButtons {
@@ -396,21 +398,22 @@
   width: 30px;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
+}
 
-  svg {
-    height: 10px;
-    width: 10px;
-    max-width: 10px;
-    max-height: 10px;
-    margin: 0 -6px;
-    fill: var(--gbs-event-button-fg);
-  }
+.valueAtomInputButton svg {
+  height: 10px;
+  width: 10px;
+  max-width: 10px;
+  max-height: 10px;
+  margin: 0 -6px;
+  fill: var(--gbs-event-button-fg);
 }
 
 .valueAtomInput .input {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   border-left: 0;
+  font-size: 0.8rem;  
 }
 
 .valueInputBrackets {
@@ -428,7 +431,6 @@
   position: relative;
   display: flex;
   flex-grow: 1;
-  /* align-items: center; */
   min-width: 98px;
   flex-basis: 130px;
 }
