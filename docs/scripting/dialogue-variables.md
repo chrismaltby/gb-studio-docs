@@ -28,3 +28,4 @@ Typing `!` followed by one of the commands below allows you to alter how the dia
 - `!Font` Allows you to choose a font to switch to mid dialogue.
 - `!Speed` Allows you to choose from the different text speeds.
 - `!Instant` Allows you to set the text to appear instantly.
+- `!Cursor` Allows you to move the text cursor to a new position. Click the `P(0,0)` or `M(+1,+1)` token to open a popup allowing you to change the position to move to.
