@@ -8,6 +8,8 @@ import { GB3D } from "../components/HomepageHero/GB3D";
 import styles from "./index.module.css";
 import { HomepageSocial } from "../components/HomepageSocial";
 import { useColorMode } from "@docusaurus/theme-common";
+import HomepageGBSCentral from "../components/HomepageGBSCentral";
+import HomepageItch from "../components/HomepageItch";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -53,6 +55,8 @@ export default function Home() {
       <main>
         <HomepageFeatures />
       </main>
+      <HomepageGBSCentral />
+      <HomepageItch />
     </Layout>
   );
 }

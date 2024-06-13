@@ -9,49 +9,90 @@ import useIsBrowser from "@docusaurus/useIsBrowser";
 const FeatureList = [
   {
     title: "Easy to Use",
-    macImg: "/img/home/screenshot_mac_1_v3.png",
-    winImg: "/img/home/screenshot_win_1_v3.png",
+    macImg: "/img/home/screenshot_mac_1_v4.png",
+    winImg: "/img/home/screenshot_win_1_v4.png",
     description: (
       <>
-        Drag and drop game creator with simple, no progamming knowledge
-        required, visual scripting. Multiple game genres supported.
+        <p>
+          <strong>Drag and drop</strong> game creator with simple, no progamming
+          knowledge required, <strong>visual scripting</strong>.
+        </p>
+        <p>
+          If your game starts to get complex there's even a built in{" "}
+          <strong>debugger</strong>.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: "Multiple Game Types",
+    macImg: "/img/home/screenshot_mac_2_v4.png",
+    winImg: "/img/home/screenshot_win_2_v4.png",
+    description: (
+      <>
+        <p>
+          Make <strong>top down</strong> games, <strong>platform</strong>{" "}
+          gamers, <strong>shooters</strong> and more!
+        </p>
+        <p>
+          You can mix types in a single game and even{" "}
+          <strong>write your own</strong> by extending the engine.
+        </p>
       </>
     ),
   },
   {
     title: "Write Music",
-    macImg: "/img/home/screenshot_mac_3_v3.png",
-    winImg: "/img/home/screenshot_win_3_v3.png",
+    macImg: "/img/home/screenshot_mac_3_v4.png",
+    winImg: "/img/home/screenshot_win_3_v4.png",
     description: (
       <>
-        Inbuilt editor makes writing music easy. With both piano roll and
-        tracker modes.
+        <p>
+          Inbuilt editor makes writing music easy. With both{" "}
+          <strong>piano roll</strong> and <strong>tracker</strong> modes.
+        </p>
+        <p>
+          Also supports using external apps like{" "}
+          <a href="https://nickfa.ro/wiki/hUGETracker">hUGETracker</a>.
+        </p>
       </>
     ),
   },
+
   {
     title: "Build ROMs",
-    macImg: "/img/home/screenshot_mac_4_v3.png",
-    winImg: "/img/home/screenshot_win_4_v3.png",
+    macImg: "/img/home/screenshot_mac_4_v4.png",
+    winImg: "/img/home/screenshot_win_4_v4.png",
     description: (
       <>
-        Create real ROM files and play on any GB emulator. Export for web with
-        great mobile controls, upload to Itch.io and share your game with the
-        world.
+        <p>
+          Create <strong>real ROM files</strong> and play on any GB emulator.{" "}
+        </p>
+        <p>
+          <b>Export for web</b> with great mobile controls, upload to{" "}
+          <a href="https://itch.io/games/made-with-gb-studio">Itch.io</a> and
+          share your game with the world.
+        </p>
       </>
     ),
   },
 ];
 
-function Feature({ winImg, macImg, title, description, onOpen, showMac }) {
+function Feature({ winImg, macImg, title, description, onOpen, imgPlatform }) {
   return (
-    <div className={clsx("col col--4")}>
+    <div className={clsx("col col--3")}>
       <div className="text--center">
-        <img src={showMac ? macImg : winImg} alt={title} onClick={onOpen} />
+        {imgPlatform !== "unknown" && (
+          <img
+            src={imgPlatform === "mac" ? macImg : winImg}
+            alt={title}
+            onClick={onOpen}
+          />
+        )}
       </div>
-      <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
-        <p>{description}</p>
+      <div className="padding-horiz--md">
+        <h3 className="text--center">{title}</h3>
+        <div>{description}</div>
       </div>
     </div>
   );
@@ -61,12 +102,18 @@ export default function HomepageFeatures() {
   const [index, setIndex] = React.useState(-1);
   const isBrowser = useIsBrowser();
 
-  let showMac = false;
+  let imgPlatform = "unknown";
   if (isBrowser) {
     const platform =
       navigator?.userAgentData?.platform || navigator?.platform || "unknown";
-    showMac =
-      platform.indexOf("iP") > -1 || platform.toLowerCase().indexOf("mac") > -1;
+    if (
+      platform.indexOf("iP") > -1 ||
+      platform.toLowerCase().indexOf("mac") > -1
+    ) {
+      imgPlatform = "mac";
+    } else {
+      imgPlatform = "win";
+    }
   }
 
   return (
@@ -78,32 +125,34 @@ export default function HomepageFeatures() {
               key={idx}
               {...props}
               onOpen={() => setIndex(idx)}
-              showMac={showMac}
+              imgPlatform={imgPlatform}
             />
           ))}
         </div>
       </div>
-      <Lightbox
-        open={index >= 0}
-        index={index}
-        close={() => setIndex(-1)}
-        slides={
-          showMac
-            ? [
-                { src: "/img/home/screenshot_mac_1_v3.png" },
-                { src: "/img/home/screenshot_mac_3_v3.png" },
-                { src: "/img/home/screenshot_mac_4_v3.png" },
-                { src: "/img/home/screenshot_mac_2_v3.png" },
-              ]
-            : [
-                { src: "/img/home/screenshot_win_1_v3.png" },
-                { src: "/img/home/screenshot_win_3_v3.png" },
-                { src: "/img/home/screenshot_win_4_v3.png" },
-                { src: "/img/home/screenshot_win_2_v3.png" },
-              ]
-        }
-        plugins={[Zoom]}
-      />
+      {imgPlatform !== "unknown" && (
+        <Lightbox
+          open={index >= 0}
+          index={index}
+          close={() => setIndex(-1)}
+          slides={
+            imgPlatform === "mac"
+              ? [
+                  { src: "/img/home/screenshot_mac_1_v4.png" },
+                  { src: "/img/home/screenshot_mac_2_v4.png" },
+                  { src: "/img/home/screenshot_mac_3_v4.png" },
+                  { src: "/img/home/screenshot_mac_4_v4.png" },
+                ]
+              : [
+                  { src: "/img/home/screenshot_win_1_v4.png" },
+                  { src: "/img/home/screenshot_win_2_v4.png" },
+                  { src: "/img/home/screenshot_win_3_v4.png" },
+                  { src: "/img/home/screenshot_win_4_v4.png" },
+                ]
+          }
+          plugins={[Zoom]}
+        />
+      )}
     </section>
   );
 }

@@ -6,6 +6,7 @@
 
 /* You can override the default Infima variables here. */
 :root {
+  --ifm-background-color: #ffffff;
   --ifm-color-primary: #c92c61;
   --ifm-color-primary-dark: #bc295a;
   --ifm-color-primary-darker: #277148;
@@ -119,6 +120,10 @@
 
 object {
   max-width: 100%;
+}
+
+.no-wrap {
+  white-space: nowrap;;
 }
 
 /* Fix text zoom on iOS Safari when searching */
