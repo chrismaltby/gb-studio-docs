@@ -165,7 +165,7 @@ VM_IF CONDITION, IDXA, IDXB, LABEL, N
 - **IDXA**:  A variable.  
 - **IDXB**:  B variable.  
 - **LABEL**:  Jump label when result is TRUE.  
-- **N**:  Number of values to be removed from stack if the result is true.  
+- **N**:  Number of values to be removed from stack after evaluating the condition.  
 
 ### VM_PUSH_VALUE_IND
 
@@ -314,7 +314,7 @@ VM_IF_CONST CONDITION, IDXA, B, LABEL, N
 - **IDXA**:  A variable.  
 - **B**:  Immediate value to be compared with.  
 - **LABEL**:  Jump label when result is TRUE.  
-- **N**:  Number of values to be removed from stack if the result is true.  
+- **N**:  Number of values to be removed from stack after evaluating the condition.  
 
 ### VM_GET_UINT8
 
