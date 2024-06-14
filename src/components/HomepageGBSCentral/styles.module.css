@@ -1,8 +1,8 @@
 .gbscentral {
   width: 100%;
-  background: url(/img/home/central_bg_tall.jpg);
+  background: url(/img/home/central_bg_tall.png);
   background-size: cover;
-  background-position: center;
+  background-position: top center;
   background-attachment: scroll;
   background-repeat: no-repeat;
   image-rendering: pixelated;
