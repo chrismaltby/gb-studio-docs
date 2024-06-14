@@ -165,7 +165,7 @@ export const GB3D = ({ colorMode }) => {
   ]);
 
   const onTouchMove = useCallback((e) => {
-    const angle = 0.3 + -1.5 * clamp01(e.touches[0].pageX / window.innerWidth);
+    const angle = 0.3 + -1.3 * clamp01(e.touches[0].pageX / window.innerWidth);
     setPos([
       distance * Math.sin(angle),
       -2 + clamp01(e.touches[0].pageY / window.innerHeight) * 8,
@@ -175,7 +175,11 @@ export const GB3D = ({ colorMode }) => {
 
   useEffect(() => {
     const onMouseMove = (e) => {
-      const angle = 0.3 + -1.5 * clamp01(e.pageX / window.innerWidth);
+      const angle =
+        e.pageX < window.innerWidth - 100
+          ? 0.3 + -1.3 * clamp01(e.pageX / window.innerWidth)
+          : 0; // If mouse near scrollbar reset angle
+
       setPos([
         distance * Math.sin(angle),
         -2 + clamp01(e.pageY / window.innerHeight) * 8,
