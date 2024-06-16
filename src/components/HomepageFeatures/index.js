@@ -31,8 +31,8 @@ const FeatureList = [
     description: (
       <>
         <p>
-          Make <strong>top down</strong> games, <strong>platform</strong>{" "}
-          gamers, <strong>shooters</strong> and more!
+          Make <strong>top down</strong> games, <strong>platform</strong> games,{" "}
+          <strong>shooters</strong> and more!
         </p>
         <p>
           You can mix types in a single game and even{" "}
