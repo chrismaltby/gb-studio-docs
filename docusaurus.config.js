@@ -146,8 +146,12 @@ const config = {
                 href: "https://www.reddit.com/r/gbstudio",
               },
               {
-                label: "Twitter",
-                href: "https://twitter.com/GBStudioDev",
+                label: "X",
+                href: "https://x.com/GBStudioDev",
+              },
+              {
+                label: "Patreon",
+                href: "https://www.patreon.com/gbstudiodev",
               },
             ],
           },
