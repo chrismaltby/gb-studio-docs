@@ -7,37 +7,37 @@ sidebar_position: 2
 
 import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
-# Timer
+# Temporizador
 
-### Idle
-Pause the script for a single frame.
-<ScriptEventPreview title={"Idle"} fields={[{"label":"Wait until next frame"}]} />
+### Inactivo
+Pausar el script por un solo cuadro.
+<ScriptEventPreview title={"Inactivo"} fields={[{"label":"Esperar hasta el siguiente fotograma"}]} />
 
 
 ### Esperar
-Pause the script for a period of time.
-<ScriptEventPreview title={"Esperar"} fields={[{"type":"group","fields":[{"key":"time","type":"number","label":"Duration","description":"The length of time to pause the script for in seconds or frames.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Duration","description":"The length of time to pause the script for in seconds or frames.","type":"number","min":0,"max":3600,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]}]}]} />
+Pausar el script por un período de tiempo.
+<ScriptEventPreview title={"Esperar"} fields={[{"type":"group","fields":[{"key":"time","type":"number","label":"Duración","description":"El período de tiempo para pausar el script en segundos o fotogramas.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Duración","description":"El período de tiempo para pausar el script en segundos o fotogramas.","type":"number","min":0,"max":3600,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]}]}]} />
 
-- **Duration**: The length of time to pause the script for in seconds or frames.  
+- **Duración**: El período de tiempo para pausar el script en segundos o fotogramas.  
 
 ## Script
-### Attach Timer Script
-Run the specified script repeatedly after a time interval. The script will keep running in the background until a Remove Timer Script event is called or the scene is changed using a Change Scene event.
-<ScriptEventPreview title={"Attach Timer Script"} fields={[{"key":"timer","label":"Timer","description":"The timer that should be modified, each scene can use up to four timers at once.","type":"togglebuttons","options":[[1,"1","Timer 1"],[2,"2","Timer 2"],[3,"3","Timer 3"],[4,"4","Timer 4"]],"allowNone":false,"defaultValue":1},{"type":"group","fields":[{"key":"duration","type":"number","label":"Time Interval","description":"The length of time to wait before running the script each time.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Time Interval","description":"The length of time to wait before running the script each time.","type":"number","min":0,"max":3600,"step":16,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]}]},{"key":"__scriptTabs","type":"tabs","defaultValue":"end","values":{"end":"On Tick"}},{"key":"script","label":"On Tick","description":"The script to run when the timer is triggered.","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"end"]}]}]} />
+### Adjuntar script del temporizador
+Ejecute el script especificado repetidamente después de un intervalo de tiempo. El script seguirá ejecutándose en segundo plano hasta que se llame a un evento Remove Timer Script o se cambie la escena usando un evento Cambiar Escena.
+<ScriptEventPreview title={"Adjuntar script del temporizador"} fields={[{"key":"timer","label":"Temporizador","description":"El temporizador que se debe modificar, cada escena puede usar hasta cuatro temporizadores a la vez.","type":"togglebuttons","options":[[1,"1","Temporizador 1"],[2,"2","Temporizador 2"],[3,"3","Temporizador 3"],[4,"4","Temporizador 4"]],"allowNone":false,"defaultValue":1},{"type":"group","fields":[{"key":"duration","type":"number","label":"Intervalo de tiempo","description":"El tiempo que se debe esperar antes de ejecutar el script cada vez.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Intervalo de tiempo","description":"El tiempo que se debe esperar antes de ejecutar el script cada vez.","type":"number","min":0,"max":3600,"step":16,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]}]},{"key":"__scriptTabs","type":"tabs","defaultValue":"end","values":{"end":"En tic"}},{"key":"script","label":"En tic","description":"El script que se ejecutará cuando se active el temporizador.","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"end"]}]}]} />
 
-- **Timer**: The timer that should be modified, each scene can use up to four timers at once.  
-- **Time Interval**: The length of time to wait before running the script each time.  
-- **On Tick**: The script to run when the timer is triggered.  
+- **Temporizador**: El temporizador que se debe modificar, cada escena puede usar hasta cuatro temporizadores a la vez.  
+- **Intervalo de tiempo**: El tiempo que se debe esperar antes de ejecutar el script cada vez.  
+- **En tic**: El script que se ejecutará cuando se active el temporizador.  
 
-### Remove Timer Script
-Remove the timer script so it will no longer be called.
-<ScriptEventPreview title={"Remove Timer Script"} fields={[{"key":"timer","label":"Timer","description":"The timer that should be modified, each scene can use up to four timers at once.","type":"togglebuttons","options":[[1,"1","Timer 1"],[2,"2","Timer 2"],[3,"3","Timer 3"],[4,"4","Timer 4"]],"allowNone":false,"defaultValue":1,"flexBasis":"100%"},{"label":"Disable the timer script"}]} />
+### Eliminar script del temporizador
+Elimina el script del temporizador para que ya no se vuelva a llamar.
+<ScriptEventPreview title={"Eliminar script del temporizador"} fields={[{"key":"timer","label":"Temporizador","description":"El temporizador que se debe modificar, cada escena puede usar hasta cuatro temporizadores a la vez.","type":"togglebuttons","options":[[1,"1","Temporizador 1"],[2,"2","Temporizador 2"],[3,"3","Temporizador 3"],[4,"4","Temporizador 4"]],"allowNone":false,"defaultValue":1,"flexBasis":"100%"},{"label":"Deshabilitar el script del temporizador"}]} />
 
-- **Timer**: The timer that should be modified, each scene can use up to four timers at once.  
+- **Temporizador**: El temporizador que se debe modificar, cada escena puede usar hasta cuatro temporizadores a la vez.  
 
-### Restart Timer
-Reset the countdown timer back to zero. The script will call again after the time specified originally.
-<ScriptEventPreview title={"Restart Timer"} fields={[{"key":"timer","label":"Timer","description":"The timer that should be modified, each scene can use up to four timers at once.","type":"togglebuttons","options":[[1,"1","Timer 1"],[2,"2","Timer 2"],[3,"3","Timer 3"],[4,"4","Timer 4"]],"allowNone":false,"defaultValue":1,"flexBasis":"100%"},{"label":"Restart the countdown timer"}]} />
+### Reiniciar temporizador
+Restablece el temporizador de cuenta regresiva a cero. El script volverá a llamar después del tiempo especificado originalmente.
+<ScriptEventPreview title={"Reiniciar temporizador"} fields={[{"key":"timer","label":"Temporizador","description":"El temporizador que se debe modificar, cada escena puede usar hasta cuatro temporizadores a la vez.","type":"togglebuttons","options":[[1,"1","Temporizador 1"],[2,"2","Temporizador 2"],[3,"3","Temporizador 3"],[4,"4","Temporizador 4"]],"allowNone":false,"defaultValue":1,"flexBasis":"100%"},{"label":"Reiniciar el temporizador de cuenta regresiva"}]} />
 
-- **Timer**: The timer that should be modified, each scene can use up to four timers at once.  
+- **Temporizador**: El temporizador que se debe modificar, cada escena puede usar hasta cuatro temporizadores a la vez.  
 

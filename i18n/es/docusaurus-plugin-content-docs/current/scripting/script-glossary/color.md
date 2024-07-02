@@ -9,49 +9,49 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Color
 
-### Set Background Palettes
-Replace some or all of the current scene's background palettes.
-<ScriptEventPreview title={"Set Background Palettes"} fields={[{"key":"palette0","label":"Palettes","description":"The new palettes to use.","type":"palette","defaultValue":"keep","paletteType":"background","paletteIndex":0,"canKeep":true,"canRestore":true},{"key":"palette1","type":"palette","defaultValue":"keep","paletteType":"background","paletteIndex":1,"canKeep":true,"canRestore":true},{"key":"palette2","type":"palette","defaultValue":"keep","paletteType":"background","paletteIndex":2,"canKeep":true,"canRestore":true},{"key":"palette3","type":"palette","defaultValue":"keep","paletteType":"background","paletteIndex":3,"canKeep":true,"canRestore":true},{"key":"palette4","type":"palette","defaultValue":"keep","paletteType":"background","paletteIndex":4,"canKeep":true,"canRestore":true},{"key":"palette5","type":"palette","defaultValue":"keep","paletteType":"background","paletteIndex":5,"canKeep":true,"canRestore":true},{"key":"palette6","type":"palette","defaultValue":"keep","paletteType":"background","paletteIndex":6,"canKeep":true,"canRestore":true},{"key":"palette7","type":"palette","defaultValue":"keep","paletteType":"background","paletteIndex":7,"canKeep":true,"canRestore":true}]} />
+### Establecer paletas de fondo
+Reemplazar algunas o todas las paletas de fondo de la escena actual.
+<ScriptEventPreview title={"Establecer paletas de fondo"} fields={[{"key":"palette0","label":"Paletas","description":"Las nuevas paletas a utilizar.","type":"palette","defaultValue":"keep","paletteType":"background","paletteIndex":0,"canKeep":true,"canRestore":true},{"key":"palette1","type":"palette","defaultValue":"keep","paletteType":"background","paletteIndex":1,"canKeep":true,"canRestore":true},{"key":"palette2","type":"palette","defaultValue":"keep","paletteType":"background","paletteIndex":2,"canKeep":true,"canRestore":true},{"key":"palette3","type":"palette","defaultValue":"keep","paletteType":"background","paletteIndex":3,"canKeep":true,"canRestore":true},{"key":"palette4","type":"palette","defaultValue":"keep","paletteType":"background","paletteIndex":4,"canKeep":true,"canRestore":true},{"key":"palette5","type":"palette","defaultValue":"keep","paletteType":"background","paletteIndex":5,"canKeep":true,"canRestore":true},{"key":"palette6","type":"palette","defaultValue":"keep","paletteType":"background","paletteIndex":6,"canKeep":true,"canRestore":true},{"key":"palette7","type":"palette","defaultValue":"keep","paletteType":"background","paletteIndex":7,"canKeep":true,"canRestore":true}]} />
 
-- **Palettes**: The new palettes to use.  
+- **Paletas**: Las nuevas paletas a utilizar.  
 
-### Set Emote Palette
-Replace the palette used for emotes (sprite palette #8).
-<ScriptEventPreview title={"Set Emote Palette"} fields={[{"key":"palette","label":"Palette","description":"The new palette to use.","type":"palette","defaultValue":"","paletteType":"emote"}]} />
+### Establecer paleta de emotes
+Reemplazar la paleta utilizada para los emoticones (paleta de sprites #8).
+<ScriptEventPreview title={"Establecer paleta de emotes"} fields={[{"key":"palette","label":"Paleta","description":"La nueva paleta a utilizar.","type":"palette","defaultValue":"","paletteType":"emote"}]} />
 
-- **Palette**: The new palette to use.  
+- **Paleta**: La nueva paleta a utilizar.  
 
-### Set Sprite Palettes
-Replace some or all of the current scene's sprite palettes.
-<ScriptEventPreview title={"Set Sprite Palettes"} fields={[{"key":"palette0","label":"Palettes","description":"The new palettes to use.","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":0,"canKeep":true},{"key":"palette1","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":1,"canKeep":true},{"key":"palette2","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":2,"canKeep":true},{"key":"palette3","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":3,"canKeep":true},{"key":"palette4","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":4,"canKeep":true},{"key":"palette5","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":5,"canKeep":true},{"key":"palette6","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":6,"canKeep":true},{"key":"palette7","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":7,"canKeep":true}]} />
+### Establecer paletas de Sprites
+Reemplazar algunas o todas las paletas de sprites de la escena actual.
+<ScriptEventPreview title={"Establecer paletas de Sprites"} fields={[{"key":"palette0","label":"Paletas","description":"Las nuevas paletas a utilizar.","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":0,"canKeep":true},{"key":"palette1","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":1,"canKeep":true},{"key":"palette2","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":2,"canKeep":true},{"key":"palette3","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":3,"canKeep":true},{"key":"palette4","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":4,"canKeep":true},{"key":"palette5","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":5,"canKeep":true},{"key":"palette6","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":6,"canKeep":true},{"key":"palette7","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":7,"canKeep":true}]} />
 
-- **Palettes**: The new palettes to use.  
+- **Paletas**: Las nuevas paletas a utilizar.  
 
-### Set UI Palette
-Replace the palette used for the UI (background palette #8).
-<ScriptEventPreview title={"Set UI Palette"} fields={[{"key":"palette","label":"Palette","description":"The new palette to use.","type":"palette","defaultValue":"","paletteType":"ui"}]} />
+### Establecer paleta de interfaz de usuario
+Reemplazar la paleta utilizada para la interfaz de usuario (paleta de fondo #8).
+<ScriptEventPreview title={"Establecer paleta de interfaz de usuario"} fields={[{"key":"palette","label":"Paleta","description":"La nueva paleta a utilizar.","type":"palette","defaultValue":"","paletteType":"ui"}]} />
 
-- **Palette**: The new palette to use.  
+- **Paleta**: La nueva paleta a utilizar.  
 
 ## Control Flow
-### If Color Mode Is Available
-Conditionally run part of the script if the game is being played on a device or emulator that supports color games.
-<ScriptEventPreview title={"If Color Mode Is Available"} fields={[{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Si el modo de color está disponible
+Ejecuta condicionalmente parte del script si el juego se juega en un dispositivo o emulador que admita juegos de colores.
+<ScriptEventPreview title={"Si el modo de color está disponible"} fields={[{"key":"true","label":"Verdadero","description":"El script que se ejecutará si la condición es verdadera.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"El script a ejecutar si la condición es falsa.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
+- **Verdadero**: El script que se ejecutará si la condición es verdadera.  
+- **Falso**: El script a ejecutar si la condición es falsa.  
 
-### If GBA Mode Is Available
-Conditionally run part of the script if the game is being played on a device or emulator that supports GBA games.
-<ScriptEventPreview title={"If GBA Mode Is Available"} fields={[{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Si el modo GBA está disponible
+Ejecuta condicionalmente parte del script si el juego se juega en un dispositivo o emulador que admita juegos GBA.
+<ScriptEventPreview title={"Si el modo GBA está disponible"} fields={[{"key":"true","label":"Verdadero","description":"El script que se ejecutará si la condición es verdadera.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"El script a ejecutar si la condición es falsa.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
+- **Verdadero**: El script que se ejecutará si la condición es verdadera.  
+- **Falso**: El script a ejecutar si la condición es falsa.  
 
-### If Super GB Mode Is Available
-Conditionally run part of the script if the game is being played on a device or emulator that supports Super GB games.
-<ScriptEventPreview title={"If Super GB Mode Is Available"} fields={[{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Si el modo Super GB está disponible
+Ejecuta condicionalmente parte del script si el juego se juega en un dispositivo o emulador que admita juegos Super GB.
+<ScriptEventPreview title={"Si el modo Super GB está disponible"} fields={[{"key":"true","label":"Verdadero","description":"El script que se ejecutará si la condición es verdadera.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"El script a ejecutar si la condición es falsa.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
+- **Verdadero**: El script que se ejecutará si la condición es verdadera.  
+- **Falso**: El script a ejecutar si la condición es falsa.  
 

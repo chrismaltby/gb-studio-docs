@@ -7,45 +7,45 @@ sidebar_position: 2
 
 import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
-# Math
+# Matemáticas
 
 ## Control Flow
-### If Math Expression
-Conditionally execute part of the script if the specified math expression evaluates to true.
-<ScriptEventPreview title={"If Math Expression"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"expression","value":""}},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Si es expresión matemática
+Ejecuta condicionalmente parte del script si la expresión matemática especificada se evalúa como verdadera.
+<ScriptEventPreview title={"Si es expresión matemática"} fields={[{"key":"condition","label":"Condición","description":"La condición a evaluar.","type":"value","defaultValue":{"type":"expression","value":""}},{"key":"true","label":"Verdadero","description":"El script que se ejecutará si la condición es verdadera.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"El script a ejecutar si la condición es falsa.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Condition**: The condition to evaluate.  
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
+- **Condición**: La condición a evaluar.  
+- **Verdadero**: El script que se ejecutará si la condición es verdadera.  
+- **Falso**: El script a ejecutar si la condición es falsa.  
 
-### Loop While Math Expression
-Run part of the script in a loop while an expression is true.
-<ScriptEventPreview title={"Loop While Math Expression"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"expression","value":""}},{"key":"true","type":"events"}]} />
+### Bucle mientras expresión matemática
+Ejecuta parte del script en un bucle mientras una expresión sea verdadera.
+<ScriptEventPreview title={"Bucle mientras expresión matemática"} fields={[{"key":"condition","label":"Condición","description":"La condición a evaluar.","type":"value","defaultValue":{"type":"expression","value":""}},{"key":"true","type":"events"}]} />
 
-- **Condition**: The condition to evaluate.  
+- **Condición**: La condición a evaluar.  
 
 ## Random
-### Seed Random Number Generator
-Place this to run in response to user input to ensure random numbers change between playthroughs.
-<ScriptEventPreview title={"Seed Random Number Generator"} fields={[{"label":"Place this to run in response to user input to ensure random numbers change between playthroughs"}]} />
+### Generador de números aleatorios de semillas
+Coloque esto para que se ejecute en respuesta a la entrada del usuario para garantizar que los números aleatorios cambien entre partidas.
+<ScriptEventPreview title={"Generador de números aleatorios de semillas"} fields={[{"label":"Coloque esto para que se ejecute en respuesta a la entrada del usuario para garantizar que los números aleatorios cambien entre partidas"}]} />
 
 
 ## Variables
-### Evaluate Math Expression
-Set a variable to the result of evaluating a math expression.
+### Evaluar expresión matemática
+Establece una variable para el resultado de evaluar una expresión matemática.
 
-**References**  
+**Referencias**  
 [/docs/scripting/math-expressions](/docs/scripting/math-expressions)  
-<ScriptEventPreview title={"Evaluate Math Expression"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Expression","description":"The expression to evaluate.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
+<ScriptEventPreview title={"Evaluar expresión matemática"} fields={[{"key":"variable","label":"Variable","description":"La variable a utilizar.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Expresión","description":"La expresión a evaluar.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
 
-- **Variable**: The variable to use.  
-- **Expression**: The expression to evaluate.  
+- **Variable**: La variable a utilizar.  
+- **Expresión**: La expresión a evaluar.  
 
-### Variable: Funciones matemáticas
-Allows you to perform various maths functions on a variable to add/subtract/multiply/divide/modulus a value/variable/random number.
-<ScriptEventPreview title={"Variable: Funciones matemáticas"} fields={[{"key":"vectorX","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operation","label":"Operation","description":"The operation to use for modifying the variable value.","type":"select","options":[["set","Definir como"],["add","Agregar"],["sub","Restar"],["mul","Multiplicar"],["div","Dividir"],["mod","Módulo"]],"defaultValue":"set","width":"50%"},{"key":"other","label":"Valor","description":"The value to combine with the variable using the selected operation.","type":"select","options":[["true","Verdadero"],["false","Falso"],["var","Variable"],["val","Valor"],["rnd","Aleatorio"]],"defaultValue":"true","width":"50%"},{"key":"vectorY","type":"variable","conditions":[{"key":"other","eq":"var"}],"defaultValue":"LAST_VARIABLE"},{"key":"value","type":"number","conditions":[{"key":"other","eq":"val"}],"min":-32768,"max":32767,"defaultValue":"0"},{"type":"group","fields":[{"key":"minValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Valor máximo","description":"The minimum value for the random range.","hideFromDocs":true,"defaultValue":"0","width":"50%"},{"key":"maxValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Valor mínimo","description":"The maximum value for the random range.","hideFromDocs":true,"defaultValue":"32767","width":"50%"}]},{"key":"clamp","type":"checkbox","label":"Clamp value between 0 and 255","hideFromDocs":true,"conditions":[{"key":"operation","in":["add","sub","mul"]}],"defaultValue":false}]} />
+### Funciones matemáticas
+Te permite realizar varias funciones matemáticas en una variable para sumar/restar/multiplicar/dividir/módulo un valor/variable/número aleatorio.
+<ScriptEventPreview title={"Funciones matemáticas"} fields={[{"key":"vectorX","label":"Variable","description":"La variable a utilizar.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operation","label":"Operación","description":"La operación a utilizar para modificar el valor de la variable.","type":"select","options":[["set","Definir como"],["add","Agregar"],["sub","Restar"],["mul","Multiplicar"],["div","Dividir"],["mod","Módulo"]],"defaultValue":"set","width":"50%"},{"key":"other","label":"Valor","description":"El valor a combinar con la variable usando la operación seleccionada.","type":"select","options":[["true","Verdadero"],["false","Falso"],["var","Variable"],["val","Valor"],["rnd","Aleatorio"]],"defaultValue":"true","width":"50%"},{"key":"vectorY","type":"variable","conditions":[{"key":"other","eq":"var"}],"defaultValue":"LAST_VARIABLE"},{"key":"value","type":"number","conditions":[{"key":"other","eq":"val"}],"min":-32768,"max":32767,"defaultValue":"0"},{"type":"group","fields":[{"key":"minValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Valor mínimo","description":"El valor mínimo para el rango aleatorio.","hideFromDocs":true,"defaultValue":"0","width":"50%"},{"key":"maxValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Valor maximo","description":"El valor máximo para el rango aleatorio.","hideFromDocs":true,"defaultValue":"32767","width":"50%"}]},{"key":"clamp","type":"checkbox","label":"Fijar valor entre 0 y 255","hideFromDocs":true,"conditions":[{"key":"operation","in":["add","sub","mul"]}],"defaultValue":false}]} />
 
-- **Variable**: The variable to use.  
-- **Operation**: The operation to use for modifying the variable value.  
-- **Valor**: The value to combine with the variable using the selected operation.  
+- **Variable**: La variable a utilizar.  
+- **Operación**: La operación a utilizar para modificar el valor de la variable.  
+- **Valor**: El valor a combinar con la variable usando la operación seleccionada.  
 

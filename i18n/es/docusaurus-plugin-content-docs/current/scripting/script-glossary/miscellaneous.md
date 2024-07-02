@@ -7,56 +7,56 @@ sidebar_position: 2
 
 import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
-# Miscellaneous
+# Variado
 
-### Comment
-Allows you to leave notes within your scripts. Provides no functionality in-game. The text you type automatically gets set in the event title, so you can collapse the comment and still read its content.
-<ScriptEventPreview title={"Comment"} fields={[{"key":"text","type":"textarea","maxPerLine":50,"placeholder":"Texto...","multiple":false,"defaultValue":""}]} />
+### Comentar
+Te permite dejar notas dentro de tus guiones. No proporciona ninguna funcionalidad en el juego. El texto que escribes se establece automáticamente en el título del evento, por lo que puedes contraer el comentario y seguir leyendo su contenido.
+<ScriptEventPreview title={"Comentar"} fields={[{"key":"text","type":"textarea","maxPerLine":50,"placeholder":"Texto...","multiple":false,"defaultValue":""}]} />
 
 
-### Grupo de acciones
-Alows you to group together parts of your script for organizational purposes.
-<ScriptEventPreview title={"Grupo de acciones"} fields={[{"key":"true","type":"events"}]} />
+### Grupo de Eventos
+Te permite agrupar partes de tu script con fines organizativos.
+<ScriptEventPreview title={"Grupo de Eventos"} fields={[{"key":"true","type":"events"}]} />
 
 
 ### GBVM Script
-Run a GBVM script.
+Ejecutar script GBVM.
 
-**References**  
+**Referencias**  
 [/docs/scripting/gbvm/](/docs/scripting/gbvm/)  
 [/docs/scripting/gbvm/gbvm-operations](/docs/scripting/gbvm/gbvm-operations)  
-<ScriptEventPreview title={"GBVM Script"} fields={[{"key":"script","label":"Script","description":"A valid GBVM Script to execute.","type":"code","flexBasis":"100%"},{"key":"references","type":"references","label":"References","description":"A list of the assets and entities used in your GBVM script. Use this to let GB Studio know that a file is needed by your script, preventing it from being excluded in the final build."}]} />
+<ScriptEventPreview title={"GBVM Script"} fields={[{"key":"script","label":"Script","description":"Un script GBVM válido para ejecutar.","type":"code","flexBasis":"100%"},{"key":"references","type":"references","label":"Referencias","description":"Una lista de los activos y entidades utilizados en su secuencia de comandos GBVM. Utilícela para que GB Studio sepa que su secuencia de comandos necesita un archivo, evitando que se excluya en la compilación final."}]} />
 
-- **Script**: A valid GBVM Script to execute.  
-- **References**: A list of the assets and entities used in your GBVM script. Use this to let GB Studio know that a file is needed by your script, preventing it from being excluded in the final build.  
+- **Script**: Un script GBVM válido para ejecutar.  
+- **Referencias**: Una lista de los activos y entidades utilizados en su secuencia de comandos GBVM. Utilícela para que GB Studio sepa que su secuencia de comandos necesita un archivo, evitando que se excluya en la compilación final.  
 
-### Script Lock
-Pause other scripts and scene updates until this script has finished or is unlocked.
-<ScriptEventPreview title={"Script Lock"} fields={[{"label":"Pause other scripts and scene updates until this script has finished or is unlocked."}]} />
+### Bloqueo de script
+Pausar otros scripts y actualizaciones de escenas hasta que este script haya finalizado o esté desbloqueado.
+<ScriptEventPreview title={"Bloqueo de script"} fields={[{"label":"Pausar otros scripts y actualizaciones de escenas hasta que este script haya finalizado o esté desbloqueado."}]} />
 
 
-### Script Unlock
-If locked, unlock this script so other scripts can run and the scene can update.
-<ScriptEventPreview title={"Script Unlock"} fields={[{"label":"If locked, unlock this script so other scripts can run and the scene can update."}]} />
+### Desbloqueo de script
+Si está bloqueado, desbloquee este script para que se puedan ejecutar otros scripts y la escena se pueda actualizar.
+<ScriptEventPreview title={"Desbloqueo de script"} fields={[{"label":"Si está bloqueado, desbloquee este script para que se puedan ejecutar otros scripts y la escena se pueda actualizar."}]} />
 
 
 ## Multiplayer
-### Link: Close
-<ScriptEventPreview title={"Link: Close"} fields={[{"label":"Close the current link session."}]} />
+### Link: Cerrado
+<ScriptEventPreview title={"Link: Cerrado"} fields={[{"label":"Cerrar la sesión de enlace actual."}]} />
 
 
 ### Link: Host
-<ScriptEventPreview title={"Link: Host"} fields={[{"label":"Host a link session."}]} />
+<ScriptEventPreview title={"Link: Host"} fields={[{"label":"Organizar una sesión de enlace."}]} />
 
 
-### Link: Join
-<ScriptEventPreview title={"Link: Join"} fields={[{"label":"Join a link session."}]} />
+### Link: Unir
+<ScriptEventPreview title={"Link: Unir"} fields={[{"label":"Unirse a una sesión de enlace."}]} />
 
 
-### Link: Transfer
-<ScriptEventPreview title={"Link: Transfer"} fields={[{"key":"sendVariable","label":"Send Variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"receiveVariable","label":"Receive Variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"size","label":"Packet Size","type":"number","defaultValue":1}]} />
+### Link: Transferir
+<ScriptEventPreview title={"Link: Transferir"} fields={[{"key":"sendVariable","label":"Enviar variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"receiveVariable","label":"Recibir variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"size","label":"Tamaño del paquete","type":"number","defaultValue":1}]} />
 
-- **Send Variable**  
-- **Receive Variable**  
-- **Packet Size**  
+- **Enviar variable**  
+- **Recibir variable**  
+- **Tamaño del paquete**  
 

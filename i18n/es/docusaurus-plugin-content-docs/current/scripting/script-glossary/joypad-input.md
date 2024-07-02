@@ -7,37 +7,37 @@ sidebar_position: 2
 
 import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
-# Joypad Input
+# Entrada del mando
 
-### Entrada de control: Adjuntar script a botón
-Run the specified script any time a joypad button is pressed.
-<ScriptEventPreview title={"Entrada de control: Adjuntar script a botón"} fields={[{"key":"input","label":"Button","description":"The joypad button to check.","type":"input","defaultValue":["b"]},{"key":"override","type":"checkbox","label":"Override default button action","description":"Set if the script should replace the default game action for the specified button.","defaultValue":true},{"key":"__scriptTabs","type":"tabs","defaultValue":"press","values":{"press":"En Presionado"}},{"key":"true","label":"En Presionado","description":"The script to run when the button is pressed.","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"press"]}]}]} />
+### Adjuntar script al botón
+Ejecuta el script especificado cada vez que se presiona un botón del joypad.
+<ScriptEventPreview title={"Adjuntar script al botón"} fields={[{"key":"input","label":"Botón","description":"El botón del joypad a verificar.","type":"input","defaultValue":["b"]},{"key":"override","type":"checkbox","label":"Anular la acción predeterminada del botón","description":"Establece si el script debe reemplazar la acción predeterminada del juego para el botón especificado.","defaultValue":true},{"key":"__scriptTabs","type":"tabs","defaultValue":"press","values":{"press":"En Presionado"}},{"key":"true","label":"En Presionado","description":"El script que se ejecutará cuando se presione el botón.","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"press"]}]}]} />
 
-- **Button**: The joypad button to check.  
-- **Override default button action**: Set if the script should replace the default game action for the specified button.  
-- **En Presionado**: The script to run when the button is pressed.  
+- **Botón**: El botón del joypad a verificar.  
+- **Anular la acción predeterminada del botón**: Establece si el script debe reemplazar la acción predeterminada del juego para el botón especificado.  
+- **En Presionado**: El script que se ejecutará cuando se presione el botón.  
 
-### Entrada De Control: Pausar script hasta presionar
-Pauses the script until one of the specified joypad buttons are pressed.
-<ScriptEventPreview title={"Entrada De Control: Pausar script hasta presionar"} fields={[{"key":"input","label":"Cualquiera de","description":"The input buttons to check.","type":"input","defaultValue":["a","b"]}]} />
+### Pausar el script hasta que se presione el botón
+Pausa el script hasta que se presione uno de los botones del joypad especificados.
+<ScriptEventPreview title={"Pausar el script hasta que se presione el botón"} fields={[{"key":"input","label":"Cualquiera de","description":"The input buttons to check.","type":"input","defaultValue":["a","b"]}]} />
 
 - **Cualquiera de**: The input buttons to check.  
 
-### Entrada De Control: Remover script adjunto
-Remove an attached script from a joypad button restoring the default functionality of the button.
-<ScriptEventPreview title={"Entrada De Control: Remover script adjunto"} fields={[{"key":"input","label":"Remover script adjunto al input","description":"The joypad button to remove the attached script from.","type":"input","defaultValue":["b"]}]} />
+### Eliminar script del botón
+Eliminar un script adjunto de un botón joypad restaurando la funcionalidad predeterminada del botón.
+<ScriptEventPreview title={"Eliminar script del botón"} fields={[{"key":"input","label":"Eliminar script adjunto al boton","description":"El botón del joystick para eliminar el script adjunto.","type":"input","defaultValue":["b"]}]} />
 
-- **Remover script adjunto al input**: The joypad button to remove the attached script from.  
+- **Eliminar script adjunto al boton**: El botón del joystick para eliminar el script adjunto.  
 
 ## Control Flow
-### Si un botón es presionado
-Conditionally run part of the script if the specified joypad button is currently pressed. Will not wait for user input and will only execute once, if you wish to run a script every time a button is pressed use Attach Script To Button instead.
+### Si se mantiene pulsado el botón
+Ejecuta condicionalmente parte del script si el botón del joypad especificado está actualmente presionado. No esperará la entrada del usuario y solo se ejecutará una vez; si desea ejecutar un script cada vez que se presione un botón, use Adjuntar script al botón en cambio.
 
-**References**  
+**Referencias**  
 [/docs/scripting/script-glossary/input#attach-script-to-button](/docs/scripting/script-glossary/input#attach-script-to-button)  
-<ScriptEventPreview title={"Si un botón es presionado"} fields={[{"key":"input","label":"Cualquiera de","description":"The input buttons to check.","type":"input","defaultValue":["a","b"]},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"Si se mantiene pulsado el botón"} fields={[{"key":"input","label":"Cualquiera de","description":"The input buttons to check.","type":"input","defaultValue":["a","b"]},{"key":"true","label":"Verdadero","description":"El script que se ejecutará si la condición es verdadera.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"El script a ejecutar si la condición es falsa.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Cualquiera de**: The input buttons to check.  
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
+- **Verdadero**: El script que se ejecutará si la condición es verdadera.  
+- **Falso**: El script a ejecutar si la condición es falsa.  
 

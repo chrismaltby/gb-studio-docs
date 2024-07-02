@@ -7,42 +7,42 @@ sidebar_position: 2
 
 import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
-# Save Data
+# Guardar datos
 
-### Datos de juego: Cargar
-Load the saved game data from the selected slot.
-<ScriptEventPreview title={"Datos de juego: Cargar"} fields={[{"label":"Carga datos del juego de memoria."},{"key":"saveSlot","label":"Save Slot","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0}]} />
+### Carga de datos del juego
+Carga los datos del juego guardado desde la ranura seleccionada.
+<ScriptEventPreview title={"Carga de datos del juego"} fields={[{"label":"Carga datos del juego desde la memoria."},{"key":"saveSlot","label":"Ranura de guardado","description":"La ranura de guardado a usar.","type":"togglebuttons","options":[[0,"Ranura 1","Ranura de guardado 1"],[1,"Ranura 2","Ranura de guardado 2"],[2,"Ranura 3","Ranura de guardado 3"]],"allowNone":false,"defaultValue":0}]} />
 
-- **Save Slot**: The save slot to use.  
+- **Ranura de guardado**: La ranura de guardado a usar.  
 
-### Datos de juego: Borrar
-Remove any previously saved game data in the selected slot.
-<ScriptEventPreview title={"Datos de juego: Borrar"} fields={[{"label":"Limpia todos los datos del juego de memoria."},{"key":"saveSlot","label":"Save Slot","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0}]} />
+### Eliminar datos del juego
+Eliminar cualquier dato del juego previamente guardado en la ranura seleccionada.
+<ScriptEventPreview title={"Eliminar datos del juego"} fields={[{"label":"Borre todos los datos del juego guardados de la memoria."},{"key":"saveSlot","label":"Ranura de guardado","description":"La ranura de guardado a usar.","type":"togglebuttons","options":[[0,"Ranura 1","Ranura de guardado 1"],[1,"Ranura 2","Ranura de guardado 2"],[2,"Ranura 3","Ranura de guardado 3"]],"allowNone":false,"defaultValue":0}]} />
 
-- **Save Slot**: The save slot to use.  
+- **Ranura de guardado**: La ranura de guardado a usar.  
 
-### Datos de juego: Guardar
-Save the current game data into the selected slot.
-<ScriptEventPreview title={"Datos de juego: Guardar"} fields={[{"label":"Guarda datos del juego actuales a memoria. Requiere cartucho con BATERIA"},{"key":"saveSlot","label":"Save Slot","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0},{"key":"__scriptTabs","type":"tabs","defaultValue":"save","values":{"save":"On Save"}},{"key":"true","label":"On Save","description":"A script to run after the save is completed. This won't be run on game load so you can use it show a 'Save Was Successful' message.","type":"events"}]} />
+### Guardar datos del juego
+Guarda los datos del juego actual en la ranura seleccionada.
+<ScriptEventPreview title={"Guardar datos del juego"} fields={[{"label":"Guarda los datos del juego actual en la memoria. Requiere un cartucho con BATERÍA."},{"key":"saveSlot","label":"Ranura de guardado","description":"La ranura de guardado a usar.","type":"togglebuttons","options":[[0,"Ranura 1","Ranura de guardado 1"],[1,"Ranura 2","Ranura de guardado 2"],[2,"Ranura 3","Ranura de guardado 3"]],"allowNone":false,"defaultValue":0},{"key":"__scriptTabs","type":"tabs","defaultValue":"save","values":{"save":"Al guardar"}},{"key":"true","label":"Al guardar","description":"Un script que se ejecutará después de que se complete el guardado. Esto no se ejecutará al cargar el juego, así que puedes usarlo y mostrar el mensaje 'El guardado fue exitoso'.","type":"events"}]} />
 
-- **Save Slot**: The save slot to use.  
-- **On Save**: A script to run after the save is completed. This won't be run on game load so you can use it show a 'Save Was Successful' message.  
+- **Ranura de guardado**: La ranura de guardado a usar.  
+- **Al guardar**: Un script que se ejecutará después de que se complete el guardado. Esto no se ejecutará al cargar el juego, así que puedes usarlo y mostrar el mensaje 'El guardado fue exitoso'.  
 
 ## Control Flow
-### Si los datos de juego fueron guardados
-Conditionally run part of the script if save data is present within the specified save slot.
-<ScriptEventPreview title={"Si los datos de juego fueron guardados"} fields={[{"key":"saveSlot","label":"Save Slot","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0},{"label":"Ejecutar si el jugador a guardado la partida."},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Si se guardaron los datos del juego
+Ejecuta condicionalmente parte del script si los datos guardados están presentes dentro del espacio para guardar especificado.
+<ScriptEventPreview title={"Si se guardaron los datos del juego"} fields={[{"key":"saveSlot","label":"Ranura de guardado","description":"La ranura de guardado a usar.","type":"togglebuttons","options":[[0,"Ranura 1","Ranura de guardado 1"],[1,"Ranura 2","Ranura de guardado 2"],[2,"Ranura 3","Ranura de guardado 3"]],"allowNone":false,"defaultValue":0},{"label":"Ejecutar si el jugador a guardado la partida."},{"key":"true","label":"Verdadero","description":"El script que se ejecutará si la condición es verdadera.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"El script a ejecutar si la condición es falsa.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Save Slot**: The save slot to use.  
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
+- **Ranura de guardado**: La ranura de guardado a usar.  
+- **Verdadero**: El script que se ejecutará si la condición es verdadera.  
+- **Falso**: El script a ejecutar si la condición es falsa.  
 
 ## Variables
-### Store Variable from Game Data In Variable
-Read a variable's value from a specified save slot and store it in a variable.
-<ScriptEventPreview title={"Store Variable from Game Data In Variable"} fields={[{"key":"variableDest","label":"Set Variable","description":"The variable to update.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"Para Variable","description":"The variable to read the value of.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"From Save Slot","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0}]}]} />
+### Almacenar variable de datos del juego en variable
+Lee el valor de una variable desde una ranura de guardado especificada y lo almacena en una variable.
+<ScriptEventPreview title={"Almacenar variable de datos del juego en variable"} fields={[{"key":"variableDest","label":"Establecer variable","description":"La variable a actualizar.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"A variable","description":"La variable para leer el valor.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"Desde la ranura para guardar","description":"La ranura de guardado a usar.","type":"togglebuttons","options":[[0,"Ranura 1","Ranura de guardado 1"],[1,"Ranura 2","Ranura de guardado 2"],[2,"Ranura 3","Ranura de guardado 3"]],"allowNone":false,"defaultValue":0}]}]} />
 
-- **Set Variable**: The variable to update.  
-- **Para Variable**: The variable to read the value of.  
-- **From Save Slot**: The save slot to use.  
+- **Establecer variable**: La variable a actualizar.  
+- **A variable**: La variable para leer el valor.  
+- **Desde la ranura para guardar**: La ranura de guardado a usar.  
 

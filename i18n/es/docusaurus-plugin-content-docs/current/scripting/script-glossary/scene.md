@@ -7,67 +7,67 @@ sidebar_position: 2
 
 import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
-# Scene
+# Escena
 
-### Escena: Cambiar escena
-Transition to a new scene with player at a specified position and direction. A connection line will be drawn between the source of the event and the destination scene with an icon appearing at the destination position. It's possible to drag this icon around and between scenes to modify the event.
-<ScriptEventPreview title={"Escena: Cambiar escena"} fields={[{"key":"sceneId","label":"Escena","description":"The scene to transition to.","type":"scene","defaultValue":"LAST_SCENE"},{"type":"group","fields":[{"key":"x","label":"X","description":"The initial player horizontal position in the new scene.","type":"value","min":0,"max":255,"defaultValue":{"type":"number","value":0},"width":"50%"},{"key":"y","label":"Y","description":"The initial player vertical position in the new scene.","type":"value","min":0,"max":255,"defaultValue":{"type":"number","value":0},"width":"50%"}]},{"key":"direction","label":"Dirección","description":"The initial player direction.","type":"direction","width":"50%","defaultValue":""},{"key":"fadeSpeed","label":"Velocidad para desvanecer","description":"The speed of the fade animation.","type":"fadeSpeed","allowNone":true,"defaultValue":"2","width":"50%"}]} />
+### Cambiar escena
+Transición a una nueva escena con el jugador en una posición y dirección especificadas. Se dibujará una línea de conexión entre el origen del evento y la escena de destino con un icono que aparecerá en la posición de destino. Es posible arrastrar este icono alrededor y entre escenas para modificar el evento.
+<ScriptEventPreview title={"Cambiar escena"} fields={[{"key":"sceneId","label":"Escena","description":"La escena a la que realizar la transición.","type":"scene","defaultValue":"LAST_SCENE"},{"type":"group","fields":[{"key":"x","label":"X","description":"La posición horizontal inicial del jugador en la nueva escena.","type":"value","min":0,"max":255,"defaultValue":{"type":"number","value":0},"width":"50%"},{"key":"y","label":"Y","description":"La posición vertical inicial del jugador en la nueva escena.","type":"value","min":0,"max":255,"defaultValue":{"type":"number","value":0},"width":"50%"}]},{"key":"direction","label":"Dirección","description":"La dirección inicial del jugador.","type":"direction","width":"50%","defaultValue":""},{"key":"fadeSpeed","label":"Velocidad de desvanecimiento","description":"La velocidad de la animación de desvanecimiento.","type":"fadeSpeed","allowNone":true,"defaultValue":"2","width":"50%"}]} />
 
-- **Escena**: The scene to transition to.  
-- **X**: The initial player horizontal position in the new scene.  
-- **Y**: The initial player vertical position in the new scene.  
-- **Dirección**: The initial player direction.  
-- **Velocidad para desvanecer**: The speed of the fade animation.  
+- **Escena**: La escena a la que realizar la transición.  
+- **X**: La posición horizontal inicial del jugador en la nueva escena.  
+- **Y**: La posición vertical inicial del jugador en la nueva escena.  
+- **Dirección**: La dirección inicial del jugador.  
+- **Velocidad de desvanecimiento**: La velocidad de la animación de desvanecimiento.  
 
 ## Control Flow
-### If Current Scene Is
-<ScriptEventPreview title={"If Current Scene Is"} fields={[{"key":"sceneId","label":"Escena","type":"scene","defaultValue":"LAST_SCENE"},{"key":"true","label":"Verdadero","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Si la escena actual es
+<ScriptEventPreview title={"Si la escena actual es"} fields={[{"key":"sceneId","label":"Escena","type":"scene","defaultValue":"LAST_SCENE"},{"key":"true","label":"Verdadero","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Escena**  
 - **Verdadero**  
 - **Falso**  
 
 ## Scene Stack
-### Escena: Vaciar escena de pila
-Remove all scenes from the scene stack without leaving the current scene.
-<ScriptEventPreview title={"Escena: Vaciar escena de pila"} fields={[{"label":"Limpia la pila de los estados de escena guardados."}]} />
+### Eliminar todo de la pila de escenas
+Eliminar todas las escenas de la pila de escenas sin salir de la escena actual.
+<ScriptEventPreview title={"Eliminar todo de la pila de escenas"} fields={[{"label":"Limpia la pila de los estados de escena guardados."}]} />
 
 
-### Escena: Restaurar primera desde pila
-Transition to the very first scene stored on the stack, for instance if you had multiple levels of menu scenes you could use this to imediately return to the game scene. This event will cause the scene stack to become empty.
-<ScriptEventPreview title={"Escena: Restaurar primera desde pila"} fields={[{"label":"Saca todos los estados de escena de la pila."},{"type":"break"},{"key":"fadeSpeed","label":"Velocidad para desvanecer","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2","width":"50%"}]} />
+### Restaurar la primera escena desde la pila
+Transición a la primera escena almacenada en la pila; por ejemplo, si tienes múltiples niveles de escenas de menú, puedes usar esto para regresar inmediatamente a la escena del juego. Este evento hará que la pila de escenas quede vacía.
+<ScriptEventPreview title={"Restaurar la primera escena desde la pila"} fields={[{"label":"Saca todos los estados de escena de la pila."},{"type":"break"},{"key":"fadeSpeed","label":"Velocidad de desvanecimiento","description":"La velocidad de la animación de desvanecimiento.","type":"fadeSpeed","defaultValue":"2","width":"50%"}]} />
 
-- **Velocidad para desvanecer**: The speed of the fade animation.  
+- **Velocidad de desvanecimiento**: La velocidad de la animación de desvanecimiento.  
 
-### Escena: Restaurar previa desde pila
-Transition to the last stored scene from the scene stack using the specified fade speed. The previous scene will then be removed from the stack so the next time this event is used it will transition to the scene before that.
-<ScriptEventPreview title={"Escena: Restaurar previa desde pila"} fields={[{"label":"Saca el estado de escena del tope de la pila."},{"type":"break"},{"key":"fadeSpeed","label":"Velocidad para desvanecer","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2","width":"50%"}]} />
+### Restaurar escena anterior desde la pila
+Transición a la última escena almacenada desde la pila de escenas usando la velocidad de desvanecimiento especificada. La escena anterior se eliminará de la pila, por lo que la próxima vez que se use este evento pasará a la escena anterior a esa.
+<ScriptEventPreview title={"Restaurar escena anterior desde la pila"} fields={[{"label":"Saca el estado de escena del tope de la pila."},{"type":"break"},{"key":"fadeSpeed","label":"Velocidad de desvanecimiento","description":"La velocidad de la animación de desvanecimiento.","type":"fadeSpeed","defaultValue":"2","width":"50%"}]} />
 
-- **Velocidad para desvanecer**: The speed of the fade animation.  
+- **Velocidad de desvanecimiento**: La velocidad de la animación de desvanecimiento.  
 
-### Escena: Guardar actual en pila
-Store the current scene and player state on to the scene stack, this allows you to return to this exact location later using the Scene Restore events. A common use of this event would be to include in a script just before a Change Scene event to open a menu scene, in the menu scene you could wait for the player to press a close button and then use the Restore Previous From Stack event to return to where the player opened the menu.
-<ScriptEventPreview title={"Escena: Guardar actual en pila"} fields={[{"label":"Empuja el estado de la escena a la pila."}]} />
+### Almacenar la escena actual en la pila
+Almacena la escena actual y el estado del reproductor en la pila de escenas, esto te permite regresar a esta ubicación exacta más adelante usando los eventos de Restauración de escena. Un uso común de este evento sería incluirlo en un script justo antes de una Evento Cambiar escena para abrir una escena de menú, en la escena de menú puedes esperar a que el jugador presione un botón de cierre y luego usar el evento Restaurar anterior desde la pila para regresar al lugar donde el jugador abrió el menú.
+<ScriptEventPreview title={"Almacenar la escena actual en la pila"} fields={[{"label":"Empuja el estado de la escena a la pila."}]} />
 
 
 ## Tiles
 ### Replace Tile At Position
 Replace a tile at a specified coordinate with another from a tileset.
-<ScriptEventPreview title={"Replace Tile At Position"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"The vertical position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}}]},{"type":"group","fields":[{"key":"tilesetId","type":"tileset","label":"Tileset","description":"The tileset to fetch tiles from","defaultValue":"LAST_TILESET","unitsField":"tileSize","unitsDefault":"8px","unitsAllowed":["8px","16px"]},{"key":"tileIndex","label":"Tile","description":"The tile offset inside tileset","type":"value","min":0,"defaultValue":{"type":"number","value":0}}]}]} />
+<ScriptEventPreview title={"Replace Tile At Position"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"La posición horizontal.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"La posición vertical.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}}]},{"type":"group","fields":[{"key":"tilesetId","type":"tileset","label":"Conjunto de mosaicos","description":"El conjunto de mosaicos del que buscar","defaultValue":"LAST_TILESET","unitsField":"tileSize","unitsDefault":"8px","unitsAllowed":["8px","16px"]},{"key":"tileIndex","label":"Mosaicos","description":"El mosaico desplazado dentro del conjunto de mosaicos","type":"value","min":0,"defaultValue":{"type":"number","value":0}}]}]} />
 
-- **X**: The horizontal position.  
-- **Y**: The vertical position.  
-- **Tileset**: The tileset to fetch tiles from  
-- **Tile**: The tile offset inside tileset  
+- **X**: La posición horizontal.  
+- **Y**: La posición vertical.  
+- **Conjunto de mosaicos**: El conjunto de mosaicos del que buscar  
+- **Mosaicos**: El mosaico desplazado dentro del conjunto de mosaicos  
 
 ### Replace Tile At Position From Sequence
 Replace a tile at a specified coordinate with another from a tileset in a sequence.
-<ScriptEventPreview title={"Replace Tile At Position From Sequence"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"The vertical position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}}]},{"key":"tilesetId","type":"tileset","label":"Tileset","description":"The tileset to fetch tiles from","defaultValue":"LAST_TILESET","unitsField":"tileSize","unitsDefault":"8px","unitsAllowed":["8px","16px"]},{"type":"group","fields":[{"key":"tileIndex","label":"From Tile","description":"The starting tile offset inside tileset","type":"value","min":0,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"frames","label":"Animation Frames","description":"The number of animation frames to cycle through.","type":"value","min":1,"width":"50%","defaultValue":{"type":"number","value":1}}]},{"key":"variable","label":"State Variable","description":"A variable to store the current state of this event","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
+<ScriptEventPreview title={"Replace Tile At Position From Sequence"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"La posición horizontal.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"La posición vertical.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}}]},{"key":"tilesetId","type":"tileset","label":"Conjunto de mosaicos","description":"El conjunto de mosaicos del que buscar","defaultValue":"LAST_TILESET","unitsField":"tileSize","unitsDefault":"8px","unitsAllowed":["8px","16px"]},{"type":"group","fields":[{"key":"tileIndex","label":"Desde el mosaico","description":"El desplazamiento del mosaico inicial dentro del conjunto de mosaicos","type":"value","min":0,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"frames","label":"Cuadros de animación","description":"El número de cuadros de animación para recorrer.","type":"value","min":1,"width":"50%","defaultValue":{"type":"number","value":1}}]},{"key":"variable","label":"Variable de estado","description":"Una variable para almacenar el estado actual de este evento","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
 
-- **X**: The horizontal position.  
-- **Y**: The vertical position.  
-- **Tileset**: The tileset to fetch tiles from  
-- **From Tile**: The starting tile offset inside tileset  
-- **Animation Frames**: The number of animation frames to cycle through.  
-- **State Variable**: A variable to store the current state of this event  
+- **X**: La posición horizontal.  
+- **Y**: La posición vertical.  
+- **Conjunto de mosaicos**: El conjunto de mosaicos del que buscar  
+- **Desde el mosaico**: El desplazamiento del mosaico inicial dentro del conjunto de mosaicos  
+- **Cuadros de animación**: El número de cuadros de animación para recorrer.  
+- **Variable de estado**: Una variable para almacenar el estado actual de este evento  
 

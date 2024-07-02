@@ -7,39 +7,39 @@ sidebar_position: 2
 
 import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
-# Screen
+# Pantalla
 
-### Pantalla: Aparecer gradualmente
-Fade the scene from a blank screen.
-<ScriptEventPreview title={"Pantalla: Aparecer gradualmente"} fields={[{"key":"speed","label":"Velocidad","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2"}]} />
+### Aparición gradual de la pantalla
+Desvanece la escena de una pantalla en blanco.
+<ScriptEventPreview title={"Aparición gradual de la pantalla"} fields={[{"key":"speed","label":"Velocidad","description":"La velocidad de la animación de desvanecimiento.","type":"fadeSpeed","defaultValue":"2"}]} />
 
-- **Velocidad**: The speed of the fade animation.  
+- **Velocidad**: La velocidad de la animación de desvanecimiento.  
 
-### Pantalla: Desaparecer gradualmente
-Fade the scene to a blank screen.
-<ScriptEventPreview title={"Pantalla: Desaparecer gradualmente"} fields={[{"key":"speed","label":"Velocidad","description":"The speed of the fade animation.","type":"fadeSpeed","defaultValue":"2"}]} />
+### Desvanecer pantalla
+Difuminar la escena a una pantalla en blanco.
+<ScriptEventPreview title={"Desvanecer pantalla"} fields={[{"key":"speed","label":"Velocidad","description":"La velocidad de la animación de desvanecimiento.","type":"fadeSpeed","defaultValue":"2"}]} />
 
-- **Velocidad**: The speed of the fade animation.  
+- **Velocidad**: La velocidad de la animación de desvanecimiento.  
 
 ## Overlay
-### Capa Sobrepuesta: Esconder
-Hides the screen overlay.
-<ScriptEventPreview title={"Capa Sobrepuesta: Esconder"} fields={[{"label":"Oculta la ventana sobrepuesta de la pantalla."}]} />
+### Ocultar superposición
+Oculta la superposición de pantalla.
+<ScriptEventPreview title={"Ocultar superposición"} fields={[{"label":"Oculta la ventana superpuesta de la pantalla."}]} />
 
 
-### Capa Sobrepuesta: Mover hacia
-Moves the overlay to a new position on the screen.
-<ScriptEventPreview title={"Capa Sobrepuesta: Mover hacia"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"The vertical position.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]},{"key":"speed","label":"Velocidad","description":"The movement speed.","type":"cameraSpeed","defaultValue":"0"}]} />
+### Superposición Mover a
+Mueve la superposición a una nueva posición en la pantalla.
+<ScriptEventPreview title={"Superposición Mover a"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"La posición horizontal.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"La posición vertical.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]},{"key":"speed","label":"Velocidad","description":"La velocidad del movimiento.","type":"cameraSpeed","defaultValue":"0"}]} />
 
-- **X**: The horizontal position.  
-- **Y**: The vertical position.  
-- **Velocidad**: The movement speed.  
+- **X**: La posición horizontal.  
+- **Y**: La posición vertical.  
+- **Velocidad**: La velocidad del movimiento.  
 
-### Capa Sobrepuesta: Mostrar
-Show either a black or white window over the top of the current game screen. Can be used to obscure and then reveal parts of the scene background for example on the sample project logo screen.
-<ScriptEventPreview title={"Capa Sobrepuesta: Mostrar"} fields={[{"key":"color","label":"Fill Color","description":"The color to fill the overlay with, either black or white.","type":"overlayColor","defaultValue":"black"},{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"The vertical position.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]}]} />
+### Mostrar superposición
+Muestra una ventana blanca o negra en la parte superior de la pantalla del juego actual. Puede usarse para oscurecer y luego revelar partes del fondo de la escena, por ejemplo, en la pantalla del logotipo del proyecto de muestra.
+<ScriptEventPreview title={"Mostrar superposición"} fields={[{"key":"color","label":"Color de relleno","description":"El color con el que rellenar la superposición, ya sea blanco o negro.","type":"overlayColor","defaultValue":"black"},{"type":"group","fields":[{"key":"x","label":"X","description":"La posición horizontal.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"La posición vertical.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]}]} />
 
-- **Fill Color**: The color to fill the overlay with, either black or white.  
-- **X**: The horizontal position.  
-- **Y**: The vertical position.  
+- **Color de relleno**: El color con el que rellenar la superposición, ya sea blanco o negro.  
+- **X**: La posición horizontal.  
+- **Y**: La posición vertical.  
 

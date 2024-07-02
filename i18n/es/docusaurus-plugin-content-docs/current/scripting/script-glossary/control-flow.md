@@ -7,206 +7,206 @@ sidebar_position: 2
 
 import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
-# Control Flow
+# Flujo de control
 
-### Call Script
-Call one of your custom scripts. Once you have chosen a script you will be able to hook up any parameters required.
+### Llamar Script
+Llame a uno de sus scripts personalizados. Una vez que haya elegido un script podrá conectar cualquier parámetro requerido.
 
-**References**  
+**Referencias**  
 [/docs/scripting/custom-scripts](/docs/scripting/custom-scripts)  
-<ScriptEventPreview title={"Call Script"} fields={[{"type":"customEvent","label":"Script","description":"The script to run.","key":"customEventId"},{"type":"break"}]} />
+<ScriptEventPreview title={"Llamar Script"} fields={[{"type":"customEvent","label":"Script","description":"El script a ejecutar.","key":"customEventId"},{"type":"break"}]} />
 
-- **Script**: The script to run.  
+- **Script**: El script a ejecutar.  
 
-### If
-Conditionally run part of the script if the specified value evaluates to true.
-<ScriptEventPreview title={"If"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":1}}},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Si
+Ejecuta condicionalmente parte del script si el valor especificado se evalúa como verdadero.
+<ScriptEventPreview title={"Si"} fields={[{"key":"condition","label":"Condición","description":"La condición a evaluar.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":1}}},{"key":"true","label":"Verdadero","description":"El script que se ejecutará si la condición es verdadera.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"El script a ejecutar si la condición es falsa.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Condition**: The condition to evaluate.  
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
+- **Condición**: La condición a evaluar.  
+- **Verdadero**: El script que se ejecutará si la condición es verdadera.  
+- **Falso**: El script a ejecutar si la condición es falsa.  
 
-### Repetir infinitamente
-Run part of the script in a loop forever. Remember to break out of the loop otherwise the player will become stuck at this point. You can use a Stop Script or Change Scene event to stop the loop.
-<ScriptEventPreview title={"Repetir infinitamente"} fields={[{"key":"true","type":"events"}]} />
-
-
-### Loop For
-Run part of the script in a loop while a counter variable is within a specified range. On each loop the counter variable is modified before the next check.
-<ScriptEventPreview title={"Loop For"} fields={[{"key":"variable","label":"For","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"from","label":"From","description":"The initial value of the counter variable.","type":"value","min":-32768,"max":32767,"defaultValue":{"type":"number","value":0}},{"key":"comparison","label":"Comparison","description":"The comparison operator to use e.g. 'Less Than' or 'Greater Than'.","type":"operator","defaultValue":"<="},{"key":"to","label":"To","description":"The end value of the counter variable.","type":"value","min":-32768,"max":32767,"defaultValue":{"type":"number","value":10}}],"flexBasis":200},{"type":"group","fields":[{"key":"operation","label":"Operation","description":"The operation to use for combining a value with the counter variable after each loop.","type":"mathOperator","defaultValue":"+="},{"key":"value","label":"Valor","description":"The value to combine with the counter variable after each loop.","type":"value","min":-32768,"max":32767,"defaultValue":{"type":"number","value":1}}],"flexBasis":150},{"key":"true","type":"events"}]} />
-
-- **For**: The variable to use.  
-- **From**: The initial value of the counter variable.  
-- **Comparison**: The comparison operator to use e.g. 'Less Than' or 'Greater Than'.  
-- **To**: The end value of the counter variable.  
-- **Operation**: The operation to use for combining a value with the counter variable after each loop.  
-- **Valor**: The value to combine with the counter variable after each loop.  
-
-### Loop While
-Run part of the script in a loop while an expression is true.
-<ScriptEventPreview title={"Loop While"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"lt","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":10}}},{"key":"true","type":"events"}]} />
-
-- **Condition**: The condition to evaluate.  
-
-### Script: Detener
-Stops the current script from running.
-<ScriptEventPreview title={"Script: Detener"} fields={[{"label":"Deterner al script actual de ser ejecutado."}]} />
+### Bucle
+Ejecute parte del script en un bucle para siempre. Recuerde salir del bucle, de lo contrario, el reproductor se atascará en este punto. Puede utilizar un evento Detener script o Cambiar escena para detener el bucle.
+<ScriptEventPreview title={"Bucle"} fields={[{"key":"true","type":"events"}]} />
 
 
-### Switch
-Conditionally run from multiple options depending on the value of the specified variable. First choose how many options you want to compare the variable against, then set the values to compare and what scripts to execute when the value is matched.
-<ScriptEventPreview title={"Switch"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"choices","label":"Number of options","description":"The number of options required.","type":"number","min":1,"max":16,"defaultValue":2},{"key":"__collapseCase0","label":"When: $$value0$$","conditions":[{"key":"choices","gt":0}],"type":"collapsable","defaultValue":false},{"key":"value0","label":"Valor","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase0","ne":true},{"key":"choices","gt":0}],"type":"number","min":-32768,"max":32767,"defaultValue":1},{"key":"true0","conditions":[{"key":"__collapseCase0","ne":true},{"key":"choices","gt":0}],"type":"events"},{"key":"__collapseCase1","label":"When: $$value1$$","conditions":[{"key":"choices","gt":1}],"type":"collapsable","defaultValue":false},{"key":"value1","label":"Valor","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase1","ne":true},{"key":"choices","gt":1}],"type":"number","min":-32768,"max":32767,"defaultValue":2},{"key":"true1","conditions":[{"key":"__collapseCase1","ne":true},{"key":"choices","gt":1}],"type":"events"},{"key":"__collapseCase2","label":"When: $$value2$$","conditions":[{"key":"choices","gt":2}],"type":"collapsable","defaultValue":false},{"key":"value2","label":"Valor","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase2","ne":true},{"key":"choices","gt":2}],"type":"number","min":-32768,"max":32767,"defaultValue":3},{"key":"true2","conditions":[{"key":"__collapseCase2","ne":true},{"key":"choices","gt":2}],"type":"events"},{"key":"__collapseCase3","label":"When: $$value3$$","conditions":[{"key":"choices","gt":3}],"type":"collapsable","defaultValue":false},{"key":"value3","label":"Valor","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase3","ne":true},{"key":"choices","gt":3}],"type":"number","min":-32768,"max":32767,"defaultValue":4},{"key":"true3","conditions":[{"key":"__collapseCase3","ne":true},{"key":"choices","gt":3}],"type":"events"},{"key":"__collapseCase4","label":"When: $$value4$$","conditions":[{"key":"choices","gt":4}],"type":"collapsable","defaultValue":false},{"key":"value4","label":"Valor","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase4","ne":true},{"key":"choices","gt":4}],"type":"number","min":-32768,"max":32767,"defaultValue":5},{"key":"true4","conditions":[{"key":"__collapseCase4","ne":true},{"key":"choices","gt":4}],"type":"events"},{"key":"__collapseCase5","label":"When: $$value5$$","conditions":[{"key":"choices","gt":5}],"type":"collapsable","defaultValue":false},{"key":"value5","label":"Valor","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase5","ne":true},{"key":"choices","gt":5}],"type":"number","min":-32768,"max":32767,"defaultValue":6},{"key":"true5","conditions":[{"key":"__collapseCase5","ne":true},{"key":"choices","gt":5}],"type":"events"},{"key":"__collapseCase6","label":"When: $$value6$$","conditions":[{"key":"choices","gt":6}],"type":"collapsable","defaultValue":false},{"key":"value6","label":"Valor","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase6","ne":true},{"key":"choices","gt":6}],"type":"number","min":-32768,"max":32767,"defaultValue":7},{"key":"true6","conditions":[{"key":"__collapseCase6","ne":true},{"key":"choices","gt":6}],"type":"events"},{"key":"__collapseCase7","label":"When: $$value7$$","conditions":[{"key":"choices","gt":7}],"type":"collapsable","defaultValue":false},{"key":"value7","label":"Valor","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase7","ne":true},{"key":"choices","gt":7}],"type":"number","min":-32768,"max":32767,"defaultValue":8},{"key":"true7","conditions":[{"key":"__collapseCase7","ne":true},{"key":"choices","gt":7}],"type":"events"},{"key":"__collapseCase8","label":"When: $$value8$$","conditions":[{"key":"choices","gt":8}],"type":"collapsable","defaultValue":false},{"key":"value8","label":"Valor","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase8","ne":true},{"key":"choices","gt":8}],"type":"number","min":-32768,"max":32767,"defaultValue":9},{"key":"true8","conditions":[{"key":"__collapseCase8","ne":true},{"key":"choices","gt":8}],"type":"events"},{"key":"__collapseCase9","label":"When: $$value9$$","conditions":[{"key":"choices","gt":9}],"type":"collapsable","defaultValue":false},{"key":"value9","label":"Valor","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase9","ne":true},{"key":"choices","gt":9}],"type":"number","min":-32768,"max":32767,"defaultValue":10},{"key":"true9","conditions":[{"key":"__collapseCase9","ne":true},{"key":"choices","gt":9}],"type":"events"},{"key":"__collapseCase10","label":"When: $$value10$$","conditions":[{"key":"choices","gt":10}],"type":"collapsable","defaultValue":false},{"key":"value10","label":"Valor","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase10","ne":true},{"key":"choices","gt":10}],"type":"number","min":-32768,"max":32767,"defaultValue":11},{"key":"true10","conditions":[{"key":"__collapseCase10","ne":true},{"key":"choices","gt":10}],"type":"events"},{"key":"__collapseCase11","label":"When: $$value11$$","conditions":[{"key":"choices","gt":11}],"type":"collapsable","defaultValue":false},{"key":"value11","label":"Valor","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase11","ne":true},{"key":"choices","gt":11}],"type":"number","min":-32768,"max":32767,"defaultValue":12},{"key":"true11","conditions":[{"key":"__collapseCase11","ne":true},{"key":"choices","gt":11}],"type":"events"},{"key":"__collapseCase12","label":"When: $$value12$$","conditions":[{"key":"choices","gt":12}],"type":"collapsable","defaultValue":false},{"key":"value12","label":"Valor","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase12","ne":true},{"key":"choices","gt":12}],"type":"number","min":-32768,"max":32767,"defaultValue":13},{"key":"true12","conditions":[{"key":"__collapseCase12","ne":true},{"key":"choices","gt":12}],"type":"events"},{"key":"__collapseCase13","label":"When: $$value13$$","conditions":[{"key":"choices","gt":13}],"type":"collapsable","defaultValue":false},{"key":"value13","label":"Valor","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase13","ne":true},{"key":"choices","gt":13}],"type":"number","min":-32768,"max":32767,"defaultValue":14},{"key":"true13","conditions":[{"key":"__collapseCase13","ne":true},{"key":"choices","gt":13}],"type":"events"},{"key":"__collapseCase14","label":"When: $$value14$$","conditions":[{"key":"choices","gt":14}],"type":"collapsable","defaultValue":false},{"key":"value14","label":"Valor","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase14","ne":true},{"key":"choices","gt":14}],"type":"number","min":-32768,"max":32767,"defaultValue":15},{"key":"true14","conditions":[{"key":"__collapseCase14","ne":true},{"key":"choices","gt":14}],"type":"events"},{"key":"__collapseCase15","label":"When: $$value15$$","conditions":[{"key":"choices","gt":15}],"type":"collapsable","defaultValue":false},{"key":"value15","label":"Valor","description":"The value to compare the variable with for running this branch of the script.","conditions":[{"key":"__collapseCase15","ne":true},{"key":"choices","gt":15}],"type":"number","min":-32768,"max":32767,"defaultValue":16},{"key":"true15","conditions":[{"key":"__collapseCase15","ne":true},{"key":"choices","gt":15}],"type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":false,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Bucle para
+Ejecuta parte del script en un bucle mientras una variable de contador está dentro de un rango especificado. En cada bucle, la variable de contador se modifica antes de la siguiente comprobación.
+<ScriptEventPreview title={"Bucle para"} fields={[{"key":"variable","label":"For","description":"La variable a utilizar.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"from","label":"From","description":"El valor inicial de la variable del contador.","type":"value","min":-32768,"max":32767,"defaultValue":{"type":"number","value":0}},{"key":"comparison","label":"Comparación","description":"El operador de comparación a usar, por ejemplo, 'Menor que' o 'Mayor que'.","type":"operator","defaultValue":"<="},{"key":"to","label":"To","description":"El valor final de la variable del contador.","type":"value","min":-32768,"max":32767,"defaultValue":{"type":"number","value":10}}],"flexBasis":200},{"type":"group","fields":[{"key":"operation","label":"Operación","description":"La operación a utilizar para combinar un valor con la variable del contador después de cada ciclo.","type":"mathOperator","defaultValue":"+="},{"key":"value","label":"Valor","description":"El valor a combinar con la variable del contador después de cada ciclo.","type":"value","min":-32768,"max":32767,"defaultValue":{"type":"number","value":1}}],"flexBasis":150},{"key":"true","type":"events"}]} />
 
-- **Variable**: The variable to use.  
-- **Number of options**: The number of options required.  
-- **Valor**: The value to compare the variable with for running this branch of the script.  
+- **For**: La variable a utilizar.  
+- **From**: El valor inicial de la variable del contador.  
+- **Comparación**: El operador de comparación a usar, por ejemplo, 'Menor que' o 'Mayor que'.  
+- **To**: El valor final de la variable del contador.  
+- **Operación**: La operación a utilizar para combinar un valor con la variable del contador después de cada ciclo.  
+- **Valor**: El valor a combinar con la variable del contador después de cada ciclo.  
+
+### Bucle mientras
+Ejecuta parte del script en un bucle mientras una expresión sea verdadera.
+<ScriptEventPreview title={"Bucle mientras"} fields={[{"key":"condition","label":"Condición","description":"La condición a evaluar.","type":"value","defaultValue":{"type":"lt","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":10}}},{"key":"true","type":"events"}]} />
+
+- **Condición**: La condición a evaluar.  
+
+### Detener script
+Detiene la ejecución del script actual.
+<ScriptEventPreview title={"Detener script"} fields={[{"label":"Detiene la ejecución del script actual."}]} />
+
+
+### Cambiar
+Se ejecuta condicionalmente desde múltiples opciones dependiendo del valor de la variable especificada. Primero elija con cuántas opciones desea comparar la variable, luego establezca los valores a comparar y qué scripts ejecutar cuando el valor coincida.
+<ScriptEventPreview title={"Cambiar"} fields={[{"key":"variable","label":"Variable","description":"La variable a utilizar.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"choices","label":"Número de opciones","description":"El número de opciones requeridas.","type":"number","min":1,"max":16,"defaultValue":2},{"key":"__collapseCase0","label":"Cuando: $$value0$$","conditions":[{"key":"choices","gt":0}],"type":"collapsable","defaultValue":false},{"key":"value0","label":"Valor","description":"El valor con el que comparar la variable para ejecutar esta rama del script.","conditions":[{"key":"__collapseCase0","ne":true},{"key":"choices","gt":0}],"type":"number","min":-32768,"max":32767,"defaultValue":1},{"key":"true0","conditions":[{"key":"__collapseCase0","ne":true},{"key":"choices","gt":0}],"type":"events"},{"key":"__collapseCase1","label":"Cuando: $$value1$$","conditions":[{"key":"choices","gt":1}],"type":"collapsable","defaultValue":false},{"key":"value1","label":"Valor","description":"El valor con el que comparar la variable para ejecutar esta rama del script.","conditions":[{"key":"__collapseCase1","ne":true},{"key":"choices","gt":1}],"type":"number","min":-32768,"max":32767,"defaultValue":2},{"key":"true1","conditions":[{"key":"__collapseCase1","ne":true},{"key":"choices","gt":1}],"type":"events"},{"key":"__collapseCase2","label":"Cuando: $$value2$$","conditions":[{"key":"choices","gt":2}],"type":"collapsable","defaultValue":false},{"key":"value2","label":"Valor","description":"El valor con el que comparar la variable para ejecutar esta rama del script.","conditions":[{"key":"__collapseCase2","ne":true},{"key":"choices","gt":2}],"type":"number","min":-32768,"max":32767,"defaultValue":3},{"key":"true2","conditions":[{"key":"__collapseCase2","ne":true},{"key":"choices","gt":2}],"type":"events"},{"key":"__collapseCase3","label":"Cuando: $$value3$$","conditions":[{"key":"choices","gt":3}],"type":"collapsable","defaultValue":false},{"key":"value3","label":"Valor","description":"El valor con el que comparar la variable para ejecutar esta rama del script.","conditions":[{"key":"__collapseCase3","ne":true},{"key":"choices","gt":3}],"type":"number","min":-32768,"max":32767,"defaultValue":4},{"key":"true3","conditions":[{"key":"__collapseCase3","ne":true},{"key":"choices","gt":3}],"type":"events"},{"key":"__collapseCase4","label":"Cuando: $$value4$$","conditions":[{"key":"choices","gt":4}],"type":"collapsable","defaultValue":false},{"key":"value4","label":"Valor","description":"El valor con el que comparar la variable para ejecutar esta rama del script.","conditions":[{"key":"__collapseCase4","ne":true},{"key":"choices","gt":4}],"type":"number","min":-32768,"max":32767,"defaultValue":5},{"key":"true4","conditions":[{"key":"__collapseCase4","ne":true},{"key":"choices","gt":4}],"type":"events"},{"key":"__collapseCase5","label":"Cuando: $$value5$$","conditions":[{"key":"choices","gt":5}],"type":"collapsable","defaultValue":false},{"key":"value5","label":"Valor","description":"El valor con el que comparar la variable para ejecutar esta rama del script.","conditions":[{"key":"__collapseCase5","ne":true},{"key":"choices","gt":5}],"type":"number","min":-32768,"max":32767,"defaultValue":6},{"key":"true5","conditions":[{"key":"__collapseCase5","ne":true},{"key":"choices","gt":5}],"type":"events"},{"key":"__collapseCase6","label":"Cuando: $$value6$$","conditions":[{"key":"choices","gt":6}],"type":"collapsable","defaultValue":false},{"key":"value6","label":"Valor","description":"El valor con el que comparar la variable para ejecutar esta rama del script.","conditions":[{"key":"__collapseCase6","ne":true},{"key":"choices","gt":6}],"type":"number","min":-32768,"max":32767,"defaultValue":7},{"key":"true6","conditions":[{"key":"__collapseCase6","ne":true},{"key":"choices","gt":6}],"type":"events"},{"key":"__collapseCase7","label":"Cuando: $$value7$$","conditions":[{"key":"choices","gt":7}],"type":"collapsable","defaultValue":false},{"key":"value7","label":"Valor","description":"El valor con el que comparar la variable para ejecutar esta rama del script.","conditions":[{"key":"__collapseCase7","ne":true},{"key":"choices","gt":7}],"type":"number","min":-32768,"max":32767,"defaultValue":8},{"key":"true7","conditions":[{"key":"__collapseCase7","ne":true},{"key":"choices","gt":7}],"type":"events"},{"key":"__collapseCase8","label":"Cuando: $$value8$$","conditions":[{"key":"choices","gt":8}],"type":"collapsable","defaultValue":false},{"key":"value8","label":"Valor","description":"El valor con el que comparar la variable para ejecutar esta rama del script.","conditions":[{"key":"__collapseCase8","ne":true},{"key":"choices","gt":8}],"type":"number","min":-32768,"max":32767,"defaultValue":9},{"key":"true8","conditions":[{"key":"__collapseCase8","ne":true},{"key":"choices","gt":8}],"type":"events"},{"key":"__collapseCase9","label":"Cuando: $$value9$$","conditions":[{"key":"choices","gt":9}],"type":"collapsable","defaultValue":false},{"key":"value9","label":"Valor","description":"El valor con el que comparar la variable para ejecutar esta rama del script.","conditions":[{"key":"__collapseCase9","ne":true},{"key":"choices","gt":9}],"type":"number","min":-32768,"max":32767,"defaultValue":10},{"key":"true9","conditions":[{"key":"__collapseCase9","ne":true},{"key":"choices","gt":9}],"type":"events"},{"key":"__collapseCase10","label":"Cuando: $$value10$$","conditions":[{"key":"choices","gt":10}],"type":"collapsable","defaultValue":false},{"key":"value10","label":"Valor","description":"El valor con el que comparar la variable para ejecutar esta rama del script.","conditions":[{"key":"__collapseCase10","ne":true},{"key":"choices","gt":10}],"type":"number","min":-32768,"max":32767,"defaultValue":11},{"key":"true10","conditions":[{"key":"__collapseCase10","ne":true},{"key":"choices","gt":10}],"type":"events"},{"key":"__collapseCase11","label":"Cuando: $$value11$$","conditions":[{"key":"choices","gt":11}],"type":"collapsable","defaultValue":false},{"key":"value11","label":"Valor","description":"El valor con el que comparar la variable para ejecutar esta rama del script.","conditions":[{"key":"__collapseCase11","ne":true},{"key":"choices","gt":11}],"type":"number","min":-32768,"max":32767,"defaultValue":12},{"key":"true11","conditions":[{"key":"__collapseCase11","ne":true},{"key":"choices","gt":11}],"type":"events"},{"key":"__collapseCase12","label":"Cuando: $$value12$$","conditions":[{"key":"choices","gt":12}],"type":"collapsable","defaultValue":false},{"key":"value12","label":"Valor","description":"El valor con el que comparar la variable para ejecutar esta rama del script.","conditions":[{"key":"__collapseCase12","ne":true},{"key":"choices","gt":12}],"type":"number","min":-32768,"max":32767,"defaultValue":13},{"key":"true12","conditions":[{"key":"__collapseCase12","ne":true},{"key":"choices","gt":12}],"type":"events"},{"key":"__collapseCase13","label":"Cuando: $$value13$$","conditions":[{"key":"choices","gt":13}],"type":"collapsable","defaultValue":false},{"key":"value13","label":"Valor","description":"El valor con el que comparar la variable para ejecutar esta rama del script.","conditions":[{"key":"__collapseCase13","ne":true},{"key":"choices","gt":13}],"type":"number","min":-32768,"max":32767,"defaultValue":14},{"key":"true13","conditions":[{"key":"__collapseCase13","ne":true},{"key":"choices","gt":13}],"type":"events"},{"key":"__collapseCase14","label":"Cuando: $$value14$$","conditions":[{"key":"choices","gt":14}],"type":"collapsable","defaultValue":false},{"key":"value14","label":"Valor","description":"El valor con el que comparar la variable para ejecutar esta rama del script.","conditions":[{"key":"__collapseCase14","ne":true},{"key":"choices","gt":14}],"type":"number","min":-32768,"max":32767,"defaultValue":15},{"key":"true14","conditions":[{"key":"__collapseCase14","ne":true},{"key":"choices","gt":14}],"type":"events"},{"key":"__collapseCase15","label":"Cuando: $$value15$$","conditions":[{"key":"choices","gt":15}],"type":"collapsable","defaultValue":false},{"key":"value15","label":"Valor","description":"El valor con el que comparar la variable para ejecutar esta rama del script.","conditions":[{"key":"__collapseCase15","ne":true},{"key":"choices","gt":15}],"type":"number","min":-32768,"max":32767,"defaultValue":16},{"key":"true15","conditions":[{"key":"__collapseCase15","ne":true},{"key":"choices","gt":15}],"type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":false,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Variable**: La variable a utilizar.  
+- **Número de opciones**: El número de opciones requeridas.  
+- **Valor**: El valor con el que comparar la variable para ejecutar esta rama del script.  
 
 ## Actor
-### Si el actor esta en posición
-Conditionally run part of the script if an actor is at a specified position.
-<ScriptEventPreview title={"Si el actor esta en posición"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to check.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"The vertical position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Si el actor está en la posición
+Ejecuta condicionalmente parte del script si un actor está en una posición específica.
+<ScriptEventPreview title={"Si el actor está en la posición"} fields={[{"key":"actorId","label":"Actor","description":"El actor que deseas verificar.","type":"actor","defaultValue":"$self$"},{"type":"group","wrapItems":true,"fields":[{"key":"x","label":"X","description":"La posición horizontal.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"La posición vertical.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"true","label":"Verdadero","description":"El script que se ejecutará si la condición es verdadera.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"El script a ejecutar si la condición es falsa.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Actor**: The actor you want to check.  
-- **X**: The horizontal position.  
-- **Y**: The vertical position.  
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
+- **Actor**: El actor que deseas verificar.  
+- **X**: La posición horizontal.  
+- **Y**: La posición vertical.  
+- **Verdadero**: El script que se ejecutará si la condición es verdadera.  
+- **Falso**: El script a ejecutar si la condición es falsa.  
 
-### If Actor Distance From Actor
-Conditionally run part of the script if an actor is within a certain distance of another actor.
-<ScriptEventPreview title={"If Actor Distance From Actor"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to check.","type":"actor","defaultValue":"player","width":"50%"},{"type":"group","fields":[{"key":"operator","label":"Comparison","description":"The comparison operator to use e.g. 'Less Than' or 'Greater Than'.","type":"operator","width":"50%","defaultValue":"<="},{"key":"distance","label":"Distance","description":"The distance value.","type":"value","min":0,"max":181,"width":"50%","unitsDefault":"tiles","defaultValue":{"type":"number","value":0}}]},{"key":"otherActorId","label":"From","description":"The actor to compare distance with.","type":"actor","defaultValue":"$self$","width":"50%"},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Si la distancia entre actor y otro actor
+Ejecuta condicionalmente parte del guión si un actor está dentro de una cierta distancia de otro actor.
+<ScriptEventPreview title={"Si la distancia entre actor y otro actor"} fields={[{"key":"actorId","label":"Actor","description":"El actor que deseas verificar.","type":"actor","defaultValue":"player","width":"50%"},{"type":"group","fields":[{"key":"operator","label":"Comparación","description":"El operador de comparación a usar, por ejemplo, 'Menor que' o 'Mayor que'.","type":"operator","width":"50%","defaultValue":"<="},{"key":"distance","label":"Distancia","description":"El valor de la distancia.","type":"value","min":0,"max":181,"width":"50%","unitsDefault":"tiles","defaultValue":{"type":"number","value":0}}]},{"key":"otherActorId","label":"From","description":"El actor con el que comparar la distancia.","type":"actor","defaultValue":"$self$","width":"50%"},{"key":"true","label":"Verdadero","description":"El script que se ejecutará si la condición es verdadera.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"El script a ejecutar si la condición es falsa.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Actor**: The actor you want to check.  
-- **Comparison**: The comparison operator to use e.g. 'Less Than' or 'Greater Than'.  
-- **Distance**: The distance value.  
-- **From**: The actor to compare distance with.  
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
+- **Actor**: El actor que deseas verificar.  
+- **Comparación**: El operador de comparación a usar, por ejemplo, 'Menor que' o 'Mayor que'.  
+- **Distancia**: El valor de la distancia.  
+- **From**: El actor con el que comparar la distancia.  
+- **Verdadero**: El script que se ejecutará si la condición es verdadera.  
+- **Falso**: El script a ejecutar si la condición es falsa.  
 
-### Si el actor esta en dirección
-Conditionally run part of the script if an actor is facing in a specified direction.
-<ScriptEventPreview title={"Si el actor esta en dirección"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to check.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Dirección","description":"The actor direction.","type":"value","defaultValue":{"type":"direction","value":"up"}},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Si el actor mira en dirección
+Ejecuta condicionalmente parte del script si un actor mira en una dirección específica.
+<ScriptEventPreview title={"Si el actor mira en dirección"} fields={[{"key":"actorId","label":"Actor","description":"El actor que deseas verificar.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Dirección","description":"La dirección del actor..","type":"value","defaultValue":{"type":"direction","value":"up"}},{"key":"true","label":"Verdadero","description":"El script que se ejecutará si la condición es verdadera.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"El script a ejecutar si la condición es falsa.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Actor**: The actor you want to check.  
-- **Dirección**: The actor direction.  
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
+- **Actor**: El actor que deseas verificar.  
+- **Dirección**: La dirección del actor..  
+- **Verdadero**: El script que se ejecutará si la condición es verdadera.  
+- **Falso**: El script a ejecutar si la condición es falsa.  
 
-### If Actor Relative To Actor
-Conditionally run part of the script based on the position of one actor relative to another.
-<ScriptEventPreview title={"If Actor Relative To Actor"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to check.","type":"actor","defaultValue":"player"},{"key":"operation","label":"Comparison","description":"The relative position comparison to use e.g. 'Is Above' or 'Is Below'.","type":"select","options":[["up","Is Above"],["down","Is Below"],["left","Is Left of"],["right","Is Right of"]],"defaultValue":"up","width":"50%"},{"key":"otherActorId","label":"Other Actor","description":"The actor to compare position with.","type":"actor","defaultValue":"$self$"},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Si actor es relativo a actor
+Ejecuta condicionalmente parte del script según la posición de un actor en relación con otro.
+<ScriptEventPreview title={"Si actor es relativo a actor"} fields={[{"key":"actorId","label":"Actor","description":"El actor que deseas verificar.","type":"actor","defaultValue":"player"},{"key":"operation","label":"Comparación","description":"La comparación de posición relativa a usar, por ejemplo, 'Está arriba' o 'Está abajo'.","type":"select","options":[["up","Está arriba"],["down","Esta abajo"],["left","Esta a la izquierda de"],["right","Esta a la derecha de"]],"defaultValue":"up","width":"50%"},{"key":"otherActorId","label":"Otro actor","description":"El actor con el que comparar la posición.","type":"actor","defaultValue":"$self$"},{"key":"true","label":"Verdadero","description":"El script que se ejecutará si la condición es verdadera.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"El script a ejecutar si la condición es falsa.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Actor**: The actor you want to check.  
-- **Comparison**: The relative position comparison to use e.g. 'Is Above' or 'Is Below'.  
-- **Other Actor**: The actor to compare position with.  
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
+- **Actor**: El actor que deseas verificar.  
+- **Comparación**: La comparación de posición relativa a usar, por ejemplo, 'Está arriba' o 'Está abajo'.  
+- **Otro actor**: El actor con el que comparar la posición.  
+- **Verdadero**: El script que se ejecutará si la condición es verdadera.  
+- **Falso**: El script a ejecutar si la condición es falsa.  
 
 ## Device
-### If Color Mode Is Available
-Conditionally run part of the script if the game is being played on a device or emulator that supports color games.
-<ScriptEventPreview title={"If Color Mode Is Available"} fields={[{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Si el modo de color está disponible
+Ejecuta condicionalmente parte del script si el juego se juega en un dispositivo o emulador que admita juegos de colores.
+<ScriptEventPreview title={"Si el modo de color está disponible"} fields={[{"key":"true","label":"Verdadero","description":"El script que se ejecutará si la condición es verdadera.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"El script a ejecutar si la condición es falsa.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
+- **Verdadero**: El script que se ejecutará si la condición es verdadera.  
+- **Falso**: El script a ejecutar si la condición es falsa.  
 
-### If GBA Mode Is Available
-Conditionally run part of the script if the game is being played on a device or emulator that supports GBA games.
-<ScriptEventPreview title={"If GBA Mode Is Available"} fields={[{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Si el modo GBA está disponible
+Ejecuta condicionalmente parte del script si el juego se juega en un dispositivo o emulador que admita juegos GBA.
+<ScriptEventPreview title={"Si el modo GBA está disponible"} fields={[{"key":"true","label":"Verdadero","description":"El script que se ejecutará si la condición es verdadera.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"El script a ejecutar si la condición es falsa.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
+- **Verdadero**: El script que se ejecutará si la condición es verdadera.  
+- **Falso**: El script a ejecutar si la condición es falsa.  
 
-### If Super GB Mode Is Available
-Conditionally run part of the script if the game is being played on a device or emulator that supports Super GB games.
-<ScriptEventPreview title={"If Super GB Mode Is Available"} fields={[{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Si el modo Super GB está disponible
+Ejecuta condicionalmente parte del script si el juego se juega en un dispositivo o emulador que admita juegos Super GB.
+<ScriptEventPreview title={"Si el modo Super GB está disponible"} fields={[{"key":"true","label":"Verdadero","description":"El script que se ejecutará si la condición es verdadera.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"El script a ejecutar si la condición es falsa.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
+- **Verdadero**: El script que se ejecutará si la condición es verdadera.  
+- **Falso**: El script a ejecutar si la condición es falsa.  
 
 ## Joypad Input
-### Si un botón es presionado
-Conditionally run part of the script if the specified joypad button is currently pressed. Will not wait for user input and will only execute once, if you wish to run a script every time a button is pressed use Attach Script To Button instead.
+### Si se mantiene pulsado el botón
+Ejecuta condicionalmente parte del script si el botón del joypad especificado está actualmente presionado. No esperará la entrada del usuario y solo se ejecutará una vez; si desea ejecutar un script cada vez que se presione un botón, use Adjuntar script al botón en cambio.
 
-**References**  
+**Referencias**  
 [/docs/scripting/script-glossary/input#attach-script-to-button](/docs/scripting/script-glossary/input#attach-script-to-button)  
-<ScriptEventPreview title={"Si un botón es presionado"} fields={[{"key":"input","label":"Cualquiera de","description":"The input buttons to check.","type":"input","defaultValue":["a","b"]},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"Si se mantiene pulsado el botón"} fields={[{"key":"input","label":"Cualquiera de","description":"The input buttons to check.","type":"input","defaultValue":["a","b"]},{"key":"true","label":"Verdadero","description":"El script que se ejecutará si la condición es verdadera.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"El script a ejecutar si la condición es falsa.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Cualquiera de**: The input buttons to check.  
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
+- **Verdadero**: El script que se ejecutará si la condición es verdadera.  
+- **Falso**: El script a ejecutar si la condición es falsa.  
 
 ## Math
-### If Math Expression
-Conditionally execute part of the script if the specified math expression evaluates to true.
-<ScriptEventPreview title={"If Math Expression"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"expression","value":""}},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Si es expresión matemática
+Ejecuta condicionalmente parte del script si la expresión matemática especificada se evalúa como verdadera.
+<ScriptEventPreview title={"Si es expresión matemática"} fields={[{"key":"condition","label":"Condición","description":"La condición a evaluar.","type":"value","defaultValue":{"type":"expression","value":""}},{"key":"true","label":"Verdadero","description":"El script que se ejecutará si la condición es verdadera.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"El script a ejecutar si la condición es falsa.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Condition**: The condition to evaluate.  
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
+- **Condición**: La condición a evaluar.  
+- **Verdadero**: El script que se ejecutará si la condición es verdadera.  
+- **Falso**: El script a ejecutar si la condición es falsa.  
 
-### Loop While Math Expression
-Run part of the script in a loop while an expression is true.
-<ScriptEventPreview title={"Loop While Math Expression"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"expression","value":""}},{"key":"true","type":"events"}]} />
+### Bucle mientras expresión matemática
+Ejecuta parte del script en un bucle mientras una expresión sea verdadera.
+<ScriptEventPreview title={"Bucle mientras expresión matemática"} fields={[{"key":"condition","label":"Condición","description":"La condición a evaluar.","type":"value","defaultValue":{"type":"expression","value":""}},{"key":"true","type":"events"}]} />
 
-- **Condition**: The condition to evaluate.  
+- **Condición**: La condición a evaluar.  
 
 ## Save Data
-### Si los datos de juego fueron guardados
-Conditionally run part of the script if save data is present within the specified save slot.
-<ScriptEventPreview title={"Si los datos de juego fueron guardados"} fields={[{"key":"saveSlot","label":"Save Slot","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0},{"label":"Ejecutar si el jugador a guardado la partida."},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Si se guardaron los datos del juego
+Ejecuta condicionalmente parte del script si los datos guardados están presentes dentro del espacio para guardar especificado.
+<ScriptEventPreview title={"Si se guardaron los datos del juego"} fields={[{"key":"saveSlot","label":"Ranura de guardado","description":"La ranura de guardado a usar.","type":"togglebuttons","options":[[0,"Ranura 1","Ranura de guardado 1"],[1,"Ranura 2","Ranura de guardado 2"],[2,"Ranura 3","Ranura de guardado 3"]],"allowNone":false,"defaultValue":0},{"label":"Ejecutar si el jugador a guardado la partida."},{"key":"true","label":"Verdadero","description":"El script que se ejecutará si la condición es verdadera.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"El script a ejecutar si la condición es falsa.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Save Slot**: The save slot to use.  
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
+- **Ranura de guardado**: La ranura de guardado a usar.  
+- **Verdadero**: El script que se ejecutará si la condición es verdadera.  
+- **Falso**: El script a ejecutar si la condición es falsa.  
 
 ## Scene
-### If Current Scene Is
-<ScriptEventPreview title={"If Current Scene Is"} fields={[{"key":"sceneId","label":"Escena","type":"scene","defaultValue":"LAST_SCENE"},{"key":"true","label":"Verdadero","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Si la escena actual es
+<ScriptEventPreview title={"Si la escena actual es"} fields={[{"key":"sceneId","label":"Escena","type":"scene","defaultValue":"LAST_SCENE"},{"key":"true","label":"Verdadero","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Escena**  
 - **Verdadero**  
 - **Falso**  
 
 ## Variables
-### Si la variable se compara con valor
-Conditionally run part of the script based on the value of a variable compared with a value.
-<ScriptEventPreview title={"Si la variable se compara con valor"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":0}}},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Si la variable se compara con el valor
+Ejecuta condicionalmente parte del script basándose en el valor de una variable comparado con un valor.
+<ScriptEventPreview title={"Si la variable se compara con el valor"} fields={[{"key":"condition","label":"Condición","description":"La condición a evaluar.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":0}}},{"key":"true","label":"Verdadero","description":"El script que se ejecutará si la condición es verdadera.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"El script a ejecutar si la condición es falsa.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Condition**: The condition to evaluate.  
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
+- **Condición**: La condición a evaluar.  
+- **Verdadero**: El script que se ejecutará si la condición es verdadera.  
+- **Falso**: El script a ejecutar si la condición es falsa.  
 
-### Si la variable se compara con variable
-Conditionally run part of the script based on the value of a variable compared with another variable.
-<ScriptEventPreview title={"Si la variable se compara con variable"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"variable","value":"LAST_VARIABLE"}}},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Si se compara una variable con una variable
+Ejecuta condicionalmente parte del script basándose en el valor de una variable en comparación con otra variable.
+<ScriptEventPreview title={"Si se compara una variable con una variable"} fields={[{"key":"condition","label":"Condición","description":"La condición a evaluar.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"variable","value":"LAST_VARIABLE"}}},{"key":"true","label":"Verdadero","description":"El script que se ejecutará si la condición es verdadera.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"El script a ejecutar si la condición es falsa.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Condition**: The condition to evaluate.  
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
+- **Condición**: La condición a evaluar.  
+- **Verdadero**: El script que se ejecutará si la condición es verdadera.  
+- **Falso**: El script a ejecutar si la condición es falsa.  
 
-### If Variable Has Flag
-Conditionally run part of the script if the specified variable has the chosen flag set as true.
-<ScriptEventPreview title={"If Variable Has Flag"} fields={[{"key":"variable","label":"Variable","description":"The variable to use.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"flag","label":"Flag","description":"The flag to check.","type":"selectFlags","defaultValue":0},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Si la variable tiene un indicador
+Ejecuta condicionalmente parte del script si la variable especificada tiene el indicador elegido establecido como verdadero.
+<ScriptEventPreview title={"Si la variable tiene un indicador"} fields={[{"key":"variable","label":"Variable","description":"La variable a utilizar.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"flag","label":"Indicador","description":"El indicador para comprobar.","type":"selectFlags","defaultValue":0},{"key":"true","label":"Verdadero","description":"El script que se ejecutará si la condición es verdadera.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"El script a ejecutar si la condición es falsa.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Variable**: The variable to use.  
-- **Flag**: The flag to check.  
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
+- **Variable**: La variable a utilizar.  
+- **Indicador**: El indicador para comprobar.  
+- **Verdadero**: El script que se ejecutará si la condición es verdadera.  
+- **Falso**: El script a ejecutar si la condición es falsa.  
 
-### Si la variable es 'Falso'
-Conditionally run part of the script if the specified variable is set to false.
-<ScriptEventPreview title={"Si la variable es 'Falso'"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"false"}}},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Si la variable es 'falsa'
+Ejecuta condicionalmente parte del script si la variable especificada está configurada como falsa.
+<ScriptEventPreview title={"Si la variable es 'falsa'"} fields={[{"key":"condition","label":"Condición","description":"La condición a evaluar.","type":"value","defaultValue":{"type":"not","value":{"type":"variable","value":"LAST_VARIABLE"}}},{"key":"true","label":"Verdadero","description":"El script que se ejecutará si la condición es verdadera.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"El script a ejecutar si la condición es falsa.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Condition**: The condition to evaluate.  
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
+- **Condición**: La condición a evaluar.  
+- **Verdadero**: El script que se ejecutará si la condición es verdadera.  
+- **Falso**: El script a ejecutar si la condición es falsa.  
 
-### Si la variable es 'Verdadero'
-Conditionally run part of the script if the specified variable is set to true.
-<ScriptEventPreview title={"Si la variable es 'Verdadero'"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"true"}}},{"key":"true","label":"Verdadero","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Si la variable es 'Verdadera'
+Ejecuta condicionalmente parte del script si la variable especificada está establecida en verdadero.
+<ScriptEventPreview title={"Si la variable es 'Verdadera'"} fields={[{"key":"condition","label":"Condición","description":"La condición a evaluar.","type":"value","defaultValue":{"type":"variable","value":"LAST_VARIABLE"}},{"key":"true","label":"Verdadero","description":"El script que se ejecutará si la condición es verdadera.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"El script a ejecutar si la condición es falsa.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Condition**: The condition to evaluate.  
-- **Verdadero**: The script to run if the condition is true.  
-- **Falso**: The script to run if the condition is false.  
+- **Condición**: La condición a evaluar.  
+- **Verdadero**: El script que se ejecutará si la condición es verdadera.  
+- **Falso**: El script a ejecutar si la condición es falsa.  
 
