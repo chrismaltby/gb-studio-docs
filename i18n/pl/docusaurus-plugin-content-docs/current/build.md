@@ -1,33 +1,46 @@
 ---
 sidebar_position: 7
 ---
+# Tworzenie gry
 
-# Buduj swoją grę
 
 ## Gra
 
-Po kliknięciu przycisku _Uruchom_ (w prawym górnym rogu okna _edytora projektu_, przycisk play), program rozpocznie komplilację gry, a po jej zakończeniu otworzy okno, w którym można grać w aktualny projekt. Zobacz temat [Klawiatura - skróty klawiszy](/docs/getting-started/keyboard-shortcuts), aby uzyskać szczegółowe informacje na temat poruszania się (patrz na dział _sterowanie podczas gry_).
+Kliknięcie przycisku _Uruchom_ w prawym górnym rogu okna _Edytora Projektu_ rozpocznie kompilację gry, a po zakończeniu procesu otworzy nowe okno, w którym można zagrać w swoją grę. Zobacz [Skróty klawiszowe](/docs/getting-started/keyboard-shortcuts), aby uzyskać szczegółowe informacje na temat sterowania w _oknie gry_.
 
-## Terminal
-
-W _nawigatorze projektu_ przejdź do menu _zbuduj i uruchom_, spowoduje to wyświetlenie _terminalu_, gdzie zostanie wyświetlony dziennik (log) kompilacji projektu. Można przejść do tego ekranu także poprzez naciśnięcie _uruchom_ podczas kompilacji. Ten ekran pokazuje, czy w kompilacji występują błędy, które mogą pomóc w ich poprawieniu.
 
 ## Eksportuj jako ROM
 
-Kliknięcie w przycisk _eksportuj jako ROM_ i program rozpocznie proces utworzenia pliku ROM w folderze projektu `$ PROJECT_ROOT / build / rom / game.gb`. Plik ROM jest to plik gry, którą można otworzyć na dowolnym emulatorze obsługującym konsolę Nintendo Gam Boy, takim jak [OpenEMU](https://openemu.org/) lub [KiGB](http://kigb.emuunlim.com/downloads.htm). 
+Kliknięcie przycisku _Eksportuj_ i wybranie opcji _Eksportuj jako ROM_ skompiluje grę i utworzy plik ROM w folderze projektu jako `$PROJECT_ROOT/build/rom/game.gb`. Plik ten można uruchomić na dowolnym kompatybilnym emulatorze, takim jak [OpenEMU](https://openemu.org/) lub [KiGB](http://kigb.emuunlim.com/downloads.htm). 
 
-## Eksportuj jako wersja Web
+## Eksportuj do wersja Web
 
-Możesz przesłać ten folder na dowolny serwer sieciowy i przejść do pliku `index.html`, aby zagrać w grę w przeglądarce internetowej. Jeśli korzystasz z przeglądarki internetowej na telefonie komórkowym lub tablecie, gra będzie również zawierać dotykowe elementy sterujące.
+Kliknięcie przycisku _Eksportuj_ i wybranie opcji _Eksportuj do wersji Web_ skompiluje grę i utworzy wersję HTML5 w folderze `$PROJECT_ROOT/build/web`. 
 
-Jeśli spakujesz folder `build / web`, możesz przesłać go do [Itch.io](https://itch.io) jako gra HTML. W takim przypadku zalecany rozmiar okienka ekranu to `480px` x `432px`.
+
+Można ten folder przesłać na dowolny serwer internetowy i uruchomić grę w przeglądarce, otwierając plik `index.html`. W przypadku korzystania z przeglądarki na telefonie komórkowym lub tablecie, gra będzie zawierać dotykowe elementy sterujące.
+
+Jeśli spakujesz folder `build/web`, możesz przesłać go na [Itch.io](https://itch.io) jako grę HTML. Zalecany rozmiar okna to `480px` x `432px`.
+
+
+## Eksportuj do urządzenia Pocket
+
+Kliknięcie przycisku _Eksportuj_ i wybranie opcji _Eksportuj do urządzenia Pocket_ skompiluje projektu jako plik `.pocket` do użycia na urządzeniach [Analogue Pocket](https://www.analogue.co/pocket)
+
+Aby zagrać w grę `.pocket`:
+
+- Utwórz folder `GB Studio` w katalogu głównym karty MicroSD,
+- Skopiuj plik `.pocket` do folderu `GB Studio`,
+- Włóż kartę MicroSD do urządzenia Pocket,
+- W menu Pocket wybierz `Tools` / `GB Studio` / `Play Creations` i wybierz swój plik z listy.
+
 
 ## Rozwiązywanie problemów
 
-W systemie macOS, jeśli masz problemy z budowaniem lub uruchomieniem gry, może być również konieczne zainstalowanie narzędzi wiersza polecenia Apple, otwierając `Applications / Terminal.app` i wprowadzając następujące polecenie.
+W systemie macOS, jeśli masz problemy z kompilacją lub uruchomieniem gry, może być konieczne zainstalowanie narzędzi wiersza polecenia Apple. Otwórz `Applications/Terminal.app` i wprowadź następujące polecenie:
 
 ```
 xcode-select --install
 ```
 
-W systemie Windows konieczne może być dodanie aplikacji do białej listy/listy zaufanych programów w oprogramowaniu antywirusowym, aby wykonać kompilację.
+W systemie Windows może być konieczne dodanie aplikacji do białej listy/listy zaufanych w oprogramowaniu antywirusowym, aby wykonać kompilację gry.
