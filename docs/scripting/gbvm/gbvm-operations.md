@@ -1285,7 +1285,7 @@ VM_SGB_TRANSFER
   
 ```  
 VM_SGB_TRANSFER  
-.db ((0x04 &lt;&lt; 3) | 1), 1, 0x07, ((0x01 &lt;&lt; 4) | (0x02 &lt;&lt; 2) | 0x03), 5,5, 10,10,  0, 0, 0, 0, 0, 0, 0, 0 ; ATTR_BLK packet  
+.db ((0x04 << 3) | 1), 1, 0x07, ((0x01 << 4) | (0x02 << 2) | 0x03), 5,5, 10,10,  0, 0, 0, 0, 0, 0, 0, 0 ; ATTR_BLK packet  
 ```  
   
 SGB packet size is a multiple of 16 bytes and encoded in the packet itself.  
