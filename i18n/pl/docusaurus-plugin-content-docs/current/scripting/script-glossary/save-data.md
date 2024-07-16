@@ -23,10 +23,11 @@ Polecenie czyści wcześniejszy zapisany stan gry w wybranym miejscu.
 
 ### Stan gry: zapisz
 Polecenie zapisuje stan gry do wybranego miejsca.
-<ScriptEventPreview title={"Stan gry: zapisz"} fields={[{"label":"Zapisuje aktualny stan gry do pamięci. Wymagany jest kardridż z baterią."},{"key":"saveSlot","label":"Zapisz plik","description":"Określenie miejsca zapisu.","type":"togglebuttons","options":[[0,"Plik 1","Zapisz plik 1"],[1,"Plik 2","Zapisz plik 2"],[2,"Plik 3","Zapisz plik 3"]],"allowNone":false,"defaultValue":0},{"key":"__scriptTabs","type":"tabs","defaultValue":"save","values":{"save":"Przy zapisie"}},{"key":"true","label":"Przy zapisie","description":"Skrypt do wykonania po zakończeniu zapisu. Funkcja nie zostanie uruchomiona podczas wczytania gry, zatem można użyć tej opcji do wyświetlenia komunikatu np. 'Zapisano stan gry!'.","type":"events"}]} />
+<ScriptEventPreview title={"Stan gry: zapisz"} fields={[{"label":"Zapisuje aktualny stan gry do pamięci. Wymagany jest kardridż z baterią."},{"key":"saveSlot","label":"Zapisz plik","description":"Określenie miejsca zapisu.","type":"togglebuttons","options":[[0,"Plik 1","Zapisz plik 1"],[1,"Plik 2","Zapisz plik 2"],[2,"Plik 3","Zapisz plik 3"]],"allowNone":false,"defaultValue":0},{"key":"__scriptTabs","type":"tabs","defaultValue":"save","values":{"save":"Przy zapisie","load":"Przy wczytaniu"}},{"key":"true","label":"Przy zapisie","description":"Skrypt do wykonania po zakończeniu zapisu. Funkcja nie zostanie uruchomiona podczas wczytania gry, zatem można użyć tej opcji do wyświetlenia komunikatu np. 'Zapisano stan gry!'.","type":"events","conditions":[{"key":"__scriptTabs","ne":"load"}]},{"key":"load","label":"Przy wczytaniu","description":"Skrypt do wykonania po wczytaniu tego zapisu gry.","type":"events","conditions":[{"key":"__scriptTabs","eq":"load"}]}]} />
 
 - **Zapisz plik**: Określenie miejsca zapisu.  
 - **Przy zapisie**: Skrypt do wykonania po zakończeniu zapisu. Funkcja nie zostanie uruchomiona podczas wczytania gry, zatem można użyć tej opcji do wyświetlenia komunikatu np. 'Zapisano stan gry!'.  
+- **Przy wczytaniu**: Skrypt do wykonania po wczytaniu tego zapisu gry.  
 
 ## Control Flow
 ### Warunek: stan gry zapisano

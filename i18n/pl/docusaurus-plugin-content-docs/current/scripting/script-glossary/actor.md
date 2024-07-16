@@ -206,10 +206,9 @@ Polecenie ustawia grafikę, która powinna być użyta do renderowania aktora..
 
 ### Aktor: zmień grafikę gracza
 Polecenie ustawi grafikę, która ma zostać użyta jako gracz..
-<ScriptEventPreview title={"Aktor: zmień grafikę gracza"} fields={[{"key":"spriteSheetId","label":"Arkusz obiektów","description":"Grafika użyta do renderowania gracza.","type":"sprite","defaultValue":"LAST_SPRITE"},{"key":"persist","label":"Zastąp domyślne ustawienia dla rodzaju sceny","description":"Ustawienie zastępuje domyślną grafikę (sprite) dla wszystkich scen bieżącego typu np. Jeżeli aktualnie jest wybrana scena gry platformowej, to wszystkie inne sceny platformowe używającej domyślnej grafiki będą teraz wczytywane przy użyciu tej grafiki.","type":"checkbox","defaultValue":false}]} />
+<ScriptEventPreview title={"Aktor: zmień grafikę gracza"} fields={[{"key":"spriteSheetId","label":"Arkusz obiektów","description":"Grafika użyta do renderowania gracza.","type":"sprite","defaultValue":"LAST_SPRITE"}]} />
 
 - **Arkusz obiektów**: Grafika użyta do renderowania gracza.  
-- **Zastąp domyślne ustawienia dla rodzaju sceny**: Ustawienie zastępuje domyślną grafikę (sprite) dla wszystkich scen bieżącego typu np. Jeżeli aktualnie jest wybrana scena gry platformowej, to wszystkie inne sceny platformowe używającej domyślnej grafiki będą teraz wczytywane przy użyciu tej grafiki.  
 
 ## Script
 ### Aktor: uruchom skrypt (równoległy)

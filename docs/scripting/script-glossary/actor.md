@@ -206,10 +206,9 @@ Set the sprite that should be used to render an actor.
 
 ### Set Player Sprite Sheet
 Set the sprite that should be used to render the player.
-<ScriptEventPreview title={"Set Player Sprite Sheet"} fields={[{"key":"spriteSheetId","label":"Sprite Sheet","description":"The sprite to use for rendering the player.","type":"sprite","defaultValue":"LAST_SPRITE"},{"key":"persist","label":"Replace Default For Scene Type","description":"Causes this sprite to override the default for all scenes of the current type. i.e. If you are currently in a platformer scene, all other platformer scenes using the default sprite will now load using this replacement sprite automatically instead.","type":"checkbox","defaultValue":false}]} />
+<ScriptEventPreview title={"Set Player Sprite Sheet"} fields={[{"key":"spriteSheetId","label":"Sprite Sheet","description":"The sprite to use for rendering the player.","type":"sprite","defaultValue":"LAST_SPRITE"}]} />
 
 - **Sprite Sheet**: The sprite to use for rendering the player.  
-- **Replace Default For Scene Type**: Causes this sprite to override the default for all scenes of the current type. i.e. If you are currently in a platformer scene, all other platformer scenes using the default sprite will now load using this replacement sprite automatically instead.  
 
 ## Script
 ### Start Actor's "On Update" Script

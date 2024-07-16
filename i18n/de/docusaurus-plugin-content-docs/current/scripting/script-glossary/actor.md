@@ -206,10 +206,9 @@ Set the sprite that should be used to render an actor.
 
 ### Spieler: Setze Spieler Sprite-Sheet
 Set the sprite that should be used to render the player.
-<ScriptEventPreview title={"Spieler: Setze Spieler Sprite-Sheet"} fields={[{"key":"spriteSheetId","label":"Sprite-Sheet","description":"Das zum Rendern des Spielers zu benutzende Sprite.","type":"sprite","defaultValue":"LAST_SPRITE"},{"key":"persist","label":"Standardwert für Szenentyp ersetzen","description":"Bewirkt das Ersetzen des Standard-Sprites für alle Szenen des aktuellen Typs mit diesem Sprite. D.h. wenn man gerade in einer Platformer-Szene ist, werden alle anderen Platformer-Szenen, die das Standard-Sprite verwenden, nun automatisch mit diesem Ersatz-Sprite geladen.","type":"checkbox","defaultValue":false}]} />
+<ScriptEventPreview title={"Spieler: Setze Spieler Sprite-Sheet"} fields={[{"key":"spriteSheetId","label":"Sprite-Sheet","description":"Das zum Rendern des Spielers zu benutzende Sprite.","type":"sprite","defaultValue":"LAST_SPRITE"}]} />
 
 - **Sprite-Sheet**: Das zum Rendern des Spielers zu benutzende Sprite.  
-- **Standardwert für Szenentyp ersetzen**: Bewirkt das Ersetzen des Standard-Sprites für alle Szenen des aktuellen Typs mit diesem Sprite. D.h. wenn man gerade in einer Platformer-Szene ist, werden alle anderen Platformer-Szenen, die das Standard-Sprite verwenden, nun automatisch mit diesem Ersatz-Sprite geladen.  
 
 ## Script
 ### Start Actor's "On Update" Script

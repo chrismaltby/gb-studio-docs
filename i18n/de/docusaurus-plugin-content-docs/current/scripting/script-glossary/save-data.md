@@ -23,10 +23,11 @@ Remove any previously saved game data in the selected slot.
 
 ### Spieldaten: Speichern
 Save the current game data into the selected slot.
-<ScriptEventPreview title={"Spieldaten: Speichern"} fields={[{"label":"Speichert die aktuellen Spieldaten im Speicher. Benötigt Modultyp mit BATTERIE."},{"key":"saveSlot","label":"Speichere Slot","description":"Der zu nutzende Speicherslot.","type":"togglebuttons","options":[[0,"Slot 1","Speichere Slot 1"],[1,"Slot 2","Speichere Slot 2"],[2,"Slot 3","Speichere Slot 3"]],"allowNone":false,"defaultValue":0},{"key":"__scriptTabs","type":"tabs","defaultValue":"save","values":{"save":"Beim Speichern"}},{"key":"true","label":"Beim Speichern","description":"Ein nach Abschluss des Speichervorgangs auszuführendes Skript. Es wird beim Laden des Spiels nicht ausgeführt, so dass es zum Anzeigen einer 'Speichervorgang erfolgreich!'-Meldung genutzt werden kann.","type":"events"}]} />
+<ScriptEventPreview title={"Spieldaten: Speichern"} fields={[{"label":"Speichert die aktuellen Spieldaten im Speicher. Benötigt Modultyp mit BATTERIE."},{"key":"saveSlot","label":"Speichere Slot","description":"Der zu nutzende Speicherslot.","type":"togglebuttons","options":[[0,"Slot 1","Speichere Slot 1"],[1,"Slot 2","Speichere Slot 2"],[2,"Slot 3","Speichere Slot 3"]],"allowNone":false,"defaultValue":0},{"key":"__scriptTabs","type":"tabs","defaultValue":"save","values":{"save":"Beim Speichern","load":"On Load"}},{"key":"true","label":"Beim Speichern","description":"Ein nach Abschluss des Speichervorgangs auszuführendes Skript. Es wird beim Laden des Spiels nicht ausgeführt, so dass es zum Anzeigen einer 'Speichervorgang erfolgreich!'-Meldung genutzt werden kann.","type":"events","conditions":[{"key":"__scriptTabs","ne":"load"}]},{"key":"load","label":"On Load","description":"A script to run after this save data has been loaded.","type":"events","conditions":[{"key":"__scriptTabs","eq":"load"}]}]} />
 
 - **Speichere Slot**: Der zu nutzende Speicherslot.  
 - **Beim Speichern**: Ein nach Abschluss des Speichervorgangs auszuführendes Skript. Es wird beim Laden des Spiels nicht ausgeführt, so dass es zum Anzeigen einer 'Speichervorgang erfolgreich!'-Meldung genutzt werden kann.  
+- **On Load**: A script to run after this save data has been loaded.  
 
 ## Control Flow
 ### Falls Spieldaten Gespeichert

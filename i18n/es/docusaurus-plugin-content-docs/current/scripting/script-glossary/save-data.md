@@ -23,10 +23,11 @@ Eliminar cualquier dato del juego previamente guardado en la ranura seleccionada
 
 ### Guardar datos del juego
 Guarda los datos del juego actual en la ranura seleccionada.
-<ScriptEventPreview title={"Guardar datos del juego"} fields={[{"label":"Guarda los datos del juego actual en la memoria. Requiere un cartucho con BATERÍA."},{"key":"saveSlot","label":"Ranura de guardado","description":"La ranura de guardado a usar.","type":"togglebuttons","options":[[0,"Ranura 1","Ranura de guardado 1"],[1,"Ranura 2","Ranura de guardado 2"],[2,"Ranura 3","Ranura de guardado 3"]],"allowNone":false,"defaultValue":0},{"key":"__scriptTabs","type":"tabs","defaultValue":"save","values":{"save":"Al guardar"}},{"key":"true","label":"Al guardar","description":"Un script que se ejecutará después de que se complete el guardado. Esto no se ejecutará al cargar el juego, así que puedes usarlo y mostrar el mensaje 'El guardado fue exitoso'.","type":"events"}]} />
+<ScriptEventPreview title={"Guardar datos del juego"} fields={[{"label":"Guarda los datos del juego actual en la memoria. Requiere un cartucho con BATERÍA."},{"key":"saveSlot","label":"Ranura de guardado","description":"La ranura de guardado a usar.","type":"togglebuttons","options":[[0,"Ranura 1","Ranura de guardado 1"],[1,"Ranura 2","Ranura de guardado 2"],[2,"Ranura 3","Ranura de guardado 3"]],"allowNone":false,"defaultValue":0},{"key":"__scriptTabs","type":"tabs","defaultValue":"save","values":{"save":"Al guardar","load":"On Load"}},{"key":"true","label":"Al guardar","description":"Un script que se ejecutará después de que se complete el guardado. Esto no se ejecutará al cargar el juego, así que puedes usarlo y mostrar el mensaje 'El guardado fue exitoso'.","type":"events","conditions":[{"key":"__scriptTabs","ne":"load"}]},{"key":"load","label":"On Load","description":"A script to run after this save data has been loaded.","type":"events","conditions":[{"key":"__scriptTabs","eq":"load"}]}]} />
 
 - **Ranura de guardado**: La ranura de guardado a usar.  
 - **Al guardar**: Un script que se ejecutará después de que se complete el guardado. Esto no se ejecutará al cargar el juego, así que puedes usarlo y mostrar el mensaje 'El guardado fue exitoso'.  
+- **On Load**: A script to run after this save data has been loaded.  
 
 ## Control Flow
 ### Si se guardaron los datos del juego

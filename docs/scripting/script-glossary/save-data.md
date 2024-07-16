@@ -23,10 +23,11 @@ Remove any previously saved game data in the selected slot.
 
 ### Game Data Save
 Save the current game data into the selected slot.
-<ScriptEventPreview title={"Game Data Save"} fields={[{"label":"Save current game data to memory. Requires cartridge type with BATTERY."},{"key":"saveSlot","label":"Save Slot","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0},{"key":"__scriptTabs","type":"tabs","defaultValue":"save","values":{"save":"On Save"}},{"key":"true","label":"On Save","description":"A script to run after the save is completed. This won't be run on game load so you can use it show a 'Save Was Successful' message.","type":"events"}]} />
+<ScriptEventPreview title={"Game Data Save"} fields={[{"label":"Save current game data to memory. Requires cartridge type with BATTERY."},{"key":"saveSlot","label":"Save Slot","description":"The save slot to use.","type":"togglebuttons","options":[[0,"Slot 1","Save Slot 1"],[1,"Slot 2","Save Slot 2"],[2,"Slot 3","Save Slot 3"]],"allowNone":false,"defaultValue":0},{"key":"__scriptTabs","type":"tabs","defaultValue":"save","values":{"save":"On Save","load":"On Load"}},{"key":"true","label":"On Save","description":"A script to run after the save is completed. This won't be run on game load so you can use it show a 'Save Was Successful' message.","type":"events","conditions":[{"key":"__scriptTabs","ne":"load"}]},{"key":"load","label":"On Load","description":"A script to run after this save data has been loaded.","type":"events","conditions":[{"key":"__scriptTabs","eq":"load"}]}]} />
 
 - **Save Slot**: The save slot to use.  
 - **On Save**: A script to run after the save is completed. This won't be run on game load so you can use it show a 'Save Was Successful' message.  
+- **On Load**: A script to run after this save data has been loaded.  
 
 ## Control Flow
 ### If Game Data Saved

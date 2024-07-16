@@ -206,10 +206,9 @@ Establece el sprite que se debe usar para representar a un actor.
 
 ### Establecer hoja de Sprites del jugador
 Establece el sprite que se debe usar para renderizar al jugador.
-<ScriptEventPreview title={"Establecer hoja de Sprites del jugador"} fields={[{"key":"spriteSheetId","label":"Hoja de sprites","description":"El sprite que se utilizará para renderizar al jugador.","type":"sprite","defaultValue":"LAST_SPRITE"},{"key":"persist","label":"Reemplazar valor predeterminado por tipo de escena","description":"Hace que este objeto anule el valor predeterminado para todas las escenas del tipo actual. es decir, si estás actualmente en una escena de plataformas, todas las demás escenas de plataformas que usan el sprite predeterminado ahora se cargarán usando este sprite de reemplazo automáticamente.","type":"checkbox","defaultValue":false}]} />
+<ScriptEventPreview title={"Establecer hoja de Sprites del jugador"} fields={[{"key":"spriteSheetId","label":"Hoja de sprites","description":"El sprite que se utilizará para renderizar al jugador.","type":"sprite","defaultValue":"LAST_SPRITE"}]} />
 
 - **Hoja de sprites**: El sprite que se utilizará para renderizar al jugador.  
-- **Reemplazar valor predeterminado por tipo de escena**: Hace que este objeto anule el valor predeterminado para todas las escenas del tipo actual. es decir, si estás actualmente en una escena de plataformas, todas las demás escenas de plataformas que usan el sprite predeterminado ahora se cargarán usando este sprite de reemplazo automáticamente.  
 
 ## Script
 ### Iniciar el script "On Update" del actor
