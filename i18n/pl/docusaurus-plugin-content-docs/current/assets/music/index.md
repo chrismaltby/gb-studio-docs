@@ -1,22 +1,20 @@
-# Music
+import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
-Music can be played in your game using the [Play Music Track](/docs/scripting/#music-events) event in your *Actor*, *Trigger*, or *Scene* scripts.
+# Muzyka
 
-<img src="/pl/img/events/music-play-v3.png" className="event-preview" />
+Muzyka może być odtwarzana w grze za pomocą zdarzenia [Muzyka: odegraj utwór](/docs/scripting/#music-events) w skryptach *Aktora*, *Wyzwalacza* lub *Sceny*.
 
-## Music Driver
+<ScriptEventPreview title={"Play Music Track"} fields={[{"key":"musicId","type":"music","defaultValue":"LAST_MUSIC"}]} />
 
-Based on the [Music Driver](/docs/settings/#music-driver) that you have set for your project the file format you need to use for music files will be different
+Muzykę można dodać do gry, umieszczając pliki `.uge` lub `.mod` w folderze `assets/music` projektu.
 
-### hUGE Driver
+Projekt może obsługiwać tylko jeden typ plików muzycznych, opcję tę można skonfigurować wybierając w projekcie menu Podgląd [Ustawienia](/docs/settings/#music-driver) wybierając format muzyki MOD lub UGE.
 
-This is the default and recommended driver for new projects. When using this driver you will need to create `.uge` music files and you will have the ability to edit your music files within GB Studio using the _Music Editor_.
+Pliki `.uge` mogą być tworzone i edytowane za pomocą _Edytora muzyki_.
 
-See the documentation for using [hUGE Driver](/docs/assets/music/music-huge) for more information.
+Więcej informacji znajduje się w dokumentacji w dziale [Edytor muzyczny](/docs/assets/music/music-huge).
 
-### GBT Player
 
-This is the driver used for GB Studio 2 and below. When using this driver you will need to create `.mod` music files using external Tracker software.
+Pliki `.mod` są tworzone i edytowane za pomocą zewnętrznego oprogramowania Tracker. Można wybrać domyślną aplikację do otwierania tego rodzaju zasobów, wystarczy w programie GB Studio przejść do menu Edycja _Preferencje_ i w oknie preferencji ustawić domyślne aplikacje.
 
-See the documentation for using [GBT Player](/docs/assets/music/music-gbt) for more information.
-
+Więcej informacji znajduje się w dokumentacji w dziale [Pliki MOD](/docs/assets/music/music-gbt).
