@@ -1,254 +1,203 @@
-# hUGE Driver
+---
+sidebar_position: 1
+---
 
-GB Studio 3.0 adds support for `.uge` files on top of the existing `.mod` files from previous versions. A project can only support one type of music files, this can be configured on the [Settings View](/docs/settings/#music-driver) by selecting either GBT Player (for .mod files) or hUGEDriver (for .uge files) as the Music Driver.
+# Edytor muzyki
 
-## Getting Started
-
-To compose .uge files you can use
-[hUGETracker](https://nickfa.ro/index.php/HUGETracker) or
-new music tracker included in GB Studio 3.0. The tracker can be accessed
-in the Music section of the app. It'll display any .uge files in your
-project\'s assets/music folder. And it also allows you to create new
-songs by pressing the + button on top of the file list.
-
-Each song uses 4 channels: Duty 1, Duty 2, Wave and Noise. Each channel
-can use 15 [instruments](#instruments) with a note pitch
-range from C3 to B8.
-
-## Editing a song
-
-The music editor is divided in three parts:
-
--   **Left sidebar**: Contains the list of songs and instruments for the selected song
-
--   **Middle panel**: The music editor itself. Has two views: Piano Roll and Tracker.
-
--   **Right sidebar**: Allows to edit the song title, artist name and tempo (measured in ticks per row) and also shows the instrument editor if there's any selected in the left sidebar.
-
-### Piano Roll
-
-In Piano Roll mode you use the cursor to add notes to a grid. The time
-is represented in the horizontal axis (columns) while the note pitch is
-represented on the vertical axis (rows).
-
-You can only add notes to one channel at a time, selectable on the top
-right toolbar. The channels can be muted with the sound icon for each
-channel. The channels that aren't selected can be previewed by clicking the
-eye icon.
-
-<img title="Piano Roll" src="/pl/img/screenshots/music-editor-piano.png" width="1241" />
-
-To input a note, select the pen tool in the toolbar and click on a cell.
-The note will use the selected instrument in the toolbar.
-
-To remove a note, select the eraser tool in the toolbar and click on an
-existing note. You can also right click on an existing note to remove
-it.
-
-**Note:** It's not possible to add effects in Piano Roll mode.
-
-The song can be previewed at any time by pressing the play button.
-
-The song can be saved by pressing the save button or Ctrl/Cmd + S.
-
-### Tracker
-
-In Tracker mode you use the keyboard to add notes. The song advances
-from top to bottom, with each row representing a position of the song.
-There's one column for each channel, and each is divided in 3 cells:
-Note, Instrument and Effect.
-
-<img title="Tracker" src="/pl/img/screenshots/music-editor-tracker.png" width="1241" />
-
-The song grid can be navigated with the cursor keys. Keys from Q to /
-are used to input the values in the note column of each channel. The
-base octave (used for the Q key) can be selected in the dropdown menu.
-
-<img title="Tracker" src="/pl/img/screenshots/music-editor-keys.png" width="360" class="drop-shadow" />
+:::Informacja
+Po aktualizacji programu do GB Studio 4 z wcześniejszej wersji, warto zapoznać się z [przewodnikiem migracyjnym](/docs/migrate), by mieć pewność, że twoja muzyka została prawidłowo zaktualizowana.
+:::
 
 
-The numeric keys are used to input the value in the instrument column. A
-default [instrument](#instruments) can be selected in the
-toolbar and be used automatically when adding a new note.
+Jeżeli w menu _Podgląd Ustawienia_ w dziale muzyki, został ustawiony _format muzyczny_ na `UGE (hUGEDriver)` (domyślny dla GB Studio 3 i nowszych), to możesz dodać muzykę do swojej gry, umieszczając pliki `.uge` w folderze `assets/music` twojego projektu.
 
-The numeric keys, and keys A through F are used to input values in the
-[effect](#effects) column.
+Te pliki można edytować za pomocą _Edytora muzyki_, klikając przycisk _Podgląd_ projektu i wybierając _Muzyka_. Edytor umożliwia również tworzenie nowych utworów poprzez naciśnięcie przycisku `+` na górze listy utworów.
 
-The song can be previewed at any time by pressing the play button.
+> Pliki `.uge` można również edytować za pomocą programu **[hUGETracker](https://nickfa.ro/index.php/HUGETracker)**
 
-The song can be saved by pressing the save button or Ctrl/Cmd + S.
 
-## Patterns
+## Rozpoczęcie
 
-A pattern in the GB Studio music editor is unique group notes in each 4
-channels. Patterns can be repeated or arranged to form the full song
-using the pattern editor.
+_Edytor muzyki_ jest podzielony na trzy części:
 
-<img title="Patterns" src="/pl/img/screenshots/music-editor-patterns.png" width="710" class="drop-shadow" />
+-   **Nawigator**: Zawiera listę utworów i instrumentów dla wybranego utworu.
 
-The dropdown menu on each cell allows you to select one of the existing
-patterns or assign an empty one to the current position.
+-   **Kreator utworu**: Sam edytor muzyki. Posiada dwa widoki: [Tryb piano](#piano-roll) i [tryb Trackera](#tracker). Pierwsza ikona na pasku narzędzi pozwala zmienić widok.
 
-The plus button allows you to add a new pattern to the song.
+-   **Pasek boczny edytora**: Pozwala edytować tytuł utworu, nazwę artysty i tempo oraz pokazuje edytor instrumentów lub efektów, gdy jest wybrany.
 
-**Note:** any unused pattern will be removed from the song on save.
+### Struktura utworu
 
-## Instruments
+Utwór składa się z:
 
->Borrowing from the descriptions on the [hUGETracker
-manual](https://nickfa.ro/images/HUGETrackerManual.pdf)
+* Czterech _Kanałów_: Duty 1, Duty 2, Wave i Noise. 
+  * Każdy kanał jest lepiej dostosowany do innego rodzaju dźwięku (na przykład: kanał Noise jest zwykle odpowiedni do rytmów perkusyjnych).
+  * Każdy kanał ma własny zestaw 15 _[instrumentów](#instruments)_. Duty 1 i Duty 2 dzielą ten sam zestaw instrumentów.
+* Wielu _Wzorów_, unikalnej grupy nut w każdym z czterech kanałów.
+  * Każdy wzór zawiera sekwencję do 64 nut na kanał, a każda nuta składa się z wysokości dźwięku od `C-3` do `B-8`, instrumentu i efektu.
+  * Wzory można powtarzać lub układać, aby utworzyć pełny utwór za pomocą _[Nawigatora wzorów](#pattern-navigator)_.
+* _Tempa_,  czyli ile tików (64 na sekundę) musi upłynąć, zanim rząd zostanie ukończony. Im większa liczba tików, tym wolniejszy jest utwór.
 
-Selecting an instrument in the left sidebar will open the instrument
-editor on the right sidebar.
+## Tryb Piano
 
-Changes in the instrument can be previewed at any time by pressing the
-"Test Instrument (C5)" button, which will play the C5 note for a few
-seconds with the selected instrument.
+W trybie Piano używasz myszy do dodawania nut do wzoru. Odczytuje się to jak nuty na pięciolinii, czas jest reprezentowany na osi poziomej (kolumny), a wysokość dźwięku na osi pionowej (rzędy).
 
-Other than the instrument name, each instrument has its own set of
-fields that can be edited.
+<img title="Piano Roll" src="/img/screenshots/music-editor-piano-roll-v3.1.png" width="1241" />
 
-### Duty Instruments
+Możesz dodawać nuty tylko do jednego kanału naraz, wybierając go na pasku narzędzi w prawym górnym rogu. Kanały można wyciszać, używając ikony głośnika dla każdego kanału. Kanały, które nie są wybrane, można podglądać, klikając ikonę oka.
 
-**Length:** When enabled, the note will be cut off immediately at a
-specific length. If not enabled the note will play until a new note
-starts.
+### Używanie trybu piano
 
-**Initial volume**: Sets the starting volume for the envelope. If
-there's no sweep change set this will be the volume for the note.
+Aby wprowadzić nutę, wybierz narzędzie ołówka na pasku narzędzi i kliknij na komórkę. Nuta będzie używać wybranego instrumentu na pasku narzędzi.
 
-**Sweep Change:** Defines how steep the volume change will be. The
-higher or lower the value, the quicker the note will fade in or out.
+Aby usunąć nutę, wybierz narzędzie gumki na pasku narzędzi i kliknij na istniejącą nutę. Możesz również kliknąć prawym przyciskiem myszy na istniejącą nutę, aby ją usunąć.
 
-**Sweep time:** Selects the "sweep time" for the note to take. The
-greater the value, the slower the sweep.
+Aby wybrać nutę, wybierz narzędzie wyboru lub naciśnij `Shift`. Po zaznaczeniu grupy nut przeciągnij i upuść je w dowolne miejsce na siatce.
 
-**Sweep direction:** Selects the direction of sweep for the note to
-take. Up portamentos the note up, down portamentos it down.
+Pasek efektów, na dole siatki piano, pozwala dodać [efekt](#effects) do danej nuty za pomocą edytora efektów w prawym panelu.
 
-**Sweep size:** Selects the magnitude of sweep for the note to take per
-"tick" as specified by sweep time.
+Utwór można odsłuchać w dowolnym momencie, naciskając przycisk odtwarzania.
 
-**Duty:** Selects the timbre of note to play. Each one sounds different,
-and they are useful when you don't want both of the duty channels to
-clash with one another.
+Aby ustawić pozycję początkową odtwarzania, kliknij obszar nad pianinem, gdzie pokazuje się głowica odtwarzania.
 
-### Wave Instruments
+Utwór można zapisać, naciskając przycisk zapisu lub Ctrl/Cmd + S.
 
-**Length:** When enabled, the note will be cut off immediately at a
-specific length. If not enabled the note will play until a new note
-starts.
+## Tryb Trackera
 
-**Wave volume**: Specifies at what volume a wave instrument shall play
-unless overridden by a volume effect command. There are only 3 possible
-values here, as the wave channel's volume interface is more limited than
-the other channels.
+W trybie Trackera używasz klawiatury do dodawania nut do wzoru. Utwór przechodzi od góry do dołu, z każdą linią reprezentującą pozycję utworu.
 
-**Waveform**: Selects which waveform should play as part of this
-instrument. The selected waveform can be edited by drawing on the
-waveform preview.
+<img title="Tracker" src="/img/screenshots/music-editor-tracker-v3.1.png" width="1241" />
 
-### Noise Instruments
+Jest jedna kolumna dla każdego kanału, a każda kolumna jest podzielona na 3 pola: Wysokość dźwięku (lub nuta), Instrument i Efekt. 
 
-**Length:** When enabled, the note will be cut off immediately at a
-specific length. If not enabled the note will play until a new note
-starts.
+```
+C-5 01 240
+--- -- ---
+ |   |  |
+ |   |  +------ Kolumna efektu (Zmiany głośności, arpeggia, panoramowanie itp.)
+ |   +--------- Instrument
+ +------------- Nuta i oktawa (Nuta C w 5 oktawie. Dash może być #, co oznacza podwyższoną nutę, np. C#, D#)
+```
 
-**Shift clock mask and Dividing ratio:** Two components of the noise
-generation algorithm. Tweak them to obtain different results.
+Wiersze mogą być puste lub częściowo wypełnione (na przykład tylko efektem).
 
-**7-bit counter:** When checked, the instrument will sound more like a
-musical tone rather than noise.
+### Używanie trybu trackera
 
-**Noise Macro:** Like an arpeggio effect, set up to 8 pitch changes +-32
-from the noise frequency, advancing every frame, great for kick drums or
-fast sweeping noise. Must be shorter than your current song tempo.
+Siatkę utworu można nawigować za pomocą klawiszy kursora.
 
-## Effects
+Istnieją dwa układy klawiatury do wprowadzania wartości w kolumnie nut. Układ można wybrać w _preferencjach GB Studio_.
 
->Borrowing from the descriptions on the [hUGETracker
-manual](https://nickfa.ro/images/HUGETrackerManual.pdf)
+***Układ Liniowy*** 
+<img title="Tracker" src="/img/screenshots/music-editor-keys-openmpt.png" width="360" class="drop-shadow" />
 
-| Effect | Name               | Description                             |
+*To jest układ używany przez trackery, takie jak OpenMPT i hUGETracker.*
+
+Każdy wiersz klawiatury (lub "linia") reprezentuje jedną oktawę na pianinie. Klawisze od `Q` do `/` służą do wprowadzania wartości, zaczynając od `C` w bazowej oktawie (domyślnie 3). 
+
+***Układ Pianina***
+<img title="Tracker" src="/img/screenshots/music-editor-keys-milkyt.png" width="360" class="drop-shadow" />
+
+*To jest układ używany przez trackery, takie jak MilkyTracker lub FastTracker2.* 
+
+Klawiatura jest podzielona na dwie grupy po dwa rzędy klawiszy. W każdej grupie górne klawisze reprezentują czarne klawisze pianina, a dolne klawisze białe. Klawisze od `2` do `/` służą do wprowadzania wartości, zaczynając od `C` w bazowej oktawie + 1 (domyślnie 4).
+
+Bazową oktawę można wybrać na pasku narzędzi.
+
+Klawisze numeryczne służą do wprowadzania wartości w kolumnie instrumentów. Domyślny [instrument](#instruments) można wybrać na pasku narzędzi i używać automatycznie podczas dodawania nowej nuty.
+
+Klawisze numeryczne i klawisze `A` do `F` służą do wprowadzania wartości w kolumnie [efektów](#effects) column.
+
+Utwór można odsłuchać w dowolnym momencie, naciskając przycisk odtwarzania.
+
+Aby ustawić pozycję początkową odtwarzania, kliknij numer wiersza po lewej stronie siatki trackera.
+
+Utwór można zapisać, naciskając przycisk zapisu lub Ctrl/Cmd + S.
+
+## Nawigator wzorów
+
+<img title="Patterns" src="/img/screenshots/music-editor-patterns.png" width="710" class="drop-shadow" />
+
+Menu rozwijane w każdej komórce pozwala wybrać jeden z istniejących wzorów lub przypisać pusty do bieżącej pozycji.
+
+Przycisk plus pozwala dodać nowy wzór do utworu.
+
+
+**Uwaga:**  wszelkie nieużywane wzorce zostaną usunięte z utworu podczas zapisywania.
+
+
+## Instrumenty
+
+>Wzorując się na opisach w [podręczniku hUGETracker](https://nickfa.ro/images/HUGETrackerManual.pdf)
+
+Wybór instrumentu w lewym pasku bocznym otworzy edytor instrumentów w prawym pasku bocznym.
+
+Zmiany w instrumencie można podglądać w dowolnym momencie, naciskając przycisk "Testuj instrument (C5)", który przez kilka sekund odtworzy dźwięk C5 z wybranym instrumentem.
+
+Oprócz nazwy instrumentu, każdy instrument posiada własny zestaw pól, które można edytować.
+
+### Instrumenty Duty
+
+**Długość:** Po włączeniu, dźwięk zostanie natychmiast przerwany po określonym czasie. Jeśli nie jest włączone, dźwięk będzie odtwarzany, dopóki nie rozpocznie się nowy dźwięk.
+
+**Głośność początkowa**: Ustawia początkową głośność obwiedni. Jeśli nie ma ustawionej zmiany sweep, to będzie to głośność dźwięku.
+
+**Zmiana sweep<sup>1</sup>**: Określa, jak stroma będzie zmiana głośności. Im wyższa lub niższa wartość, tym szybciej dźwięk zanika lub narasta.
+
+**Czas sweep<sup>1</sup>**: Wybiera czas "sweep" dla dźwięku. Im większa wartość, tym wolniejszy sweep.
+
+**Przesunięcie sweep<sup>1</sup>**: Wybiera kierunek i wielkość sweep dla dźwięku na każdy "tick" zgodnie z czasem sweep. Dodatnie wartości podnoszą dźwięk, ujemne obniżają.
+
+**Duty:** Wybiera barwę dźwięku do odtworzenia. Każdy brzmi inaczej i są przydatne, gdy nie chcesz, aby oba kanały duty kolidowały ze sobą.
+
+>**<sup>1</sup>** Sweep to termin techniczny w kontekście dźwięku i instrumentów, który oznacza stopniową zmianę parametrów dźwięku, takich jak głośność lub wysokość dźwięku w określonym czasie. 
+
+### Instrumenty Wave
+
+**Długość**: Po włączeniu, dźwięk zostanie natychmiast przerwany po określonym czasie. Jeśli nie jest włączone, dźwięk będzie odtwarzany, dopóki nie rozpocznie się nowy dźwięk.
+
+**Głośność**: Określa, z jaką głośnością będzie odtwarzany instrument wave, chyba że zostanie zastąpiona przez komendę efektu głośności. Istnieją tylko 3 możliwe wartości, ponieważ interfejs głośności kanału wave jest bardziej ograniczony niż innych kanałów.
+
+**Fala**: Wybiera, która fala powinna być odtwarzana jako część tego instrumentu. Wybrana fala może być edytowana przez rysowanie na podglądzie fali.
+
+### Instrumenty Noise
+
+**Długość**: Po włączeniu, dźwięk zostanie natychmiast przerwany po określonym czasie. Jeśli nie jest włączone, dźwięk będzie odtwarzany, dopóki nie rozpocznie się nowy dźwięk.
+
+**Głośność początkowa**: Ustawia początkową głośność obwiedni. Jeśli nie ma ustawionej zmiany sweep, to będzie to głośność dźwięku.
+
+**Zmiana sweep<sup>1</sup>**: Określa, jak stroma będzie zmiana głośności. Im wyższa lub niższa wartość, tym szybciej dźwięk zanika lub narasta.
+
+**Licznik 7-bitowy**: Po zaznaczeniu, instrument będzie brzmiał bardziej jak ton muzyczny niż szum.
+
+**Makro szumu**: Podobnie jak efekt arpeggio, ustaw do 8 zmian wysokości +-32 od częstotliwości szumu, zmieniającą się co klatkę. Świetne dla bębnów basowych lub szybkiego zmieniającego się szumu. Musi być krótszy niż aktualne tempo utworu.
+
+>**<sup>1</sup>** Sweep to termin techniczny w kontekście dźwięku i instrumentów, który oznacza stopniową zmianę parametrów dźwięku, takich jak głośność lub wysokość dźwięku w określonym czasie.
+
+
+## Efekty
+
+>Wzorując się na opisach w [podręczniku hUGETracker](https://nickfa.ro/images/HUGETrackerManual.pdf)
+
+| Efekt | Nazwa               | Opis                                    |
 | ------ | ------------------ | --------------------------------------- |
-| 0xy    | Arpeggio           | On every tick, switch between the       |
-|        |                    | playing note, note + x, and note + y,   |
-|        |                    | where `x` and `y` are values in         |
-|        |                    | semitones. Can be used to create        |
-|        |                    | "chords" or a strum effect.             |
-| 1xx    | Portamento Up      | Slide the pitch up by `xx` units        |
-|        |                    | every tick.                             |
-| 2xx    | Portamento Down    | Slide the pitch down by `xx` units      |
-|        |                    | every tick.                             |
-| 3xx    | Tone Portamento    | Slide the pitch towards the specified   |
-|        |                    | note value by                           |
-|        |                    |                                         |
-|        |                    | `xx` units every tick. Stops when it    |
-|        |                    | reaches the                             |
-|        |                    |                                         |
-|        |                    | specified note value. **This effect     |
-|        |                    | cannot be used in**                     |
-|        |                    |                                         |
-|        |                    | **a cell with an instrument value.**    |
-| 4xy    | Vibrato            | Rapidly switch between the specified    |
-|        |                    | note value and note + y, at the rate of |
-|        |                    | `x`, where `y` is a value in units.     |
-|        |                    | Valid values for `x` are 0, 1, 3, 7,    |
-|        |                    | and F. This is similar to arpeggio,     |
-|        |                    | except you can control the frequency,   |
-|        |                    | and the amount is specified in units    |
-|        |                    | rather than semitones.                  |
-| 5xx    | Set Master Volume  | Sets the master volume control of the   |
-|        |                    | Gameboy for the left and right          |
-|        |                    | speakers. Use the effect editor to      |
-|        |                    | create one of these effects. Note that  |
-|        |                    | a volume of zero is not completely      |
-|        |                    | silent.                                 |
-| 6xx    | Call Routine       | Call a user-defined routine. Routines   |
-|        |                    | can be created by using the "Set Music  |
-|        |                    | Routine" event.                         |
-| 7xx    | Note Delay         | Wait `xx` ticks before playing the      |
-|        |                    | note in this cell.                      |
-| 8xx    | Set Panning        | Sets which channels play on which       |
-|        |                    | speakers. Use                           |
-|        |                    |                                         |
-|        |                    | the effect editor to create one of      |
-|        |                    | these effects.                          |
-|        |                    |                                         |
-|        |                    | Can also be used as a mute for a        |
-|        |                    | channel by setting it to output on      |
-|        |                    | neither left nor right.                 |
-| 9xx    | Set Duty Cycle     | Select duty cycle for either channel 1  |
-|        |                    | or channel 2. If this effect appears on |
-|        |                    | the noise or wave channels, it will     |
-|        |                    | affect channel 2. Valid values for xx   |
-|        |                    | are 00, 40, 80, C0. Under the hood, the |
-|        |                    | `xx` value is loaded directly into      |
-|        |                    | ch1 or ch2's length register, so you    |
-|        |                    | could theoretically achieve other       |
-|        |                    | effects than just duty cycle changing.  |
-| Axy    | Volume Slide       | Slide the note's volume up by `x`       |
-|        |                    | units, and then down by `y` units.      |
-|        |                    | This effect actually retriggers the     |
-|        |                    | note on each tick, which might not be   |
-|        |                    | noticeable for instruments without      |
-|        |                    | length/envelope, but could potentially  |
-|        |                    | sound bad if those are present.         |
-|        |                    | Recommended to use either instrument    |
-|        |                    | envelopes, or the `C` command instead   |
-|        |                    | if you can. **This effect does not work |
-|        |                    | in the same cell as a                   |
-|        |                    | note/instrument!**                      |
-| Bxx    | Position Jump      | Jump to a specific position in the song |
-|        |                    | `xx`.                                   |
-| Cxx    | Set Volume         | Set the volume of the channel to        |
-|        |                    | `xx`. Must be accompanied by a note     |
-|        |                    | and instrument to work (except on       |
-|        |                    | channel 3). Valid values range from     |
-|        |                    | 00-0F.                                  |
-| Dxx    | Pattern Break      | Jump to the next pattern early, and     |
-|        |                    | start on row `xx`.                      |
-| Exx    | Note Cut           | Cut the note short after `xx` ticks.    |
-| Fxx    | Set Speed          | Set the number of ticks per row to      |
-|        |                    | `xx`. Can be used in an alternating     |
-|        |                    | fashion to create a swing beat.         |
+| 0xy    | Arpeggio           | Co tick, przełącza się między grającą nutą, nutą + `x`, a nutą + `y`, gdzie `x` i `y` są wartościami w półtonach. Może być używany do tworzenia "akordów" lub efektu strumienia.|
+| 1xx    | Portamento w górę      | Przesuwa wysokość dźwięku w górę o `xx` jednostek co tick.|
+| 2xx    | Portamento w dół    | Przesuwa wysokość dźwięku w dół o `xx` jednostek co tick.|
+| 3xx    | Portamento do tonu   | Przesuwa wysokość dźwięku w kierunku określonej wartości nuty o `xx` jednostek co tick. Zatrzymuje się, gdy osiągnie określoną wartość nuty.<br/> **Ten efekt nie może być używany w komórce z wartością instrumentu.**|
+| 4xy    | Vibrato            | Szybko przełącza się między określoną wartością nuty a nutą + `y`, z częstotliwością `x`, gdzie `y` jest wartością w jednostkach. Podobne do arpeggio, ale można kontrolować częstotliwość, a ilość jest określona w jednostkach, a nie w półtonach.|
+| 5xx    | Ustawienie głośności master  | Ustawia kontrolę głośności master Gameboya dla lewego i prawego głośnika. Użyj edytora efektów, aby stworzyć jeden z tych efektów. Zauważ, że głośność zero nie jest całkowicie cicha.|
+| 6xx    | Wywołanie procedury       | Wywołuje użytkownika zdefiniowaną procedurę. Procedury mogą być tworzone za pomocą polecenia [Muzyka: ustaw rutynę](/docs/scripting/script-glossary/music-sound-effects#set-music-routine).|
+| 7xx    | Opóźnienie nuty         | Czeka `xx` ticków przed odtworzeniem nuty w tej komórce.|
+| 8xx    | Ustawienie panoramy        | Ustawia, które kanały odtwarzają na których głośnikach. Użyj edytora efektów, aby stworzyć jeden z tych efektów.<br/> Może być również używany jako wyciszenie kanału przez ustawienie go na odtwarzanie ani na lewym, ani na prawym głośniku.|
+| 9xx    | Ustawienie cyklu duty     | Wybiera cykl duty dla kanałów Duty 1 lub Duty 2. Jeśli ten efekt pojawi się na kanałach Noise lub Wave, będzie miał wpływ na kanał Duty 2. Prawidłowe wartości dla `xx` to 00, 40, 80, C0. Pod maską, wartość `xx` jest ładowana bezpośrednio do rejestru długości Duty 1 lub Duty 2, więc teoretycznie można osiągnąć inne efekty niż tylko zmiana cyklu duty.|
+| Axy    | Zjeżdżanie głośności       | Przesuwa głośność dźwięku w górę o `x` jednostek, a następnie w dół o `y` jednostek.<br/> Ten efekt faktycznie ponownie wyzwala nutę co tick, co może nie być zauważalne dla instrumentów bez długości/obwiedni, ale może potencjalnie brzmieć źle, jeśli są obecne.<br/> Zaleca się używanie albo obwiedni instrumentów, albo komendy `C`, jeśli to możliwe.<br/>**Ten efekt nie działa w tej samej komórce co nuta/instrument!**|
+| Bxx    | Skok do pozycji      | Skacze do początku wzorca `xx`. Jeśli `xx` jest `00`, skacze do następnego wzorca.|
+| Cev    | Ustawienie głośności         | Ustawia obwiednię `e` i głośność `v` kanału. Musi być towarzyszone przez nutę i instrument, aby działało (z wyjątkiem kanału Wave). Prawidłowe głośności wahają się od 00 do 0F (00,04,08,0F dla kanału Wave).<br/>Prawidłowe obwiednie dla `Cev` 00-F0, 0 użyj instrumentu, 8 brak zaniku, 1-7 zanik ciszej, 9-F |
+| Dxx    | Przerwa wzorca      | Skacze do następnego wzorca wcześniej i zaczyna od wiersza `xx`.|
+| Exx    | Skrócenie nuty           | Skraca nutę po `xx` tickach.|
+| Fxx    | Ustawienie prędkości          | Ustawia liczbę ticków na wiersz na `xx`. Może być używany na przemian, aby stworzyć rytm swing.|
+
+## Skróty klawiszowe
+
+Zobacz temat [Skróty klawiszowe > Edytor muzyki](/docs/getting-started/keyboard-shortcuts#music-editor)
+
