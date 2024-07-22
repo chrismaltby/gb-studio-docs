@@ -2,32 +2,77 @@
 
 import { Swatch } from '@site/src/components/Swatch';
 
-Each of your scenes requires a background image that defines how that scene should look. You can add backgrounds to your game by including PNG files in your project's `assets/backgrounds` folder.
+Każda ze scen wymaga obrazu tła, który definiuje, jak powinna wyglądać ta scena.
 
-## Color Requirements
+Można dodać tła do swojej gry, umieszczając pliki `.png` w folderze `assets/backgrounds` w swoim projekcie.
 
-Background PNGs must only contain the following four colors:
+## Wymagania dotyczące kolorów
+
+### Palety manualne
+
+Gdy scena korzysta z [Palet manualnych](/docs/project-editor/scenes#automatic-color), obrazy tła w formacie PNG mogą zawierać tylko cztery poniższe kolory:
 
 <Swatch color="#071821" />
 <Swatch color="#306850" />
 <Swatch color="#86c06c" />
 <Swatch color="#e0f8cf" />
 
-Download the GB Studio Palette Swatches for:  
+Pobierz palety GB Studio dla programów:  
 [Adobe Photoshop](/assets/swatches/gb-studio-photoshop.aco)  
 [Aseprite](/assets/swatches/gb-studio-aseprite.aseprite)  
+[Piskel](/assets/swatches/gb-studio-piskel-background-palette.gpl)  
 
-Colors that are not one of the above hex codes will be matched to the nearest color. Unlike sprites, the color `#65ff00` can not be used in backgrounds.
+Kolory, które nie są jednym z powyższych kodów hex, będą dopasowane do najbliższego koloru. W przeciwieństwie do obiektów (sprit'ów), kolor `#65ff00` nie może być używany w tłach.
 
-## Size Requirements
 
-- Backgrounds are divided into `8px`x `8px` tilesets so the total image size must be a multiple of `8px` in both width and height.
-- A background has a minimum size of `160px` x `144px` (the GB screen size)
-- Both the width and height of a background must be less than or equal to `2040px`.
-- The width of the image multiplied by the height must be less than or equal to `1,048,320`. For example an image with the width `2016px` will have a max height of `520px` (because `2016 * 520 = 1048320`)
+### Palety automatyczne
 
-## Tile Requirements
+Gdy scena korzysta z [palet automatycznych](/docs/project-editor/scenes#automatic-color), możena dostarczać obrazy kolorowe, o ile spełniają one następujące zasady:
 
-In most scene types a background image can contain no more than **192** unique `8px` x `8px` tiles at once due to memory limits. This means that even using the smallest background size possible you must repeat about half of your tiles. Where possible repeat tiles between images as they will be grouped together saving on total game size. It is recommended to use a tile map editor such as [Tiled](https://www.mapeditor.org/) to ensure your backgrounds conform to the pixel grid.
+- Każda tafla o wymiarach `8px` x `8px` może używać tylko 4 kolorów.
+- Scena może zawierać maksymalnie 8 unikalnych palet 4-kolorowych.
 
-The exception to this is scenes with their _Scene Type_ set as _Logo_, these scenes can use a `160px` x `144px` sized image with no limits on unique tiles but note that in _Logo_ scenes you are unable to use _Actors_ or display a _Player_.
+Dane monochromatyczne tafli zostaną automatycznie utworzone z Twojego obrazu kolorowego. Jeśli zamierzasz wspierać urządzenia monochromatyczne, może być konieczne dostarczenie [Monochromatycznego zamiennika](/docs/assets/backgrounds#monochrome-overrides).
+
+
+## Wymagania dotyczące rozmiaru
+
+- Tła są podzielone na zestawy tafli `8px` x `8px`, więc całkowity rozmiar obrazu musi być wielokrotnością `8px` zarówno w szerokości, jak i wyskowości.
+- Minimalny rozmiar tła wynosi `160px` x `144px` (rozmiar ekranu GB)
+- Zarówno szerokość, jak i wysokość tła muszą być mniejsze lub równe `2040px`.
+- Szerokość obrazu pomnożona przez wysokość musi być mniejsza lub równa  `1,048,320`. Przykład, obraz o szerokości `2016px` będzie miał maksymalną wysokość `520px` (ponieważ `2016 * 520 = 1048320`)
+
+## Wymagania dotyczące tafli
+
+#### Gry "Monochromatyczne" i "Kolor + Monochromatyczne"
+
+W większości typów scen, dla gier korzystających z trybów kolorów `Monochromatyczny` lub `Kolor + Monochromatyczny`, obraz tła może zawierać nie więcej niż **192** unikalnych tafli `8px` x `8px` naraz z powodu ograniczeń pamięci. Oznacza to, że nawet przy najmniejszym możliwym rozmiarze tła należy powtarzać około połowę swoich tafli. Tam, gdzie to możliwe, powtarzaj tafle między obrazami, aby były grupowane razem, co zaoszczędzi miejsce na grze. Zalecane jest użycie edytora map tafli, takiego jak [Tiled](https://www.mapeditor.org/), aby upewnić się, że Twoje tła są zgodne z siatką pikseli.
+
+Wyjątkiem są sceny z ustawionym _rodzajem_ jako _Logo_. Te sceny mogą używać obrazu o wymiarach `160px` x `144px` bez ograniczeń dotyczących unikalnych tafli, ale należy pamiętać, że w scenach _Logo_ nie można używać _Aktorów_ ani wyświetlać _Gracza_.
+
+
+#### Gry "Tylko kolor"
+
+Podczas korzystania z trybu kolorów `Tylko kolor`, limit tafli tła jest podwojony, co pozwala na użycie do **384** unikalnych tafli `8px` x `8px` na scenę.
+
+
+## Monochromatyczny zamiennik
+
+Podczas korzystania z [palet automatycznych](/docs/project-editor/scenes#automatic-color), dane monochromatyczne tafli są automatycznie generowane z Twojego obrazu kolorowego. Jednak generowane odcienie mogą nie do końca odpowiadać Twoim zamierzeniom. W trybie `Tylko kolor` nie będzie to problemem. Jeśli planujesz wspierać urządzenia monochromatyczne, możesz dostarczyć drugi obraz jako monochromatyczny zamiennik, nadając mu taką samą nazwę jak obrazowi kolorowemu, ale z rozszerzeniem `.mono.png`.
+
+Na przykład, podczas korzystania z automatycznych palet na poniższym obrazie bez zamiennika:
+
+<img src="/assets/examples/mono-override/parallax.png" style={{width:550}} />
+`assets/backgrounds/parallax.png`  
+
+Scena będzie wyglądała następująco na urządzeniach monochromatycznych:
+<img src="/assets/examples/mono-override/parallax_broken.png" style={{width:550}} class="margin-bottom"/>
+
+Dostarczając poniższy obraz zamiennik, scena będzie wyglądać tak, jak oczekujesz, zarówno na urządzeniach kolorowych, jak i monochromatycznych:
+
+<img src="/assets/examples/mono-override/parallax.mono.png" style={{width:550}} />
+`assets/backgrounds/parallax.mono.png`  
+
+
+- [assets/backgrounds/parallax.png](/assets/examples/mono-override/parallax.png)
+- [assets/backgrounds/parallax.mono.png](/assets/examples/mono-override/parallax.mono.png)
