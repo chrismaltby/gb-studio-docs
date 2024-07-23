@@ -4,10 +4,17 @@ sidebar_position: 5
 
 # Zasoby
 
-Podczas zakładania projektu, w folderze projektu został utworzony folder `assets`, jest to folder odpowiedzialny za zasoby, które będą zawarte w projekcie. Folder `assets` zawiera różnego rodzaju podfoldery dla każdego typu zasobów w grze.
+Gdy tworzony jest projekt, w folderze projektu tworzony jest również folder `assets` zawierający szereg podfolderów dla każdego typu zasobów w grze.
 
-Aktualnie w programie GBStudio nie ma możliwości bezpośredniej edycji zasobów (grafiki czy muzyki). Zamiast tego, należy zastosować różnego rodzaju istniejących już aplikacji, a prace końcowe należy zamieścić w odpowiednim folderze projektu, gdzie owe prace będą natychmiast gotowe do użycia w projekcie. Jeżeli modyfikujesz obiekt (sprite) lub jakieś tło (głównie pliki PNG), i te pliki zapisujesz przy pomocy innego programu, to wprowadzone modyfikacje dla tych plików (PNG), będą w projekcie widoczne, gdy tylko _okno projektu_ zostanie odświeżone (wystarczy przełączyć na inny dział i wrócić do edycji).
+GBStudio obecnie nie posiada możliwości bezpośredniej edycji grafiki w grze, zamiast tego można używać ulubionych aplikacji i zapisywać pliki w tych folderach, gdzie będą one natychmiast gotowe do użycia w projekcie. Jeśli edytujesz plik PNG (sprite lub tło) i zapisujesz go za pomocą zewnętrznego edytora obrazów, zmiana będzie widoczna w _Oknie Projektu_ natychmiast po przełączeniu się z powrotem do niego (wystarczy przełączyć na inny dział i wrócić do edycji).
 
-Podczas, gdy można tworzyć grafikę w dowolnej aplikacji, która obsługuje pliki PNG, to zaleca się użycie programu [Aseprite](https://www.aseprite.org/) lub Photoshop do tworzenia obiektów (spritów), elementów systemu. Następnie przy pomocy  [Tiled Map Editor](https://www.mapeditor.org/), można utworzyć tła. Każdy typ zasobu posiada inny zestaw wymagań. Owe wymagania zostały wyszczególniony w innych sekcjach tej dokumentacji. 
+Podczas gdy można tworzyć grafikę w dowolnej aplikacji obsługującej pliki PNG, zaleca się używanie [Aseprite](https://www.aseprite.org/) lub Photoshop do tworzenia spritów i elementów interfejsu, a następnie używanie [Tiled Map Editor](https://www.mapeditor.org/) do tła jak (np. mapy). Każdy typ zasobu graficznego ma inny zestaw wymagań, które są szczegółowo opisane w kolejnych sekcjach tej dokumentacji. Można wybrać domyślną aplikację do otwierania przycisków edycji zasobów w oknie _Preferencje GB Studio_.
 
-W przypadku muzyki należy utworzyć nowe ścieżki jako pliki MOD z tylko czterema kanałami. Można tworzyć te pliki za pomocą programów [OpenMPT](https://openmpt.org/) lub [MilkyTracker](https://milkytracker.titandemo.org/).
+W przypadku muzyki można tworzyć pliki UGE lub MOD w zależności od wybranego _Sterownika Muzyki_ w menu programu _Podgląd Ustawienia_ (zalecany jest sterownik hUGEDriver).
+- Pliki UGE można edytować bezpośrednio w GB Studio przy pomocy [Edytora muzyki](/docs/assets/music).
+- Pliki MOD można edytować za pomocą [OpenMPT](https://openmpt.org/) lub [MilkyTracker](https://milkytracker.titandemo.org/).
+
+
+## Zasoby społeczności
+
+Jeśli szukasz kolekcji darmowych zasobów, gotowych do użycia w GB Studio, istnieje repozytorium prowadzone przez społeczność na Github dostępne pod adresem [GB Studio Community Assets](https://github.com/DeerTears/GB-Studio-Community-Assets).
