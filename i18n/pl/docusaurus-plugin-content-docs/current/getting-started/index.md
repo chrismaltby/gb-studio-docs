@@ -4,15 +4,27 @@ sidebar_position: 3
 
 # Rozpoczęcie pracy
 
-Kiedy GB Studio zostanie uruchomione, to użytkownik zostaje powitany oknem  _Nowego projektu_ , takie jak poniżej. 
-<img title="New Project" src="/pl/img/screenshots/new-project.png" width="812" />
+Kiedy po raz pierwszy otworzysz GB Studio, zobaczysz okno _Nowy projekt_.
 
-W oknie tym można założyć nowy projekt, albo otworzyć już istniejący projekt. Jeżeli posiadasz już projekt, to możesz go otworzyć poprzez kliknięcie w przycisk _Otwórz_, a następnie wskazanie pliku projektu `.gbsproj`.
+<img title="New Project" src="/img/screenshots/new-project-v4.png" width="752" />
+
+:::Podpowiedź
+
+Zaleca się rozpoczęcie od użycia szablonu Przykładowy Projekt, ponieważ zawiera on przykłady wielu funkcji, które oferuje GB Studio.
+
+:::
+
+Jeśli masz już istniejący projekt, możesz go otworzyć, klikając przycisk _Otwórz_ i nawigując do pliku `.gbsproj`.
 
 ## Nowy projekt
 
-Rozpocznij swoją pracę od podania _Nazwy projektu_ (spokojnie, nazwę projektu można zmienić w każdej chwili) oraz wybranie _Szablonu_. Jeżeli GB Studio jest dla ciebie nowym silnikiem, to zalecane jest wybranie opcji _Przykładowy Projekt_, który zawiera po prostu kilka przykładów, grafik, skryptów (taka mała mini gierka), aby użytkownikowi było łatwiej zaprzyjaźnić się z programem. Tym samym zauważysz co i jak można w programie zrobić, co jest możliwe do wykonania. Naciśnij przycisk _Utwórz_, aby przejść do edytora projektu.
+Nadaj swojemu projektowi nazwę, aby rozpocząć pracę (nie martw się, nazwę można zmienić później) i wybierz szablon projektu. Jeśli dopiero zaczynasz pracę z GB Studio, zalecane jest wybranie szablonu _Przykładowy projekt_, który zawiera kilka przykładowych scen i skryptów. Dzięki temu można zobaczyć, co jest możliwe do wykonania i jak program funkcjonuje. Kliknij przycisk _Utwórz Projekt_, i poczekaj chwilę na uruchomienie _Edytor projektu_.
 
-<img title="Getting Started" src="/pl/img/screenshots/getting-started.png" width="1258" />
 
-Jak tylko projekt zostanie załadowany do programu, to możesz uruchomić grę testową poprzez przycisk _Uruchom_ (play) w prawym górnym rogu okna. Kilka sekund należy poczekać, aby program skompilował potrzebne pliki do uruchomienia projektu i będzie można spokojnie grać. Po zakończeniu gry, na spokojnie rozejrzyj się po programie. Spróbuj poklikać w różne opcje, aby zobaczyć co do czego jest. Wybierz niektóre postacie, albo tabliczki informacyjne, spróbuj zmodyfikować tekst używając panelu po prawej stronie. Zapisz modyfikacje i uruchom projekt ponownie. Zauważ, że właśnie udało się wykonać twoją własną wersję gry! Nie przejmuj się jeżeli coś zepsujesz (projekt testowy właśnie jest od tego). W każdej chwili możesz stworzyć nowy projekt z tym samym szablonem. 
+<img title="Getting Started" src="/img/screenshots/getting-started-v4.jpg" width="1258" />
+
+Gdy zobaczysz ten ekran, możesz kliknąć przycisk _Uruchom_ w prawym górnym rogu, aby zbudować i uruchomić projekt.
+
+Po zagraniu w przykładowy projekt spróbuj poklikać w różne opcje, aby zobaczyć co do czego jest. Wybierz niektóre postacie, albo tabliczki informacyjne, spróbuj zmodyfikować tekst używając panelu po prawej stronie. Zapisz modyfikacje i uruchom projekt ponownie. Zauważ, że właśnie udało się wykonać twoją własną wersję gry!
+
+Nie martw się, jeśli coś pójdzie nie tak, zawsze możesz utworzyć nowy projekt z przykładowym szablonem.
