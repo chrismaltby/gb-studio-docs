@@ -1,44 +1,48 @@
-# Elementy interfejsu
+# Elementy systemu (UI Elements)
 
 import { Swatch } from '@site/src/components/Swatch';
 
-Projekt zawiera wiele plików w folderze `assets/ui` ze stałymi nazwami plików, które definiują części interfejsu użytkownika twojej gry. Edycja tych plików pozwala zmienić domyślną czcionkę, ustawić ramkę okna i zmodyfikować kursor wyboru.
 
-Jeśli usuniesz którykolwiek z plików w folderze interfejsu użytkownika, zostaną one zastąpione domyślnymi zasobami przy następnym tworzeniu gry, umożliwiając cofnięcie niepożądanych zmian.
+Twój projekt zawiera kilka plików w folderze `assets/ui` o stałych nazwach plików, które definiują części interfejsu użytkownika gry. Edytowanie tych plików pozwala na zmianę domyślnej czcionki, ustawienie ramki okna oraz modyfikację kursora wyboru.
 
-## ascii.png
+Jeśli usuniesz którykolwiek z plików w folderze ui, zostaną one zastąpione domyślnymi zasobami przy następnym budowaniu gry, co pozwoli na przywrócenie niepożądanych zmian.
 
-Edytuj ten plik, aby zmienić czcionkę gry podczas rozmowy z aktorami w grze.
-
-<img src="/pl/img/ui/ascii.png" class="HelpSprite" style={{ width:384, height: "auto" }} />
 
 ## frame.png
 
-Silnik gry używa [9-plasterkowego skalowania / 9-slice scaling](https://en.wikipedia.org/wiki/9-slice_scaling) poniższego obrazu, aby utworzyć ramkę dla pola tekstowego. Edycja tego obrazu pozwoli na zmianę ramki tekstu lub ustawić jednolity kolor dla tekstu.
+Silnik gry używa [skalowania 9-częściowego](https://en.wikipedia.org/wiki/9-slice_scaling) tego obrazu do tworzenia ramki wokół okienek tekstowych. Edytowanie tego obrazu pozwala na zmianę projektu ramki lub ustawienie jej na jednolity kolor.
 
-<img src="/pl/img/ui/frame.png" class="HelpSprite" style={{ width:72, height: "auto" }} />
+<img src="/img/ui/frame.png" class="HelpSprite" style={{width:72, height:"auto"}} />
 
 ## cursor.png
 
-Ten obraz jest używany jako kursor wyboru podczas pokazywania opcji wielokrotnego wyboru w grze.
+Ten obraz jest używany jako kursor wyboru podczas wyświetlania opcji wielokrotnego wyboru w grze.
 
-<img src="/pl/img/ui/cursor.png" class="HelpSprite" style={{ width:24, height: "auto" }} />
 
-## emotes.png
-
-Obraz ten odpowiada za wyświetlanie emotikonek w chmurce, które zostają wyświetlane nad aktorami przy pomocy skryptów. Każda chmurka posiada rozmiar `16px` x `16px` i każda z chmurek reprezentuje następujące emocje w kolejności od lewej do prawej: _wykrzyknik(!)_, _pytanie(?)_, _serce_, _cisze_, _zdenerwowanie_, _pot_, _nutkę muzyczną_, _sen_.
-
-<img src="/pl/img/ui/emotes.png" class="HelpSprite" style={{ width:384, height: "auto" }} />
+<img src="/img/ui/cursor.png" class="HelpSprite" style={{width:24, height:"auto"}} />
 
 ## Wymagania
 
-Z wyjątkiem pliku `emotes.png`, który spełnia standardowe wymagania sprite, plik PNG dla interfejsu użytkownika musi zawierać tylko następujące cztery kolory:
+Pliki PNG interfejsu użytkownika mogą zawierać tylko następujące cztery kolory:
 
 <Swatch color="#071821" />
 <Swatch color="#306850" />
 <Swatch color="#86c06c" />
 <Swatch color="#e0f8cf" />
 
-Pobierz paletę kolorów GB Studio dla:  
-[Adobe Photoshop](/assets/swatches/gb-studio-photoshop.aco)  
-[Aseprite](/assets/swatches/gb-studio-aseprite.aseprite)  
+Pobierz palety GB Studio dla programów:
+- [Adobe Photoshop](/assets/swatches/gb-studio-photoshop.aco)  
+- [Aseprite](/assets/swatches/gb-studio-aseprite.aseprite)  
+
+## Czcionki (Fonts)
+
+Czcionki są przechowywane w folderze `assets/fonts`, więcej informacji znajdziesz w sekcji [Ustawienia](/docs/settings/#ui-elements--fonts).
+
+## Emotikony
+
+Emotikony są przechowywane w folderze `assets/emotes` i muszą mieć rozmiar `16px x 16px` w formacie `.png`, zgodnie z tymi samymi wymaganiami kolorystycznymi, które są używane przy tworzeniu arkuszy sprite'ów. Możesz wyświetlić emotikonę, używając polecenia `Aktor: wyświetl emotikonę` w skrypcie.
+
+
+## Awatary
+
+Awatary są przechowywane w folderze `assets/avatars` i muszą mieć rozmiar `16px x 16px` w formacie `.png`, zgodnie z tymi samymi wymaganiami kolorystycznymi, które są używane przy tworzeniu arkuszy sprite'ów. Możesz wyświetlić awatar w zdarzeniu [Tekst: wiadomość](/docs/scripting/script-glossary/dialogue-menus#display-dialogue), klikając `Dodaj grafikę (awatara)` w ramach tego zdarzenia.
