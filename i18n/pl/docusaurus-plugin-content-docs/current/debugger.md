@@ -75,8 +75,8 @@ Podczas wstrzymania gry, istnieje możliwość użycia _przycisków stepowania_ 
 Kiedy debugger jest włączony, można korzystać z następujących skrótów klawiaturowych zarówno w  _oknie projektu_ jak i _oknie gry_:
 
 **Wstrzymaj/Wznów (Pause/Resume)** - `F8`  
-**Krok do przodu o jedną instrukcję (Step) ** - `F9`  
-**Krok do przodu o jedną klatkę (Step Frame) ** - `F10`
+**Krok do przodu o jedną instrukcję (Step)** - `F9`  
+**Krok do przodu o jedną klatkę (Step Frame)** - `F10`
 
 ## Dziennik kompilacji (log)
 
