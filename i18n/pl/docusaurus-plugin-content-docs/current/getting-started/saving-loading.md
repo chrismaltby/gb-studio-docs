@@ -1,19 +1,21 @@
-# Zapisywanie i wczytanie
+# Zapisywanie i wczytywanie
 
 ## Zapisywanie
 
-Aby zapisać projekt, wybierz z menu opcję `Plik> Zapisz` lub przy pomocy skrótu z klawiatury Ctrl / Cmd + S. Jeśli spróbujesz zamknąć projekt z niezapisanymi zmianami, to program powiadomi Cię o tym. GB Studio wyświetli odpowiedni komunikat, dzięki któremu będzie można najpierw zapisać projekt, a dopiero później będzie można wyjść z programu. W systemie macOS wszelkie niezapisane zmiany w projekcie będą reprezentowane przez kropkę na przycisku zamykania okna.
+Aby zapisać projekt, wybierz z menu głównego programu opcję `Plik > Zapisz` lub naciśnij skrót klawiaturowy `Ctrl/Cmd` + `S`. Jeśli spróbujesz zamknąć projekt z niezapisanymi zmianami, GB Studio wyświetli ostrzeżenie, dając możliwość zapisania projektu przed zamknięciem. W systemie macOS wszelkie niezapisane zmiany w projekcie będą reprezentowane przez kropkę na przycisku zamykania okna.
 
-## Wczytanie (ponowne otwarcie projektu)
+## Wczytywanie
 
-Aby wczytać projekt nad którym się już pracowało to należy użyć przycisku _Otwórz_ w początkowym oknie _Nowy projekt_, lub można też otworzyć projekt z menu głównego programu `Plik> Otwórz`, a następnie należy przejść do folderu projektu i wybrać plik `.gbsproj`. 
+Aby ponownie wczytać projekt, użyj przycisku _Otwórz_ w oknie _Nowego projektu_ lub wybierz `Plik > Otwórz` z menu głównego programu i przejdź do folderu projektu, a następnie wybierz plik `.gbsproj`.
+
+Możesz również powrócić do okna _Ostatnie_, wybierając `Plik > Przelącz projekt` z menu glównego programu.
 
 ## Kontrola wersji
 
-Układ folderu projektu jak i plik `.gbsproj` zostały zaprojektowane w taki sposób aby współpracowały z systemami kontrolnymi wersji, takimi jak [Git](https://git-scm.com/). Systemu kontrolne wersji umożliwiają łatwe śledzenie historii przy każdej zmianie wprowadzanej przez aplikację w nowej linii w pliku danych. Jeśli chcesz użyć kontroli wersji w swoim projekcie, możesz po prostu utworzyć repozytorium w folderze głównym projektu. 
+Układ folderu projektu i pliku `.gbsproj` zostały zaprojektowane w taki sposób, aby dobrze współpracowały z systemami kontroli wersji, takimi jak [Git](https://git-scm.com/). Każda zmiana wprowadzana przez aplikację jest zapisywana w nowej linii w pliku danych, co umożliwia łatwe śledzenie historii. Jeśli chcesz użyć kontroli wersji w swoim projekcie, utwórz repozytorium w folderze głównym projektu.
 
-Zaleca się zignorowanie folderu kompilacji (folderu `build`) z repozytorium za pomocą pliku `.gitignore` lub podobnego.
+Zaleca się ignorowanie folderu `build` w repozytorium za pomocą pliku `.gitignore` lub podobnego.
 
-## Kopia zapasowa
+## Kopie zapasowe
 
-Za każdym razem, gdy zapisujesz projekt, poprzednia wersja jest zapisywana w folderze projektu z rozszerzeniem `.gbsproj.bak`. Jeśli kiedykolwiek zajdzie potrzeba przywrócenia poprzedniej wersji projektu, to wystarczy zmienić nazwę tego pliku, aby mieć rozszerzenie `.gbsproj`, a następnie otworzyć ten plik.
+Za każdym razem, gdy zapisujesz projekt, poprzednia wersja jest zapisywana w folderze projektu z rozszerzeniem `.gbsproj.bak`. Jeśli kiedykolwiek zajdzie potrzeba przywrócenia poprzedniej wersji projektu, zmień nazwę tego pliku na `.gbsproj` i otwórz ten plik.
