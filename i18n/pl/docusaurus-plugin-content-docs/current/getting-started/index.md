@@ -8,7 +8,7 @@ Kiedy po raz pierwszy otworzysz GB Studio, zobaczysz okno _Nowy projekt_.
 
 <img title="New Project" src="/img/screenshots/new-project-v4.png" width="752" />
 
-:::Podpowiedź
+:::info
 
 Zaleca się rozpoczęcie od użycia szablonu Przykładowy Projekt, ponieważ zawiera on przykłady wielu funkcji, które oferuje GB Studio.
 
