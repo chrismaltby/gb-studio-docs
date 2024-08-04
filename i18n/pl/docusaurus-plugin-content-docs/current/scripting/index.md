@@ -4,58 +4,58 @@ sidebar_position: 6
 
 # Skryptowanie
 
-Scripting events allow you to control parts of your game based on interactions from the player. They can be used to connect scenes together, change variables, give dialogue to characters, and more.
+Polecenia skryptowe pozwalają na kontrolowanie części gry na podstawie interakcji od gracza. Mogą być używane do łączenia scen, zmiany zmiennych, dodawania dialogów dla postaci i więcej.
 
-Scripts can be added to scenes, actors, or triggers. Selecting one of these objects will update the _World Editor_ to show the script of the selected object in the _Editor Sidebar_.
+Skrypty można dodawać do scen, aktorów lub wyzwalaczy. Wybierając jeden z tych obiektów, _Edytor Świata_ zaktualizuje się, aby wyświetlić skrypt wybranego obiektu w _Panelu Edytora_.
 
-To start building a script, select an object and click the _Add Event button_ in the _Editor Sidebar_ to open the event menu. Select an event to add it to the script. The topmost event is the first event to be run for that script.
+Aby rozpocząć budowanie skryptu, wybierz obiekt i kliknij przycisk _Dodaj polecenie_ w _Panelu Edytora_, aby otworzyć menu poleceń. Wybierz polecenie, aby dodać je do skryptu. Najwyższe polecenie jest pierwszym, które zostanie uruchomione w tym skrypcie.
 
-## Adding Events
+## Dodawanie poleceń
 
-After clicking the _Add Event_ button, a menu will appear to choose the event to add. If you start typing you can filter this list or you can click through the menu find what you're looking for. Click an event or press the _Enter_ key to add the highlighted event to your script.
+Po kliknięciu przycisku _Dodaj polecenie_, pojawi się menu umożliwiające wybór polecenia do dodania. Jeśli zaczniesz pisać, możesz filtrować tę listę lub kliknąć przez menu, aby znaleźć to, czego szukasz. Kliknij polecenie lub naciśnij klawisz _Enter_, aby dodać zaznaczone polecenie do swojego skryptu.
 
-<img title="New Project" src="/pl/img/events/add-event-menu.png" width="300" className="event-preview" />
+<img title="New Project" src="/img/events/add-event-menu.png" width="300" className="event-preview" />
 
-## Favourite Events
+## Ulubione polecenia
 
-You can choose a number of events to be favourites, causing them to appear at the top of the _Add Event Menu_. To favourite an event, hover over the menu item and click the _Star_ button or press the `Tab` key.
+Możesz wybrać kilka poleceń jako ulubione, co spowoduje, że będą one wyświetlane na górze menu od _Dodaj polecenie_. Aby oznaczyć polecenie jako ulubione, najedź na element menu i kliknij przycisk _Gwiazdka_ lub naciśnij klawisz _Tab_.
 
-## Copy and Paste Events
+## Kopiowanie i wklejanie poleceń
 
-To copy an event, click the down arrow next to an event. All scripts have this same down arrow for copying/pasting. Clicking the down arrow on another event allows you to paste the clipboard event either before or after the selected one. You also have the option to paste the values from the first event into the second.
+Aby skopiować polecenie, kliknij strzałkę w dół obok polecenia. Wszystkie skrypty mają tę samą strzałkę w dół do kopiowania/wklejania. Kliknięcie strzałki w dół na innym poleceniu pozwala wkleić polecenie ze schowka przed lub za wybranym poleceniem. Masz również możliwość wklejenia wartości z pierwszego polecenia do drugiego.
 
-As a shortcut for pasting, you can press the _Alt_ key to turn all _Add Event_ buttons into _Paste Event_ buttons.
+Jako skrót do wklejania, możesz nacisnąć klawisz _Alt_, aby zamienić wszystkie przyciski _Dodaj polecenie_ na przyciski _Wklej polecenie_.
 
-## Types of Scripts
+## Rodzaje skryptów
 
-There are multiple script tabs to choose from the _Editor Sidebar_ depending on which object you have currently selected.
+Istnieje wiele kart skryptów do wyboru w _Panelu Edytora_ w zależności od tego, który obiekt jest obecnie wybrany.
 
-### Scene Scripts
+### Skrypty scen
 
-These scripts can be accessed in the _Editor Sidebar_ by selecting a scene in your project.
+Te skrypty można uzyskać w _Panelu Edytora_ poprzez wybór sceny w projekcie.
 
-- **On Init:** This script will run once at the beginning of the Scene. The Scene On Init script is always run after the On Init script for Actors in the Scene.
-- **On Player Hit:** This script runs when the player is hit by an actor belonging to a collision group.
+- **Skrypt (auto start):** Ten skrypt uruchomi się raz na początku Sceny. Skrypt (auto start) sceny jest zawsze uruchamiany po skrypcie (auto start) aktorów w Scenie.
+- **Skrypt (dotknięcie):** Ten skrypt uruchamia się, gdy gracz zostaje trafiony przez aktora należącego do grupy kolizji.
 
-### Actor Scripts
+### Skrypty aktorów
 
-These scripts can be accessed in the _Editor Sidebar_ by clicking an Actor in your project.
+Te skrypty można uzyskać w Panelu Edytora klikając na Aktora w projekcie.
 
-- **On Init:** This script will run once at the beginning of the Scene. Actors in a Scene will always run their On Init script before their Scene's On Init script.
-- **On Interact:** Standing the Player next to an Actor and pressing the **A** button will cause the Player to "interact" with the Actor. Interacting with an Actor will begin this script. In Shoot 'Em Up scenes, interacting can additionally be done by colliding with the Actor.
+- **Skrypt (auto start):** Ten skrypt uruchomi się raz na początku Sceny. Aktorzy w Scenie zawsze uruchomią swój skrypt (auto start) przed skryptem (auto start) Sceny.
+- **Skrypt (naciśnięcie):** Skrypt zostanie uruchomiony jeżeli gracz będzie przy aktorze, oraz naciśnie przycisk **A**. Spowoduje to, że gracz "wejdzie w interakcję" z Aktorem. Interakcja z Aktorem rozpocznie ten skrypt. W scenach typu strzelanki (SHMUP) interakcję można dodatkowo wykonać poprzez kolizję z Aktorem.
 
-  This script is often used for dialogue, using the "Text: Display Dialogue" event.
+  Ten skrypt jest często używany do dialogów, używając polecenia "Tekst: Wiadomość".
 
-  Enabling a collision group for an actor will convert this script to _On Hit: Player_, which looks for Player collision rather than Player interaction. This behaviour is identical to _On Interact_ in Shoot 'Em Up scenes.
+  Włączenie grupy kolizji dla aktora spowoduje zmianę tego skryptu na _skrypt (dotknięcie): Gracz_, który szuka kolizji z graczem zamiast interakcji z graczem. To zachowanie jest identyczne do _skrypt (naciśnięcie)_ (interakcji) jak w scenach strzelankach (SHMUP).
+  
+- **Skrypt (dotknięcie):** Ten skrypt uruchamia się, gdy Aktor zostaje trafiony przez innego Aktora lub Pocisk należący do grupy kolizji.
 
-- **On Hit:** This script runs when the Actor is hit by another Actor or Projectile belonging to a collision group.
+- **Skrypt (równoległy):** Ten skrypt uruchamia się raz w każdej klatce i może być dodawany tylko do aktorów, którzy nie są graczem.
 
-- **On Update:** This script is run once every frame, and can only be added to non-player Actors.
+### Skrypty wyzwalaczy
 
-### Trigger Scripts
+Te skrypty można uzyskać w _Panelu Edytora_ klikając na Wyzwalacz w projekcie.
 
-These scripts can be accessed in the _Editor Sidebar_ by clicking a Trigger in your project.
+- **Skrypt (wejście):** Ten skrypt uruchamia się, gdy gracz koliduje z wyzwalaczem (gdy wejdzie na pole wyzwalacza).
 
-- **On Enter:** This script runs when the player collides with the trigger.
-
-- **On Leave:** This script runs when a player that was previously colliding leaves the trigger.
+- **Skrypt (opuszczenie):** Ten skrypt uruchamia się, gdy gracz, który wcześniej kolidował, opuszcza pole wyzwalacza.
