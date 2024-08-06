@@ -26,6 +26,6 @@ You can edit the default player sprite sheets for each scene type from the [Sett
 
 ## Scripting
 
-Most actor script events can also be applied to the player. In addition you can use [Set Player Sprite Sheet](/docs/scripting/script-glossary/actor#set-player-sprite-sheet) event to change the graphics used for the player character mid-game. Changing the sprite sheet will only affect the current scene unless you choose to _Replace Default For Scene Type_ which will causes any other scenes of the same type to also use this player sprite (unless and override was provided).
+Most actor script events can also be applied to the player. In addition you can use [Set Player Sprite Sheet](/docs/scripting/script-glossary/actor#set-player-sprite-sheet) event to change the graphics used for the player character mid-game. Changing the player sprite sheet will only affect the current scene.
 
 When switching between scenes the player will always become visible at the scene start location regardless of previous visibility options. if you want the player to be hidden on a scene e.g when showing a title screen or cutscene add a [Hide Actor](/docs/scripting/script-glossary/actor#hide-actor) event to the scene's _On Init_ script.
