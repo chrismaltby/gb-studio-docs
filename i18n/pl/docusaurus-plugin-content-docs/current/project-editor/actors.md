@@ -4,45 +4,45 @@ sidebar_position: 3
 
 # Aktorzy
 
-Aktorami w programie nazywa się postacie jak i obiekty, które mogą być naniesione na scenę i z którymi gracz może wchodzić w interakcje.
+Aktorzy to postacie i obiekty w twojej scenie, z którymi możesz wchodzić w interakcje.
 
 ## Dodanie aktora
 
-Aby dodać aktora na scenę, to należy nacisnąć przycisk _**+**_ na pasku _narzędzi_, a następnie wybrać pozycję _aktor_ (lub przy pomocy skróty z klawiatury, nacisnąć klawisz **A**). Po tym, wystarczy wskazać scenę i miejsce dla aktora.
-<img src="/pl/img/screenshots/add-actor.gif" style={{ width: 300 }} />
+Aby dodać aktora na scenę, kliknij przycisk **` + `** w _Narzędziach Edytora_ i wybierz _Aktora_ z menu (alternatywnie naciśnij klawisz **A**), a następnie kliknij na scenę i miejsce, w którym chcesz umieścić aktora.
 
-_Boczny pasek_ programu wyświetla ustawienia dla wybranego obiektu. Jeżeli aktor zostanie zaznaczony to _boczny pasek_ programy wyświetli ustawienia dla wybranego aktora. Przy pomocy ustawień można aktorowi nadać nazwę, zmienić jego położenie (co również można osiągnąć przy pomocy przeciągnięcia i upuszczenia), wybrać grafikę z arkusza [obiektów](/docs/assets/sprites), początkowy kierunek, rodzaj ruchu oraz skrypt - odtwarzane polecenia, gdy gracz wejdzie w interakcję z wybranym zdarzeniem.
+<img src="/img/screenshots/add-actor.gif" style={{width:300}} />
 
-## Rodzaj ruchu
+## Właściwości aktora
+- **Nazwa** - Nadaje nazwę aktorowi. Nadanie aktorom *nazwy* pomaga zorganizować je w projekcie. Nazwa aktora będzie widoczna w każdym rozwijanym menu, które wymaga wyboru aktora, takim jak polecenie [Aktor: schowaj (niewidzialny)](/docs/scripting/script-glossary/actor#hide-actor).
+- **Pozycja** - Ustawia pozycję X i Y, w której aktor będzie umieszczony w scenie. Możesz także zmienić to, przeciągając aktora po _Świecie Gry_.
+- **Przypnij do ekranu** - Używając przycisku _Przypnij_ obok pozycji aktora, możesz wybrać przypięcie aktora do ekranu, co spowoduje, że nie będzie się poruszał wraz z przewijaniem ekranu gry.
+- **Arkusz obiektów** - Wybierz, które grafiki sprite mają być używane do wyświetlania aktora.
+- **Szybkość ruchu** - Wybierz, jak szybko aktor powinien się poruszać podczas wykonywania zdarzeń skryptowych.
+- **Szybkość animacji** - Wybierz, jak szybko mają być odtwarzane animacje aktora.
+- **Grupa kolizji** - Wybierz, czy skrypty powinny się automatycznie uruchamiać podczas kolizji z tym aktorem.
 
-Istnieje kilka różnych rodzajów ruchów do wyboru. Rodzaj ruchu należy wybrać w zależności od tego jak dane zdarzenie (aktor) ma się zachowywać, gdy gracz chodzi po scenie i wchodzi w interakcję z zdarzeniem.
+### Przypnij do ekranu
+Gdy aktor jest przypięty, będzie się pojawiał w stałej lokalizacji, gdy kamera gry się porusza. Przypięty aktor nie będzie się poruszał bez skryptu i nie będzie powodował kolizji z innymi aktorami w twojej scenie.
 
-- **Brak** - Zdarzenie (aktor) wyświetli pojedynczą klatkę z arkusza graficznego.  
-  Jeżeli arkusz obiektów zawiera więcej niż jedną klatkę, to użytkownik będzie miał możliwość wyboru, którą klatkę program ma wyświetlić. Istnieje możliwość późniejszej modyfikacji za pomocą polecenia _Aktor: klatka animacji_. Arkusz obiektów z wieloma klatkami umożliwia także animację aktora poprzez cykliczne odtwarzanie każdej klatki z określoną prędkością, którą można modyfikować za pomocą polecenia _Aktor: szybkość animacji_.\
-  \
-  Zdarzenie będzie zwrócone tylko w początkowym, ustalonym kierunku (chyba, że kierunek zostanie później zmodyfikowany za pomocą skryptu). Jeżeli gracz wejdzie w interakcję z tym zdarzeniem, to ono nie zmieni kierunku. Opcja ta jest przydatna dla np. Tabliczek albo innych nieruchomych przedmiotów.
+Włączenie tej właściwości tymczasowo zmieni scenę na wyciemnioną, z obszarem ``160px x 144px`` w lewym górnym rogu, pokazującym część oryginalnej sceny. Użyj myszy, aby przeciągnąć aktora tam, gdzie chcesz go przypiąć do ekranu.
 
-- **Obrót twarzą** - Zdarzenie jest ustawione w początkowym kierunku, natomiast w momencie gdy gracz wejdzie w interakcję z aktorem, zdarzenie obróci się w stronę gracza, przed odtworzeniem skryptu. Funkcja ta sprawdza się dla prostych postaci (np. NPC), które mają być bardziej wrażliwe na działania gracza. 
+Wybierz innego aktora, scenę lub projekt, aby powrócić do normalnego widoku sceny.
 
-- **Losowy obrót** - Zdarzenie jest ustawione w początkowym kierunku, ale w ustalonych odstępach czasu zdarzenie owy kierunek zmienia wykonując obrót (oczywiście w losowym kierunku). Funkcja ta sprawdza się postaci, które rozglądają się po otoczeniu.
+### Grupy kolizji
+Aktorzy mogą mieć przypisaną grupę kolizji w _Pasku bocznym edytora_. Gdy ta opcja jest włączona, możliwość uruchamiania skryptów na podstawie kolizji pojawi się w _Pasku bocznym edytora_. Aby dowiedzieć się więcej o skryptach na dotknięcie, zobacz dokumentację dotyczącą [Skryptowania](/docs/scripting).
 
-- **Losowy krok** - Zdarzenie losowo zmienia kierunek i porusza się po scenie w ustalonych odstępach czasu. Funkcja ta jest przydatna dla postaci, które przeszukują dany obszar. Uwaga: aktorzy, którzy posiadają _losowy krok_ są w stanie zablokować ruch gracza, zatem nie zaleca się stosowania tego rodzaju ruchu w ciasnych miejscach, gdzie gracz może utknąć, czekając, aż aktor zejdzie z drogi.
-
-_Uwaga_ Jeżeli dla zdarzenie zastosowano brak ruchu (czyli z arkusza obiektów będzie używało tylko jedną klatkę animacji), wówczas jedynym dostępnym rodzajem ruchu będzie jedna statyczna klatka i nie zostaną wyświetlone ustawienia do wyboru rodzaju ruchu i kierunku początkowego. 
-
-## Limit klatek
-
-Ze względu na ograniczenia sprzętowe, aktorom w każdej scenie można przypisać **tylko 25 unikatowych klatek** animacji. Gdzie tylko jest możliwe, zaleca się stosowanie braku ruchu lub nie animowanych obiektów, aby zmniejszyć liczbę używanych klatek. Innym sposobem na zmniejszenie liczby klatek jest ponowne użycie tego samego obiektu dla wielu aktorów na scenie. Ponowne użycie tej samej grafiki z arkusza obiektów nie będzie wliczane do całkowitej liczby klatek sceny.
 
 ## Skryptowanie
+Aktorzy mogą zawierać wiele skryptów, które będą wywoływane w różnych momentach twojej gry.
 
-Dla każdego aktora istnieje możliwość zdefiniowania dwóch skryptów do wykonania: 
-_Skrypt (naciśnięcie przycisku)_ oraz _Skrypt (auto start)_. Program umożliwia przełączenie między skryptami przy pomocy zakładki. Kiedy aktor jest zaznaczony i na bocznym pasku zostanie wyświetlone ustawienia aktora, to wystarczy zaznaczyć jedną z dostępnych zakładek skryptu (_skrypt (naciśnięcie przycisku)_ lub _skrypt (auto start)_).
+- **Skrypt (naciśnięcie):** Jest wywoływany, gdy gracz stoi przed tym aktorem i naciśnie przycisk _Interakcja_.
+- **Skrypt (dotknięcie)** (tylko jeśli ustawiona jest grupa kolizji) Jest wywoływany, gdy ten aktor zderza się z graczem lub pociskiem o określonej grupie kolizji.
+- **Skrypt (auto start):** Wywoływany natychmiast po załadowaniu sceny w grze.
+- **Skrypt (równoległy):** Powtarzany, gdy aktor jest na ekranie, a po zakończeniu skryptu będzie się powtarzał. Możesz tego użyć do tworzenia skryptów ruchu.
 
-Skrypt typu _Skrypt (naciśnięcie przycisku)_ zostanie uruchomiony w momencie, gdy gracz będzie obok danego zdarzenia i zostanie naciśnięty przycisk _A_.
+Aby rozpocząć tworzenie skryptu, wybierz aktora, kliknij typ skryptu, który chcesz edytować, i kliknij przycisk _Dodaj polecenie_ w _Pasku bocznym edytora_, aby otworzyć menu poleceń. Wybierz polecenie, aby dodać je do skryptu.
 
-Skrypt typu _Skrypt (auto start)_ zostanie uruchomiony automatycznie jak tylko scena zostanie wczytana. Skrypty _skrypt (auto start)_ aktorów posiadają pierwszeństwo niżeli skrypty _skrypt (auto start)_ sceny.
+Więcej informacji znajdziesz w dokumentacji dotyczącej [Skryptowania](/docs/scripting).
 
-Kiedy zdarzenie jest zaznaczone to na _bocznym pasku_ zostają wyświetlone ustawienia dla tego zdarzenia. Wystarczy wybrać przycisk _Dodaj polecenie_, aby otworzyć menu z dostępną listą poleceń, za pomocą których można stworzyć własny skrypt dla zdarzenia.
-
-Więcej informacji na temat skryptowania można znaleźć w temacie [Skryptowanie (polecenia zdarzenia)](/docs/scripting).
+## Limity
+Istnieją ograniczenia dotyczące tego, jak aktorzy i ich sprite'y mogą być używane w GB Studio. Te ograniczenia mają na celu zapewnienie, że twoja gra będzie wyglądać zgodnie z zamierzeniami oraz aby logiczne działanie aktorów przebiegało płynnie. Dokładne limity zależą od złożoności obrazu tła używanego w twojej scenie, zobacz dział z [Scenami](/docs/project-editor/scenes/#actor-limits) po więcej informacji.
