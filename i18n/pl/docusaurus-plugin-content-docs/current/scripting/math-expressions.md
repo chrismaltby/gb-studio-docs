@@ -6,7 +6,7 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Wyrażenia matematyczne
 
-Polecenia [Zmienna: wyrażenie matematyczne](/docs/scripting/script-glossary/math#evaluate-math-expression) oraz [Warunek: wyrażenie matematyczne](/docs/scripting/script-glossary/math#if-math-expression), a także każde polecenie obsługujące [Wartości skryptowe](/docs/scripting/script-values, umożliwiają używanie wyrażeń matematycznych do przeprowadzania obliczeń.
+Polecenia [Zmienna: wyrażenie matematyczne](/docs/scripting/script-glossary/math#evaluate-math-expression) oraz [Warunek: wyrażenie matematyczne](/docs/scripting/script-glossary/math#if-math-expression), a także każde polecenie obsługujące [Wartości skryptowe](/docs/scripting/script-values), umożliwiają używanie wyrażeń matematycznych do przeprowadzania obliczeń.
 
 <ScriptEventPreview title={"If Math Expression"} fields={[{"key":"expression","label":"Expression","description":"The expression to evaluate.","type":"matharea","rows":5,"placeholder":"e.g. $health >= 0...","defaultValue":""},{"key":"true","label":"True","description":"The script to run if the condition is true.","type":"events"},{"key":"**collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"**disableElse","ne":true}]},{"key":"false","label":"False","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
