@@ -35,14 +35,14 @@ Replace the palette used for the UI (background palette #8).
 
 ## Control Flow
 ### If Color Mode Is Available
-Conditionally run part of the script if the game is being played on a device or emulator that supports color games.
+Conditionally run part of the script if the game is being played on a device or emulator that supports color games. Only functions if [Color Options](/docs/settings/#color-options) in Settings is set to **Color + Monochrome** or **Color Only**.
 <ScriptEventPreview title={"If Color Mode Is Available"} fields={[{"key":"true","label":"True","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **True**: The script to run if the condition is true.  
 - **False**: The script to run if the condition is false.  
 
 ### If GBA Mode Is Available
-Conditionally run part of the script if the game is being played on a device or emulator that supports GBA games.
+Conditionally run part of the script if the game is being played on a device or emulator that supports GBA games. Only functions if [Color Options](/docs/settings/#color-options) in Settings is set to **Color + Monochrome** or **Color Only**.
 <ScriptEventPreview title={"If GBA Mode Is Available"} fields={[{"key":"true","label":"True","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **True**: The script to run if the condition is true.  
