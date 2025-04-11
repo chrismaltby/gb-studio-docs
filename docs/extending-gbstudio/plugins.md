@@ -38,7 +38,7 @@ Engine plugins contain an `engine` folder which follows the same structure as an
 Your engine plugin needs to specify which version of the GB Studio engine is supported, you can do this by making sure you include `engine/engine.json` in your plugin with at least the supported engine version included `{"version": "4.0.0-e0"}` 
 :::
 
-[Download Example Script Event Plugin](/assets/plugins/engineExamplePlugin.zip)
+[Download Example Engine Plugin](/assets/plugins/engineExamplePlugin.zip)
 
 ### Engine Fields
 
