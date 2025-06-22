@@ -89,12 +89,33 @@ To delete a tile or frame, select it in either the _Frame Canvas_ or _Frames Nav
 
 ## Image Requirements
 
+### Sprites
+
 Sprite `.png`s must only contain the following four colors:
 
-<Swatch color="#071821" />
+<Swatch color="#306850" />
+Is displayed as the _"darkest"_ color from the palette.
+
 <Swatch color="#86c06c" />
+Is displayed as the bight color from the palette, second from right in the _Palette Editor_.
+
 <Swatch color="#e0f8cf" />
+Is displayed as the _"brightest"_ color from the palette.
+
 <Swatch color="#65ff00" />
+Is transparent. You can set the alpha channel to 0 so that your sprite editor also recognizes this as transparent.
+
+### Backgrounds
+
+<Swatch color="#65ff00" />
+<Swatch color="#e0f8cf" />
+These two are displayed as the _"brightest"_ color from the background palette. And then, these other three
+are displayed as the _"darker"_ colors of the palette
+
+<Swatch color="#86c06c" />
+<Swatch color="#306850" />
+<Swatch color="#071821" />
+
 
 Download the GB Studio Palette Swatches for:  
 [Adobe Photoshop](/assets/swatches/gb-studio-photoshop.aco)  
