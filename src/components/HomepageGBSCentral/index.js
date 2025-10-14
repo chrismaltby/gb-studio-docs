@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import styles from "./styles.module.css";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 export default function HomepageGBSCentral() {
   return (
@@ -16,7 +17,7 @@ export default function HomepageGBSCentral() {
               </h3>
               <a className={styles.logo} href="https://gbstudiocentral.com/">
                 <img
-                  src="/img/home/gbscentral_logo.png"
+                  src={useBaseUrl("/img/home/gbscentral_logo.png")}
                   alt="GB Studio Central"
                 />
               </a>
@@ -34,7 +35,7 @@ export default function HomepageGBSCentral() {
                 className={styles.logo}
                 href="https://www.patreon.com/gbs_central"
               >
-                <img src="/img/home/gbsmagazine.png" alt="GB Studio Magazine" />
+                <img src={useBaseUrl("/img/home/gbsmagazine.png")} alt="GB Studio Magazine" />
               </a>
               <a
                 className={styles.button}
