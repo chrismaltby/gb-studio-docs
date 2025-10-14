@@ -177,7 +177,7 @@ export const GB3D = ({ colorMode }) => {
       -2 + clamp01(e.touches[0].pageY / window.innerHeight) * 8,
       distance * Math.cos(angle),
     ]);
-  });
+  }, []);
 
   useEffect(() => {
     const onMouseMove = (e) => {
@@ -196,7 +196,7 @@ export const GB3D = ({ colorMode }) => {
     return () => {
       window.removeEventListener("mousemove", onMouseMove);
     };
-  });
+  }, []);
 
   const fallback = (
     <ThemedImage
