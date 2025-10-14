@@ -5,6 +5,7 @@ import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/styles.css";
 import useIsBrowser from "@docusaurus/useIsBrowser";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 const FeatureList = [
   {
@@ -84,7 +85,7 @@ function Feature({ winImg, macImg, title, description, onOpen, imgPlatform }) {
       <div className="text--center">
         {imgPlatform !== "unknown" && (
           <img
-            src={imgPlatform === "mac" ? macImg : winImg}
+            src={useBaseUrl(imgPlatform === "mac" ? macImg : winImg)}
             alt={title}
             onClick={onOpen}
           />
@@ -101,6 +102,19 @@ function Feature({ winImg, macImg, title, description, onOpen, imgPlatform }) {
 export default function HomepageFeatures() {
   const [index, setIndex] = React.useState(-1);
   const isBrowser = useIsBrowser();
+
+  const macSlides = [
+    { src: useBaseUrl("/img/home/screenshot_mac_1_v4.png") },
+    { src: useBaseUrl("/img/home/screenshot_mac_2_v4.png") },
+    { src: useBaseUrl("/img/home/screenshot_mac_3_v4.png") },
+    { src: useBaseUrl("/img/home/screenshot_mac_4_v4.png") },
+  ];
+  const winSlides = [
+    { src: useBaseUrl("/img/home/screenshot_win_1_v4.png") },
+    { src: useBaseUrl("/img/home/screenshot_win_2_v4.png") },
+    { src: useBaseUrl("/img/home/screenshot_win_3_v4.png") },
+    { src: useBaseUrl("/img/home/screenshot_win_4_v4.png") },
+  ];
 
   let imgPlatform = "unknown";
   if (isBrowser) {
@@ -135,21 +149,7 @@ export default function HomepageFeatures() {
           open={index >= 0}
           index={index}
           close={() => setIndex(-1)}
-          slides={
-            imgPlatform === "mac"
-              ? [
-                  { src: "/img/home/screenshot_mac_1_v4.png" },
-                  { src: "/img/home/screenshot_mac_2_v4.png" },
-                  { src: "/img/home/screenshot_mac_3_v4.png" },
-                  { src: "/img/home/screenshot_mac_4_v4.png" },
-                ]
-              : [
-                  { src: "/img/home/screenshot_win_1_v4.png" },
-                  { src: "/img/home/screenshot_win_2_v4.png" },
-                  { src: "/img/home/screenshot_win_3_v4.png" },
-                  { src: "/img/home/screenshot_win_4_v4.png" },
-                ]
-          }
+          slides={imgPlatform === "mac" ? macSlides : winSlides}
           plugins={[Zoom]}
         />
       )}
