@@ -32,13 +32,13 @@ export default function HomepageGBSCentral() {
               </h3>
               <a
                 className={styles.logo}
-                href="https://www.patreon.com/gbs_central"
+                href="https://magazine.gbstudiocentral.com"
               >
                 <img src="/img/home/gbsmagazine.png" alt="GB Studio Magazine" />
               </a>
               <a
                 className={styles.button}
-                href="https://www.patreon.com/gbs_central"
+                href="https://magazine.gbstudiocentral.com"
               >
                 Subscribe
               </a>
