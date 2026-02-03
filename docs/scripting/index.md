@@ -48,7 +48,7 @@ These scripts can be accessed in the _Editor Sidebar_ by clicking an Actor in yo
 
   Enabling a collision group for an actor will convert this script to _On Hit: Player_, which looks for Player collision rather than Player interaction. This behaviour is identical to _On Interact_ in Shoot 'Em Up scenes.
 
-- **On Hit:** This script runs when the Actor is hit by another Actor or Projectile belonging to a collision group.
+- **On Hit:** This script runs when the Actor is hit by the Player or a Projectile belonging to a collision group.
 
 - **On Update:** This script is run once every frame, and can only be added to non-player Actors.
 
