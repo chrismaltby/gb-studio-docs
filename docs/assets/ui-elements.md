@@ -22,10 +22,10 @@ This image is used as a selection cursor when showing multiple choice options in
 
 UI PNGs must only contain the following four colors:
 
-<Swatch color="#071821" />
+<Swatch color="#071821" description="Darkest" />
 <Swatch color="#306850" />
 <Swatch color="#86c06c" />
-<Swatch color="#e0f8cf" />
+<Swatch color="#e0f8cf" description="Lightest" />
 
 Download the GB Studio Palette Swatches for:  
 [Adobe Photoshop](/assets/swatches/gb-studio-photoshop.aco)  

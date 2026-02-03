@@ -91,10 +91,10 @@ To delete a tile or frame, select it in either the _Frame Canvas_ or _Frames Nav
 
 Sprite `.png`s must only contain the following four colors:
 
-<Swatch color="#071821" />
+<Swatch color="#071821" description="Darkest" />
 <Swatch color="#86c06c" />
-<Swatch color="#e0f8cf" />
-<Swatch color="#65ff00" />
+<Swatch color="#e0f8cf" description="Lightest" />
+<Swatch color="#65ff00" description="Transparent" />
 
 Download the GB Studio Palette Swatches for:  
 [Adobe Photoshop](/assets/swatches/gb-studio-photoshop.aco)  
@@ -104,4 +104,6 @@ Download the GB Studio Palette Swatches for:
 The color `#65ff00` is used to represent a transparent background in game and will be invisible in-game and in the _World Editor_.
 
 Colors that are not one of the above hex codes will be matched to the nearest color. Unlike backgrounds, the color `#306850` can not be used in sprites.
+
+When assigning sprite color palettes for a scene, these colors map from Darkest to Lightest in the palette.
 

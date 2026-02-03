@@ -12,10 +12,10 @@ You can add backgrounds to your game by including `.png` files in your project's
 
 When a scene is using [manual palettes](/docs/project-editor/scenes#automatic-color), background PNGs must only contain the following four colors:
 
-<Swatch color="#071821" />
+<Swatch color="#071821" description="Darkest" />
 <Swatch color="#306850" />
 <Swatch color="#86c06c" />
-<Swatch color="#e0f8cf" />
+<Swatch color="#e0f8cf" description="Lightest" />
 
 Download the GB Studio Palette Swatches for:  
 [Adobe Photoshop](/assets/swatches/gb-studio-photoshop.aco)  
@@ -23,6 +23,8 @@ Download the GB Studio Palette Swatches for:
 [Piskel](/assets/swatches/gb-studio-piskel-background-palette.gpl)  
 
 Colors that are not one of the above hex codes will be matched to the nearest color. Unlike sprites, the color `#65ff00` can not be used in backgrounds.
+
+When assigning background color palettes for a scene, these colors map from Darkest to Lightest in the palette.
 
 ### Automatic Palettes
 
