@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./styles.module.css";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 export default function HomepageItch() {
   return (
@@ -44,7 +45,7 @@ export default function HomepageItch() {
           </div>
           <div className="col col--6">
             <div className={styles.gradient}>
-              <img src="/img/home/madewith.jpg" alt="Made With GB Studio" />
+              <img src={useBaseUrl("/img/home/madewith.jpg")} alt="Made With GB Studio" />
             </div>
           </div>
         </div>

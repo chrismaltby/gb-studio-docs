@@ -58,22 +58,28 @@ function Scene(props) {
   const colorMode = props.colorMode;
   const ref = useRef();
 
-  const obj = useLoader(OBJLoader, "/img/hero/logo9.obj");
-  const texture = useLoader(
-    TextureLoader,
+  const objUrl = useBaseUrl("/img/hero/logo9.obj");
+  const textureUrl = useBaseUrl(
     colorMode === "dark"
       ? "/img/hero/texture-dark.png"
       : "/img/hero/texture.png"
   );
-  const normals = useLoader(TextureLoader, "/img/hero/normals.png");
-  const roughness = useLoader(TextureLoader, "/img/hero/roughness4.png");
-  const glow = useLoader(TextureLoader, "/img/hero/glow3.png");
+  const normalsUrl = useBaseUrl("/img/hero/normals.png");
+  const roughnessUrl = useBaseUrl("/img/hero/roughness4.png");
+  const glowUrl = useBaseUrl("/img/hero/glow3.png");
+  const videoUrl = useBaseUrl("/img/hero/recording.mp4");
+
+  const obj = useLoader(OBJLoader, objUrl);
+  const texture = useLoader(TextureLoader, textureUrl);
+  const normals = useLoader(TextureLoader, normalsUrl);
+  const roughness = useLoader(TextureLoader, roughnessUrl);
+  const glow = useLoader(TextureLoader, glowUrl);
 
   texture.colorSpace = SRGBColorSpace;
 
   const [video] = useState(() => {
     const vid = document.createElement("video");
-    vid.src = "/img/hero/recording.mp4";
+    vid.src = videoUrl;
     vid.crossOrigin = "Anonymous";
     vid.loop = true;
     vid.muted = true;
@@ -171,7 +177,7 @@ export const GB3D = ({ colorMode }) => {
       -2 + clamp01(e.touches[0].pageY / window.innerHeight) * 8,
       distance * Math.cos(angle),
     ]);
-  });
+  }, []);
 
   useEffect(() => {
     const onMouseMove = (e) => {
@@ -190,7 +196,7 @@ export const GB3D = ({ colorMode }) => {
     return () => {
       window.removeEventListener("mousemove", onMouseMove);
     };
-  });
+  }, []);
 
   const fallback = (
     <ThemedImage
