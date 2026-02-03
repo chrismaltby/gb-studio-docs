@@ -8,6 +8,14 @@ sidebar_position: 7
 
 Clicking the _Play button_ in the top right of the _Project Editor_ window will start a build of your game and once complete will open a new window where you can play your game. See [Keyboard Shortcuts](/docs/getting-started/keyboard-shortcuts) for details on how to play your game in the _Play Window_.
 
+## Run From Here
+
+By right clicking on an scene in the _Project Viewport_ or the _Scene Navigator_ you can access the scene's context menu which contains the option to _Run From Here_.
+
+<div className="drop-shadow margin-bottom"><img src="/img/screenshots/run-from-here.jpg" width="320" className="clip-bottom" /></div>
+
+This allows you to quickly preview a specific scene from your game without needing to edit the Player's [Start Position](/docs/project-editor/player#start-position). If you select the _Include Selection Only_ option then when building your game only the scenes you have currently selected will be included in the built game preview allowing faster builds when testing large games.
+
 ## Build as ROM
 
 Clicking the _Export button_ and selecting _Export ROM_ will build your game and create a ROM file in your project's build folder as `$PROJECT_ROOT/build/rom/game.gb`. You can play this ROM file in any compatible emulator such as [OpenEMU](https://openemu.org/) or [KiGB](http://kigb.emuunlim.com/downloads.htm).

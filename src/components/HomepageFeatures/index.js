@@ -67,7 +67,8 @@ const FeatureList = [
     description: (
       <>
         <p>
-          Create <strong>real ROM files</strong> and play on any GB emulator.{" "}
+          Create <strong>real ROM files</strong> and play on any GB
+          emulator.{" "}
         </p>
         <p>
           <b>Export for web</b> with great mobile controls, upload to{" "}
@@ -81,19 +82,23 @@ const FeatureList = [
 
 function Feature({ winImg, macImg, title, description, onOpen, imgPlatform }) {
   return (
-    <div className={clsx("col col--3")}>
-      <div className="text--center">
+    <div className={clsx("col col--3 margin-bottom--md")}>
+      <div class="card">
         {imgPlatform !== "unknown" && (
-          <img
-            src={useBaseUrl(imgPlatform === "mac" ? macImg : winImg)}
-            alt={title}
-            onClick={onOpen}
-          />
+          <div class={styles.cardImage}>
+            <img
+              src={useBaseUrl(imgPlatform === "mac" ? macImg : winImg)}
+              alt={title}
+              onClick={onOpen}
+            />
+          </div>
         )}
-      </div>
-      <div className="padding-horiz--md">
-        <h3 className="text--center">{title}</h3>
-        <div>{description}</div>
+        <div class="card__header">
+          <h3>{title}</h3>
+        </div>
+        <div class="card__body">
+          <p>{description}</p>
+        </div>
       </div>
     </div>
   );

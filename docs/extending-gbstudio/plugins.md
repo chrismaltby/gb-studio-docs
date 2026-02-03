@@ -2,11 +2,33 @@
 
 Plugins are a way to extend GB Studio and share reusable assets, create custom scripting events and even build engine modifications.
 
-## Installing Plugins
+## The Plugin Manager
 
-To use plugins you must first create a `plugins` folder within your project in the same folder as your `.gbsproj` file. You can then place any plugins you have within this folder.
+GB Studio includes a built-in _Plugin Manager_ for browsing, installing, and updating plugins from the [Official GB Studio Plugin Repository](https://github.com/gb-studio-dev/gb-studio-plugins/).
 
-The structure should look something like this: 
+<img title="Plugin Manager" src="/img/screenshots/plugin-manager.png" width="500"/>
+
+To open it, go to the application menu **Plugins → Plugin Manager**.
+
+<img title="Plugin Menu" src="/img/screenshots/plugin-menu.jpg" className="drop-shadow margin-bottom" width="382"/>
+
+### Installing a Plugin
+
+1. Search for the plugin you want.
+2. Select it from the list.
+3. Click **Add to Project**.
+
+### Submit a Plugin
+
+If you would like to add your own plugin to the official repository you can follow [these instructions](https://github.com/gb-studio-dev/gb-studio-plugins#submitting-plugins) to submit a pull request.
+
+## Manually Installing Plugins
+
+Some plugins may not be available in the inbuilt plugin manager and will need to be downloaded and installed manually instead.
+
+To manually install plugins you must first create a `plugins` folder within your project in the same folder as your `.gbsproj` file. You can then place any plugins you have within this folder.
+
+The structure should look something like this:
 
 <img src="/img/screenshots/plugins-file-structure.png" className="event-preview" />
 
@@ -30,12 +52,12 @@ To create a script event plugin first create a new folder within your `plugins` 
 
 ## Engine Plugins
 
-An engine plugin allows similar functionality to [ejecting your engine](/docs/extending-gbstudio/engine-eject) but allows just changing single files or you can use it to add completely new files to the engine. 
+An engine plugin allows similar functionality to [ejecting your engine](/docs/extending-gbstudio/engine-eject) but allows just changing single files or you can use it to add completely new files to the engine.
 
 Engine plugins contain an `engine` folder which follows the same structure as an ejected game engine. Below you can download an example plugin that adds a new game engine function that causes the screen to flash (only when Color mode is disabled) and also includes a script event plugin to allow calling the new function.
 
 :::info
-Your engine plugin needs to specify which version of the GB Studio engine is supported, you can do this by making sure you include `engine/engine.json` in your plugin with at least the supported engine version included `{"version": "4.0.0-e0"}` 
+Your engine plugin needs to specify which version of the GB Studio engine is supported, you can do this by making sure you include `engine/engine.json` in your plugin with at least the supported engine version included `{"version": "4.0.0-e0"}`
 :::
 
 [Download Example Engine Plugin](/assets/plugins/engineExamplePlugin.zip)
@@ -64,11 +86,11 @@ By defining the following field, and adding the variable `max_jump_height` to yo
 }
 ```
 
-To see how engine fields can be used within your plugin you can review the inbuilt [engine.json](https://github.com/chrismaltby/gb-studio/blob/develop/appData/src/gb/engine.json) file.
+To see how engine fields can be used within your plugin you can review the inbuilt [engine.json](https://github.com/chrismaltby/gb-studio/blob/develop/appData/engine/engine.json) file.
 
 ### Additional Scene Types
 
-Engine plugins can also define additional scene types which will appear in the [type dropdown](/docs/project-editor/scenes#scene-properties) when editing scenes.
+Engine plugins can also define additional [scene types](/docs/project-editor/scenes/types).
 
 ```
 {
@@ -77,19 +99,50 @@ Engine plugins can also define additional scene types which will appear in the [
     {
       "key": "battle",
       "label": "Battle"
+      "files": ["include/states/battle.h", "src/states/battle.c"],
+      "extraActorCollisionFlags": [
+        {
+          "key": "solid",
+          "label": "FIELD_IS_SOLID",
+          "description": "FIELD_IS_SOLID_DESC",
+          "setFlag": "solid"
+        }
+      ],
+      "collisionTiles": [
+        {
+          "key": "solid",
+          "color": "#FA2828FF",
+          "mask": 15,
+          "flag": 15,
+          "name": "FIELD_SOLID",
+          "icon": "FFFFFFFFFFFFFFFF"
+        }
+      ]
     }
   ]
 }
 ```
 
+Each scene type contains the following in it's `engine.json` entry:
+
+- **key** A unique id for this scene type.
+- **label** The human readabile name that will appear in GB Studio for this scene type.
+- **files** The engine files required for your scene type.
+- **extraActorCollisionFlags** (optional) A list of collision flags which will appear for each actor placed in this scene in the [collision groups](/docs/project-editor/actors#collision-groups) editor.
+- **collisionTiles** (optional) A list of collision tiles which will appear when [editing collisions](/docs/project-editor/scenes/collisions) for scenes using this scene type. The "icon" field is pixel data encoded in a hex string, you can use the [GB Studio Collision Tile Generator](https://chrismaltby.github.io/gbs-collision-tile-generator/) tool to generate these.
+
 When adding additional scene types you will also need to define two functions in your custom engine:
+
 ```
 void SCENEKEY_init(void) BANKED { }
 ```
+
 and
+
 ```
 void SCENEKEY_update(void) BANKED { }
 ```
+
 In this case those functions would be named `battle_init` and `battle_update`.
 
 The `init` function will be called once as the scene is loaded and the `update` function will be called every frame allowing you to create custom game modes.

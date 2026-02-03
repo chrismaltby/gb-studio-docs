@@ -3,9 +3,18 @@
   align-items: left;
   padding: 2rem 0;
   width: 100%;
+  background: var(--gbs-features-bg);
 }
 
 .featureSvg {
   height: 200px;
   width: 200px;
+}
+
+.cardImage {
+  overflow: hidden;
+  border-bottom: 5px solid var(--ifm-color-primary);
+  cursor: pointer;
+  background: var(--gbs-features-image-bg);
+  padding: 10px 10px 5px;
 }

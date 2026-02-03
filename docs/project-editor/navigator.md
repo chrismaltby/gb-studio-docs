@@ -12,7 +12,7 @@ The Navigator is the sidebar on the left which allows quickly navigating through
 
 By right clicking on items in the Navigator you can open a context menu. The scene context menu shown below allows you to set color labels, set the scene as the starting scene for your project, rename and delete the scene.
 
-<img title="Navigator" src="/img/screenshots/navigator-context-menu-v4.png" width="528" className="drop-shadow margin-bottom" />
+<img title="Navigator" src="/img/screenshots/navigator-context-menu-v420.jpg" width="412" className="drop-shadow margin-bottom" />
 
 ## Folders
 
@@ -32,7 +32,7 @@ When renaming assets like Backgrounds into folders using the Navigator, the phys
 It is recommended that you use a [version control system](/docs/getting-started/saving-loading#version-control) allowing you to revert mistakes.
 :::
 
-## Keyboard Shortcuts 
+## Keyboard Shortcuts
 
 **Move selection up** - `Arrow Up`  
 **Move selection down** - `Arrow Down`  

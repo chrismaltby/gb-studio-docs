@@ -31,6 +31,11 @@
   --gbs-event-button-fg: #3b3a3b;
   --gbs-event-button-border: 1px solid #c5c5c5;
   --gbs-event-children-border: 1px solid #e4e4e4;
+  --gbs-hero-gradient:
+    rgba(233, 161, 171, 1) 0%, rgba(209, 69, 109, 1) 26%,
+    rgba(152, 44, 81, 1) 50%, rgba(31, 24, 40, 1) 100%;
+  --gbs-features-bg: #f6f6f6;
+  --gbs-features-image-bg: #dddddd;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -58,6 +63,9 @@
   --gbs-event-button-fg: #fbfeff;
   --gbs-event-button-border: 1px solid transparent;
   --gbs-event-children-border: 1px solid #000000;
+  --gbs-hero-gradient: #30253e 0%, #1f1828 26%, #111111 50%, #000000 100%;
+  --gbs-features-bg: linear-gradient(to bottom, #1f1828 0%, #000000 100%);
+  --gbs-features-image-bg: #30253e;
 }
 
 .hero--primary {
@@ -92,7 +100,13 @@
   display: flex;
   overflow: hidden;
   border-radius: 8px;
-  clip-path: inset(0px 0px 1px 0px); 
+  clip-path: inset(0px 0px 1px 0px);
+}
+
+.gbs-icon {
+  margin-bottom: -4px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
 .margin-bottom {
@@ -123,7 +137,7 @@ object {
 }
 
 .no-wrap {
-  white-space: nowrap;;
+  white-space: nowrap;
 }
 
 /* Fix text zoom on iOS Safari when searching */

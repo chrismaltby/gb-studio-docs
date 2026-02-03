@@ -6,7 +6,7 @@ sidebar_position: 4
 
 The default view for the _Project Editor_ as shown below is the _Game World_. This is where you can create your game by combining scenes, adding actors and triggers then building scripting events to add interactions.
 
-<img title="The Project Editor" src="/img/screenshots/project-editor-v4.png" width="1258" />
+<img title="The Project Editor" src="/img/screenshots/project-editor-v420.jpg" width="1258" />
 
 Use the _Editor Tools_ to switch between Select, Add, Erase, Collision, and Color Drawing modes.
 
@@ -35,8 +35,9 @@ You are given the choice of adding a new Actor, Trigger or Scene. After clicking
 
 All collisions, actors, and triggers will be removed when clicked. Erase actions can be undone by pressing `Ctrl / Cmd` + `Z`.
 
-Scenes are not affected by _Erase mode_. To delete a scene either:  
-- Select the scene  _Select mode_ then in the _Editor Sidebar_ click the down arrow at the top and choose the "Delete Scene" menu item.
+Scenes are not affected by _Erase mode_. To delete a scene either:
+
+- Select the scene _Select mode_ then in the _Editor Sidebar_ click the down arrow at the top and choose the "Delete Scene" menu item.
 - Select the scene and press the `Backspace` key on your keyboard.
 - Right click on the scene and click "Delete Scene" from the menu.
 
@@ -44,9 +45,9 @@ Scenes are not affected by _Erase mode_. To delete a scene either:
 
 Allows you to [add collisions](/docs/project-editor/scenes#adding-collision-to-a-scene) to any type of scene using GB Studio's _Drawing mode_.
 
-### Colorize tool
+### Color tool
 
-Allows you to [paint tiles](/docs/project-editor/scenes#colorizing-a-scene) in your scene with with up to 8 color palettes per scene. The _Colorize tool_ also uses GB Studio's _Drawing mode_. The palettes used here are determined in the _Palette_ tab in the _Project Editor_.
+Allows you to [paint tiles](/docs/project-editor/scenes/color) in your scene with with up to 8 color palettes per scene. The _Color Tool_ also uses GB Studio's _Drawing mode_. The palettes used here are determined in the _Palette_ tab in the _Project Editor_.
 
 See the documentation on [Keyboard Shortcuts](/docs/getting-started/keyboard-shortcuts) for editor tool shortcuts.
 
@@ -64,7 +65,9 @@ Using the _Project View Button_ you can switch between different views of your p
 
 - **Music:** Preview and edit your [music](/docs/assets/music) files.
 
-- **Palettes:** Edit your palettes for color games.
+- **Sound Effects:** Preview your [sound effect](/docs/assets/sound-effects) files.
+
+- **Palettes:** Edit your [palettes](/docs/assets/palettes) for color games.
 
 - **Dialogue Review:** Preview and edit all the text in your game.
 

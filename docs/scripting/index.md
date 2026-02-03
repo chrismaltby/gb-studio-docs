@@ -22,9 +22,17 @@ You can choose a number of events to be favourites, causing them to appear at th
 
 ## Copy and Paste Events
 
-To copy an event, click the down arrow next to an event. All scripts have this same down arrow for copying/pasting. Clicking the down arrow on another event allows you to paste the clipboard event either before or after the selected one. You also have the option to paste the values from the first event into the second.
+To copy an event, click the <img className="gbs-icon" title="Down Arrow Button" src="/img/screenshots/dropdown-button.png" width="22" /> button next to an event. All scripts have this same button for copying/pasting and additional options. Clicking the button on another event allows you to paste the clipboard event either before or after the selected one. You also have the option to paste the values from the first event into the second.
 
-As a shortcut for pasting, you can press the _Alt_ key to turn all _Add Event_ buttons into _Paste Event_ buttons.
+You can also hover over the title bar of any script event to perform these shortcuts.
+
+**Copy Event** - `Ctrl/Cmd` + `C`  
+**Paste Event Below** - `Ctrl/Cmd` + `V`  
+**Paste Event Above** - `Ctrl/Cmd` + `Shift` + `V`  
+**Toggle Disabling Event** - `Ctrl/Cmd` + `/`  
+**Group Selected Events** - `Ctrl/Cmd` + `G`
+
+To select multiple events to copy at the same time you can click the checkbox next to the <img className="gbs-icon" title="Down Arrow Button" src="/img/screenshots/dropdown-button.png" width="22" /> button. You can also hold `Shift` and click an event title to toggle selection.
 
 ## Types of Scripts
 

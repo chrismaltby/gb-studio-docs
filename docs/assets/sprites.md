@@ -42,15 +42,17 @@ To make sprites that have animated movement, or that can be used as a player cha
 
 When you want to progress to making more complex sprites you can use the _Sprite Editor_ by clicking the _Project View Button_ and selecting _Sprites_.
 
-<img title="Sprite Editor" src="/img/screenshots/sprite-editor-v3.png" width="752" />
+<img title="Sprite Editor" src="/img/screenshots/sprite-editor-v420.jpg" width="752" />
 
 ### Composition of a Sprite
 
 A sprite consists of:
--  Multiple _Animation States_, by default only a single animation state is created for a sprite, you can make a new one by clicking the `+` button in the _Animation Navigator_.
-    - Each animation state consists of multiple animation frames, viewable in the _Frames Navigator_, click the `+` button to create a new frame, and click a frame to view it in the _Frame Canvas_ for editing.
+
+- Multiple _Animation States_, by default only a single animation state is created for a sprite, you can make a new one by clicking the `+` button in the _Animation Navigator_.
+  - Each animation state consists of multiple animation frames, viewable in the _Frames Navigator_, click the `+` button to create a new frame, and click a frame to view it in the _Frame Canvas_ for editing.
 - A _Tile Palette_, this is the `.png` file from your assets folder. Click into the tiles palette to select a tile, you can then draw it by clicking into the _Frame Canvas_.
 - A _Canvas Size_ this is the width and height of your _Frame Canvas_, set this from the _Editor Sidebar_ to the size you want your sprite to be.
+- The _Canvas Origin_, which determines the (0,0) anchor point of your sprite.
 - A _Collision Bounding Box_ this is the width, height and position of an invisible box used for collision detection within the game engine, set this to fit as closely as possible around the collidable area of your sprite.
 
 ### Animation Settings
@@ -74,6 +76,7 @@ To switch which animation state an actor should use in your game, you can use a 
 Once you have selected an _Animation_ and _Frame_ to edit you can use the _Tile Palette_ and _Frame Canvas_ to create an animation frame.
 
 Start by clicking on the tile you wish to use in the _Tile Palette_.
+
 - You can select multiple tiles by clicking and dragging in the _Tile Palette_
 - By default the _Tile Palette_ snaps to an `8px` grid, this is to increase the chance of tile reuse as each unique tile you use in your sprite takes away from limits when used in scenes. If you know what you're doing and want to disable this grid you can turn on `Precision Mode` by clicking the button in the top right of the _Tile Palette_ or by holding `Alt` while making your selection.
 
@@ -81,11 +84,19 @@ Once you have a tile selection click into the _Frame Canvas_ to draw the tiles i
 
 ### Onion Skin
 
-Using the _Onion Skin_ button you can toggle the _Onion Skin_ feature. This displays a semi-transparent version of the previous frame behind the _Frame Canvas_ allowing you to more easily make decisions about the flow of the animation. 
+Using the _Onion Skin_ button you can toggle the _Onion Skin_ feature. This displays a semi-transparent version of the previous frame behind the _Frame Canvas_ allowing you to more easily make decisions about the flow of the animation.
+
+### Grid Button
+
+Using the _Grid Button_ you can toggle between showing a grid behind the tiles of your sprite to help align tiles.
+
+### Dark Background Button
+
+Using the _Dark Background Button_ you can toggle between showing a light or dark color behind the tiles of your sprite.
 
 ### Deleting Tiles and Frames
 
-To delete a tile or frame, select it in either the _Frame Canvas_ or _Frames Navigator_ and press `Backspace` on your keyboard. Alternatively to can make your selection then click the dropdown button arrow in the top right of the _Editor Sidebar_ to access a menu where deleting is available.
+To delete a tile or frame, select it in either the _Frame Canvas_ or _Frames Navigator_ and press `Backspace` on your keyboard. Alternatively you can make your selection then click the dropdown button arrow in the top right of the _Editor Sidebar_ to access a menu where deleting is available.
 
 ## Image Requirements
 
@@ -99,11 +110,10 @@ Sprite `.png`s must only contain the following four colors:
 Download the GB Studio Palette Swatches for:  
 [Adobe Photoshop](/assets/swatches/gb-studio-photoshop.aco)  
 [Aseprite](/assets/swatches/gb-studio-aseprite.aseprite)  
-[Piskel](/assets/swatches/gb-studio-piskel-sprites-palette.gpl)  
+[Piskel](/assets/swatches/gb-studio-piskel-sprites-palette.gpl)
 
 The color `#65ff00` is used to represent a transparent background in game and will be invisible in-game and in the _World Editor_.
 
 Colors that are not one of the above hex codes will be matched to the nearest color. Unlike backgrounds, the color `#306850` can not be used in sprites.
 
 When assigning sprite color palettes for a scene, these colors map from Darkest to Lightest in the palette.
-

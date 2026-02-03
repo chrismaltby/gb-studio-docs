@@ -97,6 +97,11 @@ const config = {
             label: "Docs",
           },
           {
+            to: "/tools",
+            position: "right",
+            label: "Tools",
+          },
+          {
             href: "https://github.com/chrismaltby/gb-studio",
             label: "GitHub",
             position: "right",
@@ -131,6 +136,10 @@ const config = {
               {
                 label: "Installation",
                 href: "/docs/installation",
+              },
+              {
+                label: "Tools",
+                href: "/tools",
               },
             ],
           },

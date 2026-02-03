@@ -1,22 +1,18 @@
 # Keyboard Shortcuts
 
-
 ## Play Window
 
 When playing your game inside GB Studio use the following keyboard controls:
 
 <object data="/img/manual/keyboard-controls.svg" class="margin-bottom" />
 
-**Up** - `Up Arrow` / `W`  
-**Down** - `Down Arrow` / `S`  
-**Left** - `Left Arrow` / `A`  
-**Right** - `Right Arrow` / `D`  
-**A** - `Alt` / `Z` / `J`  
-**B** - `Ctrl` / `K` / `X`  
-**Start** - `Enter`  
-**Select** - `Shift`
+These controls can be modified at any time by going to the Controls section in [Settings](/docs/settings).
+
+:::tip
 
 You can also control the _Play Window_ using a supported gamepad. If your web browser has gamepad support you can also use it when running a web build.
+
+:::
 
 ## Navigating The Menus
 
@@ -41,7 +37,7 @@ While editing the game world you can use the following keys to quickly manipulat
 **Set Player Start Position** - `P` (while hovering over desired location)  
 **Pan View** - Hold `Space` (while clicking and dragging on _Game World_)  
 **Zoom** - Hold `Ctrl/Cmd` + `Scroll wheel`  
-**Focus on Scene Search** - `/`  
+**Focus on Scene Search** - `/`
 
 ## Navigator
 
@@ -56,7 +52,7 @@ The [Navigator](/docs/project-editor/navigator) is the sidebar on the left which
 
 ## Drawing Mode
 
-Drawing mode is automatically enabled in the _Collision tool_ and the _Colorize tool_.
+Drawing mode is automatically enabled in the _Collision tool_ and the _Color tool_.
 
 **Draw** - Click on scene  
 **Draw line from last point** - Click to set first point, hold `Shift`, click to set next point  
@@ -81,12 +77,22 @@ Each tile can hold a maximum of 1 ladder and 3 collision sides. Ladders will not
 **Collision Right** - `5`  
 **Ladder (Platformer only)** - `6`
 
-## Colorize Palettes
+## Color Palettes
 
-These are only available when using the [Colorize tool](/docs/project-editor/scenes#colorizing-a-scene).
+These are only available when using the [Color tool](/docs/project-editor/scenes/color).
 
 **Change Brush Palette** - `1-6`  
 **Change Palettes** - Hold click on existing palette
+
+## Script Editor
+
+When creating [scripts](/docs/scripting) you can hover over the title bar of any script event to perform these shortcuts.
+
+**Copy Event** - `Ctrl/Cmd` + `C`  
+**Paste Event Below** - `Ctrl/Cmd` + `V`  
+**Paste Event Above** - `Ctrl/Cmd` + `Shift` + `V`  
+**Toggle Disabling Event** - `Ctrl/Cmd` + `/`  
+**Group Selected Events** - `Ctrl/Cmd` + `G`
 
 ## Music Editor
 
@@ -95,25 +101,25 @@ These are only available when using the [Music Editor](/docs/assets/music/music-
 **Save Song** - `Ctrl/Cmd` + `S`  
 **Play/Pause** - `Space`  
 **Play from position** - `Alt/Option` + `Space`  
-**Switch to Tracker/Piano Roll** - `` ` ``  
+**Switch to Tracker/Piano Roll** - `` ` ``
 
 ### Tracker
 
 **Navigate grid** - `Arrow Keys`  
 **Next Column** - `Tab`  
-**Previous Column** - `Shift` + `Tab`  
+**Previous Column** - `Shift` + `Tab`
 
-**Cell Selection** - `Shift` + `Arrow Keys` *or* Click to set first cell, hold `Shift`, click to set next cell  
+**Cell Selection** - `Shift` + `Arrow Keys` _or_ Click to set first cell, hold `Shift`, click to set next cell  
 **Select Column** - `Ctrl/Cmd` + `A`  
-**Select Pattern** - `Ctrl/Cmd` + `A`, `Ctrl/Cmd` + `A`   
+**Select Pattern** - `Ctrl/Cmd` + `A`, `Ctrl/Cmd` + `A`  
 **Copy Selection** - `Ctrl/Cmd` + `C`  
 **Paste Selection** - `Ctrl/Cmd` + `V`  
 **Delete Selection** - `Backspace/Delete`
 
-**Transpose Selection (small step up)** - `Ctrl` + `=` *or* `Ctrl` + `Scroll wheel`   
-**Transpose Selection (small step down)** - `Ctrl` + `-`   
-**Transpose Selection (big step up)** - `Ctrl` + `Shift` + `=` *or* `Ctrl` + `Shift` + `Q`  
-**Transpose Selection (big step down)** - `Ctrl` + `Shift` + `-` *or* `Ctrl` + `Shift` + `A`  
+**Transpose Selection (small step up)** - `Ctrl` + `=` _or_ `Ctrl` + `Scroll wheel`  
+**Transpose Selection (small step down)** - `Ctrl` + `-`  
+**Transpose Selection (big step up)** - `Ctrl` + `Shift` + `=` _or_ `Ctrl` + `Shift` + `Q`  
+**Transpose Selection (big step down)** - `Ctrl` + `Shift` + `-` _or_ `Ctrl` + `Shift` + `A`
 
 ### Piano roll
 
@@ -133,4 +139,4 @@ When the [Debugger](/docs/debugger) is enabled, you can use the following keyboa
 
 **Pause/Resume** - `F8`  
 **Step Forward One Instruction** - `F9`  
-**Step Forward One Frame** - `F10`  
+**Step Forward One Frame** - `F10`
