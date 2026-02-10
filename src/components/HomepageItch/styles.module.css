@@ -61,5 +61,5 @@
   height: 100%;
   display: block;
   position: absolute;
-  background: linear-gradient(0deg, var(--ifm-background-color) 10%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(0deg, var(--ifm-background-color) 5%, rgba(0, 0, 0, 0) 40%);
 }
