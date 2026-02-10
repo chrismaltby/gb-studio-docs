@@ -186,8 +186,8 @@ Wenn im aktuellen Speicherslot Spieldaten vohanden sind, führe einen Teil des S
 
 ## Threads
 ### Pause Logic For Scene Type
-Prevent the current scene's game engine update function from running until resumed. Allows preventing player control during multi-threaded scripts
-<ScriptEventPreview title={"Pause Logic For Scene Type"} fields={[{"label":"Prevent the current scene's game engine update function from running until resumed. Allows preventing player control during multi-threaded scripts"}]} />
+Prevent the current scene's game engine update function from running until resumed. Allows preventing player control during multi-threaded scripts.
+<ScriptEventPreview title={"Pause Logic For Scene Type"} fields={[{"label":"Prevent the current scene's game engine update function from running until resumed. Allows preventing player control during multi-threaded scripts."}]} />
 
 
 ### Resume Logic For Scene Type

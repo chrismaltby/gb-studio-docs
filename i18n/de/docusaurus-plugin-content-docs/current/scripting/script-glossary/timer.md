@@ -16,11 +16,11 @@ Das Skript für ein Einzelbild lang anhalten.
 
 ### Rate Limit
 Limit how often this script can be be run. If the script is triggered again before the time limit has passed the script will be skipped.
-<ScriptEventPreview title={"Rate Limit"} fields={[{"key":"variable","label":"Next Call Time Variable","description":"The variable which will store the next time, in frames, that this script can be called.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"time","label":"Zeitintervall","description":"The minimum wait time between successive calls of this script.","type":"value","min":0,"max":60,"step":0.1,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"defaultValue":{"type":"number","value":0.5},"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Zeitintervall","description":"The minimum wait time between successive calls of this script.","type":"value","min":0,"max":3600,"width":"50%","unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"defaultValue":{"type":"number","value":1},"conditions":[{"key":"units","eq":"frames"}]},{"key":"true","label":"Rate Limited","description":"The script that will be rate limited","type":"events"}]} />
+<ScriptEventPreview title={"Rate Limit"} fields={[{"key":"variable","label":"Next Call Time Variable","description":"The variable which will store the next time, in frames, that this script can be called.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"time","label":"Zeitintervall","description":"The minimum wait time between successive calls of this script.","type":"value","min":0,"max":60,"step":0.1,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"defaultValue":{"type":"number","value":0.5},"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Zeitintervall","description":"The minimum wait time between successive calls of this script.","type":"value","min":0,"max":3600,"width":"50%","unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"defaultValue":{"type":"number","value":1},"conditions":[{"key":"units","eq":"frames"}]},{"key":"true","label":"Rate Limited","description":"The script that will be rate limited.","type":"events"}]} />
 
 - **Next Call Time Variable**: The variable which will store the next time, in frames, that this script can be called.  
 - **Zeitintervall**: The minimum wait time between successive calls of this script.  
-- **Rate Limited**: The script that will be rate limited  
+- **Rate Limited**: The script that will be rate limited.  
 
 ### Warten
 Das Skript für eine gewisse Zeit anhalten.

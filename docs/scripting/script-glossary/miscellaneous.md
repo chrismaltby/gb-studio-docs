@@ -64,8 +64,8 @@ Send an image to a GB Printer for printing. A GB Printer device must be connecte
 
 ## Threads
 ### Pause Logic For Scene Type
-Prevent the current scene's game engine update function from running until resumed. Allows preventing player control during multi-threaded scripts
-<ScriptEventPreview title={"Pause Logic For Scene Type"} fields={[{"label":"Prevent the current scene's game engine update function from running until resumed. Allows preventing player control during multi-threaded scripts"}]} />
+Prevent the current scene's game engine update function from running until resumed. Allows preventing player control during multi-threaded scripts.
+<ScriptEventPreview title={"Pause Logic For Scene Type"} fields={[{"label":"Prevent the current scene's game engine update function from running until resumed. Allows preventing player control during multi-threaded scripts."}]} />
 
 
 ### Resume Logic For Scene Type

@@ -52,8 +52,8 @@ Store the current scene and player state on to the scene stack, this allows you 
 
 ## Threads
 ### Pause Logic For Scene Type
-Prevent the current scene's game engine update function from running until resumed. Allows preventing player control during multi-threaded scripts
-<ScriptEventPreview title={"Pause Logic For Scene Type"} fields={[{"label":"Prevent the current scene's game engine update function from running until resumed. Allows preventing player control during multi-threaded scripts"}]} />
+Prevent the current scene's game engine update function from running until resumed. Allows preventing player control during multi-threaded scripts.
+<ScriptEventPreview title={"Pause Logic For Scene Type"} fields={[{"label":"Prevent the current scene's game engine update function from running until resumed. Allows preventing player control during multi-threaded scripts."}]} />
 
 
 ### Resume Logic For Scene Type
@@ -64,21 +64,21 @@ Resume the game engine update function for the current scene.
 ## Tiles
 ### Replace Tile At Position
 Replace a tile at a specified coordinate with another from a tileset.
-<ScriptEventPreview title={"Replace Tile At Position"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"The vertical position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}}]},{"type":"group","fields":[{"key":"tilesetId","type":"tileset","label":"Tileset","description":"The tileset to fetch tiles from","defaultValue":"LAST_TILESET","unitsField":"tileSize","unitsDefault":"8px","unitsAllowed":["8px","16px"]},{"key":"tileIndex","label":"Tile","description":"The tile offset inside tileset","type":"value","min":0,"defaultValue":{"type":"number","value":0}}]}]} />
+<ScriptEventPreview title={"Replace Tile At Position"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"The vertical position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}}]},{"type":"group","fields":[{"key":"tilesetId","type":"tileset","label":"Tileset","description":"The tileset to fetch tiles from.","defaultValue":"LAST_TILESET","unitsField":"tileSize","unitsDefault":"8px","unitsAllowed":["8px","16px"]},{"key":"tileIndex","label":"Tile","description":"The tile offset inside tileset.","type":"value","min":0,"defaultValue":{"type":"number","value":0}}]}]} />
 
 - **X**: The horizontal position.  
 - **Y**: The vertical position.  
-- **Tileset**: The tileset to fetch tiles from  
-- **Tile**: The tile offset inside tileset  
+- **Tileset**: The tileset to fetch tiles from.  
+- **Tile**: The tile offset inside tileset.  
 
 ### Replace Tile At Position From Sequence
 Replace a tile at a specified coordinate with another from a tileset in a sequence.
-<ScriptEventPreview title={"Replace Tile At Position From Sequence"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"The vertical position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}}]},{"key":"tilesetId","type":"tileset","label":"Tileset","description":"The tileset to fetch tiles from","defaultValue":"LAST_TILESET","unitsField":"tileSize","unitsDefault":"8px","unitsAllowed":["8px","16px"]},{"type":"group","fields":[{"key":"tileIndex","label":"From Tile","description":"The starting tile offset inside tileset","type":"value","min":0,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"frames","label":"Animation Frames","description":"The number of animation frames to cycle through.","type":"value","min":1,"width":"50%","defaultValue":{"type":"number","value":1}}]},{"key":"variable","label":"State Variable","description":"A variable to store the current state of this event","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
+<ScriptEventPreview title={"Replace Tile At Position From Sequence"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"The vertical position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}}]},{"key":"tilesetId","type":"tileset","label":"Tileset","description":"The tileset to fetch tiles from.","defaultValue":"LAST_TILESET","unitsField":"tileSize","unitsDefault":"8px","unitsAllowed":["8px","16px"]},{"type":"group","fields":[{"key":"tileIndex","label":"From Tile","description":"The starting tile offset inside tileset.","type":"value","min":0,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"frames","label":"Animation Frames","description":"The number of animation frames to cycle through.","type":"value","min":1,"width":"50%","defaultValue":{"type":"number","value":1}}]},{"key":"variable","label":"State Variable","description":"A variable to store the current state of this event.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
 
 - **X**: The horizontal position.  
 - **Y**: The vertical position.  
-- **Tileset**: The tileset to fetch tiles from  
-- **From Tile**: The starting tile offset inside tileset  
+- **Tileset**: The tileset to fetch tiles from.  
+- **From Tile**: The starting tile offset inside tileset.  
 - **Animation Frames**: The number of animation frames to cycle through.  
-- **State Variable**: A variable to store the current state of this event  
+- **State Variable**: A variable to store the current state of this event.  
 

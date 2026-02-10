@@ -35,12 +35,12 @@ Shake the camera for a period of time.
 
 ### Set Camera Bounds
 Set the bounds of the camera, preventing it from moving outside of the specified area.
-<ScriptEventPreview title={"Set Camera Bounds"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"value","min":0,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"The vertical position.","type":"value","min":0,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]},{"type":"group","fields":[{"key":"width","label":"Width","description":"The box width","type":"value","min":20,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":20}},{"key":"height","label":"Height","description":"The box height","type":"value","min":18,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":18}}]}]} />
+<ScriptEventPreview title={"Set Camera Bounds"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"value","min":0,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"The vertical position.","type":"value","min":0,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]},{"type":"group","fields":[{"key":"width","label":"Width","description":"The box width.","type":"value","min":20,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":20}},{"key":"height","label":"Height","description":"The box height.","type":"value","min":18,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":18}}]}]} />
 
 - **X**: The horizontal position.  
 - **Y**: The vertical position.  
-- **Width**: The box width  
-- **Height**: The box height  
+- **Width**: The box width.  
+- **Height**: The box height.  
 
 ### Set Camera Lock On Player
 Set the camera to center on the player, locking into position when the player moves. Optionally allows locking to follow player in only horizontal or vertical axis.
