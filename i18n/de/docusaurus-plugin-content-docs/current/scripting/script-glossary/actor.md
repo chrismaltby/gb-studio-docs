@@ -263,7 +263,6 @@ Legt die Bewegungs-Geschwindigkeit eines Akteurs auf einen neuen Wert fest.
 
 - **Akteur**: Der zu aktualisierende Akteur.  
 - **Geschwindigkeit**: Die Bewegungs-Geschwindigkeit.  
-- **Engine: Einstellungen aktualisieren**  
 
 ### Akteur-Spritesheet festlegen
 Das Sprite festlegen, welches zum Rendern eines Akteurs verwendet werden soll.

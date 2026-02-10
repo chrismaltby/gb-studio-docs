@@ -26,8 +26,6 @@ Zeigt eine Dialogbox am unteren Rand des Spielbildschirms. Wenn Text angezeigt w
   - **Position**: Die Position, um das Dialogfenster zu platzieren  
   - **Vorheriges löschen**: Löscht sämtlichen Inhalt, welcher zuvor auf dem Overlay gezeichner wurde.  
   - **Rahmen anzeigen**: Zeichnet einen Rahmen um den Rand des Dialogfensters.  
-  - **Nicht-modalen Dialog schließen**  
-  - **Overlay Scanline Ausschnitt festlegen**  
 
 - **Verhalten**  
   - **Dialogbox-Einblendegeschwindigkeit**: Die Geschwindigkeit, mit der die Text- und Menüdialogboxen eingeblendet werden.  

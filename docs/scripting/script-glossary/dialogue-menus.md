@@ -26,8 +26,6 @@ Show a dialogue box at the bottom of the game screen. When text is shown the dia
   - **Position**: The position to place the dialogue window.  
   - **Clear Previous**: Clears any content that was previously drawn on the overlay.  
   - **Show Frame**: Draw a frame around the border of the dialogue window.  
-  - **Close Non-Modal Dialogue**  
-  - **Set Overlay Scanline Cutoff**  
 
 - **Behavior**  
   - **Text Open Speed**: The speed that the text and menu dialogue boxes scroll on to the screen.  

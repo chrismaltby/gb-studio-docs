@@ -263,7 +263,6 @@ Polecenie ustawi nową wartość dla szybkości ruchu.
 
 - **Aktor**: Wybierz aktora do aktualizacji.  
 - **Szybkość**: Ustawienie szybkości.  
-- **Silnik: aktualizacja ustawień**  
 
 ### Aktor: zmień grafikę
 Polecenie ustawia grafikę, która powinna być użyta do renderowania aktora..

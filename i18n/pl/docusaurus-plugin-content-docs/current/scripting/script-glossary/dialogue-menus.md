@@ -26,8 +26,6 @@ Polecenie wyświetli okno dialogowe na dole ekranu. Po wyświetleniu tekstu, okn
   - **Pozycja**: Pozycja umieszczenia okna dialogowego  
   - **Wyczyść poprzednie**: Wyczyść dowolną zawartość, która była wcześniej rysowana na nakładce.  
   - **Pokaż ramkę**: Narysuj ramkę wokół granicy okna dialogowego.  
-  - **Tekst: zamknij niemodalne okno dialogowe**  
-  - **Nakładka: ustaw granicę linii skanowania**  
 
 - **Zachowanie**  
   - **Szybkość pojawienia**: Szybkość ukazania ramki z tekstem wyświetlanego na ekranie.  

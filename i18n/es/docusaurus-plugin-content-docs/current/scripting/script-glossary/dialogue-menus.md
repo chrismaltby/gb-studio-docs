@@ -26,8 +26,6 @@ Muestra un cuadro de diálogo en la parte inferior de la pantalla del juego. Cua
   - **Posición**: La posición para colocar la ventana de diálogo  
   - **Limpiar Anterior**: Limpia cualquier contenido que se haya dibujado previamente en la superposición.  
   - **Mostrar Marco**: Dibuja un marco alrededor del borde de la ventana de diálogo.  
-  - **Cerrar Diálogo No Modal**  
-  - **Establecer Corte de Línea de Superposición**  
 
 - **Comportamiento**  
   - **Velocidad de apertura de texto**: La velocidad con la que los cuadros de diálogo de texto y menú se desplazan en la pantalla.  

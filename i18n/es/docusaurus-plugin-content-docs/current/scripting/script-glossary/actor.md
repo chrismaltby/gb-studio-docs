@@ -263,7 +263,6 @@ Establece la velocidad de movimiento de un actor en un nuevo valor.
 
 - **Actor**: El actor que deseas actualizar.  
 - **Velocidad**: La velocidad del movimiento.  
-- **Actualizar Campo del Motor**  
 
 ### Establecer hoja de Sprite de actor
 Establece el sprite que se debe usar para representar a un actor.

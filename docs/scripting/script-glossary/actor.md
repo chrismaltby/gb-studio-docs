@@ -263,7 +263,6 @@ Set the movement speed of an actor to a new value.
 
 - **Actor**: The actor you want to update.  
 - **Speed**: The movement speed.  
-- **Engine Field Update**  
 
 ### Set Actor Sprite Sheet
 Set the sprite that should be used to render an actor.
