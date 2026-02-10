@@ -8,7 +8,7 @@ Clicking the _Project View Button_ and selecting _Settings_ will take you to a l
 
 ## Color Options
 
-GB Studio has support for multiple color modes, each provides different features, [limitations](/docs/project-editor/scenes#scene-limits) and device compatibility.
+GB Studio has support for multiple color modes, each provides different features, [limitations](/docs/project-editor/scenes/limits) and device compatibility.
 
 <img title="Color Settings" src="/img/screenshots/color-settings-v420.jpg" width="650" className="drop-shadow" />
 
@@ -21,7 +21,7 @@ GB Studio has support for multiple color modes, each provides different features
   Color palettes can be used to [color your scenes](/docs/project-editor/scenes/color) on compatible devices.  
   Supported platforms: **GB** (Monochrome only), **GB Color**, **Super GB**, **Analogue Pocket**
 
-- **Color Only** Increases the amount of [tiles available](/docs/project-editor/scenes#scene-limits) in each scene for displaying backgrounds and sprites. Allows your game to run on color devices only.  
+- **Color Only** Increases the amount of [tiles available](/docs/project-editor/scenes/limits) in each scene for displaying backgrounds and sprites. Allows your game to run on color devices only.  
   Supported platforms: **GB Color**, **Analogue Pocket**
 
 Depending on the chosen color mode you may then also see additional settings.

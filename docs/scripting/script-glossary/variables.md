@@ -86,7 +86,7 @@ Increase the value of the specified variable by one.
 Store the value of an Engine Field in a variable.
 
 **References**  
-[/docs/settings/#engine-settings](/docs/settings/#engine-settings)  
+[/docs/settings#engine-settings](/docs/settings#engine-settings)  
 <ScriptEventPreview title={"Store Engine Field In Variable"} fields={[{"type":"engineField","label":"Engine Field","description":"The engine field to read the value of.","key":"engineFieldKey","defaultValue":"LAST_ENGINE_FIELD"},{"key":"value","type":"variable","label":"Variable","description":"The variable to use.","defaultValue":"LAST_VARIABLE","conditions":[{"key":"engineFieldKey","set":true}]}]} />
 
 - **Engine Field**: The engine field to read the value of.  

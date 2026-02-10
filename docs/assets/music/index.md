@@ -2,13 +2,13 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Music
 
-Music can be played in your game using the [Play Music Track](/docs/scripting/#music-events) event in your *Actor*, *Trigger*, or *Scene* scripts.
+Music can be played in your game using the [Play Music Track](/docs/scripting/script-glossary/music-sound-effects#play-music-track) event in your *Actor*, *Trigger*, or *Scene* scripts.
 
 <ScriptEventPreview title={"Play Music Track"} fields={[{"key":"musicId","type":"music","defaultValue":"LAST_MUSIC"}]} />
 
 You can add music to your game by including `.uge` or `.mod` files in your project's `assets/music` folder.
 
-A project can only support one type of music files, this can be configured on the [Settings View](/docs/settings/#music-driver) by selecting either MOD or UGE as the Music Format.
+A project can only support one type of music files, this can be configured on the [Settings View](/docs/settings#music-format) by selecting either MOD or UGE as the Music Format.
 
 `.uge` files can be created and edited with the _Music Editor_. 
 

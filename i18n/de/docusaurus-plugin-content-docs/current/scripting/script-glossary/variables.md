@@ -82,7 +82,7 @@ Erhöht den Wert der angegebenen Variable um eins.
 Den Wert eines Engine-Feldes in einer Variable speichern.
 
 **Referenzen**  
-[/docs/settings/#engine-settings](/docs/settings/#engine-settings)  
+[/docs/settings#engine-settings](/docs/settings#engine-settings)  
 <ScriptEventPreview title={"Engine: Einstellungen in Variable speichern"} fields={[{"type":"engineField","label":"Engine-Feld","description":"Das Engine-Feld, deren Wert gelesen wird.","key":"engineFieldKey","defaultValue":"LAST_ENGINE_FIELD"},{"key":"value","type":"variable","label":"Variable","description":"Die zu nutzende Variable.","defaultValue":"LAST_VARIABLE","conditions":[{"key":"engineFieldKey","set":true}]}]} />
 
 - **Engine-Feld**: Das Engine-Feld, deren Wert gelesen wird.  

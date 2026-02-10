@@ -64,7 +64,7 @@ Drawing mode is automatically enabled in the _Collision tool_ and the _Color too
 
 ## Collision Types
 
-These are only available when using the [Collision tool](/docs/project-editor/scenes#adding-collision-to-a-scene).
+These are only available when using the [Collision tool](/docs/project-editor/scenes/collisions).
 
 Each tile can hold a maximum of 1 ladder and 3 collision sides. Ladders will not replace existing collision when placed on top of other colliders.
 

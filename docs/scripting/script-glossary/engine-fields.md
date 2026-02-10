@@ -13,7 +13,7 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 Change the value of an Engine Field.
 
 **References**  
-[/docs/settings/#engine-settings](/docs/settings/#engine-settings)  
+[/docs/settings#engine-settings](/docs/settings#engine-settings)  
 <ScriptEventPreview title={"Engine Field Update"} fields={[{"type":"engineField","label":"Engine Field","description":"The engine field to update.","key":"engineFieldKey","defaultValue":"LAST_ENGINE_FIELD"},{"key":"value","type":"engineFieldValue","defaultValue":{"type":"number","value":0},"conditions":[{"key":"engineFieldKey","set":true}]}]} />
 
 - **Engine Field**: The engine field to update.  
@@ -22,7 +22,7 @@ Change the value of an Engine Field.
 Store the value of an Engine Field in a variable.
 
 **References**  
-[/docs/settings/#engine-settings](/docs/settings/#engine-settings)  
+[/docs/settings#engine-settings](/docs/settings#engine-settings)  
 <ScriptEventPreview title={"Store Engine Field In Variable"} fields={[{"type":"engineField","label":"Engine Field","description":"The engine field to read the value of.","key":"engineFieldKey","defaultValue":"LAST_ENGINE_FIELD"},{"key":"value","type":"variable","label":"Variable","description":"The variable to use.","defaultValue":"LAST_VARIABLE","conditions":[{"key":"engineFieldKey","set":true}]}]} />
 
 - **Engine Field**: The engine field to read the value of.  

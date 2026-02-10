@@ -50,7 +50,7 @@ When a scene is wider than 20 tiles (160px) or taller than 18 tiles (144px), the
 
 <img className="margin-bottom" src="/img/screenshots/camera-bounds-v420.jpg" style={{width:550}} />
 
-When enabled this lets you set the minimum and maximum area that will be viewable by the camera in your scene. It's also possible to set these values dynamically using a [Set Camera Bounds](/docs/scripting/script-glossary/camera#camera-set-bounds) event.
+When enabled this lets you set the minimum and maximum area that will be viewable by the camera in your scene. It's also possible to set these values dynamically using a [Set Camera Bounds](/docs/scripting/script-glossary/camera#set-camera-bounds) event.
 
 <div className="drop-shadow margin-bottom"><img src="/img/screenshots/camera-bounds-preview.jpg" width="320" className="clip-bottom" /></div>
 

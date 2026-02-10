@@ -64,7 +64,7 @@ Your engine plugin needs to specify which version of the GB Studio engine is sup
 
 ### Engine Fields
 
-Engine plugins can define additional fields that will appear in your [Engine Settings](/docs/settings/#engine-settings).
+Engine plugins can define additional fields that will appear in your [Engine Settings](/docs/settings#engine-settings).
 
 By defining the following field, and adding the variable `max_jump_height` to your version of `platform.c` in the plugin you can expose variables for updating from settings or scripts using [Engine Field](/docs/scripting/script-glossary/engine-fields) events.
 

@@ -13,7 +13,7 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 Cambiar el valor de un Campo del Motor.
 
 **Referencias**  
-[/docs/settings/#engine-settings](/docs/settings/#engine-settings)  
+[/docs/settings#engine-settings](/docs/settings#engine-settings)  
 <ScriptEventPreview title={"Actualizar Campo del Motor"} fields={[{"type":"engineField","label":"Campo del Motor","description":"El campo del motor para actualizar.","key":"engineFieldKey","defaultValue":"LAST_ENGINE_FIELD"},{"key":"value","type":"engineFieldValue","defaultValue":{"type":"number","value":0},"conditions":[{"key":"engineFieldKey","set":true}]}]} />
 
 - **Campo del Motor**: El campo del motor para actualizar.  
@@ -22,7 +22,7 @@ Cambiar el valor de un Campo del Motor.
 Guardar el valor de un Campo del Motor en una variable.
 
 **Referencias**  
-[/docs/settings/#engine-settings](/docs/settings/#engine-settings)  
+[/docs/settings#engine-settings](/docs/settings#engine-settings)  
 <ScriptEventPreview title={"Guardar Campo del Motor en Variable"} fields={[{"type":"engineField","label":"Campo del Motor","description":"El campo del motor para leer el valor.","key":"engineFieldKey","defaultValue":"LAST_ENGINE_FIELD"},{"key":"value","type":"variable","label":"Variable","description":"La variable a utilizar.","defaultValue":"LAST_VARIABLE","conditions":[{"key":"engineFieldKey","set":true}]}]} />
 
 - **Campo del Motor**: El campo del motor para leer el valor.  

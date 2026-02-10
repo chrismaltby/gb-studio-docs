@@ -10,7 +10,7 @@ You can add backgrounds to your game by including `.png` files in your project's
 
 ### Manual Palettes
 
-When a scene is using [manual palettes](/docs/project-editor/scenes#automatic-color), background PNGs must only contain the following four colors:
+When a scene is using [manual palettes](/docs/project-editor/scenes/color#automatic-color), background PNGs must only contain the following four colors:
 
 <Swatch color="#071821" description="Darkest" />
 <Swatch color="#306850" />
@@ -28,7 +28,7 @@ When assigning background color palettes for a scene, these colors map from Dark
 
 ### Automatic Palettes
 
-When a scene is using [automatic palettes](/docs/project-editor/scenes#automatic-color), you may provide color images as long as they obey the following rules:
+When a scene is using [automatic palettes](/docs/project-editor/scenes/color#automatic-color), you may provide color images as long as they obey the following rules:
 
 - Each `8px`x `8px` tile may use only 4 colors.
 - The scene can only contain a maximum of 8 unique 4-color palettes.
@@ -56,7 +56,7 @@ When using the `Color Only` color mode background tile limits are doubled, allow
 
 ## Monochrome Overrides
 
-When using [automatic palettes](/docs/project-editor/scenes#automatic-color), monochrome tile data is automatically generated from your color image. However, the generated shades may not perfectly match your intentions. For `Color Only` mode, this won't be an issue. If you plan to support monochrome devices, you can provide a second image as a monochrome override by naming it the same as your color image with a `.mono.png` file extension.
+When using [automatic palettes](/docs/project-editor/scenes/color#automatic-color), monochrome tile data is automatically generated from your color image. However, the generated shades may not perfectly match your intentions. For `Color Only` mode, this won't be an issue. If you plan to support monochrome devices, you can provide a second image as a monochrome override by naming it the same as your color image with a `.mono.png` file extension.
 
 For example, when using automatic palettes on the following image without an override:
 

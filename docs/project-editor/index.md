@@ -43,7 +43,7 @@ Scenes are not affected by _Erase mode_. To delete a scene either:
 
 ### Collision tool
 
-Allows you to [add collisions](/docs/project-editor/scenes#adding-collision-to-a-scene) to any type of scene using GB Studio's _Drawing mode_.
+Allows you to [add collisions](/docs/project-editor/scenes/collisions) to any type of scene using GB Studio's _Drawing mode_.
 
 ### Color tool
 

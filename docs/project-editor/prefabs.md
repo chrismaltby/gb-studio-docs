@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Prefabs
 
-Prefabs are reusable templates for [Actors](/docs/project-editor/actors.md) and [Triggers](/docs/project-editor/triggers.md).
+Prefabs are reusable templates for [Actors](/docs/project-editor/actors) and [Triggers](/docs/project-editor/triggers).
 
 If you find yourself adding the same enemies, pickups, doors, or cutscene triggers across multiple scenes, prefabs let you define them once and reuse them everywhere. When you edit the prefab later (for example to fix a script bug or update a sprite), all instances of that prefab update automatically.
 

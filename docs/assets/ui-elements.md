@@ -33,7 +33,7 @@ Download the GB Studio Palette Swatches for:
 
 ## Fonts
 
-Fonts are stored in `assets/fonts`, see [Settings](/docs/settings/#ui-elements--fonts) for more information.
+Fonts are stored in `assets/fonts`, see [Settings](/docs/settings#fonts) for more information.
 
 ## Emotes
 

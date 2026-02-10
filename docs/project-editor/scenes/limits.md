@@ -18,11 +18,11 @@ Each scene can have a maximum of 20 actors. Ideally, there should never be more 
 
 <img title="Actor limits" src="/img/screenshots/actor-limits.png" width="320" className="drop-shadow margin-bottom" />
 
-You can address this message by moving or deleting actors so no more than 10 will be seen in a 20 x 18 tile boundary. You can use the [Eraser Tool](/docs/getting-started/keyboard-shortcuts/#Game-World) to delete actors. Actors will still become invisible if more than 10 actors move into the screenspace after the scene starts.
+You can address this message by moving or deleting actors so no more than 10 will be seen in a 20 x 18 tile boundary. You can use the [Eraser Tool](/docs/getting-started/keyboard-shortcuts#game-world) to delete actors. Actors will still become invisible if more than 10 actors move into the screenspace after the scene starts.
 
 ## Trigger Limits
 
-Each scene can have a maximum of 30 triggers. You can use the [Eraser Tool](/docs/getting-started/keyboard-shortcuts/#Game-World) to delete triggers.
+Each scene can have a maximum of 30 triggers. You can use the [Eraser Tool](/docs/getting-started/keyboard-shortcuts#game-world) to delete triggers.
 
 ## Background and Sprite Tile Limits
 

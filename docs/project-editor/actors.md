@@ -34,7 +34,7 @@ Select a different actor, the scene, or the project to return the blacked-out vi
 
 Actors can be given a collision group in the _Editor Sidebar_. When enabled, the option to run scripts based on collisions will appear in the _Editor Sidebar_. To learn more about On Hit scripts, see the documentation for [Scripting](/docs/scripting).
 
-Additionally, depending on the currently selected [scene type](/docs/project-editor/scenes/types.md) you may have additional collision options for actors.
+Additionally, depending on the currently selected [scene type](/docs/project-editor/scenes/types) you may have additional collision options for actors.
 
 <img title="Collision flags" src="/img/screenshots/collision-flags.jpg" width="280" className="drop-shadow margin-bottom" />
 
@@ -59,4 +59,4 @@ For more information see the documentation for [Scripting](/docs/scripting).
 
 ## Limits
 
-There are limits to how actors and their sprites can be used in GB Studio. These limits are to make sure your game appears as intended, as well as to keep your actor logic running smoothly. The exact limits depend on the complexity of the background image used in your scene, see [Scenes](/docs/project-editor/scenes/#actor-limits) for more information.
+There are limits to how actors and their sprites can be used in GB Studio. These limits are to make sure your game appears as intended, as well as to keep your actor logic running smoothly. The exact limits depend on the complexity of the background image used in your scene, see [Scenes](/docs/project-editor/scenes/limits#actor-limits) for more information.

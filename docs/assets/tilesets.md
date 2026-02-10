@@ -2,7 +2,7 @@
 
 import { Swatch } from '@site/src/components/Swatch';
 
-Tilesets are used to provide additional tiles that can be used by your scenes using the [Replace Tile](/docs/scripting/script-glossary/scene#tiles) events and to allow creating seamless scene transitions by using [Common Tilesets](/docs/project-editor/scenes#common-tilesets).
+Tilesets are used to provide additional tiles that can be used by your scenes using the [Replace Tile](/docs/scripting/script-glossary/scene#tiles) events and to allow creating seamless scene transitions by using [Common Tilesets](/docs/project-editor/scenes/#common-tilesets).
 
 You can add tilesets to your game by including `.png` files in your project's `assets/tilesets` folder.
 
