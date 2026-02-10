@@ -256,6 +256,11 @@ VM_RPN
 ```gbvm
 .R_REF_MEM_SET TYP, ADDR
 ```
+### .R_REF_MEM_IND
+
+```gbvm
+.R_REF_MEM_IND TYP, ARG0
+```
 ### .R_OPERATOR
 
 ```gbvm
@@ -315,6 +320,20 @@ VM_IF_CONST CONDITION, IDXA, B, LABEL, N
 - **B**:  Immediate value to be compared with.  
 - **LABEL**:  Jump label when result is TRUE.  
 - **N**:  Number of values to be removed from stack after evaluating the condition.  
+
+### VM_ASM
+
+```gbvm
+VM_ASM
+```
+ Executes the inline native code  
+
+### VM_ENDASM
+
+```gbvm
+VM_ENDASM
+```
+ Terminates execution of the inline native code  
 
 ### VM_GET_UINT8
 
@@ -538,6 +557,97 @@ VM_ACTOR_MOVE_TO IDX
 `.ACTOR_ATTR_CHECK_COLL` - Respect collisions.  
 `.ACTOR_ATTR_DIAGONAL`   - Allow diagonal movement  
 
+### VM_ACTOR_MOVE_TO_INIT
+
+```gbvm
+VM_ACTOR_MOVE_TO_INIT IDX, ATTR
+```
+ Initialises moving actor to a new position. Handles calculating relative offsets, snapping and tile collision checks  
+- **IDX**:  points to the beginning of the pseudo-structure that contains these members:  
+`ID`   - Actor number.  
+`X`    - New X-coordinate of the actor.  
+`Y`    - New Y-coordinate of the actor.  
+- **ATTR**:  bit flags:  
+`.ACTOR_ATTR_H_FIRST`    - Move horizontal first.  
+`.ACTOR_ATTR_CHECK_COLL` - Respect collisions.  
+`.ACTOR_ATTR_DIAGONAL`   - Allow diagonal movement  
+
+### VM_ACTOR_MOVE_TO_X
+
+```gbvm
+VM_ACTOR_MOVE_TO_X IDX, ATTR
+```
+ Move actor to a new position along X-axis only.  
+- **IDX**:  points to the beginning of the pseudo-structure that contains these members:  
+`ID`   - Actor number.  
+`X`    - New X-coordinate of the actor.  
+`Y`    - New Y-coordinate of the actor.  
+- **ATTR**:  bit flags:  
+`.ACTOR_ATTR_H_FIRST`    - Move horizontal first.  
+`.ACTOR_ATTR_CHECK_COLL` - Respect collisions.  
+`.ACTOR_ATTR_DIAGONAL`   - Allow diagonal movement  
+
+### VM_ACTOR_MOVE_TO_Y
+
+```gbvm
+VM_ACTOR_MOVE_TO_Y IDX, ATTR
+```
+ Move actor to a new position along Y-axis only.  
+- **IDX**:  points to the beginning of the pseudo-structure that contains these members:  
+`ID`   - Actor number.  
+`X`    - New X-coordinate of the actor.  
+`Y`    - New Y-coordinate of the actor.  
+- **ATTR**:  bit flags:  
+`.ACTOR_ATTR_H_FIRST`    - Move horizontal first.  
+`.ACTOR_ATTR_CHECK_COLL` - Respect collisions.  
+`.ACTOR_ATTR_DIAGONAL`   - Allow diagonal movement  
+
+### VM_ACTOR_MOVE_TO_XY
+
+```gbvm
+VM_ACTOR_MOVE_TO_XY IDX, ATTR
+```
+ Move actor to a new position along both X and Y axes.  
+- **IDX**:  points to the beginning of the pseudo-structure that contains these members:  
+`ID`   - Actor number.  
+`X`    - New X-coordinate of the actor.  
+`Y`    - New Y-coordinate of the actor.  
+- **ATTR**:  bit flags:  
+`.ACTOR_ATTR_H_FIRST`    - Move horizontal first.  
+`.ACTOR_ATTR_CHECK_COLL` - Respect collisions.  
+`.ACTOR_ATTR_DIAGONAL`   - Allow diagonal movement  
+
+### VM_ACTOR_MOVE_TO_SET_DIR_X
+
+```gbvm
+VM_ACTOR_MOVE_TO_SET_DIR_X IDX
+```
+ Set actor direction to face towards X-axis destination. If actor is already at X-axis destination, direction is not changed.  
+- **IDX**:  points to the beginning of the pseudo-structure that contains these members:  
+`ID`   - Actor number.  
+`X`    - New X-coordinate of the actor.  
+`Y`    - New Y-coordinate of the actor.  
+
+### VM_ACTOR_MOVE_TO_SET_DIR_Y
+
+```gbvm
+VM_ACTOR_MOVE_TO_SET_DIR_Y IDX
+```
+ Set actor direction to face towards Y-axis destination. If actor is already at Y-axis destination, direction is not changed.  
+- **IDX**:  points to the beginning of the pseudo-structure that contains these members:  
+`ID`   - Actor number.  
+`X`    - New X-coordinate of the actor.  
+`Y`    - New Y-coordinate of the actor.  
+
+### VM_ACTOR_SET_ANIM_MOVING
+
+```gbvm
+VM_ACTOR_SET_ANIM_MOVING IDX
+```
+ Set actor to moving animation of current facing direction.  
+- **IDX**:  points to the beginning of the pseudo-structure that contains these members:  
+`ID`   - Actor number.  
+
 ### VM_ACTOR_MOVE_CANCEL
 
 ```gbvm
@@ -608,14 +718,15 @@ VM_ACTOR_EMOTE ACTOR, AVATAR_BANK, AVATAR
 ### VM_ACTOR_SET_BOUNDS
 
 ```gbvm
-VM_ACTOR_SET_BOUNDS ACTOR, LEFT, RIGHT, TOP, BOTTOM
+VM_ACTOR_SET_BOUNDS IDX
 ```
  Sets actor bounding box.  
-- **ACTOR**:  Variable that contains the actor number.  
-- **LEFT**:  Left boundary of the bounding box.  
-- **RIGHT**:  Right boundary of the bounding box.  
-- **TOP**:  Top boundary of the bounding box.  
-- **BOTTOM**:  Bottom boundary of the bounding box.  
+- **IDX**:  points to the beginning of the pseudo-structure that contains these members:  
+`ID`     - Actor number.  
+`LEFT`   - New left boundary of the bounding box.  
+`RIGHT`  - New right boundary of the bounding box.  
+`TOP`    - New top boundary of the bounding box.  
+`BOTTOM` - New bottom boundary of the bounding box.  
 
 ### VM_ACTOR_SET_SPRITESHEET
 
@@ -1068,24 +1179,30 @@ VM_MUSIC_MUTE MASK
  Mutes/unmutes music channels.  
 - **MASK**:  Mute Mask. The 4 lower bits represent the 4 audio channels.  
   
-| `MASK`   | Channel 1 | Channel 2 | Channel 3 | Channel 4 |  
+It is possible to use channel definitions as follows:  
+  
+VM_MUSIC_MUTE ^/(.MUTE_DUTY1 | .MUTE_NOISE)/  
+  
+That is muting music on the DUTY 1 and NOISE channels. Alternatively, you may pick the MASK value from the table below for the required combination:  
+  
+| `MASK`   | `Noise`   | `Wave`    | `Duty 2`  | `Duty 1`  |  
 | -------- | --------- | --------- | --------- | --------- |  
-| `0b0000` | Muted     | Muted     | Muted     | Muted     |  
-| `0b0001` | Muted     | Muted     | Muted     | Not Muted |  
-| `0b0010` | Muted     | Muted     | Not Muted | Muted     |  
-| `0b0011` | Muted     | Muted     | Not Muted | Not Muted |  
-| `0b0100` | Muted     | Not Muted | Muted     | Muted     |  
-| `0b0101` | Muted     | Not Muted | Muted     | Not Muted |  
-| `0b0110` | Muted     | Not Muted | Not Muted | Muted     |  
-| `0b0111` | Muted     | Not Muted | Not Muted | Not Muted |  
-| `0b1000` | Not Muted | Muted     | Muted     | Muted     |  
-| `0b1001` | Not Muted | Muted     | Muted     | Not Muted |  
-| `0b1010` | Not Muted | Muted     | Not Muted | Muted     |  
-| `0b1011` | Not Muted | Muted     | Not Muted | Not Muted |  
-| `0b1100` | Not Muted | Not Muted | Muted     | Muted     |  
-| `0b1101` | Not Muted | Not Muted | Muted     | Not Muted |  
-| `0b1110` | Not Muted | Not Muted | Not Muted | Muted     |  
-| `0b1111` | Not Muted | Not Muted | Not Muted | Not Muted |  
+| `0b0000` | Not muted | Not muted | Not muted | Not muted |  
+| `0b0001` | Not muted | Not muted | Not muted | Muted     |  
+| `0b0010` | Not muted | Not muted | Muted     | Not muted |  
+| `0b0011` | Not muted | Not muted | Muted     | Muted     |  
+| `0b0100` | Not muted | Muted     | Not muted | Not muted |  
+| `0b0101` | Not muted | Muted     | Not muted | Muted     |  
+| `0b0110` | Not muted | Muted     | Muted     | Not muted |  
+| `0b0111` | Not muted | Muted     | Muted     | Muted     |  
+| `0b1000` | Muted     | Not muted | Not muted | Not muted |  
+| `0b1001` | Muted     | Not muted | Not muted | Muted     |  
+| `0b1010` | Muted     | Not muted | Muted     | Not muted |  
+| `0b1011` | Muted     | Not muted | Muted     | Muted     |  
+| `0b1100` | Muted     | Muted     | Not muted | Not muted |  
+| `0b1101` | Muted     | Muted     | Not muted | Muted     |  
+| `0b1110` | Muted     | Muted     | Muted     | Not muted |  
+| `0b1111` | Muted     | Muted     | Muted     | Muted     |  
 
 ### VM_SOUND_MASTERVOL
 
@@ -1113,7 +1230,7 @@ VM_SFX_PLAY BANK, ADDR, MASK, PRIO
  Plays a sound effect asset.  
 - **BANK**:  Bank number of the effect.  
 - **ADDR**:  Address of the effect.  
-- **MASK**:  Mute mask of the effect.  
+- **MASK**:  Mute mask of the effect, same as in VM_MUSIC_MUTE.  
 - **PRIO**:  Priority of the sound effect. Effects with higher priority will cancel the ones with less priority:  
 `.SFX_PRIORITY_MINIMAL` - Minmium priority for playback.  
 `.SFX_PRIORITY_NORMAL`  - Normal priority for playback.  
@@ -1141,17 +1258,15 @@ VM_PROJECTILE_LAUNCH TYPE, IDX
 `pos.x` - X position to launch from.  
 `pos.y` - Y position to launch from.  
 `angle` - Projectile angle or direction.  
-`flags` - Flags:  
-`.PROJECTILE_STRONG` - Do not destroy projectile on collision.  
-`.PROJECTILE_ANIM_ONCE` - Do not loop projectile animation.  
 
 ### VM_PROJECTILE_LOAD_TYPE
 
 ```gbvm
-VM_PROJECTILE_LOAD_TYPE TYPE, BANK, ADDR
+VM_PROJECTILE_LOAD_TYPE DEST_TYPE, SRC_TYPE, BANK, ADDR
 ```
  Loads projectile into a slot for VM_PROJECTILE_LAUNCH.  
-- **TYPE**:  Slot number to load into.  
+- **DEST_TYPE**:  Slot number to load into.  
+- **SRC_TYPE**:  Slot number to load from.  
 - **BANK**:  Bank number of projectile data to load.  
 - **ADDR**:  Projectile data to load.  
 
@@ -1391,7 +1506,7 @@ The text string can contain escape sequences that modify the behavior or appeara
 * `\004\x\y` Sets the position for the next character relative to the last character.  
 * `\005` Escapes the next character.  
 * `\006\mask` Waits for input to continue to the next character.  
-* `\007\n` Inverts the colors of the following characters. `\007\002` enables inverted colors, `\007\001` disables them. (Only supported when using a 2-color variable width font)
+* `\007\n` Inverts the colors of the following characters. `\007\002` enables inverted colors, `\007\001` disables them.  
 * `\010\x` Switches between left to right (`x` = `01`) and right to left (`x` = `02`) printing.  
 * `\011` Zero width symbol.  
 * `\n` Next line.  
@@ -1441,6 +1556,16 @@ VM_OVERLAY_SETPOS X, Y
 VM_OVERLAY_HIDE
 ```
  Hides the overlay window.  
+
+### VM_LOAD_TEXT_EX
+
+```gbvm
+VM_LOAD_TEXT_EX N
+```
+ Loads text in memory similar to VM_LOAD_TEXT but expect parameters on the VM stack, then pop N parameters  
+.ARG0 -- bank of the format string and the arguments array  
+.ARG1 -- address of the format string  
+format string parameters start from .ARG2 (varargs)  
 
 ### VM_OVERLAY_WAIT
 

@@ -9,21 +9,29 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Stoper
 
-### Stały
+### Bezczynność
 Polecenie zatrzyma wykonanie skryptu na pojedyńczą klatkę.
-<ScriptEventPreview title={"Stały"} fields={[{"label":"Czekaj na kolejną klatkę"}]} />
+<ScriptEventPreview title={"Bezczynność"} fields={[{"label":"Czekaj na kolejną klatkę"}]} />
 
+
+### Ograniczenie częstotliwości
+Ogranicza, jak często ten skrypt może być uruchamiany. Jeśli zostanie wywołany ponownie przed upływem limitu czasu, jego wykonanie zostanie pominięte.
+<ScriptEventPreview title={"Ograniczenie częstotliwości"} fields={[{"key":"variable","label":"Zmienna następnego wywołania","description":"Zmienna przechowująca najbliższy moment (w klatkach), w którym ten skrypt może zostać ponownie wywołany.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"time","label":"Interwał czasu","description":"Minimalny czas oczekiwania między kolejnymi wywołaniami tego skryptu.","type":"value","min":0,"max":60,"step":0.1,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"defaultValue":{"type":"number","value":0.5},"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Interwał czasu","description":"Minimalny czas oczekiwania między kolejnymi wywołaniami tego skryptu.","type":"value","min":0,"max":3600,"width":"50%","unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"defaultValue":{"type":"number","value":1},"conditions":[{"key":"units","eq":"frames"}]},{"key":"true","label":"Ograniczeniem częstotliwości","description":"Skrypt, którego częstotliwość wywołań będzie ograniczona","type":"events"}]} />
+
+- **Zmienna następnego wywołania**: Zmienna przechowująca najbliższy moment (w klatkach), w którym ten skrypt może zostać ponownie wywołany.  
+- **Interwał czasu**: Minimalny czas oczekiwania między kolejnymi wywołaniami tego skryptu.  
+- **Ograniczeniem częstotliwości**: Skrypt, którego częstotliwość wywołań będzie ograniczona  
 
 ### Czekaj
 Wstrzymanie wykonywanie skryptu na określony czas.
-<ScriptEventPreview title={"Czekaj"} fields={[{"type":"group","fields":[{"key":"time","type":"number","label":"Czas trwania","description":"Czas wstrzymania skryptu w sekundach lub klatkach.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Czas trwania","description":"Czas wstrzymania skryptu w sekundach lub klatkach.","type":"number","min":0,"max":3600,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]}]}]} />
+<ScriptEventPreview title={"Czekaj"} fields={[{"key":"time","label":"Czas trwania","description":"Czas wstrzymania skryptu w sekundach lub klatkach.","type":"value","min":0,"max":60,"step":0.1,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"defaultValue":{"type":"number","value":0.5},"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Czas trwania","description":"Czas wstrzymania skryptu w sekundach lub klatkach.","type":"value","min":0,"max":3600,"width":"50%","unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"defaultValue":{"type":"number","value":1},"conditions":[{"key":"units","eq":"frames"}]}]} />
 
 - **Czas trwania**: Czas wstrzymania skryptu w sekundach lub klatkach.  
 
 ## Script
 ### Stoper: ustaw stoper
 Polecenie uruchomi określony skrypt wielokrotnie po upływie określonego czasu. Skrypt będzie działał w tle, dopóki nie zostanie wywołane polecenie usuń stoper lub scena zostanie zmieniona za pomocą polecenia zmień scenę.
-<ScriptEventPreview title={"Stoper: ustaw stoper"} fields={[{"key":"timer","label":"Czas","description":"Czas, który należy zmodyfikować. Każda scena może użwać do czterech czasów jednocześnie.","type":"togglebuttons","options":[[1,"1","Czas 1"],[2,"2","Czas 2"],[3,"3","Czas 3"],[4,"4","Czas 4"]],"allowNone":false,"defaultValue":1},{"type":"group","fields":[{"key":"duration","type":"number","label":"Interwał czasu","description":"Czas oczekiwania przed każdym uruchomieniem skryptu.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Interwał czasu","description":"Czas oczekiwania przed każdym uruchomieniem skryptu.","type":"number","min":0,"max":3600,"step":16,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]}]},{"key":"__scriptTabs","type":"tabs","defaultValue":"end","values":{"end":"Na tyknięcie"}},{"key":"script","label":"Na tyknięcie","description":"Skrypt do wykonania, gdy stoper zostanie uruchomiony..","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"end"]}]}]} />
+<ScriptEventPreview title={"Stoper: ustaw stoper"} fields={[{"key":"timer","label":"Czas","description":"Czas, który należy zmodyfikować. Każda scena może użwać do czterech czasów jednocześnie.","type":"togglebuttons","options":[[1,"1","Czas 1"],[2,"2","Czas 2"],[3,"3","Czas 3"],[4,"4","Czas 4"]],"allowNone":false,"defaultValue":1},{"type":"group","fields":[{"key":"duration","type":"number","label":"Interwał czasu","description":"Czas oczekiwania przed każdym uruchomieniem skryptu.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Interwał czasu","description":"Czas oczekiwania przed każdym uruchomieniem skryptu.","type":"number","min":0,"max":3600,"step":16,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]}]},{"key":"__scriptTabs","type":"tabs","defaultValue":"end","values":{"end":"Na tyknięcie"}},{"key":"script","label":"Na tyknięcie","description":"Skrypt do wykonania, gdy stoper zostanie uruchomiony..","type":"events","allowedContexts":["global","entity","prefab"],"conditions":[{"key":"__scriptTabs","in":[null,"end"]}]}]} />
 
 - **Czas**: Czas, który należy zmodyfikować. Każda scena może użwać do czterech czasów jednocześnie.  
 - **Interwał czasu**: Czas oczekiwania przed każdym uruchomieniem skryptu.  

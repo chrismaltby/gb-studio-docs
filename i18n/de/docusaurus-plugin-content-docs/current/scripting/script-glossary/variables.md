@@ -9,60 +9,60 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Variablen
 
-### Variable: Auf Wert Setzen
+### Variable: Auf Wert setzen
 Setzt den Wert einer bestimmten Variable auf einen festgelegten Wert.
-<ScriptEventPreview title={"Variable: Auf Wert Setzen"} fields={[{"key":"variable","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE","flexBasis":0,"minWidth":150},{"key":"value","label":"Wert","description":"Der Wert auf den die gewählte Variable gesetzt werden soll.","type":"value","defaultValue":{"type":"number","value":0}}]} />
+<ScriptEventPreview title={"Variable: Auf Wert setzen"} fields={[{"key":"variable","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE","flexBasis":0,"minWidth":150},{"key":"value","label":"Wert","description":"Der Wert auf den die gewählte Variable gesetzt werden soll.","type":"value","defaultValue":{"type":"number","value":0}}]} />
 
 - **Variable**: Die zu nutzende Variable.  
 - **Wert**: Der Wert auf den die gewählte Variable gesetzt werden soll.  
 
 ## Actor
-### Darsteller: Blickrichtung In Variablen Speichern
-Store the current direction of an actor within a variable.
-<ScriptEventPreview title={"Darsteller: Blickrichtung In Variablen Speichern"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Variable","description":"Die als Richtung zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
+### Akteur-Blickrichtung in Variable speichern
+Speichert die aktuelle Richtung eines Akteurs in einer Variable.
+<ScriptEventPreview title={"Akteur-Blickrichtung in Variable speichern"} fields={[{"key":"actorId","label":"Akteur","description":"Der zu überprüfende Akteur.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Variable","description":"Die als Richtung zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
 
-- **Darsteller**: Der zu überprüfende Darsteller.  
+- **Akteur**: Der zu überprüfende Akteur.  
 - **Variable**: Die als Richtung zu nutzende Variable.  
 
-### Darsteller: Position In Variablen Speichern
-Store the current position of an actor within two variables, one to store the horizontal position and another to store the vertical position.
-<ScriptEventPreview title={"Darsteller: Position In Variablen Speichern"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"vectorX","type":"variable","label":"X","description":"Die als horizontale Position zu nutzende Variable.","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"vectorY","type":"variable","label":"Y","description":"Die als vertikale Position zu nutzende Variable.","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]}]} />
+### Akteurposition in Variablen speichern
+Speichert die aktuelle Position eines Akteurs in zwei Variablen. Eine für die vertikale, die andere für die horizontale Position.
+<ScriptEventPreview title={"Akteurposition in Variablen speichern"} fields={[{"key":"actorId","label":"Akteur","description":"Der zu überprüfende Akteur.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"vectorX","type":"variable","label":"X","description":"Die als horizontale Position zu nutzende Variable.","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"vectorY","type":"variable","label":"Y","description":"Die als vertikale Position zu nutzende Variable.","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]}]} />
 
-- **Darsteller**: Der zu überprüfende Darsteller.  
+- **Akteur**: Der zu überprüfende Akteur.  
 - **X**: Die als horizontale Position zu nutzende Variable.  
 - **Y**: Die als vertikale Position zu nutzende Variable.  
 
 ## Boolean
-### Variable: Auf 'Falsch' Setzen
-Setzt den Wert einer bestimmten Variable auf 'Falsch'.
-<ScriptEventPreview title={"Variable: Auf 'Falsch' Setzen"} fields={[{"key":"variable","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE","flexBasis":0,"minWidth":150},{"key":"value","label":"Wert","description":"Der Wert auf den die gewählte Variable gesetzt werden soll.","type":"value","defaultValue":{"type":"false"}}]} />
+### Variable: Auf 'falsch' setzen
+Setzt den Wert einer bestimmten Variable auf 'falsch'.
+<ScriptEventPreview title={"Variable: Auf 'falsch' setzen"} fields={[{"key":"variable","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE","flexBasis":0,"minWidth":150},{"key":"value","label":"Wert","description":"Der Wert auf den die gewählte Variable gesetzt werden soll.","type":"value","defaultValue":{"type":"false"}}]} />
 
 - **Variable**: Die zu nutzende Variable.  
 - **Wert**: Der Wert auf den die gewählte Variable gesetzt werden soll.  
 
-### Variable: Auf 'Wahr' Setzen
-Setzt den Wert einer bestimmten Variable auf 'Wahr'.
-<ScriptEventPreview title={"Variable: Auf 'Wahr' Setzen"} fields={[{"key":"variable","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE","flexBasis":0,"minWidth":150},{"key":"value","label":"Wert","description":"Der Wert auf den die gewählte Variable gesetzt werden soll.","type":"value","defaultValue":{"type":"true"}}]} />
+### Variable: Auf 'wahr' setzen
+Setzt den Wert einer bestimmten Variable auf 'wahr'.
+<ScriptEventPreview title={"Variable: Auf 'wahr' setzen"} fields={[{"key":"variable","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE","flexBasis":0,"minWidth":150},{"key":"value","label":"Wert","description":"Der Wert auf den die gewählte Variable gesetzt werden soll.","type":"value","defaultValue":{"type":"true"}}]} />
 
 - **Variable**: Die zu nutzende Variable.  
 - **Wert**: Der Wert auf den die gewählte Variable gesetzt werden soll.  
 
 ## Control Flow
-### Falls Variable Mit Wert Verglichen
+### Wenn Variable mit Wert verglichen
 Einen Teil des Skripts bedingt ausführen, wenn die angegebene Variable einem bestimmten Wert entspricht.
-<ScriptEventPreview title={"Falls Variable Mit Wert Verglichen"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":0}}},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"Wenn Variable mit Wert verglichen"} fields={[{"key":"condition","label":"Bedingung","description":"Die auszuwertende Bedingung","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":0}}},{"key":"true","label":"'wahr'","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Sonst","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"'falsch'","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Condition**: The condition to evaluate.  
-- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
-- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+- **Bedingung**: Die auszuwertende Bedingung  
+- **'wahr'**: Das bei wahrer Bedingung auszuführende Skript.  
+- **'falsch'**: Das bei falscher Bedingung auszuführende Skript.  
 
-### Falls Variable mit Variable Verglichen
+### Wenn Variable mit Variable verglichen
 Einen Teil des Skripts bedingt ausführen, wenn die angegebene Variable dem Wert einer anderen Variable entspricht.
-<ScriptEventPreview title={"Falls Variable mit Variable Verglichen"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"variable","value":"LAST_VARIABLE"}}},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"Wenn Variable mit Variable verglichen"} fields={[{"key":"condition","label":"Bedingung","description":"Die auszuwertende Bedingung","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"variable","value":"LAST_VARIABLE"}}},{"key":"true","label":"'wahr'","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Sonst","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"'falsch'","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Condition**: The condition to evaluate.  
-- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
-- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+- **Bedingung**: Die auszuwertende Bedingung  
+- **'wahr'**: Das bei wahrer Bedingung auszuführende Skript.  
+- **'falsch'**: Das bei falscher Bedingung auszuführende Skript.  
 
 ## Counter
 ### Variable: Um 1 verringern
@@ -79,83 +79,83 @@ Erhöht den Wert der angegebenen Variable um eins.
 
 ## Engine Fields
 ### Engine: Einstellungen in Variable speichern
-Store the value of an Engine Field in a variable.
+Den Wert eines Engine-Feldes in einer Variable speichern.
 
 **Referenzen**  
 [/docs/settings/#engine-settings](/docs/settings/#engine-settings)  
-<ScriptEventPreview title={"Engine: Einstellungen in Variable speichern"} fields={[{"type":"engineField","label":"Engine Einstellung","description":"Die Engineeinstellung, deren Wert gelesen wird.","key":"engineFieldKey"},{"key":"value","type":"variable","label":"Variable","description":"Die zu nutzende Variable.","defaultValue":"LAST_VARIABLE","conditions":[{"key":"engineFieldKey","set":true}]}]} />
+<ScriptEventPreview title={"Engine: Einstellungen in Variable speichern"} fields={[{"type":"engineField","label":"Engine-Feld","description":"Das Engine-Feld, deren Wert gelesen wird.","key":"engineFieldKey","defaultValue":"LAST_ENGINE_FIELD"},{"key":"value","type":"variable","label":"Variable","description":"Die zu nutzende Variable.","defaultValue":"LAST_VARIABLE","conditions":[{"key":"engineFieldKey","set":true}]}]} />
 
-- **Engine Einstellung**: Die Engineeinstellung, deren Wert gelesen wird.  
+- **Engine-Feld**: Das Engine-Feld, deren Wert gelesen wird.  
 - **Variable**: Die zu nutzende Variable.  
 
 ## Flags
-### Variable: Flags hinzufügen
-Set selected flags to true on a variable. All unselected flags will keep their previous value.
-<ScriptEventPreview title={"Variable: Flags hinzufügen"} fields={[{"key":"variable","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flag 1","description":"Setze flag 1 auf wahr.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flag 2","description":"Setze flag 2 auf wahr.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flag 3","description":"Setze flag 3 auf wahr.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flag 4","description":"Setze flag 4 auf wahr.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flag 5","description":"Setze flag 5 auf wahr.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flag 6","description":"Setze flag 6 auf wahr.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flag 7","description":"Setze flag 7 auf wahr.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flag 8","description":"Setze flag 8 auf wahr.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flag 9","description":"Setze flag 9 auf wahr.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flag 10","description":"Setze flag 10 auf wahr.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flag 11","description":"Setze flag 11 auf wahr.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flag 12","description":"Setze flag 12 auf wahr.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flag 13","description":"Setze flag 13 auf wahr.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flag 14","description":"Setze flag 14 auf wahr.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flag 15","description":"Setze flag 15 auf wahr.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flag 16","description":"Setze flag 16 auf wahr.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false}]} />
+### Variable Flags hinzufügen
+Ausgewählte Flags einer Variablen auf 'wahr' setzen. Alle nicht ausgewählten Flags behalten ihren vorherigen Wert.
+<ScriptEventPreview title={"Variable Flags hinzufügen"} fields={[{"key":"variable","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Kennzeichen 1","description":"Kennzeichen 1 auf 'wahr' setzen.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Kennzeichen 2","description":"Kennzeichen 2 auf 'wahr' setzen.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Kennzeichen 3","description":"Kennzeichen 3 auf 'wahr' setzen.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Kennzeichen 4","description":"Kennzeichen 4 auf 'wahr' setzen.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Kennzeichen 5","description":"Kennzeichen 5 auf 'wahr' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Kennzeichen 6","description":"Kennzeichen 6 auf 'wahr' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Kennzeichen 7","description":"Kennzeichen 7 auf 'wahr' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Kennzeichen 8","description":"Kennzeichen 8 auf 'wahr' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Kennzeichen 9","description":"Kennzeichen 9 auf 'wahr' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Kennzeichen 10","description":"Kennzeichen 10 auf 'wahr' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Kennzeichen 11","description":"Kennzeichen 11 auf 'wahr' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Kennzeichen 12","description":"Kennzeichen 12 auf 'wahr' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Kennzeichen 13","description":"Kennzeichen 13 auf 'wahr' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Kennzeichen 14","description":"Kennzeichen 14 auf 'wahr' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Kennzeichen 15","description":"Kennzeichen 15 auf 'wahr' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Kennzeichen 16","description":"Kennzeichen 16 auf 'wahr' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false}]} />
 
 - **Variable**: Die zu nutzende Variable.  
-- **Flag 1**: Setze flag 1 auf wahr.  
-- **Flag 2**: Setze flag 2 auf wahr.  
-- **Flag 3**: Setze flag 3 auf wahr.  
-- **Flag 4**: Setze flag 4 auf wahr.  
+- **Kennzeichen 1**: Kennzeichen 1 auf 'wahr' setzen.  
+- **Kennzeichen 2**: Kennzeichen 2 auf 'wahr' setzen.  
+- **Kennzeichen 3**: Kennzeichen 3 auf 'wahr' setzen.  
+- **Kennzeichen 4**: Kennzeichen 4 auf 'wahr' setzen.  
 
 ### Variable: Flags leeren
-Set selected flags to false on a variable. All unselected flags will keep their previous value.
-<ScriptEventPreview title={"Variable: Flags leeren"} fields={[{"key":"variable","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flag 1","description":"Setze flag 1 auf falsch.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flag 2","description":"Setze flag 2 auf falsch.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flag 3","description":"Setze flag 3 auf falsch.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flag 4","description":"Setze flag 4 auf falsch.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flag 5","description":"Setze flag 5 auf falsch.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flag 6","description":"Setze flag 6 auf falsch.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flag 7","description":"Setze flag 7 auf falsch.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flag 8","description":"Setze flag 8 auf falsch.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flag 9","description":"Setze flag 9 auf falsch.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flag 10","description":"Setze flag 10 auf falsch.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flag 11","description":"Setze flag 11 auf falsch.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flag 12","description":"Setze flag 12 auf falsch.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flag 13","description":"Setze flag 13 auf falsch.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flag 14","description":"Setze flag 14 auf falsch.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flag 15","description":"Setze flag 15 auf falsch.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flag 16","description":"Setze flag 16 auf falsch.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false}]} />
+Ausgewählte Flags einer Variablen auf 'falsch' setzen. Alle nicht ausgewählten Flags behalten ihren vorherigen Wert.
+<ScriptEventPreview title={"Variable: Flags leeren"} fields={[{"key":"variable","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Kennzeichen 1","description":"Kennzeichen 1 auf 'falsch' setzen.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Kennzeichen 2","description":"Kennzeichen 2 auf 'falsch' setzen.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Kennzeichen 3","description":"Kennzeichen 3 auf 'falsch' setzen.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Kennzeichen 4","description":"Kennzeichen 4 auf 'falsch' setzen.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Kennzeichen 5","description":"Kennzeichen 5 auf 'falsch' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Kennzeichen 6","description":"Kennzeichen 6 auf 'falsch' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Kennzeichen 7","description":"Kennzeichen 7 auf 'falsch' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Kennzeichen 8","description":"Kennzeichen 8 auf 'falsch' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Kennzeichen 9","description":"Kennzeichen 9 auf 'falsch' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Kennzeichen 10","description":"Kennzeichen 10 auf 'falsch' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Kennzeichen 11","description":"Kennzeichen 11 auf 'falsch' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Kennzeichen 12","description":"Kennzeichen 12 auf 'falsch' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Kennzeichen 13","description":"Kennzeichen 13 auf 'falsch' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Kennzeichen 14","description":"Kennzeichen 14 auf 'falsch' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Kennzeichen 15","description":"Kennzeichen 15 auf 'falsch' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Kennzeichen 16","description":"Kennzeichen 16 auf 'falsch' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false}]} />
 
 - **Variable**: Die zu nutzende Variable.  
-- **Flag 1**: Setze flag 1 auf falsch.  
-- **Flag 2**: Setze flag 2 auf falsch.  
-- **Flag 3**: Setze flag 3 auf falsch.  
-- **Flag 4**: Setze flag 4 auf falsch.  
+- **Kennzeichen 1**: Kennzeichen 1 auf 'falsch' setzen.  
+- **Kennzeichen 2**: Kennzeichen 2 auf 'falsch' setzen.  
+- **Kennzeichen 3**: Kennzeichen 3 auf 'falsch' setzen.  
+- **Kennzeichen 4**: Kennzeichen 4 auf 'falsch' setzen.  
 
-### Variable: Flags setzen
-Set the value of a variable by enabling individual bits of the 16-bit number. Allows 16 true/false values to be stored within a single variable. Setting the flags will replace the previous value of the variable.
-<ScriptEventPreview title={"Variable: Flags setzen"} fields={[{"key":"variable","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Flag 1","description":"Setze flag 1 auf wahr.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Flag 2","description":"Setze flag 2 auf wahr.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Flag 3","description":"Setze flag 3 auf wahr.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Flag 4","description":"Setze flag 4 auf wahr.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Flag 5","description":"Setze flag 5 auf wahr.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Flag 6","description":"Setze flag 6 auf wahr.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Flag 7","description":"Setze flag 7 auf wahr.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Flag 8","description":"Setze flag 8 auf wahr.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Flag 9","description":"Setze flag 9 auf wahr.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Flag 10","description":"Setze flag 10 auf wahr.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Flag 11","description":"Setze flag 11 auf wahr.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Flag 12","description":"Setze flag 12 auf wahr.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Flag 13","description":"Setze flag 13 auf wahr.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Flag 14","description":"Setze flag 14 auf wahr.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Flag 15","description":"Setze flag 15 auf wahr.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Flag 16","description":"Setze flag 16 auf wahr.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false}]} />
+### Variable Flags festlegen
+Den Wert einer Variablen festlegen, indem einzelne Bits der 16-Bit-Zahl aktiviert werden. Ermöglicht die Speicherung von 16 wahr/falsch-Werten in einer einzigen Variablen. Durch das Setzen der Flags wird der vorherige Wert der Variablen ersetzt.
+<ScriptEventPreview title={"Variable Flags festlegen"} fields={[{"key":"variable","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"break"},{"key":"flag1","label":"Kennzeichen 1","description":"Kennzeichen 1 auf 'wahr' setzen.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag2","label":"Kennzeichen 2","description":"Kennzeichen 2 auf 'wahr' setzen.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag3","label":"Kennzeichen 3","description":"Kennzeichen 3 auf 'wahr' setzen.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag4","label":"Kennzeichen 4","description":"Kennzeichen 4 auf 'wahr' setzen.","hideFromDocs":false,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag5","label":"Kennzeichen 5","description":"Kennzeichen 5 auf 'wahr' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag6","label":"Kennzeichen 6","description":"Kennzeichen 6 auf 'wahr' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag7","label":"Kennzeichen 7","description":"Kennzeichen 7 auf 'wahr' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag8","label":"Kennzeichen 8","description":"Kennzeichen 8 auf 'wahr' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag9","label":"Kennzeichen 9","description":"Kennzeichen 9 auf 'wahr' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag10","label":"Kennzeichen 10","description":"Kennzeichen 10 auf 'wahr' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag11","label":"Kennzeichen 11","description":"Kennzeichen 11 auf 'wahr' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag12","label":"Kennzeichen 12","description":"Kennzeichen 12 auf 'wahr' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag13","label":"Kennzeichen 13","description":"Kennzeichen 13 auf 'wahr' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag14","label":"Kennzeichen 14","description":"Kennzeichen 14 auf 'wahr' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag15","label":"Kennzeichen 15","description":"Kennzeichen 15 auf 'wahr' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false},{"key":"flag16","label":"Kennzeichen 16","description":"Kennzeichen 16 auf 'wahr' setzen.","hideFromDocs":true,"type":"flag","width":"50%","flexBasis":"40%","defaultValue":false}]} />
 
 - **Variable**: Die zu nutzende Variable.  
-- **Flag 1**: Setze flag 1 auf wahr.  
-- **Flag 2**: Setze flag 2 auf wahr.  
-- **Flag 3**: Setze flag 3 auf wahr.  
-- **Flag 4**: Setze flag 4 auf wahr.  
+- **Kennzeichen 1**: Kennzeichen 1 auf 'wahr' setzen.  
+- **Kennzeichen 2**: Kennzeichen 2 auf 'wahr' setzen.  
+- **Kennzeichen 3**: Kennzeichen 3 auf 'wahr' setzen.  
+- **Kennzeichen 4**: Kennzeichen 4 auf 'wahr' setzen.  
 
 ## Math
-### Matheausdruck auswerten
-Set a variable to the result of evaluating a math expression.
+### Mathematischen Ausdruck auswerten
+Eine Variable auf das Ergebnis der Auswertung eines mathematischen Ausdrucks setzen.
 
 **Referenzen**  
 [/docs/scripting/math-expressions](/docs/scripting/math-expressions)  
-<ScriptEventPreview title={"Matheausdruck auswerten"} fields={[{"key":"variable","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Ausdruck","description":"Der auszuwertende Ausdruck.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
+<ScriptEventPreview title={"Mathematischen Ausdruck auswerten"} fields={[{"key":"variable","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Ausdruck","description":"Der auszuwertende Ausdruck.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
 
 - **Variable**: Die zu nutzende Variable.  
 - **Ausdruck**: Der auszuwertende Ausdruck.  
 
-### Variable: Mathematische Funktionen
-Allows you to perform various maths functions on a variable to add/subtract/multiply/divide/modulus a value/variable/random number.
-<ScriptEventPreview title={"Variable: Mathematische Funktionen"} fields={[{"key":"vectorX","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operation","label":"Operation","description":"Die Operation, die zur Änderung des Variablenwerts verwendet werden soll.","type":"select","options":[["set","Einstellen"],["add","Hinzufügen"],["sub","Subtrahieren"],["mul","Multiplizieren"],["div","Teilen"],["mod","Modulo"]],"defaultValue":"set","width":"50%"},{"key":"other","label":"Wert","description":"Der Wert, der mit der Variablen durch die gewählte Operation kombiniert werden soll.","type":"select","options":[["true","Wahr"],["false","Falsch"],["var","Variable"],["val","Wert"],["rnd","Zufällig"]],"defaultValue":"true","width":"50%"},{"key":"vectorY","type":"variable","conditions":[{"key":"other","eq":"var"}],"defaultValue":"LAST_VARIABLE"},{"key":"value","type":"number","conditions":[{"key":"other","eq":"val"}],"min":-32768,"max":32767,"defaultValue":"0"},{"type":"group","fields":[{"key":"minValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Minimaler Wert","description":"Der minimale Wert für den Zufallsbereich.","hideFromDocs":true,"defaultValue":"0","width":"50%"},{"key":"maxValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Maximaler Wert","description":"Der maximale Wert für den Zufallsbereich.","hideFromDocs":true,"defaultValue":"32767","width":"50%"}]},{"key":"clamp","type":"checkbox","label":"Klammerwert zwischen 0 und 255","hideFromDocs":true,"conditions":[{"key":"operation","in":["add","sub","mul"]}],"defaultValue":false}]} />
+### Mathematische Funktionen
+Erlaubt es dir, verschiedene mathematische Funktionen auf einer Variable auszuführen, um ein Wert/Variable/Zufallszahl zu addieren/subtrahieren/multiplizieren/dividieren bzw. den Modulus zu berechnen.
+<ScriptEventPreview title={"Mathematische Funktionen"} fields={[{"key":"vectorX","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operation","label":"Operation","description":"Die Operation, die zur Änderung des Variablenwerts verwendet werden soll.","type":"select","options":[["set","Eingestellt auf"],["add","Hinzufügen"],["sub","Subtrahieren"],["mul","Multiplizieren"],["div","Teilen"],["mod","Modulus"]],"defaultValue":"set","width":"50%"},{"key":"other","label":"Wert","description":"Der Wert, der mit der Variable durch die gewählte Operation kombiniert werden soll.","type":"select","options":[["true","'wahr'"],["false","'falsch'"],["var","Variable"],["val","Wert"],["rnd","Zufällig"]],"defaultValue":"true","width":"50%"},{"key":"vectorY","type":"variable","conditions":[{"key":"other","eq":"var"}],"defaultValue":"LAST_VARIABLE"},{"key":"value","type":"number","conditions":[{"key":"other","eq":"val"}],"min":-32768,"max":32767,"defaultValue":"0"},{"type":"group","fields":[{"key":"minValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Mindestwert","description":"Der Mindestwert für den Zufallsbereich.","hideFromDocs":true,"defaultValue":"0","width":"50%"},{"key":"maxValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Maximalwert","description":"Der Maximalwert für den Zufallsbereich.","hideFromDocs":true,"defaultValue":"32767","width":"50%"}]},{"key":"clamp","type":"checkbox","label":"Klammerwert zwischen 0 und 255","hideFromDocs":true,"conditions":[{"key":"operation","in":["add","sub","mul"]}],"defaultValue":false}]} />
 
 - **Variable**: Die zu nutzende Variable.  
 - **Operation**: Die Operation, die zur Änderung des Variablenwerts verwendet werden soll.  
-- **Wert**: Der Wert, der mit der Variablen durch die gewählte Operation kombiniert werden soll.  
+- **Wert**: Der Wert, der mit der Variable durch die gewählte Operation kombiniert werden soll.  
 
 ## Random
-### Seed Zufallszahlengenerator
-Place this to run in response to user input to ensure random numbers change between playthroughs.
-<ScriptEventPreview title={"Seed Zufallszahlengenerator"} fields={[{"label":"Platzieren Sie dies als Reaktion auf Benutzereingaben, um sicherzustellen, dass sich die Zufallszahlen zwischen den Durchläufen ändern."}]} />
+### Saat-Zufallszahlengenerator
+Dies einsetzen, dass auf Benutzereingaben reagiert wird, um sicherzustellen, dass sich die Zufallszahlen zwischen den Spieldurchgängen ändern.
+<ScriptEventPreview title={"Saat-Zufallszahlengenerator"} fields={[{"label":"Platziere dies als Reaktion auf Benutzereingaben, um sicherzustellen, dass sich die Zufallszahlen zwischen den Durchläufen ändern."}]} />
 
 
 ## Reset
-### Variable: Alle Variablen Auf 'False' Zurücksetzen
-Alle vom Projekt verwendeten Variablen werden auf false zurückgesetzt.
-<ScriptEventPreview title={"Variable: Alle Variablen Auf 'False' Zurücksetzen"} fields={[{"label":"ALLE Variablen auf 'Falsch' zurücksetzen."}]} />
+### Variable: Alle Variablen auf 'falsch' zurücksetzen
+Alle vom Projekt verwendeten Variablen werden auf 'falsch' zurückgesetzt.
+<ScriptEventPreview title={"Variable: Alle Variablen auf 'falsch' zurücksetzen"} fields={[{"label":"ALLE Variablen auf 'falsch' zurücksetzen."}]} />
 
 
 ## Save Data
 ### Variable aus Spieldaten in Variable speichern
-Read a variable's value from a specified save slot and store it in a variable.
-<ScriptEventPreview title={"Variable aus Spieldaten in Variable speichern"} fields={[{"key":"variableDest","label":"Variable festlegen","description":"Die zu aktualisierende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"Zu Variable","description":"Die Variable deren Wert gelesen wird.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"Von Speicher Slot","description":"Der zu nutzende Speicherslot.","type":"togglebuttons","options":[[0,"Slot 1","Speichere Slot 1"],[1,"Slot 2","Speichere Slot 2"],[2,"Slot 3","Speichere Slot 3"]],"allowNone":false,"defaultValue":0}]}]} />
+Einen Variablenwert aus einem festgelegten Speicherslot lesen und in einer Variable speichern.
+<ScriptEventPreview title={"Variable aus Spieldaten in Variable speichern"} fields={[{"key":"variableDest","label":"Variable festlegen","description":"Die zu aktualisierende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"Zu Variable","description":"Die Variable deren Wert gelesen wird.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"Von Speicherslot","description":"Der zu nutzende Speicherslot.","type":"togglebuttons","options":[[0,"Slot 1","Speicherslot 1"],[1,"Slot 2","Speicherslot 2"],[2,"Slot 3","Speicherslot 3"]],"allowNone":false,"defaultValue":0}]}]} />
 
 - **Variable festlegen**: Die zu aktualisierende Variable.  
 - **Zu Variable**: Die Variable deren Wert gelesen wird.  
-- **Von Speicher Slot**: Der zu nutzende Speicherslot.  
+- **Von Speicherslot**: Der zu nutzende Speicherslot.  
 

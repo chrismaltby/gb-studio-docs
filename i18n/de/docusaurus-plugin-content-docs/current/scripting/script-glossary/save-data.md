@@ -7,43 +7,43 @@ sidebar_position: 2
 
 import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
-# Speichere Daten
+# Speicherdaten
 
-### Spieldaten: Laden
-Load the saved game data from the selected slot.
-<ScriptEventPreview title={"Spieldaten: Laden"} fields={[{"label":"Spieldaten aus dem Speicher laden."},{"key":"saveSlot","label":"Speichere Slot","description":"Der zu nutzende Speicherslot.","type":"togglebuttons","options":[[0,"Slot 1","Speichere Slot 1"],[1,"Slot 2","Speichere Slot 2"],[2,"Slot 3","Speichere Slot 3"]],"allowNone":false,"defaultValue":0}]} />
+### Spieldaten laden
+Die gespeicherten Spieldaten aus dem ausgewählten Slot laden.
+<ScriptEventPreview title={"Spieldaten laden"} fields={[{"label":"Spieldaten aus dem Speicher laden."},{"key":"saveSlot","label":"Speicherslot","description":"Der zu nutzende Speicherslot.","type":"togglebuttons","options":[[0,"Slot 1","Speicherslot 1"],[1,"Slot 2","Speicherslot 2"],[2,"Slot 3","Speicherslot 3"]],"allowNone":false,"defaultValue":0}]} />
 
-- **Speichere Slot**: Der zu nutzende Speicherslot.  
+- **Speicherslot**: Der zu nutzende Speicherslot.  
 
-### Spieldaten: Löschen
-Remove any previously saved game data in the selected slot.
-<ScriptEventPreview title={"Spieldaten: Löschen"} fields={[{"label":"Löscht alle gespeicherten Spieldaten aus dem Speicher."},{"key":"saveSlot","label":"Speichere Slot","description":"Der zu nutzende Speicherslot.","type":"togglebuttons","options":[[0,"Slot 1","Speichere Slot 1"],[1,"Slot 2","Speichere Slot 2"],[2,"Slot 3","Speichere Slot 3"]],"allowNone":false,"defaultValue":0}]} />
+### Spieldaten entfernen
+Sämtliche gespeicherten Spieldaten im ausgewählten Slot löschen.
+<ScriptEventPreview title={"Spieldaten entfernen"} fields={[{"label":"Alle gespeicherten Spieldaten aus dem Speicher leeren."},{"key":"saveSlot","label":"Speicherslot","description":"Der zu nutzende Speicherslot.","type":"togglebuttons","options":[[0,"Slot 1","Speicherslot 1"],[1,"Slot 2","Speicherslot 2"],[2,"Slot 3","Speicherslot 3"]],"allowNone":false,"defaultValue":0}]} />
 
-- **Speichere Slot**: Der zu nutzende Speicherslot.  
+- **Speicherslot**: Der zu nutzende Speicherslot.  
 
-### Spieldaten: Speichern
-Save the current game data into the selected slot.
-<ScriptEventPreview title={"Spieldaten: Speichern"} fields={[{"label":"Speichert die aktuellen Spieldaten im Speicher. Benötigt Modultyp mit BATTERIE."},{"key":"saveSlot","label":"Speichere Slot","description":"Der zu nutzende Speicherslot.","type":"togglebuttons","options":[[0,"Slot 1","Speichere Slot 1"],[1,"Slot 2","Speichere Slot 2"],[2,"Slot 3","Speichere Slot 3"]],"allowNone":false,"defaultValue":0},{"key":"__scriptTabs","type":"tabs","defaultValue":"save","values":{"save":"Beim Speichern","load":"On Load"}},{"key":"true","label":"Beim Speichern","description":"Ein nach Abschluss des Speichervorgangs auszuführendes Skript. Es wird beim Laden des Spiels nicht ausgeführt, so dass es zum Anzeigen einer 'Speichervorgang erfolgreich!'-Meldung genutzt werden kann.","type":"events","conditions":[{"key":"__scriptTabs","ne":"load"}]},{"key":"load","label":"On Load","description":"A script to run after this save data has been loaded.","type":"events","conditions":[{"key":"__scriptTabs","eq":"load"}]}]} />
+### Spieldaten speichern
+Die aktuellen Spieldaten im ausgewählten Slot speichern.
+<ScriptEventPreview title={"Spieldaten speichern"} fields={[{"label":"Aktuelle Spieldaten im Speicher speichern. Benötigt Modultyp mit BATTERIE."},{"key":"saveSlot","label":"Speicherslot","description":"Der zu nutzende Speicherslot.","type":"togglebuttons","options":[[0,"Slot 1","Speicherslot 1"],[1,"Slot 2","Speicherslot 2"],[2,"Slot 3","Speicherslot 3"]],"allowNone":false,"defaultValue":0},{"key":"__scriptTabs","type":"tabs","defaultValue":"save","values":{"save":"Beim Speichern","load":"Beim Laden"}},{"key":"true","label":"Beim Speichern","description":"Ein nach Abschluss des Speichervorgangs auszuführendes Skript. Es wird beim Laden des Spiels nicht ausgeführt, sodass es zum Anzeigen einer 'Speichervorgang erfolgreich!'-Meldung genutzt werden kann.","type":"events","conditions":[{"key":"__scriptTabs","ne":"load"}]},{"key":"load","label":"Beim Laden","description":"Ein auszuführendes Skript, nachdem diese Speicherdaten geladen wurden.","type":"events","conditions":[{"key":"__scriptTabs","eq":"load"}]}]} />
 
-- **Speichere Slot**: Der zu nutzende Speicherslot.  
-- **Beim Speichern**: Ein nach Abschluss des Speichervorgangs auszuführendes Skript. Es wird beim Laden des Spiels nicht ausgeführt, so dass es zum Anzeigen einer 'Speichervorgang erfolgreich!'-Meldung genutzt werden kann.  
-- **On Load**: A script to run after this save data has been loaded.  
+- **Speicherslot**: Der zu nutzende Speicherslot.  
+- **Beim Speichern**: Ein nach Abschluss des Speichervorgangs auszuführendes Skript. Es wird beim Laden des Spiels nicht ausgeführt, sodass es zum Anzeigen einer 'Speichervorgang erfolgreich!'-Meldung genutzt werden kann.  
+- **Beim Laden**: Ein auszuführendes Skript, nachdem diese Speicherdaten geladen wurden.  
 
 ## Control Flow
-### Falls Spieldaten Gespeichert
-Conditionally run part of the script if save data is present within the specified save slot.
-<ScriptEventPreview title={"Falls Spieldaten Gespeichert"} fields={[{"key":"saveSlot","label":"Speichere Slot","description":"Der zu nutzende Speicherslot.","type":"togglebuttons","options":[[0,"Slot 1","Speichere Slot 1"],[1,"Slot 2","Speichere Slot 2"],[2,"Slot 3","Speichere Slot 3"]],"allowNone":false,"defaultValue":0},{"label":"Ausführen, falls der Spieler ein Spiel gespeichert hat."},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Wenn Spieldaten gespeichert
+Wenn im aktuellen Speicherslot Spieldaten vohanden sind, führe einen Teil des Skripts aus.
+<ScriptEventPreview title={"Wenn Spieldaten gespeichert"} fields={[{"key":"saveSlot","label":"Speicherslot","description":"Der zu nutzende Speicherslot.","type":"togglebuttons","options":[[0,"Slot 1","Speicherslot 1"],[1,"Slot 2","Speicherslot 2"],[2,"Slot 3","Speicherslot 3"]],"allowNone":false,"defaultValue":0},{"label":"Ausführen, wenn der Spieler ein Spiel gespeichert hat."},{"key":"true","label":"'wahr'","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Sonst","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"'falsch'","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Speichere Slot**: Der zu nutzende Speicherslot.  
-- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
-- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+- **Speicherslot**: Der zu nutzende Speicherslot.  
+- **'wahr'**: Das bei wahrer Bedingung auszuführende Skript.  
+- **'falsch'**: Das bei falscher Bedingung auszuführende Skript.  
 
 ## Variables
 ### Variable aus Spieldaten in Variable speichern
-Read a variable's value from a specified save slot and store it in a variable.
-<ScriptEventPreview title={"Variable aus Spieldaten in Variable speichern"} fields={[{"key":"variableDest","label":"Variable festlegen","description":"Die zu aktualisierende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"Zu Variable","description":"Die Variable deren Wert gelesen wird.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"Von Speicher Slot","description":"Der zu nutzende Speicherslot.","type":"togglebuttons","options":[[0,"Slot 1","Speichere Slot 1"],[1,"Slot 2","Speichere Slot 2"],[2,"Slot 3","Speichere Slot 3"]],"allowNone":false,"defaultValue":0}]}]} />
+Einen Variablenwert aus einem festgelegten Speicherslot lesen und in einer Variable speichern.
+<ScriptEventPreview title={"Variable aus Spieldaten in Variable speichern"} fields={[{"key":"variableDest","label":"Variable festlegen","description":"Die zu aktualisierende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"Zu Variable","description":"Die Variable deren Wert gelesen wird.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"Von Speicherslot","description":"Der zu nutzende Speicherslot.","type":"togglebuttons","options":[[0,"Slot 1","Speicherslot 1"],[1,"Slot 2","Speicherslot 2"],[2,"Slot 3","Speicherslot 3"]],"allowNone":false,"defaultValue":0}]}]} />
 
 - **Variable festlegen**: Die zu aktualisierende Variable.  
 - **Zu Variable**: Die Variable deren Wert gelesen wird.  
-- **Von Speicher Slot**: Der zu nutzende Speicherslot.  
+- **Von Speicherslot**: Der zu nutzende Speicherslot.  
 

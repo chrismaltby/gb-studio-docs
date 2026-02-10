@@ -12,7 +12,7 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 ## Control Flow
 ### Warunek: wyrażenie matematyczne
 Warunkowe wykonanie części skryptu, jeżeli określone wyrażenie matematyczne ma wartość 'prawda'.
-<ScriptEventPreview title={"Warunek: wyrażenie matematyczne"} fields={[{"key":"condition","label":"Warunek","description":"Warunek do oceny.","type":"value","defaultValue":{"type":"expression","value":""}},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"Warunek: wyrażenie matematyczne"} fields={[{"key":"condition","label":"Warunek","description":"Warunek do oceny.","type":"value","defaultValue":{"type":"expression","value":""}},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W przeciwnym razie","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Warunek**: Warunek do oceny.  
 - **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
@@ -31,12 +31,12 @@ Polecenie odpowiada za dane wejściowe użytkownika, tak, aby zapewnić zmianę 
 
 
 ## Variables
-### Zmienna: wzór matematyczny
+### Zmienna: wyrażenie matematyczne
 Polecenie ustawi zmienną na wynik oceny wyrażenia matematycznego.
 
 **Odniesienia**  
 [/docs/scripting/math-expressions](/docs/scripting/math-expressions)  
-<ScriptEventPreview title={"Zmienna: wzór matematyczny"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Wyrażenie","description":"Wprowadź wyrażenie do oceny.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
+<ScriptEventPreview title={"Zmienna: wyrażenie matematyczne"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Wyrażenie","description":"Wprowadź wyrażenie do oceny.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
 
 - **Zmienna**: Wskaż zmienną do użycia.  
 - **Wyrażenie**: Wprowadź wyrażenie do oceny.  

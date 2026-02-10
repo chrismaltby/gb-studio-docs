@@ -9,20 +9,21 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Kamera
 
-### Kamera: powrót do gracza
-Polecenie przywraca kamerę do pierwotnych ustawień, gdzie gracz jest w centrum, kamera jest też zablokowana podczas ruchu gracza. Opcjonalnie umożliwia blokowanie podążania za graczem tylko w osi poziomej lub pionowej.
-<ScriptEventPreview title={"Kamera: powrót do gracza"} fields={[{"key":"speed","width":"50%","label":"Szybkość","description":"Szybkość przejścia, użyj 'Natychmiast' by przejść migiem do nowej lokalizacji.","type":"moveSpeed","defaultValue":0,"allowNone":true,"noneLabel":"Natychmiast"},{"key":"axis","width":"50%","label":"Zablokuj oś","description":"Ustawienie rodzaju blokady dla osi. Można zablokować oś poziomą, oś pionową lub obie.","type":"togglebuttons","options":[["x","H","Poziomo"],["y","V","Pionowo"]],"allowMultiple":true,"allowNone":false,"defaultValue":["x","y"]}]} />
-
-- **Szybkość**: Szybkość przejścia, użyj 'Natychmiast' by przejść migiem do nowej lokalizacji.  
-- **Zablokuj oś**: Ustawienie rodzaju blokady dla osi. Można zablokować oś poziomą, oś pionową lub obie.  
-
 ### Kamera: przesuń ekran
 Polecenie przesunie kamerę do nowego położenia.
-<ScriptEventPreview title={"Kamera: przesuń ekran"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]},{"key":"speed","label":"Szybkość","description":"Szybkość przejścia, użyj 'Natychmiast' by przejść migiem do nowej lokalizacji.","type":"moveSpeed","defaultValue":0,"allowNone":true,"noneLabel":"Natychmiast"}]} />
+<ScriptEventPreview title={"Kamera: przesuń ekran"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]},{"key":"speed","label":"Szybkość","description":"Szybkość przejścia, użyj 'Natychmiast' by przejść migiem do nowej lokalizacji.","type":"moveSpeed","defaultValue":1,"allowNone":true,"noneLabel":"Natychmiast"}]} />
 
 - **X**: Pozycja pozioma.  
 - **Y**: Pozycja pionowa.  
 - **Szybkość**: Szybkość przejścia, użyj 'Natychmiast' by przejść migiem do nowej lokalizacji.  
+
+### Kamera: powrót do gracza
+Polecenie przywraca kamerę do pierwotnych ustawień, gdzie gracz jest w centrum, kamera jest też zablokowana podczas ruchu gracza. Opcjonalnie umożliwia blokowanie podążania za graczem tylko w osi poziomej lub pionowej.
+<ScriptEventPreview title={"Kamera: powrót do gracza"} fields={[{"key":"speed","width":"50%","label":"Szybkość","description":"Szybkość przejścia, użyj 'Natychmiast' by przejść migiem do nowej lokalizacji.","type":"moveSpeed","defaultValue":1,"allowNone":true,"noneLabel":"Natychmiast"},{"key":"axis","width":"50%","label":"Zablokuj oś","description":"Ustawienie rodzaju blokady dla osi. Można zablokować oś poziomą, oś pionową lub obie.","type":"togglebuttons","options":[["x","H","Poziomo"],["y","V","Pionowo"]],"allowMultiple":true,"allowNone":false,"defaultValue":["x","y"]},{"key":"preventScroll","label":"Zablokuj przewijanie wstecz (przesuwanie kamery)","description":"Uniemożliwia przewijanie kamery w wybranych kierunkach.","type":"direction","allowMultiple":true}]} />
+
+- **Szybkość**: Szybkość przejścia, użyj 'Natychmiast' by przejść migiem do nowej lokalizacji.  
+- **Zablokuj oś**: Ustawienie rodzaju blokady dla osi. Można zablokować oś poziomą, oś pionową lub obie.  
+- **Zablokuj przewijanie wstecz (przesuwanie kamery)**: Uniemożliwia przewijanie kamery w wybranych kierunkach.  
 
 ### Kamera: wstrząs ekranu
 Wstrząs ekranu na określony czas.
@@ -32,12 +33,36 @@ Wstrząs ekranu na określony czas.
 - **Rodzaj ruchu**: Ustawienie kamery: wstrząs ma być tylko w osi poziomej/pionowej, czy w obu kierunkach.  
 - **Wstrząs**: Stopień ruchu kamery podczas wstrząsu.  
 
-### Ustaw pozycję kamery
-Polecenie przesunie kamerę do nowego położenia.
-<ScriptEventPreview title={"Ustaw pozycję kamery"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]}]} />
+### Ustaw ograniczenia kamery
+Ustawia granice dla kamery, uniemożliwiając jej wychodzenie poza określony obszar.
+<ScriptEventPreview title={"Ustaw ograniczenia kamery"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"value","min":0,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"value","min":0,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]},{"type":"group","fields":[{"key":"width","label":"Szerokość","description":"Szerokość pola","type":"value","min":20,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":20}},{"key":"height","label":"Wysokość","description":"Wysokość pola","type":"value","min":18,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":18}}]}]} />
 
 - **X**: Pozycja pozioma.  
 - **Y**: Pozycja pionowa.  
+- **Szerokość**: Szerokość pola  
+- **Wysokość**: Wysokość pola  
+
+### Kamera: ustaw na graczu
+Ustawia kamerę tak, aby śledziła gracza i była zablokowana na jego pozycji. Opcjonalnie umożliwia podążanie za graczem tylko w osi poziomej lub pionowej.
+<ScriptEventPreview title={"Kamera: ustaw na graczu"} fields={[{"key":"axis","width":"50%","label":"Zablokuj oś","description":"Ustawienie rodzaju blokady dla osi. Można zablokować oś poziomą, oś pionową lub obie.","type":"togglebuttons","options":[["x","H","Poziomo"],["y","V","Pionowo"]],"allowMultiple":true,"allowNone":false,"defaultValue":["x","y"]},{"key":"preventScroll","label":"Zablokuj przewijanie wstecz (przesuwanie kamery)","description":"Uniemożliwia przewijanie kamery w wybranych kierunkach.","type":"direction","allowMultiple":true}]} />
+
+- **Zablokuj oś**: Ustawienie rodzaju blokady dla osi. Można zablokować oś poziomą, oś pionową lub obie.  
+- **Zablokuj przewijanie wstecz (przesuwanie kamery)**: Uniemożliwia przewijanie kamery w wybranych kierunkach.  
+
+### Kamera: ustaw pozycję
+Polecenie przesunie kamerę do nowego położenia.
+<ScriptEventPreview title={"Kamera: ustaw pozycję"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]}]} />
+
+- **X**: Pozycja pozioma.  
+- **Y**: Pozycja pionowa.  
+
+## Properties
+### Kamera: ustaw właściwości
+Zaktualizuj właściwości kamery w grze.
+<ScriptEventPreview title={"Kamera: ustaw właściwości"} fields={[{"key":"property","label":"Właściwość","description":"Właściwości kamery do zaktualizowania.","type":"select","defaultValue":"camera_deadzone_x","options":[["camera_deadzone_x","Martwy punkt X kamery"],["camera_deadzone_y","Martwy punkt Y kamery"],["camera_offset_x","Przesunięcie kamery X"],["camera_offset_y","Przesunięcie kamery Y"]]},{"key":"value","label":"Wartość","description":"Wartość do ustawienia wybranej zmiennej.","type":"value","min":-128,"max":127,"defaultValue":{"type":"number","value":0}}]} />
+
+- **Właściwość**: Właściwości kamery do zaktualizowania.  
+- **Wartość**: Wartość do ustawienia wybranej zmiennej.  
 
 ## Screen
 ### Ekran: wyczyszczenie

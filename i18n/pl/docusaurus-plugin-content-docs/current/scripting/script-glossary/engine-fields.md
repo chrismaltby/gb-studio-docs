@@ -14,18 +14,74 @@ Polecenie zmienia wartość wybranego pola silnika.
 
 **Odniesienia**  
 [/docs/settings/#engine-settings](/docs/settings/#engine-settings)  
-<ScriptEventPreview title={"Silnik: aktualizacja ustawień"} fields={[{"type":"engineField","label":"Pole silnika","description":"Pole silnika do aktualizacji.","key":"engineFieldKey"},{"key":"value","type":"engineFieldValue","defaultValue":{"type":"number","value":0},"conditions":[{"key":"engineFieldKey","set":true}]}]} />
+<ScriptEventPreview title={"Silnik: aktualizacja ustawień"} fields={[{"type":"engineField","label":"Pole silnika","description":"Pole silnika do aktualizacji.","key":"engineFieldKey","defaultValue":"LAST_ENGINE_FIELD"},{"key":"value","type":"engineFieldValue","defaultValue":{"type":"number","value":0},"conditions":[{"key":"engineFieldKey","set":true}]}]} />
 
 - **Pole silnika**: Pole silnika do aktualizacji.  
 
-## Variables
 ### Silnik: zapisz pole w zmiennej
 Polecenie zapisuje wartość wybranego pola silnika do zmiennej.
 
 **Odniesienia**  
 [/docs/settings/#engine-settings](/docs/settings/#engine-settings)  
-<ScriptEventPreview title={"Silnik: zapisz pole w zmiennej"} fields={[{"type":"engineField","label":"Pole silnika","description":"Pole silnika do odczytania wartości.","key":"engineFieldKey"},{"key":"value","type":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","defaultValue":"LAST_VARIABLE","conditions":[{"key":"engineFieldKey","set":true}]}]} />
+<ScriptEventPreview title={"Silnik: zapisz pole w zmiennej"} fields={[{"type":"engineField","label":"Pole silnika","description":"Pole silnika do odczytania wartości.","key":"engineFieldKey","defaultValue":"LAST_ENGINE_FIELD"},{"key":"value","type":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","defaultValue":"LAST_VARIABLE","conditions":[{"key":"engineFieldKey","set":true}]}]} />
 
 - **Pole silnika**: Pole silnika do odczytania wartości.  
 - **Zmienna**: Wskaż zmienną do użycia.  
+
+## Adventure
+### Dodaj skrypt do zdarzenia sceny przygodowej
+Uruchamia określony skrypt za każdym razem, gdy zmienia się stan sceny przygodowej.
+<ScriptEventPreview title={"Dodaj skrypt do zdarzenia sceny przygodowej"} fields={[{"key":"event","label":"Zdarzenie","type":"select","defaultValue":"groundStart","options":[["groundStart","Początek stanu: na ziemi"],["groundEnd","Koniec stanu: na ziemi"],["dashStart","Początek stanu: sprint"],["dashReady","Gotowy sprint"],["dashEnd","Koniec stanu: sprint"],["knockbackStart","Początek stanu: odrzut"],["knockbackEnd","Koniec stanu: odrzut"],["blankStart","Poczatek stanu: pusty"],["blankEnd","Koniec stanu: pusty"],["runStart","Początek stanu: bieg"],["runEnd","Koniec stanu: bieg"],["pushStart","Początek stanu: popychanie"],["pushEnd","Koniec stanu: popychanie"]]},{"key":"__scriptTabs","type":"tabs","defaultValue":"scriptinput","values":{"scriptinput":"Stan włączony"}},{"key":"script","label":"Stan włączony","description":"Stan włączony","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"scriptinput"]}]}]} />
+
+- **Zdarzenie**  
+- **Stan włączony**: Stan włączony  
+
+### Usuń skrypt od zdarzenia sceny przygodowej
+Usuwa przypisany skrypt reagujący na zmiany stanu w scenie przygodowej.
+<ScriptEventPreview title={"Usuń skrypt od zdarzenia sceny przygodowej"} fields={[{"key":"event","label":"Zdarzenie","type":"select","defaultValue":"groundStart","options":[["groundStart","Początek stanu: na ziemi"],["groundEnd","Koniec stanu: na ziemi"],["dashStart","Początek stanu: sprint"],["dashReady","Gotowy sprint"],["dashEnd","Koniec stanu: sprint"],["knockbackStart","Początek stanu: odrzut"],["knockbackEnd","Koniec stanu: odrzut"],["blankStart","Poczatek stanu: pusty"],["blankEnd","Koniec stanu: pusty"],["runStart","Początek stanu: bieg"],["runEnd","Koniec stanu: bieg"],["pushStart","Początek stanu: popychanie"],["pushEnd","Koniec stanu: popychanie"]]}]} />
+
+- **Zdarzenie**  
+
+### Ustaw stan przygodowy
+Ustawia aktualny stan sceny przygodowej.
+<ScriptEventPreview title={"Ustaw stan przygodowy"} fields={[{"key":"state","label":"Stan","type":"select","defaultValue":"ground","options":[["ground","Na ziemi"],["dash","Sprint"],["knockback","Odrzut"],["blank","Pusty stan"],["run","Bieg"],["push","Popychanie"]]}]} />
+
+- **Stan**  
+
+## Control Flow
+### Warunek: pole silnika porównane do wartości
+Warunkowe uruchomienie części skryptu na podstawie wartości pola silnika w porównaniu z inną wartością.
+<ScriptEventPreview title={"Warunek: pole silnika porównane do wartości"} fields={[{"key":"condition","label":"Warunek","description":"Warunek do oceny.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"engineField","value":"LAST_ENGINE_FIELD"},"valueB":{"type":"number","value":0}}},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W przeciwnym razie","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Warunek**: Warunek do oceny.  
+- **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
+- **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
+
+### Warunek: pole silnika porównane do zmiennej
+Warunkowe uruchomienie części skryptu na podstawie wartości pola silnika w porównaniu z wartością innej zmiennej.
+<ScriptEventPreview title={"Warunek: pole silnika porównane do zmiennej"} fields={[{"key":"condition","label":"Warunek","description":"Warunek do oceny.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"engineField","value":"LAST_ENGINE_FIELD"},"valueB":{"type":"variable","value":"LAST_VARIABLE"}}},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W przeciwnym razie","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Warunek**: Warunek do oceny.  
+- **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
+- **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
+
+## Platformer
+### Dodaj skrypt do zdarzenia sceny platformówki
+Uruchamia określony skrypt za każdym razem, gdy zmienia się stan sceny platformówki
+<ScriptEventPreview title={"Dodaj skrypt do zdarzenia sceny platformówki"} fields={[{"key":"event","label":"Zdarzenie","type":"select","defaultValue":"fallStart","options":[["fallStart","Początek stanu: spadanie"],["fallEnd","Koniec stanu: spadanie"],["groundStart","Początek stanu: na ziemi"],["groundEnd","Koniec stanu: na ziemi"],["jumpStart","Początek stanu: skok"],["jumpEnd","Koniec stanu: skok"],["dashStart","Początek stanu: sprint"],["dashReady","Gotowy sprint"],["dashEnd","Koniec stanu: sprint"],["ladderStart","Początek stanu: na drabinie"],["ladderEnd","Koniec stanu: na drabinie"],["wallStart","Początek stanu: na ścianie"],["wallEnd","Koniec stanu: na ścianie"],["knockbackStart","Początek stanu: odrzut"],["knockbackEnd","Koniec stanu: odrzut"],["blankStart","Poczatek stanu: pusty"],["blankEnd","Koniec stanu: pusty"],["runStart","Początek stanu: bieg"],["runEnd","Koniec stanu: bieg"],["floatStart","Początek stanu: opadanie"],["floatEnd","Koniec stanu: opadanie"]]},{"key":"__scriptTabs","type":"tabs","defaultValue":"scriptinput","values":{"scriptinput":"Stan włączony"}},{"key":"script","label":"Stan włączony","description":"Stan włączony","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"scriptinput"]}]}]} />
+
+- **Zdarzenie**  
+- **Stan włączony**: Stan włączony  
+
+### Usuń skrypt od zdarzenia sceny platformówki
+Usuwa przypisany skrypt reagujący na zmiany stanu w scenie platformówki.
+<ScriptEventPreview title={"Usuń skrypt od zdarzenia sceny platformówki"} fields={[{"key":"event","label":"Zdarzenie","type":"select","defaultValue":"fallStart","options":[["fallStart","Początek stanu: spadanie"],["fallEnd","Koniec stanu: spadanie"],["groundStart","Początek stanu: na ziemi"],["groundEnd","Koniec stanu: na ziemi"],["jumpStart","Początek stanu: skok"],["jumpEnd","Koniec stanu: skok"],["dashStart","Początek stanu: sprint"],["dashReady","Gotowy sprint"],["dashEnd","Koniec stanu: sprint"],["ladderStart","Początek stanu: na drabinie"],["ladderEnd","Koniec stanu: na drabinie"],["wallStart","Początek stanu: na ścianie"],["wallEnd","Koniec stanu: na ścianie"],["knockbackStart","Początek stanu: odrzut"],["knockbackEnd","Koniec stanu: odrzut"],["blankStart","Poczatek stanu: pusty"],["blankEnd","Koniec stanu: pusty"],["runStart","Początek stanu: bieg"],["runEnd","Koniec stanu: bieg"],["floatStart","Początek stanu: opadanie"],["floatEnd","Koniec stanu: opadanie"]]}]} />
+
+- **Zdarzenie**  
+
+### Ustaw stan platformówki
+Ustawia aktualny stan sceny platformówki.
+<ScriptEventPreview title={"Ustaw stan platformówki"} fields={[{"key":"state","label":"Stan","type":"select","defaultValue":"fall","options":[["fall","Spadanie"],["ground","Na ziemi"],["jump","Skok"],["dash","Sprint"],["ladder","Na drabinie"],["wall","Na ścianie"],["knockback","Odrzut"],["blank","Pusty stan"],["run","Bieg"],["float","Opadanie"]]}]} />
+
+- **Stan**  
 

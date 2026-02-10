@@ -7,25 +7,81 @@ sidebar_position: 2
 
 import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
-# Engine Fields
+# Campos del Motor
 
-### Engine Field Update
-Change the value of an Engine Field.
-
-**Referencias**  
-[/docs/settings/#engine-settings](/docs/settings/#engine-settings)  
-<ScriptEventPreview title={"Engine Field Update"} fields={[{"type":"engineField","label":"Engine Field","description":"The engine field to update.","key":"engineFieldKey"},{"key":"value","type":"engineFieldValue","defaultValue":{"type":"number","value":0},"conditions":[{"key":"engineFieldKey","set":true}]}]} />
-
-- **Engine Field**: The engine field to update.  
-
-## Variables
-### Store Engine Field In Variable
-Store the value of an Engine Field in a variable.
+### Actualizar Campo del Motor
+Cambiar el valor de un Campo del Motor.
 
 **Referencias**  
 [/docs/settings/#engine-settings](/docs/settings/#engine-settings)  
-<ScriptEventPreview title={"Store Engine Field In Variable"} fields={[{"type":"engineField","label":"Engine Field","description":"The engine field to read the value of.","key":"engineFieldKey"},{"key":"value","type":"variable","label":"Variable","description":"La variable a utilizar.","defaultValue":"LAST_VARIABLE","conditions":[{"key":"engineFieldKey","set":true}]}]} />
+<ScriptEventPreview title={"Actualizar Campo del Motor"} fields={[{"type":"engineField","label":"Campo del Motor","description":"El campo del motor para actualizar.","key":"engineFieldKey","defaultValue":"LAST_ENGINE_FIELD"},{"key":"value","type":"engineFieldValue","defaultValue":{"type":"number","value":0},"conditions":[{"key":"engineFieldKey","set":true}]}]} />
 
-- **Engine Field**: The engine field to read the value of.  
+- **Campo del Motor**: El campo del motor para actualizar.  
+
+### Guardar Campo del Motor en Variable
+Guardar el valor de un Campo del Motor en una variable.
+
+**Referencias**  
+[/docs/settings/#engine-settings](/docs/settings/#engine-settings)  
+<ScriptEventPreview title={"Guardar Campo del Motor en Variable"} fields={[{"type":"engineField","label":"Campo del Motor","description":"El campo del motor para leer el valor.","key":"engineFieldKey","defaultValue":"LAST_ENGINE_FIELD"},{"key":"value","type":"variable","label":"Variable","description":"La variable a utilizar.","defaultValue":"LAST_VARIABLE","conditions":[{"key":"engineFieldKey","set":true}]}]} />
+
+- **Campo del Motor**: El campo del motor para leer el valor.  
 - **Variable**: La variable a utilizar.  
+
+## Adventure
+### Adjuntar Script a la Devolución de Llamada del Evento de Aventura
+Ejecuta el script especificado cualquier vez que el estado de una escena de aventura cambia.
+<ScriptEventPreview title={"Adjuntar Script a la Devolución de Llamada del Evento de Aventura"} fields={[{"key":"event","label":"Evento","type":"select","defaultValue":"groundStart","options":[["groundStart","Comienza en el suelo"],["groundEnd","Termina en el suelo"],["dashStart","Comienza impulsando"],["dashReady","Listo para el impulso"],["dashEnd","Termina impulsando"],["knockbackStart","Comienza rebote"],["knockbackEnd","Termina rebote"],["blankStart","Comienza nulo"],["blankEnd","Termina nulo"],["runStart","Comienza corriendo"],["runEnd","Termina corriendo"],["pushStart","Iniciar estado de empuje"],["pushEnd","Finalizar estado de empuje"]]},{"key":"__scriptTabs","type":"tabs","defaultValue":"scriptinput","values":{"scriptinput":"Estado Activo"}},{"key":"script","label":"Estado Activo","description":"Estado Activo","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"scriptinput"]}]}]} />
+
+- **Evento**  
+- **Estado Activo**: Estado Activo  
+
+### Eliminar Script de la Devolución de Llamada del Evento de Aventura
+Eliminar un script adjunto de un cambio de estado en una escena de aventura.
+<ScriptEventPreview title={"Eliminar Script de la Devolución de Llamada del Evento de Aventura"} fields={[{"key":"event","label":"Evento","type":"select","defaultValue":"groundStart","options":[["groundStart","Comienza en el suelo"],["groundEnd","Termina en el suelo"],["dashStart","Comienza impulsando"],["dashReady","Listo para el impulso"],["dashEnd","Termina impulsando"],["knockbackStart","Comienza rebote"],["knockbackEnd","Termina rebote"],["blankStart","Comienza nulo"],["blankEnd","Termina nulo"],["runStart","Comienza corriendo"],["runEnd","Termina corriendo"],["pushStart","Iniciar estado de empuje"],["pushEnd","Finalizar estado de empuje"]]}]} />
+
+- **Evento**  
+
+### Establecer Estado de Aventura
+Establece el estado actual de una escena de aventura.
+<ScriptEventPreview title={"Establecer Estado de Aventura"} fields={[{"key":"state","label":"Estado","type":"select","defaultValue":"ground","options":[["ground","En el suelo"],["dash","Impulsando"],["knockback","Rebote"],["blank","Nulo"],["run","Corriendo"],["push","Empujando"]]}]} />
+
+- **Estado**  
+
+## Control Flow
+### Si el campo del motor se compara con el valor
+Ejecuta condicionalmente parte del script basándose en el valor de un campo del motor en comparación con un valor.
+<ScriptEventPreview title={"Si el campo del motor se compara con el valor"} fields={[{"key":"condition","label":"Condición","description":"La condición a evaluar.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"engineField","value":"LAST_ENGINE_FIELD"},"valueB":{"type":"number","value":0}}},{"key":"true","label":"Verdadero","description":"El script que se ejecutará si la condición es verdadera.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"El script a ejecutar si la condición es falsa.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Condición**: La condición a evaluar.  
+- **Verdadero**: El script que se ejecutará si la condición es verdadera.  
+- **Falso**: El script a ejecutar si la condición es falsa.  
+
+### Si el campo del motor se compara con la variable
+Ejecuta condicionalmente parte del script basándose en el valor de un campo del motor en comparación con una variable.
+<ScriptEventPreview title={"Si el campo del motor se compara con la variable"} fields={[{"key":"condition","label":"Condición","description":"La condición a evaluar.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"engineField","value":"LAST_ENGINE_FIELD"},"valueB":{"type":"variable","value":"LAST_VARIABLE"}}},{"key":"true","label":"Verdadero","description":"El script que se ejecutará si la condición es verdadera.","type":"events"},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falso","description":"El script a ejecutar si la condición es falsa.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Condición**: La condición a evaluar.  
+- **Verdadero**: El script que se ejecutará si la condición es verdadera.  
+- **Falso**: El script a ejecutar si la condición es falsa.  
+
+## Platformer
+### Adjuntar script a la devolución de llamada del evento de plataforma
+Ejecuta el script especificado cada vez que el estado de una escena de plataforma cambia.
+<ScriptEventPreview title={"Adjuntar script a la devolución de llamada del evento de plataforma"} fields={[{"key":"event","label":"Evento","type":"select","defaultValue":"fallStart","options":[["fallStart","Comienza la caída"],["fallEnd","Termina la caída"],["groundStart","Comienza en el suelo"],["groundEnd","Termina en el suelo"],["jumpStart","Comienza saltando"],["jumpEnd","Termina saltando"],["dashStart","Comienza impulsando"],["dashReady","Listo para el impulso"],["dashEnd","Termina impulsando"],["ladderStart","Comienza escalando"],["ladderEnd","Termina escalando"],["wallStart","Comienza deslizamiento en la pared"],["wallEnd","Termina deslizamiento en la pared"],["knockbackStart","Comienza rebote"],["knockbackEnd","Termina rebote"],["blankStart","Comienza nulo"],["blankEnd","Termina nulo"],["runStart","Comienza corriendo"],["runEnd","Termina corriendo"],["floatStart","Comienza flotando"],["floatEnd","Termina flotando"]]},{"key":"__scriptTabs","type":"tabs","defaultValue":"scriptinput","values":{"scriptinput":"Estado Activo"}},{"key":"script","label":"Estado Activo","description":"Estado Activo","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"scriptinput"]}]}]} />
+
+- **Evento**  
+- **Estado Activo**: Estado Activo  
+
+### Eliminar Script de la Devolución de Llamada del Evento de Plataforma
+Retirar un script adjunto de un cambio de estado en la escena de plataformas.
+<ScriptEventPreview title={"Eliminar Script de la Devolución de Llamada del Evento de Plataforma"} fields={[{"key":"event","label":"Evento","type":"select","defaultValue":"fallStart","options":[["fallStart","Comienza la caída"],["fallEnd","Termina la caída"],["groundStart","Comienza en el suelo"],["groundEnd","Termina en el suelo"],["jumpStart","Comienza saltando"],["jumpEnd","Termina saltando"],["dashStart","Comienza impulsando"],["dashReady","Listo para el impulso"],["dashEnd","Termina impulsando"],["ladderStart","Comienza escalando"],["ladderEnd","Termina escalando"],["wallStart","Comienza deslizamiento en la pared"],["wallEnd","Termina deslizamiento en la pared"],["knockbackStart","Comienza rebote"],["knockbackEnd","Termina rebote"],["blankStart","Comienza nulo"],["blankEnd","Termina nulo"],["runStart","Comienza corriendo"],["runEnd","Termina corriendo"],["floatStart","Comienza flotando"],["floatEnd","Termina flotando"]]}]} />
+
+- **Evento**  
+
+### Establecer Estado de Plataforma
+Establece el estado actual de una escena de plataforma.
+<ScriptEventPreview title={"Establecer Estado de Plataforma"} fields={[{"key":"state","label":"Estado","type":"select","defaultValue":"fall","options":[["fall","Cayendo"],["ground","En el suelo"],["jump","Saltando"],["dash","Impulsando"],["ladder","En una escalera"],["wall","En una pared"],["knockback","Rebote"],["blank","Nulo"],["run","Corriendo"],["float","Flotando"]]}]} />
+
+- **Estado**  
 

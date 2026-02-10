@@ -10,34 +10,42 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 # Timer
 
 ### Untätig
-Das Skript einen Frame lang anhalten.
-<ScriptEventPreview title={"Untätig"} fields={[{"label":"Warte bis zum nächsten Frame"}]} />
+Das Skript für ein Einzelbild lang anhalten.
+<ScriptEventPreview title={"Untätig"} fields={[{"label":"Bis zum nächsten Einzelbild warten"}]} />
 
+
+### Rate Limit
+Limit how often this script can be be run. If the script is triggered again before the time limit has passed the script will be skipped.
+<ScriptEventPreview title={"Rate Limit"} fields={[{"key":"variable","label":"Next Call Time Variable","description":"The variable which will store the next time, in frames, that this script can be called.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"time","label":"Zeitintervall","description":"The minimum wait time between successive calls of this script.","type":"value","min":0,"max":60,"step":0.1,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"defaultValue":{"type":"number","value":0.5},"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Zeitintervall","description":"The minimum wait time between successive calls of this script.","type":"value","min":0,"max":3600,"width":"50%","unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"defaultValue":{"type":"number","value":1},"conditions":[{"key":"units","eq":"frames"}]},{"key":"true","label":"Rate Limited","description":"The script that will be rate limited","type":"events"}]} />
+
+- **Next Call Time Variable**: The variable which will store the next time, in frames, that this script can be called.  
+- **Zeitintervall**: The minimum wait time between successive calls of this script.  
+- **Rate Limited**: The script that will be rate limited  
 
 ### Warten
 Das Skript für eine gewisse Zeit anhalten.
-<ScriptEventPreview title={"Warten"} fields={[{"type":"group","fields":[{"key":"time","type":"number","label":"Länge","description":"Die Dauer, für die das Skript angehalten werden soll, in Sekunden oder Frames.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Länge","description":"Die Dauer, für die das Skript angehalten werden soll, in Sekunden oder Frames.","type":"number","min":0,"max":3600,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]}]}]} />
+<ScriptEventPreview title={"Warten"} fields={[{"key":"time","label":"Dauer","description":"Die Dauer, für die das Skript angehalten werden soll, in Sekunden oder Einzelbilder.","type":"value","min":0,"max":60,"step":0.1,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"defaultValue":{"type":"number","value":0.5},"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Dauer","description":"Die Dauer, für die das Skript angehalten werden soll, in Sekunden oder Einzelbilder.","type":"value","min":0,"max":3600,"width":"50%","unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"defaultValue":{"type":"number","value":1},"conditions":[{"key":"units","eq":"frames"}]}]} />
 
-- **Länge**: Die Dauer, für die das Skript angehalten werden soll, in Sekunden oder Frames.  
+- **Dauer**: Die Dauer, für die das Skript angehalten werden soll, in Sekunden oder Einzelbilder.  
 
 ## Script
-### Timer: Timer-Skript einstellen
-Run the specified script repeatedly after a time interval. The script will keep running in the background until a Remove Timer Script event is called or the scene is changed using a Change Scene event.
-<ScriptEventPreview title={"Timer: Timer-Skript einstellen"} fields={[{"key":"timer","label":"Timer","description":"Der Timer, der geändert werden soll. Jede Szene kann bis zu vier Timer auf einmal verwenden.","type":"togglebuttons","options":[[1,"1","Timer 1"],[2,"2","Timer 2"],[3,"3","Timer 3"],[4,"4","Timer 4"]],"allowNone":false,"defaultValue":1},{"type":"group","fields":[{"key":"duration","type":"number","label":"Zeitintervall","description":"Die zu wartende Zeitspanne, jedes Mal bevor das Skript  ausgeführt wird.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Zeitintervall","description":"Die zu wartende Zeitspanne, jedes Mal bevor das Skript  ausgeführt wird.","type":"number","min":0,"max":3600,"step":16,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]}]},{"key":"__scriptTabs","type":"tabs","defaultValue":"end","values":{"end":"Auf Tick"}},{"key":"script","label":"Auf Tick","description":"Das auszuführende Skript, wenn der Timer ausgelöst wird.","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"end"]}]}]} />
+### Timer-Skript anhängen
+Das angegebene Skript nach einem Zeitintervall wiederholt ausführen. Das Skript läuft im Hintergrund weiter, bis ein 'Timer-Skript deaktivieren'-Ereignis aufgerufen wird oder die Szene mit einem 'Szene ändern'-Ereignis geändert wird.
+<ScriptEventPreview title={"Timer-Skript anhängen"} fields={[{"key":"timer","label":"Timer","description":"Der zu ändernde Timer. Jede Szene kann bis zu vier Timer auf einmal verwenden.","type":"togglebuttons","options":[[1,"1","Timer 1"],[2,"2","Timer 2"],[3,"3","Timer 3"],[4,"4","Timer 4"]],"allowNone":false,"defaultValue":1},{"type":"group","fields":[{"key":"duration","type":"number","label":"Zeitintervall","description":"Die zu wartende Zeitspanne, jedes Mal bevor das Skript ausgeführt wird.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","ne":"frames"}]},{"key":"frames","label":"Zeitintervall","description":"Die zu wartende Zeitspanne, jedes Mal bevor das Skript ausgeführt wird.","type":"number","min":0,"max":3600,"step":16,"width":"50%","defaultValue":30,"unitsField":"units","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"units","eq":"frames"}]}]},{"key":"__scriptTabs","type":"tabs","defaultValue":"end","values":{"end":"Bei Tick"}},{"key":"script","label":"Bei Tick","description":"Das auszuführende Skript, wenn der Timer ausgelöst wird.","type":"events","allowedContexts":["global","entity","prefab"],"conditions":[{"key":"__scriptTabs","in":[null,"end"]}]}]} />
 
-- **Timer**: Der Timer, der geändert werden soll. Jede Szene kann bis zu vier Timer auf einmal verwenden.  
-- **Zeitintervall**: Die zu wartende Zeitspanne, jedes Mal bevor das Skript  ausgeführt wird.  
-- **Auf Tick**: Das auszuführende Skript, wenn der Timer ausgelöst wird.  
+- **Timer**: Der zu ändernde Timer. Jede Szene kann bis zu vier Timer auf einmal verwenden.  
+- **Zeitintervall**: Die zu wartende Zeitspanne, jedes Mal bevor das Skript ausgeführt wird.  
+- **Bei Tick**: Das auszuführende Skript, wenn der Timer ausgelöst wird.  
 
-### Timer: Timer-Skript deaktivieren
-Remove the timer script so it will no longer be called.
-<ScriptEventPreview title={"Timer: Timer-Skript deaktivieren"} fields={[{"key":"timer","label":"Timer","description":"Der Timer, der geändert werden soll. Jede Szene kann bis zu vier Timer auf einmal verwenden.","type":"togglebuttons","options":[[1,"1","Timer 1"],[2,"2","Timer 2"],[3,"3","Timer 3"],[4,"4","Timer 4"]],"allowNone":false,"defaultValue":1,"flexBasis":"100%"},{"label":"Timer-Skript deaktivieren"}]} />
+### Timer-Skript entfernen
+Entfernt das Timer-Skript, sodass es es nicht länger aufgerufen wird.
+<ScriptEventPreview title={"Timer-Skript entfernen"} fields={[{"key":"timer","label":"Timer","description":"Der zu ändernde Timer. Jede Szene kann bis zu vier Timer auf einmal verwenden.","type":"togglebuttons","options":[[1,"1","Timer 1"],[2,"2","Timer 2"],[3,"3","Timer 3"],[4,"4","Timer 4"]],"allowNone":false,"defaultValue":1,"flexBasis":"100%"},{"label":"Timer-Skript deaktivieren"}]} />
 
-- **Timer**: Der Timer, der geändert werden soll. Jede Szene kann bis zu vier Timer auf einmal verwenden.  
+- **Timer**: Der zu ändernde Timer. Jede Szene kann bis zu vier Timer auf einmal verwenden.  
 
-### Timer: Timer neu starten
-Reset the countdown timer back to zero. The script will call again after the time specified originally.
-<ScriptEventPreview title={"Timer: Timer neu starten"} fields={[{"key":"timer","label":"Timer","description":"Der Timer, der geändert werden soll. Jede Szene kann bis zu vier Timer auf einmal verwenden.","type":"togglebuttons","options":[[1,"1","Timer 1"],[2,"2","Timer 2"],[3,"3","Timer 3"],[4,"4","Timer 4"]],"allowNone":false,"defaultValue":1,"flexBasis":"100%"},{"label":"Countdown-Timer neustarten"}]} />
+### Timer neu starten
+Den Countdown timer wieder auf null zurücksetzen. Das Skript wird nach der ursprünglich angegebenen Zeit erneut aufgerufen.
+<ScriptEventPreview title={"Timer neu starten"} fields={[{"key":"timer","label":"Timer","description":"Der zu ändernde Timer. Jede Szene kann bis zu vier Timer auf einmal verwenden.","type":"togglebuttons","options":[[1,"1","Timer 1"],[2,"2","Timer 2"],[3,"3","Timer 3"],[4,"4","Timer 4"]],"allowNone":false,"defaultValue":1,"flexBasis":"100%"},{"label":"Countdown timer neustarten"}]} />
 
-- **Timer**: Der Timer, der geändert werden soll. Jede Szene kann bis zu vier Timer auf einmal verwenden.  
+- **Timer**: Der zu ändernde Timer. Jede Szene kann bis zu vier Timer auf einmal verwenden.  
 

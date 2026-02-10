@@ -27,10 +27,16 @@ Play a sound effect, choose from playing a .WAV, .VGM, or .SAV (fxhammer) file f
 - **Wait until finished**: Set if script should pause until sound effect has finished playing.  
 - **Effect Index**: The effect number to play (for fxhammer only).  
 
-### Stop Music
-Stops any currently playing music.
-<ScriptEventPreview title={"Stop Music"} fields={[{"label":"Stops any music that was previously playing."}]} />
+## Dialogue & Menus
+### Set Text Sound Effect
+Set a sound effect to play as each text character is displayed.
+<ScriptEventPreview title={"Set Text Sound Effect"} fields={[{"key":"type","type":"soundEffect","label":"Sound Effect","description":"The sound effect to play. Can choose from files within `/assets/sounds` or from preset sounds like `Beep`, `Pitch` and `Tone`.","defaultValue":"tone","flexBasis":"60%","allowNone":true},{"key":"pitch","type":"number","label":"Pitch","description":"The pitch of the sound effect (Beep effect only).","conditions":[{"key":"type","eq":"beep"}],"min":1,"max":8,"step":1,"defaultValue":4,"width":"50%"},{"key":"frequency","type":"number","label":"Frequency in hz","description":"The frequency of the sound effect in hz (Tone effect only).","conditions":[{"key":"type","eq":"tone"}],"min":0,"max":20000,"step":1,"defaultValue":300,"width":"50%"},{"key":"duration","type":"number","label":"Duration","description":"The length of time to play the sound effect.","unitsField":"units","unitsDefault":"time","conditions":[{"key":"type","in":["beep","crash","tone"]}],"min":0,"max":4.25,"step":0.01,"defaultValue":0.05,"width":"50%"},{"key":"effect","type":"number","label":"Effect Index","description":"The effect number to play (for fxhammer only).","min":0,"max":60,"defaultValue":0,"conditions":[{"key":"type","soundType":"fxhammer"}],"width":"50%"}]} />
 
+- **Sound Effect**: The sound effect to play. Can choose from files within `/assets/sounds` or from preset sounds like `Beep`, `Pitch` and `Tone`.  
+- **Pitch**: The pitch of the sound effect (Beep effect only).  
+- **Frequency in hz**: The frequency of the sound effect in hz (Tone effect only).  
+- **Duration**: The length of time to play the sound effect.  
+- **Effect Index**: The effect number to play (for fxhammer only).  
 
 ## Script
 ### Set Music Routine
@@ -38,8 +44,20 @@ Attach a script to one of the four music routines that can be triggered from a .
 
 **References**  
 [/docs/assets/music/music-huge#effects](/docs/assets/music/music-huge#effects)  
-<ScriptEventPreview title={"Set Music Routine"} fields={[{"key":"routine","label":"Routine","description":"The music routine, either 0, 1, 2 or 3.","type":"number","defaultValue":0,"min":0,"max":3},{"key":"__scriptTabs","type":"tabs","defaultValue":"trigger","values":{"trigger":"On Call"}},{"key":"true","label":"On Call","description":"The script to run when the routine is called.","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"trigger"]}]}]} />
+<ScriptEventPreview title={"Set Music Routine"} fields={[{"key":"routine","label":"Routine","description":"The music routine, either 0, 1, 2 or 3.","type":"number","defaultValue":0,"min":0,"max":3},{"key":"__scriptTabs","type":"tabs","defaultValue":"trigger","values":{"trigger":"On Call"}},{"key":"true","label":"On Call","description":"The script to run when the routine is called.","type":"events","allowedContexts":["global","entity","prefab"],"conditions":[{"key":"__scriptTabs","in":[null,"trigger"]}]}]} />
 
 - **Routine**: The music routine, either 0, 1, 2 or 3.  
 - **On Call**: The script to run when the routine is called.  
+
+## Stop
+### Mute Channel
+Set which audio channels are active and which are muted.
+<ScriptEventPreview title={"Mute Channel"} fields={[{"key":"channels","label":"Active Channels","description":"The channels that will produce sound. Any unselected channels will be muted.","type":"togglebuttons","options":[[0,"Duty 1"],[1,"Duty 2"],[2,"Wave"],[3,"Noise"]],"allowMultiple":true,"allowNone":true}]} />
+
+- **Active Channels**: The channels that will produce sound. Any unselected channels will be muted.  
+
+### Stop Music
+Stops any currently playing music.
+<ScriptEventPreview title={"Stop Music"} fields={[{"label":"Stops any music that was previously playing."}]} />
+
 

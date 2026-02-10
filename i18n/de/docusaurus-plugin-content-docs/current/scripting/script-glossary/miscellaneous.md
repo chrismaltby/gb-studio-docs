@@ -10,12 +10,12 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 # Sonstiges
 
 ### Kommentar
-Allows you to leave notes within your scripts. Provides no functionality in-game. The text you type automatically gets set in the event title, so you can collapse the comment and still read its content.
+Ermöglicht Notizen innerhalb der Skripte. Stellt keine ImSpiel-Funktionalität bereit. Der geschriebene Text wird automatisch in den Titel des Ereignisses gesetzt, sodass der Kommentar zusammengeklappt werden kann, sein Inhalt aber noch lesbar ist.
 <ScriptEventPreview title={"Kommentar"} fields={[{"key":"text","type":"textarea","maxPerLine":50,"placeholder":"Text...","multiple":false,"defaultValue":""}]} />
 
 
 ### Ereignisgruppe
-Ermöglicht es, Teile des Skripts aus organisatorischen Gründen zusammenzufassen.
+Ermöglicht es dir, Teile des Skripts aus organisatorischen Gründen zusammenzufassen.
 <ScriptEventPreview title={"Ereignisgruppe"} fields={[{"key":"true","type":"events"}]} />
 
 
@@ -25,32 +25,22 @@ Ein GBVM Skript ausführen.
 **Referenzen**  
 [/docs/scripting/gbvm/](/docs/scripting/gbvm/)  
 [/docs/scripting/gbvm/gbvm-operations](/docs/scripting/gbvm/gbvm-operations)  
-<ScriptEventPreview title={"GBVM Skript"} fields={[{"key":"script","label":"Skript","description":"Ein gültiges GBVM-Skript zur Ausführung.","type":"code","flexBasis":"100%"},{"key":"references","type":"references","label":"Referenzen","description":"Eine Liste der im GBVM-Skript verwendeten Assets und Entities. Dadurch teilt man GB Studio mit, dass das Skripts eine Datei benötigt, um zu verhindern, dass es während der Erstellung ausgeschlossen wird."}]} />
+<ScriptEventPreview title={"GBVM Skript"} fields={[{"key":"script","label":"Skript","description":"Ein gültiges GBVM-Skript zur Ausführung.","type":"code","flexBasis":"100%"},{"key":"references","type":"references","label":"Referenzen","description":"Eine Liste der im GBVM-Skript verwendeten Assets und Entitäten. Dadurch teilt man GB Studio mit, dass das Skript eine Datei benötigt, um zu verhindern, dass es bei der finalen Erstellung ausgeschlossen wird."}]} />
 
 - **Skript**: Ein gültiges GBVM-Skript zur Ausführung.  
-- **Referenzen**: Eine Liste der im GBVM-Skript verwendeten Assets und Entities. Dadurch teilt man GB Studio mit, dass das Skripts eine Datei benötigt, um zu verhindern, dass es während der Erstellung ausgeschlossen wird.  
-
-### Script Lock
-Pause other scripts and scene updates until this script has finished or is unlocked.
-<ScriptEventPreview title={"Script Lock"} fields={[{"label":"Pause other scripts and scene updates until this script has finished or is unlocked."}]} />
-
-
-### Script Unlock
-If locked, unlock this script so other scripts can run and the scene can update.
-<ScriptEventPreview title={"Script Unlock"} fields={[{"label":"If locked, unlock this script so other scripts can run and the scene can update."}]} />
-
+- **Referenzen**: Eine Liste der im GBVM-Skript verwendeten Assets und Entitäten. Dadurch teilt man GB Studio mit, dass das Skript eine Datei benötigt, um zu verhindern, dass es bei der finalen Erstellung ausgeschlossen wird.  
 
 ## Multiplayer
 ### Link: Schließen
-<ScriptEventPreview title={"Link: Schließen"} fields={[{"label":"Schließe die derzeitige Link-Verbindung."}]} />
+<ScriptEventPreview title={"Link: Schließen"} fields={[{"label":"Die derzeitige Linkverbindung schließen."}]} />
 
 
 ### Link: Hosten
-<ScriptEventPreview title={"Link: Hosten"} fields={[{"label":"Link-Verbindung hosten."}]} />
+<ScriptEventPreview title={"Link: Hosten"} fields={[{"label":"Linkverbindung hosten."}]} />
 
 
 ### Link: Beitreten
-<ScriptEventPreview title={"Link: Beitreten"} fields={[{"label":"Link-Verbindung beitreten."}]} />
+<ScriptEventPreview title={"Link: Beitreten"} fields={[{"label":"Linkverbindung beitreten."}]} />
 
 
 ### Link: Übertragen
@@ -59,4 +49,49 @@ If locked, unlock this script so other scripts can run and the scene can update.
 - **Variable senden**  
 - **Variable empfangen**  
 - **Paketgröße**  
+
+## Printer
+### Mittels GB Drucker drucken
+Eine zu druckende Grafik an einen GB Printer senden. Ein GB Printer muss angeschlossen sein.
+<ScriptEventPreview title={"Mittels GB Drucker drucken"} fields={[{"type":"group","wrapItems":true,"fields":[{"key":"source","label":"Druckquelle","description":"Der Ort der zu druckenden Grafikdaten.","type":"select","defaultValue":"background","width":"50%","options":[["background","Hintergrund"],["overlay","Überlagerung"]]},{"key":"margin","label":"Rand","description":"Die Anzahl der nach dem Druck zu lassenden Leerzeilen.","type":"number","min":0,"max":20,"width":"50%","defaultValue":2}]},{"type":"group","wrapItems":true,"conditions":[{"key":"source","in":["overlay"]}],"fields":[{"key":"y","label":"Y","description":"Die Zeile, um das Drucken zu beginnen.","type":"number","min":0,"max":17,"width":"50%","defaultValue":0},{"key":"height","label":"Höhe","description":"Die Anzahl der zu druckenden Zeilen.","type":"number","min":2,"max":18,"step":2,"width":"50%","defaultValue":18}]},{"key":"__collapseSuccess","label":"Wenn Druck erfolgreich","type":"collapsable","defaultValue":false},{"key":"true","label":"Erfolg","description":"Das bei Erfolg auszuführende Skript.","type":"events","conditions":[{"key":"__collapseSuccess","ne":true}]},{"key":"__collapseElse","label":"Sonst","type":"collapsable","defaultValue":false,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fehler","description":"Das bei Fehler auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Druckquelle**: Der Ort der zu druckenden Grafikdaten.  
+- **Rand**: Die Anzahl der nach dem Druck zu lassenden Leerzeilen.  
+- **Y**: Die Zeile, um das Drucken zu beginnen.  
+- **Höhe**: Die Anzahl der zu druckenden Zeilen.  
+- **Erfolg**: Das bei Erfolg auszuführende Skript.  
+- **Fehler**: Das bei Fehler auszuführende Skript.  
+
+## Threads
+### Pause Logic For Scene Type
+Prevent the current scene's game engine update function from running until resumed. Allows preventing player control during multi-threaded scripts
+<ScriptEventPreview title={"Pause Logic For Scene Type"} fields={[{"label":"Prevent the current scene's game engine update function from running until resumed. Allows preventing player control during multi-threaded scripts"}]} />
+
+
+### Resume Logic For Scene Type
+Resume the game engine update function for the current scene.
+<ScriptEventPreview title={"Resume Logic For Scene Type"} fields={[{"label":"Resume the game engine update function for the current scene."}]} />
+
+
+### Skript sperren
+Andere Skripte und Szenenupdates anhalten, bis dieses Skript beendet ist oder entsperrt wurde.
+<ScriptEventPreview title={"Skript sperren"} fields={[{"label":"Andere Skripte und Szenenupdates anhalten, bis dieses Skript beendet ist oder entsperrt wurde."}]} />
+
+
+### Skript entsperren
+Falls gesperrt, dieses Skript entsperren, damit andere Skripte und Szenenupdates weiterlaufen.
+<ScriptEventPreview title={"Skript entsperren"} fields={[{"label":"Falls gesperrt, dieses Skript entsperren, damit andere Skripte und Szenenupdates weiterlaufen."}]} />
+
+
+### Thread anhalten
+Einen Thread auf Basis des ausgewählten Threadhandles anhalten.
+<ScriptEventPreview title={"Thread anhalten"} fields={[{"key":"variable","label":"Thread Handle","description":"Das Handle für den anzuhaltenden Thread.","type":"variable","defaultValue":"T0"}]} />
+
+- **Thread Handle**: Das Handle für den anzuhaltenden Thread.  
+
+### Threadstart
+Ein Skript in einem anderen Thread ausführen.
+<ScriptEventPreview title={"Threadstart"} fields={[{"key":"variable","label":"Thread Handle","description":"Sobald der Thread startet, wird ein Handle in dieser Variable gespeichert. Mittels dieses Handles kann der Thread später gestoppt werden.","type":"variable","defaultValue":"T0"},{"key":"__scriptTabs","type":"tabs","defaultValue":"true","values":{"true":"Im Hintergrund ausführen"}},{"key":"true","description":"FIELD_ON_CALL_DESC","type":"events","allowedContexts":["global","entity","prefab"]}]} />
+
+- **Thread Handle**: Sobald der Thread startet, wird ein Handle in dieser Variable gespeichert. Mittels dieses Handles kann der Thread später gestoppt werden.  
 

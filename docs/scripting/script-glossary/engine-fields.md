@@ -14,18 +14,74 @@ Change the value of an Engine Field.
 
 **References**  
 [/docs/settings/#engine-settings](/docs/settings/#engine-settings)  
-<ScriptEventPreview title={"Engine Field Update"} fields={[{"type":"engineField","label":"Engine Field","description":"The engine field to update.","key":"engineFieldKey"},{"key":"value","type":"engineFieldValue","defaultValue":{"type":"number","value":0},"conditions":[{"key":"engineFieldKey","set":true}]}]} />
+<ScriptEventPreview title={"Engine Field Update"} fields={[{"type":"engineField","label":"Engine Field","description":"The engine field to update.","key":"engineFieldKey","defaultValue":"LAST_ENGINE_FIELD"},{"key":"value","type":"engineFieldValue","defaultValue":{"type":"number","value":0},"conditions":[{"key":"engineFieldKey","set":true}]}]} />
 
 - **Engine Field**: The engine field to update.  
 
-## Variables
 ### Store Engine Field In Variable
 Store the value of an Engine Field in a variable.
 
 **References**  
 [/docs/settings/#engine-settings](/docs/settings/#engine-settings)  
-<ScriptEventPreview title={"Store Engine Field In Variable"} fields={[{"type":"engineField","label":"Engine Field","description":"The engine field to read the value of.","key":"engineFieldKey"},{"key":"value","type":"variable","label":"Variable","description":"The variable to use.","defaultValue":"LAST_VARIABLE","conditions":[{"key":"engineFieldKey","set":true}]}]} />
+<ScriptEventPreview title={"Store Engine Field In Variable"} fields={[{"type":"engineField","label":"Engine Field","description":"The engine field to read the value of.","key":"engineFieldKey","defaultValue":"LAST_ENGINE_FIELD"},{"key":"value","type":"variable","label":"Variable","description":"The variable to use.","defaultValue":"LAST_VARIABLE","conditions":[{"key":"engineFieldKey","set":true}]}]} />
 
 - **Engine Field**: The engine field to read the value of.  
 - **Variable**: The variable to use.  
+
+## Adventure
+### Attach Script To Adventure Event Callback
+Run the specified script any time the state of an adventure scene changes.
+<ScriptEventPreview title={"Attach Script To Adventure Event Callback"} fields={[{"key":"event","label":"Event","type":"select","defaultValue":"groundStart","options":[["groundStart","Start Grounded"],["groundEnd","End Grounded"],["dashStart","Start Dashing"],["dashReady","Dash Ready"],["dashEnd","End Dashing"],["knockbackStart","Start Knockback State"],["knockbackEnd","End Knockback State"],["blankStart","Start Blank State"],["blankEnd","End Blank State"],["runStart","Start Running State"],["runEnd","End Running State"],["pushStart","Start Pushing State"],["pushEnd","End Pushing State"]]},{"key":"__scriptTabs","type":"tabs","defaultValue":"scriptinput","values":{"scriptinput":"On State"}},{"key":"script","label":"On State","description":"On State","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"scriptinput"]}]}]} />
+
+- **Event**  
+- **On State**: On State  
+
+### Remove Script From Adventure Event Callback
+Remove an attached script from an adventure scene state change.
+<ScriptEventPreview title={"Remove Script From Adventure Event Callback"} fields={[{"key":"event","label":"Event","type":"select","defaultValue":"groundStart","options":[["groundStart","Start Grounded"],["groundEnd","End Grounded"],["dashStart","Start Dashing"],["dashReady","Dash Ready"],["dashEnd","End Dashing"],["knockbackStart","Start Knockback State"],["knockbackEnd","End Knockback State"],["blankStart","Start Blank State"],["blankEnd","End Blank State"],["runStart","Start Running State"],["runEnd","End Running State"],["pushStart","Start Pushing State"],["pushEnd","End Pushing State"]]}]} />
+
+- **Event**  
+
+### Set Adventure State
+Set the current state of an adventure scene.
+<ScriptEventPreview title={"Set Adventure State"} fields={[{"key":"state","label":"State","type":"select","defaultValue":"ground","options":[["ground","Grounded"],["dash","Dashing"],["knockback","Knockback"],["blank","Blank"],["run","Running"],["push","Pushing"]]}]} />
+
+- **State**  
+
+## Control Flow
+### If Engine Field Compare With Value
+Conditionally run part of the script based on the value of an engine field compared with a value.
+<ScriptEventPreview title={"If Engine Field Compare With Value"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"engineField","value":"LAST_ENGINE_FIELD"},"valueB":{"type":"number","value":0}}},{"key":"true","label":"True","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
+- **True**: The script to run if the condition is true.  
+- **False**: The script to run if the condition is false.  
+
+### If Engine Field Compare With Variable
+Conditionally run part of the script based on the value of an engine field compared with a variable.
+<ScriptEventPreview title={"If Engine Field Compare With Variable"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"engineField","value":"LAST_ENGINE_FIELD"},"valueB":{"type":"variable","value":"LAST_VARIABLE"}}},{"key":"true","label":"True","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Condition**: The condition to evaluate.  
+- **True**: The script to run if the condition is true.  
+- **False**: The script to run if the condition is false.  
+
+## Platformer
+### Attach Script To Platformer Event Callback
+Run the specified script any time the state of a platformer scene changes.
+<ScriptEventPreview title={"Attach Script To Platformer Event Callback"} fields={[{"key":"event","label":"Event","type":"select","defaultValue":"fallStart","options":[["fallStart","Start Falling"],["fallEnd","End Falling"],["groundStart","Start Grounded"],["groundEnd","End Grounded"],["jumpStart","Start Jumping"],["jumpEnd","End Jumping"],["dashStart","Start Dashing"],["dashReady","Dash Ready"],["dashEnd","End Dashing"],["ladderStart","Start Climbing Ladder"],["ladderEnd","End Climbing Ladder"],["wallStart","Start Wall Slide"],["wallEnd","End Wall Slide"],["knockbackStart","Start Knockback State"],["knockbackEnd","End Knockback State"],["blankStart","Start Blank State"],["blankEnd","End Blank State"],["runStart","Start Running State"],["runEnd","End Running State"],["floatStart","Start Floating State"],["floatEnd","End Floating State"]]},{"key":"__scriptTabs","type":"tabs","defaultValue":"scriptinput","values":{"scriptinput":"On State"}},{"key":"script","label":"On State","description":"On State","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"scriptinput"]}]}]} />
+
+- **Event**  
+- **On State**: On State  
+
+### Remove Script From Platformer Event Callback
+Remove an attached script from a platformer scene state change.
+<ScriptEventPreview title={"Remove Script From Platformer Event Callback"} fields={[{"key":"event","label":"Event","type":"select","defaultValue":"fallStart","options":[["fallStart","Start Falling"],["fallEnd","End Falling"],["groundStart","Start Grounded"],["groundEnd","End Grounded"],["jumpStart","Start Jumping"],["jumpEnd","End Jumping"],["dashStart","Start Dashing"],["dashReady","Dash Ready"],["dashEnd","End Dashing"],["ladderStart","Start Climbing Ladder"],["ladderEnd","End Climbing Ladder"],["wallStart","Start Wall Slide"],["wallEnd","End Wall Slide"],["knockbackStart","Start Knockback State"],["knockbackEnd","End Knockback State"],["blankStart","Start Blank State"],["blankEnd","End Blank State"],["runStart","Start Running State"],["runEnd","End Running State"],["floatStart","Start Floating State"],["floatEnd","End Floating State"]]}]} />
+
+- **Event**  
+
+### Set Platformer State
+Set the current state of a platformer scene.
+<ScriptEventPreview title={"Set Platformer State"} fields={[{"key":"state","label":"State","type":"select","defaultValue":"fall","options":[["fall","Falling"],["ground","Grounded"],["jump","Jumping"],["dash","Dashing"],["ladder","On A Ladder"],["wall","On A Wall"],["knockback","Knockback"],["blank","Blank"],["run","Running"],["float","Floating"]]}]} />
+
+- **State**  
 

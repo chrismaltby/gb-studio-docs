@@ -10,7 +10,7 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 # Variado
 
 ### Comentar
-Te permite dejar notas dentro de tus guiones. No proporciona ninguna funcionalidad en el juego. El texto que escribes se establece automáticamente en el título del evento, por lo que puedes contraer el comentario y seguir leyendo su contenido.
+Te permite dejar notas dentro de tus Scripts. No proporciona ninguna funcionalidad en el juego. El texto que escribes se establece automáticamente en el título del evento, por lo que puedes contraer el comentario y seguir leyendo su contenido.
 <ScriptEventPreview title={"Comentar"} fields={[{"key":"text","type":"textarea","maxPerLine":50,"placeholder":"Texto...","multiple":false,"defaultValue":""}]} />
 
 
@@ -19,16 +19,59 @@ Te permite agrupar partes de tu script con fines organizativos.
 <ScriptEventPreview title={"Grupo de Eventos"} fields={[{"key":"true","type":"events"}]} />
 
 
-### GBVM Script
+### Script GBVM
 Ejecutar script GBVM.
 
 **Referencias**  
 [/docs/scripting/gbvm/](/docs/scripting/gbvm/)  
 [/docs/scripting/gbvm/gbvm-operations](/docs/scripting/gbvm/gbvm-operations)  
-<ScriptEventPreview title={"GBVM Script"} fields={[{"key":"script","label":"Script","description":"Un script GBVM válido para ejecutar.","type":"code","flexBasis":"100%"},{"key":"references","type":"references","label":"Referencias","description":"Una lista de los activos y entidades utilizados en su secuencia de comandos GBVM. Utilícela para que GB Studio sepa que su secuencia de comandos necesita un archivo, evitando que se excluya en la compilación final."}]} />
+<ScriptEventPreview title={"Script GBVM"} fields={[{"key":"script","label":"Script","description":"Un script GBVM válido para ejecutar.","type":"code","flexBasis":"100%"},{"key":"references","type":"references","label":"Referencias","description":"Una lista de los activos y entidades utilizados en su secuencia de comandos GBVM. Utilícela para que GB Studio sepa que su secuencia de comandos necesita un archivo, evitando que se excluya en la compilación final."}]} />
 
 - **Script**: Un script GBVM válido para ejecutar.  
 - **Referencias**: Una lista de los activos y entidades utilizados en su secuencia de comandos GBVM. Utilícela para que GB Studio sepa que su secuencia de comandos necesita un archivo, evitando que se excluya en la compilación final.  
+
+## Multiplayer
+### Link: Cerrar
+<ScriptEventPreview title={"Link: Cerrar"} fields={[{"label":"Cerrar la sesión de enlace actual."}]} />
+
+
+### Link: Anfitrión
+<ScriptEventPreview title={"Link: Anfitrión"} fields={[{"label":"Organizar una sesión de enlace."}]} />
+
+
+### Link: Unirse
+<ScriptEventPreview title={"Link: Unirse"} fields={[{"label":"Unirse a una sesión de enlace."}]} />
+
+
+### Link: Transferir
+<ScriptEventPreview title={"Link: Transferir"} fields={[{"key":"sendVariable","label":"Enviar variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"receiveVariable","label":"Recibir variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"size","label":"Tamaño del paquete","type":"number","defaultValue":1}]} />
+
+- **Enviar variable**  
+- **Recibir variable**  
+- **Tamaño del paquete**  
+
+## Printer
+### Imprimir Usando Impresora GB
+Envía una imagen a una Impresora GB para imprimir. Debe estar conectada una impresora GB.
+<ScriptEventPreview title={"Imprimir Usando Impresora GB"} fields={[{"type":"group","wrapItems":true,"fields":[{"key":"source","label":"Fuente de Impresión","description":"La ubicación de los datos de imagen para imprimir.","type":"select","defaultValue":"background","width":"50%","options":[["background","Fondo"],["overlay","Superposición"]]},{"key":"margin","label":"Margen","description":"El número de líneas vacías para dejar después de imprimir.","type":"number","min":0,"max":20,"width":"50%","defaultValue":2}]},{"type":"group","wrapItems":true,"conditions":[{"key":"source","in":["overlay"]}],"fields":[{"key":"y","label":"Y","description":"La línea para comenzar a imprimir.","type":"number","min":0,"max":17,"width":"50%","defaultValue":0},{"key":"height","label":"Alto","description":"El número de líneas para imprimir.","type":"number","min":2,"max":18,"step":2,"width":"50%","defaultValue":18}]},{"key":"__collapseSuccess","label":"Si Impresión Exitosa","type":"collapsable","defaultValue":false},{"key":"true","label":"Éxito","description":"El script para ejecutar en caso de éxito.","type":"events","conditions":[{"key":"__collapseSuccess","ne":true}]},{"key":"__collapseElse","label":"Sino","type":"collapsable","defaultValue":false,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Error","description":"El script para ejecutar en caso de error.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Fuente de Impresión**: La ubicación de los datos de imagen para imprimir.  
+- **Margen**: El número de líneas vacías para dejar después de imprimir.  
+- **Y**: La línea para comenzar a imprimir.  
+- **Alto**: El número de líneas para imprimir.  
+- **Éxito**: El script para ejecutar en caso de éxito.  
+- **Error**: El script para ejecutar en caso de error.  
+
+## Threads
+### Suspender la lógica para el tipo de escena
+Previene que la función de actualización del motor del juego de la escena actual se ejecute hasta que se reanude. Permite evitar el control del jugador durante los scripts de hilo múltiple.
+<ScriptEventPreview title={"Suspender la lógica para el tipo de escena"} fields={[{"label":"Previene que la función de actualización del motor del juego de la escena actual se ejecute hasta que se reanude. Permite evitar el control del jugador durante los scripts de hilo múltiple."}]} />
+
+
+### Reanudar la lógica para el tipo de escena
+Reanuda la función de actualización del motor del juego de la escena actual.
+<ScriptEventPreview title={"Reanudar la lógica para el tipo de escena"} fields={[{"label":"Reanuda la función de actualización del motor del juego de la escena actual."}]} />
+
 
 ### Bloqueo de script
 Pausar otros scripts y actualizaciones de escenas hasta que este script haya finalizado o esté desbloqueado.
@@ -40,23 +83,15 @@ Si está bloqueado, desbloquee este script para que se puedan ejecutar otros scr
 <ScriptEventPreview title={"Desbloqueo de script"} fields={[{"label":"Si está bloqueado, desbloquee este script para que se puedan ejecutar otros scripts y la escena se pueda actualizar."}]} />
 
 
-## Multiplayer
-### Link: Cerrado
-<ScriptEventPreview title={"Link: Cerrado"} fields={[{"label":"Cerrar la sesión de enlace actual."}]} />
+### Detener Hilo
+Detiene un hilo basado en el manejador de hilo seleccionado.
+<ScriptEventPreview title={"Detener Hilo"} fields={[{"key":"variable","label":"Manejador de Hilo","description":"El manejador del hilo que deseas detener.","type":"variable","defaultValue":"T0"}]} />
 
+- **Manejador de Hilo**: El manejador del hilo que deseas detener.  
 
-### Link: Host
-<ScriptEventPreview title={"Link: Host"} fields={[{"label":"Organizar una sesión de enlace."}]} />
+### Iniciar Hilo
+Ejecuta un script en otro hilo.
+<ScriptEventPreview title={"Iniciar Hilo"} fields={[{"key":"variable","label":"Manejador de Hilo","description":"Cuando el hilo comienza, un manejador se almacenará en esta variable. Puedes usar este manejador para detener el hilo más tarde.","type":"variable","defaultValue":"T0"},{"key":"__scriptTabs","type":"tabs","defaultValue":"true","values":{"true":"Ejecutar en Segundo Plano"}},{"key":"true","description":"FIELD_ON_CALL_DESC","type":"events","allowedContexts":["global","entity","prefab"]}]} />
 
-
-### Link: Unir
-<ScriptEventPreview title={"Link: Unir"} fields={[{"label":"Unirse a una sesión de enlace."}]} />
-
-
-### Link: Transferir
-<ScriptEventPreview title={"Link: Transferir"} fields={[{"key":"sendVariable","label":"Enviar variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"receiveVariable","label":"Recibir variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"size","label":"Tamaño del paquete","type":"number","defaultValue":1}]} />
-
-- **Enviar variable**  
-- **Recibir variable**  
-- **Tamaño del paquete**  
+- **Manejador de Hilo**: Cuando el hilo comienza, un manejador se almacenará en esta variable. Puedes usar este manejador para detener el hilo más tarde.  
 

@@ -19,6 +19,10 @@ Set the specified variable to a defined value.
 ## Actor
 ### Store Actor Direction In Variable
 Store the current direction of an actor within a variable.
+Down: 0
+Right: 1
+Up: 2
+Left: 3
 <ScriptEventPreview title={"Store Actor Direction In Variable"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to check.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Variable","description":"The variable to use for the direction.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
 
 - **Actor**: The actor you want to check.  
@@ -83,7 +87,7 @@ Store the value of an Engine Field in a variable.
 
 **References**  
 [/docs/settings/#engine-settings](/docs/settings/#engine-settings)  
-<ScriptEventPreview title={"Store Engine Field In Variable"} fields={[{"type":"engineField","label":"Engine Field","description":"The engine field to read the value of.","key":"engineFieldKey"},{"key":"value","type":"variable","label":"Variable","description":"The variable to use.","defaultValue":"LAST_VARIABLE","conditions":[{"key":"engineFieldKey","set":true}]}]} />
+<ScriptEventPreview title={"Store Engine Field In Variable"} fields={[{"type":"engineField","label":"Engine Field","description":"The engine field to read the value of.","key":"engineFieldKey","defaultValue":"LAST_ENGINE_FIELD"},{"key":"value","type":"variable","label":"Variable","description":"The variable to use.","defaultValue":"LAST_VARIABLE","conditions":[{"key":"engineFieldKey","set":true}]}]} />
 
 - **Engine Field**: The engine field to read the value of.  
 - **Variable**: The variable to use.  

@@ -10,42 +10,42 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 # Mathe
 
 ## Control Flow
-### Falls Matheausdruck
-Conditionally execute part of the script if the specified math expression evaluates to true.
-<ScriptEventPreview title={"Falls Matheausdruck"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"expression","value":""}},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Wenn mathematischer Ausdruck
+Einen Teil des Skripts bedingt ausführen, wenn der angegebene mathematische Ausdruck 'wahr' ist.
+<ScriptEventPreview title={"Wenn mathematischer Ausdruck"} fields={[{"key":"condition","label":"Bedingung","description":"Die auszuwertende Bedingung","type":"value","defaultValue":{"type":"expression","value":""}},{"key":"true","label":"'wahr'","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Sonst","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"'falsch'","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Condition**: The condition to evaluate.  
-- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
-- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+- **Bedingung**: Die auszuwertende Bedingung  
+- **'wahr'**: Das bei wahrer Bedingung auszuführende Skript.  
+- **'falsch'**: Das bei falscher Bedingung auszuführende Skript.  
 
-### Loop While Math Expression
-Ein Teil des Scripts wird in einer Schleife ausgeführt, solange eine bestimmte Bedingung erfüllt ist.
-<ScriptEventPreview title={"Loop While Math Expression"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"expression","value":""}},{"key":"true","type":"events"}]} />
+### Schleife While Math-Ausdruck
+Ein Teil des Skripts wird in einer Schleife ausgeführt, solange eine bestimmte Bedingung erfüllt ist.
+<ScriptEventPreview title={"Schleife While Math-Ausdruck"} fields={[{"key":"condition","label":"Bedingung","description":"Die auszuwertende Bedingung","type":"value","defaultValue":{"type":"expression","value":""}},{"key":"true","type":"events"}]} />
 
-- **Condition**: The condition to evaluate.  
+- **Bedingung**: Die auszuwertende Bedingung  
 
 ## Random
-### Seed Zufallszahlengenerator
-Place this to run in response to user input to ensure random numbers change between playthroughs.
-<ScriptEventPreview title={"Seed Zufallszahlengenerator"} fields={[{"label":"Platzieren Sie dies als Reaktion auf Benutzereingaben, um sicherzustellen, dass sich die Zufallszahlen zwischen den Durchläufen ändern."}]} />
+### Saat-Zufallszahlengenerator
+Dies einsetzen, dass auf Benutzereingaben reagiert wird, um sicherzustellen, dass sich die Zufallszahlen zwischen den Spieldurchgängen ändern.
+<ScriptEventPreview title={"Saat-Zufallszahlengenerator"} fields={[{"label":"Platziere dies als Reaktion auf Benutzereingaben, um sicherzustellen, dass sich die Zufallszahlen zwischen den Durchläufen ändern."}]} />
 
 
 ## Variables
-### Matheausdruck auswerten
-Set a variable to the result of evaluating a math expression.
+### Mathematischen Ausdruck auswerten
+Eine Variable auf das Ergebnis der Auswertung eines mathematischen Ausdrucks setzen.
 
 **Referenzen**  
 [/docs/scripting/math-expressions](/docs/scripting/math-expressions)  
-<ScriptEventPreview title={"Matheausdruck auswerten"} fields={[{"key":"variable","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Ausdruck","description":"Der auszuwertende Ausdruck.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
+<ScriptEventPreview title={"Mathematischen Ausdruck auswerten"} fields={[{"key":"variable","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Ausdruck","description":"Der auszuwertende Ausdruck.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
 
 - **Variable**: Die zu nutzende Variable.  
 - **Ausdruck**: Der auszuwertende Ausdruck.  
 
-### Variable: Mathematische Funktionen
-Allows you to perform various maths functions on a variable to add/subtract/multiply/divide/modulus a value/variable/random number.
-<ScriptEventPreview title={"Variable: Mathematische Funktionen"} fields={[{"key":"vectorX","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operation","label":"Operation","description":"Die Operation, die zur Änderung des Variablenwerts verwendet werden soll.","type":"select","options":[["set","Einstellen"],["add","Hinzufügen"],["sub","Subtrahieren"],["mul","Multiplizieren"],["div","Teilen"],["mod","Modulo"]],"defaultValue":"set","width":"50%"},{"key":"other","label":"Wert","description":"Der Wert, der mit der Variablen durch die gewählte Operation kombiniert werden soll.","type":"select","options":[["true","Wahr"],["false","Falsch"],["var","Variable"],["val","Wert"],["rnd","Zufällig"]],"defaultValue":"true","width":"50%"},{"key":"vectorY","type":"variable","conditions":[{"key":"other","eq":"var"}],"defaultValue":"LAST_VARIABLE"},{"key":"value","type":"number","conditions":[{"key":"other","eq":"val"}],"min":-32768,"max":32767,"defaultValue":"0"},{"type":"group","fields":[{"key":"minValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Minimaler Wert","description":"Der minimale Wert für den Zufallsbereich.","hideFromDocs":true,"defaultValue":"0","width":"50%"},{"key":"maxValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Maximaler Wert","description":"Der maximale Wert für den Zufallsbereich.","hideFromDocs":true,"defaultValue":"32767","width":"50%"}]},{"key":"clamp","type":"checkbox","label":"Klammerwert zwischen 0 und 255","hideFromDocs":true,"conditions":[{"key":"operation","in":["add","sub","mul"]}],"defaultValue":false}]} />
+### Mathematische Funktionen
+Erlaubt es dir, verschiedene mathematische Funktionen auf einer Variable auszuführen, um ein Wert/Variable/Zufallszahl zu addieren/subtrahieren/multiplizieren/dividieren bzw. den Modulus zu berechnen.
+<ScriptEventPreview title={"Mathematische Funktionen"} fields={[{"key":"vectorX","label":"Variable","description":"Die zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"operation","label":"Operation","description":"Die Operation, die zur Änderung des Variablenwerts verwendet werden soll.","type":"select","options":[["set","Eingestellt auf"],["add","Hinzufügen"],["sub","Subtrahieren"],["mul","Multiplizieren"],["div","Teilen"],["mod","Modulus"]],"defaultValue":"set","width":"50%"},{"key":"other","label":"Wert","description":"Der Wert, der mit der Variable durch die gewählte Operation kombiniert werden soll.","type":"select","options":[["true","'wahr'"],["false","'falsch'"],["var","Variable"],["val","Wert"],["rnd","Zufällig"]],"defaultValue":"true","width":"50%"},{"key":"vectorY","type":"variable","conditions":[{"key":"other","eq":"var"}],"defaultValue":"LAST_VARIABLE"},{"key":"value","type":"number","conditions":[{"key":"other","eq":"val"}],"min":-32768,"max":32767,"defaultValue":"0"},{"type":"group","fields":[{"key":"minValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Mindestwert","description":"Der Mindestwert für den Zufallsbereich.","hideFromDocs":true,"defaultValue":"0","width":"50%"},{"key":"maxValue","type":"number","conditions":[{"key":"other","eq":"rnd"}],"min":-32768,"max":32767,"label":"Maximalwert","description":"Der Maximalwert für den Zufallsbereich.","hideFromDocs":true,"defaultValue":"32767","width":"50%"}]},{"key":"clamp","type":"checkbox","label":"Klammerwert zwischen 0 und 255","hideFromDocs":true,"conditions":[{"key":"operation","in":["add","sub","mul"]}],"defaultValue":false}]} />
 
 - **Variable**: Die zu nutzende Variable.  
 - **Operation**: Die Operation, die zur Änderung des Variablenwerts verwendet werden soll.  
-- **Wert**: Der Wert, der mit der Variablen durch die gewählte Operation kombiniert werden soll.  
+- **Wert**: Der Wert, der mit der Variable durch die gewählte Operation kombiniert werden soll.  
 

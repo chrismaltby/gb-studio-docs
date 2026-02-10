@@ -11,26 +11,63 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 ## Actions
 ### Launch Projectile
-Launch a projectile from an actor in a specified direction. When a project collides with other actors it will trigger their OnHit scripts.
-<ScriptEventPreview title={"Launch Projectile"} fields={[{"type":"group","fields":[{"key":"spriteSheetId","type":"sprite","label":"Sprite Sheet","description":"The sprite to use for rendering the projectile.","defaultValue":"LAST_SPRITE"},{"key":"spriteStateId","type":"animationstate","label":"Animation State","description":"The sprite animation state to use.","defaultValue":""}]},{"key":"actorId","type":"actor","label":"Source","description":"The actor to launch the projectile from.","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"Offset X","description":"The horizontal offset from the source actors position to start launching the projectile.","type":"number","min":-256,"max":256,"width":"50%","defaultValue":0},{"key":"y","label":"Offset Y","description":"The vertical offset from the source actors position to start launching the projectile.","type":"number","min":-256,"max":256,"width":"50%","defaultValue":0}]},{"type":"group","fields":[{"label":"Launch At","key":"directionType","type":"select","options":[["direction","Fixed Direction"],["actor","Actor Direction"],["target","Target Actor"],["angle","Angle"],["anglevar","Angle Variable"]],"defaultValue":"direction","alignBottom":true},{"key":"otherActorId","label":"Direction","description":"The direction to launch the projectile. Can either be a fixed direction or based on an actor's current direction.","type":"actor","defaultValue":"$self$","conditions":[{"key":"directionType","eq":"actor"}]},{"key":"direction","label":"Direction","description":"The direction to launch the projectile. Can either be a fixed direction or based on an actor's current direction.","type":"direction","defaultValue":"right","conditions":[{"key":"directionType","eq":"direction"}]},{"key":"angle","label":"Angle","description":"The angle to launch the projectile.","type":"angle","defaultValue":0,"min":-256,"max":256,"conditions":[{"key":"directionType","eq":"angle"}]},{"key":"angleVariable","label":"Angle","description":"The angle to launch the projectile.","type":"variable","defaultValue":"LAST_VARIABLE","conditions":[{"key":"directionType","eq":"anglevar"}]},{"key":"targetActorId","label":"Target","description":"The actor to launch the projectile towards","type":"actor","defaultValue":"$self$","conditions":[{"key":"directionType","eq":"target"}]}]},{"key":"initialOffset","label":"Direction Offset","description":"The distance the projectile should move from launch position in its launch direction before becoming visible.","type":"number","min":0,"max":256,"width":"50%","defaultValue":0},{"type":"group","fields":[{"key":"speed","label":"Speed","description":"The movement speed.","type":"moveSpeed","allowNone":true,"defaultValue":2,"width":"50%"},{"key":"animSpeed","label":"Animation Speed","description":"The animation speed.","type":"animSpeed","defaultValue":15,"width":"50%"}]},{"key":"lifeTime","label":"Life Time","description":"The amount of time in seconds that the projectile will live for.","type":"number","min":0,"max":4,"step":0.1,"width":"50%","defaultValue":1},{"type":"group","alignBottom":true,"fields":[{"key":"loopAnim","label":"Loop Animation","description":"Set if animation should loop.","type":"checkbox","defaultValue":true},{"key":"destroyOnHit","label":"Destroy On Hit","description":"Set if the projectile should be destroyed after its first collision.","type":"checkbox","defaultValue":true}]},{"type":"group","fields":[{"key":"collisionGroup","label":"Collision Group","description":"The collision group that should be used when registering collisions with actors.","type":"collisionMask","width":"50%","includePlayer":false,"defaultValue":"3"},{"key":"collisionMask","label":"Collide With","description":"The groups of actors that will be checked for collisions. e.g. If it should pass through any actors but the player set this field to just 'Player'.","type":"collisionMask","width":"50%","includePlayer":true,"defaultValue":["1"]}]}]} />
+Launch a projectile from an actor in a specified direction. When a projectile collides with other actors it will trigger their OnHit scripts.
+<ScriptEventPreview title={"Launch Projectile"} fields={[{"key":"__section","type":"tabs","defaultValue":"projectile","variant":"eventSection","values":{"projectile":"Projectile","source":"Source","presets":"Presets"}},{"type":"group","conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"spriteSheetId","type":"sprite","label":"Sprite Sheet","description":"The sprite to use for rendering the projectile.","defaultValue":"LAST_SPRITE"},{"key":"spriteStateId","type":"animationstate","label":"Animation State","description":"The sprite animation state to use.","defaultValue":""}]},{"key":"actorId","type":"actor","label":"Source","description":"The actor to launch the projectile from.","defaultValue":"$self$","conditions":[{"key":"__section","in":["source"]}]},{"type":"group","conditions":[{"key":"__section","in":["source"]}],"fields":[{"key":"x","label":"Offset X","description":"The horizontal offset from the source actors position to start launching the projectile.","type":"number","min":-256,"max":256,"width":"50%","defaultValue":0},{"key":"y","label":"Offset Y","description":"The vertical offset from the source actors position to start launching the projectile.","type":"number","min":-256,"max":256,"width":"50%","defaultValue":0}]},{"type":"group","conditions":[{"key":"__section","in":["source"]}],"fields":[{"label":"Launch At","key":"directionType","type":"select","options":[["direction","Fixed Direction"],["actor","Actor Direction"],["target","Target Actor"],["angle","Angle"],["anglevar","Angle Variable"]],"defaultValue":"direction","alignBottom":true},{"key":"otherActorId","label":"Direction","description":"The direction to launch the projectile. Can either be a fixed direction or based on an actor's current direction.","type":"actor","defaultValue":"$self$","conditions":[{"key":"directionType","eq":"actor"}]},{"key":"direction","label":"Direction","description":"The direction to launch the projectile. Can either be a fixed direction or based on an actor's current direction.","type":"direction","defaultValue":"right","conditions":[{"key":"directionType","eq":"direction"}]},{"key":"angle","label":"Angle","description":"The angle to launch the projectile.","type":"angle","defaultValue":0,"min":-256,"max":256,"conditions":[{"key":"directionType","eq":"angle"}]},{"key":"angleVariable","label":"Angle","description":"The angle to launch the projectile.","type":"variable","defaultValue":"LAST_VARIABLE","conditions":[{"key":"directionType","eq":"anglevar"}]},{"key":"targetActorId","label":"Target","description":"The actor to launch the projectile towards","type":"actor","defaultValue":"$self$","conditions":[{"key":"directionType","eq":"target"}]}]},{"type":"group","conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"speed","label":"Speed","description":"The movement speed.","type":"moveSpeed","allowNone":true,"defaultValue":2,"width":"50%"},{"key":"animSpeed","label":"Animation Speed","description":"The animation speed.","type":"animSpeed","defaultValue":15,"width":"50%"}]},{"type":"group","alignBottom":true,"conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"lifeTime","label":"Life Time","description":"The amount of time in seconds that the projectile will live for.","type":"number","min":0,"max":4,"step":0.1,"width":"50%","defaultValue":1},{"key":"initialOffset","label":"Initial Offset","description":"The distance the projectile should move from launch position in its launch direction before becoming visible.","type":"number","min":0,"max":256,"width":"50%","defaultValue":0}]},{"type":"group","alignBottom":true,"conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"loopAnim","label":"Loop Animation","description":"Set if animation should loop.","type":"checkbox","defaultValue":true},{"key":"destroyOnHit","label":"Destroy On Hit","description":"Set if the projectile should be destroyed after its first collision.","type":"checkbox","defaultValue":true}]},{"type":"group","conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"collisionGroup","label":"Collision Group","description":"The collision group that should be used when registering collisions with actors.","type":"collisionMask","width":"50%","includePlayer":false,"defaultValue":"3"},{"key":"collisionMask","label":"Collide With","description":"The groups of actors that will be checked for collisions. e.g. If it should pass through any actors but the player set this field to just 'Player'.","type":"collisionMask","width":"50%","includePlayer":true,"defaultValue":["1"]}]},{"type":"presets","conditions":[{"key":"__section","in":["presets"]}]}]} />
 
-- **Sprite Sheet**: The sprite to use for rendering the projectile.  
-- **Animation State**: The sprite animation state to use.  
-- **Source**: The actor to launch the projectile from.  
-- **Offset X**: The horizontal offset from the source actors position to start launching the projectile.  
-- **Offset Y**: The vertical offset from the source actors position to start launching the projectile.  
-- **Launch At**  
-- **Direction**: The direction to launch the projectile. Can either be a fixed direction or based on an actor's current direction.  
-- **Angle**: The angle to launch the projectile.  
-- **Target**: The actor to launch the projectile towards  
-- **Direction Offset**: The distance the projectile should move from launch position in its launch direction before becoming visible.  
-- **Speed**: The movement speed.  
-- **Animation Speed**: The animation speed.  
-- **Life Time**: The amount of time in seconds that the projectile will live for.  
-- **Loop Animation**: Set if animation should loop.  
-- **Destroy On Hit**: Set if the projectile should be destroyed after its first collision.  
-- **Collision Group**: The collision group that should be used when registering collisions with actors.  
-- **Collide With**: The groups of actors that will be checked for collisions. e.g. If it should pass through any actors but the player set this field to just 'Player'.  
+
+- **Projectile**  
+  - **Sprite Sheet**: The sprite to use for rendering the projectile.  
+  - **Animation State**: The sprite animation state to use.  
+  - **Speed**: The movement speed.  
+  - **Animation Speed**: The animation speed.  
+  - **Life Time**: The amount of time in seconds that the projectile will live for.  
+  - **Initial Offset**: The distance the projectile should move from launch position in its launch direction before becoming visible.  
+  - **Loop Animation**: Set if animation should loop.  
+  - **Destroy On Hit**: Set if the projectile should be destroyed after its first collision.  
+  - **Collision Group**: The collision group that should be used when registering collisions with actors.  
+  - **Collide With**: The groups of actors that will be checked for collisions. e.g. If it should pass through any actors but the player set this field to just 'Player'.  
+
+- **Source**  
+  - **Source**: The actor to launch the projectile from.  
+  - **Offset X**: The horizontal offset from the source actors position to start launching the projectile.  
+  - **Offset Y**: The vertical offset from the source actors position to start launching the projectile.  
+  - **Launch At**  
+  - **Direction**: The direction to launch the projectile. Can either be a fixed direction or based on an actor's current direction.  
+  - **Angle**: The angle to launch the projectile.  
+  - **Target**: The actor to launch the projectile towards  
+
+### Launch Projectile In Slot
+Launch a slot's projectile from an actor in a specified direction. When a projectile collides with other actors it will trigger their OnHit scripts.
+<ScriptEventPreview title={"Launch Projectile In Slot"} fields={[{"key":"__section","type":"tabs","defaultValue":"source","variant":"eventSection","values":{"source":"Source","presets":"Presets"}},{"key":"actorId","type":"actor","label":"Source","description":"The actor to launch the projectile from.","defaultValue":"$self$","conditions":[{"key":"__section","in":["source",null]}]},{"type":"group","conditions":[{"key":"__section","in":["source",null]}],"fields":[{"key":"x","label":"Offset X","description":"The horizontal offset from the source actors position to start launching the projectile.","type":"number","min":-256,"max":256,"width":"50%","defaultValue":0},{"key":"y","label":"Offset Y","description":"The vertical offset from the source actors position to start launching the projectile.","type":"number","min":-256,"max":256,"width":"50%","defaultValue":0}]},{"type":"group","conditions":[{"key":"__section","in":["source",null]}],"fields":[{"label":"Launch At","key":"directionType","type":"select","options":[["direction","Fixed Direction"],["actor","Actor Direction"],["target","Target Actor"],["angle","Angle"],["anglevar","Angle Variable"]],"defaultValue":"direction","alignBottom":true},{"key":"otherActorId","label":"Direction","description":"The direction to launch the projectile. Can either be a fixed direction or based on an actor's current direction.","type":"actor","defaultValue":"$self$","conditions":[{"key":"directionType","eq":"actor"}]},{"key":"direction","label":"Direction","description":"The direction to launch the projectile. Can either be a fixed direction or based on an actor's current direction.","type":"direction","defaultValue":"right","conditions":[{"key":"directionType","eq":"direction"}]},{"key":"angle","label":"Angle","description":"The angle to launch the projectile.","type":"angle","defaultValue":0,"min":-256,"max":256,"conditions":[{"key":"directionType","eq":"angle"}]},{"key":"angleVariable","label":"Angle","description":"The angle to launch the projectile.","type":"variable","defaultValue":"LAST_VARIABLE","conditions":[{"key":"directionType","eq":"anglevar"}]},{"key":"targetActorId","label":"Target","description":"The actor to launch the projectile towards","type":"actor","defaultValue":"$self$","conditions":[{"key":"directionType","eq":"target"}]}]},{"key":"slot","label":"Projectile Slot","description":"The slot that contains the projectile you want to launch","type":"togglebuttons","options":[[0,"Slot 1","Projectile Slot 1"],[1,"Slot 2","Projectile Slot 2"],[2,"Slot 3","Projectile Slot 3"],[3,"Slot 4","Projectile Slot 4"],[4,"Slot 5","Projectile Slot 5"]],"allowNone":false,"defaultValue":0,"conditions":[{"key":"__section","in":["source",null]}]},{"type":"presets","conditions":[{"key":"__section","in":["presets"]}]}]} />
+
+
+- **Source**  
+  - **Source**: The actor to launch the projectile from.  
+  - **Offset X**: The horizontal offset from the source actors position to start launching the projectile.  
+  - **Offset Y**: The vertical offset from the source actors position to start launching the projectile.  
+  - **Launch At**  
+  - **Direction**: The direction to launch the projectile. Can either be a fixed direction or based on an actor's current direction.  
+  - **Angle**: The angle to launch the projectile.  
+  - **Target**: The actor to launch the projectile towards  
+  - **Projectile Slot**: The slot that contains the projectile you want to launch  
+
+### Load Projectile Into Slot
+Load projectile data into a specified slot
+<ScriptEventPreview title={"Load Projectile Into Slot"} fields={[{"key":"__section","type":"tabs","defaultValue":"projectile","variant":"eventSection","values":{"projectile":"Projectile","presets":"Presets"}},{"key":"slot","label":"Projectile Slot","description":"The slot where you want to store projectile data","type":"togglebuttons","options":[[0,"Slot 1","Projectile Slot 1"],[1,"Slot 2","Projectile Slot 2"],[2,"Slot 3","Projectile Slot 3"],[3,"Slot 4","Projectile Slot 4"],[4,"Slot 5","Projectile Slot 5"]],"allowNone":false,"defaultValue":0,"conditions":[{"key":"__section","in":["projectile",null]}]},{"type":"group","conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"spriteSheetId","type":"sprite","label":"Sprite Sheet","description":"The sprite to use for rendering the projectile.","defaultValue":"LAST_SPRITE"},{"key":"spriteStateId","type":"animationstate","label":"Animation State","description":"The sprite animation state to use.","defaultValue":""}]},{"type":"group","conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"speed","label":"Speed","description":"The movement speed.","type":"moveSpeed","allowNone":true,"defaultValue":2,"width":"50%"},{"key":"animSpeed","label":"Animation Speed","description":"The animation speed.","type":"animSpeed","defaultValue":15,"width":"50%"}]},{"type":"group","alignBottom":true,"conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"lifeTime","label":"Life Time","description":"The amount of time in seconds that the projectile will live for.","type":"number","min":0,"max":4,"step":0.1,"width":"50%","defaultValue":1},{"key":"initialOffset","label":"Initial Offset","description":"The distance the projectile should move from launch position in its launch direction before becoming visible.","type":"number","min":0,"max":256,"width":"50%","defaultValue":0}]},{"type":"group","alignBottom":true,"conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"loopAnim","label":"Loop Animation","description":"Set if animation should loop.","type":"checkbox","defaultValue":true},{"key":"destroyOnHit","label":"Destroy On Hit","description":"Set if the projectile should be destroyed after its first collision.","type":"checkbox","defaultValue":true}]},{"type":"group","conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"collisionGroup","label":"Collision Group","description":"The collision group that should be used when registering collisions with actors.","type":"collisionMask","width":"50%","includePlayer":false,"defaultValue":"3"},{"key":"collisionMask","label":"Collide With","description":"The groups of actors that will be checked for collisions. e.g. If it should pass through any actors but the player set this field to just 'Player'.","type":"collisionMask","width":"50%","includePlayer":true,"defaultValue":["1"]}]},{"type":"presets","conditions":[{"key":"__section","in":["presets"]}]}]} />
+
+
+- **Projectile**  
+  - **Projectile Slot**: The slot where you want to store projectile data  
+  - **Sprite Sheet**: The sprite to use for rendering the projectile.  
+  - **Animation State**: The sprite animation state to use.  
+  - **Speed**: The movement speed.  
+  - **Animation Speed**: The animation speed.  
+  - **Life Time**: The amount of time in seconds that the projectile will live for.  
+  - **Initial Offset**: The distance the projectile should move from launch position in its launch direction before becoming visible.  
+  - **Loop Animation**: Set if animation should loop.  
+  - **Destroy On Hit**: Set if the projectile should be destroyed after its first collision.  
+  - **Collision Group**: The collision group that should be used when registering collisions with actors.  
+  - **Collide With**: The groups of actors that will be checked for collisions. e.g. If it should pass through any actors but the player set this field to just 'Player'.  
 
 ### Show Emote Bubble
 Show an emote image above a specified actor. The image will be positioned centrally above the actor's collision bounding box.
@@ -89,23 +126,33 @@ Cancel any currently running "Actor Move" events affecting this actor. Causes th
 
 ### Actor Move Relative
 Move an actor relative to its current position.
-<ScriptEventPreview title={"Actor Move Relative"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to move.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal offset relative to the current position.","type":"value","min":-31,"max":31,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"The vertical offset relative to the current position.","type":"value","min":-31,"max":31,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"moveType","label":"Movement Type","description":"Choose if should move in horizontal/vertical axis first or if it should move diagonally to destination.","hideLabel":true,"type":"moveType","defaultValue":"horizontal","flexBasis":30,"flexGrow":0,"alignBottom":true},{"key":"useCollisions","label":"Use Collisions","description":"Set if collisions with both scene and actors should be taken into account while moving.","width":"50%","type":"checkbox","defaultValue":false}]} />
+<ScriptEventPreview title={"Actor Move Relative"} fields={[{"key":"__section","type":"tabs","defaultValue":"movement","variant":"eventSection","values":{"movement":"Movement","options":"Options","presets":"Presets"}},{"type":"group","wrapItems":true,"flexBasis":"100%","fields":[{"key":"actorId","label":"Actor","description":"The actor you want to move.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal offset relative to the current position.","type":"value","min":-31,"max":31,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"The vertical offset relative to the current position.","type":"value","min":-31,"max":31,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]}],"conditions":[{"key":"__section","in":["movement",null]}]},{"type":"group","wrapItems":true,"flexBasis":"100%","fields":[{"key":"collideWith","width":"50%","flexBasis":0,"minWidth":150,"label":"Collide With","description":"The groups of actors that will be checked for collisions. e.g. If it should pass through any actors but the player set this field to just 'Player'.","type":"togglebuttons","options":[["walls","Walls","Walls"],["actors","Actors","Actors"]],"allowNone":true,"allowMultiple":true,"defaultValue":["walls"]},{"type":"group","flexBasis":0,"minWidth":150,"alignBottom":true,"fields":[{"key":"lockDirection","width":"50%","label":"Lock Direction","description":"Prevents the actor from changing facing direction along the selected axis while moving.","type":"togglebuttons","options":[["x","H","Horizontal"],["y","V","Vertical"]],"allowMultiple":true,"allowNone":true,"defaultValue":[]},{"key":"moveType","label":"Movement Type","description":"Choose if should move in horizontal/vertical axis first or if it should move diagonally to destination.","hideLabel":true,"type":"moveType","defaultValue":"horizontal","flexBasis":35,"flexGrow":0,"alignBottom":true}]}],"conditions":[{"key":"__section","in":["options"]}]},{"type":"presets","conditions":[{"key":"__section","in":["presets"]}]}]} />
 
-- **Actor**: The actor you want to move.  
-- **X**: The horizontal offset relative to the current position.  
-- **Y**: The vertical offset relative to the current position.  
-- **Movement Type**: Choose if should move in horizontal/vertical axis first or if it should move diagonally to destination.  
-- **Use Collisions**: Set if collisions with both scene and actors should be taken into account while moving.  
+
+- **Movement**  
+  - **Actor**: The actor you want to move.  
+  - **X**: The horizontal offset relative to the current position.  
+  - **Y**: The vertical offset relative to the current position.  
+
+- **Options**  
+  - **Collide With**: The groups of actors that will be checked for collisions. e.g. If it should pass through any actors but the player set this field to just 'Player'.  
+  - **Lock Direction**: Prevents the actor from changing facing direction along the selected axis while moving.  
+  - **Movement Type**: Choose if should move in horizontal/vertical axis first or if it should move diagonally to destination.  
 
 ### Actor Move To
 Move an actor to a new position.
-<ScriptEventPreview title={"Actor Move To"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to move.","type":"actor","defaultValue":"$self$","flexBasis":0,"minWidth":150},{"type":"group","wrapItems":true,"fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"value","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"The vertical position.","type":"value","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]},{"type":"group","flexBasis":0,"minWidth":150,"alignBottom":true,"fields":[{"key":"moveType","label":"Movement Type","description":"Choose if should move in horizontal/vertical axis first or if it should move diagonally to destination.","hideLabel":true,"type":"moveType","defaultValue":"horizontal","flexBasis":35,"flexGrow":0,"alignBottom":true},{"key":"useCollisions","label":"Use Collisions","description":"Set if collisions with both scene and actors should be taken into account while moving.","width":"50%","type":"checkbox","defaultValue":false,"alignBottom":true}]}]} />
+<ScriptEventPreview title={"Actor Move To"} fields={[{"key":"__section","type":"tabs","defaultValue":"movement","variant":"eventSection","values":{"movement":"Movement","options":"Options","presets":"Presets"}},{"type":"group","wrapItems":true,"flexBasis":"100%","fields":[{"key":"actorId","label":"Actor","description":"The actor you want to move.","type":"actor","defaultValue":"$self$","flexBasis":0,"minWidth":150},{"type":"group","wrapItems":true,"fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"value","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"The vertical position.","type":"value","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]}],"conditions":[{"key":"__section","in":["movement",null]}]},{"type":"group","wrapItems":true,"flexBasis":"100%","fields":[{"key":"collideWith","width":"50%","flexBasis":0,"minWidth":150,"label":"Collide With","description":"The groups of actors that will be checked for collisions. e.g. If it should pass through any actors but the player set this field to just 'Player'.","type":"togglebuttons","options":[["walls","Walls","Walls"],["actors","Actors","Actors"]],"allowNone":true,"allowMultiple":true,"defaultValue":["walls"]},{"type":"group","flexBasis":0,"minWidth":150,"alignBottom":true,"fields":[{"key":"lockDirection","width":"50%","label":"Lock Direction","description":"Prevents the actor from changing facing direction along the selected axis while moving.","type":"togglebuttons","options":[["x","H","Horizontal"],["y","V","Vertical"]],"allowMultiple":true,"allowNone":true,"defaultValue":[]},{"key":"moveType","label":"Movement Type","description":"Choose if should move in horizontal/vertical axis first or if it should move diagonally to destination.","hideLabel":true,"type":"moveType","defaultValue":"horizontal","flexBasis":35,"flexGrow":0,"alignBottom":true}]}],"conditions":[{"key":"__section","in":["options"]}]},{"type":"presets","conditions":[{"key":"__section","in":["presets"]}]}]} />
 
-- **Actor**: The actor you want to move.  
-- **X**: The horizontal position.  
-- **Y**: The vertical position.  
-- **Movement Type**: Choose if should move in horizontal/vertical axis first or if it should move diagonally to destination.  
-- **Use Collisions**: Set if collisions with both scene and actors should be taken into account while moving.  
+
+- **Movement**  
+  - **Actor**: The actor you want to move.  
+  - **X**: The horizontal position.  
+  - **Y**: The vertical position.  
+
+- **Options**  
+  - **Collide With**: The groups of actors that will be checked for collisions. e.g. If it should pass through any actors but the player set this field to just 'Player'.  
+  - **Lock Direction**: Prevents the actor from changing facing direction along the selected axis while moving.  
+  - **Movement Type**: Choose if should move in horizontal/vertical axis first or if it should move diagonally to destination.  
 
 ### Push Actor Away From Player
 Causes the specified actor to be moved in the direction that the player is currently facing. Useful for creating block puzzles.
@@ -143,6 +190,16 @@ Activate an actor, causing it to become visible (if not also hidden) and for its
 
 - **Actor**: The actor you want to activate.  
 
+### Actor Effects
+Play an actor effect animation on a selected actor.
+<ScriptEventPreview title={"Actor Effects"} fields={[{"key":"effect","label":"Effect","description":"The actor effect to play.","type":"select","options":[["flicker","Flicker"],["splitIn","Split In"],["splitOut","Split Out"]],"defaultValue":"flicker","width":"100%"},{"key":"actorId","label":"Actor","description":"The actor to be animated.","type":"actor","defaultValue":"$self$","width":"100%"},{"type":"group","wrapItems":true,"conditions":[{"key":"effect","in":["splitIn","splitOut"]}],"fields":[{"key":"distance","label":"Distance","description":"The distance value.","type":"number","min":1,"max":80,"defaultValue":20,"unitsField":"units","unitsDefault":"pixels","unitsAllowed":["tiles","pixels"],"conditions":[{"key":"effect","in":["splitIn","splitOut"]}],"width":"50%"},{"key":"speed","label":"Speed","description":"The movement speed.","type":"moveSpeed","allowNone":false,"defaultValue":2,"conditions":[{"key":"effect","in":["splitIn","splitOut"]}],"width":"50%"}]},{"key":"time","type":"number","label":"Duration","description":"The length of time to play the actor effect.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"timeUnits","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"effect","in":["flicker"]},{"key":"timeUnits","ne":"frames"}]},{"key":"frames","label":"Duration","description":"The length of time to play the actor effect.","type":"number","min":0,"max":3600,"width":"50%","defaultValue":30,"unitsField":"timeUnits","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"effect","in":["flicker"]},{"key":"timeUnits","eq":"frames"}]}]} />
+
+- **Effect**: The actor effect to play.  
+- **Actor**: The actor to be animated.  
+- **Distance**: The distance value.  
+- **Speed**: The movement speed.  
+- **Duration**: The length of time to play the actor effect.  
+
 ### Deactivate Actor
 Deactivate an actor, causing it to act as if it had gone offscreen. It will become invisible and its OnUpdate script will be stopped.
 <ScriptEventPreview title={"Deactivate Actor"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to deactivate.","type":"actor","defaultValue":"$self$"}]} />
@@ -151,7 +208,7 @@ Deactivate an actor, causing it to act as if it had gone offscreen. It will beco
 
 ### Set Actor Animation Frame
 Set an actor's animation to a specified frame value.
-<ScriptEventPreview title={"Set Actor Animation Frame"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to update.","type":"actor","defaultValue":"$self$"},{"key":"frame","label":"Animation Frame","description":"The animation frame value.","type":"value","min":0,"max":25,"defaultValue":{"type":"number","value":0}}]} />
+<ScriptEventPreview title={"Set Actor Animation Frame"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to update.","type":"actor","defaultValue":"$self$"},{"key":"frame","label":"Animation Frame","description":"The animation frame value.","type":"value","min":0,"defaultValue":{"type":"number","value":0}}]} />
 
 - **Actor**: The actor you want to update.  
 - **Animation Frame**: The animation frame value.  
@@ -170,6 +227,16 @@ Change the sprite animation state for a specified actor.
 - **Actor**: The actor you want to update.  
 - **Animation State**: The sprite animation state to use.  
 - **Loop Animation**: Set if animation should loop.  
+
+### Set Actor Collision Bounding Box
+Set the collision bounding box of an actor to a position and size.
+<ScriptEventPreview title={"Set Actor Collision Bounding Box"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to update.","type":"actor","defaultValue":"$self$"},{"type":"group","wrapItems":true,"fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"value","min":-96,"max":96,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"pixels","unitsAllowed":["pixels"]},{"key":"y","label":"Y","description":"The vertical position.","type":"value","min":-96,"max":96,"defaultValue":{"type":"number","value":-8},"width":"50%","unitsField":"units","unitsDefault":"pixels","unitsAllowed":["pixels"]}]},{"type":"group","wrapItems":true,"fields":[{"key":"width","label":"Width","description":"The box width","type":"value","min":0,"max":128,"defaultValue":{"type":"number","value":16},"width":"50%","unitsField":"units","unitsDefault":"pixels","unitsAllowed":["pixels"]},{"key":"height","label":"Height","description":"The box height","type":"value","min":0,"max":128,"defaultValue":{"type":"number","value":16},"width":"50%","unitsField":"units","unitsDefault":"pixels","unitsAllowed":["pixels"]}]}]} />
+
+- **Actor**: The actor you want to update.  
+- **X**: The horizontal position.  
+- **Y**: The vertical position.  
+- **Width**: The box width  
+- **Height**: The box height  
 
 ### Set Actor Collisions Disable
 Disable all collision checks for an actor allowing the player and all other actor's to pass through it while moving.
@@ -192,10 +259,11 @@ Change the direction that an actor is currently facing.
 
 ### Set Actor Movement Speed
 Set the movement speed of an actor to a new value.
-<ScriptEventPreview title={"Set Actor Movement Speed"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to update.","type":"actor","defaultValue":"$self$"},{"key":"speed","label":"Speed","description":"The movement speed.","type":"moveSpeed","defaultValue":1}]} />
+<ScriptEventPreview title={"Set Actor Movement Speed"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to update.","type":"actor","defaultValue":"$self$"},{"key":"speed","label":"Speed","description":"The movement speed.","type":"moveSpeed","defaultValue":1},{"type":"group","wrapItems":true,"conditions":[{"sceneType":["platform","adventure"]},{"or":[[{"key":"actorId","eq":"$self$"},{"entityTypeNot":["actor"]}],[{"key":"actorId","eq":"player"}]]}],"fields":[{"label":"To set the Player Movement speed in Platformer or Adventure scene types, you must use the \"Engine Field Update\" event to set the Walk Velocity or Run Velocity fields.","labelVariant":"warning","flexBasis":"100%"},{"type":"addEventButton","hideLabel":true,"label":"Engine Field Update","defaultValue":{"id":"EVENT_ENGINE_FIELD_SET","values":{"engineFieldKey":"plat_walk_vel"},"replace":true},"conditions":[{"sceneType":["platform"]}]},{"type":"addEventButton","hideLabel":true,"label":"Engine Field Update","defaultValue":{"id":"EVENT_ENGINE_FIELD_SET","values":{"engineFieldKey":"adv_walk_vel"},"replace":true},"conditions":[{"sceneType":["adventure"]}]}]}]} />
 
 - **Actor**: The actor you want to update.  
 - **Speed**: The movement speed.  
+- **Engine Field Update**  
 
 ### Set Actor Sprite Sheet
 Set the sprite that should be used to render an actor.
@@ -226,6 +294,10 @@ Stop an actors OnUpdate script if it was currently running.
 ## Variables
 ### Store Actor Direction In Variable
 Store the current direction of an actor within a variable.
+Down: 0
+Right: 1
+Up: 2
+Left: 3
 <ScriptEventPreview title={"Store Actor Direction In Variable"} fields={[{"key":"actorId","label":"Actor","description":"The actor you want to check.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Variable","description":"The variable to use for the direction.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
 
 - **Actor**: The actor you want to check.  

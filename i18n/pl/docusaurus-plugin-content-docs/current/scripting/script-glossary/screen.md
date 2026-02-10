@@ -22,22 +22,28 @@ Polecenie przejścia, przejście do czarnego pustego ekranu.
 - **Szybkość**: Ustawienie szybkości przejścia.  
 
 ## Overlay
-### Narzuta: schowaj (nie widzialna)
+### Nakładka: schowaj (nie widzialna)
 Polecenie ukrywa nakładkę, nałożoną na ekran.
-<ScriptEventPreview title={"Narzuta: schowaj (nie widzialna)"} fields={[{"label":"Schowanie nakładanego okna na ekranie."}]} />
+<ScriptEventPreview title={"Nakładka: schowaj (nie widzialna)"} fields={[{"label":"Schowanie nakładanego okna na ekranie."}]} />
 
 
-### Narzuta: przesuń
+### Nakładka: przesuń
 Polecenie przesunie nakładkę w nowe położenie na ekranie.
-<ScriptEventPreview title={"Narzuta: przesuń"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]},{"key":"speed","label":"Szybkość","description":"Ustawienie szybkości.","type":"cameraSpeed","defaultValue":"0"}]} />
+<ScriptEventPreview title={"Nakładka: przesuń"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]},{"key":"speed","label":"Szybkość","description":"Ustawienie szybkości.","type":"overlaySpeed","defaultValue":-3}]} />
 
 - **X**: Pozycja pozioma.  
 - **Y**: Pozycja pionowa.  
 - **Szybkość**: Ustawienie szybkości.  
 
-### Narzuta: pokaż (widzialna)
+### Nakładka: ustaw granicę linii skanowania
+Ustaw granicę w osi Y, przy której nakładka przestanie być rysowana. Umożliwia rysowanie nakładki na górze ekranu.
+<ScriptEventPreview title={"Nakładka: ustaw granicę linii skanowania"} fields={[{"key":"y","label":"Granica Y","description":"Pionowa linia skanowania, przy której przestanie być rysowane okno nakładki.","type":"value","min":0,"max":150,"unitsField":"units","unitsDefault":"pixels","unitsAllowed":["pixels"],"defaultValue":{"type":"number","value":150}},{"label":"Nakładki i okna dialogowe będą rysowane tylko powyżej tej linii","flexBasis":"100%"}]} />
+
+- **Granica Y**: Pionowa linia skanowania, przy której przestanie być rysowane okno nakładki.  
+
+### Nakładka: pokaż (widzialna)
 Polecenie wyświetli nakładkę - czarne lub białe okno zasłaniając bieżący ekran gry. Polecenie można zastosować do zasłonięcia, a następnie odsłonięcia części tła sceny, tak jak to zostało zastosowane na ekranie logo przykładowego projektu.
-<ScriptEventPreview title={"Narzuta: pokaż (widzialna)"} fields={[{"key":"color","label":"Kolor wypełnienia","description":"Kolor do wypełnienia warstwy, może być czarny lub biały.","type":"overlayColor","defaultValue":"black"},{"type":"group","fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]}]} />
+<ScriptEventPreview title={"Nakładka: pokaż (widzialna)"} fields={[{"key":"color","label":"Kolor wypełnienia","description":"Kolor do wypełnienia warstwy, może być czarny lub biały.","type":"overlayColor","defaultValue":"black"},{"type":"group","fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]}]} />
 
 - **Kolor wypełnienia**: Kolor do wypełnienia warstwy, może być czarny lub biały.  
 - **X**: Pozycja pozioma.  

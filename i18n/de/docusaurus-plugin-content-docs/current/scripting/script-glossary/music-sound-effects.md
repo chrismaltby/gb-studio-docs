@@ -7,39 +7,57 @@ sidebar_position: 2
 
 import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
-# Musik & Sound Effekte
+# Musik & Toneffekte
 
-### Musik: Titel Abspielen
-Plays a music file. If you play a new song while another song is playing, the old song will stop automatically.
-<ScriptEventPreview title={"Musik: Titel Abspielen"} fields={[{"key":"musicId","label":"Musikstück","description":"Das abzuspielende Musikstück.","type":"music","defaultValue":"LAST_MUSIC"}]} />
+### Musiktitel abspielen
+Spielt einen Musiktitel ab. Beim Abspielen eines neuen Titels, während bereits ein anderer läuft, stoppt dieser automatisch.
+<ScriptEventPreview title={"Musiktitel abspielen"} fields={[{"key":"musicId","label":"Lied","description":"Das abzuspielende Lied.","type":"music","defaultValue":"LAST_MUSIC"}]} />
 
-- **Musikstück**: Das abzuspielende Musikstück.  
+- **Lied**: Das abzuspielende Lied.  
 
-### Sound: Effekt abspielen
-Play a sound effect, choose from playing a .WAV, .VGM, or .SAV (fxhammer) file from `/assets/sounds` or a preset sound effect.
-<ScriptEventPreview title={"Sound: Effekt abspielen"} fields={[{"key":"type","type":"soundEffect","label":"Klangeffekt","description":"Der abzuspielende Soundeffekt. Es kann aus Dateien unter `/assets/sounds` oder aus voreingestellten Klängen wie `Beep`, `Pitch` und `Tone` gewählt werden.","defaultValue":"beep","flexBasis":"60%"},{"key":"priority","label":"Priorität","description":"Die Priorität des Effekts, hoch, mittel oder niedrig. Wenn zwei Klangeffekte gleichzeitig abgespielt werden, haben die Klangeffekte mit der höheren Priorität Vorrang.","type":"priority","options":[["low","Niedrig"],["medium","Mittel"],["high","Hoch"]],"defaultValue":"medium","flexBasis":"15%"},{"key":"pitch","type":"number","label":"Tonhöhe","description":"Die Tonhöhe des Klangeffekts (nur Beep-Effekt).","conditions":[{"key":"type","eq":"beep"}],"min":1,"max":8,"step":1,"defaultValue":4},{"key":"frequency","type":"number","label":"Frequenz in Hz","description":"Die Frequenz des Klangeffekts in hz (nur Ton-Effekt).","conditions":[{"key":"type","eq":"tone"}],"min":0,"max":20000,"step":1,"defaultValue":200},{"key":"duration","type":"number","label":"Länge","description":"Die Dauer der Wiedergabe des Klangeffekts.","unitsField":"units","unitsDefault":"time","conditions":[{"key":"type","in":["beep","crash","tone"]}],"min":0,"max":4.25,"step":0.01,"defaultValue":0.5},{"key":"wait","type":"checkbox","label":"Warten bis zum Ende","description":"Legt fest, ob das Skript anhalten soll, bis die Wiedergabe des Klangeffekts abgeschlossen ist.","conditions":[{"key":"type","in":["beep","crash","tone"]}],"defaultValue":true,"flexBasis":"100%"},{"key":"effect","type":"number","label":"Effekt Index","description":"Die Nummer des abzuspielenden Effekts (nur für fxhammer).","min":0,"max":60,"defaultValue":0,"conditions":[{"key":"type","soundType":"fxhammer"}]}]} />
+### Toneffekt abspielen
+Einen Toneffekt abspielen, entweder von einer .WAV-, .VGM- oder .SAV-Datei (fxhammer) aus '/assets/sounds', oder einem voreingestellten Toneffekt.
+<ScriptEventPreview title={"Toneffekt abspielen"} fields={[{"key":"type","type":"soundEffect","label":"Toneffekt","description":"Der abzuspielende Toneffekt. Es kann aus Dateien unter `/assets/sounds` oder aus voreingestellten Klängen wie `Piep`, `Tonhöhe` und `Ton` gewählt werden.","defaultValue":"beep","flexBasis":"60%"},{"key":"priority","label":"Priorität","description":"Die Priorität des Effekts, hoch, mittel oder niedrig. Wenn zwei Toneffekte gleichzeitig abgespielt werden, haben die Toneffekte mit der höheren Priorität Vorrang.","type":"priority","options":[["low","Niedrig"],["medium","Mittel"],["high","Hoch"]],"defaultValue":"medium","flexBasis":"15%"},{"key":"pitch","type":"number","label":"Tonhöhe","description":"Die Tonhöhe des Toneffekts (nur Piep-Effekt).","conditions":[{"key":"type","eq":"beep"}],"min":1,"max":8,"step":1,"defaultValue":4},{"key":"frequency","type":"number","label":"Frequenz in Hz","description":"Die Frequenz des Toneffekts in hz (nur Toneffekt).","conditions":[{"key":"type","eq":"tone"}],"min":0,"max":20000,"step":1,"defaultValue":200},{"key":"duration","type":"number","label":"Dauer","description":"Die Dauer der Wiedergabe des Toneffekts.","unitsField":"units","unitsDefault":"time","conditions":[{"key":"type","in":["beep","crash","tone"]}],"min":0,"max":4.25,"step":0.01,"defaultValue":0.5},{"key":"wait","type":"checkbox","label":"Warten bis Fertig","description":"Legt fest, ob das Skript anhalten soll, bis die Wiedergabe des Toneffekts abgeschlossen ist.","conditions":[{"key":"type","in":["beep","crash","tone"]}],"defaultValue":true,"flexBasis":"100%"},{"key":"effect","type":"number","label":"Effektindex","description":"Die Nummer des abzuspielenden Effekts (nur für fxhammer).","min":0,"max":60,"defaultValue":0,"conditions":[{"key":"type","soundType":"fxhammer"}]}]} />
 
-- **Klangeffekt**: Der abzuspielende Soundeffekt. Es kann aus Dateien unter `/assets/sounds` oder aus voreingestellten Klängen wie `Beep`, `Pitch` und `Tone` gewählt werden.  
-- **Priorität**: Die Priorität des Effekts, hoch, mittel oder niedrig. Wenn zwei Klangeffekte gleichzeitig abgespielt werden, haben die Klangeffekte mit der höheren Priorität Vorrang.  
-- **Tonhöhe**: Die Tonhöhe des Klangeffekts (nur Beep-Effekt).  
-- **Frequenz in Hz**: Die Frequenz des Klangeffekts in hz (nur Ton-Effekt).  
-- **Länge**: Die Dauer der Wiedergabe des Klangeffekts.  
-- **Warten bis zum Ende**: Legt fest, ob das Skript anhalten soll, bis die Wiedergabe des Klangeffekts abgeschlossen ist.  
-- **Effekt Index**: Die Nummer des abzuspielenden Effekts (nur für fxhammer).  
+- **Toneffekt**: Der abzuspielende Toneffekt. Es kann aus Dateien unter `/assets/sounds` oder aus voreingestellten Klängen wie `Piep`, `Tonhöhe` und `Ton` gewählt werden.  
+- **Priorität**: Die Priorität des Effekts, hoch, mittel oder niedrig. Wenn zwei Toneffekte gleichzeitig abgespielt werden, haben die Toneffekte mit der höheren Priorität Vorrang.  
+- **Tonhöhe**: Die Tonhöhe des Toneffekts (nur Piep-Effekt).  
+- **Frequenz in Hz**: Die Frequenz des Toneffekts in hz (nur Toneffekt).  
+- **Dauer**: Die Dauer der Wiedergabe des Toneffekts.  
+- **Warten bis Fertig**: Legt fest, ob das Skript anhalten soll, bis die Wiedergabe des Toneffekts abgeschlossen ist.  
+- **Effektindex**: Die Nummer des abzuspielenden Effekts (nur für fxhammer).  
 
-### Musik: Anhalten
-Die aktuell spielende Musik anhalten.
-<ScriptEventPreview title={"Musik: Anhalten"} fields={[{"label":"Stoppt die zuvor abgespielte Musik."}]} />
+## Dialogue & Menus
+### Text-Toneffekt festlegen
+Legt einen Toneffekt für einen Text fest, welcher mit jedem angezeigten Zeichen abgespielt wird.
+<ScriptEventPreview title={"Text-Toneffekt festlegen"} fields={[{"key":"type","type":"soundEffect","label":"Toneffekt","description":"Der abzuspielende Toneffekt. Es kann aus Dateien unter `/assets/sounds` oder aus voreingestellten Klängen wie `Piep`, `Tonhöhe` und `Ton` gewählt werden.","defaultValue":"tone","flexBasis":"60%","allowNone":true},{"key":"pitch","type":"number","label":"Tonhöhe","description":"Die Tonhöhe des Toneffekts (nur Piep-Effekt).","conditions":[{"key":"type","eq":"beep"}],"min":1,"max":8,"step":1,"defaultValue":4,"width":"50%"},{"key":"frequency","type":"number","label":"Frequenz in Hz","description":"Die Frequenz des Toneffekts in hz (nur Toneffekt).","conditions":[{"key":"type","eq":"tone"}],"min":0,"max":20000,"step":1,"defaultValue":300,"width":"50%"},{"key":"duration","type":"number","label":"Dauer","description":"Die Dauer der Wiedergabe des Toneffekts.","unitsField":"units","unitsDefault":"time","conditions":[{"key":"type","in":["beep","crash","tone"]}],"min":0,"max":4.25,"step":0.01,"defaultValue":0.05,"width":"50%"},{"key":"effect","type":"number","label":"Effektindex","description":"Die Nummer des abzuspielenden Effekts (nur für fxhammer).","min":0,"max":60,"defaultValue":0,"conditions":[{"key":"type","soundType":"fxhammer"}],"width":"50%"}]} />
 
+- **Toneffekt**: Der abzuspielende Toneffekt. Es kann aus Dateien unter `/assets/sounds` oder aus voreingestellten Klängen wie `Piep`, `Tonhöhe` und `Ton` gewählt werden.  
+- **Tonhöhe**: Die Tonhöhe des Toneffekts (nur Piep-Effekt).  
+- **Frequenz in Hz**: Die Frequenz des Toneffekts in hz (nur Toneffekt).  
+- **Dauer**: Die Dauer der Wiedergabe des Toneffekts.  
+- **Effektindex**: Die Nummer des abzuspielenden Effekts (nur für fxhammer).  
 
 ## Script
-### Musik Routine setzen
-Attach a script to one of the four music routines that can be triggered from a .uge file. In the music editor you are able to use the call routine effect in your songs to trigger these scripts in time to music.
+### Musikroutine setzen
+Ein Skript an eine der vier Musikroutinen anhängen, die von einer .uge-Datei ausgelöst werden können. Im Musikeditor kann der Call-Routine-Effekt in Lieder verwendet werden, um diese Skripte im Takt der Musik auszulösen.
 
 **Referenzen**  
 [/docs/assets/music/music-huge#effects](/docs/assets/music/music-huge#effects)  
-<ScriptEventPreview title={"Musik Routine setzen"} fields={[{"key":"routine","label":"Routine","description":"Die Musik-Routine, entweder 0, 1, 2 oder 3.","type":"number","defaultValue":0,"min":0,"max":3},{"key":"__scriptTabs","type":"tabs","defaultValue":"trigger","values":{"trigger":"Bei Aufruf"}},{"key":"true","label":"Bei Aufruf","description":"Das Skript, das beim Aufruf der Routine ausgeführt wird.","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"trigger"]}]}]} />
+<ScriptEventPreview title={"Musikroutine setzen"} fields={[{"key":"routine","label":"Routine","description":"Die Musikroutine, entweder 0, 1, 2 oder 3.","type":"number","defaultValue":0,"min":0,"max":3},{"key":"__scriptTabs","type":"tabs","defaultValue":"trigger","values":{"trigger":"Bei Aufruf"}},{"key":"true","label":"Bei Aufruf","description":"Das Skript, das beim Aufruf der Routine ausgeführt wird.","type":"events","allowedContexts":["global","entity","prefab"],"conditions":[{"key":"__scriptTabs","in":[null,"trigger"]}]}]} />
 
-- **Routine**: Die Musik-Routine, entweder 0, 1, 2 oder 3.  
+- **Routine**: Die Musikroutine, entweder 0, 1, 2 oder 3.  
 - **Bei Aufruf**: Das Skript, das beim Aufruf der Routine ausgeführt wird.  
+
+## Stop
+### Kanal stummschalten
+Aktive und stummgeschaltete Audiokanäle festlegen.
+<ScriptEventPreview title={"Kanal stummschalten"} fields={[{"key":"channels","label":"Aktive Kanäle","description":"Die Kanäle, die Ton erzeugen. Alle nicht ausgewählten Kanäle werden stummgeschaltet.","type":"togglebuttons","options":[[0,"Duty 1"],[1,"Duty 2"],[2,"Wave"],[3,"Noise"]],"allowMultiple":true,"allowNone":true}]} />
+
+- **Aktive Kanäle**: Die Kanäle, die Ton erzeugen. Alle nicht ausgewählten Kanäle werden stummgeschaltet.  
+
+### Musik anhalten
+Die aktuell spielende Musik anhalten.
+<ScriptEventPreview title={"Musik anhalten"} fields={[{"label":"Stoppt jede zuvor abgespielte Musik."}]} />
+
 

@@ -29,11 +29,17 @@ Oculta la superposición de pantalla.
 
 ### Superposición Mover a
 Mueve la superposición a una nueva posición en la pantalla.
-<ScriptEventPreview title={"Superposición Mover a"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"La posición horizontal.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"La posición vertical.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]},{"key":"speed","label":"Velocidad","description":"La velocidad del movimiento.","type":"cameraSpeed","defaultValue":"0"}]} />
+<ScriptEventPreview title={"Superposición Mover a"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"La posición horizontal.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"La posición vertical.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]},{"key":"speed","label":"Velocidad","description":"La velocidad del movimiento.","type":"overlaySpeed","defaultValue":-3}]} />
 
 - **X**: La posición horizontal.  
 - **Y**: La posición vertical.  
 - **Velocidad**: La velocidad del movimiento.  
+
+### Establecer Corte de Línea de Superposición
+Establece una posición de corte en y donde la ventana de superposición dejará de dibujarse. Permite dibujar una superposición en la parte superior de la pantalla.
+<ScriptEventPreview title={"Establecer Corte de Línea de Superposición"} fields={[{"key":"y","label":"Corte en Y","description":"La línea vertical donde la ventana de superposición dejará de dibujarse.","type":"value","min":0,"max":150,"unitsField":"units","unitsDefault":"pixels","unitsAllowed":["pixels"],"defaultValue":{"type":"number","value":150}},{"label":"Las superposiciones y las ventanas de diálogo solo se dibujarán si están por encima de esta línea","flexBasis":"100%"}]} />
+
+- **Corte en Y**: La línea vertical donde la ventana de superposición dejará de dibujarse.  
 
 ### Mostrar superposición
 Muestra una ventana blanca o negra en la parte superior de la pantalla del juego actual. Puede usarse para oscurecer y luego revelar partes del fondo de la escena, por ejemplo, en la pantalla del logotipo del proyecto de muestra.

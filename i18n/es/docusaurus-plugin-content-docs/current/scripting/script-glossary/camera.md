@@ -9,20 +9,21 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Camara
 
-### Bloquear camara en el jugador
-Mueve la cámara nuevamente para centrarla en el jugador, bloqueándola en su posición cuando el jugador se mueve. Opcionalmente permite bloquear para seguir al jugador solo en el eje horizontal o vertical.
-<ScriptEventPreview title={"Bloquear camara en el jugador"} fields={[{"key":"speed","width":"50%","label":"Velocidad","description":"La velocidad de movimiento, use 'Instantáneo' para moverse inmediatamente a la nueva ubicación.","type":"moveSpeed","defaultValue":0,"allowNone":true,"noneLabel":"Instantáneo"},{"key":"axis","width":"50%","label":"Bloquear eje","description":"Establece si el eje horizontal, el eje vertical o ambos deben bloquearse.","type":"togglebuttons","options":[["x","H","Horizontal"],["y","V","Vertical"]],"allowMultiple":true,"allowNone":false,"defaultValue":["x","y"]}]} />
-
-- **Velocidad**: La velocidad de movimiento, use 'Instantáneo' para moverse inmediatamente a la nueva ubicación.  
-- **Bloquear eje**: Establece si el eje horizontal, el eje vertical o ambos deben bloquearse.  
-
 ### Mover cámara a
 Mueve la cámara a una nueva posición.
-<ScriptEventPreview title={"Mover cámara a"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"La posición horizontal.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"La posición vertical.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]},{"key":"speed","label":"Velocidad","description":"La velocidad de movimiento, use 'Instantáneo' para moverse inmediatamente a la nueva ubicación.","type":"moveSpeed","defaultValue":0,"allowNone":true,"noneLabel":"Instantáneo"}]} />
+<ScriptEventPreview title={"Mover cámara a"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"La posición horizontal.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"La posición vertical.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]},{"key":"speed","label":"Velocidad","description":"La velocidad de movimiento, use 'Instantáneo' para moverse inmediatamente a la nueva ubicación.","type":"moveSpeed","defaultValue":1,"allowNone":true,"noneLabel":"Instantáneo"}]} />
 
 - **X**: La posición horizontal.  
 - **Y**: La posición vertical.  
 - **Velocidad**: La velocidad de movimiento, use 'Instantáneo' para moverse inmediatamente a la nueva ubicación.  
+
+### Bloquear camara en el jugador
+Mueve la cámara nuevamente para centrarla en el jugador, bloqueándola en su posición cuando el jugador se mueve. Opcionalmente permite bloquear para seguir al jugador solo en el eje horizontal o vertical.
+<ScriptEventPreview title={"Bloquear camara en el jugador"} fields={[{"key":"speed","width":"50%","label":"Velocidad","description":"La velocidad de movimiento, use 'Instantáneo' para moverse inmediatamente a la nueva ubicación.","type":"moveSpeed","defaultValue":1,"allowNone":true,"noneLabel":"Instantáneo"},{"key":"axis","width":"50%","label":"Bloquear eje","description":"Establece si el eje horizontal, el eje vertical o ambos deben bloquearse.","type":"togglebuttons","options":[["x","H","Horizontal"],["y","V","Vertical"]],"allowMultiple":true,"allowNone":false,"defaultValue":["x","y"]},{"key":"preventScroll","label":"Prevenir Retroceso","description":"Previene que la cámara se desplace en las direcciones seleccionadas.","type":"direction","allowMultiple":true}]} />
+
+- **Velocidad**: La velocidad de movimiento, use 'Instantáneo' para moverse inmediatamente a la nueva ubicación.  
+- **Bloquear eje**: Establece si el eje horizontal, el eje vertical o ambos deben bloquearse.  
+- **Prevenir Retroceso**: Previene que la cámara se desplace en las direcciones seleccionadas.  
 
 ### Vibración de la cámara
 Agita la cámara durante un período de tiempo.
@@ -32,12 +33,36 @@ Agita la cámara durante un período de tiempo.
 - **Tipo de movimiento**: Elige si la cámara debe temblar sólo en el eje horizontal o vertical o si debe temblar en ambas direcciones.  
 - **Magnitud**: La cantidad de movimiento de la cámara durante un movimiento de la cámara.  
 
+### Establecer Límites de la Cámara
+Establece los límites de la cámara, preventiendo que se mueva fuera del área especificada.
+<ScriptEventPreview title={"Establecer Límites de la Cámara"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"La posición horizontal.","type":"value","min":0,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"La posición vertical.","type":"value","min":0,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]},{"type":"group","fields":[{"key":"width","label":"Ancho","description":"El ancho del cuadro","type":"value","min":20,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":20}},{"key":"height","label":"Alto","description":"La altura del cuadro","type":"value","min":18,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":18}}]}]} />
+
+- **X**: La posición horizontal.  
+- **Y**: La posición vertical.  
+- **Ancho**: El ancho del cuadro  
+- **Alto**: La altura del cuadro  
+
+### Establecer bloqueo de cámara en el jugador
+Establece la cámara para centrarse en el jugador, bloqueándola en su posición cuando el jugador se mueve. Opcionalmente permite bloquear para seguir al jugador solo en el eje horizontal o vertical.
+<ScriptEventPreview title={"Establecer bloqueo de cámara en el jugador"} fields={[{"key":"axis","width":"50%","label":"Bloquear eje","description":"Establece si el eje horizontal, el eje vertical o ambos deben bloquearse.","type":"togglebuttons","options":[["x","H","Horizontal"],["y","V","Vertical"]],"allowMultiple":true,"allowNone":false,"defaultValue":["x","y"]},{"key":"preventScroll","label":"Prevenir Retroceso","description":"Previene que la cámara se desplace en las direcciones seleccionadas.","type":"direction","allowMultiple":true}]} />
+
+- **Bloquear eje**: Establece si el eje horizontal, el eje vertical o ambos deben bloquearse.  
+- **Prevenir Retroceso**: Previene que la cámara se desplace en las direcciones seleccionadas.  
+
 ### Establecer posición de la cámara
 Mueve la cámara a una nueva posición.
 <ScriptEventPreview title={"Establecer posición de la cámara"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"La posición horizontal.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"La posición vertical.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]}]} />
 
 - **X**: La posición horizontal.  
 - **Y**: La posición vertical.  
+
+## Properties
+### Establecer Propiedad de Cámara
+Actualiza una propiedad de la cámara del juego.
+<ScriptEventPreview title={"Establecer Propiedad de Cámara"} fields={[{"key":"property","label":"Propiedad","description":"La propiedad de la cámara a actualizar.","type":"select","defaultValue":"camera_deadzone_x","options":[["camera_deadzone_x","Zona Muerta de Cámara X"],["camera_deadzone_y","Zona Muerta de Cámara Y"],["camera_offset_x","Desplazamiento de Cámara X"],["camera_offset_y","Desplazamiento de Cámara Y"]]},{"key":"value","label":"Valor","description":"El valor para establecer la variable seleccionada.","type":"value","min":-128,"max":127,"defaultValue":{"type":"number","value":0}}]} />
+
+- **Propiedad**: La propiedad de la cámara a actualizar.  
+- **Valor**: El valor para establecer la variable seleccionada.  
 
 ## Screen
 ### Aparición gradual de la pantalla

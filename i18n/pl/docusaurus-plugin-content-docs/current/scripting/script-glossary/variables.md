@@ -19,6 +19,11 @@ Ustawienie wybranej zmiennej na określoną wartość.
 ## Actor
 ### Aktor: zapisz obrót w zmiennej
 Polecenie zapisuje bieżący kierunek aktora do zmiennej.
+:: LEGENDA:
+Dół: 0
+Prawo: 1
+Góra: 2
+Lewo:3
 <ScriptEventPreview title={"Aktor: zapisz obrót w zmiennej"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do sprawdzenia.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Zmienna","description":"Zmienna używana dla kierunku.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
 
 - **Aktor**: Wybierz aktora do sprawdzenia.  
@@ -50,7 +55,7 @@ Ustawienie wartości wybranej zmiennej na 'Prawda'.
 ## Control Flow
 ### Warunek: zmienna porównuje się do wartości
 Warunkowe uruchomienie części skryptu na podstawie wartości zmiennej w porównaniu z wartością.
-<ScriptEventPreview title={"Warunek: zmienna porównuje się do wartości"} fields={[{"key":"condition","label":"Warunek","description":"Warunek do oceny.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":0}}},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"Warunek: zmienna porównuje się do wartości"} fields={[{"key":"condition","label":"Warunek","description":"Warunek do oceny.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":0}}},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W przeciwnym razie","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Warunek**: Warunek do oceny.  
 - **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
@@ -58,7 +63,7 @@ Warunkowe uruchomienie części skryptu na podstawie wartości zmiennej w porów
 
 ### Warunek: zmienna porównuje się do zmiennej
 Warunkowe uruchomienie części skryptu na podstawie wartości zmiennej w porównaniu z inną zmienną.
-<ScriptEventPreview title={"Warunek: zmienna porównuje się do zmiennej"} fields={[{"key":"condition","label":"Warunek","description":"Warunek do oceny.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"variable","value":"LAST_VARIABLE"}}},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"Warunek: zmienna porównuje się do zmiennej"} fields={[{"key":"condition","label":"Warunek","description":"Warunek do oceny.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"variable","value":"LAST_VARIABLE"}}},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W przeciwnym razie","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Warunek**: Warunek do oceny.  
 - **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
@@ -83,7 +88,7 @@ Polecenie zapisuje wartość wybranego pola silnika do zmiennej.
 
 **Odniesienia**  
 [/docs/settings/#engine-settings](/docs/settings/#engine-settings)  
-<ScriptEventPreview title={"Silnik: zapisz pole w zmiennej"} fields={[{"type":"engineField","label":"Pole silnika","description":"Pole silnika do odczytania wartości.","key":"engineFieldKey"},{"key":"value","type":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","defaultValue":"LAST_VARIABLE","conditions":[{"key":"engineFieldKey","set":true}]}]} />
+<ScriptEventPreview title={"Silnik: zapisz pole w zmiennej"} fields={[{"type":"engineField","label":"Pole silnika","description":"Pole silnika do odczytania wartości.","key":"engineFieldKey","defaultValue":"LAST_ENGINE_FIELD"},{"key":"value","type":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","defaultValue":"LAST_VARIABLE","conditions":[{"key":"engineFieldKey","set":true}]}]} />
 
 - **Pole silnika**: Pole silnika do odczytania wartości.  
 - **Zmienna**: Wskaż zmienną do użycia.  
@@ -120,12 +125,12 @@ Polecenie ustawi wartość zmiennej, włączając poszczególne bity 16-bitowej 
 - **Flaga 4**: Ustaw flagę 4 jako prawda.  
 
 ## Math
-### Zmienna: wzór matematyczny
+### Zmienna: wyrażenie matematyczne
 Polecenie ustawi zmienną na wynik oceny wyrażenia matematycznego.
 
 **Odniesienia**  
 [/docs/scripting/math-expressions](/docs/scripting/math-expressions)  
-<ScriptEventPreview title={"Zmienna: wzór matematyczny"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Wyrażenie","description":"Wprowadź wyrażenie do oceny.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
+<ScriptEventPreview title={"Zmienna: wyrażenie matematyczne"} fields={[{"key":"variable","label":"Zmienna","description":"Wskaż zmienną do użycia.","type":"variable","defaultValue":"LAST_VARIABLE","width":"50%"},{"key":"expression","label":"Wyrażenie","description":"Wprowadź wyrażenie do oceny.","type":"matharea","rows":5,"placeholder":"e.g. 5 + (6 * $health)...","defaultValue":""}]} />
 
 - **Zmienna**: Wskaż zmienną do użycia.  
 - **Wyrażenie**: Wprowadź wyrażenie do oceny.  

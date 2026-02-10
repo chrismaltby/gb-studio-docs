@@ -10,27 +10,64 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 # Aktor
 
 ## Actions
-### Przedmiot: wystrzel pocisk
+### Aktor: wystrzel pocisk
 Polecenie wystrzel pocisk od aktora w określonym kierunku. Kiedy pocisk zderza się z innymi aktorami, zostanie uruchomiony skrypt 'Dotknięcie'.
-<ScriptEventPreview title={"Przedmiot: wystrzel pocisk"} fields={[{"type":"group","fields":[{"key":"spriteSheetId","type":"sprite","label":"Arkusz obiektów","description":"Grafika użyta do renderowania pocisku.","defaultValue":"LAST_SPRITE"},{"key":"spriteStateId","type":"animationstate","label":"Stan animacji","description":"Ustawienie stanu animacji do użycia.","defaultValue":""}]},{"key":"actorId","type":"actor","label":"Punkt wyjścia","description":"Wybierz aktor, z którego wylatuje pocisk.","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"Przesunięcie X","description":"Przesunięcie poziome od pozycji aktorów źródłowych, aby rozpocząć wystrzeliwanie pocisku.","type":"number","min":-256,"max":256,"width":"50%","defaultValue":0},{"key":"y","label":"Przesunięcie Y","description":"Przesunięcie pionowe od pozycji aktorów źródłowych, aby rozpocząć wystrzeliwanie pocisku.","type":"number","min":-256,"max":256,"width":"50%","defaultValue":0}]},{"type":"group","fields":[{"label":"Rozpocznij od","key":"directionType","type":"select","options":[["direction","Ustalony kierunek"],["actor","Kierunek aktora"],["target","Aktor docelowy"],["angle","Kąt"],["anglevar","Kąt-zmienna"]],"defaultValue":"direction","alignBottom":true},{"key":"otherActorId","label":"Kierunek","description":"Kierunek wystrzelenia pocisku. Może być ustalonym kierunkiem lub opartym na aktualnym kierunku aktora.","type":"actor","defaultValue":"$self$","conditions":[{"key":"directionType","eq":"actor"}]},{"key":"direction","label":"Kierunek","description":"Kierunek wystrzelenia pocisku. Może być ustalonym kierunkiem lub opartym na aktualnym kierunku aktora.","type":"direction","defaultValue":"right","conditions":[{"key":"directionType","eq":"direction"}]},{"key":"angle","label":"Kąt","description":"Kąt wystrzelenia pocisku.","type":"angle","defaultValue":0,"min":-256,"max":256,"conditions":[{"key":"directionType","eq":"angle"}]},{"key":"angleVariable","label":"Kąt","description":"Kąt wystrzelenia pocisku.","type":"variable","defaultValue":"LAST_VARIABLE","conditions":[{"key":"directionType","eq":"anglevar"}]},{"key":"targetActorId","label":"Cel","description":"Aktor, w stronę którego zostanie wystrzelony pocisk.","type":"actor","defaultValue":"$self$","conditions":[{"key":"directionType","eq":"target"}]}]},{"key":"initialOffset","label":"Przesunięcie kierunku","description":"Odległość, o jaką pocisk powinien przemieścić się od pozycji startowej w kierunku wystrzelenia, zanim stanie się widoczny.","type":"number","min":0,"max":256,"width":"50%","defaultValue":0},{"type":"group","fields":[{"key":"speed","label":"Szybkość","description":"Ustawienie szybkości.","type":"moveSpeed","allowNone":true,"defaultValue":2,"width":"50%"},{"key":"animSpeed","label":"Szybkość animacji","description":"Ustawienie dla szybkości animacji.","type":"animSpeed","defaultValue":15,"width":"50%"}]},{"key":"lifeTime","label":"Czas (życie)","description":"Ustawienie czasu w sekundach dla życia pocisków (czas trwania).","type":"number","min":0,"max":4,"step":0.1,"width":"50%","defaultValue":1},{"type":"group","alignBottom":true,"fields":[{"key":"loopAnim","label":"Zapętlenie animacji","description":"Ustawienie odpowiadające za zapętlenie animacji.","type":"checkbox","defaultValue":true},{"key":"destroyOnHit","label":"Zniszcz przez dotknięcie","description":"Ustawienie odpowiadające za zniszczenie pocisku podczas pierwszej kolizji.","type":"checkbox","defaultValue":true}]},{"type":"group","fields":[{"key":"collisionGroup","label":"Grupa kolizji","description":"Grupa kolizji, która powinna być używana podczas rejestrowania kolizji z aktorami.","type":"collisionMask","width":"50%","includePlayer":false,"defaultValue":"3"},{"key":"collisionMask","label":"Kolizja z","description":"Grupy aktorów, które będą sprawdzane pod kątem kolizji. np. Jeśli powinien przejść przez jakiegokolwiek aktora, ale nie przez gracza, to zastosuj ustawienie 'Gracz' (tylko gracz).","type":"collisionMask","width":"50%","includePlayer":true,"defaultValue":["1"]}]}]} />
+<ScriptEventPreview title={"Aktor: wystrzel pocisk"} fields={[{"key":"__section","type":"tabs","defaultValue":"projectile","variant":"eventSection","values":{"projectile":"Pocisk","source":"Punkt wyjścia","presets":"Presety"}},{"type":"group","conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"spriteSheetId","type":"sprite","label":"Arkusz obiektów","description":"Grafika użyta do renderowania pocisku.","defaultValue":"LAST_SPRITE"},{"key":"spriteStateId","type":"animationstate","label":"Stan animacji","description":"Ustawienie stanu animacji do użycia.","defaultValue":""}]},{"key":"actorId","type":"actor","label":"Punkt wyjścia","description":"Wybierz aktor, z którego wylatuje pocisk.","defaultValue":"$self$","conditions":[{"key":"__section","in":["source"]}]},{"type":"group","conditions":[{"key":"__section","in":["source"]}],"fields":[{"key":"x","label":"Przesunięcie X","description":"Przesunięcie poziome od pozycji aktorów źródłowych, aby rozpocząć wystrzeliwanie pocisku.","type":"number","min":-256,"max":256,"width":"50%","defaultValue":0},{"key":"y","label":"Przesunięcie Y","description":"Przesunięcie pionowe od pozycji aktorów źródłowych, aby rozpocząć wystrzeliwanie pocisku.","type":"number","min":-256,"max":256,"width":"50%","defaultValue":0}]},{"type":"group","conditions":[{"key":"__section","in":["source"]}],"fields":[{"label":"Rozpocznij od","key":"directionType","type":"select","options":[["direction","Ustalony kierunek"],["actor","Kierunek aktora"],["target","Aktor docelowy"],["angle","Kąt"],["anglevar","Kąt-zmienna"]],"defaultValue":"direction","alignBottom":true},{"key":"otherActorId","label":"Kierunek","description":"Kierunek wystrzelenia pocisku. Może być ustalonym kierunkiem lub opartym na aktualnym kierunku aktora.","type":"actor","defaultValue":"$self$","conditions":[{"key":"directionType","eq":"actor"}]},{"key":"direction","label":"Kierunek","description":"Kierunek wystrzelenia pocisku. Może być ustalonym kierunkiem lub opartym na aktualnym kierunku aktora.","type":"direction","defaultValue":"right","conditions":[{"key":"directionType","eq":"direction"}]},{"key":"angle","label":"Kąt","description":"Kąt wystrzelenia pocisku.","type":"angle","defaultValue":0,"min":-256,"max":256,"conditions":[{"key":"directionType","eq":"angle"}]},{"key":"angleVariable","label":"Kąt","description":"Kąt wystrzelenia pocisku.","type":"variable","defaultValue":"LAST_VARIABLE","conditions":[{"key":"directionType","eq":"anglevar"}]},{"key":"targetActorId","label":"Cel","description":"Aktor, w stronę którego zostanie wystrzelony pocisk.","type":"actor","defaultValue":"$self$","conditions":[{"key":"directionType","eq":"target"}]}]},{"type":"group","conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"speed","label":"Szybkość","description":"Ustawienie szybkości.","type":"moveSpeed","allowNone":true,"defaultValue":2,"width":"50%"},{"key":"animSpeed","label":"Szybkość animacji","description":"Ustawienie dla szybkości animacji.","type":"animSpeed","defaultValue":15,"width":"50%"}]},{"type":"group","alignBottom":true,"conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"lifeTime","label":"Czas (życie)","description":"Ustawienie czasu w sekundach dla życia pocisków (czas trwania).","type":"number","min":0,"max":4,"step":0.1,"width":"50%","defaultValue":1},{"key":"initialOffset","label":"Początkowe przesunięcie","description":"Odległość, o jaką pocisk powinien przemieścić się od pozycji startowej w kierunku wystrzelenia, zanim stanie się widoczny.","type":"number","min":0,"max":256,"width":"50%","defaultValue":0}]},{"type":"group","alignBottom":true,"conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"loopAnim","label":"Zapętlenie animacji","description":"Ustawienie odpowiadające za zapętlenie animacji.","type":"checkbox","defaultValue":true},{"key":"destroyOnHit","label":"Zniszcz przez dotknięcie","description":"Ustawienie odpowiadające za zniszczenie pocisku podczas pierwszej kolizji.","type":"checkbox","defaultValue":true}]},{"type":"group","conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"collisionGroup","label":"Grupa kolizji","description":"Grupa kolizji, która powinna być używana podczas rejestrowania kolizji z aktorami.","type":"collisionMask","width":"50%","includePlayer":false,"defaultValue":"3"},{"key":"collisionMask","label":"Kolizja z","description":"Grupy aktorów, które będą sprawdzane pod kątem kolizji. np. Jeśli powinien przejść przez jakiegokolwiek aktora, ale nie przez gracza, to zastosuj ustawienie 'Gracz' (tylko gracz).","type":"collisionMask","width":"50%","includePlayer":true,"defaultValue":["1"]}]},{"type":"presets","conditions":[{"key":"__section","in":["presets"]}]}]} />
 
-- **Arkusz obiektów**: Grafika użyta do renderowania pocisku.  
-- **Stan animacji**: Ustawienie stanu animacji do użycia.  
-- **Punkt wyjścia**: Wybierz aktor, z którego wylatuje pocisk.  
-- **Przesunięcie X**: Przesunięcie poziome od pozycji aktorów źródłowych, aby rozpocząć wystrzeliwanie pocisku.  
-- **Przesunięcie Y**: Przesunięcie pionowe od pozycji aktorów źródłowych, aby rozpocząć wystrzeliwanie pocisku.  
-- **Rozpocznij od**  
-- **Kierunek**: Kierunek wystrzelenia pocisku. Może być ustalonym kierunkiem lub opartym na aktualnym kierunku aktora.  
-- **Kąt**: Kąt wystrzelenia pocisku.  
-- **Cel**: Aktor, w stronę którego zostanie wystrzelony pocisk.  
-- **Przesunięcie kierunku**: Odległość, o jaką pocisk powinien przemieścić się od pozycji startowej w kierunku wystrzelenia, zanim stanie się widoczny.  
-- **Szybkość**: Ustawienie szybkości.  
-- **Szybkość animacji**: Ustawienie dla szybkości animacji.  
-- **Czas (życie)**: Ustawienie czasu w sekundach dla życia pocisków (czas trwania).  
-- **Zapętlenie animacji**: Ustawienie odpowiadające za zapętlenie animacji.  
-- **Zniszcz przez dotknięcie**: Ustawienie odpowiadające za zniszczenie pocisku podczas pierwszej kolizji.  
-- **Grupa kolizji**: Grupa kolizji, która powinna być używana podczas rejestrowania kolizji z aktorami.  
-- **Kolizja z**: Grupy aktorów, które będą sprawdzane pod kątem kolizji. np. Jeśli powinien przejść przez jakiegokolwiek aktora, ale nie przez gracza, to zastosuj ustawienie 'Gracz' (tylko gracz).  
+
+- **Pocisk**  
+  - **Arkusz obiektów**: Grafika użyta do renderowania pocisku.  
+  - **Stan animacji**: Ustawienie stanu animacji do użycia.  
+  - **Szybkość**: Ustawienie szybkości.  
+  - **Szybkość animacji**: Ustawienie dla szybkości animacji.  
+  - **Czas (życie)**: Ustawienie czasu w sekundach dla życia pocisków (czas trwania).  
+  - **Początkowe przesunięcie**: Odległość, o jaką pocisk powinien przemieścić się od pozycji startowej w kierunku wystrzelenia, zanim stanie się widoczny.  
+  - **Zapętlenie animacji**: Ustawienie odpowiadające za zapętlenie animacji.  
+  - **Zniszcz przez dotknięcie**: Ustawienie odpowiadające za zniszczenie pocisku podczas pierwszej kolizji.  
+  - **Grupa kolizji**: Grupa kolizji, która powinna być używana podczas rejestrowania kolizji z aktorami.  
+  - **Kolizja z**: Grupy aktorów, które będą sprawdzane pod kątem kolizji. np. Jeśli powinien przejść przez jakiegokolwiek aktora, ale nie przez gracza, to zastosuj ustawienie 'Gracz' (tylko gracz).  
+
+- **Punkt wyjścia**  
+  - **Punkt wyjścia**: Wybierz aktor, z którego wylatuje pocisk.  
+  - **Przesunięcie X**: Przesunięcie poziome od pozycji aktorów źródłowych, aby rozpocząć wystrzeliwanie pocisku.  
+  - **Przesunięcie Y**: Przesunięcie pionowe od pozycji aktorów źródłowych, aby rozpocząć wystrzeliwanie pocisku.  
+  - **Rozpocznij od**  
+  - **Kierunek**: Kierunek wystrzelenia pocisku. Może być ustalonym kierunkiem lub opartym na aktualnym kierunku aktora.  
+  - **Kąt**: Kąt wystrzelenia pocisku.  
+  - **Cel**: Aktor, w stronę którego zostanie wystrzelony pocisk.  
+
+### Wystrzel pocisk z gniazda
+Wystrzelenie pocisku z aktora z określonego gniazda w wybranym kierunku. Gdy pocisk zderzy się z innymi aktorami, uruchomi to ich skrypt (dotknięcie)
+<ScriptEventPreview title={"Wystrzel pocisk z gniazda"} fields={[{"key":"__section","type":"tabs","defaultValue":"source","variant":"eventSection","values":{"source":"Punkt wyjścia","presets":"Presety"}},{"key":"actorId","type":"actor","label":"Punkt wyjścia","description":"Wybierz aktor, z którego wylatuje pocisk.","defaultValue":"$self$","conditions":[{"key":"__section","in":["source",null]}]},{"type":"group","conditions":[{"key":"__section","in":["source",null]}],"fields":[{"key":"x","label":"Przesunięcie X","description":"Przesunięcie poziome od pozycji aktorów źródłowych, aby rozpocząć wystrzeliwanie pocisku.","type":"number","min":-256,"max":256,"width":"50%","defaultValue":0},{"key":"y","label":"Przesunięcie Y","description":"Przesunięcie pionowe od pozycji aktorów źródłowych, aby rozpocząć wystrzeliwanie pocisku.","type":"number","min":-256,"max":256,"width":"50%","defaultValue":0}]},{"type":"group","conditions":[{"key":"__section","in":["source",null]}],"fields":[{"label":"Rozpocznij od","key":"directionType","type":"select","options":[["direction","Ustalony kierunek"],["actor","Kierunek aktora"],["target","Aktor docelowy"],["angle","Kąt"],["anglevar","Kąt-zmienna"]],"defaultValue":"direction","alignBottom":true},{"key":"otherActorId","label":"Kierunek","description":"Kierunek wystrzelenia pocisku. Może być ustalonym kierunkiem lub opartym na aktualnym kierunku aktora.","type":"actor","defaultValue":"$self$","conditions":[{"key":"directionType","eq":"actor"}]},{"key":"direction","label":"Kierunek","description":"Kierunek wystrzelenia pocisku. Może być ustalonym kierunkiem lub opartym na aktualnym kierunku aktora.","type":"direction","defaultValue":"right","conditions":[{"key":"directionType","eq":"direction"}]},{"key":"angle","label":"Kąt","description":"Kąt wystrzelenia pocisku.","type":"angle","defaultValue":0,"min":-256,"max":256,"conditions":[{"key":"directionType","eq":"angle"}]},{"key":"angleVariable","label":"Kąt","description":"Kąt wystrzelenia pocisku.","type":"variable","defaultValue":"LAST_VARIABLE","conditions":[{"key":"directionType","eq":"anglevar"}]},{"key":"targetActorId","label":"Cel","description":"Aktor, w stronę którego zostanie wystrzelony pocisk.","type":"actor","defaultValue":"$self$","conditions":[{"key":"directionType","eq":"target"}]}]},{"key":"slot","label":"Gniazdo pocisku","description":"Gniazdo zawierające pocisk, któryu ma zostać wystrzelony","type":"togglebuttons","options":[[0,"Plik 1","Gniazdo pocisku 1"],[1,"Plik 2","Gniazdo pocisku 2"],[2,"Plik 3","Gniazdo pocisku 3"],[3,"Plik 4","Gniazdo pocisku 4"],[4,"Plik 5","Gniazdo pocisku 5"]],"allowNone":false,"defaultValue":0,"conditions":[{"key":"__section","in":["source",null]}]},{"type":"presets","conditions":[{"key":"__section","in":["presets"]}]}]} />
+
+
+- **Punkt wyjścia**  
+  - **Punkt wyjścia**: Wybierz aktor, z którego wylatuje pocisk.  
+  - **Przesunięcie X**: Przesunięcie poziome od pozycji aktorów źródłowych, aby rozpocząć wystrzeliwanie pocisku.  
+  - **Przesunięcie Y**: Przesunięcie pionowe od pozycji aktorów źródłowych, aby rozpocząć wystrzeliwanie pocisku.  
+  - **Rozpocznij od**  
+  - **Kierunek**: Kierunek wystrzelenia pocisku. Może być ustalonym kierunkiem lub opartym na aktualnym kierunku aktora.  
+  - **Kąt**: Kąt wystrzelenia pocisku.  
+  - **Cel**: Aktor, w stronę którego zostanie wystrzelony pocisk.  
+  - **Gniazdo pocisku**: Gniazdo zawierające pocisk, któryu ma zostać wystrzelony  
+
+### Wczytaj pocisk do gniazda
+Wczytaj dane pocisku do określonego gniazda
+<ScriptEventPreview title={"Wczytaj pocisk do gniazda"} fields={[{"key":"__section","type":"tabs","defaultValue":"projectile","variant":"eventSection","values":{"projectile":"Pocisk","presets":"Presety"}},{"key":"slot","label":"Gniazdo pocisku","description":"Gniazdo, w którym chcesz przechowywać informacje o pocisku","type":"togglebuttons","options":[[0,"Plik 1","Gniazdo pocisku 1"],[1,"Plik 2","Gniazdo pocisku 2"],[2,"Plik 3","Gniazdo pocisku 3"],[3,"Plik 4","Gniazdo pocisku 4"],[4,"Plik 5","Gniazdo pocisku 5"]],"allowNone":false,"defaultValue":0,"conditions":[{"key":"__section","in":["projectile",null]}]},{"type":"group","conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"spriteSheetId","type":"sprite","label":"Arkusz obiektów","description":"Grafika użyta do renderowania pocisku.","defaultValue":"LAST_SPRITE"},{"key":"spriteStateId","type":"animationstate","label":"Stan animacji","description":"Ustawienie stanu animacji do użycia.","defaultValue":""}]},{"type":"group","conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"speed","label":"Szybkość","description":"Ustawienie szybkości.","type":"moveSpeed","allowNone":true,"defaultValue":2,"width":"50%"},{"key":"animSpeed","label":"Szybkość animacji","description":"Ustawienie dla szybkości animacji.","type":"animSpeed","defaultValue":15,"width":"50%"}]},{"type":"group","alignBottom":true,"conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"lifeTime","label":"Czas (życie)","description":"Ustawienie czasu w sekundach dla życia pocisków (czas trwania).","type":"number","min":0,"max":4,"step":0.1,"width":"50%","defaultValue":1},{"key":"initialOffset","label":"Początkowe przesunięcie","description":"Odległość, o jaką pocisk powinien przemieścić się od pozycji startowej w kierunku wystrzelenia, zanim stanie się widoczny.","type":"number","min":0,"max":256,"width":"50%","defaultValue":0}]},{"type":"group","alignBottom":true,"conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"loopAnim","label":"Zapętlenie animacji","description":"Ustawienie odpowiadające za zapętlenie animacji.","type":"checkbox","defaultValue":true},{"key":"destroyOnHit","label":"Zniszcz przez dotknięcie","description":"Ustawienie odpowiadające za zniszczenie pocisku podczas pierwszej kolizji.","type":"checkbox","defaultValue":true}]},{"type":"group","conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"collisionGroup","label":"Grupa kolizji","description":"Grupa kolizji, która powinna być używana podczas rejestrowania kolizji z aktorami.","type":"collisionMask","width":"50%","includePlayer":false,"defaultValue":"3"},{"key":"collisionMask","label":"Kolizja z","description":"Grupy aktorów, które będą sprawdzane pod kątem kolizji. np. Jeśli powinien przejść przez jakiegokolwiek aktora, ale nie przez gracza, to zastosuj ustawienie 'Gracz' (tylko gracz).","type":"collisionMask","width":"50%","includePlayer":true,"defaultValue":["1"]}]},{"type":"presets","conditions":[{"key":"__section","in":["presets"]}]}]} />
+
+
+- **Pocisk**  
+  - **Gniazdo pocisku**: Gniazdo, w którym chcesz przechowywać informacje o pocisku  
+  - **Arkusz obiektów**: Grafika użyta do renderowania pocisku.  
+  - **Stan animacji**: Ustawienie stanu animacji do użycia.  
+  - **Szybkość**: Ustawienie szybkości.  
+  - **Szybkość animacji**: Ustawienie dla szybkości animacji.  
+  - **Czas (życie)**: Ustawienie czasu w sekundach dla życia pocisków (czas trwania).  
+  - **Początkowe przesunięcie**: Odległość, o jaką pocisk powinien przemieścić się od pozycji startowej w kierunku wystrzelenia, zanim stanie się widoczny.  
+  - **Zapętlenie animacji**: Ustawienie odpowiadające za zapętlenie animacji.  
+  - **Zniszcz przez dotknięcie**: Ustawienie odpowiadające za zniszczenie pocisku podczas pierwszej kolizji.  
+  - **Grupa kolizji**: Grupa kolizji, która powinna być używana podczas rejestrowania kolizji z aktorami.  
+  - **Kolizja z**: Grupy aktorów, które będą sprawdzane pod kątem kolizji. np. Jeśli powinien przejść przez jakiegokolwiek aktora, ale nie przez gracza, to zastosuj ustawienie 'Gracz' (tylko gracz).  
 
 ### Aktor: wyświetl emotikonę
 Polecenie wyświetli obraz emotki nad wybranym aktorem. Obraz zostanie umieszczony centralnie nad obwiednią kolizji aktora.
@@ -42,7 +79,7 @@ Polecenie wyświetli obraz emotki nad wybranym aktorem. Obraz zostanie umieszczo
 ## Control Flow
 ### Warunek: położenie aktora (współrzędne)
 Warunkowe uruchomienie części skryptu, jeśli aktor znajduje się na określonej pozycji.
-<ScriptEventPreview title={"Warunek: położenie aktora (współrzędne)"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do sprawdzenia.","type":"actor","defaultValue":"$self$"},{"type":"group","wrapItems":true,"fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"Warunek: położenie aktora (współrzędne)"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do sprawdzenia.","type":"actor","defaultValue":"$self$"},{"type":"group","wrapItems":true,"fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W przeciwnym razie","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Aktor**: Wybierz aktora do sprawdzenia.  
 - **X**: Pozycja pozioma.  
@@ -52,7 +89,7 @@ Warunkowe uruchomienie części skryptu, jeśli aktor znajduje się na określon
 
 ### Warunek: odległość aktora względem aktora
 Warunkowe uruchomienie części skryptu, jeśli aktor znajduje się w pewnej odległości od innego aktora.
-<ScriptEventPreview title={"Warunek: odległość aktora względem aktora"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do sprawdzenia.","type":"actor","defaultValue":"player","width":"50%"},{"type":"group","fields":[{"key":"operator","label":"Porównanie","description":"Operator porównania do wykorzystania m.in. 'Mniej niż' lub 'Większe niż;.","type":"operator","width":"50%","defaultValue":"<="},{"key":"distance","label":"Odległość","description":"Wartość odległości.","type":"value","min":0,"max":181,"width":"50%","unitsDefault":"tiles","defaultValue":{"type":"number","value":0}}]},{"key":"otherActorId","label":"Od","description":"Wybierz aktora z którym ma zostać porównana odległość.","type":"actor","defaultValue":"$self$","width":"50%"},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"Warunek: odległość aktora względem aktora"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do sprawdzenia.","type":"actor","defaultValue":"player","width":"50%"},{"type":"group","fields":[{"key":"operator","label":"Porównanie","description":"Operator porównania do wykorzystania m.in. 'Mniej niż' lub 'Większe niż;.","type":"operator","width":"50%","defaultValue":"<="},{"key":"distance","label":"Odległość","description":"Wartość odległości.","type":"value","min":0,"max":181,"width":"50%","unitsDefault":"tiles","defaultValue":{"type":"number","value":0}}]},{"key":"otherActorId","label":"Od","description":"Wybierz aktora z którym ma zostać porównana odległość.","type":"actor","defaultValue":"$self$","width":"50%"},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W przeciwnym razie","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Aktor**: Wybierz aktora do sprawdzenia.  
 - **Porównanie**: Operator porównania do wykorzystania m.in. 'Mniej niż' lub 'Większe niż;.  
@@ -63,7 +100,7 @@ Warunkowe uruchomienie części skryptu, jeśli aktor znajduje się w pewnej odl
 
 ### Warunek: kierunek obrotu aktora
 Warunkowe uruchomienie części skryptu, jeżeli aktor jest w określonym kierunku.
-<ScriptEventPreview title={"Warunek: kierunek obrotu aktora"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do sprawdzenia.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Kierunek","description":"Ustawienie kierunku aktora.","type":"value","defaultValue":{"type":"direction","value":"up"}},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"Warunek: kierunek obrotu aktora"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do sprawdzenia.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Kierunek","description":"Ustawienie kierunku aktora.","type":"value","defaultValue":{"type":"direction","value":"up"}},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W przeciwnym razie","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Aktor**: Wybierz aktora do sprawdzenia.  
 - **Kierunek**: Ustawienie kierunku aktora.  
@@ -72,7 +109,7 @@ Warunkowe uruchomienie części skryptu, jeżeli aktor jest w określonym kierun
 
 ### Warunek: położenie aktora względem aktora
 Warunkowe uruchomienie części skryptu na podstawie pozycji jednego aktora względem drugiego.
-<ScriptEventPreview title={"Warunek: położenie aktora względem aktora"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do sprawdzenia.","type":"actor","defaultValue":"player"},{"key":"operation","label":"Porównanie","description":"Względne porównanie pozycji do wykorzystania m.in. 'Jest powyżej' lub 'Jest poniżej'.","type":"select","options":[["up","jest powyżej"],["down","jest poniżej"],["left","jest z lewej"],["right","jest z prawej"]],"defaultValue":"up","width":"50%"},{"key":"otherActorId","label":"Inny aktor","description":"Wybierz aktora z którym ma zostać porównana położenie.","type":"actor","defaultValue":"$self$"},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W innym wypadku","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"Warunek: położenie aktora względem aktora"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do sprawdzenia.","type":"actor","defaultValue":"player"},{"key":"operation","label":"Porównanie","description":"Względne porównanie pozycji do wykorzystania m.in. 'Jest powyżej' lub 'Jest poniżej'.","type":"select","options":[["up","jest powyżej"],["down","jest poniżej"],["left","jest z lewej"],["right","jest z prawej"]],"defaultValue":"up","width":"50%"},{"key":"otherActorId","label":"Inny aktor","description":"Wybierz aktora z którym ma zostać porównana położenie.","type":"actor","defaultValue":"$self$"},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W przeciwnym razie","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Aktor**: Wybierz aktora do sprawdzenia.  
 - **Porównanie**: Względne porównanie pozycji do wykorzystania m.in. 'Jest powyżej' lub 'Jest poniżej'.  
@@ -89,23 +126,33 @@ Polecenie anuluje wszystkie aktualne polecenia 'Aktor: przenieś/ruszaj' mające
 
 ### Aktor: przesuń względnie // ruszaj zdarzeniem
 Polecenie przesunie (ruszy nim) aktora względem jego aktualnego położenia.
-<ScriptEventPreview title={"Aktor: przesuń względnie // ruszaj zdarzeniem"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do wykonania ruchu.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","description":"Przesunięcie poziome względem aktualnej pozycji.","type":"value","min":-31,"max":31,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"Przesunięcie pionowe względem aktualnej pozycji.","type":"value","min":-31,"max":31,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"moveType","label":"Rodzaj ruchu","description":"Ustawienie ruchu: czy powinien być najpierw w osi poziomej/pionowej, czy też powinien poruszać się po przekątnej do miejsca docelowego.","hideLabel":true,"type":"moveType","defaultValue":"horizontal","flexBasis":30,"flexGrow":0,"alignBottom":true},{"key":"useCollisions","label":"Użyj kolizji","description":"Ustawienie uwzględniające kolizję ze sceną i aktorami podczas ruchu.","width":"50%","type":"checkbox","defaultValue":false}]} />
+<ScriptEventPreview title={"Aktor: przesuń względnie // ruszaj zdarzeniem"} fields={[{"key":"__section","type":"tabs","defaultValue":"movement","variant":"eventSection","values":{"movement":"Ruch","options":"Opcje","presets":"Presety"}},{"type":"group","wrapItems":true,"flexBasis":"100%","fields":[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do wykonania ruchu.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","description":"Przesunięcie poziome względem aktualnej pozycji.","type":"value","min":-31,"max":31,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"Przesunięcie pionowe względem aktualnej pozycji.","type":"value","min":-31,"max":31,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]}],"conditions":[{"key":"__section","in":["movement",null]}]},{"type":"group","wrapItems":true,"flexBasis":"100%","fields":[{"key":"collideWith","width":"50%","flexBasis":0,"minWidth":150,"label":"Kolizja z","description":"Grupy aktorów, które będą sprawdzane pod kątem kolizji. np. Jeśli powinien przejść przez jakiegokolwiek aktora, ale nie przez gracza, to zastosuj ustawienie 'Gracz' (tylko gracz).","type":"togglebuttons","options":[["walls","Ściany","Ściany"],["actors","Aktorzy","Aktorzy"]],"allowNone":true,"allowMultiple":true,"defaultValue":["walls"]},{"type":"group","flexBasis":0,"minWidth":150,"alignBottom":true,"fields":[{"key":"lockDirection","width":"50%","label":"Zablokuj kierunek","description":"Blokuje zmianę kierunku aktora wzdłuż wybranej osi podczas ruchu.","type":"togglebuttons","options":[["x","H","Poziomo"],["y","V","Pionowo"]],"allowMultiple":true,"allowNone":true,"defaultValue":[]},{"key":"moveType","label":"Rodzaj ruchu","description":"Ustawienie ruchu: czy powinien być najpierw w osi poziomej/pionowej, czy też powinien poruszać się po przekątnej do miejsca docelowego.","hideLabel":true,"type":"moveType","defaultValue":"horizontal","flexBasis":35,"flexGrow":0,"alignBottom":true}]}],"conditions":[{"key":"__section","in":["options"]}]},{"type":"presets","conditions":[{"key":"__section","in":["presets"]}]}]} />
 
-- **Aktor**: Wybierz aktora do wykonania ruchu.  
-- **X**: Przesunięcie poziome względem aktualnej pozycji.  
-- **Y**: Przesunięcie pionowe względem aktualnej pozycji.  
-- **Rodzaj ruchu**: Ustawienie ruchu: czy powinien być najpierw w osi poziomej/pionowej, czy też powinien poruszać się po przekątnej do miejsca docelowego.  
-- **Użyj kolizji**: Ustawienie uwzględniające kolizję ze sceną i aktorami podczas ruchu.  
+
+- **Ruch**  
+  - **Aktor**: Wybierz aktora do wykonania ruchu.  
+  - **X**: Przesunięcie poziome względem aktualnej pozycji.  
+  - **Y**: Przesunięcie pionowe względem aktualnej pozycji.  
+
+- **Opcje**  
+  - **Kolizja z**: Grupy aktorów, które będą sprawdzane pod kątem kolizji. np. Jeśli powinien przejść przez jakiegokolwiek aktora, ale nie przez gracza, to zastosuj ustawienie 'Gracz' (tylko gracz).  
+  - **Zablokuj kierunek**: Blokuje zmianę kierunku aktora wzdłuż wybranej osi podczas ruchu.  
+  - **Rodzaj ruchu**: Ustawienie ruchu: czy powinien być najpierw w osi poziomej/pionowej, czy też powinien poruszać się po przekątnej do miejsca docelowego.  
 
 ### Aktor: przesuń // przejdź do
 Polecenie przeusnie aktora (ruszy nim) do nowego położenia.
-<ScriptEventPreview title={"Aktor: przesuń // przejdź do"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do wykonania ruchu.","type":"actor","defaultValue":"$self$","flexBasis":0,"minWidth":150},{"type":"group","wrapItems":true,"fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"value","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"value","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]},{"type":"group","flexBasis":0,"minWidth":150,"alignBottom":true,"fields":[{"key":"moveType","label":"Rodzaj ruchu","description":"Ustawienie ruchu: czy powinien być najpierw w osi poziomej/pionowej, czy też powinien poruszać się po przekątnej do miejsca docelowego.","hideLabel":true,"type":"moveType","defaultValue":"horizontal","flexBasis":35,"flexGrow":0,"alignBottom":true},{"key":"useCollisions","label":"Użyj kolizji","description":"Ustawienie uwzględniające kolizję ze sceną i aktorami podczas ruchu.","width":"50%","type":"checkbox","defaultValue":false,"alignBottom":true}]}]} />
+<ScriptEventPreview title={"Aktor: przesuń // przejdź do"} fields={[{"key":"__section","type":"tabs","defaultValue":"movement","variant":"eventSection","values":{"movement":"Ruch","options":"Opcje","presets":"Presety"}},{"type":"group","wrapItems":true,"flexBasis":"100%","fields":[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do wykonania ruchu.","type":"actor","defaultValue":"$self$","flexBasis":0,"minWidth":150},{"type":"group","wrapItems":true,"fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"value","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"value","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]}],"conditions":[{"key":"__section","in":["movement",null]}]},{"type":"group","wrapItems":true,"flexBasis":"100%","fields":[{"key":"collideWith","width":"50%","flexBasis":0,"minWidth":150,"label":"Kolizja z","description":"Grupy aktorów, które będą sprawdzane pod kątem kolizji. np. Jeśli powinien przejść przez jakiegokolwiek aktora, ale nie przez gracza, to zastosuj ustawienie 'Gracz' (tylko gracz).","type":"togglebuttons","options":[["walls","Ściany","Ściany"],["actors","Aktorzy","Aktorzy"]],"allowNone":true,"allowMultiple":true,"defaultValue":["walls"]},{"type":"group","flexBasis":0,"minWidth":150,"alignBottom":true,"fields":[{"key":"lockDirection","width":"50%","label":"Zablokuj kierunek","description":"Blokuje zmianę kierunku aktora wzdłuż wybranej osi podczas ruchu.","type":"togglebuttons","options":[["x","H","Poziomo"],["y","V","Pionowo"]],"allowMultiple":true,"allowNone":true,"defaultValue":[]},{"key":"moveType","label":"Rodzaj ruchu","description":"Ustawienie ruchu: czy powinien być najpierw w osi poziomej/pionowej, czy też powinien poruszać się po przekątnej do miejsca docelowego.","hideLabel":true,"type":"moveType","defaultValue":"horizontal","flexBasis":35,"flexGrow":0,"alignBottom":true}]}],"conditions":[{"key":"__section","in":["options"]}]},{"type":"presets","conditions":[{"key":"__section","in":["presets"]}]}]} />
 
-- **Aktor**: Wybierz aktora do wykonania ruchu.  
-- **X**: Pozycja pozioma.  
-- **Y**: Pozycja pionowa.  
-- **Rodzaj ruchu**: Ustawienie ruchu: czy powinien być najpierw w osi poziomej/pionowej, czy też powinien poruszać się po przekątnej do miejsca docelowego.  
-- **Użyj kolizji**: Ustawienie uwzględniające kolizję ze sceną i aktorami podczas ruchu.  
+
+- **Ruch**  
+  - **Aktor**: Wybierz aktora do wykonania ruchu.  
+  - **X**: Pozycja pozioma.  
+  - **Y**: Pozycja pionowa.  
+
+- **Opcje**  
+  - **Kolizja z**: Grupy aktorów, które będą sprawdzane pod kątem kolizji. np. Jeśli powinien przejść przez jakiegokolwiek aktora, ale nie przez gracza, to zastosuj ustawienie 'Gracz' (tylko gracz).  
+  - **Zablokuj kierunek**: Blokuje zmianę kierunku aktora wzdłuż wybranej osi podczas ruchu.  
+  - **Rodzaj ruchu**: Ustawienie ruchu: czy powinien być najpierw w osi poziomej/pionowej, czy też powinien poruszać się po przekątnej do miejsca docelowego.  
 
 ### Aktor: odepchnij od gracza
 Polecenie powoduje przesunięcie wskazanego aktora w kierunku, w którym aktualnie zwrócony jest gracz. Polecenie przydatne do tworzenia zagadek blokowych (puzzli).
@@ -130,28 +177,38 @@ Polecenie ustawia nową pozycję aktora w stosunku do jego poprzedniej pozycji, 
 - **Y**: Przesunięcie pionowe względem aktualnej pozycji.  
 
 ## Platformer
-### Aktor: Skok gracza
+### Aktor: skok gracza
 W scenach platformowych powoduje, że gracz odbija się w górę, ustawiając wartość prędkości Y gracza.
-<ScriptEventPreview title={"Aktor: Skok gracza"} fields={[{"key":"height","type":"select","label":"Wysokość","description":"Wysokość odbicia gracza.","options":[["low","Nisko"],["medium","Średnio"],["high","Wysoko"]],"defaultValue":"medium"},{"label":"Dotyczy tylko scen platformowych"}]} />
+<ScriptEventPreview title={"Aktor: skok gracza"} fields={[{"key":"height","type":"select","label":"Wysokość","description":"Wysokość odbicia gracza.","options":[["low","Nisko"],["medium","Średnio"],["high","Wysoko"]],"defaultValue":"medium"},{"label":"Dotyczy tylko scen platformowych"}]} />
 
 - **Wysokość**: Wysokość odbicia gracza.  
 
 ## Properties
-### Aktywuj aktora
+### Aktor: aktywuj aktora
 Polecenie aktywuje aktora, powodując, że będzie widoczny (jeżeli nie był ukryty) i uruchamia jego skrypt równoległy.
-<ScriptEventPreview title={"Aktywuj aktora"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do aktywacji.","type":"actor","defaultValue":"$self$"}]} />
+<ScriptEventPreview title={"Aktor: aktywuj aktora"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do aktywacji.","type":"actor","defaultValue":"$self$"}]} />
 
 - **Aktor**: Wybierz aktora do aktywacji.  
 
-### Dezaktywuj aktora
+### Aktor: efekty aktora
+Odtwórz animację efektu aktora na wybranym aktorze.
+<ScriptEventPreview title={"Aktor: efekty aktora"} fields={[{"key":"effect","label":"Efekt","description":"Efekt aktora do odtworzenia.","type":"select","options":[["flicker","Migotanie"],["splitIn","Scalenie"],["splitOut","Rozdzielenie"]],"defaultValue":"flicker","width":"100%"},{"key":"actorId","label":"Aktor","description":"Aktor do animacji.","type":"actor","defaultValue":"$self$","width":"100%"},{"type":"group","wrapItems":true,"conditions":[{"key":"effect","in":["splitIn","splitOut"]}],"fields":[{"key":"distance","label":"Odległość","description":"Wartość odległości.","type":"number","min":1,"max":80,"defaultValue":20,"unitsField":"units","unitsDefault":"pixels","unitsAllowed":["tiles","pixels"],"conditions":[{"key":"effect","in":["splitIn","splitOut"]}],"width":"50%"},{"key":"speed","label":"Szybkość","description":"Ustawienie szybkości.","type":"moveSpeed","allowNone":false,"defaultValue":2,"conditions":[{"key":"effect","in":["splitIn","splitOut"]}],"width":"50%"}]},{"key":"time","type":"number","label":"Czas trwania","description":"Czas trwania efektu aktora.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"timeUnits","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"effect","in":["flicker"]},{"key":"timeUnits","ne":"frames"}]},{"key":"frames","label":"Czas trwania","description":"Czas trwania efektu aktora.","type":"number","min":0,"max":3600,"width":"50%","defaultValue":30,"unitsField":"timeUnits","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"effect","in":["flicker"]},{"key":"timeUnits","eq":"frames"}]}]} />
+
+- **Efekt**: Efekt aktora do odtworzenia.  
+- **Aktor**: Aktor do animacji.  
+- **Odległość**: Wartość odległości.  
+- **Szybkość**: Ustawienie szybkości.  
+- **Czas trwania**: Czas trwania efektu aktora.  
+
+### Aktor: dezaktywuj aktora
 Polecenie dezaktywuje aktora, powodując, że zachowuje się tak, jakby zniknął z ekranu. Stanie się niewidoczny, a jego skrypt równoległy zostanie zatrzymany.
-<ScriptEventPreview title={"Dezaktywuj aktora"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do dezaktywacji.","type":"actor","defaultValue":"$self$"}]} />
+<ScriptEventPreview title={"Aktor: dezaktywuj aktora"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do dezaktywacji.","type":"actor","defaultValue":"$self$"}]} />
 
 - **Aktor**: Wybierz aktora do dezaktywacji.  
 
 ### Aktor: ustaw klatki animacji
 Polecenie ustawi animację aktora na określoną wartość klatki.
-<ScriptEventPreview title={"Aktor: ustaw klatki animacji"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do aktualizacji.","type":"actor","defaultValue":"$self$"},{"key":"frame","label":"Klatka animacji","description":"Wartość klatki animacji.","type":"value","min":0,"max":25,"defaultValue":{"type":"number","value":0}}]} />
+<ScriptEventPreview title={"Aktor: ustaw klatki animacji"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do aktualizacji.","type":"actor","defaultValue":"$self$"},{"key":"frame","label":"Klatka animacji","description":"Wartość klatki animacji.","type":"value","min":0,"defaultValue":{"type":"number","value":0}}]} />
 
 - **Aktor**: Wybierz aktora do aktualizacji.  
 - **Klatka animacji**: Wartość klatki animacji.  
@@ -170,6 +227,16 @@ Polecenie zmienia stan animacji dla określonego aktora.
 - **Aktor**: Wybierz aktora do aktualizacji.  
 - **Stan animacji**: Ustawienie stanu animacji do użycia.  
 - **Zapętlenie animacji**: Ustawienie odpowiadające za zapętlenie animacji.  
+
+### Aktor: ustaw pole kolizji
+Ustaw pole kolizji aktora na określoną pozycję i rozmiar.
+<ScriptEventPreview title={"Aktor: ustaw pole kolizji"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do aktualizacji.","type":"actor","defaultValue":"$self$"},{"type":"group","wrapItems":true,"fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"value","min":-96,"max":96,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"pixels","unitsAllowed":["pixels"]},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"value","min":-96,"max":96,"defaultValue":{"type":"number","value":-8},"width":"50%","unitsField":"units","unitsDefault":"pixels","unitsAllowed":["pixels"]}]},{"type":"group","wrapItems":true,"fields":[{"key":"width","label":"Szerokość","description":"Szerokość pola","type":"value","min":0,"max":128,"defaultValue":{"type":"number","value":16},"width":"50%","unitsField":"units","unitsDefault":"pixels","unitsAllowed":["pixels"]},{"key":"height","label":"Wysokość","description":"Wysokość pola","type":"value","min":0,"max":128,"defaultValue":{"type":"number","value":16},"width":"50%","unitsField":"units","unitsDefault":"pixels","unitsAllowed":["pixels"]}]}]} />
+
+- **Aktor**: Wybierz aktora do aktualizacji.  
+- **X**: Pozycja pozioma.  
+- **Y**: Pozycja pionowa.  
+- **Szerokość**: Szerokość pola  
+- **Wysokość**: Wysokość pola  
 
 ### Aktor: wyłącz kolizję (OFF)
 Polecenie wyłącza ustawienia kolizji dla aktora, pozwalając graczowi i innym aktorom przejść przez elementy (z kolizją) podczas ruchu.
@@ -192,10 +259,11 @@ Polecenie zmienia kierunek obrotu aktora, w który jest zwrócony.
 
 ### Aktor: ustaw szybkość ruchu
 Polecenie ustawi nową wartość dla szybkości ruchu.
-<ScriptEventPreview title={"Aktor: ustaw szybkość ruchu"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do aktualizacji.","type":"actor","defaultValue":"$self$"},{"key":"speed","label":"Szybkość","description":"Ustawienie szybkości.","type":"moveSpeed","defaultValue":1}]} />
+<ScriptEventPreview title={"Aktor: ustaw szybkość ruchu"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do aktualizacji.","type":"actor","defaultValue":"$self$"},{"key":"speed","label":"Szybkość","description":"Ustawienie szybkości.","type":"moveSpeed","defaultValue":1},{"type":"group","wrapItems":true,"conditions":[{"sceneType":["platform","adventure"]},{"or":[[{"key":"actorId","eq":"$self$"},{"entityTypeNot":["actor"]}],[{"key":"actorId","eq":"player"}]]}],"fields":[{"label":"Aby ustawić szybkość poruszania gracza na scenie platformowej lub przygodowej, należy użyć polecenia \"Silnik: aktualizacja ustawień\", aby ustawić pola Prędkość chodzenia lub Prędkość biegu.","labelVariant":"warning","flexBasis":"100%"},{"type":"addEventButton","hideLabel":true,"label":"Silnik: aktualizacja ustawień","defaultValue":{"id":"EVENT_ENGINE_FIELD_SET","values":{"engineFieldKey":"plat_walk_vel"},"replace":true},"conditions":[{"sceneType":["platform"]}]},{"type":"addEventButton","hideLabel":true,"label":"Silnik: aktualizacja ustawień","defaultValue":{"id":"EVENT_ENGINE_FIELD_SET","values":{"engineFieldKey":"adv_walk_vel"},"replace":true},"conditions":[{"sceneType":["adventure"]}]}]}]} />
 
 - **Aktor**: Wybierz aktora do aktualizacji.  
 - **Szybkość**: Ustawienie szybkości.  
+- **Silnik: aktualizacja ustawień**  
 
 ### Aktor: zmień grafikę
 Polecenie ustawia grafikę, która powinna być użyta do renderowania aktora..
@@ -226,6 +294,11 @@ Polecenie zatrzymuje skrypt 'równoległy' aktorów, jeśli był aktualnie uruch
 ## Variables
 ### Aktor: zapisz obrót w zmiennej
 Polecenie zapisuje bieżący kierunek aktora do zmiennej.
+:: LEGENDA:
+Dół: 0
+Prawo: 1
+Góra: 2
+Lewo:3
 <ScriptEventPreview title={"Aktor: zapisz obrót w zmiennej"} fields={[{"key":"actorId","label":"Aktor","description":"Wybierz aktora do sprawdzenia.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Zmienna","description":"Zmienna używana dla kierunku.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
 
 - **Aktor**: Wybierz aktora do sprawdzenia.  
@@ -246,9 +319,9 @@ Polecenie schowa aktora, spowoduje to że stanie się niewidzialny. Wszelkiego r
 
 - **Aktor**: Wybierz aktora, który ma być schowany.  
 
-### Aktorzy: schowaj wszystko
-Polecenie schowa wszelkiego rodzaju warstwy, powodując ukrycie wszystkich elementów (spritów) do momentu ponownego włączenia renderowania.
-<ScriptEventPreview title={"Aktorzy: schowaj wszystko"} fields={[{"label":"Schowanie wszystkich obiektów z ekranu."}]} />
+### Aktor: schowaj wszystkich aktorów
+Polecenie schowa wszelkiego rodzaju warstwy, powodując ukrycie wszystkich aktorów (spritów) do momentu ponownego włączenia renderowania.
+<ScriptEventPreview title={"Aktor: schowaj wszystkich aktorów"} fields={[{"label":"Schowanie wszystkich obiektów z ekranu."}]} />
 
 
 ### Aktor: pokaż (widzialny)
@@ -257,8 +330,8 @@ Polecenie wyświetli wcześniej schowanego aktora (aktor będzie widzialny).
 
 - **Aktor**: Wybierz aktora, który ma być wyświetlony.  
 
-### Aktorzy: pokaż wszystko
-Polecenie ponownie uruchomi renderowanie warstw (spritów), jeżeli zostały poprzednio wyłączone.
-<ScriptEventPreview title={"Aktorzy: pokaż wszystko"} fields={[{"label":"Odkrycie wszystkich aktywnych obiektów."}]} />
+### Aktor: pokaż wszystkich aktorów
+Polecenie ponownie uruchomi renderowanie warstw aktorów (spritów), jeżeli zostały poprzednio wyłączone.
+<ScriptEventPreview title={"Aktor: pokaż wszystkich aktorów"} fields={[{"label":"Odkrycie wszystkich aktywnych obiektów."}]} />
 
 

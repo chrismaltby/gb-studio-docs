@@ -7,37 +7,37 @@ sidebar_position: 2
 
 import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
-# Eingabe
+# Joypad-Eingabe
 
-### Joypad-Eingabe: Binde Skript An Eingabe
-Run the specified script any time a joypad button is pressed.
-<ScriptEventPreview title={"Joypad-Eingabe: Binde Skript An Eingabe"} fields={[{"key":"input","label":"Taste","description":"Die zu überprüfende Joypad-Taste.","type":"input","defaultValue":["b"]},{"key":"override","type":"checkbox","label":"Überschreibe Standard-Tasten-Aktion","description":"Legt fest, ob das Skript die Standardaktion des Spiels für die angegebene Taste ersetzen soll.","defaultValue":true},{"key":"__scriptTabs","type":"tabs","defaultValue":"press","values":{"press":"Durch Drücken von"}},{"key":"true","label":"Durch Drücken von","description":"Das Skript, welches beim Drücken der Schaltfläche ausgeführt wird.","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"press"]}]}]} />
+### Skript an Taste anhängen
+Führt das angegebene Skript bei jedem Druck auf eine Joypad-Taste aus.
+<ScriptEventPreview title={"Skript an Taste anhängen"} fields={[{"key":"input","label":"Taste","description":"Die zu überprüfende Joypad-Taste.","type":"input","defaultValue":["b"]},{"key":"override","type":"checkbox","label":"Vorgabe-Tastenaktion überschreiben","description":"Lege fest, ob das Skript die Vorgabe-Spielaktion für die angegebene Taste ersetzen soll.","defaultValue":true},{"key":"__scriptTabs","type":"tabs","defaultValue":"press","values":{"press":"Beim Drücken"}},{"key":"true","label":"Beim Drücken","description":"Das Skript, welches beim Drücken der Schaltfläche ausgeführt wird.","type":"events","allowedContexts":["global","entity","prefab"],"conditions":[{"key":"__scriptTabs","in":[null,"press"]}]}]} />
 
 - **Taste**: Die zu überprüfende Joypad-Taste.  
-- **Überschreibe Standard-Tasten-Aktion**: Legt fest, ob das Skript die Standardaktion des Spiels für die angegebene Taste ersetzen soll.  
-- **Durch Drücken von**: Das Skript, welches beim Drücken der Schaltfläche ausgeführt wird.  
+- **Vorgabe-Tastenaktion überschreiben**: Lege fest, ob das Skript die Vorgabe-Spielaktion für die angegebene Taste ersetzen soll.  
+- **Beim Drücken**: Das Skript, welches beim Drücken der Schaltfläche ausgeführt wird.  
 
-### Joypad-Eingabe: Skript Pausieren Bis Gedrückt
-Pauses the script until one of the specified joypad buttons are pressed.
-<ScriptEventPreview title={"Joypad-Eingabe: Skript Pausieren Bis Gedrückt"} fields={[{"key":"input","label":"Beliebiges von","description":"Die zu überprüfenden Eingabetasten.","type":"input","defaultValue":["a","b"]}]} />
+### Skript anhalten bis Taste gedrückt wird
+Hält das Skript an, bis eine der festgelegten Joypad-Tasten gedrückt wurde.
+<ScriptEventPreview title={"Skript anhalten bis Taste gedrückt wird"} fields={[{"key":"input","label":"Beliebiges von","description":"Die zu überprüfenden Eingabetasten.","type":"input","defaultValue":["a","b"]}]} />
 
 - **Beliebiges von**: Die zu überprüfenden Eingabetasten.  
 
-### Joypad-Eingabe: Entferne Skript Von Eingabe
-Remove an attached script from a joypad button restoring the default functionality of the button.
-<ScriptEventPreview title={"Joypad-Eingabe: Entferne Skript Von Eingabe"} fields={[{"key":"input","label":"Entfernt angefügtes Skript von Eingabe","description":"Die Joypad-Taste, von der das angehängte Skript entfernt wird.","type":"input","defaultValue":["b"]}]} />
+### Tastenskript entfernen
+Entfernt das gebundene Skript von einer Joypad-Taste und stellt dessen Vorgabefunktionalität wieder her.
+<ScriptEventPreview title={"Tastenskript entfernen"} fields={[{"key":"input","label":"Angehängtes Skript von Eingabe entfernen","description":"Die Joypad-Taste, von der das angehängte Skript entfernt wird.","type":"input","defaultValue":["b"]}]} />
 
-- **Entfernt angefügtes Skript von Eingabe**: Die Joypad-Taste, von der das angehängte Skript entfernt wird.  
+- **Angehängtes Skript von Eingabe entfernen**: Die Joypad-Taste, von der das angehängte Skript entfernt wird.  
 
 ## Control Flow
-### Falls Joypad-Eingabe Gedrückt
+### Wenn Taste gehalten
 Einen Teil des Skripts bedingt ausführen, wenn die angegebene Joypad-Taste gedrückt ist. Wartet nicht auf Nutzereingaben und wird nur einmal ausgeführt. Wenn ein Skript jedes Mal ausgeführt werden soll, wenn eine Taste gedrückt wird, ist stattdessen 'Skript an Taste anhängen' zu nutzen.
 
 **Referenzen**  
 [/docs/scripting/script-glossary/input#attach-script-to-button](/docs/scripting/script-glossary/input#attach-script-to-button)  
-<ScriptEventPreview title={"Falls Joypad-Eingabe Gedrückt"} fields={[{"key":"input","label":"Beliebiges von","description":"Die zu überprüfenden Eingabetasten.","type":"input","defaultValue":["a","b"]},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"Wenn Taste gehalten"} fields={[{"key":"input","label":"Beliebiges von","description":"Die zu überprüfenden Eingabetasten.","type":"input","defaultValue":["a","b"]},{"key":"true","label":"'wahr'","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Sonst","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"'falsch'","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Beliebiges von**: Die zu überprüfenden Eingabetasten.  
-- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
-- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+- **'wahr'**: Das bei wahrer Bedingung auszuführende Skript.  
+- **'falsch'**: Das bei falscher Bedingung auszuführende Skript.  
 

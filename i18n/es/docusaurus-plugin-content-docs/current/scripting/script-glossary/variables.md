@@ -78,14 +78,14 @@ Aumentar el valor de la variable especificada en uno.
 - **Variable**: La variable a utilizar.  
 
 ## Engine Fields
-### Store Engine Field In Variable
-Store the value of an Engine Field in a variable.
+### Guardar Campo del Motor en Variable
+Guardar el valor de un Campo del Motor en una variable.
 
 **Referencias**  
 [/docs/settings/#engine-settings](/docs/settings/#engine-settings)  
-<ScriptEventPreview title={"Store Engine Field In Variable"} fields={[{"type":"engineField","label":"Engine Field","description":"The engine field to read the value of.","key":"engineFieldKey"},{"key":"value","type":"variable","label":"Variable","description":"La variable a utilizar.","defaultValue":"LAST_VARIABLE","conditions":[{"key":"engineFieldKey","set":true}]}]} />
+<ScriptEventPreview title={"Guardar Campo del Motor en Variable"} fields={[{"type":"engineField","label":"Campo del Motor","description":"El campo del motor para leer el valor.","key":"engineFieldKey","defaultValue":"LAST_ENGINE_FIELD"},{"key":"value","type":"variable","label":"Variable","description":"La variable a utilizar.","defaultValue":"LAST_VARIABLE","conditions":[{"key":"engineFieldKey","set":true}]}]} />
 
-- **Engine Field**: The engine field to read the value of.  
+- **Campo del Motor**: El campo del motor para leer el valor.  
 - **Variable**: La variable a utilizar.  
 
 ## Flags

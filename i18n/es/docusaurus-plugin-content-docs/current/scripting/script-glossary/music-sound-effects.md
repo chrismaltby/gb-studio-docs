@@ -27,10 +27,16 @@ Reproduce un efecto de sonido, elige entre reproducir un archivo .WAV, .VGM o .S
 - **Espera hasta terminar**: Establezca si el script debe pausarse hasta que termine de reproducirse el efecto de sonido.  
 - **Índice de efectos**: El número de efecto a reproducir (solo para fxhammer).  
 
-### Detener música
-Detiene la música que se está reproduciendo actualmente.
-<ScriptEventPreview title={"Detener música"} fields={[{"label":"Detiene cualquier música que se estuviera reproduciendo anteriormente."}]} />
+## Dialogue & Menus
+### Establecer Efecto de Sonido del Texto
+Establece un efecto de sonido para reproducir cada vez que se muestra un carácter de texto.
+<ScriptEventPreview title={"Establecer Efecto de Sonido del Texto"} fields={[{"key":"type","type":"soundEffect","label":"Efecto de sonido","description":"El efecto de sonido a reproducir. Puede elegir entre archivos dentro de `/assets/sounds` o entre sonidos preestablecidos como `Beep`, `Pitch` y `Tone`.","defaultValue":"tone","flexBasis":"60%","allowNone":true},{"key":"pitch","type":"number","label":"Tono","description":"El tono del efecto de sonido (solo efecto Beep).","conditions":[{"key":"type","eq":"beep"}],"min":1,"max":8,"step":1,"defaultValue":4,"width":"50%"},{"key":"frequency","type":"number","label":"Frecuencia en hz","description":"La frecuencia del efecto de sonido en Hz (solo efecto de tono).","conditions":[{"key":"type","eq":"tone"}],"min":0,"max":20000,"step":1,"defaultValue":300,"width":"50%"},{"key":"duration","type":"number","label":"Duración","description":"El tiempo que se tarda en reproducir el efecto de sonido.","unitsField":"units","unitsDefault":"time","conditions":[{"key":"type","in":["beep","crash","tone"]}],"min":0,"max":4.25,"step":0.01,"defaultValue":0.05,"width":"50%"},{"key":"effect","type":"number","label":"Índice de efectos","description":"El número de efecto a reproducir (solo para fxhammer).","min":0,"max":60,"defaultValue":0,"conditions":[{"key":"type","soundType":"fxhammer"}],"width":"50%"}]} />
 
+- **Efecto de sonido**: El efecto de sonido a reproducir. Puede elegir entre archivos dentro de `/assets/sounds` o entre sonidos preestablecidos como `Beep`, `Pitch` y `Tone`.  
+- **Tono**: El tono del efecto de sonido (solo efecto Beep).  
+- **Frecuencia en hz**: La frecuencia del efecto de sonido en Hz (solo efecto de tono).  
+- **Duración**: El tiempo que se tarda en reproducir el efecto de sonido.  
+- **Índice de efectos**: El número de efecto a reproducir (solo para fxhammer).  
 
 ## Script
 ### Establecer rutina musical
@@ -38,8 +44,20 @@ Adjunte un script a una de las cuatro rutinas musicales que se pueden activar de
 
 **Referencias**  
 [/docs/assets/music/music-huge#effects](/docs/assets/music/music-huge#effects)  
-<ScriptEventPreview title={"Establecer rutina musical"} fields={[{"key":"routine","label":"Rutina","description":"La rutina musical, ya sea 0, 1, 2 o 3.","type":"number","defaultValue":0,"min":0,"max":3},{"key":"__scriptTabs","type":"tabs","defaultValue":"trigger","values":{"trigger":"On Call"}},{"key":"true","label":"On Call","description":"The script to run when the routine is called.","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"trigger"]}]}]} />
+<ScriptEventPreview title={"Establecer rutina musical"} fields={[{"key":"routine","label":"Rutina","description":"La rutina musical, ya sea 0, 1, 2 o 3.","type":"number","defaultValue":0,"min":0,"max":3},{"key":"__scriptTabs","type":"tabs","defaultValue":"trigger","values":{"trigger":"En Llamada"}},{"key":"true","label":"En Llamada","description":"El script que se ejecuta cuando se llama a la rutina.","type":"events","allowedContexts":["global","entity","prefab"],"conditions":[{"key":"__scriptTabs","in":[null,"trigger"]}]}]} />
 
 - **Rutina**: La rutina musical, ya sea 0, 1, 2 o 3.  
-- **On Call**: The script to run when the routine is called.  
+- **En Llamada**: El script que se ejecuta cuando se llama a la rutina.  
+
+## Stop
+### Silenciar Canal
+Establece qué canales de audio están activos y cuáles están silenciados.
+<ScriptEventPreview title={"Silenciar Canal"} fields={[{"key":"channels","label":"Canales Activos","description":"Los canales que producirán sonido. Los canales no seleccionados estarán en silencio.","type":"togglebuttons","options":[[0,"Duty 1"],[1,"Duty 2"],[2,"Wave"],[3,"Noise"]],"allowMultiple":true,"allowNone":true}]} />
+
+- **Canales Activos**: Los canales que producirán sonido. Los canales no seleccionados estarán en silencio.  
+
+### Detener música
+Detiene la música que se está reproduciendo actualmente.
+<ScriptEventPreview title={"Detener música"} fields={[{"label":"Detiene cualquier música que se estuviera reproduciendo anteriormente."}]} />
+
 

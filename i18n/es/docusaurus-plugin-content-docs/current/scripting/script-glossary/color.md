@@ -15,15 +15,15 @@ Reemplazar algunas o todas las paletas de fondo de la escena actual.
 
 - **Paletas**: Las nuevas paletas a utilizar.  
 
-### Establecer paleta de emotes
+### Establecer paleta de Emoticonos
 Reemplazar la paleta utilizada para los emoticones (paleta de sprites #8).
-<ScriptEventPreview title={"Establecer paleta de emotes"} fields={[{"key":"palette","label":"Paleta","description":"La nueva paleta a utilizar.","type":"palette","defaultValue":"","paletteType":"emote"}]} />
+<ScriptEventPreview title={"Establecer paleta de Emoticonos"} fields={[{"key":"palette","label":"Paleta","description":"La nueva paleta a utilizar.","type":"palette","defaultValue":"","paletteType":"emote"}]} />
 
 - **Paleta**: La nueva paleta a utilizar.  
 
 ### Establecer paletas de Sprites
 Reemplazar algunas o todas las paletas de sprites de la escena actual.
-<ScriptEventPreview title={"Establecer paletas de Sprites"} fields={[{"key":"palette0","label":"Paletas","description":"Las nuevas paletas a utilizar.","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":0,"canKeep":true},{"key":"palette1","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":1,"canKeep":true},{"key":"palette2","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":2,"canKeep":true},{"key":"palette3","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":3,"canKeep":true},{"key":"palette4","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":4,"canKeep":true},{"key":"palette5","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":5,"canKeep":true},{"key":"palette6","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":6,"canKeep":true},{"key":"palette7","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":7,"canKeep":true}]} />
+<ScriptEventPreview title={"Establecer paletas de Sprites"} fields={[{"key":"palette0","label":"Paletas","description":"Las nuevas paletas a utilizar.","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":0,"canKeep":true,"canRestore":true},{"key":"palette1","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":1,"canKeep":true,"canRestore":true},{"key":"palette2","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":2,"canKeep":true,"canRestore":true},{"key":"palette3","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":3,"canKeep":true,"canRestore":true},{"key":"palette4","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":4,"canKeep":true,"canRestore":true},{"key":"palette5","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":5,"canKeep":true,"canRestore":true},{"key":"palette6","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":6,"canKeep":true,"canRestore":true},{"key":"palette7","type":"palette","defaultValue":"keep","paletteType":"sprite","paletteIndex":7,"canKeep":true,"canRestore":true}]} />
 
 - **Paletas**: Las nuevas paletas a utilizar.  
 

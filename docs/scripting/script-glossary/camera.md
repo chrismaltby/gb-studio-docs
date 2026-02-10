@@ -9,20 +9,21 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Camera
 
-### Camera Lock To Player
-Move the camera back to centering on the player, locking into position when the player moves. Optionally allows locking to follow player in only horizontal or vertical axis.
-<ScriptEventPreview title={"Camera Lock To Player"} fields={[{"key":"speed","width":"50%","label":"Speed","description":"The movement speed, use 'Instant' to immediately move to the new location.","type":"moveSpeed","defaultValue":0,"allowNone":true,"noneLabel":"Instant"},{"key":"axis","width":"50%","label":"Lock Axis","description":"Set if either horizontal axis, vertical axis or both should be locked.","type":"togglebuttons","options":[["x","H","Horizontal"],["y","V","Vertical"]],"allowMultiple":true,"allowNone":false,"defaultValue":["x","y"]}]} />
-
-- **Speed**: The movement speed, use 'Instant' to immediately move to the new location.  
-- **Lock Axis**: Set if either horizontal axis, vertical axis or both should be locked.  
-
 ### Camera Move To
 Move the camera to a new position.
-<ScriptEventPreview title={"Camera Move To"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"The vertical position.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]},{"key":"speed","label":"Speed","description":"The movement speed, use 'Instant' to immediately move to the new location.","type":"moveSpeed","defaultValue":0,"allowNone":true,"noneLabel":"Instant"}]} />
+<ScriptEventPreview title={"Camera Move To"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"The vertical position.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]},{"key":"speed","label":"Speed","description":"The movement speed, use 'Instant' to immediately move to the new location.","type":"moveSpeed","defaultValue":1,"allowNone":true,"noneLabel":"Instant"}]} />
 
 - **X**: The horizontal position.  
 - **Y**: The vertical position.  
 - **Speed**: The movement speed, use 'Instant' to immediately move to the new location.  
+
+### Camera Move To Lock On Player
+Move the camera back to centering on the player, locking into position when the player moves. Optionally allows locking to follow player in only horizontal or vertical axis.
+<ScriptEventPreview title={"Camera Move To Lock On Player"} fields={[{"key":"speed","width":"50%","label":"Speed","description":"The movement speed, use 'Instant' to immediately move to the new location.","type":"moveSpeed","defaultValue":1,"allowNone":true,"noneLabel":"Instant"},{"key":"axis","width":"50%","label":"Lock Axis","description":"Set if either horizontal axis, vertical axis or both should be locked.","type":"togglebuttons","options":[["x","H","Horizontal"],["y","V","Vertical"]],"allowMultiple":true,"allowNone":false,"defaultValue":["x","y"]},{"key":"preventScroll","label":"Prevent Backtracking","description":"Prevents camera from scrolling in selected directions.","type":"direction","allowMultiple":true}]} />
+
+- **Speed**: The movement speed, use 'Instant' to immediately move to the new location.  
+- **Lock Axis**: Set if either horizontal axis, vertical axis or both should be locked.  
+- **Prevent Backtracking**: Prevents camera from scrolling in selected directions.  
 
 ### Camera Shake
 Shake the camera for a period of time.
@@ -32,12 +33,36 @@ Shake the camera for a period of time.
 - **Movement Type**: Choose if camera should shake only in horizontal or vertical axis or if should shake in both directions.  
 - **Magnitude**: The amount of camera movement during a camera shake.  
 
+### Set Camera Bounds
+Set the bounds of the camera, preventing it from moving outside of the specified area.
+<ScriptEventPreview title={"Set Camera Bounds"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"value","min":0,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"The vertical position.","type":"value","min":0,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]},{"type":"group","fields":[{"key":"width","label":"Width","description":"The box width","type":"value","min":20,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":20}},{"key":"height","label":"Height","description":"The box height","type":"value","min":18,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":18}}]}]} />
+
+- **X**: The horizontal position.  
+- **Y**: The vertical position.  
+- **Width**: The box width  
+- **Height**: The box height  
+
+### Set Camera Lock On Player
+Set the camera to center on the player, locking into position when the player moves. Optionally allows locking to follow player in only horizontal or vertical axis.
+<ScriptEventPreview title={"Set Camera Lock On Player"} fields={[{"key":"axis","width":"50%","label":"Lock Axis","description":"Set if either horizontal axis, vertical axis or both should be locked.","type":"togglebuttons","options":[["x","H","Horizontal"],["y","V","Vertical"]],"allowMultiple":true,"allowNone":false,"defaultValue":["x","y"]},{"key":"preventScroll","label":"Prevent Backtracking","description":"Prevents camera from scrolling in selected directions.","type":"direction","allowMultiple":true}]} />
+
+- **Lock Axis**: Set if either horizontal axis, vertical axis or both should be locked.  
+- **Prevent Backtracking**: Prevents camera from scrolling in selected directions.  
+
 ### Set Camera Position
 Move the camera to a new position.
 <ScriptEventPreview title={"Set Camera Position"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"The vertical position.","type":"value","min":0,"max":2047,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]}]} />
 
 - **X**: The horizontal position.  
 - **Y**: The vertical position.  
+
+## Properties
+### Set Camera Property
+Update a property of the game camera.
+<ScriptEventPreview title={"Set Camera Property"} fields={[{"key":"property","label":"Property","description":"The camera property to update.","type":"select","defaultValue":"camera_deadzone_x","options":[["camera_deadzone_x","Camera Deadzone X"],["camera_deadzone_y","Camera Deadzone Y"],["camera_offset_x","Camera Offset X"],["camera_offset_y","Camera Offset Y"]]},{"key":"value","label":"Value","description":"The value to set the selected variable to.","type":"value","min":-128,"max":127,"defaultValue":{"type":"number","value":0}}]} />
+
+- **Property**: The camera property to update.  
+- **Value**: The value to set the selected variable to.  
 
 ## Screen
 ### Fade Screen In

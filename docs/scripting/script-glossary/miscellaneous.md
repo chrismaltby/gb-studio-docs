@@ -30,16 +30,6 @@ Run a GBVM script.
 - **Script**: A valid GBVM Script to execute.  
 - **References**: A list of the assets and entities used in your GBVM script. Use this to let GB Studio know that a file is needed by your script, preventing it from being excluded in the final build.  
 
-### Script Lock
-Pause other scripts and scene updates until this script has finished or is unlocked.
-<ScriptEventPreview title={"Script Lock"} fields={[{"label":"Pause other scripts and scene updates until this script has finished or is unlocked."}]} />
-
-
-### Script Unlock
-If locked, unlock this script so other scripts can run and the scene can update.
-<ScriptEventPreview title={"Script Unlock"} fields={[{"label":"If locked, unlock this script so other scripts can run and the scene can update."}]} />
-
-
 ## Multiplayer
 ### Link: Close
 <ScriptEventPreview title={"Link: Close"} fields={[{"label":"Close the current link session."}]} />
@@ -59,4 +49,49 @@ If locked, unlock this script so other scripts can run and the scene can update.
 - **Send Variable**  
 - **Receive Variable**  
 - **Packet Size**  
+
+## Printer
+### Print Using GB Printer
+Send an image to a GB Printer for printing. A GB Printer device must be connected.
+<ScriptEventPreview title={"Print Using GB Printer"} fields={[{"type":"group","wrapItems":true,"fields":[{"key":"source","label":"Print Source","description":"The location of the image data to print.","type":"select","defaultValue":"background","width":"50%","options":[["background","Background"],["overlay","Overlay"]]},{"key":"margin","label":"Margin","description":"The number of empty lines to leave after printing.","type":"number","min":0,"max":20,"width":"50%","defaultValue":2}]},{"type":"group","wrapItems":true,"conditions":[{"key":"source","in":["overlay"]}],"fields":[{"key":"y","label":"Y","description":"The line to start printing.","type":"number","min":0,"max":17,"width":"50%","defaultValue":0},{"key":"height","label":"Height","description":"The number of lines to print.","type":"number","min":2,"max":18,"step":2,"width":"50%","defaultValue":18}]},{"key":"__collapseSuccess","label":"If Print Successful","type":"collapsable","defaultValue":false},{"key":"true","label":"Success","description":"The script to run on success.","type":"events","conditions":[{"key":"__collapseSuccess","ne":true}]},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":false,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Error","description":"The script to run on error.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Print Source**: The location of the image data to print.  
+- **Margin**: The number of empty lines to leave after printing.  
+- **Y**: The line to start printing.  
+- **Height**: The number of lines to print.  
+- **Success**: The script to run on success.  
+- **Error**: The script to run on error.  
+
+## Threads
+### Pause Logic For Scene Type
+Prevent the current scene's game engine update function from running until resumed. Allows preventing player control during multi-threaded scripts
+<ScriptEventPreview title={"Pause Logic For Scene Type"} fields={[{"label":"Prevent the current scene's game engine update function from running until resumed. Allows preventing player control during multi-threaded scripts"}]} />
+
+
+### Resume Logic For Scene Type
+Resume the game engine update function for the current scene.
+<ScriptEventPreview title={"Resume Logic For Scene Type"} fields={[{"label":"Resume the game engine update function for the current scene."}]} />
+
+
+### Script Lock
+Pause other scripts and scene updates until this script has finished or is unlocked.
+<ScriptEventPreview title={"Script Lock"} fields={[{"label":"Pause other scripts and scene updates until this script has finished or is unlocked."}]} />
+
+
+### Script Unlock
+If locked, unlock this script so other scripts can run and the scene can update.
+<ScriptEventPreview title={"Script Unlock"} fields={[{"label":"If locked, unlock this script so other scripts can run and the scene can update."}]} />
+
+
+### Stop Thread
+Stop a thread based on the selected thread handle.
+<ScriptEventPreview title={"Stop Thread"} fields={[{"key":"variable","label":"Thread Handle","description":"The handle for the thread you want to stop.","type":"variable","defaultValue":"T0"}]} />
+
+- **Thread Handle**: The handle for the thread you want to stop.  
+
+### Thread Start
+Run a script in another thread.
+<ScriptEventPreview title={"Thread Start"} fields={[{"key":"variable","label":"Thread Handle","description":"As the thread starts a handle will be stored in this variable. You can use this handle to stop the thread later.","type":"variable","defaultValue":"T0"},{"key":"__scriptTabs","type":"tabs","defaultValue":"true","values":{"true":"Run In Background"}},{"key":"true","description":"FIELD_ON_CALL_DESC","type":"events","allowedContexts":["global","entity","prefab"]}]} />
+
+- **Thread Handle**: As the thread starts a handle will be stored in this variable. You can use this handle to stop the thread later.  
 

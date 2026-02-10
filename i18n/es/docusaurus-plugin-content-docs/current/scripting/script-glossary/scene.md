@@ -11,7 +11,7 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 ### Cambiar escena
 Transición a una nueva escena con el jugador en una posición y dirección especificadas. Se dibujará una línea de conexión entre el origen del evento y la escena de destino con un icono que aparecerá en la posición de destino. Es posible arrastrar este icono alrededor y entre escenas para modificar el evento.
-<ScriptEventPreview title={"Cambiar escena"} fields={[{"key":"sceneId","label":"Escena","description":"La escena a la que realizar la transición.","type":"scene","defaultValue":"LAST_SCENE"},{"type":"group","fields":[{"key":"x","label":"X","description":"La posición horizontal inicial del jugador en la nueva escena.","type":"value","min":0,"max":255,"defaultValue":{"type":"number","value":0},"width":"50%"},{"key":"y","label":"Y","description":"La posición vertical inicial del jugador en la nueva escena.","type":"value","min":0,"max":255,"defaultValue":{"type":"number","value":0},"width":"50%"}]},{"key":"direction","label":"Dirección","description":"La dirección inicial del jugador.","type":"direction","width":"50%","defaultValue":""},{"key":"fadeSpeed","label":"Velocidad de desvanecimiento","description":"La velocidad de la animación de desvanecimiento.","type":"fadeSpeed","allowNone":true,"defaultValue":"2","width":"50%"}]} />
+<ScriptEventPreview title={"Cambiar escena"} fields={[{"key":"sceneId","label":"Escena","description":"La escena a la que realizar la transición.","type":"scene","defaultValue":"LAST_SCENE"},{"type":"group","wrapItems":true,"fields":[{"key":"x","label":"X","description":"La posición horizontal inicial del jugador en la nueva escena.","type":"value","min":0,"max":255,"defaultValue":{"type":"number","value":0},"width":"50%"},{"key":"y","label":"Y","description":"La posición vertical inicial del jugador en la nueva escena.","type":"value","min":0,"max":255,"defaultValue":{"type":"number","value":0},"width":"50%"}]},{"key":"direction","label":"Dirección","description":"La dirección inicial del jugador.","type":"direction","width":"50%","defaultValue":""},{"key":"fadeSpeed","label":"Velocidad de desvanecimiento","description":"La velocidad de la animación de desvanecimiento.","type":"fadeSpeed","allowNone":true,"defaultValue":"2","width":"50%"}]} />
 
 - **Escena**: La escena a la que realizar la transición.  
 - **X**: La posición horizontal inicial del jugador en la nueva escena.  
@@ -35,13 +35,13 @@ Eliminar todas las escenas de la pila de escenas sin salir de la escena actual.
 
 ### Restaurar la primera escena desde la pila
 Transición a la primera escena almacenada en la pila; por ejemplo, si tienes múltiples niveles de escenas de menú, puedes usar esto para regresar inmediatamente a la escena del juego. Este evento hará que la pila de escenas quede vacía.
-<ScriptEventPreview title={"Restaurar la primera escena desde la pila"} fields={[{"label":"Saca todos los estados de escena de la pila."},{"type":"break"},{"key":"fadeSpeed","label":"Velocidad de desvanecimiento","description":"La velocidad de la animación de desvanecimiento.","type":"fadeSpeed","defaultValue":"2","width":"50%"}]} />
+<ScriptEventPreview title={"Restaurar la primera escena desde la pila"} fields={[{"label":"Saca todos los estados de escena de la pila."},{"type":"break"},{"key":"fadeSpeed","label":"Velocidad de desvanecimiento","description":"La velocidad de la animación de desvanecimiento.","type":"fadeSpeed","allowNone":true,"defaultValue":"2","width":"50%"}]} />
 
 - **Velocidad de desvanecimiento**: La velocidad de la animación de desvanecimiento.  
 
 ### Restaurar escena anterior desde la pila
 Transición a la última escena almacenada desde la pila de escenas usando la velocidad de desvanecimiento especificada. La escena anterior se eliminará de la pila, por lo que la próxima vez que se use este evento pasará a la escena anterior a esa.
-<ScriptEventPreview title={"Restaurar escena anterior desde la pila"} fields={[{"label":"Saca el estado de escena del tope de la pila."},{"type":"break"},{"key":"fadeSpeed","label":"Velocidad de desvanecimiento","description":"La velocidad de la animación de desvanecimiento.","type":"fadeSpeed","defaultValue":"2","width":"50%"}]} />
+<ScriptEventPreview title={"Restaurar escena anterior desde la pila"} fields={[{"label":"Saca el estado de escena del tope de la pila."},{"type":"break"},{"key":"fadeSpeed","label":"Velocidad de desvanecimiento","description":"La velocidad de la animación de desvanecimiento.","type":"fadeSpeed","allowNone":true,"defaultValue":"2","width":"50%"}]} />
 
 - **Velocidad de desvanecimiento**: La velocidad de la animación de desvanecimiento.  
 
@@ -50,19 +50,30 @@ Almacena la escena actual y el estado del reproductor en la pila de escenas, est
 <ScriptEventPreview title={"Almacenar la escena actual en la pila"} fields={[{"label":"Empuja el estado de la escena a la pila."}]} />
 
 
+## Threads
+### Suspender la lógica para el tipo de escena
+Previene que la función de actualización del motor del juego de la escena actual se ejecute hasta que se reanude. Permite evitar el control del jugador durante los scripts de hilo múltiple.
+<ScriptEventPreview title={"Suspender la lógica para el tipo de escena"} fields={[{"label":"Previene que la función de actualización del motor del juego de la escena actual se ejecute hasta que se reanude. Permite evitar el control del jugador durante los scripts de hilo múltiple."}]} />
+
+
+### Reanudar la lógica para el tipo de escena
+Reanuda la función de actualización del motor del juego de la escena actual.
+<ScriptEventPreview title={"Reanudar la lógica para el tipo de escena"} fields={[{"label":"Reanuda la función de actualización del motor del juego de la escena actual."}]} />
+
+
 ## Tiles
-### Replace Tile At Position
-Replace a tile at a specified coordinate with another from a tileset.
-<ScriptEventPreview title={"Replace Tile At Position"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"La posición horizontal.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"La posición vertical.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}}]},{"type":"group","fields":[{"key":"tilesetId","type":"tileset","label":"Conjunto de mosaicos","description":"El conjunto de mosaicos del que buscar","defaultValue":"LAST_TILESET","unitsField":"tileSize","unitsDefault":"8px","unitsAllowed":["8px","16px"]},{"key":"tileIndex","label":"Mosaicos","description":"El mosaico desplazado dentro del conjunto de mosaicos","type":"value","min":0,"defaultValue":{"type":"number","value":0}}]}]} />
+### Reemplazar Mosaico en Posición
+Reemplazar un mosaico en una coordenada especificada con otro de un conjunto de mosaicos.
+<ScriptEventPreview title={"Reemplazar Mosaico en Posición"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"La posición horizontal.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"La posición vertical.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}}]},{"type":"group","fields":[{"key":"tilesetId","type":"tileset","label":"Conjunto de mosaicos","description":"El conjunto de mosaicos del que buscar","defaultValue":"LAST_TILESET","unitsField":"tileSize","unitsDefault":"8px","unitsAllowed":["8px","16px"]},{"key":"tileIndex","label":"Mosaicos","description":"El mosaico desplazado dentro del conjunto de mosaicos","type":"value","min":0,"defaultValue":{"type":"number","value":0}}]}]} />
 
 - **X**: La posición horizontal.  
 - **Y**: La posición vertical.  
 - **Conjunto de mosaicos**: El conjunto de mosaicos del que buscar  
 - **Mosaicos**: El mosaico desplazado dentro del conjunto de mosaicos  
 
-### Replace Tile At Position From Sequence
-Replace a tile at a specified coordinate with another from a tileset in a sequence.
-<ScriptEventPreview title={"Replace Tile At Position From Sequence"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"La posición horizontal.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"La posición vertical.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}}]},{"key":"tilesetId","type":"tileset","label":"Conjunto de mosaicos","description":"El conjunto de mosaicos del que buscar","defaultValue":"LAST_TILESET","unitsField":"tileSize","unitsDefault":"8px","unitsAllowed":["8px","16px"]},{"type":"group","fields":[{"key":"tileIndex","label":"Desde el mosaico","description":"El desplazamiento del mosaico inicial dentro del conjunto de mosaicos","type":"value","min":0,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"frames","label":"Cuadros de animación","description":"El número de cuadros de animación para recorrer.","type":"value","min":1,"width":"50%","defaultValue":{"type":"number","value":1}}]},{"key":"variable","label":"Variable de estado","description":"Una variable para almacenar el estado actual de este evento","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
+### Reemplazar Mosaico en Posición Desde Secuencia
+Reemplazar un mosaico en una coordenada especificada con otro de un conjunto de mosaicos en una secuencia.
+<ScriptEventPreview title={"Reemplazar Mosaico en Posición Desde Secuencia"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"La posición horizontal.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"La posición vertical.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}}]},{"key":"tilesetId","type":"tileset","label":"Conjunto de mosaicos","description":"El conjunto de mosaicos del que buscar","defaultValue":"LAST_TILESET","unitsField":"tileSize","unitsDefault":"8px","unitsAllowed":["8px","16px"]},{"type":"group","fields":[{"key":"tileIndex","label":"Desde el mosaico","description":"El desplazamiento del mosaico inicial dentro del conjunto de mosaicos","type":"value","min":0,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"frames","label":"Cuadros de animación","description":"El número de cuadros de animación para recorrer.","type":"value","min":1,"width":"50%","defaultValue":{"type":"number","value":1}}]},{"key":"variable","label":"Variable de estado","description":"Una variable para almacenar el estado actual de este evento","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
 
 - **X**: La posición horizontal.  
 - **Y**: La posición vertical.  

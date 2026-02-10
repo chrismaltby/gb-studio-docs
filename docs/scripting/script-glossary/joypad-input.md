@@ -11,7 +11,7 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 ### Attach Script To Button
 Run the specified script any time a joypad button is pressed.
-<ScriptEventPreview title={"Attach Script To Button"} fields={[{"key":"input","label":"Button","description":"The joypad button to check.","type":"input","defaultValue":["b"]},{"key":"override","type":"checkbox","label":"Override default button action","description":"Set if the script should replace the default game action for the specified button.","defaultValue":true},{"key":"__scriptTabs","type":"tabs","defaultValue":"press","values":{"press":"On Press"}},{"key":"true","label":"On Press","description":"The script to run when the button is pressed.","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"press"]}]}]} />
+<ScriptEventPreview title={"Attach Script To Button"} fields={[{"key":"input","label":"Button","description":"The joypad button to check.","type":"input","defaultValue":["b"]},{"key":"override","type":"checkbox","label":"Override default button action","description":"Set if the script should replace the default game action for the specified button.","defaultValue":true},{"key":"__scriptTabs","type":"tabs","defaultValue":"press","values":{"press":"On Press"}},{"key":"true","label":"On Press","description":"The script to run when the button is pressed.","type":"events","allowedContexts":["global","entity","prefab"],"conditions":[{"key":"__scriptTabs","in":[null,"press"]}]}]} />
 
 - **Button**: The joypad button to check.  
 - **Override default button action**: Set if the script should replace the default game action for the specified button.  

@@ -30,16 +30,6 @@ Polecenie uruchomi skrypt GBVM.
 - **Skrypt (GBVM)**: Polecenie uruchomi prawidłowy skrypt GBVM do wykonania.  
 - **Odniesienia**: Lista zasobów i jednostek używanych w skrypcie GBVM. Użyj tego, aby poinformować GB Studio, że plik jest potrzebny Twojemu skryptowi, zapobiegając wykluczeniu go w ostatecznej kompilacji.  
 
-### Zablokuj skrypt
-Wstrzymaj inne skrypty i aktualizacje sceny do momentu zakończenia tego skryptu lub odblokowania.
-<ScriptEventPreview title={"Zablokuj skrypt"} fields={[{"label":"Wstrzymaj inne skrypty i aktualizacje sceny do momentu zakończenia tego skryptu lub odblokowania."}]} />
-
-
-### Odblokuj skrypt
-Jeśli jest zablokowany, odblokuj ten skrypt, aby inne skrypty mogły działać i scena mogła być aktualizowana.
-<ScriptEventPreview title={"Odblokuj skrypt"} fields={[{"label":"Jeśli jest zablokowany, odblokuj ten skrypt, aby inne skrypty mogły działać i scena mogła być aktualizowana."}]} />
-
-
 ## Multiplayer
 ### Link: Zamknij
 <ScriptEventPreview title={"Link: Zamknij"} fields={[{"label":"Zamknij aktualną sesję łączenia (link)."}]} />
@@ -59,4 +49,49 @@ Jeśli jest zablokowany, odblokuj ten skrypt, aby inne skrypty mogły działać 
 - **Wyślij zmienną**  
 - **Wczytaj zmienną**  
 - **Rozmiar pakietu**  
+
+## Printer
+### Drukuj przy użyciu drukarki GB
+Wyślij obraz do drukarki GB w celu wydrukowania. Urządzenie drukarki GB musi być podłączone.
+<ScriptEventPreview title={"Drukuj przy użyciu drukarki GB"} fields={[{"type":"group","wrapItems":true,"fields":[{"key":"source","label":"Źródło druku","description":" Lokalizacja danych obrazu do wydruku.","type":"select","defaultValue":"background","width":"50%","options":[["background","Tło"],["overlay","Nakładka"]]},{"key":"margin","label":"Margines","description":"Liczba pustych linii, które należy zostawić po wydrukowaniu.","type":"number","min":0,"max":20,"width":"50%","defaultValue":2}]},{"type":"group","wrapItems":true,"conditions":[{"key":"source","in":["overlay"]}],"fields":[{"key":"y","label":"Y","description":"Linia, od której rozpocząć drukowanie.","type":"number","min":0,"max":17,"width":"50%","defaultValue":0},{"key":"height","label":"Wysokość","description":"Liczba linii do wydrukowania.","type":"number","min":2,"max":18,"step":2,"width":"50%","defaultValue":18}]},{"key":"__collapseSuccess","label":"Jeśli drukowanie zakończy się pomyślnie","type":"collapsable","defaultValue":false},{"key":"true","label":"Powodzenie","description":"Skrypt do uruchomienia w przypadku powodzenia.","type":"events","conditions":[{"key":"__collapseSuccess","ne":true}]},{"key":"__collapseElse","label":"W przeciwnym razie","type":"collapsable","defaultValue":false,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Błąd","description":"Skrypt do uruchomienia w przypadku błędu.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+
+- **Źródło druku**:  Lokalizacja danych obrazu do wydruku.  
+- **Margines**: Liczba pustych linii, które należy zostawić po wydrukowaniu.  
+- **Y**: Linia, od której rozpocząć drukowanie.  
+- **Wysokość**: Liczba linii do wydrukowania.  
+- **Powodzenie**: Skrypt do uruchomienia w przypadku powodzenia.  
+- **Błąd**: Skrypt do uruchomienia w przypadku błędu.  
+
+## Threads
+### Pauza: wstrzymaj logikę dla typu sceny
+Zatrzymuje działanie funkcji aktualizacji silnika gry dla bieżącej sceny do momentu jej wznowienia. Pozwala to na uniemożliwienie sterowania postacią podczas wykonywania skryptów wielowątkowych.
+<ScriptEventPreview title={"Pauza: wstrzymaj logikę dla typu sceny"} fields={[{"label":"Zatrzymuje działanie funkcji aktualizacji silnika gry dla bieżącej sceny do momentu jej wznowienia. Pozwala to na uniemożliwienie sterowania postacią podczas wykonywania skryptów wielowątkowych."}]} />
+
+
+### Pauza: wznów logikę dla typu sceny
+Wznawia działanie funkcji aktualizacji silnika gry dla bieżącej sceny.
+<ScriptEventPreview title={"Pauza: wznów logikę dla typu sceny"} fields={[{"label":"Wznawia działanie funkcji aktualizacji silnika gry dla bieżącej sceny."}]} />
+
+
+### Skrypt: zablokuj skrypt
+Wstrzymaj inne skrypty i aktualizacje sceny do momentu zakończenia tego skryptu lub odblokowania.
+<ScriptEventPreview title={"Skrypt: zablokuj skrypt"} fields={[{"label":"Wstrzymaj inne skrypty i aktualizacje sceny do momentu zakończenia tego skryptu lub odblokowania."}]} />
+
+
+### Skrypt: odblokuj skrypt
+Jeśli jest zablokowany, odblokuj ten skrypt, aby inne skrypty mogły działać i scena mogła być aktualizowana.
+<ScriptEventPreview title={"Skrypt: odblokuj skrypt"} fields={[{"label":"Jeśli jest zablokowany, odblokuj ten skrypt, aby inne skrypty mogły działać i scena mogła być aktualizowana."}]} />
+
+
+### Skrypt: zatrzymaj wątek
+Zatrzymaj wątek na podstawie wybranego uchwytu wątku.
+<ScriptEventPreview title={"Skrypt: zatrzymaj wątek"} fields={[{"key":"variable","label":"Uchwyt wątku","description":"Uchwyt wątku, który chcesz zatrzymać.","type":"variable","defaultValue":"T0"}]} />
+
+- **Uchwyt wątku**: Uchwyt wątku, który chcesz zatrzymać.  
+
+### Skrypt: rozpocznij wątek
+Uruchom skrypt w innym wątku.
+<ScriptEventPreview title={"Skrypt: rozpocznij wątek"} fields={[{"key":"variable","label":"Uchwyt wątku","description":"Podczas uruchamiania wątku uchwyt zostanie zapisany w tej zmiennej. Możesz użyć tego uchwytu, aby później zatrzymać wątek.","type":"variable","defaultValue":"T0"},{"key":"__scriptTabs","type":"tabs","defaultValue":"true","values":{"true":"Uruchom w tle"}},{"key":"true","description":"FIELD_ON_CALL_DESC","type":"events","allowedContexts":["global","entity","prefab"]}]} />
+
+- **Uchwyt wątku**: Podczas uruchamiania wątku uchwyt zostanie zapisany w tej zmiennej. Możesz użyć tego uchwytu, aby później zatrzymać wątek.  
 

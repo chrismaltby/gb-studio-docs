@@ -27,10 +27,16 @@ Polecenie odtworzy efekt dźwiękowy. Należy wybrać odtwarzanie pliku .WAV, .V
 - **Czekaj na zakończenie**: Ustawienie wstrzymuje skrypt do momentu zakończenia odtwarzania efektu dźwiękowego.  
 - **Spis efektów**: Numer efektu do odtworzenia (tylko dla fxhammer).  
 
-### Muzyka: stop
-Polecenie zatrzymuje aktualną odtwarzaną muzykę.
-<ScriptEventPreview title={"Muzyka: stop"} fields={[{"label":"Zatrzymanie muzyki, która była odtwarzana."}]} />
+## Dialogue & Menus
+### Tekst: ustaw efekt dźwiękowy
+Ustaw efekt dźwiękowy odtwarzany podczas wyświetlania każdego znaku tekstowego.
+<ScriptEventPreview title={"Tekst: ustaw efekt dźwiękowy"} fields={[{"key":"type","type":"soundEffect","label":"Dźwięk","description":"Efekt dźwiękowy do odtworzenia. Można wybierać spośród plików w `/assets/sounds` lub spośród gotowych dźwięków, takich jak `Beep`, `Pitch` i `Tone`.","defaultValue":"tone","flexBasis":"60%","allowNone":true},{"key":"pitch","type":"number","label":"Ton","description":"Wysokość tonu efektu dźwiękowego (tylko efekt Beep).","conditions":[{"key":"type","eq":"beep"}],"min":1,"max":8,"step":1,"defaultValue":4,"width":"50%"},{"key":"frequency","type":"number","label":"Częstotliwość w Hz","description":"Częstotliwość efektu dźwiękowego w Hz (tylko efekt tonowy).","conditions":[{"key":"type","eq":"tone"}],"min":0,"max":20000,"step":1,"defaultValue":300,"width":"50%"},{"key":"duration","type":"number","label":"Czas trwania","description":"Czas odtwarzania efektu dźwiękowego.","unitsField":"units","unitsDefault":"time","conditions":[{"key":"type","in":["beep","crash","tone"]}],"min":0,"max":4.25,"step":0.01,"defaultValue":0.05,"width":"50%"},{"key":"effect","type":"number","label":"Spis efektów","description":"Numer efektu do odtworzenia (tylko dla fxhammer).","min":0,"max":60,"defaultValue":0,"conditions":[{"key":"type","soundType":"fxhammer"}],"width":"50%"}]} />
 
+- **Dźwięk**: Efekt dźwiękowy do odtworzenia. Można wybierać spośród plików w `/assets/sounds` lub spośród gotowych dźwięków, takich jak `Beep`, `Pitch` i `Tone`.  
+- **Ton**: Wysokość tonu efektu dźwiękowego (tylko efekt Beep).  
+- **Częstotliwość w Hz**: Częstotliwość efektu dźwiękowego w Hz (tylko efekt tonowy).  
+- **Czas trwania**: Czas odtwarzania efektu dźwiękowego.  
+- **Spis efektów**: Numer efektu do odtworzenia (tylko dla fxhammer).  
 
 ## Script
 ### Muzyka: ustaw rutynę
@@ -38,8 +44,20 @@ Dołącz skrypt do jednej z czterech procedur muzycznych, które można uruchomi
 
 **Odniesienia**  
 [/docs/assets/music/music-huge#effects](/docs/assets/music/music-huge#effects)  
-<ScriptEventPreview title={"Muzyka: ustaw rutynę"} fields={[{"key":"routine","label":"Rutyna","description":"Rutyna muzyczna, może być 0, 1, 2 lub 3.","type":"number","defaultValue":0,"min":0,"max":3},{"key":"__scriptTabs","type":"tabs","defaultValue":"trigger","values":{"trigger":"Wywołaj"}},{"key":"true","label":"Wywołaj","description":"Skrypt do uruchomienia po wywołaniu procedury.","type":"events","allowedContexts":["global","entity"],"conditions":[{"key":"__scriptTabs","in":[null,"trigger"]}]}]} />
+<ScriptEventPreview title={"Muzyka: ustaw rutynę"} fields={[{"key":"routine","label":"Rutyna","description":"Rutyna muzyczna, może być 0, 1, 2 lub 3.","type":"number","defaultValue":0,"min":0,"max":3},{"key":"__scriptTabs","type":"tabs","defaultValue":"trigger","values":{"trigger":"Wywołaj"}},{"key":"true","label":"Wywołaj","description":"Skrypt do uruchomienia po wywołaniu procedury.","type":"events","allowedContexts":["global","entity","prefab"],"conditions":[{"key":"__scriptTabs","in":[null,"trigger"]}]}]} />
 
 - **Rutyna**: Rutyna muzyczna, może być 0, 1, 2 lub 3.  
 - **Wywołaj**: Skrypt do uruchomienia po wywołaniu procedury.  
+
+## Stop
+### Muzyka: wycisz kanał
+Ustaw, które kanały audio są aktywne, a które wyciszone.
+<ScriptEventPreview title={"Muzyka: wycisz kanał"} fields={[{"key":"channels","label":"Aktywne kanały","description":"Kanały, które będą generować dźwięk. Każdy NIEZAZNACZONY kanał będzie wyciszony.","type":"togglebuttons","options":[[0,"Duty 1"],[1,"Duty 2"],[2,"Wave"],[3,"Noise"]],"allowMultiple":true,"allowNone":true}]} />
+
+- **Aktywne kanały**: Kanały, które będą generować dźwięk. Każdy NIEZAZNACZONY kanał będzie wyciszony.  
+
+### Muzyka: stop
+Polecenie zatrzymuje aktualną odtwarzaną muzykę.
+<ScriptEventPreview title={"Muzyka: stop"} fields={[{"label":"Zatrzymanie muzyki, która była odtwarzana."}]} />
+
 

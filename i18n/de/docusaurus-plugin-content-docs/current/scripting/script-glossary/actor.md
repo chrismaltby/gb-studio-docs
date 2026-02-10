@@ -7,258 +7,326 @@ sidebar_position: 2
 
 import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
-# Darsteller
+# Akteur
 
 ## Actions
-### Gegenstand: Projektil starten
-Launch a projectile from an actor in a specified direction. When a project collides with other actors it will trigger their OnHit scripts.
-<ScriptEventPreview title={"Gegenstand: Projektil starten"} fields={[{"type":"group","fields":[{"key":"spriteSheetId","type":"sprite","label":"Sprite-Sheet","description":"Das zum Rendern des Projektils zu benutzende Sprite.","defaultValue":"LAST_SPRITE"},{"key":"spriteStateId","type":"animationstate","label":"Animationszustand","description":"Der zu nutzende Sprite-Animationszustand.","defaultValue":""}]},{"key":"actorId","type":"actor","label":"Quelle","description":"Der Darsteller, von dem das Projektil gestartet wird.","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"Offset X","description":"Der horizontale Offset von der Position des ursprünglichen Darstellers zum Start des Geschosses.","type":"number","min":-256,"max":256,"width":"50%","defaultValue":0},{"key":"y","label":"Offset Y","description":"Der vertikale Offset von der Position des ursprünglichen Darstellers zum Start des Geschosses.","type":"number","min":-256,"max":256,"width":"50%","defaultValue":0}]},{"type":"group","fields":[{"label":"Launch At","key":"directionType","type":"select","options":[["direction","Feste Richtung"],["actor","Darsteller Richtung"],["target","Zieldarsteller"],["angle","Winkel"],["anglevar","Winkel-Variable"]],"defaultValue":"direction","alignBottom":true},{"key":"otherActorId","label":"Blickrichtung","description":"Die Richtung, in die das Projektil gestartet wird. Kann entweder eine feste Richtung sein oder auf der aktuellen Richtung des Darstellers basieren.","type":"actor","defaultValue":"$self$","conditions":[{"key":"directionType","eq":"actor"}]},{"key":"direction","label":"Blickrichtung","description":"Die Richtung, in die das Projektil gestartet wird. Kann entweder eine feste Richtung sein oder auf der aktuellen Richtung des Darstellers basieren.","type":"direction","defaultValue":"right","conditions":[{"key":"directionType","eq":"direction"}]},{"key":"angle","label":"Winkel","description":"Der Startwinkel für das Projektil.","type":"angle","defaultValue":0,"min":-256,"max":256,"conditions":[{"key":"directionType","eq":"angle"}]},{"key":"angleVariable","label":"Winkel","description":"Der Startwinkel für das Projektil.","type":"variable","defaultValue":"LAST_VARIABLE","conditions":[{"key":"directionType","eq":"anglevar"}]},{"key":"targetActorId","label":"Ziel","description":"The actor to launch the projectile towards","type":"actor","defaultValue":"$self$","conditions":[{"key":"directionType","eq":"target"}]}]},{"key":"initialOffset","label":"Richtungs-Versatz","description":"Die Entfernung, die das Geschoss von der Startposition in seiner Startrichtung zurücklegen soll, bevor es sichtbar wird.","type":"number","min":0,"max":256,"width":"50%","defaultValue":0},{"type":"group","fields":[{"key":"speed","label":"Geschwindigkeit","description":"Die Bewegungsgeschwindigkeit.","type":"moveSpeed","allowNone":true,"defaultValue":2,"width":"50%"},{"key":"animSpeed","label":"Animationsgeschwindigkeit","description":"Die Animationsgeschwindigkeit.","type":"animSpeed","defaultValue":15,"width":"50%"}]},{"key":"lifeTime","label":"Lebensdauer","description":"Die Zeitspanne in Sekunden, die das Projektil besteht.","type":"number","min":0,"max":4,"step":0.1,"width":"50%","defaultValue":1},{"type":"group","alignBottom":true,"fields":[{"key":"loopAnim","label":"Wiederhole Animation","description":"Legt fest, ob die Animation in einer Schleife laufen soll.","type":"checkbox","defaultValue":true},{"key":"destroyOnHit","label":"Bei Treffer zerstören","description":"Legt fest, ob das Projektil nach seiner ersten Kollision zerstört werden soll.","type":"checkbox","defaultValue":true}]},{"type":"group","fields":[{"key":"collisionGroup","label":"Kollisionsgruppe","description":"Die bei Erkennung von Kollisionen mit Darstellern zu verwendende Kollisionsgruppe.","type":"collisionMask","width":"50%","includePlayer":false,"defaultValue":"3"},{"key":"collisionMask","label":"Kollision mit","description":"Die auf Kollision zu überprüfenden Gruppen von Darstellern. Wenn es z.B. durch alle Darsteller außer dem Spieler durchgehen soll, setze dieses Feld einfach auf 'Spieler'.","type":"collisionMask","width":"50%","includePlayer":true,"defaultValue":["1"]}]}]} />
+### Projektil abschießen
+Schießt ein Projektil von einem Akteur in eine bestimmte Richtung ab. Wenn es mit anderen Akteuren kollidiert, löst es deren BeiTreffer-Skripte aus.
+<ScriptEventPreview title={"Projektil abschießen"} fields={[{"key":"__section","type":"tabs","defaultValue":"projectile","variant":"eventSection","values":{"projectile":"Projektil","source":"Quelle","presets":"Voreinstellungen"}},{"type":"group","conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"spriteSheetId","type":"sprite","label":"Spritesheet","description":"Das Sprite, das für das Rendern des Projektils verwendet wird.","defaultValue":"LAST_SPRITE"},{"key":"spriteStateId","type":"animationstate","label":"Animationszustand","description":"Der zu nutzende Sprite-Animationszustand.","defaultValue":""}]},{"key":"actorId","type":"actor","label":"Quelle","description":"Der Akteur, von dem das Projektil gestartet wird.","defaultValue":"$self$","conditions":[{"key":"__section","in":["source"]}]},{"type":"group","conditions":[{"key":"__section","in":["source"]}],"fields":[{"key":"x","label":"Offset X","description":"Der horizontale Offset von der Position des ursprünglichen Akteurs zum Start des Geschosses.","type":"number","min":-256,"max":256,"width":"50%","defaultValue":0},{"key":"y","label":"Offset Y","description":"Der vertikale Offset von der Position des ursprünglichen Akteurs zum Start des Geschosses.","type":"number","min":-256,"max":256,"width":"50%","defaultValue":0}]},{"type":"group","conditions":[{"key":"__section","in":["source"]}],"fields":[{"label":"Starte bei","key":"directionType","type":"select","options":[["direction","Feste Richtung"],["actor","Akteurrichtung"],["target","Zielakteur"],["angle","Winkel"],["anglevar","Winkelvariable"]],"defaultValue":"direction","alignBottom":true},{"key":"otherActorId","label":"Richtung","description":"Die Richtung, in die das Projektil gestartet wird. Kann entweder eine feste Richtung sein oder auf der aktuellen Richtung des Akteurs basieren.","type":"actor","defaultValue":"$self$","conditions":[{"key":"directionType","eq":"actor"}]},{"key":"direction","label":"Richtung","description":"Die Richtung, in die das Projektil gestartet wird. Kann entweder eine feste Richtung sein oder auf der aktuellen Richtung des Akteurs basieren.","type":"direction","defaultValue":"right","conditions":[{"key":"directionType","eq":"direction"}]},{"key":"angle","label":"Winkel","description":"Der Startwinkel für das Projektil.","type":"angle","defaultValue":0,"min":-256,"max":256,"conditions":[{"key":"directionType","eq":"angle"}]},{"key":"angleVariable","label":"Winkel","description":"Der Startwinkel für das Projektil.","type":"variable","defaultValue":"LAST_VARIABLE","conditions":[{"key":"directionType","eq":"anglevar"}]},{"key":"targetActorId","label":"Ziel","description":"Der Akteur, in dessen Richtung das Projektil startet.","type":"actor","defaultValue":"$self$","conditions":[{"key":"directionType","eq":"target"}]}]},{"type":"group","conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"speed","label":"Geschwindigkeit","description":"Die Bewegungs-Geschwindigkeit.","type":"moveSpeed","allowNone":true,"defaultValue":2,"width":"50%"},{"key":"animSpeed","label":"Animations-Geschwindigkeit","description":"Die Animations-Geschwindigkeit.","type":"animSpeed","defaultValue":15,"width":"50%"}]},{"type":"group","alignBottom":true,"conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"lifeTime","label":"Lebensdauer","description":"Die Zeitspanne in Sekunden, die das Projektil besteht.","type":"number","min":0,"max":4,"step":0.1,"width":"50%","defaultValue":1},{"key":"initialOffset","label":"Anfänglicher Offset","description":"Die Entfernung, die das Geschoss von der Startposition in seiner Startrichtung zurücklegen soll, bevor es sichtbar wird.","type":"number","min":0,"max":256,"width":"50%","defaultValue":0}]},{"type":"group","alignBottom":true,"conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"loopAnim","label":"Animation in Schleife wiederholen","description":"Legt fest, ob die Animation in einer Schleife laufen soll.","type":"checkbox","defaultValue":true},{"key":"destroyOnHit","label":"Bei Treffer zerstören","description":"Legt fest, ob das Projektil nach seiner ersten Kollision zerstört werden soll.","type":"checkbox","defaultValue":true}]},{"type":"group","conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"collisionGroup","label":"Kollisionsgruppe","description":"Die Kollisionsgruppe, die bei der Registrierung von Kollisionen mit Akteuren verwendet werden soll.","type":"collisionMask","width":"50%","includePlayer":false,"defaultValue":"3"},{"key":"collisionMask","label":"Kollision mit","description":"Die auf Kollision zu überprüfenden Gruppen von Akteuren. Wenn es z.B. durch alle Akteure außer dem Spieler durchgehen soll, setze dieses Feld einfach auf 'Spieler'.","type":"collisionMask","width":"50%","includePlayer":true,"defaultValue":["1"]}]},{"type":"presets","conditions":[{"key":"__section","in":["presets"]}]}]} />
 
-- **Sprite-Sheet**: Das zum Rendern des Projektils zu benutzende Sprite.  
-- **Animationszustand**: Der zu nutzende Sprite-Animationszustand.  
-- **Quelle**: Der Darsteller, von dem das Projektil gestartet wird.  
-- **Offset X**: Der horizontale Offset von der Position des ursprünglichen Darstellers zum Start des Geschosses.  
-- **Offset Y**: Der vertikale Offset von der Position des ursprünglichen Darstellers zum Start des Geschosses.  
-- **Launch At**  
-- **Blickrichtung**: Die Richtung, in die das Projektil gestartet wird. Kann entweder eine feste Richtung sein oder auf der aktuellen Richtung des Darstellers basieren.  
-- **Winkel**: Der Startwinkel für das Projektil.  
-- **Ziel**: The actor to launch the projectile towards  
-- **Richtungs-Versatz**: Die Entfernung, die das Geschoss von der Startposition in seiner Startrichtung zurücklegen soll, bevor es sichtbar wird.  
-- **Geschwindigkeit**: Die Bewegungsgeschwindigkeit.  
-- **Animationsgeschwindigkeit**: Die Animationsgeschwindigkeit.  
-- **Lebensdauer**: Die Zeitspanne in Sekunden, die das Projektil besteht.  
-- **Wiederhole Animation**: Legt fest, ob die Animation in einer Schleife laufen soll.  
-- **Bei Treffer zerstören**: Legt fest, ob das Projektil nach seiner ersten Kollision zerstört werden soll.  
-- **Kollisionsgruppe**: Die bei Erkennung von Kollisionen mit Darstellern zu verwendende Kollisionsgruppe.  
-- **Kollision mit**: Die auf Kollision zu überprüfenden Gruppen von Darstellern. Wenn es z.B. durch alle Darsteller außer dem Spieler durchgehen soll, setze dieses Feld einfach auf 'Spieler'.  
 
-### Darsteller: Emotions-Blase
-Show an emote image above a specified actor. The image will be positioned centrally above the actor's collision bounding box.
-<ScriptEventPreview title={"Darsteller: Emotions-Blase"} fields={[{"key":"actorId","label":"Darsteller","description":"Der Darsteller, über den eine Emote-Grafik angezeigt wird.","type":"actor","defaultValue":"$self$"},{"key":"emoteId","label":"Emote","description":"Die anzuzeigende Emote-Grafik.","type":"emote","defaultValue":"LAST_EMOTE"}]} />
+- **Projektil**  
+  - **Spritesheet**: Das Sprite, das für das Rendern des Projektils verwendet wird.  
+  - **Animationszustand**: Der zu nutzende Sprite-Animationszustand.  
+  - **Geschwindigkeit**: Die Bewegungs-Geschwindigkeit.  
+  - **Animations-Geschwindigkeit**: Die Animations-Geschwindigkeit.  
+  - **Lebensdauer**: Die Zeitspanne in Sekunden, die das Projektil besteht.  
+  - **Anfänglicher Offset**: Die Entfernung, die das Geschoss von der Startposition in seiner Startrichtung zurücklegen soll, bevor es sichtbar wird.  
+  - **Animation in Schleife wiederholen**: Legt fest, ob die Animation in einer Schleife laufen soll.  
+  - **Bei Treffer zerstören**: Legt fest, ob das Projektil nach seiner ersten Kollision zerstört werden soll.  
+  - **Kollisionsgruppe**: Die Kollisionsgruppe, die bei der Registrierung von Kollisionen mit Akteuren verwendet werden soll.  
+  - **Kollision mit**: Die auf Kollision zu überprüfenden Gruppen von Akteuren. Wenn es z.B. durch alle Akteure außer dem Spieler durchgehen soll, setze dieses Feld einfach auf 'Spieler'.  
 
-- **Darsteller**: Der Darsteller, über den eine Emote-Grafik angezeigt wird.  
+- **Quelle**  
+  - **Quelle**: Der Akteur, von dem das Projektil gestartet wird.  
+  - **Offset X**: Der horizontale Offset von der Position des ursprünglichen Akteurs zum Start des Geschosses.  
+  - **Offset Y**: Der vertikale Offset von der Position des ursprünglichen Akteurs zum Start des Geschosses.  
+  - **Starte bei**  
+  - **Richtung**: Die Richtung, in die das Projektil gestartet wird. Kann entweder eine feste Richtung sein oder auf der aktuellen Richtung des Akteurs basieren.  
+  - **Winkel**: Der Startwinkel für das Projektil.  
+  - **Ziel**: Der Akteur, in dessen Richtung das Projektil startet.  
+
+### Projektil im Slot abschießen
+Schießt ein Projektil von einem Akteur in eine bestimmte Richtung ab. Wenn es mit anderen Akteuren kollidiert, löst es deren BeiTreffer-Skripte aus.
+<ScriptEventPreview title={"Projektil im Slot abschießen"} fields={[{"key":"__section","type":"tabs","defaultValue":"source","variant":"eventSection","values":{"source":"Quelle","presets":"Voreinstellungen"}},{"key":"actorId","type":"actor","label":"Quelle","description":"Der Akteur, von dem das Projektil gestartet wird.","defaultValue":"$self$","conditions":[{"key":"__section","in":["source",null]}]},{"type":"group","conditions":[{"key":"__section","in":["source",null]}],"fields":[{"key":"x","label":"Offset X","description":"Der horizontale Offset von der Position des ursprünglichen Akteurs zum Start des Geschosses.","type":"number","min":-256,"max":256,"width":"50%","defaultValue":0},{"key":"y","label":"Offset Y","description":"Der vertikale Offset von der Position des ursprünglichen Akteurs zum Start des Geschosses.","type":"number","min":-256,"max":256,"width":"50%","defaultValue":0}]},{"type":"group","conditions":[{"key":"__section","in":["source",null]}],"fields":[{"label":"Starte bei","key":"directionType","type":"select","options":[["direction","Feste Richtung"],["actor","Akteurrichtung"],["target","Zielakteur"],["angle","Winkel"],["anglevar","Winkelvariable"]],"defaultValue":"direction","alignBottom":true},{"key":"otherActorId","label":"Richtung","description":"Die Richtung, in die das Projektil gestartet wird. Kann entweder eine feste Richtung sein oder auf der aktuellen Richtung des Akteurs basieren.","type":"actor","defaultValue":"$self$","conditions":[{"key":"directionType","eq":"actor"}]},{"key":"direction","label":"Richtung","description":"Die Richtung, in die das Projektil gestartet wird. Kann entweder eine feste Richtung sein oder auf der aktuellen Richtung des Akteurs basieren.","type":"direction","defaultValue":"right","conditions":[{"key":"directionType","eq":"direction"}]},{"key":"angle","label":"Winkel","description":"Der Startwinkel für das Projektil.","type":"angle","defaultValue":0,"min":-256,"max":256,"conditions":[{"key":"directionType","eq":"angle"}]},{"key":"angleVariable","label":"Winkel","description":"Der Startwinkel für das Projektil.","type":"variable","defaultValue":"LAST_VARIABLE","conditions":[{"key":"directionType","eq":"anglevar"}]},{"key":"targetActorId","label":"Ziel","description":"Der Akteur, in dessen Richtung das Projektil startet.","type":"actor","defaultValue":"$self$","conditions":[{"key":"directionType","eq":"target"}]}]},{"key":"slot","label":"Projektilslot","description":"Der Slot, welcher das zu startende Projektil beinhaltet","type":"togglebuttons","options":[[0,"Slot 1","Projektilslot 1"],[1,"Slot 2","Projektilslot 2"],[2,"Slot 3","Projektilslot 3"],[3,"Slot 4","Projektilslot 4"],[4,"Slot 5","Projektilslot 5"]],"allowNone":false,"defaultValue":0,"conditions":[{"key":"__section","in":["source",null]}]},{"type":"presets","conditions":[{"key":"__section","in":["presets"]}]}]} />
+
+
+- **Quelle**  
+  - **Quelle**: Der Akteur, von dem das Projektil gestartet wird.  
+  - **Offset X**: Der horizontale Offset von der Position des ursprünglichen Akteurs zum Start des Geschosses.  
+  - **Offset Y**: Der vertikale Offset von der Position des ursprünglichen Akteurs zum Start des Geschosses.  
+  - **Starte bei**  
+  - **Richtung**: Die Richtung, in die das Projektil gestartet wird. Kann entweder eine feste Richtung sein oder auf der aktuellen Richtung des Akteurs basieren.  
+  - **Winkel**: Der Startwinkel für das Projektil.  
+  - **Ziel**: Der Akteur, in dessen Richtung das Projektil startet.  
+  - **Projektilslot**: Der Slot, welcher das zu startende Projektil beinhaltet  
+
+### Projektil in Slot laden
+Lädt Projektildaten  in einen angegebenen Slot
+<ScriptEventPreview title={"Projektil in Slot laden"} fields={[{"key":"__section","type":"tabs","defaultValue":"projectile","variant":"eventSection","values":{"projectile":"Projektil","presets":"Voreinstellungen"}},{"key":"slot","label":"Projektilslot","description":"Der Slot in welchem Projektildaten gespeichert werden","type":"togglebuttons","options":[[0,"Slot 1","Projektilslot 1"],[1,"Slot 2","Projektilslot 2"],[2,"Slot 3","Projektilslot 3"],[3,"Slot 4","Projektilslot 4"],[4,"Slot 5","Projektilslot 5"]],"allowNone":false,"defaultValue":0,"conditions":[{"key":"__section","in":["projectile",null]}]},{"type":"group","conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"spriteSheetId","type":"sprite","label":"Spritesheet","description":"Das Sprite, das für das Rendern des Projektils verwendet wird.","defaultValue":"LAST_SPRITE"},{"key":"spriteStateId","type":"animationstate","label":"Animationszustand","description":"Der zu nutzende Sprite-Animationszustand.","defaultValue":""}]},{"type":"group","conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"speed","label":"Geschwindigkeit","description":"Die Bewegungs-Geschwindigkeit.","type":"moveSpeed","allowNone":true,"defaultValue":2,"width":"50%"},{"key":"animSpeed","label":"Animations-Geschwindigkeit","description":"Die Animations-Geschwindigkeit.","type":"animSpeed","defaultValue":15,"width":"50%"}]},{"type":"group","alignBottom":true,"conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"lifeTime","label":"Lebensdauer","description":"Die Zeitspanne in Sekunden, die das Projektil besteht.","type":"number","min":0,"max":4,"step":0.1,"width":"50%","defaultValue":1},{"key":"initialOffset","label":"Anfänglicher Offset","description":"Die Entfernung, die das Geschoss von der Startposition in seiner Startrichtung zurücklegen soll, bevor es sichtbar wird.","type":"number","min":0,"max":256,"width":"50%","defaultValue":0}]},{"type":"group","alignBottom":true,"conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"loopAnim","label":"Animation in Schleife wiederholen","description":"Legt fest, ob die Animation in einer Schleife laufen soll.","type":"checkbox","defaultValue":true},{"key":"destroyOnHit","label":"Bei Treffer zerstören","description":"Legt fest, ob das Projektil nach seiner ersten Kollision zerstört werden soll.","type":"checkbox","defaultValue":true}]},{"type":"group","conditions":[{"key":"__section","in":["projectile",null]}],"fields":[{"key":"collisionGroup","label":"Kollisionsgruppe","description":"Die Kollisionsgruppe, die bei der Registrierung von Kollisionen mit Akteuren verwendet werden soll.","type":"collisionMask","width":"50%","includePlayer":false,"defaultValue":"3"},{"key":"collisionMask","label":"Kollision mit","description":"Die auf Kollision zu überprüfenden Gruppen von Akteuren. Wenn es z.B. durch alle Akteure außer dem Spieler durchgehen soll, setze dieses Feld einfach auf 'Spieler'.","type":"collisionMask","width":"50%","includePlayer":true,"defaultValue":["1"]}]},{"type":"presets","conditions":[{"key":"__section","in":["presets"]}]}]} />
+
+
+- **Projektil**  
+  - **Projektilslot**: Der Slot in welchem Projektildaten gespeichert werden  
+  - **Spritesheet**: Das Sprite, das für das Rendern des Projektils verwendet wird.  
+  - **Animationszustand**: Der zu nutzende Sprite-Animationszustand.  
+  - **Geschwindigkeit**: Die Bewegungs-Geschwindigkeit.  
+  - **Animations-Geschwindigkeit**: Die Animations-Geschwindigkeit.  
+  - **Lebensdauer**: Die Zeitspanne in Sekunden, die das Projektil besteht.  
+  - **Anfänglicher Offset**: Die Entfernung, die das Geschoss von der Startposition in seiner Startrichtung zurücklegen soll, bevor es sichtbar wird.  
+  - **Animation in Schleife wiederholen**: Legt fest, ob die Animation in einer Schleife laufen soll.  
+  - **Bei Treffer zerstören**: Legt fest, ob das Projektil nach seiner ersten Kollision zerstört werden soll.  
+  - **Kollisionsgruppe**: Die Kollisionsgruppe, die bei der Registrierung von Kollisionen mit Akteuren verwendet werden soll.  
+  - **Kollision mit**: Die auf Kollision zu überprüfenden Gruppen von Akteuren. Wenn es z.B. durch alle Akteure außer dem Spieler durchgehen soll, setze dieses Feld einfach auf 'Spieler'.  
+
+### Emotionsblase anzeigen
+Zeigt eine Emotionsblase über den jeweiligen Akteur an. Das Bild wird mittig über dem Kollisionsbegrenzungsrahmen des Akteurs ausgerichtet.
+<ScriptEventPreview title={"Emotionsblase anzeigen"} fields={[{"key":"actorId","label":"Akteur","description":"Der Akteur, über den eine Emotegrafik angezeigt wird.","type":"actor","defaultValue":"$self$"},{"key":"emoteId","label":"Emote","description":"Die anzuzeigende Emote-Grafik.","type":"emote","defaultValue":"LAST_EMOTE"}]} />
+
+- **Akteur**: Der Akteur, über den eine Emotegrafik angezeigt wird.  
 - **Emote**: Die anzuzeigende Emote-Grafik.  
 
 ## Control Flow
-### Falls Darsteller An Position
-Einen Teil des Skripts bedingt ausführen, wenn sich ein Darsteller an einer bestimmten Position befindet.
-<ScriptEventPreview title={"Falls Darsteller An Position"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"$self$"},{"type":"group","wrapItems":true,"fields":[{"key":"x","label":"X","description":"Die horizontale Position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"Die vertikale Position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Wenn Akteur an Position
+Einen Teil des Skripts bedingt ausführen, wenn sich ein Akteur an einer bestimmten Position befindet.
+<ScriptEventPreview title={"Wenn Akteur an Position"} fields={[{"key":"actorId","label":"Akteur","description":"Der zu überprüfende Akteur.","type":"actor","defaultValue":"$self$"},{"type":"group","wrapItems":true,"fields":[{"key":"x","label":"X","description":"Die horizontale Position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"Die vertikale Position.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"true","label":"'wahr'","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Sonst","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"'falsch'","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Darsteller**: Der zu überprüfende Darsteller.  
+- **Akteur**: Der zu überprüfende Akteur.  
 - **X**: Die horizontale Position.  
 - **Y**: Die vertikale Position.  
-- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
-- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+- **'wahr'**: Das bei wahrer Bedingung auszuführende Skript.  
+- **'falsch'**: Das bei falscher Bedingung auszuführende Skript.  
 
-### If Actor Distance From Actor
-Conditionally run part of the script if an actor is within a certain distance of another actor.
-<ScriptEventPreview title={"If Actor Distance From Actor"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"player","width":"50%"},{"type":"group","fields":[{"key":"operator","label":"Vergleich","description":"Der zu verwendende Vergleichsoperator, z. B. 'Kleiner als' oder 'Größer als'.","type":"operator","width":"50%","defaultValue":"<="},{"key":"distance","label":"Abstand","description":"Der Abstandswert.","type":"value","min":0,"max":181,"width":"50%","unitsDefault":"tiles","defaultValue":{"type":"number","value":0}}]},{"key":"otherActorId","label":"Von","description":"Der Darsteller, dessen Entfernung verglichen wird.","type":"actor","defaultValue":"$self$","width":"50%"},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Wenn Akteurdistanz von Akteur
+Einen Teil des Skripts abhängig von der Distanz zweier Akteur zueinander bedingt ausführen.
+<ScriptEventPreview title={"Wenn Akteurdistanz von Akteur"} fields={[{"key":"actorId","label":"Akteur","description":"Der zu überprüfende Akteur.","type":"actor","defaultValue":"player","width":"50%"},{"type":"group","fields":[{"key":"operator","label":"Vergleich","description":"Der zu verwendende Vergleichsoperator, z. B. 'kleiner als' oder 'größer als'.","type":"operator","width":"50%","defaultValue":"<="},{"key":"distance","label":"Abstand","description":"Der Abstandswert.","type":"value","min":0,"max":181,"width":"50%","unitsDefault":"tiles","defaultValue":{"type":"number","value":0}}]},{"key":"otherActorId","label":"Von","description":"Der Akteur, dessen Entfernung verglichen wird.","type":"actor","defaultValue":"$self$","width":"50%"},{"key":"true","label":"'wahr'","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Sonst","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"'falsch'","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Darsteller**: Der zu überprüfende Darsteller.  
-- **Vergleich**: Der zu verwendende Vergleichsoperator, z. B. 'Kleiner als' oder 'Größer als'.  
+- **Akteur**: Der zu überprüfende Akteur.  
+- **Vergleich**: Der zu verwendende Vergleichsoperator, z. B. 'kleiner als' oder 'größer als'.  
 - **Abstand**: Der Abstandswert.  
-- **Von**: Der Darsteller, dessen Entfernung verglichen wird.  
-- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
-- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+- **Von**: Der Akteur, dessen Entfernung verglichen wird.  
+- **'wahr'**: Das bei wahrer Bedingung auszuführende Skript.  
+- **'falsch'**: Das bei falscher Bedingung auszuführende Skript.  
 
-### Falls Blickrichtung Des Darstellers
-Einen Teil des Skripts bedingt ausführen, wenn ein Darsteller in die angegebene Richtung schauet.
-<ScriptEventPreview title={"Falls Blickrichtung Des Darstellers"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Blickrichtung","description":"Die Blickrichtung des Darstellers.","type":"value","defaultValue":{"type":"direction","value":"up"}},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Wenn Blickrichtung des Akteurs
+Einen Teil des Skripts bedingt ausführen, wenn ein Akteur in die angegebene Richtung schauet.
+<ScriptEventPreview title={"Wenn Blickrichtung des Akteurs"} fields={[{"key":"actorId","label":"Akteur","description":"Der zu überprüfende Akteur.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Richtung","description":"Die Richtung des Akteurs.","type":"value","defaultValue":{"type":"direction","value":"up"}},{"key":"true","label":"'wahr'","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Sonst","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"'falsch'","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Darsteller**: Der zu überprüfende Darsteller.  
-- **Blickrichtung**: Die Blickrichtung des Darstellers.  
-- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
-- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+- **Akteur**: Der zu überprüfende Akteur.  
+- **Richtung**: Die Richtung des Akteurs.  
+- **'wahr'**: Das bei wahrer Bedingung auszuführende Skript.  
+- **'falsch'**: Das bei falscher Bedingung auszuführende Skript.  
 
-### Falls Darsteller relativ zum Darsteller
-Conditionally run part of the script based on the position of one actor relative to another.
-<ScriptEventPreview title={"Falls Darsteller relativ zum Darsteller"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"player"},{"key":"operation","label":"Vergleich","description":"Der zu verwendende relative Positionsvergleich, z. B. 'Ist über' oder 'Ist unter'.","type":"select","options":[["up","Ist über"],["down","Ist unter"],["left","Ist links von"],["right","Ist rechts von"]],"defaultValue":"up","width":"50%"},{"key":"otherActorId","label":"Anderer Darsteller","description":"Der Darsteller, dessen Position verglichen wird.","type":"actor","defaultValue":"$self$"},{"key":"true","label":"Wahr","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Andernfalls","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Falsch","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+### Wenn Akteur relativ zum Akteur
+Einen Teil des Skripts abhängig von der relativen Position eines Akteurs zu einem anderen bedingt ausführen.
+<ScriptEventPreview title={"Wenn Akteur relativ zum Akteur"} fields={[{"key":"actorId","label":"Akteur","description":"Der zu überprüfende Akteur.","type":"actor","defaultValue":"player"},{"key":"operation","label":"Vergleich","description":"Der zu verwendende relative Positionsvergleich, z. B. 'ist über' oder 'ist unter'.","type":"select","options":[["up","Ist über"],["down","Ist unter"],["left","Ist links von"],["right","Ist rechts von"]],"defaultValue":"up","width":"50%"},{"key":"otherActorId","label":"Anderer Akteur","description":"Der Akteur, dessen Position verglichen wird.","type":"actor","defaultValue":"$self$"},{"key":"true","label":"'wahr'","description":"Das bei wahrer Bedingung auszuführende Skript.","type":"events"},{"key":"__collapseElse","label":"Sonst","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"'falsch'","description":"Das bei falscher Bedingung auszuführende Skript.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Darsteller**: Der zu überprüfende Darsteller.  
-- **Vergleich**: Der zu verwendende relative Positionsvergleich, z. B. 'Ist über' oder 'Ist unter'.  
-- **Anderer Darsteller**: Der Darsteller, dessen Position verglichen wird.  
-- **Wahr**: Das bei wahrer Bedingung auszuführende Skript.  
-- **Falsch**: Das bei falscher Bedingung auszuführende Skript.  
+- **Akteur**: Der zu überprüfende Akteur.  
+- **Vergleich**: Der zu verwendende relative Positionsvergleich, z. B. 'ist über' oder 'ist unter'.  
+- **Anderer Akteur**: Der Akteur, dessen Position verglichen wird.  
+- **'wahr'**: Das bei wahrer Bedingung auszuführende Skript.  
+- **'falsch'**: Das bei falscher Bedingung auszuführende Skript.  
 
 ## Movement
-### Darsteller: Bewegung abbrechen
-Cancel any currently running "Actor Move" events affecting this actor. Causes the actor to stop in its current location.
-<ScriptEventPreview title={"Darsteller: Bewegung abbrechen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der Darsteller dessen Bewegung abgebrochen werden soll","type":"actor","defaultValue":"$self$"}]} />
+### Akteur bewegen abbrechen
+Alle laufenden 'Akteur bewegen'-Ereignisse, welche diesen Akteur betreffen, abbrechen, wodurch er an seiner aktuellen Position stehen bleibt.
+<ScriptEventPreview title={"Akteur bewegen abbrechen"} fields={[{"key":"actorId","label":"Akteur","description":"Der Akteur dessen Bewegung abgebrochen werden soll","type":"actor","defaultValue":"$self$"}]} />
 
-- **Darsteller**: Der Darsteller dessen Bewegung abgebrochen werden soll  
+- **Akteur**: Der Akteur dessen Bewegung abgebrochen werden soll  
 
-### Darsteller: Relativ Bewegen
-Einen Darsteller relativ zu seiner aktuellen Position bewegen.
-<ScriptEventPreview title={"Darsteller: Relativ Bewegen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu bewegende Darsteller.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","description":"Der horizontale Offset relativ zur aktuellen Position.","type":"value","min":-31,"max":31,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"Der vertikale Offset relativ zur aktuellen Position.","type":"value","min":-31,"max":31,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]},{"key":"moveType","label":"Bewegungstyp","description":"Auswählen ob die Bewegung zuerst in der horizontalen/vertikalen Achse oder diagonal zum Ziel erfolgen soll.","hideLabel":true,"type":"moveType","defaultValue":"horizontal","flexBasis":30,"flexGrow":0,"alignBottom":true},{"key":"useCollisions","label":"Kollisionen verwenden","description":"Legt fest, ob Kollisionen mit der Szene oder den Darstellern beim Bewegen berücksichtigt werden sollen.","width":"50%","type":"checkbox","defaultValue":false}]} />
+### Akteur relativ bewegen
+Einen Akteur relativ zu seiner aktuellen Position bewegen.
+<ScriptEventPreview title={"Akteur relativ bewegen"} fields={[{"key":"__section","type":"tabs","defaultValue":"movement","variant":"eventSection","values":{"movement":"Movement","options":"Options","presets":"Voreinstellungen"}},{"type":"group","wrapItems":true,"flexBasis":"100%","fields":[{"key":"actorId","label":"Akteur","description":"Der zu bewegende Akteur.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","description":"Der horizontale Offset relativ zur aktuellen Position.","type":"value","min":-31,"max":31,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"Der vertikale Offset relativ zur aktuellen Position.","type":"value","min":-31,"max":31,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]}],"conditions":[{"key":"__section","in":["movement",null]}]},{"type":"group","wrapItems":true,"flexBasis":"100%","fields":[{"key":"collideWith","width":"50%","flexBasis":0,"minWidth":150,"label":"Kollision mit","description":"Die auf Kollision zu überprüfenden Gruppen von Akteuren. Wenn es z.B. durch alle Akteure außer dem Spieler durchgehen soll, setze dieses Feld einfach auf 'Spieler'.","type":"togglebuttons","options":[["walls","Walls","Walls"],["actors","Akteure","Akteure"]],"allowNone":true,"allowMultiple":true,"defaultValue":["walls"]},{"type":"group","flexBasis":0,"minWidth":150,"alignBottom":true,"fields":[{"key":"lockDirection","width":"50%","label":"Lock Direction","description":"Prevents the actor from changing facing direction along the selected axis while moving.","type":"togglebuttons","options":[["x","H","Horizontal"],["y","V","Vertikal"]],"allowMultiple":true,"allowNone":true,"defaultValue":[]},{"key":"moveType","label":"Bewegungstyp","description":"Auswählen ob die Bewegung zuerst in der horizontalen/vertikalen Achse oder diagonal zum Ziel erfolgen soll.","hideLabel":true,"type":"moveType","defaultValue":"horizontal","flexBasis":35,"flexGrow":0,"alignBottom":true}]}],"conditions":[{"key":"__section","in":["options"]}]},{"type":"presets","conditions":[{"key":"__section","in":["presets"]}]}]} />
 
-- **Darsteller**: Der zu bewegende Darsteller.  
-- **X**: Der horizontale Offset relativ zur aktuellen Position.  
-- **Y**: Der vertikale Offset relativ zur aktuellen Position.  
-- **Bewegungstyp**: Auswählen ob die Bewegung zuerst in der horizontalen/vertikalen Achse oder diagonal zum Ziel erfolgen soll.  
-- **Kollisionen verwenden**: Legt fest, ob Kollisionen mit der Szene oder den Darstellern beim Bewegen berücksichtigt werden sollen.  
 
-### Darsteller: Bewegen Zu Position
-Einen Darsteller zu einer neuen Position bewegen.
-<ScriptEventPreview title={"Darsteller: Bewegen Zu Position"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu bewegende Darsteller.","type":"actor","defaultValue":"$self$","flexBasis":0,"minWidth":150},{"type":"group","wrapItems":true,"fields":[{"key":"x","label":"X","description":"Die horizontale Position.","type":"value","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"Die vertikale Position.","type":"value","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]},{"type":"group","flexBasis":0,"minWidth":150,"alignBottom":true,"fields":[{"key":"moveType","label":"Bewegungstyp","description":"Auswählen ob die Bewegung zuerst in der horizontalen/vertikalen Achse oder diagonal zum Ziel erfolgen soll.","hideLabel":true,"type":"moveType","defaultValue":"horizontal","flexBasis":35,"flexGrow":0,"alignBottom":true},{"key":"useCollisions","label":"Kollisionen verwenden","description":"Legt fest, ob Kollisionen mit der Szene oder den Darstellern beim Bewegen berücksichtigt werden sollen.","width":"50%","type":"checkbox","defaultValue":false,"alignBottom":true}]}]} />
+- **Movement**  
+  - **Akteur**: Der zu bewegende Akteur.  
+  - **X**: Der horizontale Offset relativ zur aktuellen Position.  
+  - **Y**: Der vertikale Offset relativ zur aktuellen Position.  
 
-- **Darsteller**: Der zu bewegende Darsteller.  
+- **Options**  
+  - **Kollision mit**: Die auf Kollision zu überprüfenden Gruppen von Akteuren. Wenn es z.B. durch alle Akteure außer dem Spieler durchgehen soll, setze dieses Feld einfach auf 'Spieler'.  
+  - **Lock Direction**: Prevents the actor from changing facing direction along the selected axis while moving.  
+  - **Bewegungstyp**: Auswählen ob die Bewegung zuerst in der horizontalen/vertikalen Achse oder diagonal zum Ziel erfolgen soll.  
+
+### Akteur zu Position bewegen
+Einen Akteur zu einer neuen Position bewegen.
+<ScriptEventPreview title={"Akteur zu Position bewegen"} fields={[{"key":"__section","type":"tabs","defaultValue":"movement","variant":"eventSection","values":{"movement":"Movement","options":"Options","presets":"Voreinstellungen"}},{"type":"group","wrapItems":true,"flexBasis":"100%","fields":[{"key":"actorId","label":"Akteur","description":"Der zu bewegende Akteur.","type":"actor","defaultValue":"$self$","flexBasis":0,"minWidth":150},{"type":"group","wrapItems":true,"fields":[{"key":"x","label":"X","description":"Die horizontale Position.","type":"value","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"Die vertikale Position.","type":"value","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]}],"conditions":[{"key":"__section","in":["movement",null]}]},{"type":"group","wrapItems":true,"flexBasis":"100%","fields":[{"key":"collideWith","width":"50%","flexBasis":0,"minWidth":150,"label":"Kollision mit","description":"Die auf Kollision zu überprüfenden Gruppen von Akteuren. Wenn es z.B. durch alle Akteure außer dem Spieler durchgehen soll, setze dieses Feld einfach auf 'Spieler'.","type":"togglebuttons","options":[["walls","Walls","Walls"],["actors","Akteure","Akteure"]],"allowNone":true,"allowMultiple":true,"defaultValue":["walls"]},{"type":"group","flexBasis":0,"minWidth":150,"alignBottom":true,"fields":[{"key":"lockDirection","width":"50%","label":"Lock Direction","description":"Prevents the actor from changing facing direction along the selected axis while moving.","type":"togglebuttons","options":[["x","H","Horizontal"],["y","V","Vertikal"]],"allowMultiple":true,"allowNone":true,"defaultValue":[]},{"key":"moveType","label":"Bewegungstyp","description":"Auswählen ob die Bewegung zuerst in der horizontalen/vertikalen Achse oder diagonal zum Ziel erfolgen soll.","hideLabel":true,"type":"moveType","defaultValue":"horizontal","flexBasis":35,"flexGrow":0,"alignBottom":true}]}],"conditions":[{"key":"__section","in":["options"]}]},{"type":"presets","conditions":[{"key":"__section","in":["presets"]}]}]} />
+
+
+- **Movement**  
+  - **Akteur**: Der zu bewegende Akteur.  
+  - **X**: Die horizontale Position.  
+  - **Y**: Die vertikale Position.  
+
+- **Options**  
+  - **Kollision mit**: Die auf Kollision zu überprüfenden Gruppen von Akteuren. Wenn es z.B. durch alle Akteure außer dem Spieler durchgehen soll, setze dieses Feld einfach auf 'Spieler'.  
+  - **Lock Direction**: Prevents the actor from changing facing direction along the selected axis while moving.  
+  - **Bewegungstyp**: Auswählen ob die Bewegung zuerst in der horizontalen/vertikalen Achse oder diagonal zum Ziel erfolgen soll.  
+
+### Akteur vom Spieler wegschieben
+Bewirkt, dass der jeweilige Akteur in Blickrichtung des Spielers bewegt wird. Nützlich zum Erstellen von Block-Puzzles.
+<ScriptEventPreview title={"Akteur vom Spieler wegschieben"} fields={[{"key":"continue","label":"Rutsche bis zur Kollision","description":"Legt fest, dass der Akteur sich so lange bewegt, bis es zu einer Kollision mit einem anderen Akteur oder der Szene kommt.","type":"checkbox","defaultValue":false}]} />
+
+- **Rutsche bis zur Kollision**: Legt fest, dass der Akteur sich so lange bewegt, bis es zu einer Kollision mit einem anderen Akteur oder der Szene kommt.  
+
+### Akteurposition festlegen
+Legt die Position eines Akteurs fest, wodurch er sich unmittelbar zu dieser neuen Postion Bewegt.
+<ScriptEventPreview title={"Akteurposition festlegen"} fields={[{"key":"actorId","label":"Akteur","description":"Der zu aktualisierende Akteur.","type":"actor","defaultValue":"$self$","flexBasis":0,"minWidth":150},{"type":"group","wrapItems":true,"fields":[{"key":"x","label":"X","description":"Die horizontale Position.","type":"value","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"Die vertikale Position.","type":"value","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]}]} />
+
+- **Akteur**: Der zu aktualisierende Akteur.  
 - **X**: Die horizontale Position.  
 - **Y**: Die vertikale Position.  
-- **Bewegungstyp**: Auswählen ob die Bewegung zuerst in der horizontalen/vertikalen Achse oder diagonal zum Ziel erfolgen soll.  
-- **Kollisionen verwenden**: Legt fest, ob Kollisionen mit der Szene oder den Darstellern beim Bewegen berücksichtigt werden sollen.  
 
-### Darsteller: Von Spieler Wegschieben
-Causes the specified actor to be moved in the direction that the player is currently facing. Useful for creating block puzzles.
-<ScriptEventPreview title={"Darsteller: Von Spieler Wegschieben"} fields={[{"key":"continue","label":"Rutsche bis zur Kollision","description":"Legt fest, dass der Darsteller sich so lange bewegt, bis es zu einer Kollision mit einem anderen Darsteller oder der Szene kommt.","type":"checkbox","defaultValue":false}]} />
+### Relative Akteurposition festlegen
+Legt die Position eines Akteurs, relativ zu seiner vorherigen Position fest, wodurch er sich unmittelbar zu dieser neuen Postion bewegt.
+<ScriptEventPreview title={"Relative Akteurposition festlegen"} fields={[{"key":"actorId","label":"Akteur","description":"Der zu aktualisierende Akteur.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","description":"Der horizontale Offset relativ zur aktuellen Position.","type":"value","min":-31,"max":31,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"Der vertikale Offset relativ zur aktuellen Position.","type":"value","min":-31,"max":31,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]}]} />
 
-- **Rutsche bis zur Kollision**: Legt fest, dass der Darsteller sich so lange bewegt, bis es zu einer Kollision mit einem anderen Darsteller oder der Szene kommt.  
-
-### Darsteller: Position Festlegen
-Set the position of an actor, causing it to instantly move to the new location.
-<ScriptEventPreview title={"Darsteller: Position Festlegen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$","flexBasis":0,"minWidth":150},{"type":"group","wrapItems":true,"fields":[{"key":"x","label":"X","description":"Die horizontale Position.","type":"value","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"Die vertikale Position.","type":"value","min":0,"max":255,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]}]} />
-
-- **Darsteller**: Der zu aktualisierende Darsteller.  
-- **X**: Die horizontale Position.  
-- **Y**: Die vertikale Position.  
-
-### Darsteller: Relative Position Festlegen
-Set the position of an actor relative to it's previous position, causing it to instantly move to the new location.
-<ScriptEventPreview title={"Darsteller: Relative Position Festlegen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"x","label":"X","description":"Der horizontale Offset relativ zur aktuellen Position.","type":"value","min":-31,"max":31,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"y","label":"Y","description":"Der vertikale Offset relativ zur aktuellen Position.","type":"value","min":-31,"max":31,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]}]} />
-
-- **Darsteller**: Der zu aktualisierende Darsteller.  
+- **Akteur**: Der zu aktualisierende Akteur.  
 - **X**: Der horizontale Offset relativ zur aktuellen Position.  
 - **Y**: Der vertikale Offset relativ zur aktuellen Position.  
 
 ## Platformer
-### Darsteller: Spieler-Abprall
-In platform scenes causes the player to bounce upwards by setting the player's velocity Y value.
-<ScriptEventPreview title={"Darsteller: Spieler-Abprall"} fields={[{"key":"height","type":"select","label":"Höhe","description":"Wie hoch der Spieler abprallen soll.","options":[["low","Niedrig"],["medium","Mittel"],["high","Hoch"]],"defaultValue":"medium"},{"label":"Betrifft nur Plattformszenen"}]} />
+### Spielerabprall
+In Plattformszenen springt der Spieler nach oben, indem der Y-Wert der Spielergeschwindigkeit festgelegt wird.
+<ScriptEventPreview title={"Spielerabprall"} fields={[{"key":"height","type":"select","label":"Höhe","description":"Wie hoch der Spieler abprallen soll.","options":[["low","Niedrig"],["medium","Mittel"],["high","Hoch"]],"defaultValue":"medium"},{"label":"Betrifft nur Plattformszenen"}]} />
 
 - **Höhe**: Wie hoch der Spieler abprallen soll.  
 
 ## Properties
-### Darsteller Aktivieren
-Activate an actor, causing it to become visible (if not also hidden) and for its OnUpdate script to start.
-<ScriptEventPreview title={"Darsteller Aktivieren"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktivierende Darsteller.","type":"actor","defaultValue":"$self$"}]} />
+### Akteur aktivieren
+Einen Akteur aktivieren, sodass er sichtbar wird (falls er nicht deaktiviert ist) und sein 'BeiUpdate'-Skript starten.
+<ScriptEventPreview title={"Akteur aktivieren"} fields={[{"key":"actorId","label":"Akteur","description":"Der zu aktivierende Akteur.","type":"actor","defaultValue":"$self$"}]} />
 
-- **Darsteller**: Der zu aktivierende Darsteller.  
+- **Akteur**: Der zu aktivierende Akteur.  
 
-### Darsteller Deaktivieren
-Deactivate an actor, causing it to act as if it had gone offscreen. It will become invisible and its OnUpdate script will be stopped.
-<ScriptEventPreview title={"Darsteller Deaktivieren"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu deaktivierende Darsteller.","type":"actor","defaultValue":"$self$"}]} />
+### Akteureffekte
+Eine Akteureffektanimation für einen festgelegten Akteur abspielen.
+<ScriptEventPreview title={"Akteureffekte"} fields={[{"key":"effect","label":"Effekt","description":"Der abzuspielende Akteureffekt.","type":"select","options":[["flicker","Flackern"],["splitIn","Eingliedern"],["splitOut","Aufteilen"]],"defaultValue":"flicker","width":"100%"},{"key":"actorId","label":"Akteur","description":"Der zu animierende Akteur.","type":"actor","defaultValue":"$self$","width":"100%"},{"type":"group","wrapItems":true,"conditions":[{"key":"effect","in":["splitIn","splitOut"]}],"fields":[{"key":"distance","label":"Abstand","description":"Der Abstandswert.","type":"number","min":1,"max":80,"defaultValue":20,"unitsField":"units","unitsDefault":"pixels","unitsAllowed":["tiles","pixels"],"conditions":[{"key":"effect","in":["splitIn","splitOut"]}],"width":"50%"},{"key":"speed","label":"Geschwindigkeit","description":"Die Bewegungs-Geschwindigkeit.","type":"moveSpeed","allowNone":false,"defaultValue":2,"conditions":[{"key":"effect","in":["splitIn","splitOut"]}],"width":"50%"}]},{"key":"time","type":"number","label":"Dauer","description":"Die Länge der Zeit, um den Akteureffekt abzuspielen.","min":0,"max":60,"step":0.1,"defaultValue":0.5,"unitsField":"timeUnits","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"effect","in":["flicker"]},{"key":"timeUnits","ne":"frames"}]},{"key":"frames","label":"Dauer","description":"Die Länge der Zeit, um den Akteureffekt abzuspielen.","type":"number","min":0,"max":3600,"width":"50%","defaultValue":30,"unitsField":"timeUnits","unitsDefault":"time","unitsAllowed":["time","frames"],"conditions":[{"key":"effect","in":["flicker"]},{"key":"timeUnits","eq":"frames"}]}]} />
 
-- **Darsteller**: Der zu deaktivierende Darsteller.  
+- **Effekt**: Der abzuspielende Akteureffekt.  
+- **Akteur**: Der zu animierende Akteur.  
+- **Abstand**: Der Abstandswert.  
+- **Geschwindigkeit**: Die Bewegungs-Geschwindigkeit.  
+- **Dauer**: Die Länge der Zeit, um den Akteureffekt abzuspielen.  
 
-### Darsteller: Animationsframe Festlegen
-Set an actor's animation to a specified frame value.
-<ScriptEventPreview title={"Darsteller: Animationsframe Festlegen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"frame","label":"Animationsframe","description":"Der Wert des Animations-Frames.","type":"value","min":0,"max":25,"defaultValue":{"type":"number","value":0}}]} />
+### Akteur deaktivieren
+Einen Akteur deaktivieren, so dass er sich so verhält, als ob er vom Bildschirm verschwunden wäre. Er wird unsichtbar und sein OnUpdate-Skript wird gestoppt.
+<ScriptEventPreview title={"Akteur deaktivieren"} fields={[{"key":"actorId","label":"Akteur","description":"Der zu deaktivierende Akteur.","type":"actor","defaultValue":"$self$"}]} />
 
-- **Darsteller**: Der zu aktualisierende Darsteller.  
-- **Animationsframe**: Der Wert des Animations-Frames.  
+- **Akteur**: Der zu deaktivierende Akteur.  
 
-### Darsteller: Animationsgeschwindigkeit Festlegen
-Set the animation speed of an actor to a new value.
-<ScriptEventPreview title={"Darsteller: Animationsgeschwindigkeit Festlegen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"speed","label":"Animationsgeschwindigkeit","description":"Die Animationsgeschwindigkeit.","type":"animSpeed","defaultValue":15}]} />
+### Akteuranimations-Einzelbild festlegen
+Setzt die Animation eines Akteurs auf einen bestimmten Einzelbildwert.
+<ScriptEventPreview title={"Akteuranimations-Einzelbild festlegen"} fields={[{"key":"actorId","label":"Akteur","description":"Der zu aktualisierende Akteur.","type":"actor","defaultValue":"$self$"},{"key":"frame","label":"Animations-Einzelbild","description":"Der Wert des Animations-Einzelbildes.","type":"value","min":0,"defaultValue":{"type":"number","value":0}}]} />
 
-- **Darsteller**: Der zu aktualisierende Darsteller.  
-- **Animationsgeschwindigkeit**: Die Animationsgeschwindigkeit.  
+- **Akteur**: Der zu aktualisierende Akteur.  
+- **Animations-Einzelbild**: Der Wert des Animations-Einzelbildes.  
 
-### Darsteller Animation-Status setzen
-Change the sprite animation state for a specified actor.
-<ScriptEventPreview title={"Darsteller Animation-Status setzen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"spriteStateId","label":"Animationszustand","description":"Der zu nutzende Sprite-Animationszustand.","type":"animationstate","defaultValue":"","width":"50%"},{"key":"loopAnim","label":"Wiederhole Animation","description":"Legt fest, ob die Animation in einer Schleife laufen soll.","type":"checkbox","defaultValue":true,"width":"50%"}]} />
+### Akteuranimations-Geschwindigkeit festlegen
+Legt die Animations-Geschwindigkeit eines Akteurs auf einen neuen Wert fest.
+<ScriptEventPreview title={"Akteuranimations-Geschwindigkeit festlegen"} fields={[{"key":"actorId","label":"Akteur","description":"Der zu aktualisierende Akteur.","type":"actor","defaultValue":"$self$"},{"key":"speed","label":"Animations-Geschwindigkeit","description":"Die Animations-Geschwindigkeit.","type":"animSpeed","defaultValue":15}]} />
 
-- **Darsteller**: Der zu aktualisierende Darsteller.  
+- **Akteur**: Der zu aktualisierende Akteur.  
+- **Animations-Geschwindigkeit**: Die Animations-Geschwindigkeit.  
+
+### Akteur-Animationsstatus setzen
+Den Sprite-Animationszustand für einen bestimmten Akteur ändern.
+<ScriptEventPreview title={"Akteur-Animationsstatus setzen"} fields={[{"key":"actorId","label":"Akteur","description":"Der zu aktualisierende Akteur.","type":"actor","defaultValue":"$self$"},{"key":"spriteStateId","label":"Animationszustand","description":"Der zu nutzende Sprite-Animationszustand.","type":"animationstate","defaultValue":"","width":"50%"},{"key":"loopAnim","label":"Animation in Schleife wiederholen","description":"Legt fest, ob die Animation in einer Schleife laufen soll.","type":"checkbox","defaultValue":true,"width":"50%"}]} />
+
+- **Akteur**: Der zu aktualisierende Akteur.  
 - **Animationszustand**: Der zu nutzende Sprite-Animationszustand.  
-- **Wiederhole Animation**: Legt fest, ob die Animation in einer Schleife laufen soll.  
+- **Animation in Schleife wiederholen**: Legt fest, ob die Animation in einer Schleife laufen soll.  
 
-### Darsteller: Kollisionen deaktivieren
-Disable all collision checks for an actor allowing the player and all other actor's to pass through it while moving.
-<ScriptEventPreview title={"Darsteller: Kollisionen deaktivieren"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"}]} />
+### Kollisionsrahmen des Akteurs festlegen
+Legt den Kollisionsrahmen eines Akteurs auf eine Position und Größe fest.
+<ScriptEventPreview title={"Kollisionsrahmen des Akteurs festlegen"} fields={[{"key":"actorId","label":"Akteur","description":"Der zu aktualisierende Akteur.","type":"actor","defaultValue":"$self$"},{"type":"group","wrapItems":true,"fields":[{"key":"x","label":"X","description":"Die horizontale Position.","type":"value","min":-96,"max":96,"width":"50%","defaultValue":{"type":"number","value":0},"unitsField":"units","unitsDefault":"pixels","unitsAllowed":["pixels"]},{"key":"y","label":"Y","description":"Die vertikale Position.","type":"value","min":-96,"max":96,"defaultValue":{"type":"number","value":-8},"width":"50%","unitsField":"units","unitsDefault":"pixels","unitsAllowed":["pixels"]}]},{"type":"group","wrapItems":true,"fields":[{"key":"width","label":"Breite","description":"Die Breite  der Box","type":"value","min":0,"max":128,"defaultValue":{"type":"number","value":16},"width":"50%","unitsField":"units","unitsDefault":"pixels","unitsAllowed":["pixels"]},{"key":"height","label":"Höhe","description":"Die Höhe der Box","type":"value","min":0,"max":128,"defaultValue":{"type":"number","value":16},"width":"50%","unitsField":"units","unitsDefault":"pixels","unitsAllowed":["pixels"]}]}]} />
 
-- **Darsteller**: Der zu aktualisierende Darsteller.  
+- **Akteur**: Der zu aktualisierende Akteur.  
+- **X**: Die horizontale Position.  
+- **Y**: Die vertikale Position.  
+- **Breite**: Die Breite  der Box  
+- **Höhe**: Die Höhe der Box  
 
-### Darsteller: Kollisionen aktivieren
-Re-enable collisions for an actor causing it to become solid again if collisions had previously been disabled.
-<ScriptEventPreview title={"Darsteller: Kollisionen aktivieren"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"}]} />
+### Akteurkollisionen ausschalten festlegen
+Alle Kollisionsprüfungen für einen Akteur ausschalten, sodass der Spieler und alle anderen Akteure durch ihn hindurchgehen können, während er sich bewegt.
+<ScriptEventPreview title={"Akteurkollisionen ausschalten festlegen"} fields={[{"key":"actorId","label":"Akteur","description":"Der zu aktualisierende Akteur.","type":"actor","defaultValue":"$self$"}]} />
 
-- **Darsteller**: Der zu aktualisierende Darsteller.  
+- **Akteur**: Der zu aktualisierende Akteur.  
 
-### Darsteller: Blickrichtung Festlegen
-Change the direction that an actor is currently facing.
-<ScriptEventPreview title={"Darsteller: Blickrichtung Festlegen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Blickrichtung","description":"Die Blickrichtung des Darstellers.","type":"value","defaultValue":{"type":"direction","value":"up"}}]} />
+### Akteurkollisionen einschalten festlegen
+Die Kollisionen für einen Akteur wieder einschalten, sodass er wieder fest wird, falls die Kollisionen zuvor ausgeschaltet waren.
+<ScriptEventPreview title={"Akteurkollisionen einschalten festlegen"} fields={[{"key":"actorId","label":"Akteur","description":"Der zu aktualisierende Akteur.","type":"actor","defaultValue":"$self$"}]} />
 
-- **Darsteller**: Der zu aktualisierende Darsteller.  
-- **Blickrichtung**: Die Blickrichtung des Darstellers.  
+- **Akteur**: Der zu aktualisierende Akteur.  
 
-### Darsteller: Bewegungsgeschwindigkeit Festlegen
-Set the movement speed of an actor to a new value.
-<ScriptEventPreview title={"Darsteller: Bewegungsgeschwindigkeit Festlegen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"speed","label":"Geschwindigkeit","description":"Die Bewegungsgeschwindigkeit.","type":"moveSpeed","defaultValue":1}]} />
+### Akteur-Blickrichtung festlegen
+Ändert die aktuelle Blickrichtung eines Akteurs.
+<ScriptEventPreview title={"Akteur-Blickrichtung festlegen"} fields={[{"key":"actorId","label":"Akteur","description":"Der zu aktualisierende Akteur.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Richtung","description":"Die Richtung des Akteurs.","type":"value","defaultValue":{"type":"direction","value":"up"}}]} />
 
-- **Darsteller**: Der zu aktualisierende Darsteller.  
-- **Geschwindigkeit**: Die Bewegungsgeschwindigkeit.  
+- **Akteur**: Der zu aktualisierende Akteur.  
+- **Richtung**: Die Richtung des Akteurs.  
 
-### Darsteller: Sprite-Sheet festlegen
-Set the sprite that should be used to render an actor.
-<ScriptEventPreview title={"Darsteller: Sprite-Sheet festlegen"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"spriteSheetId","label":"Sprite-Sheet","description":"Das zum Rendern des Darstellers zu benutzende Sprite.","type":"sprite","defaultValue":"LAST_SPRITE"}]} />
+### Akteurbewegungs-Geschwindigkeit festlegen
+Legt die Bewegungs-Geschwindigkeit eines Akteurs auf einen neuen Wert fest.
+<ScriptEventPreview title={"Akteurbewegungs-Geschwindigkeit festlegen"} fields={[{"key":"actorId","label":"Akteur","description":"Der zu aktualisierende Akteur.","type":"actor","defaultValue":"$self$"},{"key":"speed","label":"Geschwindigkeit","description":"Die Bewegungs-Geschwindigkeit.","type":"moveSpeed","defaultValue":1},{"type":"group","wrapItems":true,"conditions":[{"sceneType":["platform","adventure"]},{"or":[[{"key":"actorId","eq":"$self$"},{"entityTypeNot":["actor"]}],[{"key":"actorId","eq":"player"}]]}],"fields":[{"label":"To set the Player Movement speed in Platformer or Adventure scene types, you must use the \"Engine Field Update\" event to set the Walk Velocity or Run Velocity fields.","labelVariant":"warning","flexBasis":"100%"},{"type":"addEventButton","hideLabel":true,"label":"Engine: Einstellungen aktualisieren","defaultValue":{"id":"EVENT_ENGINE_FIELD_SET","values":{"engineFieldKey":"plat_walk_vel"},"replace":true},"conditions":[{"sceneType":["platform"]}]},{"type":"addEventButton","hideLabel":true,"label":"Engine: Einstellungen aktualisieren","defaultValue":{"id":"EVENT_ENGINE_FIELD_SET","values":{"engineFieldKey":"adv_walk_vel"},"replace":true},"conditions":[{"sceneType":["adventure"]}]}]}]} />
 
-- **Darsteller**: Der zu aktualisierende Darsteller.  
-- **Sprite-Sheet**: Das zum Rendern des Darstellers zu benutzende Sprite.  
+- **Akteur**: Der zu aktualisierende Akteur.  
+- **Geschwindigkeit**: Die Bewegungs-Geschwindigkeit.  
+- **Engine: Einstellungen aktualisieren**  
 
-### Spieler: Setze Spieler Sprite-Sheet
-Set the sprite that should be used to render the player.
-<ScriptEventPreview title={"Spieler: Setze Spieler Sprite-Sheet"} fields={[{"key":"spriteSheetId","label":"Sprite-Sheet","description":"Das zum Rendern des Spielers zu benutzende Sprite.","type":"sprite","defaultValue":"LAST_SPRITE"}]} />
+### Akteur-Spritesheet festlegen
+Das Sprite festlegen, welches zum Rendern eines Akteurs verwendet werden soll.
+<ScriptEventPreview title={"Akteur-Spritesheet festlegen"} fields={[{"key":"actorId","label":"Akteur","description":"Der zu aktualisierende Akteur.","type":"actor","defaultValue":"$self$"},{"key":"spriteSheetId","label":"Spritesheet","description":"Das Sprite, das für das Rendern des Akteurs verwendet wird.","type":"sprite","defaultValue":"LAST_SPRITE"}]} />
 
-- **Sprite-Sheet**: Das zum Rendern des Spielers zu benutzende Sprite.  
+- **Akteur**: Der zu aktualisierende Akteur.  
+- **Spritesheet**: Das Sprite, das für das Rendern des Akteurs verwendet wird.  
+
+### Spieler-Spritesheet festlegen
+Legt das zu benutzende Sprite fest, um den Spieler zu rendern.
+<ScriptEventPreview title={"Spieler-Spritesheet festlegen"} fields={[{"key":"spriteSheetId","label":"Spritesheet","description":"Das Sprite, das für das Rendern des Spielers verwendet wird.","type":"sprite","defaultValue":"LAST_SPRITE"}]} />
+
+- **Spritesheet**: Das Sprite, das für das Rendern des Spielers verwendet wird.  
 
 ## Script
-### Start Actor's "On Update" Script
-Start an actors OnUpdate script if it is not currently running. If the actor is currently offscreen its script may become deactivated causing the script to stop running again, to prevent this set the 'Keep Running While Offscreen' setting for the actor's OnUpdate script.
-<ScriptEventPreview title={"Start Actor's \"On Update\" Script"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"}]} />
+### 'Bei Update'-Skript des Akteurs starten
+Startet das 'Bei Update'-Skript eines Akteurs, falls es gerade nicht läuft. Wenn der Akteur gerade außerhalb des Bildschirm ist, kann sein Skript deaktiviert werden, was dazu führt, dass das Skript wieder angehalten wird. Um dies zu verhindern, muss die Einstellung 'Im Hintergrund weiterlaufen lassen' für das BeiUpdate-Skript des Akteurs aktiviert werden.
+<ScriptEventPreview title={"'Bei Update'-Skript des Akteurs starten"} fields={[{"key":"actorId","label":"Akteur","description":"Der zu aktualisierende Akteur.","type":"actor","defaultValue":"$self$"}]} />
 
-- **Darsteller**: Der zu aktualisierende Darsteller.  
+- **Akteur**: Der zu aktualisierende Akteur.  
 
-### Darsteller: Stoppt "Bei Update" Skript
-Stop an actors OnUpdate script if it was currently running.
-<ScriptEventPreview title={"Darsteller: Stoppt \"Bei Update\" Skript"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu aktualisierende Darsteller.","type":"actor","defaultValue":"$self$"}]} />
+### 'Bei Update'-Skript des Akteurs anhalten
+Hält das 'Bei Update'-Skript eines Akteurs an, falls es gerade läuft.
+<ScriptEventPreview title={"'Bei Update'-Skript des Akteurs anhalten"} fields={[{"key":"actorId","label":"Akteur","description":"Der zu aktualisierende Akteur.","type":"actor","defaultValue":"$self$"}]} />
 
-- **Darsteller**: Der zu aktualisierende Darsteller.  
+- **Akteur**: Der zu aktualisierende Akteur.  
 
 ## Variables
-### Darsteller: Blickrichtung In Variablen Speichern
-Store the current direction of an actor within a variable.
-<ScriptEventPreview title={"Darsteller: Blickrichtung In Variablen Speichern"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Variable","description":"Die als Richtung zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
+### Akteur-Blickrichtung in Variable speichern
+Speichert die aktuelle Richtung eines Akteurs in einer Variable.
+<ScriptEventPreview title={"Akteur-Blickrichtung in Variable speichern"} fields={[{"key":"actorId","label":"Akteur","description":"Der zu überprüfende Akteur.","type":"actor","defaultValue":"$self$"},{"key":"direction","label":"Variable","description":"Die als Richtung zu nutzende Variable.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
 
-- **Darsteller**: Der zu überprüfende Darsteller.  
+- **Akteur**: Der zu überprüfende Akteur.  
 - **Variable**: Die als Richtung zu nutzende Variable.  
 
-### Darsteller: Position In Variablen Speichern
-Store the current position of an actor within two variables, one to store the horizontal position and another to store the vertical position.
-<ScriptEventPreview title={"Darsteller: Position In Variablen Speichern"} fields={[{"key":"actorId","label":"Darsteller","description":"Der zu überprüfende Darsteller.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"vectorX","type":"variable","label":"X","description":"Die als horizontale Position zu nutzende Variable.","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"vectorY","type":"variable","label":"Y","description":"Die als vertikale Position zu nutzende Variable.","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]}]} />
+### Akteurposition in Variablen speichern
+Speichert die aktuelle Position eines Akteurs in zwei Variablen. Eine für die vertikale, die andere für die horizontale Position.
+<ScriptEventPreview title={"Akteurposition in Variablen speichern"} fields={[{"key":"actorId","label":"Akteur","description":"Der zu überprüfende Akteur.","type":"actor","defaultValue":"$self$"},{"type":"group","fields":[{"key":"vectorX","type":"variable","label":"X","description":"Die als horizontale Position zu nutzende Variable.","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]},{"key":"vectorY","type":"variable","label":"Y","description":"Die als vertikale Position zu nutzende Variable.","defaultValue":"LAST_VARIABLE","width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"]}]}]} />
 
-- **Darsteller**: Der zu überprüfende Darsteller.  
+- **Akteur**: Der zu überprüfende Akteur.  
 - **X**: Die als horizontale Position zu nutzende Variable.  
 - **Y**: Die als vertikale Position zu nutzende Variable.  
 
 ## Visibility
-### Darsteller: Ausblenden
-Hide an actor, causing it to become invisible. Its OnUpdate script will continue to run while hidden.
-<ScriptEventPreview title={"Darsteller: Ausblenden"} fields={[{"key":"actorId","label":"Darsteller","description":"Der auszublendende Darsteller.","type":"actor","defaultValue":"$self$"}]} />
+### Akteur ausblenden
+Blendet einen Akteur aus, wodurch er unsichtbar wird. Sein BeiUpdate-Skript wird fortgesetzt, während er ausgeblendet ist.
+<ScriptEventPreview title={"Akteur ausblenden"} fields={[{"key":"actorId","label":"Akteur","description":"Der auszublendende Akteur.","type":"actor","defaultValue":"$self$"}]} />
 
-- **Darsteller**: Der auszublendende Darsteller.  
+- **Akteur**: Der auszublendende Akteur.  
 
-### Sprites: Alle Ausblenden
-Disable rendering of sprite layer causing all sprites to become hidden until sprite rendering is reenabled.
-<ScriptEventPreview title={"Sprites: Alle Ausblenden"} fields={[{"label":"Blende alle Sprites vom Bildschirm aus."}]} />
+### Alle Skripte ausblenden
+Deaktivieren der Darstellung der Sprite-Ebene, wodurch alle Sprites ausgeblendet werden, bis die Darstellung der Sprites reaktiviert wird.
+<ScriptEventPreview title={"Alle Skripte ausblenden"} fields={[{"label":"Alle Sprites vom Bildschirm ausblenden."}]} />
 
 
-### Darsteller: Einblenden
-Einen bislang versteckten Darsteller einblenden.
-<ScriptEventPreview title={"Darsteller: Einblenden"} fields={[{"key":"actorId","label":"Darsteller","description":"Der anzuzeigende Darsteller.","type":"actor","defaultValue":"$self$"}]} />
+### Akteur anzeigen
+Einen zuvor ausgeblendeten Akteur einblenden.
+<ScriptEventPreview title={"Akteur anzeigen"} fields={[{"key":"actorId","label":"Akteur","description":"Der anzuzeigende Akteur.","type":"actor","defaultValue":"$self$"}]} />
 
-- **Darsteller**: Der anzuzeigende Darsteller.  
+- **Akteur**: Der anzuzeigende Akteur.  
 
-### Sprites: Alle Einblenden
-Re-enable rendering of the sprite layer if previously disabled.
-<ScriptEventPreview title={"Sprites: Alle Einblenden"} fields={[{"label":"Blende alle aktiven Sprites ein."}]} />
+### Alle Sprites anzeigen
+Reaktivieren der Darstellung der Sprite-Ebene, falls diese vorher deaktiviert war.
+<ScriptEventPreview title={"Alle Sprites anzeigen"} fields={[{"label":"Alle aktiven Sprites einblenden."}]} />
 
 

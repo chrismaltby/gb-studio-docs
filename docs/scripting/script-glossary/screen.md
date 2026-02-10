@@ -29,11 +29,17 @@ Hides the screen overlay.
 
 ### Overlay Move To
 Moves the overlay to a new position on the screen.
-<ScriptEventPreview title={"Overlay Move To"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"The vertical position.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]},{"key":"speed","label":"Speed","description":"The movement speed.","type":"cameraSpeed","defaultValue":"0"}]} />
+<ScriptEventPreview title={"Overlay Move To"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"The horizontal position.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"The vertical position.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]},{"key":"speed","label":"Speed","description":"The movement speed.","type":"overlaySpeed","defaultValue":-3}]} />
 
 - **X**: The horizontal position.  
 - **Y**: The vertical position.  
 - **Speed**: The movement speed.  
+
+### Set Overlay Scanline Cutoff
+Set a cutoff y position where the overlay window will stop being drawn. Allows drawing an overlay at the top of the screen.
+<ScriptEventPreview title={"Set Overlay Scanline Cutoff"} fields={[{"key":"y","label":"Y Cutoff","description":"The vertical scanline where the overlay window will stop being drawn.","type":"value","min":0,"max":150,"unitsField":"units","unitsDefault":"pixels","unitsAllowed":["pixels"],"defaultValue":{"type":"number","value":150}},{"label":"Overlays and Dialogue windows will only be drawn if above this line","flexBasis":"100%"}]} />
+
+- **Y Cutoff**: The vertical scanline where the overlay window will stop being drawn.  
 
 ### Show Overlay
 Show either a black or white window over the top of the current game screen. Can be used to obscure and then reveal parts of the scene background for example on the sample project logo screen.

@@ -9,37 +9,43 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 # Bildschirm
 
-### Bildschirm: Einblenden
+### Bildschirm einblenden
 Die Szene von einem leeren Bildschirm einblenden.
-<ScriptEventPreview title={"Bildschirm: Einblenden"} fields={[{"key":"speed","label":"Geschwindigkeit","description":"Die Einblendegeschwindigkeit.","type":"fadeSpeed","defaultValue":"2"}]} />
+<ScriptEventPreview title={"Bildschirm einblenden"} fields={[{"key":"speed","label":"Geschwindigkeit","description":"Die Geschwindigkeit der Überblendungs-Animation.","type":"fadeSpeed","defaultValue":"2"}]} />
 
-- **Geschwindigkeit**: Die Einblendegeschwindigkeit.  
+- **Geschwindigkeit**: Die Geschwindigkeit der Überblendungs-Animation.  
 
-### Bildschirm: Ausblenden
+### Bildschirm ausblenden
 Die Szene zu einem leeren Bildschirm ausblenden
-<ScriptEventPreview title={"Bildschirm: Ausblenden"} fields={[{"key":"speed","label":"Geschwindigkeit","description":"Die Einblendegeschwindigkeit.","type":"fadeSpeed","defaultValue":"2"}]} />
+<ScriptEventPreview title={"Bildschirm ausblenden"} fields={[{"key":"speed","label":"Geschwindigkeit","description":"Die Geschwindigkeit der Überblendungs-Animation.","type":"fadeSpeed","defaultValue":"2"}]} />
 
-- **Geschwindigkeit**: Die Einblendegeschwindigkeit.  
+- **Geschwindigkeit**: Die Geschwindigkeit der Überblendungs-Animation.  
 
 ## Overlay
-### Überlagerung: Ausblenden
-Blendet die Bildschirmüberlagerung aus.
-<ScriptEventPreview title={"Überlagerung: Ausblenden"} fields={[{"label":"Blendet das Überlagerung-Fenster vom Bildschirm aus."}]} />
+### Überlagerung ausblenden
+Blendet die Bildschirm-Überlagerung aus.
+<ScriptEventPreview title={"Überlagerung ausblenden"} fields={[{"label":"Blendet das Überlagerungsfenster vom Bildschirm aus."}]} />
 
 
-### Überlagerung: Zu Position Bewegen
-Moves the overlay to a new position on the screen.
-<ScriptEventPreview title={"Überlagerung: Zu Position Bewegen"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"Die horizontale Position.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"Die vertikale Position.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]},{"key":"speed","label":"Geschwindigkeit","description":"Die Bewegungsgeschwindigkeit.","type":"cameraSpeed","defaultValue":"0"}]} />
+### Überlagerung zu Position bewegen
+Bewegt eine Überlagerung zu einer neuen Position auf dem Spielbildschirm.
+<ScriptEventPreview title={"Überlagerung zu Position bewegen"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"Die horizontale Position.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"Die vertikale Position.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]},{"key":"speed","label":"Geschwindigkeit","description":"Die Bewegungs-Geschwindigkeit.","type":"overlaySpeed","defaultValue":-3}]} />
 
 - **X**: Die horizontale Position.  
 - **Y**: Die vertikale Position.  
-- **Geschwindigkeit**: Die Bewegungsgeschwindigkeit.  
+- **Geschwindigkeit**: Die Bewegungs-Geschwindigkeit.  
 
-### Überlagerung: Einblenden
-Show either a black or white window over the top of the current game screen. Can be used to obscure and then reveal parts of the scene background for example on the sample project logo screen.
-<ScriptEventPreview title={"Überlagerung: Einblenden"} fields={[{"key":"color","label":"Füllfarbe","description":"Die Farbe, mit der das Überlagerungsbild gefüllt werden soll, entweder schwarz oder weiß.","type":"overlayColor","defaultValue":"black"},{"type":"group","fields":[{"key":"x","label":"X","description":"Die horizontale Position.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"Die vertikale Position.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]}]} />
+### Overlay Scanline Ausschnitt festlegen
+Legt eine Ausschnitt-Y-Position fest, an welcher das Überlagerungsfenster mit dem Zeichnen aufhört. Ermöglicht das Zeichnen einer Überlagerung am oberen Bildschirmrand.
+<ScriptEventPreview title={"Overlay Scanline Ausschnitt festlegen"} fields={[{"key":"y","label":"Y-Ausschnitt","description":"Die vertikale Scanline, wo das Zeichnen des Überlagerungsfensters stoppt.","type":"value","min":0,"max":150,"unitsField":"units","unitsDefault":"pixels","unitsAllowed":["pixels"],"defaultValue":{"type":"number","value":150}},{"label":"Überlagerungen und Dialogfenster werden nur überhalb dieser Linie gezeichnet","flexBasis":"100%"}]} />
 
-- **Füllfarbe**: Die Farbe, mit der das Überlagerungsbild gefüllt werden soll, entweder schwarz oder weiß.  
+- **Y-Ausschnitt**: Die vertikale Scanline, wo das Zeichnen des Überlagerungsfensters stoppt.  
+
+### Überlagerung einblenden
+Zeigt entweder ein schwarzes oder weißes Fenster über dem aktuellen Spielbildschirm an. Kann zum Obskuren und dann Aufdecken von Teilen des Szenenhintergrunds verwendet werden, z.B. beim Logo-Bildschirm des Beispielprojekts.
+<ScriptEventPreview title={"Überlagerung einblenden"} fields={[{"key":"color","label":"Füllfarbe","description":"Die Farbe, mit der die Überlagerung gefüllt werden soll, entweder schwarz oder weiß.","type":"overlayColor","defaultValue":"black"},{"type":"group","fields":[{"key":"x","label":"X","description":"Die horizontale Position.","type":"number","min":0,"max":20,"defaultValue":0,"width":"50%"},{"key":"y","label":"Y","description":"Die vertikale Position.","type":"number","min":0,"max":18,"defaultValue":0,"width":"50%"}]}]} />
+
+- **Füllfarbe**: Die Farbe, mit der die Überlagerung gefüllt werden soll, entweder schwarz oder weiß.  
 - **X**: Die horizontale Position.  
 - **Y**: Die vertikale Position.  
 
