@@ -10,8 +10,8 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 const FeatureList = [
   {
     title: "Easy to Use",
-    macImg: "/img/home/screenshot_mac_1_v4.png",
-    winImg: "/img/home/screenshot_win_1_v4.png",
+    macImg: "/img/home/screenshot_mac_1_v4_thumb.png",
+    winImg: "/img/home/screenshot_win_1_v4_thumb.png",
     description: (
       <>
         <p>
@@ -27,8 +27,8 @@ const FeatureList = [
   },
   {
     title: "Multiple Game Types",
-    macImg: "/img/home/screenshot_mac_2_v4.png",
-    winImg: "/img/home/screenshot_win_2_v4.png",
+    macImg: "/img/home/screenshot_mac_2_v4_thumb.png",
+    winImg: "/img/home/screenshot_win_2_v4_thumb.png",
     description: (
       <>
         <p>
@@ -44,8 +44,8 @@ const FeatureList = [
   },
   {
     title: "Write Music",
-    macImg: "/img/home/screenshot_mac_3_v4.png",
-    winImg: "/img/home/screenshot_win_3_v4.png",
+    macImg: "/img/home/screenshot_mac_3_v4_thumb.png",
+    winImg: "/img/home/screenshot_win_3_v4_thumb.png",
     description: (
       <>
         <p>
@@ -62,8 +62,8 @@ const FeatureList = [
 
   {
     title: "Build ROMs",
-    macImg: "/img/home/screenshot_mac_4_v4.png",
-    winImg: "/img/home/screenshot_win_4_v4.png",
+    macImg: "/img/home/screenshot_mac_4_v4_thumb.png",
+    winImg: "/img/home/screenshot_win_4_v4_thumb.png",
     description: (
       <>
         <p>
