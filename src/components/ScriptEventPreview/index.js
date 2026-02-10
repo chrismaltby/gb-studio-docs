@@ -305,6 +305,9 @@ function ScriptEventFieldInput({ field }) {
   if (field.type === "cameraSpeed") {
     return <FakeSelect>Speed 1</FakeSelect>;
   }
+  if (field.type === "overlaySpeed") {
+    return <FakeSelect>Speed 1</FakeSelect>;
+  }
   if (field.type === "moveSpeed") {
     return <FakeSelect>Speed 2</FakeSelect>;
   }
@@ -531,7 +534,7 @@ function ScriptEventFieldInput({ field }) {
 
               selected: field.defaultValue === "3",
             },
-          ]
+          ],
         )}
       />
     );
@@ -549,7 +552,11 @@ function ScriptEventFieldInput({ field }) {
   }
   if (field.type === "tabs") {
     return (
-      <div className={styles.tabs}>
+      <div
+        className={clsx(styles.tabs, {
+          [styles.tabsEventSection]: field.variant === "eventSection",
+        })}
+      >
         {Object.keys(field.values).map((key) => (
           <div
             key={key}
@@ -584,7 +591,8 @@ function ScriptEventField({ field, args }) {
         (!condition.gte || Number(keyValue) >= Number(condition.gte)) &&
         (!condition.lt || Number(keyValue) > Number(condition.lt)) &&
         (!condition.lte || Number(keyValue) >= Number(condition.lte)) &&
-        (!condition.in || condition.in.indexOf(keyValue) >= 0)
+        (!condition.in || condition.in.indexOf(keyValue) >= 0) &&
+        !condition.sceneType
       );
     }, true);
     if (!showField) {
