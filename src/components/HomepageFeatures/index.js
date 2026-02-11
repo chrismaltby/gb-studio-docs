@@ -83,9 +83,9 @@ const FeatureList = [
 function Feature({ winImg, macImg, title, description, onOpen, imgPlatform }) {
   return (
     <div className={clsx("col col--3 margin-bottom--md")}>
-      <div class="card">
+      <div className={clsx("card", styles.cardFullHeight)}>
         {imgPlatform !== "unknown" && (
-          <div class={styles.cardImage}>
+          <div className={styles.cardImage}>
             <img
               src={useBaseUrl(imgPlatform === "mac" ? macImg : winImg)}
               alt={title}
@@ -93,12 +93,10 @@ function Feature({ winImg, macImg, title, description, onOpen, imgPlatform }) {
             />
           </div>
         )}
-        <div class="card__header">
+        <div className="card__header">
           <h3>{title}</h3>
         </div>
-        <div class="card__body">
-          <p>{description}</p>
-        </div>
+        <div className="card__body">{description}</div>
       </div>
     </div>
   );

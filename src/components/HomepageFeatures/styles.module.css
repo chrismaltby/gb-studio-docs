@@ -11,6 +11,10 @@
   width: 200px;
 }
 
+.cardFullHeight {
+  height: 100%;
+}
+
 .cardImage {
   overflow: hidden;
   border-bottom: 5px solid var(--ifm-color-primary);
