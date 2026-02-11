@@ -133,7 +133,7 @@ function Scene(props) {
   const normalsUrl = useBaseUrl("/img/hero/normals_420_512.png");
   const roughnessUrl = useBaseUrl("/img/hero/roughness_420.png");
   const glowUrl = useBaseUrl("/img/hero/glow3.png");
-  const videoUrl = useBaseUrl("/img/hero/recording_small.mp4");
+  const videoUrl = useBaseUrl("/img/hero/recording.mp4");
 
   const obj = useLoader(OBJLoader, objUrl);
   const texture = useLoader(TextureLoader, textureUrl);
