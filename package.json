@@ -13,7 +13,8 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "generate-pdf": "npx docusaurus-prince-pdf -u https://www.gbstudio.dev/docs -d ./static/assets/pdf",
-    "generate-thumbnails": "sh ./src/scripts/generate-thumbnails.sh"
+    "generate-thumbnails": "sh ./src/scripts/generate-thumbnails.sh",
+    "crush-pngs": "sh ./src/scripts/crush-pngs.sh"
   },
   "dependencies": {
     "@docusaurus/core": "3.1.0",
