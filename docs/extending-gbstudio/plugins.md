@@ -152,7 +152,9 @@ For example, use `UBYTE battle_hp` instead of `UBYTE hp`.
 
 :::info
 
-Although plugins can override the built-in scene types, this is not recommended. Overriding core scene types can make it harder for users to upgrade to future versions of GB Studio without conflicts. Prefer creating new scene types where possible or contributing improvements to the [built-in scene types](https://github.com/chrismaltby/gbvm/tree/main/src/states).
+Although plugins can override the built-in scene types, this is not recommended. Overriding core scene types can make it harder for users to upgrade to future versions of GB Studio without conflicts.
+
+Prefer creating new scene types where possible or contributing improvements to the [built-in scene types](https://github.com/chrismaltby/gbvm/tree/main/src/states).
 
 :::
 
