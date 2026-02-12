@@ -1,0 +1,36 @@
+{
+  "version": "4.2.0-e34",
+  "sceneTypes": [
+    {
+      "key": "myscene",
+      "label": "My Scene Type",
+      "files": ["include/states/myscene.h", "src/states/myscene.c"],
+      "extraActorCollisionFlags": [
+        {
+          "key": "enemy",
+          "label": "Is Enemy",
+          "description": "Set if this actor should be treated as an enemy for collision purposes.",
+          "setFlag": "1"
+        }
+      ],
+      "collisionTiles": [
+        {
+          "key": "solid",
+          "color": "#FA2828FF",
+          "mask": 15,
+          "flag": 15,
+          "name": "FIELD_SOLID",
+          "icon": "FFFFFFFFFFFFFFFF"
+        },
+        {
+          "key": "coin",
+          "color": "#2828FAFF",
+          "mask": 240,
+          "flag": 128,
+          "name": "Coin",
+          "icon": "003C7E66667E3C00"
+        }
+      ]
+    }
+  ]
+}

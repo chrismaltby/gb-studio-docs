@@ -98,7 +98,7 @@ Engine plugins can also define additional [scene types](/docs/project-editor/sce
   "sceneTypes": [
     {
       "key": "battle",
-      "label": "Battle"
+      "label": "Battle",
       "files": ["include/states/battle.h", "src/states/battle.c"],
       "extraActorCollisionFlags": [
         {
@@ -146,3 +146,14 @@ void SCENEKEY_update(void) BANKED { }
 In this case those functions would be named `battle_init` and `battle_update`.
 
 The `init` function will be called once as the scene is loaded and the `update` function will be called every frame allowing you to create custom game modes.
+
+:::info
+
+Although plugins can override the built-in scene types, this is not recommended. Overriding core scene types can make it harder for users to upgrade to future versions of GB Studio without conflicts. Prefer creating new scene types where possible.
+
+If your custom scene defines global variables, prefix them to avoid potential naming collisions with future engine updates.  
+For example, use `WORD plat_walk_vel` instead of `walk_vel`.
+
+:::
+
+[Download Example Scene Type Plugin](/assets/plugins/sceneTypeExamplePlugin.zip)

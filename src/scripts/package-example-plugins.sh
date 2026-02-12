@@ -5,6 +5,7 @@ PLUGINS=(
     "static/assets/plugins/assetExamplePlugin"
     "static/assets/plugins/engineExamplePlugin"
     "static/assets/plugins/eventExamplePlugin"
+    "static/assets/plugins/sceneTypeExamplePlugin"
 )
 
 for src in "${PLUGINS[@]}"; do
