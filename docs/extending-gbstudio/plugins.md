@@ -70,7 +70,7 @@ By defining the following field, and adding the variable `max_jump_height` to yo
 
 ```
 {
-  "version": "4.0.0-e0",
+  "version": "4.2.0-e34",
   "fields": [
     {
       "key": "max_jump_height",
@@ -94,7 +94,7 @@ Engine plugins can also define additional [scene types](/docs/project-editor/sce
 
 ```
 {
-  "version": "4.0.0-e0",
+  "version": "4.2.0-e34",
   "sceneTypes": [
     {
       "key": "battle",
