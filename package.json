@@ -14,7 +14,8 @@
     "write-heading-ids": "docusaurus write-heading-ids",
     "generate-pdf": "npx docusaurus-prince-pdf -u https://www.gbstudio.dev/docs -d ./static/assets/pdf",
     "generate-thumbnails": "sh ./src/scripts/generate-thumbnails.sh",
-    "crush-pngs": "sh ./src/scripts/crush-pngs.sh"
+    "crush-pngs": "sh ./src/scripts/crush-pngs.sh",
+    "package-example-plugins": "sh ./src/scripts/package-example-plugins.sh"
   },
   "dependencies": {
     "@docusaurus/core": "3.1.0",
