@@ -147,12 +147,12 @@ In this case those functions would be named `battle_init` and `battle_update`.
 
 The `init` function will be called once as the scene is loaded and the `update` function will be called every frame allowing you to create custom game modes.
 
+If your custom scene defines global variables, prefix them to avoid potential naming collisions with future engine updates.  
+For example, use `UBYTE battle_hp` instead of `UBYTE hp`.
+
 :::info
 
 Although plugins can override the built-in scene types, this is not recommended. Overriding core scene types can make it harder for users to upgrade to future versions of GB Studio without conflicts. Prefer creating new scene types where possible or contributing improvements to the [built-in scene types](https://github.com/chrismaltby/gbvm/tree/main/src/states).
-
-If your custom scene defines global variables, prefix them to avoid potential naming collisions with future engine updates.  
-For example, use `WORD plat_walk_vel` instead of `walk_vel`.
 
 :::
 
