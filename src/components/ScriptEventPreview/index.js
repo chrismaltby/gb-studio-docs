@@ -570,7 +570,7 @@ function ScriptEventFieldInput({ field }) {
       </div>
     );
   }
-  if (field.type === "value") {
+  if (field.type === "value" || field.type === "constvalue") {
     return <FakeValue>{field.defaultValue}</FakeValue>;
   }
   return <div className={styles.unknown}>Unknown Type {field.type}</div>;

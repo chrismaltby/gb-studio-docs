@@ -101,6 +101,16 @@ VM_JUMP LABEL
  Jumps to near address.  
 - **ARG0**:  Jump label.  
 
+### VM_RATE_LIMIT_CONST,
+
+```gbvm
+VM_RATE_LIMIT_CONST, N, IDX, LABEL
+```
+ If the last execution of the same instruction was less than N frames ago, jump to the specified label.  
+- **N**:  Minimum number of frames between two executions of the same instruction.  
+- **IDX**:  Variable to store last call time.  
+- **LABEL**:  Jump label.  
+
 ### VM_CALL_FAR
 
 ```gbvm
