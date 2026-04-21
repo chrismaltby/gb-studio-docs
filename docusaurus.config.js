@@ -88,13 +88,18 @@ const config = {
           src: "img/icon.png",
         },
         items: [
-          { type: "localeDropdown", position: "left" },
+          { type: "localeDropdown", position: "left", className: "locale" },
           { to: "/about", label: "About", position: "right" },
           {
             type: "doc",
             docId: "index",
             position: "right",
             label: "Docs",
+          },
+          {
+            to: "/music",
+            position: "right",
+            label: "Music",
           },
           {
             to: "/tools",
@@ -136,6 +141,10 @@ const config = {
               {
                 label: "Installation",
                 href: "/docs/installation",
+              },
+              {
+                label: "Music",
+                href: "/music",
               },
               {
                 label: "Tools",

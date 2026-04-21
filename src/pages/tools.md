@@ -2,6 +2,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # GB Studio Tools
 
+- [GBS Music](https://music.gbstudio.dev)  
+  The GB Studio music editor, available as a standalone web app for desktop, tablet, and mobile.
+
 - [GB Flamegraph](https://chrismaltby.github.io/gb-flamegraph/)  
   Drop an exported `.gb` ROM and its `.noi` memory map to generate a flame graph of CPU usage. This can help you identify causes of slowdown.
 

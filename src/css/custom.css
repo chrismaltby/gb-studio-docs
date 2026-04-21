@@ -141,6 +141,30 @@ object {
   white-space: nowrap;
 }
 
+@media screen and (max-width: 1160px) {
+  .navbar__link {
+    font-size: 14px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .navbar__link.locale {
+    width: 28px;
+    overflow: hidden;
+    display: block;
+    height: 20px;
+  }
+
+  .navbar__search-input {
+    width: 9rem;
+  }
+}
+@media screen and (max-width: 995px) {
+  .navbar__search-input {
+    width: 12.5rem;
+  }
+}
+
 /* Fix text zoom on iOS Safari when searching */
 input[type="color"],
 input[type="date"],
