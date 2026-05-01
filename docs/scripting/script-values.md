@@ -6,7 +6,7 @@ import ScriptEventPreview, {FakeValue} from '@site/src/components/ScriptEventPre
 
 # Script Values
 
-Many script events now support using **Script Values** as inputs. These allow you combine number values, variables, mathmatical operations and functions to create complex values.
+Many script events now support using **Script Values** as inputs. These allow you combine number values, variables, mathematical operations and functions to create complex values.
 
 <div className="drop-shadow margin-bottom"><img src="/img/screenshots/script-values-edit-v4.gif" width="320" className="clip-bottom" /></div>
 

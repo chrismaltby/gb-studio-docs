@@ -54,7 +54,7 @@ Set the value of the specified variable to true.
 ## Control Flow
 ### If Variable Compare With Value
 Conditionally run part of the script based on the value of a variable compared with a value.
-<ScriptEventPreview title={"If Variable Compare With Value"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":0}}},{"key":"true","label":"True","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"If Variable Compare With Value"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"number","value":0}}},{"key":"true","label":"True","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsible","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Condition**: The condition to evaluate.  
 - **True**: The script to run if the condition is true.  
@@ -62,7 +62,7 @@ Conditionally run part of the script based on the value of a variable compared w
 
 ### If Variable Compare With Variable
 Conditionally run part of the script based on the value of a variable compared with another variable.
-<ScriptEventPreview title={"If Variable Compare With Variable"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"variable","value":"LAST_VARIABLE"}}},{"key":"true","label":"True","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"If Variable Compare With Variable"} fields={[{"key":"condition","label":"Condition","description":"The condition to evaluate.","type":"value","defaultValue":{"type":"eq","valueA":{"type":"variable","value":"LAST_VARIABLE"},"valueB":{"type":"variable","value":"LAST_VARIABLE"}}},{"key":"true","label":"True","description":"The script to run if the condition is true.","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsible","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Condition**: The condition to evaluate.  
 - **True**: The script to run if the condition is true.  

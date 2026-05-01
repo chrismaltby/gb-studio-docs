@@ -21,7 +21,7 @@ Transition to a new scene with player at a specified position and direction. A c
 
 ## Control Flow
 ### If Current Scene Is
-<ScriptEventPreview title={"If Current Scene Is"} fields={[{"key":"sceneId","label":"Scene","type":"scene","defaultValue":"LAST_SCENE"},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"If Current Scene Is"} fields={[{"key":"sceneId","label":"Scene","type":"scene","defaultValue":"LAST_SCENE"},{"key":"true","label":"True","type":"events"},{"key":"__collapseElse","label":"Else","type":"collapsible","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"False","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
 - **Scene**  
 - **True**  
@@ -34,7 +34,7 @@ Remove all scenes from the scene stack without leaving the current scene.
 
 
 ### Restore First Scene From Stack
-Transition to the very first scene stored on the stack, for instance if you had multiple levels of menu scenes you could use this to imediately return to the game scene. This event will cause the scene stack to become empty.
+Transition to the very first scene stored on the stack, for instance if you had multiple levels of menu scenes you could use this to immediately return to the game scene. This event will cause the scene stack to become empty.
 <ScriptEventPreview title={"Restore First Scene From Stack"} fields={[{"label":"Pop all scene state from stack."},{"type":"break"},{"key":"fadeSpeed","label":"Fade Speed","description":"The speed of the fade animation.","type":"fadeSpeed","allowNone":true,"defaultValue":"2","width":"50%"}]} />
 
 - **Fade Speed**: The speed of the fade animation.  

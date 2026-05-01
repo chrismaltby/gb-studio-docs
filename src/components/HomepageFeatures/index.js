@@ -15,7 +15,7 @@ const FeatureList = [
     description: (
       <>
         <p>
-          <strong>Drag and drop</strong> game creator with simple, no progamming
+          <strong>Drag and drop</strong> game creator with simple, no programming
           knowledge required, <strong>visual scripting</strong>.
         </p>
         <p>
