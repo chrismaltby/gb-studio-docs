@@ -61,6 +61,12 @@ Escribe un texto en una posición específica ya sea en el fondo de la escena o 
 - **Y**: La posición vertical.  
 - **Ubicación**: La ubicación donde debe dibujarse el texto.  
 
+### Set Font
+Set the currently used font for text
+<ScriptEventPreview title={"Set Font"} fields={[{"key":"fontId","label":"Fuente","description":"The font to use for drawing text.","type":"font","defaultValue":"LAST_FONT"}]} />
+
+- **Fuente**: The font to use for drawing text.  
+
 ## Music & Sound Effects
 ### Establecer Efecto de Sonido del Texto
 Establece un efecto de sonido para reproducir cada vez que se muestra un carácter de texto.

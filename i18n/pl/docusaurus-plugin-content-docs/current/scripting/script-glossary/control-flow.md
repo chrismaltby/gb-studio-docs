@@ -170,9 +170,9 @@ Uruchomienie części skryptu w pętli, podczas gdy wyrażenie jest prawdą...
 ## Save Data
 ### Warunek: stan gry zapisano
 Warunkowe uruchomienie części skryptu, jeżeli stan zapisu jest w określonym miejscu zapisu.
-<ScriptEventPreview title={"Warunek: stan gry zapisano"} fields={[{"key":"saveSlot","label":"Zapisz plik","description":"Określenie miejsca zapisu.","type":"togglebuttons","options":[[0,"Plik 1","Zapisz plik 1"],[1,"Plik 2","Zapisz plik 2"],[2,"Plik 3","Zapisz plik 3"]],"allowNone":false,"defaultValue":0},{"label":"Uruchom, gdy gracz wykonał zapis gry."},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W przeciwnym razie","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
+<ScriptEventPreview title={"Warunek: stan gry zapisano"} fields={[{"key":"saveSlot","label":"Miejsce zapisu","description":"Określenie miejsca zapisu.","type":"togglebuttons","options":[[0,"Miejsce 1","Miejsce zapisu 1"],[1,"Miejsce 2","Miejsce zapisu 2"],[2,"Miejsce 3","Miejsce zapisu 3"]],"allowNone":false,"defaultValue":0},{"label":"Uruchom, gdy gracz wykonał zapis gry."},{"key":"true","label":"Prawda","description":"Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).","type":"events"},{"key":"__collapseElse","label":"W przeciwnym razie","type":"collapsable","defaultValue":true,"conditions":[{"key":"__disableElse","ne":true}]},{"key":"false","label":"Fałsz","description":"Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-- **Zapisz plik**: Określenie miejsca zapisu.  
+- **Miejsce zapisu**: Określenie miejsca zapisu.  
 - **Prawda**: Skrypt do uruchomienia, jeśli warunek jest spełniony (prawda).  
 - **Fałsz**: Skrypt do uruchomienia, jeśli warunek jest nie spełniony (fałsz).  
 

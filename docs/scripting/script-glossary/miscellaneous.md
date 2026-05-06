@@ -32,23 +32,33 @@ Run a GBVM script.
 
 ## Multiplayer
 ### Link: Close
+Closes an active link session.
 <ScriptEventPreview title={"Link: Close"} fields={[{"label":"Close the current link session."}]} />
 
 
 ### Link: Host
+Creates a new link session as player 1. This allows player 2 to use the `Link: Join` event to join the session.
 <ScriptEventPreview title={"Link: Host"} fields={[{"label":"Host a link session."}]} />
 
 
 ### Link: Join
+Join an active link session as player 2. The session must first be created by another player using the `Link: Host` event. This event must be executed before any kind of data transfer between player 1 and player 2. Trying to send or receive data before this event will immediately fail and/or freeze the game.
 <ScriptEventPreview title={"Link: Join"} fields={[{"label":"Join a link session."}]} />
 
 
 ### Link: Transfer
-<ScriptEventPreview title={"Link: Transfer"} fields={[{"key":"sendVariable","label":"Send Variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"receiveVariable","label":"Receive Variable","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"size","label":"Packet Size","type":"number","defaultValue":1}]} />
+Transfer data to the other player in an active link session. This event can only be used after a successful `Link: Host` or `Link: Join` event.
 
-- **Send Variable**  
-- **Receive Variable**  
-- **Packet Size**  
+Both players must execute `Link: Transfer` using matching settings:
+- `Send Variable` on one player must match the other player's `Receive Variable`.
+- `Packet Size` must be the same for both players.
+- To transfer data in only one direction, the sender can use `$Temp 0` as the `Receive Variable` and the receiver can use `$Temp 0` as the `Send Variable`.
+<ScriptEventPreview title={"Link: Transfer"} fields={[{"key":"sendVariable","label":"Send Variable","description":"The variable to send to the other player.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"receiveVariable","label":"Receive Variable","description":"The variable used to store the value received from the other player.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"size","label":"Packet Size","description":"The number of consecutive variables to transfer.  \nFor example, setting `Send Variable` to `$Variable 1` with a packet size of `5` transfers `$Variable 1` through to `$Variable 5` in a single transfer. Larger packet sizes take longer to transfer.","type":"number","defaultValue":1}]} />
+
+- **Send Variable**: The variable to send to the other player.  
+- **Receive Variable**: The variable used to store the value received from the other player.  
+- **Packet Size**: The number of consecutive variables to transfer.  
+For example, setting `Send Variable` to `$Variable 1` with a packet size of `5` transfers `$Variable 1` through to `$Variable 5` in a single transfer. Larger packet sizes take longer to transfer.  
 
 ## Printer
 ### Print Using GB Printer

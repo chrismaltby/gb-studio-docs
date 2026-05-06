@@ -64,21 +64,21 @@ Wznawia działanie funkcji aktualizacji silnika gry dla bieżącej sceny.
 ## Tiles
 ### Scena: zastąp taflę
 Zastąpienie tafli o podanych współrzędnych inną taflą z tilesetu.
-<ScriptEventPreview title={"Scena: zastąp taflę"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}}]},{"type":"group","fields":[{"key":"tilesetId","type":"tileset","label":"Tileset","description":"Tileset z którego pobrane są tafle","defaultValue":"LAST_TILESET","unitsField":"tileSize","unitsDefault":"8px","unitsAllowed":["8px","16px"]},{"key":"tileIndex","label":"Tafla","description":"Przesunięcie tafli wewnątrz tilesetu","type":"value","min":0,"defaultValue":{"type":"number","value":0}}]}]} />
+<ScriptEventPreview title={"Scena: zastąp taflę"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}}]},{"type":"group","fields":[{"key":"tilesetId","type":"tileset","label":"Tileset","description":"Tileset z którego pobrane są tafle.","defaultValue":"LAST_TILESET","unitsField":"tileSize","unitsDefault":"8px","unitsAllowed":["8px","16px"]},{"key":"tileIndex","label":"Tafla","description":"Przesunięcie tafli wewnątrz tilesetu.","type":"value","min":0,"defaultValue":{"type":"number","value":0}}]}]} />
 
 - **X**: Pozycja pozioma.  
 - **Y**: Pozycja pionowa.  
-- **Tileset**: Tileset z którego pobrane są tafle  
-- **Tafla**: Przesunięcie tafli wewnątrz tilesetu  
+- **Tileset**: Tileset z którego pobrane są tafle.  
+- **Tafla**: Przesunięcie tafli wewnątrz tilesetu.  
 
 ### Scena: zastąp taflę w pozycji z ciągu
 Zastąp taflę na określonej współrzędnej inną taflą z tilesetu w ciągu.
-<ScriptEventPreview title={"Scena: zastąp taflę w pozycji z ciągu"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}}]},{"key":"tilesetId","type":"tileset","label":"Tileset","description":"Tileset z którego pobrane są tafle","defaultValue":"LAST_TILESET","unitsField":"tileSize","unitsDefault":"8px","unitsAllowed":["8px","16px"]},{"type":"group","fields":[{"key":"tileIndex","label":"Od tafli","description":"Początkowe przesunięcie tafli wewnątrz tilesetu","type":"value","min":0,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"frames","label":"Klatki animacji","description":"Liczba klatek animacji do odtwarzania w cyklu.","type":"value","min":1,"width":"50%","defaultValue":{"type":"number","value":1}}]},{"key":"variable","label":"Zmienna stanu","description":"Zmienna przechowywująca aktualny stan tego zdarzenia","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
+<ScriptEventPreview title={"Scena: zastąp taflę w pozycji z ciągu"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"value","min":0,"max":255,"width":"50%","defaultValue":{"type":"number","value":0}}]},{"key":"tilesetId","type":"tileset","label":"Tileset","description":"Tileset z którego pobrane są tafle.","defaultValue":"LAST_TILESET","unitsField":"tileSize","unitsDefault":"8px","unitsAllowed":["8px","16px"]},{"type":"group","fields":[{"key":"tileIndex","label":"Od tafli","description":"Początkowe przesunięcie tafli wewnątrz tilesetu.","type":"value","min":0,"width":"50%","defaultValue":{"type":"number","value":0}},{"key":"frames","label":"Klatki animacji","description":"Liczba klatek animacji do odtwarzania w cyklu.","type":"value","min":1,"width":"50%","defaultValue":{"type":"number","value":1}}]},{"key":"variable","label":"Zmienna stanu","description":"Zmienna przechowywująca aktualny stan tego zdarzenia.","type":"variable","defaultValue":"LAST_VARIABLE"}]} />
 
 - **X**: Pozycja pozioma.  
 - **Y**: Pozycja pionowa.  
-- **Tileset**: Tileset z którego pobrane są tafle  
-- **Od tafli**: Początkowe przesunięcie tafli wewnątrz tilesetu  
+- **Tileset**: Tileset z którego pobrane są tafle.  
+- **Od tafli**: Początkowe przesunięcie tafli wewnątrz tilesetu.  
 - **Klatki animacji**: Liczba klatek animacji do odtwarzania w cyklu.  
-- **Zmienna stanu**: Zmienna przechowywująca aktualny stan tego zdarzenia  
+- **Zmienna stanu**: Zmienna przechowywująca aktualny stan tego zdarzenia.  
 

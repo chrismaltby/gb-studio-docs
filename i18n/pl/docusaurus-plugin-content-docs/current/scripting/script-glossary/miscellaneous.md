@@ -32,23 +32,33 @@ Polecenie uruchomi skrypt GBVM.
 
 ## Multiplayer
 ### Link: Zamknij
+Closes an active link session.
 <ScriptEventPreview title={"Link: Zamknij"} fields={[{"label":"Zamknij aktualną sesję łączenia (link)."}]} />
 
 
 ### Link: Hostuj
+Creates a new link session as player 1. This allows player 2 to use the `Link: Join` event to join the session.
 <ScriptEventPreview title={"Link: Hostuj"} fields={[{"label":"Hostuj sesję (link)."}]} />
 
 
 ### Link: Połącz
+Join an active link session as player 2. The session must first be created by another player using the `Link: Host` event. This event must be executed before any kind of data transfer between player 1 and player 2. Trying to send or receive data before this event will immediately fail and/or freeze the game.
 <ScriptEventPreview title={"Link: Połącz"} fields={[{"label":"Dołącz do sesji (link)."}]} />
 
 
 ### Link: Transfer
-<ScriptEventPreview title={"Link: Transfer"} fields={[{"key":"sendVariable","label":"Wyślij zmienną","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"receiveVariable","label":"Wczytaj zmienną","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"size","label":"Rozmiar pakietu","type":"number","defaultValue":1}]} />
+Transfer data to the other player in an active link session. This event can only be used after a successful `Link: Host` or `Link: Join` event.
 
-- **Wyślij zmienną**  
-- **Wczytaj zmienną**  
-- **Rozmiar pakietu**  
+Both players must execute `Link: Transfer` using matching settings:
+- `Send Variable` on one player must match the other player's `Receive Variable`.
+- `Packet Size` must be the same for both players.
+- To transfer data in only one direction, the sender can use `$Temp 0` as the `Receive Variable` and the receiver can use `$Temp 0` as the `Send Variable`.
+<ScriptEventPreview title={"Link: Transfer"} fields={[{"key":"sendVariable","label":"Wyślij zmienną","description":"The variable to send to the other player.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"receiveVariable","label":"Wczytaj zmienną","description":"The variable used to store the value received from the other player.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"size","label":"Rozmiar pakietu","description":"The number of consecutive variables to transfer.  \nFor example, setting `Send Variable` to `$Variable 1` with a packet size of `5` transfers `$Variable 1` through to `$Variable 5` in a single transfer. Larger packet sizes take longer to transfer.","type":"number","defaultValue":1}]} />
+
+- **Wyślij zmienną**: The variable to send to the other player.  
+- **Wczytaj zmienną**: The variable used to store the value received from the other player.  
+- **Rozmiar pakietu**: The number of consecutive variables to transfer.  
+For example, setting `Send Variable` to `$Variable 1` with a packet size of `5` transfers `$Variable 1` through to `$Variable 5` in a single transfer. Larger packet sizes take longer to transfer.  
 
 ## Printer
 ### Drukuj przy użyciu drukarki GB

@@ -11,9 +11,9 @@ import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
 ### Muzyka: odegraj utwór
 Polecenie odegra utwór muzyczny. Jeśli odtworzysz nowy utwór podczas odtwarzania innego utworu, stary utwór zostanie automatycznie zatrzymany.
-<ScriptEventPreview title={"Muzyka: odegraj utwór"} fields={[{"key":"musicId","label":"Muzyka","description":"Wybierz muzykę do odtworzenia.","type":"music","defaultValue":"LAST_MUSIC"}]} />
+<ScriptEventPreview title={"Muzyka: odegraj utwór"} fields={[{"key":"musicId","label":"Utwór","description":"Wybierz utwór do odtworzenia.","type":"music","defaultValue":"LAST_MUSIC"}]} />
 
-- **Muzyka**: Wybierz muzykę do odtworzenia.  
+- **Utwór**: Wybierz utwór do odtworzenia.  
 
 ### Dźwięk: odegraj SE
 Polecenie odtworzy efekt dźwiękowy. Należy wybrać odtwarzanie pliku .WAV, .VGM lub .SAV (fxhammer) z folderu projektu `/assets/sounds` lub wstępnie ustawionego efektu dźwiękowego.

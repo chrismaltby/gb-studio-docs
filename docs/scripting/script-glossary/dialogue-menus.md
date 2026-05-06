@@ -61,6 +61,12 @@ Write some text to a specified positon on either the scene's background or the o
 - **Y**: The vertical position.  
 - **Location**: The location where text should be drawn.  
 
+### Set Font
+Set the currently used font for text
+<ScriptEventPreview title={"Set Font"} fields={[{"key":"fontId","label":"Font","description":"The font to use for drawing text.","type":"font","defaultValue":"LAST_FONT"}]} />
+
+- **Font**: The font to use for drawing text.  
+
 ## Music & Sound Effects
 ### Set Text Sound Effect
 Set a sound effect to play as each text character is displayed.

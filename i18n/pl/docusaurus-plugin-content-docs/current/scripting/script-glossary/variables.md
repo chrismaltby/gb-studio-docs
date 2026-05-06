@@ -158,9 +158,9 @@ Polecenie resetuje wszystkie zmienne użyte w projekcie, przywracając im warto�
 ## Save Data
 ### Zmienna: wartość z zapisu do zmiennej
 Polecenie odczytuje wartość zmiennej z określonego miejsca zapisu, a następnie zapisuje ją do zmiennej.
-<ScriptEventPreview title={"Zmienna: wartość z zapisu do zmiennej"} fields={[{"key":"variableDest","label":"Ustaw zmienną","description":"Zmienna do aktualizacji.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"Dodaj do zmiennej","description":"Zmienna do odczytania wartości.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"Zapisz z pliku","description":"Określenie miejsca zapisu.","type":"togglebuttons","options":[[0,"Plik 1","Zapisz plik 1"],[1,"Plik 2","Zapisz plik 2"],[2,"Plik 3","Zapisz plik 3"]],"allowNone":false,"defaultValue":0}]}]} />
+<ScriptEventPreview title={"Zmienna: wartość z zapisu do zmiennej"} fields={[{"key":"variableDest","label":"Ustaw zmienną","description":"Zmienna do aktualizacji.","type":"variable","defaultValue":"LAST_VARIABLE"},{"type":"group","fields":[{"key":"variableSource","label":"Zmienna do odczytu","description":"Zmienna do odczytania wartości.","type":"variable","defaultValue":"LAST_VARIABLE"},{"key":"saveSlot","label":"Zapis z miejsca","description":"Określenie miejsca zapisu.","type":"togglebuttons","options":[[0,"Miejsce 1","Miejsce zapisu 1"],[1,"Miejsce 2","Miejsce zapisu 2"],[2,"Miejsce 3","Miejsce zapisu 3"]],"allowNone":false,"defaultValue":0}]}]} />
 
 - **Ustaw zmienną**: Zmienna do aktualizacji.  
-- **Dodaj do zmiennej**: Zmienna do odczytania wartości.  
-- **Zapisz z pliku**: Określenie miejsca zapisu.  
+- **Zmienna do odczytu**: Zmienna do odczytania wartości.  
+- **Zapis z miejsca**: Określenie miejsca zapisu.  
 

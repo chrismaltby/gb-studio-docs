@@ -61,6 +61,12 @@ Text an eine festgelegte Position, entweder auf den Szenenhintergrund oder auf e
 - **Y**: Die vertikale Position.  
 - **Position**: Die Position, an welcher der Text gezeichnet werden soll.  
 
+### Set Font
+Set the currently used font for text
+<ScriptEventPreview title={"Set Font"} fields={[{"key":"fontId","label":"Schriftart","description":"The font to use for drawing text.","type":"font","defaultValue":"LAST_FONT"}]} />
+
+- **Schriftart**: The font to use for drawing text.  
+
 ## Music & Sound Effects
 ### Text-Toneffekt festlegen
 Legt einen Toneffekt für einen Text fest, welcher mit jedem angezeigten Zeichen abgespielt wird.

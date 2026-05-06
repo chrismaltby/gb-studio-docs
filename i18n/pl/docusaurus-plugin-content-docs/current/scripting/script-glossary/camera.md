@@ -35,12 +35,12 @@ Wstrząs ekranu na określony czas.
 
 ### Ustaw ograniczenia kamery
 Ustawia granice dla kamery, uniemożliwiając jej wychodzenie poza określony obszar.
-<ScriptEventPreview title={"Ustaw ograniczenia kamery"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"value","min":0,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"value","min":0,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]},{"type":"group","fields":[{"key":"width","label":"Szerokość","description":"Szerokość pola","type":"value","min":20,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":20}},{"key":"height","label":"Wysokość","description":"Wysokość pola","type":"value","min":18,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":18}}]}]} />
+<ScriptEventPreview title={"Ustaw ograniczenia kamery"} fields={[{"type":"group","fields":[{"key":"x","label":"X","description":"Pozycja pozioma.","type":"value","min":0,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}},{"key":"y","label":"Y","description":"Pozycja pionowa.","type":"value","min":0,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":0}}]},{"type":"group","fields":[{"key":"width","label":"Szerokość","description":"Szerokość pola.","type":"value","min":20,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":20}},{"key":"height","label":"Wysokość","description":"Wysokość pola.","type":"value","min":18,"max":2040,"width":"50%","unitsField":"units","unitsDefault":"tiles","unitsAllowed":["tiles","pixels"],"defaultValue":{"type":"number","value":18}}]}]} />
 
 - **X**: Pozycja pozioma.  
 - **Y**: Pozycja pionowa.  
-- **Szerokość**: Szerokość pola  
-- **Wysokość**: Wysokość pola  
+- **Szerokość**: Szerokość pola.  
+- **Wysokość**: Wysokość pola.  
 
 ### Kamera: ustaw na graczu
 Ustawia kamerę tak, aby śledziła gracza i była zablokowana na jego pozycji. Opcjonalnie umożliwia podążanie za graczem tylko w osi poziomej lub pionowej.
