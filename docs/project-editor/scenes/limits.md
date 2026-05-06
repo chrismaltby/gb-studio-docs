@@ -2,7 +2,7 @@
 
 There are several limits that GB Studio has put in place to keep game performance consistent, and to minimize visual issues.
 
-Each scene can have a maxmimum of 20 actors, and 30 triggers, and between 192 and 64 sprite tiles depending on project settings and the complexity of the background used. You can check this information by selecting a scene and looking for the gray bar under your scene that reads:
+Each scene can have a maximum of 20 actors, and 30 triggers, and between 192 and 64 sprite tiles depending on project settings and the complexity of the background used. You can check this information by selecting a scene and looking for the gray bar under your scene that reads:
 
 `A: 0/20 S: 0/96 T: 0/30`
 

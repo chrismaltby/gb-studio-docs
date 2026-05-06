@@ -1,6 +1,6 @@
 # Error
 
-Oh no, you encounted an error in GB Studio...
+Oh no, you encountered an error in GB Studio...
 
 At this point before doing anything you should make a back up of you project folder just in case anything happens.
 
