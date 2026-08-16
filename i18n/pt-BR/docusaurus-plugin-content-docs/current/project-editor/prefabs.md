@@ -2,51 +2,51 @@
 sidebar_position: 5
 ---
 
-# Prefabs
+# Pré-fabricados
 
-Prefabs are reusable templates for [Actors](/docs/project-editor/actors) and [Triggers](/docs/project-editor/triggers).
+Os pré-fabricados são modelos reutilizáveis para [Atores](/docs/project-editor/actors) e [Gatilhos](/docs/project-editor/triggers).
 
-If you find yourself adding the same enemies, pickups, doors, or cutscene triggers across multiple scenes, prefabs let you define them once and reuse them everywhere. When you edit the prefab later (for example to fix a script bug or update a sprite), all instances of that prefab update automatically.
+Se você se pegar adicionando os mesmos inimigos, itens coletáveis, portas ou gatilhos de cinemática em várias cenas, os pré-fabricados permitem defini-los uma vez e reutilizá-los em qualquer lugar. Quando você edita o pré-fabricado posteriormente (por exemplo, para corrigir um erro de script ou atualizar um sprite), todas as instâncias daquele pré-fabricado são atualizadas automaticamente.
 
-You can also override individual instances when you need small differences between actors and triggers in each scene.
+Você também pode substituir instâncias individuais quando precisar de pequenas diferenças entre atores e gatilhos em cada cena.
 
-## Creating a Prefab
+## Criando um pré-fabricado
 
-There are two ways to create a new _Prefab_:
+Existem duas maneiras de criar um novo _Pré-fabricado_:
 
-- Click the **` + `** in the _Prefab Navigator_ title bar and choose either "Actor" or "Trigger" from the dropdown menu to create a new blank prefab.
-  <div className="drop-shadow margin-bottom"><img title="Add Prefab" src="/img/screenshots/prefab-add.png" width="270" className="clip-bottom" /></div>
+- Clique no **` + `** na barra de título do _Navegador de pré-fabricados_ e escolha "Ator" ou "Gatilho" no menu suspenso para criar um novo pré-fabricado em branco.
+  <div className="drop-shadow margin-bottom"><img title="Adicionar pré-fabricado" src="/img/screenshots/prefab-add.png" width="270" className="clip-bottom" /></div>
 
-- Select an existing Actor or Trigger and using the <img className="gbs-icon" title="Down Arrow Button" src="/img/screenshots/dropdown-button.png" width="22" /> button choose "Convert to Prefab" to create a prefab from an existing entity. This will also cause the existing Actor or Trigger to be linked with this Prefab.
+- Selecione um Ator ou Gatilho existente e, usando o botão <img className="gbs-icon" title="Botão de seta para baixo" src="/img/screenshots/dropdown-button.png" width="22" />, escolha "Converter para pré-fabricado" para criar um pré-fabricado a partir de uma entidade existente. Isso também fará com que o Ator ou Gatilho existente seja vinculado a este Pré-fabricado.
 
-  <div className="drop-shadow margin-bottom"><img title="Convert to Prefab" src="/img/screenshots/prefab-convert.png" width="320" className="clip-bottom" /></div>
+  <div className="drop-shadow margin-bottom"><img title="Converter para pré-fabricado" src="/img/screenshots/prefab-convert.png" width="320" className="clip-bottom" /></div>
 
-## Instantiating a Prefab
+## Instanciando um pré-fabricado
 
-To create an **instance** of a prefab, click the **` + `** button next to the prefab's name in the _Navigator_ then click on scene where you want to add the instance.
+Para criar uma **instância** de um pré-fabricado, clique no botão **` + `** ao lado do nome do pré-fabricado no _Navegador_ e, em seguida, clique na cena onde deseja adicionar a instância.
 
-<div className="drop-shadow margin-bottom"><img title="Prefab Navigator" src="/img/screenshots/prefab-navigator.png" width="200" className="clip-bottom" /></div>
+<div className="drop-shadow margin-bottom"><img title="Navegador de pré-fabricados" src="/img/screenshots/prefab-navigator.png" width="200" className="clip-bottom" /></div>
 
-## Overriding a Prefab
+## Substituindo um pré-fabricado
 
-Each placed prefab is an **instance**. If you edit a script event inside an instance, those changes apply to that instance only (they won’t change the prefab).
+Cada pré-fabricado posicionado é uma **instância**. Se você editar um evento de script dentro de uma instância, essas alterações se aplicam apenas a essa instância (elas não alterarão o pré-fabricado).
 
-Overridden values are highlighted with a blue outline.
+Os valores substituídos são destacados com um contorno azul.
 
-<div className="drop-shadow margin-bottom"><img title="Override a Prefab" src="/img/screenshots/prefab-override.png" width="320" className="clip-bottom" /></div>
+<div className="drop-shadow margin-bottom"><img title="Substituir um pré-fabricado" src="/img/screenshots/prefab-override.png" width="320" className="clip-bottom" /></div>
 
-If you decide the changes should become the new default for every instance, open the <img className="gbs-icon" title="Down Arrow Button" src="/img/screenshots/dropdown-button.png" width="22" /> menu and choose **Apply Changes**. You can apply changes for individual edited events, or apply all overrides at once.
+Se você decidir que as alterações devem se tornar o novo padrão para todas as instâncias, abra o menu <img className="gbs-icon" title="Botão de seta para baixo" src="/img/screenshots/dropdown-button.png" width="22" /> e escolha **Aplicar alterações**. Você pode aplicar alterações para eventos editados individualmente ou aplicar todas as substituições de uma só vez.
 
-The same menu also lets you **revert** an instance back to the prefab defaults.
+O mesmo menu também permite **reverter** uma instância de volta aos padrões do pré-fabricado.
 
-<div className="drop-shadow margin-bottom"><img title="Apply Prefab Changes" src="/img/screenshots/prefab-apply.png" width="320" className="clip-bottom" /></div>
+<div className="drop-shadow margin-bottom"><img title="Aplicar alterações do pré-fabricado" src="/img/screenshots/prefab-apply.png" width="320" className="clip-bottom" /></div>
 
-## Unpacking a Prefab
+## Descompactando um pré-fabricado
 
-Unpacking removes the link between an instance and its prefab. The instance becomes a normal Actor or Trigger that won't receive further updates from the prefab.
+A descompactação remove o vínculo entre uma instância e o seu pré-fabricado. A instância se torna um Ator ou Gatilho normal que não receberá mais atualizações do pré-fabricado.
 
-<div className="drop-shadow margin-bottom"><img title="Unpack Prefab" src="/img/screenshots/unpack-prefab.png" width="320" className="clip-bottom" /></div>
+<div className="drop-shadow margin-bottom"><img title="Descompactar pré-fabricado" src="/img/screenshots/unpack-prefab.png" width="320" className="clip-bottom" /></div>
 
-This is useful when you want to start from a prefab but then heavily customize a specific instance.
+Isso é útil quando você deseja começar a partir de um pré-fabricado, mas depois personalizar bastante uma instância específica.
 
-Unpacking only affects the selected instance (the prefab itself, and other instances, are unchanged).
+A descompactação afeta apenas a instância selecionada (o pré-fabricado em si e outras instâncias permanecem inalterados).

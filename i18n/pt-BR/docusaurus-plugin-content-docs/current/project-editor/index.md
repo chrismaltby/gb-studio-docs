@@ -2,75 +2,75 @@
 sidebar_position: 4
 ---
 
-# Project Editor
+# Editor de projetos
 
-The default view for the _Project Editor_ as shown below is the _Game World_. This is where you can create your game by combining scenes, adding actors and triggers then building scripting events to add interactions.
+A visualização padrão para o _Editor de projetos_ como mostrado abaixo é a _Área do jogo_. É aqui que você pode criar o seu jogo combinando cenas, adicionando atores e gatilhos e, em seguida, construindo eventos de script para adicionar interações.
 
-<img title="The Project Editor" src="/img/screenshots/project-editor-v420.jpg" width="1258" />
+<img title="Editor de projetos" src="/img/screenshots/project-editor-v420.jpg" width="1258" />
 
-Use the _Editor Tools_ to switch between Select, Add, Erase, Collision, and Color Drawing modes.
+Use as _Ferramentas do editor_ para alternar entre os modos de Seleção, Adição, Borracha, Colisão e Desenho de cor.
 
-By default, your project's properties are shown in the _Editor Sidebar_ on the right. Here you can set the project name and choose the starting scene. This project view is also where initial values for the Player actor are set. See the page on [The Player](/docs/project-editor/player) for more information on the Player.
+Por padrão, as propriedades do seu projeto são mostradas na _Barra lateral do editor_ à direita. Aqui você pode definir o nome do projeto e escolher a cena inicial. Esta visualização do projeto também é onde os valores iniciais para o ator Jogador são definidos. Veja a página [Jogador](/docs/project-editor/player) para obter mais informações sobre o jogador.
 
-To look at project properties again from the _Editor Sidebar_, click on any empty space between scenes.
+Para ver as propriedades do projeto novamente na _Barra lateral do editor_, clique em qualquer espaço vazio entre as cenas.
 
-## Editor Tools
+## Ferramentas do editor
 
-### Select tool
+### Ferramenta de seleção
 
-Clicking any scenes, actors, or triggers will update the _Editor Sidebar_ to show the properties and scripts for the item you selected. You can switch back to the Project's properties by clicking outside of a scene.
+Ao clicar em quaisquer cenas, atores ou gatilhos, a _Barra lateral do editor_ será atualizada para mostrar as propriedades e os scripts do item que você selecionou. Você pode voltar para as propriedades do projeto clicando fora de uma cena.
 
 :::tip
-If you hold `Shift` while clicking on scenes you can add and remove them from your selection. This allows you to drag multiple scenes together or right click to delete multiple at once. You can also hold `Shift` while dragging to create a box selection.
+Se você segurar `Shift` ao clicar em cenas, poderá adicioná-las e removê-las da sua seleção. Isso permite que você arraste várias cenas juntas ou clique com o botão direito para apagar várias de uma vez. Você também pode segurar `Shift` ao arrastar para criar uma seleção em caixa.
 
-<img title="Scene box selection" src="/img/screenshots/multi-select.gif" width="320" className="drop-shadow" />
+<img title="Seleção de cenas em caixa" src="/img/screenshots/multi-select.gif" width="320" className="drop-shadow" />
 
 :::
 
-### Add tool
+### Ferramenta de adição
 
-You are given the choice of adding a new Actor, Trigger or Scene. After clicking any of the 3 options, your mouse cursor will be loaded with a new item. You can place the new item by clicking inside the Project Editor, and cancel the action by pressing Escape or selecting another tool from _Editor Tools_.
+Você tem a opção de adicionar um novo Ator, Gatilho ou Cena. Após clicar em qualquer uma das 3 opções, o cursor do seu mouse será carregado com um novo item. Você pode posicionar o novo item clicando dentro do Editor de projetos e cancelar a ação pressionando Esc ou selecionando outra ferramenta nas _Ferramentas do editor_.
 
-### Erase tool
+### Ferramenta de borracha
 
-All collisions, actors, and triggers will be removed when clicked. Erase actions can be undone by pressing `Ctrl / Cmd` + `Z`.
+Todas as colisões, atores e gatilhos serão removidos ao serem clicados. As ações da borracha podem ser desfeitas pressionando `Ctrl / Cmd` + `Z`.
 
-Scenes are not affected by _Erase mode_. To delete a scene either:
+Cenas não são afetadas pelo _Modo borracha_. Para excluir uma cena, você pode:
 
-- Select the scene _Select mode_ then in the _Editor Sidebar_ click the down arrow at the top and choose the "Delete Scene" menu item.
-- Select the scene and press the `Backspace` key on your keyboard.
-- Right click on the scene and click "Delete Scene" from the menu.
+- Selecionar a cena no _Modo de seleção_ e, na _Barra lateral do editor_, clicar na seta para baixo na parte superior e escolher o item de menu "Apagar cena".
+- Selecionar a cena e pressionar a tecla `Backspace` no seu teclado.
+- Clicar com o botão direito na cena e clicar em "Apagar cena" no menu.
 
-### Collision tool
+### Ferramenta de colisão
 
-Allows you to [add collisions](/docs/project-editor/scenes/collisions) to any type of scene using GB Studio's _Drawing mode_.
+Permite que você [adicione colisões](/docs/project-editor/scenes/collisions) a qualquer tipo de cena usando o _Modo de desenho_ do GB Studio.
 
-### Color tool
+### Ferramenta de cor
 
-Allows you to [paint tiles](/docs/project-editor/scenes/color) in your scene with with up to 8 color palettes per scene. The _Color Tool_ also uses GB Studio's _Drawing mode_. The palettes used here are determined in the _Palette_ tab in the _Project Editor_.
+Permite que você [pinte tiles](/docs/project-editor/scenes/color) na sua cena com até 8 paletas de cores por cena. A _Ferramenta de cor_ também usa o _Modo de desenho_ do GB Studio. As paletas usadas aqui são determinadas na aba _Paleta_ no _Editor de projetos_.
 
-See the documentation on [Keyboard Shortcuts](/docs/getting-started/keyboard-shortcuts) for editor tool shortcuts.
+Veja a documentação sobre os [Atalhos de teclado](/docs/getting-started/keyboard-shortcuts) para os atalhos das ferramentas do editor.
 
-## Project Views
+## Visualizações do projeto
 
-Using the _Project View Button_ you can switch between different views of your project and its assets.
+Usando o _Botão de visualização do projeto_ você pode alternar entre as diferentes visualizações do seu projeto e seus ativos.
 
-<img title="Scene box selection" src="/img/screenshots/project-view-btn.gif" width="320" className="drop-shadow" />
+<img title="Seleção de cenas em caixa" src="/img/screenshots/project-view-btn.gif" width="320" className="drop-shadow" />
 
-- **Game World:** Create your game by combining [scenes](/docs/project-editor/scenes), [actors](/docs/project-editor/actors) and [triggers](/docs/project-editor/triggers).
+- **Área do jogo:** Crie o seu jogo combinando [cenas](/docs/project-editor/scenes), [atores](/docs/project-editor/actors) e [gatilhos](/docs/project-editor/triggers).
 
-- **Sprites:** Edit your [sprites](/docs/assets/sprites) and [create animations](/docs/assets/sprites#sprite-editor).
+- **Sprites:** Edite os seus [sprites](/docs/assets/sprites) e [crie animações](/docs/assets/sprites#sprite-editor).
 
-- **Images:** Preview your [background](/docs/assets/backgrounds) and [tileset](/docs/assets/tilesets) assets.
+- **Imagens:** Visualize os seus ativos de [imagens de fundo](/docs/assets/backgrounds) e [conjuntos de tiles](/docs/assets/tilesets).
 
-- **Music:** Preview and edit your [music](/docs/assets/music) files.
+- **Música:** Visualize e edite os seus arquivos de [música](/docs/assets/music).
 
-- **Sound Effects:** Preview your [sound effect](/docs/assets/sound-effects) files.
+- **Efeitos sonoros:** Visualize os seus arquivos de [efeitos sonoros](/docs/assets/sound-effects).
 
-- **Palettes:** Edit your [palettes](/docs/assets/palettes) for color games.
+- **Paletas:** Edite as suas [paletas](/docs/assets/palettes) para jogos em cores.
 
-- **Dialogue Review:** Preview and edit all the text in your game.
+- **Revisar diálogos:** Visualize e edite todo o texto no seu jogo.
 
-- **Settings:** Change your [project's settings](/docs/settings) such as default sprites, color palettes and keyboard controls.
+- **Configurações:** Altere as [configurações do seu projeto](/docs/settings), como sprites padrão, paletas de cores e controles de teclado.
 
-See the documentation on [Assets](/docs/assets) for more information on how to add new assets.
+Veja a documentação sobre [Ativos](/docs/assets) para obter mais informações sobre como adicionar novos ativos.

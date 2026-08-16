@@ -2,71 +2,72 @@
 sidebar_position: 1
 ---
 
-# Scene Types
+# Tipos de cena
 
-A scene’s **Type** determines how the player is controlled and how interactions work while the game is running. Internally, GB Studio uses the selected type to configure the scene when it loads and to decide what gameplay logic runs each frame.
+O **Tipo** de uma cena determina como o jogador é controlado e como as interações funcionam enquanto o jogo está sendo executado. Internamente, o GB Studio usa o tipo selecionado para configurar a cena quando ela é carregada e para decidir qual lógica de jogo é executada a cada quadro.
 
-Scene types may also change which [Collision Tiles](/docs/project-editor/scenes/collisions) are supported and which [Actor Collision Flags](/docs/project-editor/actors#collision-groups) are available.
+Os tipos de cena também podem alterar quais [Tiles de colisão](/docs/project-editor/scenes/collisions) são suportados e quais [Marcadores de colisão do ator](/docs/project-editor/actors#collision-groups) estão disponíveis.
 
-Using [plugins](/docs/extending-gbstudio/plugins), you can also add additional scene types or modify the inbuilt ones.
+Usando [plugins](/docs/extending-gbstudio/plugins), você também pode adicionar tipos de cena adicionais ou modificar os integrados.
 
-## Inbuilt Scene Types
+## Tipos de cena integrados
 
-GB Studio includes several inbuilt scene types designed for common genres.
+O GB Studio inclui vários tipos de cena integrados projetados para gêneros comuns.
 
-### Top Down 2D
+### Visão superior 2D
 
-Use this for RPG-style overworlds and grid-based movement.
+Use isto para mundos no estilo RPG e movimento baseado em grade.
 
-- The player moves on an **8px grid** (optionally **16px**, configurable in [Settings](/docs/settings)).
-- **Actor interaction:** Stand next to an actor, face them, then press the `Interact` button (default `A`) to run the actor’s **On Interact** script.
-- **Trigger interaction:** When the player steps onto a trigger, the trigger’s **On Enter** script runs. When the player steps off that trigger (onto a non-trigger tile), its **On Leave** script runs.
+- O jogador se move em uma **grade de 8px** (opcionalmente **16px**, configurável nas [Configurações](/docs/settings)).
+- **Interação com ator:** Fique perto de um ator, vire-se para ele e pressione o botão de `Interação` (padrão `A`) para executar o script **Ao interagir** do ator.
+- **Interação com gatilho:** Quando o jogador pisa em um gatilho, o script **Ao entrar** do gatilho é executado. Quando o jogador sai desse gatilho (pisando em um tile sem gatilho), o seu script **Ao sair** é executado.
 
-### Logo
+### Logotipo
 
-Use this for title screens, splash screens, and other static displays.
+Use isto para telas de título, telas de abertura e outras exibições estáticas.
 
-The Logo scene type contains minimal gameplay logic (for example, it does not display a controllable player), but it allows more complex backgrounds than normal scenes.
+O tipo de cena Logotipo contém lógica de jogo mínima (por exemplo, ele não exibe um jogador controlável), mas permite imagens de fundo mais complexas do que as cenas normais.
 
-Normally, because of [scene limits](/docs/project-editor/scenes/limits#background-and-sprite-tile-limits), a single scene background can contain up to **128 unique tiles** (or **256** in `Color Only`). A full screen is **20 tiles wide × 18 tiles high** (360 tiles), so detailed images can exceed the unique tile limit.
+Normalmente, devido aos [limites de cena](/docs/project-editor/scenes/limits#background-and-sprite-tile-limits), uma única imagem de fundo de cena pode conter até **128 tiles únicos** (ou **256** em `Apenas cor`). Uma tela inteira tem **20 tiles de largura × 18 tiles de altura** (360 tiles), então imagens detalhadas podem exceder o limite de tiles únicos.
 
-Logo scenes are designed to display these more complex images without needing to simplify your art to fit standard scene tile limits.
+Cenas de logotipo são projetadas para exibir essas imagens mais complexas sem a necessidade de simplificar a sua arte para caber nos limites de tiles das cenas padrão.
 
-### Platformer
+### Plataforma
 
-Use this for side-scrolling or vertical platforming levels.
+Use isto para níveis de plataforma de rolagem lateral ou vertical.
 
-Platformer scenes provide detailed control over player movement, including acceleration, velocity and gravity, and support optional features such as:
+As cenas de plataforma fornecem controle detalhado sobre o movimento do jogador, incluindo aceleração, velocidade e gravidade, e oferecem suporte a recursos opcionais como:
 
-- Running
-- Jumping / Double Jump
-- Wall Jump
-- Floating
-- Dashing
-- Ladders
+- Correr
+- Pular / Pulo duplo
+- Pulo de parede
+- Flutuar
+- Impulso
+- Escadas
 
-Each feature can be enabled/disabled in settings so unused mechanics don’t affect your game's performance.
+Cada recurso pode ser habilitado/desabilitado nas configurações para que as mecânicas não utilizadas não afetem o desempenho do seu jogo.
 
-### Adventure
+### Aventura
 
-Use this for top-down view games with smooth, non-grid based, movement.
+Use isto para jogos com visão superior e movimento fluido, não baseado em grade.
 
-Adventure scenes are similar to Top Down 2D, but the player is not locked to a grid. Movement is more fine-grained (similar to Platformer), and you can optionally enable features such as Run, Dash, and pushing state.
+As cenas de aventura são semelhantes a Visão superior 2D, mas o jogador não está preso a uma grade. O movimento é mais preciso (semelhante a Plataforma) e você pode opcionalmente habilitar recursos como Correr, Impulso e o estado de empurrar.
 
-- The player can move diagonally (or you can enforce **4-way movement**).
-- You can restrict facing direction to **Horizontal Only**, which can also suit side-scrolling beat ’em up style games.
+- O jogador pode se mover diagonalmente (ou você pode impor o **movimento em 4 vias**).
+- Você pode restringir a direção em que ele olha para **Apenas horizontal**, o que também pode se adequar a jogos no estilo beat ’em up de rolagem lateral.
 
-### Point and Click
+### Apontar e clicar
 
-Use this for cursor-driven interaction.
+Use isto para interações guiadas por cursor.
 
-In Point and Click scenes, the player character is treated as a **cursor**. Pressing the `Interact` button will interact with [Triggers](/docs/project-editor/triggers) in the scene.
+Em cenas do tipo Apontar e clicar, o personagem do jogador é tratado como um **cursor**. Pressionar o botão de `Interação` irá interagir com os [Gatilhos](/docs/project-editor/triggers) na cena.
 
 ### Shoot ’Em Up
 
-Use this for classic horizontal or vertical scrolling shooters.
+Use isto para clássicos jogos de tiro de rolagem horizontal ou vertical.
 
-- The scroll direction is determined by the **initial direction the player is facing** when they enter the scene.
-- In the scene type settings, you can either:
-  - Lock player movement to a single screen edge, or
-  - Allow free movement across the full screen.
+- A direção da rolagem é determinada pela **direção inicial para qual o jogador está virado** ao entrar na cena.
+- Nas configurações do tipo de cena, você pode:
+  - Bloquear o movimento do jogador em uma única borda da tela, ou
+  - Permitir movimento livre por toda a tela.
+  

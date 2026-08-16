@@ -2,91 +2,91 @@
 sidebar_position: 1
 ---
 
-# Scenes
+# Cenas
 
-A scene is a single screen of your game, it can contain multiple [actors](/docs/project-editor/actors) and [triggers](/docs/project-editor/triggers). A game is typically made-up of many scenes connected together with triggers using the [Change Scene](/docs/scripting/script-glossary/scene#change-scene) event.
+Uma cena é uma única tela do seu jogo, ela pode conter vários [atores](/docs/project-editor/actors) e [gatilhos](/docs/project-editor/triggers). Um jogo é normalmente composto por muitas cenas conectadas entre si com gatilhos usando o evento [Trocar cena](/docs/scripting/script-glossary/scene#change-scene).
 
-## Adding a Scene
+## Adicionando uma cena
 
-Click the **` + `** button in the _Editor Tools_ and select _Scene_ from the menu. Click on any empty space in the _Project Viewport_ to place the new scene.
+Clique no botão **` + `** nas _Ferramentas do editor_ e selecione _Cena_ no menu. Clique em qualquer espaço vazio na _Janela de visualização do projeto_ para posicionar a nova cena.
 
 <div className="drop-shadow margin-bottom"><img src="/img/screenshots/add-scene-v4.gif" width="320" className="clip-bottom" /></div>
 
-You can use the _Editor Sidebar_ to give your scene a name and a background from your project's assets. See the documentation for [Backgrounds](/docs/assets/backgrounds) for more information on adding background images.
+Você pode usar a _Barra lateral do editor_ para dar um nome à sua cena e uma imagem de fundo dos ativos do seu projeto. Veja a documentação sobre [Imagens de fundo](/docs/assets/backgrounds) para obter mais informações sobre como adicionar imagens de fundo.
 
-## Scene Properties
+## Propriedades da cena
 
-- **Name** - Names your scene. Useful for locating your scene with the search bar and [scene navigator](/docs/project-editor/navigator).
+- **Nome** - Nomeia a sua cena. Útil para localizar a sua cena com a barra de pesquisa e o [navegador de cena](/docs/project-editor/navigator).
 
 :::tip
-Using `/` characters in your scene's name will cause it to appear within folders in the scene navigator (e.g. `ui/title screen` will appear as `title screen` within the `ui` folder)
+Usar caracteres `/` no nome da sua cena fará com que ela apareça dentro de pastas no navegador de cena (ex.: `ui/title screen` aparecerá como `title screen` dentro da pasta `ui`)
 :::
 
-- **Type** - Lets you choose from the list of game modes such as _Top Down 2D_ or _Platformer_. This option changes how the scene plays while in game. Using [plugins](/docs/extending-gbstudio/plugins) it's possible to add additional scene types here and modify the inbuilt types.
+- **Tipo** - Permite que você escolha na lista de modos de jogo, como _Visão superior 2D_ ou _Plataforma_. Esta opção altera como a cena se comporta durante o jogo. Usando [plugins](/docs/extending-gbstudio/plugins) é possível adicionar tipos de cena adicionais aqui e modificar os tipos integrados.
 
-  Some types, when selected, will show a <img className="gbs-icon" title="Settings Button" src="/img/screenshots/settings-button.png" width="22" /> button allowing you quick access to the scene type's [Settings](/docs/settings).
+  Alguns tipos, quando selecionados, mostrarão um botão <img className="gbs-icon" title="Botão de configurações" src="/img/screenshots/settings-button.png" width="22" /> permitindo que você acesse rapidamente as [Configurações](/docs/settings) do tipo de cena.
 
-- **Background** - Lets you choose a [background](/docs/assets/backgrounds) image from the `assets/backgrounds` folder. Optionally allows extracting the color palettes automatically for color .png images.
+- **Imagem de fundo** - Permite que você escolha uma [imagem de fundo](/docs/assets/backgrounds) da pasta `assets/backgrounds`. Opcionalmente, permite extrair as paletas de cores automaticamente para imagens coloridas .png.
 
-- **Monochome Palettes** - The background palette (BGP) and two sprite palettes (OBP0 and OBP1) which are used when running a game without color.
+- **Paletas monocromáticas** - A paleta do fundo (BGP) e duas paletas de sprite (OBP0 e OBP1) que são usadas ao executar um jogo sem cor.
 
-- **Background Palettes (Color Modes Only)** - The eight palettes that will be used when coloring the scene.
+- **Paletas de fundo (Apenas modos de cor)** - As oito paletas que serão usadas ao colorir a cena.
 
-- **Sprite Palettes (Color Modes Only)** - The eight palettes that will be used for sprites in your scene.
+- **Paletas de sprite (Apenas modos de cor)** - As oito paletas que serão usadas para sprites na sua cena.
 
-- **Player Sprite Sheet** - Used to set a custom player sprite for this scene. By default the scene will use the default player sprite for the selected scene _type_.
+- **Folha de sprite do jogador** - Usado para definir um sprite de jogador personalizado para esta cena. Por padrão, a cena usará o sprite de jogador padrão para o _tipo_ de cena selecionado.
 
-## Parallax Mode
+## Modo de paralaxe
 
-When a scene is wider than 20 tiles (160px), parallax mode becomes available. You can enable it by clicking the <img className="gbs-icon" title="Parallax Toggle Button" src="/img/screenshots/parallax-button.png" width="22" /> button to the right of the _Background Selector_.
+Quando uma cena é mais larga que 20 tiles (160px), o modo de paralaxe fica disponível. Você pode habilitá-lo clicando no botão <img className="gbs-icon" title="Botão de alternar paralaxe" src="/img/screenshots/parallax-button.png" width="22" /> à direita do _Seletor de Imagem de fundo_.
 
-When parallax mode is enabled you can split the background into up to three slices which can be modified to scroll at different speeds as the camera moves in game.
+Quando o modo de paralaxe está habilitado, você pode dividir a imagem de fundo em até três fatias, que podem ser modificadas para rolar em velocidades diferentes conforme a câmera se move no jogo.
 
 <img src="/img/screenshots/parallax-v420.jpg" style={{width:550}} />
 
-## Camera Bounds
+## Limites da câmera
 
-When a scene is wider than 20 tiles (160px) or taller than 18 tiles (144px), the ability to limit the camera bounds of a scene becomes available. You can enable it by clicking the <img className="gbs-icon" title="Camera Bounds Toggle Button" src="/img/screenshots/camera-bounds-button.png" width="22" /> button to the right of the Background Selector.
+Quando uma cena é mais larga que 20 tiles (160px) ou mais alta que 18 tiles (144px), a capacidade de limitar os limites da câmera de uma cena fica disponível. Você pode habilitá-la clicando no botão <img className="gbs-icon" title="Botão de alternar limites da câmera" src="/img/screenshots/camera-bounds-button.png" width="22" /> à direita do Seletor de Imagem de fundo.
 
 <img className="margin-bottom" src="/img/screenshots/camera-bounds-v420.jpg" style={{width:550}} />
 
-When enabled this lets you set the minimum and maximum area that will be viewable by the camera in your scene. It's also possible to set these values dynamically using a [Set Camera Bounds](/docs/scripting/script-glossary/camera#set-camera-bounds) event.
+Quando habilitado, isso permite que você defina a área mínima e máxima que será visível pela câmera na sua cena. Também é possível definir esses valores dinamicamente usando um evento [Definir limites da câmera](/docs/scripting/script-glossary/camera#set-camera-bounds).
 
 <div className="drop-shadow margin-bottom"><img src="/img/screenshots/camera-bounds-preview.jpg" width="320" className="clip-bottom" /></div>
 
-## Common Tilesets
+## Conjuntos de tiles comuns
 
 :::warning
-This is an advanced technique that may require an understanding of how graphics memory is located and loaded in your game.
+Esta é uma técnica avançada que pode exigir a compreensão de como a memória de vídeo é alocada e carregada no seu jogo.
 :::
 
-When using the [Change Scene](/docs/scripting/script-glossary/scene#change-scene) event with _Fade Speed_ set to `Instant` you'll often see _"glitchy"_ graphics as you move to the next scene. This is because there is slight delay loading tile data and for a small period of time the scene will show the previous scene's tile data using the new scene's layout. To confirm this you can use the [VRAM panel](/docs/debugger) in the Debugger.
+Ao usar o evento [Trocar cena](/docs/scripting/script-glossary/scene#change-scene) com a _Velocidade da transição_ definida como `Instantâneo`, muitas vezes você verá gráficos _"falhando"_ conforme você se move para a próxima cena. Isso ocorre porque há um pequeno atraso no carregamento dos dados dos tiles e, por um curto período de tempo, a cena mostrará os dados dos tiles da cena anterior usando o layout da nova cena. Para confirmar isso, você pode usar o [Painel VRAM](/docs/debugger) no Depurador.
 
-To help fix this problem you can specify a [tileset](/docs/assets/tilesets) that is shared between the two scenes. Tilesets are images from the `assets/tilesets` folder. When two scenes share a common tileset, the common tiles will always be loaded in the same locations in memory allowing more seamless transitions.
+Para ajudar a corrigir este problema, você pode especificar um [conjunto de tiles](/docs/assets/tilesets) que é compartilhado entre as duas cenas. Conjuntos de tiles são imagens da pasta `assets/tilesets`. Quando duas cenas compartilham um conjunto de tiles comum, os tiles comuns sempre serão carregados nos mesmos locais na memória, permitindo transições mais fluidas.
 
-e.g. these two scenes have the same common tileset
+Ex.: estas duas cenas têm o mesmo conjunto de tiles em comum
 <img src="/img/screenshots/common-tilesets.png" className="drop-shadow margin-bottom" />
 
-which allows instantly switching between them
+o que permite alternar instantaneamente entre elas
 
 <div className="drop-shadow margin-bottom"><img src="/img/screenshots/common-tileset-example.gif" width="320" className="clip-bottom" /></div>
 
-The assets used in this example are:
+Os ativos usados neste exemplo são:
 
 - [assets/backgrounds/east.png](/assets/examples/common-tilesets/east.png)
 - [assets/backgrounds/west.png](/assets/examples/common-tilesets/west.png)
 - [assets/tilesets/town.png](/assets/examples/common-tilesets/town.png)
 
 :::note
-Notice how the tileset image doesn't need to only contain unique tiles (although it can if you'd prefer), when running your game only the unique tiles found in the image will be loaded.
+Observe como a imagem do conjunto de tiles não precisa conter apenas tiles únicos (embora possa, se você preferir), ao executar o seu jogo, apenas os tiles únicos encontrados na imagem serão carregados.
 :::
 
-## Scripting
+## Scripts
 
-Scenes can contain an _On Init_ script that will be called as soon as the scene is loaded in game. You can use this to do things like playing music as the scene loads, configuring events to happen on button presses, initialise actors based on the values of variables, and much more.
+As cenas podem conter um script _Ao iniciar_ que será chamado assim que a cena for carregada no jogo. Você pode usar isso para fazer coisas como reproduzir música enquanto a cena carrega, configurar eventos para acontecer quando botões são pressionados, inicializar atores com base nos valores de variáveis e muito mais.
 
-You can also define scripts to call when the player collides with _Actors_ that have a _Collision Group_ set by clicking the _On Hit_ tab and choose a collision group.
+Você também pode definir scripts para chamar quando o jogador colide com _Atores_ que têm um _Grupo de colisão_ definido clicando na aba _Ao acertar_ e escolhendo um grupo de colisão.
 
-To start building a script, select a scene, click the script type you want to edit and click the _Add Event button_ in the _Editor Sidebar_ to open the event menu. Select an event to add it to the script.
+Para começar a construir um script, selecione uma cena, clique no tipo de script que você quer editar e clique no botão _Adicionar evento_ na _Barra lateral do editor_ para abrir o menu de eventos. Selecione um evento para adicioná-lo ao script.
 
-For more information see the documentation for [Scripting](/docs/scripting).
+Para obter mais informações, veja a documentação de [Scripting](/docs/scripting).

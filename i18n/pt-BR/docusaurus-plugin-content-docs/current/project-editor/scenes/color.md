@@ -1,41 +1,41 @@
-# Color
+# Cor
 
-## Coloring a Scene
+## Colorindo uma cena
 
-Select the _Color Tool_ from the _Editor Tools_. There are 8 palettes types that can be added to a scene with Color Mode enabled. Palettes can be adjusted in Settings. Note that the 8th palette in a scene will also be used for _Dialogue Windows_ and menus.
+Selecione a _Ferramenta de cor_ nas _Ferramentas do editor_. Existem 8 tipos de paletas que podem ser adicionadas a uma cena com o Modo de cor habilitado. As paletas podem ser ajustadas nas Configurações. Observe que a 8ª paleta em uma cena também será usada para as _Janelas de diálogo_ e menus.
 
-The palettes used in the _Color Tool_ can be swapped out for existing palettes (such as the UI palette) by long-clicking on a palette.
+As paletas usadas na _Ferramenta de cor_ podem ser trocadas por paletas existentes (como a paleta de UI) ao segurar o clique em uma paleta.
 
-For more information about the drawing mode used for the _Color Tool_ and the _Collision Tool_, see [Keyboard Shortcuts](/docs/getting-started/keyboard-shortcuts).
+Para obter mais informações sobre o modo de desenho usado para a _Ferramenta de cor_ e a _Ferramenta de colisão_, veja [Atalhos de teclado](/docs/getting-started/keyboard-shortcuts).
 
-## Automatic Color
+## Cor automática
 
-If your image is already a color `.png` file you can try switching to using `Automatic` Background Palettes using the _Editor Sidebar_.
+Se a sua imagem já for um arquivo `.png` colorido, você pode tentar mudar para o uso de Paletas de fundo no `Automático` usando a _Barra lateral do editor_.
 
 <div className="drop-shadow margin-bottom"><img src="/img/screenshots/auto-color.gif" width="320" className="clip-bottom" /></div>
 
 :::info
-You will need to be careful to follow the same requirements about unique colors per scene and tile when using Automatic Background Palettes if you want your images to display correctly. For example, using more than 7 unique color palettes will cause palette 8 to be overwritten meaning dialogue and menu windows may not appear correctly for that scene.
+Você precisará ter o cuidado de seguir os mesmos requisitos sobre cores únicas por cena e tile ao usar Paletas de fundo automáticas se quiser que as suas imagens sejam exibidas corretamente. Por exemplo, usar mais de 7 paletas de cores únicas fará com que a paleta 8 seja substituída, o que significa que as janelas de diálogo e menu podem não aparecer corretamente para aquela cena.
 
-When using Automatic Background Palettes, Monochrome tiles are also created automatically. If you want to support both Color and Monochrome devices you may want to provide a [Monochrome Override](/docs/assets/backgrounds#monochrome-overrides) image to give more control how the background appears on Monochrome devices.
+Ao usar as Paletas de fundo automáticas, os tiles monocromáticos também são criados automaticamente. Se você deseja ter suporte a dispositivos coloridos e monocromáticos, pode ser necessário fornecer uma imagem de [Sobrecarga monocromática](/docs/assets/backgrounds#monochrome-overrides) para dar mais controle sobre como a imagem de fundo aparece em dispositivos monocromáticos.
 :::
 
-## Extract Palettes
+## Extrair paletas
 
-The Background Palettes type field also includes the ability to _Extract Palettes_ from a color background image.
+O campo do tipo Paletas de fundo também inclui a capacidade de _Extrair paletas_ de uma imagem de fundo colorida.
 
 <div className="drop-shadow margin-bottom"><img src="/img/screenshots/extract-palettes.jpg" width="320" className="clip-bottom" /></div>
 
-Selecting this option will read the currently selected color background image and create the palettes needed, paint the tiles in your scene and will also create a [Monochrome Override](/docs/assets/backgrounds#monochrome-overrides) image for your background.
+Selecionar esta opção irá ler a imagem de fundo colorida atualmente selecionada e criar as paletas necessárias, pintar os tiles na sua cena e também criará uma imagem de [Sobrecarga monocromática](/docs/assets/backgrounds#monochrome-overrides) para a sua imagem de fundo.
 
-## Tile Priority
+## Prioridade de tile
 
-When coloring a scene you can use the `<!>` button to set priority tiles, these tiles will appear in front of actors (on GB Color games only) allowing you to create depth in your scenes. Note that the first color in the tile's palette will be transparent and drawn behind the actors.
+Ao colorir uma cena, você pode usar o botão `<!>` para definir tiles de prioridade, esses tiles aparecerão na frente dos atores (apenas em jogos de GB Color), permitindo que você crie profundidade nas suas cenas. Observe que a primeira cor na paleta do tile será transparente e desenhada atrás dos atores.
 
 <img src="/img/screenshots/tile-priority.png" width="320" className="drop-shadow" />
 
-## Magic Brush
+## Pincel mágico
 
-The Magic Brush is available when adding collisions or coloring a scene and can be used to paint every tile in the scene that matches the one you clicked instantly.
+O Pincel mágico fica disponível ao adicionar colisões ou colorir uma cena e pode ser usado para pintar instantaneamente todos os tiles da cena que correspondam àquele em que você clicou.
 
 <div className="drop-shadow"><img src="/img/screenshots/magic-brush.gif" width="320" className="clip-bottom" /></div>

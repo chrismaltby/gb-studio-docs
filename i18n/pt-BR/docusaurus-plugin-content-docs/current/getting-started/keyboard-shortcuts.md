@@ -1,142 +1,142 @@
-# Keyboard Shortcuts
+# Atalhos de teclado
 
-## Play Window
+## Janela de jogo
 
-When playing your game inside GB Studio use the following keyboard controls:
+Ao jogar o seu jogo dentro do GB Studio, use os seguintes controles do teclado:
 
 <object data="/img/manual/keyboard-controls.svg" class="margin-bottom" />
 
-These controls can be modified at any time by going to the Controls section in [Settings](/docs/settings).
+Esses controles podem ser modificados a qualquer momento indo até a seção Controles nas [Configurações](/docs/settings).
 
 :::tip
 
-You can also control the _Play Window_ using a supported gamepad. If your web browser has gamepad support you can also use it when running a web build.
+Você também pode controlar a _Janela de jogo_ usando um controle compatível. Se o seu navegador web for compatível com controle, você também pode usá-lo ao executar uma compilação para web.
 
 :::
 
-## Navigating The Menus
+## Navegação pelos menus
 
-Much of the functionality of GB Studio is accessible through the menu bar and many of the menu items contain keyboard shortcut labels. Try clicking around on the menus to discover all of the shortcuts but the following are a few you should find useful:
+Grande parte das funcionalidades do GB Studio é acessível pela barra de menu e muitos dos itens do menu contêm rótulos de atalhos de teclado. Tente clicar pelos menus para descobrir todos os atalhos, mas os seguintes são alguns que você deve achar úteis:
 
-**Save Project** - `Ctrl/Cmd` + `S`  
-**Open Project** - `Ctrl/Cmd` + `O`  
-**Switch View Mode** - `Ctrl/Cmd` + `1-8`  
-**Run Game** - `Ctrl/Cmd` + `B`  
-**Export ROM file** - `Ctrl/Cmd` + `Shift` + `B`
+**Salvar projeto** - `Ctrl/Cmd` + `S`  
+**Abrir projeto** - `Ctrl/Cmd` + `O`  
+**Alternar modo de visualização** - `Ctrl/Cmd` + `1-8`  
+**Executar jogo** - `Ctrl/Cmd` + `B`  
+**Exportar arquivo ROM** - `Ctrl/Cmd` + `Shift` + `B`
 
-## Game World
+## Área do jogo
 
-While editing the game world you can use the following keys to quickly manipulate your scenes.
+Enquanto edita a área do jogo, você pode usar as seguintes teclas para manipular rapidamente as suas cenas.
 
-**Select Mode** - `V`  
-**Add Actor** - `A`  
-**Add Trigger** - `T`  
-**Add Scene** - `S`  
-**Eraser Mode** - `E`  
-**Collisions Mode** - `C`  
-**Set Player Start Position** - `P` (while hovering over desired location)  
-**Pan View** - Hold `Space` (while clicking and dragging on _Game World_)  
-**Zoom** - Hold `Ctrl/Cmd` + `Scroll wheel`  
-**Focus on Scene Search** - `/`
+**Modo de seleção** - `V`  
+**Adicionar ator** - `A`  
+**Adicionar gatilho** - `T`  
+**Adicionar cena** - `S`  
+**Modo borracha** - `E`  
+**Modo de colisões** - `C`  
+**Definir posição inicial do jogador** - `P` (ao passar o mouse sobre o local desejado)  
+**Deslocar visualização** - Segurar `Espaço` (ao clicar e arrastar na _Área do jogo_)  
+**Ampliar** - Segurar `Ctrl/Cmd` + `Roda do mouse`  
+**Focar na pesquisa de cena** - `/`
 
-## Navigator
+## Navegador
 
-The [Navigator](/docs/project-editor/navigator) is the sidebar on the left which allows quickly navigating through your project.
+O [Navegador](/docs/project-editor/navigator) é a barra lateral à esquerda que permite navegar rapidamente pelo seu projeto.
 
-**Move selection up** - `Arrow Up`  
-**Move selection down** - `Arrow Down`  
-**Open folder** - `Arrow Right`  
-**Close folder** - `Arrow Left`  
-**Rename** - `Enter`  
-**Select multiple items** (Scenes only) - `Shift` while clicking
+**Mover seleção para cima** - `Seta para cima`  
+**Mover seleção para baixo** - `Seta para baixo`  
+**Abrir pasta** - `Seta para direita`  
+**Fechar pasta** - `Seta para esquerda`  
+**Renomear** - `Enter`  
+**Selecionar vários itens** (Apenas cenas) - `Shift` ao clicar
 
-## Drawing Mode
+## Modo de desenho
 
-Drawing mode is automatically enabled in the _Collision tool_ and the _Color tool_.
+O modo de desenho é ativado automaticamente na _Ferramenta de colisão_ e na _Ferramenta de cor_.
 
-**Draw** - Click on scene  
-**Draw line from last point** - Click to set first point, hold `Shift`, click to set next point  
-**Lock brush to axis** - Hold `Shift` + Hold Click  
-**8px Brush** - `8`  
-**16px Brush** - `9`  
-**Fill** - `0`  
-**Hide Triggers/Actors** - `-`
+**Desenhar** - Clique na cena  
+**Desenhar linha a partir do último ponto** - Clique para definir o primeiro ponto, segure `Shift`, clique para definir o próximo ponto  
+**Bloquear pincel no eixo** - Segurar `Shift` + Segurar Clique  
+**Pincel de 8px** - `8`  
+**Pincel de 16px** - `9`  
+**Preencher** - `0`  
+**Ocultar gatilhos/atores** - `-`
 
-## Collision Types
+## Tipos de colisões
 
-These are only available when using the [Collision tool](/docs/project-editor/scenes/collisions).
+Estes estão disponíveis apenas ao usar a [Ferramenta de colisão](/docs/project-editor/scenes/collisions).
 
-Each tile can hold a maximum of 1 ladder and 3 collision sides. Ladders will not replace existing collision when placed on top of other colliders.
+Cada tile pode conter no máximo 1 escada e 3 lados de colisão. As escadas não substituirão a colisão existente quando colocadas em cima de outros colisores.
 
-**Select multiple collision types** - `Shift` + Click  
-**Erase collision tile** - Click on a collision tile  
-**Solid** - `1`  
-**Collision Top** - `2`  
-**Collision Bottom** - `3`  
-**Collision Left** - `4`  
-**Collision Right** - `5`  
-**Ladder (Platformer only)** - `6`
+**Selecionar vários tipos de colisão** - `Shift` + Clique  
+**Apagar tile de colisão** - Clique num tile de colisão  
+**Sólido** - `1`  
+**Colisão no topo** - `2`  
+**Colisão embaixo** - `3`  
+**Colisão à esquerda** - `4`  
+**Colisão à direita** - `5`  
+**Escada (Apenas em jogos de plataforma)** - `6`
 
-## Color Palettes
+## Paletas de cores
 
-These are only available when using the [Color tool](/docs/project-editor/scenes/color).
+Estas estão disponíveis apenas ao usar a [Ferramenta de cor](/docs/project-editor/scenes/color).
 
-**Change Brush Palette** - `1-6`  
-**Change Palettes** - Hold click on existing palette
+**Mudar paleta do pincel** - `1-6`  
+**Mudar paletas** - Segure o clique na paleta existente
 
-## Script Editor
+## Editor de script
 
-When creating [scripts](/docs/scripting) you can hover over the title bar of any script event to perform these shortcuts.
+Ao criar [scripts](/docs/scripting), você pode passar o mouse sobre a barra de título de qualquer evento de script para usar estes atalhos.
 
-**Copy Event** - `Ctrl/Cmd` + `C`  
-**Paste Event Below** - `Ctrl/Cmd` + `V`  
-**Paste Event Above** - `Ctrl/Cmd` + `Shift` + `V`  
-**Toggle Disabling Event** - `Ctrl/Cmd` + `/`  
-**Group Selected Events** - `Ctrl/Cmd` + `G`
+**Copiar evento** - `Ctrl/Cmd` + `C`  
+**Colar evento abaixo** - `Ctrl/Cmd` + `V`  
+**Colar evento acima** - `Ctrl/Cmd` + `Shift` + `V`  
+**Alternar desativação do evento** - `Ctrl/Cmd` + `/`  
+**Agrupar eventos selecionados** - `Ctrl/Cmd` + `G`
 
-## Music Editor
+## Editor de música
 
-These are only available when using the [Music Editor](/docs/assets/music/music-huge).
+Estes estão disponíveis apenas ao usar o [Editor de música](/docs/assets/music/music-huge).
 
-**Save Song** - `Ctrl/Cmd` + `S`  
-**Play/Pause** - `Space`  
-**Play from position** - `Alt/Option` + `Space`  
-**Switch to Tracker/Piano Roll** - `` ` ``
+**Salvar música** - `Ctrl/Cmd` + `S`  
+**Reproduzir/Pausar** - `Espaço`  
+**Reproduzir a partir da posição** - `Alt/Option` + `Espaço`  
+**Alternar para Tracker/Piano** - `` ` ``
 
 ### Tracker
 
-**Navigate grid** - `Arrow Keys`  
-**Next Column** - `Tab`  
-**Previous Column** - `Shift` + `Tab`
+**Navegar na grade** - `Setas`  
+**Próxima coluna** - `Tab`  
+**Coluna anterior** - `Shift` + `Tab`
 
-**Cell Selection** - `Shift` + `Arrow Keys` _or_ Click to set first cell, hold `Shift`, click to set next cell  
-**Select Column** - `Ctrl/Cmd` + `A`  
-**Select Pattern** - `Ctrl/Cmd` + `A`, `Ctrl/Cmd` + `A`  
-**Copy Selection** - `Ctrl/Cmd` + `C`  
-**Paste Selection** - `Ctrl/Cmd` + `V`  
-**Delete Selection** - `Backspace/Delete`
+**Seleção de célula** - `Shift` + `Setas` _ou_ Clique para definir a primeira célula, segure `Shift`, clique para definir a próxima célula  
+**Selecionar coluna** - `Ctrl/Cmd` + `A`  
+**Selecionar padrão** - `Ctrl/Cmd` + `A`, `Ctrl/Cmd` + `A`  
+**Copiar seleção** - `Ctrl/Cmd` + `C`  
+**Colar seleção** - `Ctrl/Cmd` + `V`  
+**Excluir seleção** - `Backspace/Delete`
 
-**Transpose Selection (small step up)** - `Ctrl` + `=` _or_ `Ctrl` + `Scroll wheel`  
-**Transpose Selection (small step down)** - `Ctrl` + `-`  
-**Transpose Selection (big step up)** - `Ctrl` + `Shift` + `=` _or_ `Ctrl` + `Shift` + `Q`  
-**Transpose Selection (big step down)** - `Ctrl` + `Shift` + `-` _or_ `Ctrl` + `Shift` + `A`
+**Transpor seleção (pequeno salto acima)** - `Ctrl` + `=` _ou_ `Ctrl` + `Roda do mouse`  
+**Transpor seleção (pequeno salto abaixo)** - `Ctrl` + `-`  
+**Transpor seleção (grande salto acima)** - `Ctrl` + `Shift` + `=` _ou_ `Ctrl` + `Shift` + `Q`  
+**Transpor seleção (grande salto abaixo)** - `Ctrl` + `Shift` + `-` _ou_ `Ctrl` + `Shift` + `A`
 
-### Piano roll
+### Piano
 
-**Change Instrument** - `1-9`  
-**Quick Select** - `Shift` + drag and drop mouse  
-**Duplicate Selection** - `Alt/Option` (while moving selected notes)
+**Mudar instrumento** - `1-9`  
+**Seleção rápida** - `Shift` + arrastar e soltar o mouse  
+**Duplicar seleção** - `Alt/Option` (ao mover as notas selecionadas)
 
-**Select Channel** - `Ctrl/Cmd` + `A`  
-**Copy Selection** - `Ctrl/Cmd` + `C`  
-**Paste Selection** - `Ctrl/Cmd` + `V`  
-**Paste and Replace Channel** - `Ctrl/Cmd` + `Shift` + `V`  
-**Delete Selection** - `Backspace/Delete`
+**Selecionar canal** - `Ctrl/Cmd` + `A`  
+**Copiar seleção** - `Ctrl/Cmd` + `C`  
+**Colar seleção** - `Ctrl/Cmd` + `V`  
+**Colar e substituir canal** - `Ctrl/Cmd` + `Shift` + `V`  
+**Excluir seleção** - `BackEspaço/Delete`
 
-## Debugger
+## Depurador
 
-When the [Debugger](/docs/debugger) is enabled, you can use the following keyboard shortcuts in both the _Project Window_ and _Play Window_:
+Quando o [Depurador](/docs/debugger) estiver ativado, você pode usar os seguintes atalhos de teclado tanto na _Janela do projeto_ quanto na _Janela de jogo_:
 
-**Pause/Resume** - `F8`  
-**Step Forward One Instruction** - `F9`  
-**Step Forward One Frame** - `F10`
+**Pausar/Retomar** - `F8`  
+**Avançar uma instrução** - `F9`  
+**Avançar um quadro** - `F10`

@@ -2,23 +2,22 @@
 sidebar_position: 1
 ---
 
-# Introduction
+# Introdução
 
-GB Studio is a drag and drop game creator for making Game Boy games.
+O GB Studio é um criador de jogos de arrastar e soltar para fazer jogos de Game Boy.
 
-It is designed to be usable by people with little to no previous programming knowledge using simple visual scripting but also provides multiple access points for advanced users to access the game engine's virtual machine ([GBVM](https://github.com/chrismaltby/gbvm)) and to directly modify game engine's C and SM83 assembly code through plugins.
+Ele foi projetado para ser utilizável por pessoas com pouco ou nenhum conhecimento prévio de programação, usando *scripting* visual simples, mas também fornece vários pontos de acesso para usuários avançados acessarem a máquina virtual do motor de jogo ([GBVM](https://github.com/chrismaltby/gbvm)) e modificarem diretamente o código C e Assembly SM83 do motor através de plugins.
 
-You can generate ROM files that can be run in an emulator, on a web page or on real Game Boy hardware.
+Você pode gerar arquivos ROM que podem ser executados em um emulador, em uma página da web ou no hardware real de um Game Boy.
 
-<img title="New Project" src="/img/screenshots/game-easy.png" width="592" />
+<img title="Novo projeto" src="/img/screenshots/game-easy.png" width="592" />
 
-## Support
+## Apoie
 
-If you'd like to support the ongoing development of GB Studio check out the [official Patreon](https://www.patreon.com/gbstudiodev) account where you can see regular progress updates and sometimes get early access to beta releases. 
+Se você deseja apoiar o desenvolvimento contínuo do GB Studio, confira a [conta oficial do Patreon](https://www.patreon.com/gbstudiodev), onde você pode ver atualizações regulares de progresso e, às vezes, obter acesso antecipado a versões beta. 
 
-## Download
+## Baixar
 
-You can get latest version of GB Studio from the
-[Itch.io download page](https://chrismaltby.itch.io/gb-studio) and older releases are archived on [GitHub](https://github.com/chrismaltby/gb-studio/releases).
+Você pode obter a versão mais recente do GB Studio na [página de download do Itch.io](https://chrismaltby.itch.io/gb-studio) e as versões mais antigas estão arquivadas no [GitHub](https://github.com/chrismaltby/gb-studio/releases).
 
-This documentation is also [available in PDF format](/assets/pdf/www.gbstudio.dev-docs.pdf).
+Esta documentação também está [disponível em formato PDF](/assets/pdf/www.gbstudio.dev-docs.pdf).

@@ -2,61 +2,61 @@
 sidebar_position: 3
 ---
 
-# Actors
+# Atores
 
-Actors are the characters and objects in your scene that you can interact with.
+Atores são os personagens e objetos na sua cena com os quais você pode interagir.
 
-## Adding an Actor
+## Adicionando um ator
 
-To add an actor to a scene click the **` + `** button in the _Editor Tools_ and select _Actor_ from the menu (alternatively press the **A** key), then click on the scene and position where you wish to place the actor.
+Para adicionar um ator a uma cena, clique no botão **` + `** nas _Ferramentas do editor_ e selecione _Ator_ no menu (alternativamente, pressione a tecla **A**), em seguida, clique na cena e na posição onde deseja colocar o ator.
 
 <img src="/img/screenshots/add-actor.gif" style={{width:300}} />
 
-## Actor Properties
+## Propriedades do ator
 
-- **Name** - Names your actor. Giving your actors a _name_ helps organize them in your project. An actor's name will be visible in any drop-down menu that asks you to pick an actor, such as the [Hide Actor](/docs/scripting/script-glossary/actor#hide-actor) event.
-- **Position** - Sets the X and Y position where the actor will be positioned in a scene. You can also change this by dragging the actor around the the _Game World_.
-- **Pin to Screen** - Using the _Pin Button_ next to the actor position you can choose to pin the actor to the screen which cause it to not move as the game screen scrolls.
-- **Sprite Sheet** - Choose which sprite graphics should be used to display the actor.
-- **Movement Speed** - Choose how fast the actor should move when scripting events are used.
-- **Animation Speed** - Choose how fast the actor animations should play.
-- **Collision Group** - Choose if scripts should play automatically when colliding with this actor.
+- **Nome** - Nomeia o seu ator. Dar um _nome_ aos seus atores ajuda a organizá-los no seu projeto. O nome de um ator será visível em qualquer menu suspenso que peça para você escolher um ator, como o evento [Ocultar ator](/docs/scripting/script-glossary/actor#hide-actor).
+- **Posição** - Define as posições X e Y onde o ator será posicionado em uma cena. Você também pode alterar isso arrastando o ator pela _Área do jogo_.
+- **Fixar na tela** - Usando o _Botão de fixar_ próximo à posição do ator, você pode escolher fixar o ator na tela, o que faz com que ele não se mova conforme a tela do jogo rola.
+- **Folha de sprite** - Escolha quais gráficos de sprite devem ser usados para exibir o ator.
+- **Velocidade de movimento** - Escolha a rapidez com que o ator deve se mover quando eventos de script são usados.
+- **Velocidade da animação** - Escolha a rapidez com que as animações do ator devem ser reproduzidas.
+- **Grupo de colisão** - Escolha se os scripts devem ser reproduzidos automaticamente ao colidir com este ator.
 
-### Pin to Screen
+### Fixar na tela
 
-When an actor is pinned it will appear in a fixed location as your game camera moves. The pinned actor will not move without a script, and does not create collisions with other actors in your scene.
+Quando um ator é fixado, ele aparecerá em um local fixo conforme a câmera do seu jogo se move. O ator fixado não se moverá sem um script e não cria colisões com outros atores na sua cena.
 
-Enabling this property will temporarily change your scene to be blacked-out, with a `160px x 144px` boundary in the top-left corner showing part of your original scene. Use your mouse to drag the actor to where you want it to be pinned to the screen.
+Ativar esta propriedade alterará temporariamente a sua cena para ficar escurecida, com um limite de `160px x 144px` no canto superior esquerdo mostrando parte da sua cena original. Use o seu mouse para arrastar o ator para onde você quer que ele seja fixado na tela.
 
-Select a different actor, the scene, or the project to return the blacked-out view of your scene to normal.
+Selecione um ator diferente, a cena ou o projeto para retornar a visualização escurecida da sua cena ao normal.
 
-### Collision Groups
+### Grupos de colisão
 
-Actors can be given a collision group in the _Editor Sidebar_. When enabled, the option to run scripts based on collisions will appear in the _Editor Sidebar_. To learn more about On Hit scripts, see the documentation for [Scripting](/docs/scripting).
+Atores podem receber um grupo de colisão na _Barra lateral do editor_. Quando habilitada, a opção de executar scripts com base em colisões aparecerá na _Barra lateral do editor_. Para saber mais sobre os scripts Ao acertar, veja a documentação de [Scripts](/docs/scripting).
 
-Additionally, depending on the currently selected [scene type](/docs/project-editor/scenes/types) you may have additional collision options for actors.
+Além disso, dependendo do [tipo de cena](/docs/project-editor/scenes/types) selecionado no momento, você pode ter opções de colisão adicionais para atores.
 
-<img title="Collision flags" src="/img/screenshots/collision-flags.jpg" width="280" className="drop-shadow margin-bottom" />
+<img title="Marcadores de colisão" src="/img/screenshots/collision-flags.jpg" width="280" className="drop-shadow margin-bottom" />
 
-- **Is Solid:** Available in Platform and Adventure scenes. Determines if the player should be able to walk through this actor.
+- **É sólido:** Disponível em cenas de Plataforma e Aventura. Determina se o jogador deve ser capaz de atravessar este ator.
 
-- **Is Platform:** Available in Platform scenes. Determines if player should be able to stand on top of this actor but still be able to walk through them.
+- **É plataforma:** Disponível em cenas de Plataforma. Determina se o jogador deve ser capaz de ficar em cima deste ator, mas ainda ser capaz de atravessá-lo.
 
-By [modifying your game engine](/docs/extending-gbstudio/engine-eject) or using [plugins](/docs/extending-gbstudio/plugins) you may define additional scene types which can each specify their own actor collision flags in their `engine.json` file.
+Ao [modificar o motor do seu jogo](/docs/extending-gbstudio/engine-eject) ou usar [plugins](/docs/extending-gbstudio/plugins), você pode definir tipos de cena adicionais que podem, cada um, especificar os seus próprios marcadores de colisão de ator no arquivo `engine.json` deles.
 
-## Scripting
+## Scripts
 
-Actors can contain multiple scripts that will be called at different points in your game.
+Atores podem conter vários scripts que serão chamados em pontos diferentes do seu jogo.
 
-- **On Interact:** This is called if the player stands in front of this actor and presses the _Interact_ button.
-- **On Hit:** (only if collision group is set) This is called when this actor collides with either the player or a projectile with a specified collision group
-- **On Init:** Called as soon as the scene is loaded in game.
-- **On Update:** Repeatedly called while the actor is on screen, and once the script finishes it will repeat. You can use this to create movement scripts
+- **Ao interagir:** Isso é chamado se o jogador estiver de frente para este ator e pressionar o botão de _Interação_.
+- **Ao acertar:** (apenas se o grupo de colisão estiver definido) Isso é chamado quando este ator colide com o jogador ou com um projétil que tenha um grupo de colisão especificado.
+- **Ao iniciar:** Chamado assim que a cena for carregada no jogo.
+- **Ao atualizar:** Chamado repetidamente enquanto o ator estiver na tela e, assim que o script terminar, ele se repetirá. Você pode usar isso para criar scripts de movimento.
 
-To start building a script, select an actor, click the script type you want to edit and click the _Add Event button_ in the _Editor Sidebar_ to open the event menu. Select an event to add it to the script.
+Para começar a construir um script, selecione um ator, clique no tipo de script que você quer editar e clique no botão _Adicionar evento_ na _Barra lateral do editor_ para abrir o menu de eventos. Selecione um evento para adicioná-lo ao script.
 
-For more information see the documentation for [Scripting](/docs/scripting).
+Para obter mais informações, veja a documentação de [Scripts](/docs/scripting).
 
-## Limits
+## Limites
 
-There are limits to how actors and their sprites can be used in GB Studio. These limits are to make sure your game appears as intended, as well as to keep your actor logic running smoothly. The exact limits depend on the complexity of the background image used in your scene, see [Scenes](/docs/project-editor/scenes/limits#actor-limits) for more information.
+Existem limites para como atores e seus sprites podem ser usados no GB Studio. Esses limites servem para garantir que o seu jogo apareça conforme o planejado, bem como para manter a lógica do seu ator funcionando perfeitamente. Os limites exatos dependem da complexidade da imagem de fundo usada na sua cena, veja [Cenas](/docs/project-editor/scenes/limits#actor-limits) para obter mais informações.

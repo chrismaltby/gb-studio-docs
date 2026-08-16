@@ -1,57 +1,57 @@
-# Scene Limits
+# Limites da cena
 
-There are several limits that GB Studio has put in place to keep game performance consistent, and to minimize visual issues.
+Existem vários limites que o GB Studio implementou para manter o desempenho do jogo consistente e minimizar problemas visuais.
 
-Each scene can have a maximum of 20 actors, and 30 triggers, and between 192 and 64 sprite tiles depending on project settings and the complexity of the background used. You can check this information by selecting a scene and looking for the gray bar under your scene that reads:
+Cada cena pode ter no máximo 20 atores, 30 gatilhos e entre 192 e 64 tiles de sprite, dependendo das configurações do projeto e da complexidade da imagem de fundo usada. Você pode verificar esta informação selecionando uma cena e observando a barra cinza sob a sua cena que diz:
 
 `A: 0/20 S: 0/96 T: 0/30`
 
-The letters on this bar represent the following:
+As letras nesta barra representam o seguinte:
 
-- `A:` represents the number of actors that the scene is using.
-- `S:` represents the number of unique sprite tiles that each actor is using in their sprite sheet.
-- `T:` represents the number of triggers that the scene is using.
+- `A:` representa o número de atores que a cena está usando.
+- `S:` representa o número de tiles únicos de sprite que cada ator está usando na sua folha de sprite.
+- `T:` representa o número de gatilhos que a cena está usando.
 
-## Actor Limits
+## Limites de atores
 
-Each scene can have a maximum of 20 actors. Ideally, there should never be more than 10 actors within a 20 x 18 tile boundary, equivalent to `160px x 144px`. Clustering more than 10 actors together in a scene will cause some actors to become invisible in-game. GB Studio will warn you if it thinks this will be the case for a scene:
+Cada cena pode ter no máximo 20 atores. O ideal é que nunca haja mais de 10 atores dentro de um limite de 20 x 18 tiles, equivalente a `160px x 144px`. Agrupar mais de 10 atores em uma cena fará com que alguns atores fiquem invisíveis no jogo. O GB Studio avisará você se achar que este será o caso de uma cena:
 
-<img title="Actor limits" src="/img/screenshots/actor-limits.png" width="320" className="drop-shadow margin-bottom" />
+<img title="Limites de atores" src="/img/screenshots/actor-limits.png" width="320" className="drop-shadow margin-bottom" />
 
-You can address this message by moving or deleting actors so no more than 10 will be seen in a 20 x 18 tile boundary. You can use the [Eraser Tool](/docs/getting-started/keyboard-shortcuts#game-world) to delete actors. Actors will still become invisible if more than 10 actors move into the screenspace after the scene starts.
+Você pode resolver esta mensagem movendo ou apagando atores para que não mais de 10 sejam vistos em um limite de 20 x 18 tiles. Você pode usar a [Ferramenta de borracha](/docs/getting-started/keyboard-shortcuts#game-world) para apagar atores. Os atores ainda ficarão invisíveis se mais de 10 atores se moverem para o espaço da tela após o início da cena.
 
-## Trigger Limits
+## Limites de gatilhos
 
-Each scene can have a maximum of 30 triggers. You can use the [Eraser Tool](/docs/getting-started/keyboard-shortcuts#game-world) to delete triggers.
+Cada cena pode ter no máximo 30 gatilhos. Você pode usar a [Ferramenta de borracha](/docs/getting-started/keyboard-shortcuts#game-world) para apagar gatilhos.
 
-## Background and Sprite Tile Limits
+## Limites de tiles da imagem de fundo e sprites
 
-The memory limits for background and sprite tiles depend on whether your game's color mode is set to `Color Only`. In `Color Only` mode, approximately twice the amount of memory is available for tile data, but the game will not run on non-color devices. You can set the color mode from the [Settings](/docs/settings) section.
+Os limites de memória para a imagem de fundo e os tiles de sprite dependem se o modo de cor do seu jogo está definido como `Apenas cor`. No modo `Apenas cor`, aproximadamente o dobro da quantidade de memória fica disponível para dados de tiles, mas o jogo não rodará em dispositivos sem cor. Você pode definir o modo de cor na seção de [Configurações](/docs/settings).
 
-You can use the [VRAM panel](/docs/debugger) in the Debugger to get a visual representation of how tiles are being used in each scene in your game.
+Você pode usar o [Painel VRAM](/docs/debugger) no Depurador para obter uma representação visual de como os tiles estão sendo usados em cada cena do seu jogo.
 
-### "Monochrome" and "Color + Monochrome" Games
+### Jogos em "Monocromático" e "Cor + Monocromático"
 
-When your game's color mode is set to either `Monochrome` or `Color + Monochrome` the following limits will be used:
+Quando o modo de cor do seu jogo estiver definido como `Monocromático` ou `Cor + Monocromático`, os seguintes limites serão usados:
 
-- **64 Tiles** reserved for Sprites
-- **128 Tiles** reserved for Background
-- **64 Tiles** reserved for UI
-- **64 Tiles** shared between Sprites and Background. The more complex your background is, the less tiles will be available for use by sprites. Note that as sprites use 8x16 sized tiles this shared area is shown as 32 sprite tiles.
+- **64 Tiles** reservados para Sprites
+- **128 Tiles** reservados para Imagem de fundo
+- **64 Tiles** reservados para UI
+- **64 Tiles** compartilhados entre Sprites e Imagem de fundo. Quanto mais complexa for a sua imagem de fundo, menos tiles estarão disponíveis para uso pelos sprites. Note que como os sprites usam tiles no tamanho de 8x16, esta área compartilhada é mostrada como 32 tiles de sprite.
 
-If your background uses 128 tiles or fewer, you can use up to 96 sprite tiles (64 reserved + 32 shared). However, if your background uses all 192 tiles, you will only be able to use 64 sprite tiles.
+Se a sua imagem de fundo usar 128 tiles ou menos, você pode usar até 96 tiles de sprite (64 reservados + 32 compartilhados). No entanto, se a sua imagem de fundo usar todos os 192 tiles, você só poderá usar 64 tiles de sprite.
 
 <img src="/img/screenshots/tile-allocation.png" width="650"  />
 
-### "Color Only" Games
+### Jogos "Apenas cor"
 
-When your game's color mode is set to either `Color Only`, the following increased limits will be used:
+Quando o modo de cor do seu jogo estiver definido como `Apenas cor`, os seguintes limites ampliados serão usados:
 
-- **128 Tiles** reserved for Sprites
-- **256 Tiles** reserved for Background
-- **128 Tiles** reserved for UI
-- **128 Tiles** shared between Sprites and Background. The more complex your background is, the less tiles will be available for use by sprites. Note that as sprites use 8x16 sized tiles this shared area is shown as 64 sprite tiles.
+- **128 Tiles** reservados para Sprites
+- **256 Tiles** reservados para Imagem de fundo
+- **128 Tiles** reservados para UI
+- **128 Tiles** compartilhados entre Sprites e Imagem de fundo. Quanto mais complexa for a sua imagem de fundo, menos tiles estarão disponíveis para uso pelos sprites. Note que como os sprites usam tiles no tamanho de 8x16, esta área compartilhada é mostrada como 64 tiles de sprite.
 
-If your background uses 256 tiles or fewer, you can use up to 192 sprite tiles (128 reserved + 64 shared). However, if your background uses all 384 tiles, you will only be able to use 128 sprite tiles.
+Se a sua imagem de fundo usar 256 tiles ou menos, você pode usar até 192 tiles de sprite (128 reservados + 64 compartilhados). No entanto, se a sua imagem de fundo usar todos os 384 tiles, você só poderá usar 128 tiles de sprite.
 
 <img src="/img/screenshots/tile-allocation-color.png" width="650"  />

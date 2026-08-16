@@ -2,33 +2,33 @@
 sidebar_position: 2
 ---
 
-# Installation
+# Instalação
 
-Download your preferred version from the [Itch.io download page](https://chrismaltby.itch.io/gb-studio) or use [GitHub](https://github.com/chrismaltby/gb-studio/releases) for older releases.
+Baixe sua versão preferida na [página de download do Itch.io](https://chrismaltby.itch.io/gb-studio) ou use o [GitHub](https://github.com/chrismaltby/gb-studio/releases) para versões mais antigas.
 
-Occasionally, beta releases can also be found on [Patreon](https://www.patreon.com/gbstudiodev).
+Ocasionalmente, versões beta também podem ser encontradas no [Patreon](https://www.patreon.com/gbstudiodev).
 
 ## Windows
 
-Two versions of GB Studio are available for Windows. The _Squirrel Installer_ version just requires you to unzip, double click and then wait a few seconds while the application installs to your `C:\` drive. Once installed a shortcut will be added to your desktop automatically and the application will start. The application will be installed to `%LocalAppData%\gb_studio`, if you need to install to a different location use the _Manual_ version.
+Duas versões do GB Studio estão disponíveis para Windows. A versão _Squirrel Installer_ exige apenas que você descompacte, clique duas vezes e aguarde alguns segundos enquanto o aplicativo é instalado na sua unidade `C:\`. Após a instalação, um atalho será adicionado à sua área de trabalho automaticamente e o aplicativo será iniciado. O aplicativo será instalado em `%LocalAppData%\gb_studio`, se você precisar instalar em um local diferente, use a versão _Manual_.
 
-The _Manual_ version is a zip containing the application files, you can unzip this to any location. Once unzipped double click `gb-studio.exe` to start.
+A versão _Manual_ é um arquivo zip contendo os arquivos do aplicativo, que você pode descompactar em qualquer local. Após descompactar, clique duas vezes em `gb-studio.exe` para iniciar.
 
 ## macOS
 
-For macOS unzip the downloaded file and move `GB Studio.app` to your _Applications_ folder. Double click to start.
+Para macOS, descompacte o arquivo baixado e mova o `GB Studio.app` para a sua pasta _Aplicativos_. Clique duas vezes para iniciar.
 
-Two macOS versions are available: `Apple Silicon` and `Intel`. For optimal performance, please use the version that matches your Mac's processor. If you're unsure, try the Apple Silicon version first, as it will be significantly faster if your Mac supports it.
+Duas versões para macOS estão disponíveis: `Apple Silicon` e `Intel`. Para um desempenho ideal, use a versão que corresponde ao processador do seu Mac. Se não tiver certeza, experimente a versão Apple Silicon primeiro, pois ela será significativamente mais rápida se o seu Mac a suportar.
 
-If you're having trouble building or running your game you may also need to install Apple's Command Line Tools by opening `Applications/Terminal.app` and entering the following command.
+Se você estiver tendo problemas para compilar ou executar seu jogo, também pode ser necessário instalar o Command Line Tools da Apple. Para isso, abra `Aplicativos/Terminal.app` e insira o seguinte comando.
 
 ```
 xcode-select --install
 ```
 
-## Ubuntu / Debian-based Linux
+## Linux baseado em Ubuntu / Debian
 
-For Debian-based Linux distros, download the .deb version and run the following commands (Tested on Ubuntu 18.10)
+Para distribuições Linux baseadas em Debian, baixe a versão .deb e execute os seguintes comandos (testado no Ubuntu 18.10)
 
 ```
 > sudo apt-get update
@@ -37,9 +37,9 @@ For Debian-based Linux distros, download the .deb version and run the following 
 > gb-studio
 ```
 
-## Fedora / RPM-based Linux
+## Linux baseado em Fedora / RPM
 
-For RPM-based Linux distros, download the .rpm version and run the following commands (Tested on Fedora 29)
+Para distribuições Linux baseadas em RPM, baixe a versão .rpm e execute os seguintes comandos (testado no Fedora 29)
 
 ```
 > sudo yum install libXScrnSaver make lsb
@@ -47,9 +47,9 @@ For RPM-based Linux distros, download the .rpm version and run the following com
 > gb-studio
 ```
 
-## Troubleshooting
+## Solução de problemas
 
-If in Linux issues are seen with graphical glitches, or if gb-studio fails to start, try running GB Studio using this following command:
+Se no Linux ocorrerem problemas com falhas gráficas, ou se o gb-studio não iniciar, tente executar o GB Studio usando o seguinte comando:
 
 ```
 > gb-studio --disable-gpu-sandbox

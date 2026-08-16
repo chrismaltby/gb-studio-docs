@@ -2,41 +2,41 @@
 sidebar_position: 1
 ---
 
-# Navigator
+# Navegador
 
-The Navigator is the sidebar on the left which allows quickly navigating through your project.
+O Navegador é a barra lateral à esquerda que permite navegar rapidamente pelo seu projeto.
 
-<img title="Navigator" src="/img/screenshots/navigator-v4.png" width="246" className="drop-shadow" />
+<img title="Navegador" src="/img/screenshots/navigator-v4.png" width="246" className="drop-shadow" />
 
-## Context Menu
+## Menu de contexto
 
-By right clicking on items in the Navigator you can open a context menu. The scene context menu shown below allows you to set color labels, set the scene as the starting scene for your project, rename and delete the scene.
+Ao clicar com o botão direito nos itens no Navegador, você pode abrir um menu de contexto. O menu de contexto da cena mostrado abaixo permite definir rótulos de cor, definir a cena como a cena inicial para o seu projeto, renomear e apagar a cena.
 
-<img title="Navigator" src="/img/screenshots/navigator-context-menu-v420.jpg" width="412" className="drop-shadow margin-bottom" />
+<img title="Navegador" src="/img/screenshots/navigator-context-menu-v420.jpg" width="412" className="drop-shadow margin-bottom" />
 
-## Folders
+## Pastas
 
-If your scenes, scripts, palettes or assets contain `/` or `\` characters in their names these will be treated as folders in the Navigator allowing you to organise your project.
+Se as suas cenas, scripts, paletas ou ativos contiverem caracteres `/` ou `\` em seus nomes, eles serão tratados como pastas no Navegador, permitindo que você organize o seu projeto.
 
-e.g. Naming a scene `caves/Underground` as shown below:
+Ex.: Nomear uma cena como `caves/Underground`, como mostrado abaixo:
 
-<img title="Navigator Folders Rename" src="/img/screenshots/navigator-folders-rename-v4.png" width="246" className="drop-shadow margin-bottom" />
+<img title="Renomear pastas no Navegador" src="/img/screenshots/navigator-folders-rename-v4.png" width="246" className="drop-shadow margin-bottom" />
 
-will cause it to appear in the navigator as `Underground` with a folder named `caves`:
+fará com que ela apareça no navegador como `Underground` com uma pasta chamada `caves`:
 
-<img title="Navigator Folders" src="/img/screenshots/navigator-folders-v4.png" width="246" className="drop-shadow margin-bottom" />
+<img title="Pastas do Navegador" src="/img/screenshots/navigator-folders-v4.png" width="246" className="drop-shadow margin-bottom" />
 
 :::warning
-When renaming assets like Backgrounds into folders using the Navigator, the physical files in your project (`.png` etc.) will also be moved to the newly specified folder structure. It's important to save your project after making changes like this as moving those files without saving could cause the application to be unable to locate assets when you next load your project.
+Ao renomear ativos, como Imagens de fundo, para dentro de pastas usando o Navegador, os arquivos físicos no seu projeto (`.png` etc.) também serão movidos para a nova estrutura de pastas especificada. É importante salvar o seu projeto após fazer alterações como esta, pois mover esses arquivos sem salvar pode fazer com que o aplicativo não consiga localizar os ativos na próxima vez que você carregar o seu projeto.
 
-It is recommended that you use a [version control system](/docs/getting-started/saving-loading#version-control) allowing you to revert mistakes.
+É recomendável que você use um [sistema de controle de versão](/docs/getting-started/saving-loading#version-control), permitindo que você reverta erros.
 :::
 
-## Keyboard Shortcuts
+## Atalhos de teclado
 
-**Move selection up** - `Arrow Up`  
-**Move selection down** - `Arrow Down`  
-**Open folder** - `Arrow Right`  
-**Close folder** - `Arrow Left`  
-**Rename** - `Enter`  
-**Select multiple items** (Scenes only) - `Shift` while clicking
+**Mover seleção para cima** - `Seta para cima`  
+**Mover seleção para baixo** - `Seta para baixo`  
+**Abrir pasta** - `Seta para direita`  
+**Fechar pasta** - `Seta para esquerda`  
+**Renomear** - `Enter`  
+**Selecionar vários itens** (Apenas cenas) - `Shift` ao clicar

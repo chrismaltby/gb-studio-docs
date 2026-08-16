@@ -1,30 +1,30 @@
-# Collisions
+# Colisões
 
-## Adding Collision to a Scene
+## Adicionando colisão a uma cena
 
-Select the _Collision Tool_ from the _Editor Tools_. There are 5 common collision types that can be added to most scenes.
+Selecione a _Ferramenta de colisão_ nas _Ferramentas do editor_. Existem 5 tipos comuns de colisão que podem ser adicionados à maioria das cenas.
 
-- **Solid** Stops colliding actors from entering the tile on any side.
-- **Top/Bottom/Left/Right** Stops colliding actors from entering the tile from that specific side. This is useful for one-way collision and semi-solid platforms.
+- **Sólido** Impede que atores em colisão entrem no tile por qualquer lado.
+- **Superior/Inferior/Esquerda/Direita** Impede que atores em colisão entrem no tile daquele lado específico. Isso é útil para plataformas semi-sólidas e colisão unidirecional.
 
-Additionally depending on the scene type selected you may have additional collision tiles available.
+Além disso, dependendo do tipo de cena selecionado, você pode ter tiles de colisão adicionais disponíveis.
 
-- **Ladder (Platformer only)** Allows moving up and down in _Platformer_ scenes.
+- **Escada (Apenas em jogos de plataforma)** Permite mover-se para cima e para baixo em cenas de _Plataforma_.
 
-Some scene types, such as `Point and Click`, only support **Solid** collisions.
+Alguns tipos de cena, como `Apontar e clicar`, oferecem suporte apenas a colisões do tipo **Sólido**.
 
-By [modifying your game engine](/docs/extending-gbstudio/engine-eject) or using [plugins](/docs/extending-gbstudio/plugins) you may define additional scene types which can each specify their own scene specific collision tiles in their `engine.json` file.
+Ao [modificar o motor do seu jogo](/docs/extending-gbstudio/engine-eject) ou usar [plugins](/docs/extending-gbstudio/plugins), você pode definir tipos de cena adicionais que podem, cada um, especificar os seus próprios tiles de colisão específicos da cena no arquivo `engine.json` deles.
 
-## Drawing Slopes
+## Desenhando rampas
 
-The Slope Brush is a quick way to add slope collisions to your scenes (Platformer only). With the brush selected click on the starting tile and drag to one tile **after** where you want the slope to be placed. When placing a shallow slope you can hold `Shift` while dragging to offset the slope vertically.
+O Pincel de rampas é uma maneira rápida de adicionar colisões de rampa às suas cenas (apenas Plataforma). Com o pincel selecionado, clique no tile inicial e arraste para um tile **depois** de onde você deseja que a rampa seja posicionada. Ao posicionar uma rampa rasa, você pode segurar `Shift` enquanto arrasta para deslocar a rampa verticalmente.
 
-It's also possible to use this tool to draw horizontal and vertical collisions by holding `Ctrl` while dragging. When dragging left to right you will create a Top collision, right to left creates a Bottom collision, top to bottom creates a Left collision and bottom to top creates a Right collision. Holding `Ctrl + Shift` will flip the collision direction (Top will become Bottom etc).
+Também é possível usar esta ferramenta para desenhar colisões horizontais e verticais segurando `Ctrl` enquanto arrasta. Ao arrastar da esquerda para a direita, você criará uma colisão Superior, da direita para a esquerda cria uma colisão Inferior, de cima para baixo cria uma colisão à Esquerda e de baixo para cima cria uma colisão à Direita. Segurar `Ctrl + Shift` irá inverter a direção da colisão (Superior se tornará Inferior etc).
 
 <div className="drop-shadow"><img src="/img/screenshots/slopes.gif" width="320" className="clip-bottom" /></div>
 
-## Magic Brush
+## Pincel mágico
 
-The Magic Brush is available when adding collisions or coloring a scene and can be used to paint every tile in the scene that matches the one you clicked instantly.
+O Pincel mágico fica disponível ao adicionar colisões ou colorir uma cena, e pode ser usado para pintar instantaneamente todos os tiles da cena que correspondam àquele em que você clicou.
 
 <div className="drop-shadow"><img src="/img/screenshots/magic-brush.gif" width="320" className="clip-bottom" /></div>
