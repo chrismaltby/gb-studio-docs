@@ -2,19 +2,19 @@
 sidebar_position: 5
 ---
 
-# Assets
+# Ativos
 
-When your project was created an `assets` folder was also made within the project containing a number of subfolders for each asset type in your game.
+Quando o seu projeto foi criado, uma pasta `assets` também foi criada dentro do projeto, contendo várias subpastas para cada tipo de ativo no seu jogo.
 
-GBStudio doesn't currently contain any ability to edit the graphics in your game directly, you instead can use your favourite existing applications and save files into these folders where they will instantly appear ready to use in your project. If you edit a sprite or background PNG file and save using an external image editor the change will be seen in your _Project Window_ as soon as you switch back to it.
+Atualmente, o GB Studio não possui a capacidade de editar os gráficos do seu jogo diretamente. Em vez disso, você pode usar os seus aplicativos existentes favoritos e salvar os arquivos nessas pastas, onde eles aparecerão instantaneamente prontos para uso no seu projeto. Se você editar um arquivo PNG de sprite ou imagem de fundo e salvá-lo usando um editor de imagens externo, a alteração será vista na sua _Janela do projeto_ assim que você voltar para ela.
 
-While you can create graphics in any application that can output PNG files it is recommended to use [Aseprite](https://www.aseprite.org/) or Photoshop to create your sprites and UI elements then to use [Tiled Map Editor](https://www.mapeditor.org/) to create your backgrounds. Each image asset type has a different set of requirements detailed over the next few sections of this documentation. You can select the default application to open when clicking asset edit buttons in the _GB Studio Preferences_ window.
+Embora você possa criar gráficos em qualquer aplicativo que possa gerar arquivos PNG, é recomendável usar o [Aseprite](https://www.aseprite.org/) ou o Photoshop para criar os seus sprites e elementos de UI e, em seguida, usar o [Tiled Map Editor](https://www.mapeditor.org/) para criar as suas imagens de fundo. Cada tipo de ativo de imagem tem um conjunto diferente de requisitos, detalhados nas próximas seções desta documentação. Você pode selecionar o aplicativo padrão a ser aberto ao clicar nos botões de edição de ativos na janela de _Preferências do GB Studio_.
 
-For music you can either create UGE files or MOD files depending on the _Music Driver_ you choose in the _Settings View_ (hUGEDriver is recommended).
-- UGE files can be edited directly within the GB Studio [Music Editor](/docs/assets/music).
-- MOD files can be edited with [OpenMPT](https://openmpt.org/) or [MilkyTracker](https://milkytracker.titandemo.org/).
+Para música, você pode criar arquivos UGE ou arquivos MOD, dependendo do _Driver de música_ que você escolher na _Visualização de configurações_ (hUGEDriver é recomendado).
+- Os arquivos UGE podem ser editados diretamente dentro do [Editor de música](/docs/assets/music) do GB Studio.
+- Os arquivos MOD podem ser editados com o [OpenMPT](https://openmpt.org/) ou o [MilkyTracker](https://milkytracker.titandemo.org/).
 
-## Community Assets
+## Ativos da comunidade
 
-If you're looking for a collection of free assets, ready to be used in GB Studio there is a community run repository on Github available at [GB Studio Community Assets](https://github.com/DeerTears/GB-Studio-Community-Assets).
+Se você está procurando por uma coleção de ativos gratuitos, prontos para serem usados no GB Studio, há um repositório administrado pela comunidade no Github disponível em [GB Studio Community Assets](https://github.com/DeerTears/GB-Studio-Community-Assets).
 

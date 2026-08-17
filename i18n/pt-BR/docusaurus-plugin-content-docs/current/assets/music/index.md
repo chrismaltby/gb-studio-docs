@@ -1,19 +1,19 @@
 import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
-# Music
+# Música
 
-Music can be played in your game using the [Play Music Track](/docs/scripting/script-glossary/music-sound-effects#play-music-track) event in your *Actor*, *Trigger*, or *Scene* scripts.
+A música pode ser reproduzida no seu jogo usando o evento [Reproduzir faixa de música](/docs/scripting/script-glossary/music-sound-effects#play-music-track) nos seus scripts de *Ator*, *Gatilho* ou *Cena*.
 
 <ScriptEventPreview title={"Play Music Track"} fields={[{"key":"musicId","type":"music","defaultValue":"LAST_MUSIC"}]} />
 
-You can add music to your game by including `.uge` or `.mod` files in your project's `assets/music` folder.
+Você pode adicionar música ao seu jogo incluindo arquivos `.uge` ou `.mod` na pasta `assets/music` do seu projeto.
 
-A project can only support one type of music files, this can be configured on the [Settings View](/docs/settings#music-format) by selecting either MOD or UGE as the Music Format.
+Um projeto só pode suportar um tipo de arquivo de música, isso pode ser configurado na [Visualização de configurações](/docs/settings#music-format) selecionando MOD ou UGE como o Formato de música.
 
-`.uge` files can be created and edited with the _Music Editor_. 
+Arquivos `.uge` podem ser criados e editados com o _Editor de música_. 
 
-See the [Music Editor](/docs/assets/music/music-huge) documentation for more information.
+Veja a documentação do [Editor de música](/docs/assets/music/music-huge) para obter mais informações.
 
-`.mod` files are created and edited using an external Tracker software. You can select the default application to open when clicking asset edit buttons in the _GB Studio Preferences_ window.
+Arquivos `.mod` são criados e editados usando um software de Tracker externo. Você pode selecionar o aplicativo padrão a ser aberto ao clicar nos botões de edição de ativos na janela de _Preferências do GB Studio_.
 
-See the [MOD files](/docs/assets/music/music-gbt) documentation for more information.
+Veja a documentação de [Arquivos MOD](/docs/assets/music/music-gbt) para obter mais informações.

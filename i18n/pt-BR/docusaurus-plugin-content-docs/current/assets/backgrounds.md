@@ -1,72 +1,72 @@
-# Backgrounds
+# Imagens de fundo
 
 import { Swatch } from '@site/src/components/Swatch';
 
-Each of your scenes requires a background image that defines how that scene should look.
+Cada uma das suas cenas exige uma imagem de fundo que define como essa cena deve se parecer.
 
-You can add backgrounds to your game by including `.png` files in your project's `assets/backgrounds` folder.
+Você pode adicionar imagens de fundo ao seu jogo incluindo arquivos `.png` na pasta `assets/backgrounds` do seu projeto.
 
-## Color Requirements
+## Requisitos de cor
 
-### Manual Palettes
+### Paletas manuais
 
-When a scene is using [manual palettes](/docs/project-editor/scenes/color#automatic-color), background PNGs must only contain the following four colors:
+Quando uma cena está usando [paletas manuais](/docs/project-editor/scenes/color#automatic-color), os PNGs de imagem de fundo devem conter apenas as quatro cores a seguir:
 
-<Swatch color="#071821" description="Darkest" />
+<Swatch color="#071821" description="Mais escuro" />
 <Swatch color="#306850" />
 <Swatch color="#86c06c" />
-<Swatch color="#e0f8cf" description="Lightest" />
+<Swatch color="#e0f8cf" description="Mais claro" />
 
-Download the GB Studio Palette Swatches for:  
+Baixe as amostras de paleta do GB Studio para:  
 [Adobe Photoshop](/assets/swatches/gb-studio-photoshop.aco)  
 [Aseprite](/assets/swatches/gb-studio-aseprite.aseprite)  
 [Piskel](/assets/swatches/gb-studio-piskel-background-palette.gpl)  
 
-Colors that are not one of the above hex codes will be matched to the nearest color. Unlike sprites, the color `#65ff00` can not be used in backgrounds.
+Cores que não forem de um dos códigos hexadecimais acima serão correspondidas à cor mais próxima. Ao contrário dos sprites, a cor `#65ff00` não pode ser usada em imagens de fundo.
 
-When assigning background color palettes for a scene, these colors map from Darkest to Lightest in the palette.
+Ao atribuir paletas de cores de imagem de fundo para uma cena, essas cores são mapeadas do Mais escuro ao Mais claro na paleta.
 
-### Automatic Palettes
+### Paletas automáticas
 
-When a scene is using [automatic palettes](/docs/project-editor/scenes/color#automatic-color), you may provide color images as long as they obey the following rules:
+Quando uma cena está usando [paletas automáticas](/docs/project-editor/scenes/color#automatic-color), você pode fornecer imagens coloridas, desde que elas obedeçam às seguintes regras:
 
-- Each `8px`x `8px` tile may use only 4 colors.
-- The scene can only contain a maximum of 8 unique 4-color palettes.
+- Cada tile de `8px`x `8px` pode usar apenas 4 cores.
+- A cena pode conter no máximo 8 paletas de 4 cores únicas.
 
-Monochrome tile data will be created automatically from your color image, if you intend to support monochome devices you may need to provide a [monochrome override image](/docs/assets/backgrounds#monochrome-overrides)
+Os dados de tile monocromático serão criados automaticamente a partir da sua imagem colorida, se você pretende ter suporte a dispositivos monocromáticos, pode ser necessário fornecer uma [imagem de sobrecarga monocromática](/docs/assets/backgrounds#monochrome-overrides).
 
-## Size Requirements
+## Requisitos de tamanho
 
-- Backgrounds are divided into `8px`x `8px` tilesets so the total image size must be a multiple of `8px` in both width and height.
-- A background has a minimum size of `160px` x `144px` (the GB screen size)
-- Both the width and height of a background must be less than or equal to `2040px`.
-- The width of the image multiplied by the height must be less than or equal to `1,048,320`. For example an image with the width `2016px` will have a max height of `520px` (because `2016 * 520 = 1048320`)
+- As imagens de fundo são divididas em conjuntos de tiles de `8px`x `8px`, de modo que o tamanho total da imagem deve ser um múltiplo de `8px` tanto na largura quanto na altura.
+- Uma imagem de fundo tem um tamanho mínimo de `160px` x `144px` (o tamanho da tela do GB).
+- Tanto a largura quanto a altura de uma imagem de fundo devem ser menores ou iguais a `2040px`.
+- A largura da imagem multiplicada pela altura deve ser menor ou igual a `1.048.320`. Por exemplo, uma imagem com a largura de `2016px` terá uma altura máxima de `520px` (porque `2016 * 520 = 1048320`).
 
-## Tile Requirements
+## Requisitos de tile
 
-#### "Monochrome" and "Color + Monochrome" Games
+#### Jogos em "Monocromático" e "Cor + Monocromático"
 
-In most scene types, for games using `Monochrome` or `Color + Monochrome` color modes, a background image can contain no more than **192** unique `8px` x `8px` tiles at once due to memory limits. This means that even using the smallest background size possible you must repeat about half of your tiles. Where possible repeat tiles between images as they will be grouped together saving on total game size. It is recommended to use a tile map editor such as [Tiled](https://www.mapeditor.org/) to ensure your backgrounds conform to the pixel grid.
+Na maioria dos tipos de cena, para jogos que usam os modos de cor `Monocromático` ou `Cor + Monocromático`, uma imagem de fundo não pode conter mais do que **192** tiles únicos de `8px` x `8px` de uma só vez devido aos limites de memória. Isso significa que, mesmo usando o menor tamanho de imagem de fundo possível, você deve repetir cerca de metade dos seus tiles. Sempre que possível, repita os tiles entre as imagens, pois eles serão agrupados, economizando no tamanho total do jogo. É recomendável usar um editor de mapas de tiles, como o [Tiled](https://www.mapeditor.org/), para garantir que as suas imagens de fundo estejam em conformidade com a grade de pixels.
 
-The exception to this is scenes with their _Scene Type_ set as _Logo_, these scenes can use a `160px` x `144px` sized image with no limits on unique tiles but note that in _Logo_ scenes you are unable to use _Actors_ or display a _Player_.
+A exceção a isso são as cenas com o seu _Tipo de cena_ definido como _Logotipo_. Essas cenas podem usar uma imagem no tamanho de `160px` x `144px` sem limites de tiles únicos, mas observe que nas cenas de _Logotipo_ você não pode usar _Atores_ ou exibir um _Jogador_.
 
-#### "Color Only" Games
+#### Jogos "Apenas cor"
 
-When using the `Color Only` color mode background tile limits are doubled, allowing up to **384** unique `8px` x `8px` tiles per scene.
+Ao usar o modo de cor `Apenas cor`, os limites de tiles da imagem de fundo são dobrados, permitindo até **384** tiles únicos de `8px` x `8px` por cena.
 
-## Monochrome Overrides
+## Sobrecargas monocromáticas
 
-When using [automatic palettes](/docs/project-editor/scenes/color#automatic-color), monochrome tile data is automatically generated from your color image. However, the generated shades may not perfectly match your intentions. For `Color Only` mode, this won't be an issue. If you plan to support monochrome devices, you can provide a second image as a monochrome override by naming it the same as your color image with a `.mono.png` file extension.
+Ao usar [paletas automáticas](/docs/project-editor/scenes/color#automatic-color), os dados do tile monocromático são gerados automaticamente a partir da sua imagem colorida. No entanto, os tons gerados podem não corresponder perfeitamente às suas intenções. Para o modo `Apenas cor`, isso não será um problema. Se você planeja ter suporte a dispositivos monocromáticos, pode fornecer uma segunda imagem como uma sobrecarga monocromática, nomeando-a de forma idêntica à sua imagem colorida com uma extensão de arquivo `.mono.png`.
 
-For example, when using automatic palettes on the following image without an override:
+Por exemplo, ao usar paletas automáticas na imagem a seguir sem uma sobrecarga:
 
 <img src="/assets/examples/mono-override/parallax.png" style={{width:550}} />
 `assets/backgrounds/parallax.png`  
 
-The scene will look like this on monochrome devices:
+A cena ficará assim em dispositivos monocromáticos:
 <img src="/assets/examples/mono-override/parallax_broken.png" style={{width:550}} class="margin-bottom"/>
 
-By providing the following override image the scene will look as you expect on both color and monochrome devices:
+Ao fornecer a imagem de sobrecarga a seguir, a cena ficará como você espera tanto em dispositivos coloridos quanto monocromáticos:
 
 <img src="/assets/examples/mono-override/parallax.mono.png" style={{width:550}} />
 `assets/backgrounds/parallax.mono.png`  
