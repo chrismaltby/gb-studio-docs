@@ -4,26 +4,26 @@ sidebar_position: 4
 
 import ScriptEventPreview, {FakeValue} from '@site/src/components/ScriptEventPreview';
 
-# Script Values
+# Valores de script
 
-Many script events now support using **Script Values** as inputs. These allow you combine number values, variables, mathematical operations and functions to create complex values.
+Muitos eventos de script agora suportam o uso de **Valores de script** como entradas. Eles permitem que você combine valores numéricos, variáveis, operações matemáticas e funções para criar valores complexos.
 
 <div className="drop-shadow margin-bottom"><img src="/img/screenshots/script-values-edit-v4.gif" width="320" className="clip-bottom" /></div>
 
-You can use Script Values in your scripts anywhere that you see a button to left of an input field (as shown below) by clicking the button to open the menu.
+Você pode usar os Valores de script em seus scripts em qualquer lugar em que vir um botão à esquerda de um campo de entrada (como mostrado abaixo), clicando no botão para abrir o menu.
 
 <div style={{maxWidth: 300}}>
     <FakeValue>0</FakeValue>
 </div>
 
-## Math Expressions
+## Expressões matemáticas
 
-Script Values are very similar to [Math Expressions](/docs/scripting/math-expressions) with a more visual interface, the same math functions are available for both value types. Anywhere you can use Script Values you can also use the menu to change to using Math Expressions instead, allowing you type your expressions. You're also able to combine Script Values and Math Expressions if needed.
+Os Valores de script são muito semelhantes às [Expressões matemáticas](/docs/scripting/math-expressions) com uma interface mais visual, as mesmas funções matemáticas estão disponíveis para ambos os tipos de valores. Em qualquer lugar em que você possa usar Valores de script, você também pode usar o menu para mudar para o uso de Expressões matemáticas, permitindo que você digite as suas expressões. Você também é capaz de combinar Valores de script e Expressões matemáticas, se necessário.
 
-## Drag and Drop
+## Arrastar e soltar
 
-By dragging the Script Value buttons you quickly move values between different parts of your script.
+Ao arrastar os botões de Valores de script, você move rapidamente os valores entre diferentes partes do seu script.
 
 <div className="drop-shadow margin-bottom"><img src="/img/screenshots/script-values-dnd-v4.gif" width="320" className="clip-bottom" /></div>
 
-If you need to move values between different scripts, opening the menu and selecting "Copy Value" will allow you to select "Paste Value" when opening the menu from another script.
+Se você precisar mover valores entre scripts diferentes, abrir o menu e selecionar "Copiar valor" permitirá que você selecione "Colar valor" ao abrir o menu a partir de outro script.

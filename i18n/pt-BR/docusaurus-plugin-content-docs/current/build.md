@@ -2,47 +2,47 @@
 sidebar_position: 7
 ---
 
-# Building Your Game
+# Compilando o seu jogo
 
-## Play
+## Jogar
 
-Clicking the _Play button_ in the top right of the _Project Editor_ window will start a build of your game and once complete will open a new window where you can play your game. See [Keyboard Shortcuts](/docs/getting-started/keyboard-shortcuts) for details on how to play your game in the _Play Window_.
+Clicar no _Botão de jogar_ no canto superior direito da janela do _Editor de projetos_ iniciará uma compilação do seu jogo e, assim que estiver concluída, abrirá uma nova janela onde você poderá jogá-lo. Veja [Atalhos de teclado](/docs/getting-started/keyboard-shortcuts) para obter detalhes sobre como jogar na _Janela de jogo_.
 
-## Run From Here
+## Executar daqui
 
-By right clicking on an scene in the _Project Viewport_ or the _Scene Navigator_ you can access the scene's context menu which contains the option to _Run From Here_.
+Ao clicar com o botão direito do mouse em uma cena na _Visualização do projeto_ ou no _Navegador de cenas_, você pode acessar o menu de contexto da cena, que contém a opção de _Executar daqui_.
 
 <div className="drop-shadow margin-bottom"><img src="/img/screenshots/run-from-here.jpg" width="320" className="clip-bottom" /></div>
 
-This allows you to quickly preview a specific scene from your game without needing to edit the Player's [Start Position](/docs/project-editor/player#start-position). If you select the _Include Selection Only_ option then when building your game only the scenes you have currently selected will be included in the built game preview allowing faster builds when testing large games.
+Isso permite que você pré-visualize rapidamente uma cena específica do seu jogo sem precisar editar a [Posição inicial](/docs/project-editor/player#start-position) do jogador. Se você selecionar a opção _Incluir apenas seleção_, ao compilar o seu jogo, apenas as cenas que você selecionou no momento serão incluídas na pré-visualização do jogo compilado, permitindo compilações mais rápidas ao testar jogos grandes.
 
-## Build as ROM
+## Compilar como ROM
 
-Clicking the _Export button_ and selecting _Export ROM_ will build your game and create a ROM file in your project's build folder as `$PROJECT_ROOT/build/rom/game.gb`. You can play this ROM file in any compatible emulator such as [OpenEMU](https://openemu.org/) or [KiGB](http://kigb.emuunlim.com/downloads.htm).
+Clicar no _Botão de exportar_ e selecionar _Exportar ROM_ compilará o seu jogo e criará um arquivo ROM na pasta de compilação do seu projeto como `$PROJECT_ROOT/build/rom/game.gb`. Você pode jogar este arquivo ROM em qualquer emulador compatível, como o [OpenEMU](https://openemu.org/) ou o [KiGB](http://kigb.emuunlim.com/downloads.htm).
 
-## Build and deploy for Web
+## Compilar e implantar para a Web
 
-Clicking the _Export button_ and selecting _Export Web_ will build your game and create a HTML5 web build in the folder `$PROJECT_ROOT/build/web`. You can upload this folder to any web server and navigate to the `index.html` file to play your game in a web browser. If you use a mobile or tablet web browser the game will also include touch controls.
+Clicar no _Botão de exportar_ e selecionar _Exportar para Web_ compilará o seu jogo e criará uma compilação da web HTML5 na pasta `$PROJECT_ROOT/build/web`. Você pode fazer o upload desta pasta para qualquer servidor web e navegar até o arquivo `index.html` para jogar o seu jogo em um navegador web. Se você usar um navegador web de celular ou tablet, o jogo também incluirá controles de toque.
 
-If you zip the `build/web` folder you can upload it to [Itch.io](https://itch.io) as a HTML game. In this case the recommended viewport size to use is `480px` x `432px`.
+Se você compactara pasta `build/web`, poderá fazer o upload dela para o [Itch.io](https://itch.io) como um jogo HTML. Neste caso, o tamanho recomendado do viewport a ser usado é `480px` x `432px`.
 
-## Build for Pocket
+## Compilar para Pocket
 
-Clicking the _Export button_ and selecting _Export Pocket_ will build your game as a `.pocket` file for use on [Analogue Pocket](https://www.analogue.co/pocket) devices.
+Clicar no _Botão de exportar_ e selecionar _Exportar Pocket_ compilará o seu jogo como um arquivo `.pocket` para uso em dispositivos [Analogue Pocket](https://www.analogue.co/pocket).
 
-To play your `.pocket` game:
+Para jogar o seu jogo `.pocket`:
 
-- Create a folder at the root of a MicroSD card called `GB Studio`.
-- Copy the `.pocket` file into the `GB Studio` folder
-- Insert the MicroSD card into your Pocket device.
-- From the Pocket menu choose `Tools` / `GB Studio` / `Play Creations` and select your file from the list.
+- Crie uma pasta na raiz de um cartão MicroSD chamada `GB Studio`.
+- Copie o arquivo `.pocket` para a pasta `GB Studio`
+- Insira o cartão MicroSD no seu dispositivo Pocket.
+- No menu do Pocket, escolha `Tools` / `GB Studio` / `Play Creations` e selecione o seu arquivo na lista.
 
-## Troubleshooting
+## Solução de problemas
 
-On macOS if you're having trouble building or running your game you may also need to install Apple's Command Line Tools by opening `Applications/Terminal.app` and entering the following command.
+No macOS, se você estiver tendo problemas para compilar ou executar o seu jogo, também pode ser necessário instalar as Command Line Tools da Apple abrindo `Applications/Terminal.app` e inserindo o comando a seguir.
 
 ```
 xcode-select --install
 ```
 
-On Windows you may need to whitelist the application in your Anti Virus software to perform a build.
+No Windows, você pode precisar colocar o aplicativo na lista de permissões do seu software antivírus para executar uma compilação.

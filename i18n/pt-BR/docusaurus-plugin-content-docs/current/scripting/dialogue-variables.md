@@ -4,29 +4,29 @@ sidebar_position: 3
 
 import ScriptEventPreview, {FakeValue} from '@site/src/components/ScriptEventPreview';
 
-# Dialogue Variables
+# Variáveis de diálogo
 
-Script events that allow displaying text such as [Display Dialogue](/docs/scripting/script-glossary/dialogue-menus) also allow to you to display the value of variables.
+Os eventos de script que permitem exibir texto, como [Exibir diálogo](/docs/scripting/script-glossary/dialogue-menus), também permitem que você exiba o valor de variáveis.
 
-Typing `$` followed by a variable's name will allow you to search through variables to display in your text. Once a variable has been added you can click it to open a menu allowing you to change the variable.
+Digitar `$` seguido pelo nome de uma variável permitirá que você pesquise entre as variáveis para exibir em seu texto. Uma vez que uma variável tenha sido adicionada, você pode clicar nela para abrir um menu que permite alterar a variável.
 
 <div className="drop-shadow margin-bottom"><img src="/img/screenshots/dialogue-variables.gif" width="320" className="clip-bottom" /></div>
 
-## Formatting Variables
+## Formatando variáveis
 
-It is possible to add prefixes to dialogue variables allowing them to be used differently within your text.
+É possível adicionar prefixos às variáveis de diálogo permitindo que elas sejam usadas de forma diferente dentro do seu texto.
 
-- **Fixed Length**: Adding `%D` followed by a number between `1` and `9` before a variable causes it to be displayed as a fixed length value with leading zeros. e.g. `%D5$Variable` would display as `00042`.
-- **Character Code**: Adding `%c` before a variable causes it to be displayed as an ASCII character code. e.g. `%c$Variable` when the variable is `65` will display as `A`.
-- **Text Speed**: Adding `%t` before a variable causes it be used to set the text speed from that point onwards in the dialogue.
-- **Font**: Adding `%f` before a variable causes the font to change to an index based on the variable's value. The index of each font in your game is determined by the order the fonts appear in `script_engine_init.s` which you can find by selecting `Game > Advanced > Export Project Data` from the application menu.
+- **Tamanho fixo**: Adicionar `%D` seguido por um número entre `1` e `9` antes de uma variável faz com que ela seja exibida como um valor de tamanho fixo com zeros à esquerda. Ex.: `%D5$Variable` seria exibido como `00042`.
+- **Código de caractere**: Adicionar `%c` antes de uma variável faz com que ela seja exibida como um código de caractere ASCII. Ex.: `%c$Variable` quando a variável for `65` exibirá como `A`.
+- **Velocidade do texto**: Adicionar `%t` antes de uma variável faz com que ela seja usada para definir a velocidade do texto a partir desse ponto no diálogo.
+- **Fonte**: Adicionar `%f` antes de uma variável faz com que a fonte mude para um índice com base no valor da variável. O índice de cada fonte no seu jogo é determinado pela ordem em que as fontes aparecem em `script_engine_init.s`, que você pode encontrar selecionando `Jogo > Avançado > Exportar dados do projeto` no menu do aplicativo.
 
-## Text Commands
+## Comandos de texto
 
-Typing `!` followed by one of the commands below allows you to alter how the dialogue is displayed from that point onwards, allowing you to use multiple fonts and speeds in a single dialogue event.
+Digitar `!` seguido por um dos comandos abaixo permite que você altere como o diálogo é exibido a partir desse ponto, permitindo que você use várias fontes e velocidades em um único evento de diálogo.
 
-- `!Font` Allows you to choose a font to switch to mid dialogue.
-- `!Speed` Allows you to choose from the different text speeds.
-- `!Instant` Allows you to set the text to appear instantly.
-- `!Wait` Allows you to pause the dialogue mid text until a set amount of time has passed or a specified button is pressed.
-- `!Cursor` Allows you to move the text cursor to a new position. Click the `P(0,0)` or `M(+1,+1)` token to open a popup allowing you to change the position to move to.
+- `!Font` Permite que você escolha uma fonte para a qual mudar no meio do diálogo.
+- `!Speed` Permite que você escolha entre as diferentes velocidades de texto.
+- `!Instant` Permite que você defina o texto para aparecer instantaneamente.
+- `!Wait` Permite que você pause o diálogo no meio do texto até que um determinado período de tempo passe ou um botão especificado seja pressionado.
+- `!Cursor` Permite que você mova o cursor de texto para uma nova posição. Clique no token `P(0,0)` ou `M(+1,+1)` para abrir um pop-up permitindo que você altere a posição para a qual mover.

@@ -4,40 +4,40 @@ sidebar_position: 5
 
 import ScriptEventPreview from '@site/src/components/ScriptEventPreview';
 
-# Math Expressions
+# Expressões matemáticas
 
-The [Evaluate Math Expression](/docs/scripting/script-glossary/math#evaluate-math-expression) and [If Math Expression](/docs/scripting/script-glossary/math#if-math-expression) events as well as any events supporting [Script Values](/docs/scripting/script-values) allow mathematical expressions to be used for performing calculations.
+Os eventos [Avaliar expressão matemática](/docs/scripting/script-glossary/math#evaluate-math-expression) e [Se a expressão matemática](/docs/scripting/script-glossary/math#if-math-expression), bem como quaisquer eventos compatíveis com [Valores de script](/docs/scripting/script-values), permitem que expressões matemáticas sejam usadas para realizar cálculos.
 
 <ScriptEventPreview title={"If Math Expression"} fields={[{"key":"expression","label":"Expression","description":"The expression to evaluate.","type":"matharea","rows":5,"placeholder":"e.g. $health >= 0...","defaultValue":""},{"key":"true","label":"True","description":"The script to run if the condition is true.","type":"events"},{"key":"**collapseElse","label":"Else","type":"collapsable","defaultValue":true,"conditions":[{"key":"**disableElse","ne":true}]},{"key":"false","label":"False","description":"The script to run if the condition is false.","conditions":[{"key":"__collapseElse","ne":true},{"key":"__disableElse","ne":true}],"type":"events"}]} />
 
-Expressions allow you to use many mathematical operations such as:
+As expressões permitem que você use muitas operações matemáticas, como:
 
-- `+` add
-- `-` subtract
-- `*` multiply
-- `/` divide
-- `==` equal to
-- `!=` not equal to
-- `>=` greater than or equal to
+- `+` somar
+- `-` subtrair
+- `*` multiplicar
+- `/` dividir
+- `==` igual a
+- `!=` diferente de
+- `>=` maior ou igual a
 
-You are also able to use the following functions:
+Você também é capaz de usar as seguintes funções:
 
-- `min(a, b)` return the minimum of two values `a` and `b`
-- `max(a, b)` return the maximum of two values `a` and `b`
-- `abs(a)` return the absolute value of `a`
-- `atan2(a, b)` return the [2-argument arctangent](https://en.wikipedia.org/wiki/Atan2) of `a` and `b`
-- `isqrt(a)` return the square root of `a` rounded down to nearest integer
-- `rnd(a)` return a random number greater than `0` and less than `a`
+- `min(a, b)` retorna o mínimo de dois valores `a` e `b`
+- `max(a, b)` retorna o máximo de dois valores `a` e `b`
+- `abs(a)` retorna o valor absoluto de `a`
+- `atan2(a, b)` retorna o [arco-tangente de 2 argumentos](https://en.wikipedia.org/wiki/Atan2) de `a` e `b`
+- `isqrt(a)` retorna a raiz quadrada de `a` arredondada para baixo para o número inteiro mais próximo
+- `rnd(a)` retorna um número aleatório maior que `0` e menor que `a`
 
-You can use variables in expressions by typing `$` and searching for the variable's name.
+Você pode usar variáveis em expressões digitando `$` e pesquisando pelo nome da variável.
 
-When you want to combine multiple conditions in your code, you can use boolean logic operators:
+Quando quiser combinar várias condições no seu código, você pode usar os operadores lógicos booleanos:
 
-- `||` **or**: This operator is used when you want to check if at least one of the conditions is true.  
-  For example, if you write `$Local0 == 0 || $Local1 == 0`, it means "if either variable Local0 equals 0 or variable Local1 equals 0".
+- `||` **ou**: Este operador é usado quando você deseja verificar se pelo menos uma das condições é verdadeira.  
+  Por exemplo, se você escrever `$Local0 == 0 || $Local1 == 0`, isso significa "se a variável Local0 for igual a 0 ou a variável Local1 for igual a 0".
 
-- `&&` **and**: This operator is used when you want to check if all conditions are true.
-  For example, if you write `$Local0 == 0 && $Local1 == 0`, it means "if both variable Local0 equals 0 and variable Local1 equals 0".
+- `&&` **e**: Este operador é usado quando você deseja verificar se todas as condições são verdadeiras.
+  Por exemplo, se você escrever `$Local0 == 0 && $Local1 == 0`, isso significa "se tanto a variável Local0 for igual a 0 quanto a variável Local1 for igual a 0".
 
-- `!` **not**: This operator is used when you want to invert the truth value of a condition.  
-  For example, if you write `!($Local0 == 0)`, it means "if variable Local0 does not equal 0".
+- `!` **não**: Este operador é usado quando você deseja inverter o valor de verdade de uma condição.  
+  Por exemplo, se você escrever `!($Local0 == 0)`, isso significa "se a variável Local0 não for igual a 0".

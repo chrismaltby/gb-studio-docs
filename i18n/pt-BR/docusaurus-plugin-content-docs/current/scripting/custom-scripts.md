@@ -2,44 +2,44 @@
 sidebar_position: 2
 ---
 
-# Custom Scripts
+# Scripts personalizados
 
-_Custom Scripts_ allow you to create reusable procedures in your game that can be called from any of your scripts.
+Os _Scripts personalizados_ permitem que você crie procedimentos reutilizáveis no seu jogo que podem ser chamados a partir de qualquer um dos seus scripts.
 
 <img src="/img/screenshots/custom-script-list.png" className="drop-shadow" width="200" />
 
-Your _Custom Scripts_ will be listed in the _Scripts_ section of the _Navigator_ while on the _Game World View_.
+Os seus _Scripts personalizados_ serão listados na seção _Scripts_ do _Navegador_ enquanto estiver na visualização da _Área do jogo_.
 
-Click the `+` button to create a new _Custom Script_ or select one to edit from the list.
+Clique no botão `+` para criar um novo _Script personalizado_ ou selecione um para editar na lista.
 
-Once you've given your _Custom Script_ a name you can start building a script in the same way you would for _Actors_, _Triggers_ and _Scenes_.
+Depois de dar um nome ao seu _Script personalizado_, você pode começar a construir um script da mesma forma que faria para _Atores_, _Gatilhos_ e _Cenas_.
 
-## Parameters
+## Parâmetros
 
-Whenever you add an event that reads a _Variable_ it will get added to the list of input parameters for the _Custom Script_, where you are able to give that input a memorable name. Events that affect _Actors_ will, by default, apply to the player but if you use the actor selector you will be able to set the event to read the _Actor_ value from an input parameter also.
+Sempre que você adicionar um evento que lê uma _Variável_, ele será adicionado à lista de parâmetros de entrada para o _Script personalizado_, onde você pode dar a essa entrada um nome fácil de lembrar. Os eventos que afetam _Atores_, por padrão, se aplicarão ao jogador, mas se você usar o seletor de ator, poderá configurar o evento para ler o valor do _Ator_ também a partir de um parâmetro de entrada.
 
-For example the following custom script makes `Actor A` rotate in a circle.
+Por exemplo, o script personalizado a seguir faz o `Ator A` girar em um círculo.
 
 <img src="/img/screenshots/custom-script-dance.png" className="event-preview" />
 
-## Passing by Reference or Value
+## Passando por referência ou valor
 
-When using variables in a custom script you have the choice to pass by reference (_By Ref_) or to pass by value (_By Val_) by clicking the drop down button next to each variable in the parameters list.
+Ao usar variáveis em um script personalizado, você tem a escolha de passar por referência (_Por ref._) ou passar por valor (_Por val._) clicando no botão de menu suspenso ao lado de cada variável na lista de parâmetros.
 
 <img src="/img/screenshots/custom-script-by-ref.png" className="event-preview" />
 
-- **Pass By Reference** Allows the custom script to modify the value of a variable parameter. Any changes to the variable's value from inside the script will also update the variable's value outside of the script. Use this if you want the custom script to be able to change the value of a variable that was passed in.
+- **Passar por referência** Permite que o script personalizado modifique o valor de um parâmetro de variável. Quaisquer alterações no valor da variável feitas de dentro do script também atualizarão o valor da variável fora do script. Use isso se quiser que o script personalizado consiga alterar o valor de uma variável que foi passada para ele.
 
-- **Pass By Value** Copies the current value of the variable at call time so that any changes to the variable parameter from within the script will not affect the variable that was passed in. Use this if you want the custom script to **NOT** be able to change the variable that was passed in.
+- **Passar por valor** Copia o valor atual da variável no momento da chamada, para que quaisquer alterações no parâmetro de variável feitas de dentro do script não afetem a variável que foi passada para ele. Use isso se você quiser que o script personalizado **NÃO** consiga alterar a variável que foi passada para ele.
 
-## Calling a Custom Script
+## Chamando um script personalizado
 
-Once you have created a _Custom Script_ you can call it from any other script by adding a _Call Script_ event which will appear as follows.
+Depois de criar um _Script personalizado_, você pode chamá-lo a partir de qualquer outro script adicionando um evento _Chamar script_, que aparecerá da seguinte forma.
 
 <img src="/img/screenshots/custom-script-call.png" className="event-preview" />
 
-You first must choose the script which you wish to call, if that script has any variable or actor parameters you can then choose which inputs to use.
+Primeiro, você deve escolher o script que deseja chamar. Se esse script tiver parâmetros de variável ou ator, você poderá escolher quais entradas usar.
 
-If you ever want to edit the _Custom Script_ you can return to it using the list on the _Navigator_ or by selecting _Edit Custom Script_ from the event dropdown menu.
+Se você quiser editar o _Script personalizado_, pode retornar a ele usando a lista no _Navegador_ ou selecionando _Editar script personalizado_ no menu suspenso do evento.
 
 <img src="/img/screenshots/custom-event-edit.png" className="event-preview" />

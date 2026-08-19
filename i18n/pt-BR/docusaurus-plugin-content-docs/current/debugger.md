@@ -2,90 +2,90 @@
 sidebar_position: 8
 ---
 
-# Debugger
+# Depurador
 
-The **Debugger** pane enables you to examine the current state of your game in real-time, assisting you in identifying and resolving issues as you develop your game scripts.
+O painel **Depurador** permite que você examine o estado atual do seu jogo em tempo real, ajudando-o a identificar e resolver problemas enquanto desenvolve os scripts do seu jogo.
 
-You can access the Debugger by clicking to open the pane at the bottom of the _Game World_ view or by selecting `Game > Run With Debugging` from the menu.
+Você pode acessar o Depurador clicando para abrir o painel na parte inferior da visualização da _Área do jogo_ ou selecionando `Jogo > Executar com depuração` no menu.
 
-<img title="Debugger" src="/img/screenshots/debugger-v4.png" width="1458" />
+<img title="Depurador" src="/img/screenshots/debugger-v4.png" width="1458" />
 
-## VRAM Preview
+## Pré-visualização de VRAM
 
-The **VRAM** pane shows the current video memory used by graphics in your running game.
+O painel **VRAM** mostra a memória de vídeo atual usada pelos gráficos no seu jogo em execução.
 
-You can use this pane to get a visual preview of how many additional sprite and background tiles are available in the current scene and to help debug issues when you have used too many unique tiles in the scene.
+Você pode usar este painel para obter uma pré-visualização visual de quantos tiles adicionais de sprite e imagem de fundo estão disponíveis na cena atual e para ajudar a depurar problemas quando você usar tiles únicos demais na cena.
 
-Below the tiles preview, the pane also shows the 8 background and 8 sprite tile palettes being used for the current scene in color games.
+Abaixo da pré-visualização de tiles, o painel também mostra as 8 paletas de tiles de imagem de fundo e as 8 paletas de tiles de sprite sendo usadas para a cena atual em jogos coloridos.
 
 :::info
-Note that unless you are using [Color Only](/docs/settings#color-options) mode then only half of the VRAM is available to your game.
+Observe que, a menos que você esteja usando o modo [Apenas cor](/docs/settings#color-options), apenas metade da VRAM está disponível para o seu jogo.
 :::
 
-## Current State
+## Estado atual
 
-The **Current State** pane tells you which scene is currently running in the game and how many [script threads](/docs/debugger#active-script-threads) are active.
+O painel **Estado atual** informa qual cena está sendo executada no momento no jogo e quantas [threads de script](/docs/debugger#active-script-threads) estão ativas.
 
-If you click on the current scene's name you will be navigated to that scene in the _Game World_ view.
+Se você clicar no nome da cena atual, será direcionado para essa cena na visualização da _Área do jogo_.
 
-## Breakpoints
+## Pontos de interrupção
 
-The **Breakpoints** pane consists of some global settings and a list of the current event breakpoints enabled for your project. Breakpoints allow you to pause the running game, allowing you to see what script events were currently running and to view the current value of your game's variables.
+O painel **Pontos de interrupção** consiste em algumas configurações globais e uma lista dos pontos de interrupção de evento atuais ativados para o seu projeto. Os pontos de interrupção permitem que você pause o jogo em execução, permitindo ver quais eventos de script estão sendo executados no momento e visualizar o valor atual das variáveis do seu jogo.
 
-- **Pause On Script Change** Enabling this setting will cause the debugger to pause whenever a new script is started e.g when you interact with an actor/trigger or load a new scene.
+- **Pausar ao mudar script**: Habilitar esta configuração fará com que o depurador pause sempre que um novo script for iniciado, por exemplo, quando você interagir com um ator/gatilho ou carregar uma nova cena.
 
-- **Pause On Watched Variable Change** Enabling this setting will cause the debugger to pause whenever any script modifies one of your [watched variables](/docs/debugger#variable-values).
+- **Pausar ao detectar mudança na variável**: Habilitar esta configuração fará com que o depurador pause sempre que qualquer script modificar uma de suas [variáveis monitoradas](/docs/debugger#variable-values).
 
-### Setting Breakpoints
+### Definindo pontos de interrupção
 
-To set a breakpoint on an event you can use the dropdown button and select "Set Breakpoint" as shown below:
+Para definir um ponto de interrupção em um evento, você pode usar o botão suspenso e selecionar "Definir ponto de interrupção" conforme mostrado abaixo:
 
-<img title="Setting a breakpoint" src="/img/screenshots/set-breakpoint-v4.png" width="418" className="drop-shadow margin-bottom" />
+<img title="Definindo um ponto de interrupção" src="/img/screenshots/set-breakpoint-v4.png" width="418" className="drop-shadow margin-bottom" />
 
-To remove the breakpoint you can either repeat this process, or you can click the **` x `** button that will appear when hovering over the entry in the **Breakpoints** pane.
+Para remover o ponto de interrupção, você pode repetir esse processo ou clicar no botão **` x `** que aparecerá ao passar o mouse sobre a entrada no painel **Pontos de interrupção**.
 
-## Variable Values
+## Valores das variáveis
 
-The **Variables** pane allows you to see the current value of the variables used within your game. You can also type in new values which will be **live updated** in your running game.
+O painel **Variáveis** permite que você veja o valor atual das variáveis usadas no seu jogo. Você também pode digitar novos valores que serão **atualizados ao vivo** no seu jogo em execução.
 
-### Watching Variables
+### Monitorando variáveis
 
-You can watch variables by hovering over the list item and clicking the **` ★ `** button that appears on the right. Watching variables allows you to make use of the [Pause On Watched Variable Change](/docs/debugger#breakpoints) breakpoints setting.
+Você pode monitorar variáveis passando o mouse sobre o item da lista e clicando no botão **` ★ `** que aparece à direita. O monitoramento de variáveis permite que você faça uso da configuração de pontos de interrupção [Pausar ao detectar mudança na variável](/docs/debugger#breakpoints).
 
-<img title="Watching variables" src="/img/screenshots/watching-variables-v4.png" width="332" className="drop-shadow margin-bottom" />
+<img title="Monitorando variáveis" src="/img/screenshots/watching-variables-v4.png" width="332" className="drop-shadow margin-bottom" />
 
-## Active Script Threads
+## Threads de script ativas
 
-When your game is paused you will be able to navigate through the currently running scripts. You can pause the game either by clicking the **` ⏸ `** button at the top right of the debugger, by pressing `F8` or by triggering a [breakpoint](/docs/debugger#breakpoints).
+Quando o seu jogo estiver pausado, você poderá navegar pelos scripts atualmente em execução. Você pode pausar o jogo clicando no botão **` ⏸ `** no canto superior direito do depurador, pressionando `F8` ou acionando um [ponto de interrupção](/docs/debugger#breakpoints).
 
-### Script View
+### Visualização de script
 
-At the top right of the **Active Script Threads** pane are tabs to switch between viewing the Events Editor (the default) or seeing the generated [GBVM script](/docs/scripting/gbvm). In the Editor view, you can modify the script including adding and removing events. However, note that any changes made here will not take effect until you rebuild your game.
+No canto superior direito do painel **Threads de script ativas**, existem abas para alternar entre a visualização do Editor de eventos (o padrão) ou ver o [Script GBVM](/docs/scripting/gbvm) gerado. Na visualização do Editor, você pode modificar o script, incluindo a adição e remoção de eventos. No entanto, observe que quaisquer alterações feitas aqui não terão efeito até que você compile o seu jogo novamente.
 
-### Stepping Through Your Game
+### Avançando pelo seu jogo
 
-When your game is paused you can use the _Step Buttons_ or [keyboard shortcuts](/docs/debugger#keyboard-shortcuts) to slowly step through your game to follow the progress of any running scripts.
+Quando o seu jogo estiver pausado, você pode usar os _Botões de avançar_ ou os [atalhos de teclado](/docs/debugger#keyboard-shortcuts) para avançar lentamente pelo seu jogo e acompanhar o progresso de quaisquer scripts em execução.
 
-<img title="Stepping Through Your Game" src="/img/screenshots/debugger-step-controls-v4.png" width="296" className="margin-bottom" />
+<img title="Avançando pelo seu jogo" src="/img/screenshots/debugger-step-controls-v4.png" width="296" className="margin-bottom" />
 
-- **Pause/Resume** Toggles between playing and paused modes.
-- **Step** Run the game until the next script event starts, allowing you to follow through the logic of your scripts.
-- **Step Forward One Frame** Run the game until the next frame of animation starts. This is useful for understanding what is happening every frame during events that take time such as [Actor Move To](/docs/scripting/script-glossary/actor#actor-move-to).
+- **Pausar/Retomar**: Alterna entre os modos de reprodução e pausa.
+- **Avançar**: Executa o jogo até que o próximo evento de script inicie, permitindo que você acompanhe a lógica dos seus scripts.
+- **Avançar um quadro**: Executa o jogo até que o próximo quadro de animação inicie. Isso é útil para entender o que está acontecendo a cada quadro durante eventos que levam tempo, como [Mover ator para](/docs/scripting/script-glossary/actor#actor-move-to).
 
-### Keyboard Shortcuts
+### Atalhos de teclado
 
-When the debugger is enabled, you can use the following keyboard shortcuts in both the _Project Window_ and _Play Window_:
+Quando o depurador estiver ativado, você pode usar os seguintes atalhos de teclado tanto na _Janela do projeto_ quanto na _Janela de jogo_:
 
-**Pause/Resume** - `F8`  
-**Step Forward One Instruction** - `F9`  
-**Step Forward One Frame** - `F10`
+**Pausar/Retomar** - `F8`  
+**Avançar uma instrução** - `F9`  
+**Avançar um quadro** - `F10`
 
-## Build Log
+## Registro de compilação
 
-The **Build Log** allows you to see the current progress as your game is being compiled. It also lists any warnings such as issues with the complexity of your scenes or incompatibility with plugins.
+O **Registro de compilação** permite que você veja o progresso atual enquanto o seu jogo está sendo compilado. Ele também lista quaisquer avisos, como problemas com a complexidade das suas cenas ou incompatibilidade com plugins.
 
-You can access the Build Log by clicking the `Build Log` toggle button on the top right of the Debugger pane. To dismiss the Build Log you can click the button a second time.
+Você pode acessar o Registro de compilação clicando no botão de alternância `Registro de compilação` no canto superior direito do painel Depurador. Para fechar o Registro de compilação, você pode clicar no botão uma segunda vez.
 
-The Build Log will open automatically if your project has warnings, if you would prefer this not to happen you can disable the feature in your [project settings](/docs/settings#build-options).
+O Registro de compilação abrirá automaticamente se o seu projeto tiver avisos. Se preferir que isso não aconteça, você pode desativar o recurso nas [opções de compilação](/docs/settings#build-options) do seu projeto.
 
-<img title="Build Log" src="/img/screenshots/build-log-v4.png" width="864" className="drop-shadow margin-bottom" />
+<img title="Registro de compilação" src="/img/screenshots/build-log-v4.png" width="864" className="drop-shadow margin-bottom" />

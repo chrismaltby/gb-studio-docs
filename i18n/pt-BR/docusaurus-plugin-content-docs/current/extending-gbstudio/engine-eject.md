@@ -2,23 +2,23 @@
 sidebar_position: 8
 ---
 
-# Engine Eject
+# Ejeção do motor
 
-Engine Eject copies the [GBVM game engine](https://github.com/chrismaltby/gbvm) that GB Studio uses into a folder in your project, named `assets/engine`. You can edit these source files to your liking using an IDE to have more control over how your GB Studio game is built. This feature is only recommended for developers familiar with GBDK.
+A ejeção do motor copia o [motor de jogo GBVM](https://github.com/chrismaltby/gbvm) que o GB Studio usa para dentro de uma pasta no seu projeto, chamada `assets/engine`. Você pode editar esses arquivos de código-fonte ao seu gosto usando uma IDE para ter mais controle sobre como o seu jogo do GB Studio é compilado. Este recurso é recomendado apenas para desenvolvedores familiarizados com o GBDK.
 
-To use Engine Eject, click on _Game_ at the top of the GB Studio window and navigate to the _Advanced_ tab to show the _Engine Eject_ button.
+Para usar a ejeção do motor, clique em _Jogo_ no topo da janela do GB Studio e navegue até a aba _Avançado_ para exibir o botão _Ejetar motor_.
 
-After clicking _Eject_ your project will gain a new folder named `/engine ` with the subfolders `/include` and `/src`.
+Após clicar em _Ejetar_, o seu projeto ganhará uma nova pasta chamada `/engine` com as subpastas `/include` e `/src`.
 
-## Reverting Files
+## Revertendo arquivos
 
-To revert any GBDK file back to its GB Studio default, delete it from the `assets/engine` folder. Deleting the whole `assets/engine` folder ensures that all GBDK code reverts back to the GB Studio defaults. You can also do this by pressing _Engine Eject_ again, which will overwrite your `assets/engine` folder with the GB Studio defaults.
+Para reverter qualquer arquivo GBDK de volta ao padrão do GB Studio, exclua-o da pasta `assets/engine`. Excluir toda a pasta `assets/engine` garante que todo o código GBDK reverta para os padrões do GB Studio. Você também pode fazer isso pressionando _Ejetar motor_ novamente, o que substituirá a sua pasta `assets/engine` pelos padrões do GB Studio.
 
-## Compile Errors
+## Erros de compilação
 
-If you have broken or incompatible files in the `/engine` folder, GB Studio will not be able to build your game. Error messages can be found in the [Build Log](/docs/debugger#build-log).
+Se você tiver arquivos corrompidos ou incompatíveis na pasta `/engine`, o GB Studio não conseguirá compilar o seu jogo. As mensagens de erro podem ser encontradas no [Registro de compilação](/docs/debugger#build-log).
 
-The error message will often explain which files have problems and point you to the line number where the problem was found, for example this error is showing that line 77 of `src/core/actor.c` is using a variable that has not yet been defined:
+A mensagem de erro geralmente explicará quais arquivos têm problemas e apontará o número da linha onde o problema foi encontrado. Por exemplo, este erro está mostrando que a linha 77 de `src/core/actor.c` está usando uma variável que ainda não foi definida:
 
 ```
 Compiling: src/core/actor.c
@@ -27,4 +27,4 @@ src/core/actor.c:77: error 22: Array or pointer required for '[]' operation
 src/core/actor.c:77: error 47: indirections to different types assignment   
 ```
 
-These errors will not be caused by missing files. GB Studio refers to its default engine in place of any missing `assets/engine` files. Fixing or removing the files that caused the error will allow your game to build and run again.
+Esses erros não serão causados por arquivos ausentes. O GB Studio recorre ao seu motor padrão no lugar de qualquer arquivo ausente em `assets/engine`. Corrigir ou remover os arquivos que causaram o erro permitirá que o seu jogo seja compilado e executado novamente.
