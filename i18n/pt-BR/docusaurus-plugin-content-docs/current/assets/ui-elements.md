@@ -1,44 +1,44 @@
-# UI Elements
+# Elementos de IU
 
 import { Swatch } from '@site/src/components/Swatch';
 
-Your project contains a number of files in `assets/ui` with fixed file names that define parts of your game's user interface. Editing these files allows you to change the default font, set the window frame and modify the selection cursor.
+Seu projeto contém vários arquivos em `assets/ui` com nomes de arquivos fixos que definem partes da interface de usuário do seu jogo. A edição desses arquivos permite que você altere a fonte padrão, defina o quadro da janela e modifique o cursor de seleção.
 
-If you remove any of the files in the ui folder they will be replaced with the default assets the next time you build your game allowing you to revert any unwanted changes.
+Se você remover qualquer um dos arquivos na pasta ui, eles serão substituídos pelos ativos padrão na próxima vez que você compilar seu jogo, permitindo que você reverta quaisquer alterações indesejadas.
 
 ## frame.png
 
-The game engine uses [9-slice scaling](https://en.wikipedia.org/wiki/9-slice_scaling) of this image to create the frame around text boxes. Editing this image will allow you to change the frame design or set it to a solid color.
+O motor do jogo usa a [escala de 9 fatias](https://en.wikipedia.org/wiki/9-slice_scaling) desta imagem para criar a moldura ao redor das caixas de texto. A edição desta imagem permitirá que você altere o design da moldura ou defina-a para uma cor sólida.
 
 <img src="/img/ui/frame.png" class="HelpSprite" style={{width:72, height:"auto"}} />
 
 ## cursor.png
 
-This image is used as a selection cursor when showing multiple choice options in your game.
+Esta imagem é usada como um cursor de seleção ao exibir opções de múltipla escolha no seu jogo.
 
 <img src="/img/ui/cursor.png" class="HelpSprite" style={{width:24, height:"auto"}} />
 
-## Requirements
+## Requisitos
 
-UI PNGs must only contain the following four colors:
+Os PNGs de IU devem conter apenas as quatro cores a seguir:
 
-<Swatch color="#071821" description="Darkest" />
+<Swatch color="#071821" description="Mais escuro" />
 <Swatch color="#306850" />
 <Swatch color="#86c06c" />
-<Swatch color="#e0f8cf" description="Lightest" />
+<Swatch color="#e0f8cf" description="Mais claro" />
 
-Download the GB Studio Palette Swatches for:  
+Baixe as amostras de paleta do GB Studio para:  
 [Adobe Photoshop](/assets/swatches/gb-studio-photoshop.aco)  
 [Aseprite](/assets/swatches/gb-studio-aseprite.aseprite)  
 
-## Fonts
+## Fontes
 
-Fonts are stored in `assets/fonts`, see [Settings](/docs/settings#fonts) for more information.
+As fontes são armazenadas em `assets/fonts`, veja [Configurações](/docs/settings#fonts) para obter mais informações.
 
-## Emotes
+## Gestos
 
-Emotes are stored in `assets/emotes` and must be defined as `16px x 16px` sized `.png` files following the same color requirements used for creating spritesheets. You can display an emote by using the `Show Emote Bubble` event in a script.
+Os gestos são armazenados em `assets/emotes` e devem ser definidos como arquivos `.png` de tamanho `16px x 16px` seguindo os mesmos requisitos de cores usados para criar folhas de sprites. Você pode exibir um gesto usando o evento [Exibir balão de gesto](/docs/scripting/script-glossary/dialogue-menus#show-emote-bubble) em um script.
 
-## Avatars
+## Avatares
 
-Avatars are stored in `assets/avatars` and must be defined as `16px x 16px` sized `.png` files following the same color requirements used for creating backgrounds. You can display an avatar in a [Display Dialogue](/docs/scripting/script-glossary/dialogue-menus#display-dialogue) event by clicking `Add Avatar` within the event.
+Os avatares são armazenados em `assets/avatars` e devem ser definidos como arquivos `.png` de tamanho `16px x 16px` seguindo os mesmos requisitos de cores usados para criar imagens de fundo. Você pode exibir um avatar em um evento [Exibir diálogo](/docs/scripting/script-glossary/dialogue-menus#display-dialogue) clicando em `Adicionar avatar` dentro do evento.

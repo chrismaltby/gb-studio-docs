@@ -1,30 +1,30 @@
 import { Swatch } from '@site/src/components/Swatch';
 
-# Palettes
+# Paletas
 
-Using the _Palette Editor_ you can configure the colors available in your [Color + Monochrome](/docs/settings#color-options) or [Color Only](/docs/settings#color-options) game.
+Usando o _Editor de paletas_ você pode configurar as cores disponíveis no seu jogo em [Cor + Monocromático](/docs/settings#color-options) ou [Apenas cor](/docs/settings#color-options).
 
-<img title="Palette Editor" src="/img/screenshots/palette-editor-v420.jpg" width="752" />
+<img title="Editor de paletas" src="/img/screenshots/palette-editor-v420.jpg" width="752" />
 
-To use the palettes you must assign them to your [Scene](/docs/project-editor/scenes/) and then paint the chosen background of your scene with the [Color Tool](/docs/project-editor/scenes/color).
+Para usar as paletas você deve atribuí-las à sua [Cena](/docs/project-editor/scenes/) e então pintar a imagem de fundo escolhida da sua cena com a [Ferramenta de cor](/docs/project-editor/scenes/color).
 
-## Editing a Palette
+## Editando uma paleta
 
-To create a new palette, click the _Add Palette_ button at the top of the _Navigator_.
+Para criar uma nova paleta, clique no botão _Adicionar paleta_ no topo do _Navegador_.
 
-To rename a palette, click the _Rename Palette_ button next to the palette name, or right click the palette in the _Navigator_ and choose _Rename_.
+Para renomear uma paleta, clique no botão _Renomear paleta_ próximo ao nome da paleta, ou clique com o botão direito na paleta no _Navegador_ e escolha _Renomear_.
 
-When a palette is selected, you'll see its four colors. The colors in a palette replace the monochrome colors in your game mapping from the Lightest to Darkest.
+Quando uma paleta é selecionada, você verá as suas quatro cores. As cores em uma paleta substituem as cores monocromáticas no seu jogo, mapeando do Mais claro ao Mais escuro.
 
 <div className="margin-bottom">
-    <Swatch color="#e0f8cf" description="Lightest" />
+    <Swatch color="#e0f8cf" description="Mais claro" />
     <Swatch color="#86c06c" />
     <Swatch color="#306850" />
-    <Swatch color="#071821" description="Darkest" />
+    <Swatch color="#071821" description="Mais escuro" />
 </div>
 
-Click a color to edit it using either **RGB** (red, green, blue) or **HSB** (hue, saturation, brightness) values. You can also paste a **Hex Value** into the _Hex Color_ input.
+Clique em uma cor para editá-la usando valores **RGB** (vermelho, verde, azul) ou **HSB** (matiz, saturação, brilho). Você também pode colar um **Valor hexadecimal** na entrada _Cor hexadecimal_.
 
 :::info
-Because the GBC can't display the full range of colors shown on modern monitors, GB Studio will automatically convert your hex value to the closest color that can be displayed on real hardware.
+Como o GBC não pode exibir a gama completa de cores mostrada nos monitores modernos, o GB Studio converterá automaticamente o seu valor hexadecimal para a cor mais próxima que pode ser exibida no hardware real.
 :::

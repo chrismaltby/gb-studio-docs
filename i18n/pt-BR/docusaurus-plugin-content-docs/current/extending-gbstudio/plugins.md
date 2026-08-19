@@ -1,72 +1,72 @@
 # Plugins
 
-Plugins are a way to extend GB Studio and share reusable assets, create custom scripting events and even build engine modifications.
+Plugins são uma maneira de ampliar o GB Studio e compartilhar ativos reutilizáveis, criar eventos de script personalizados e até mesmo criar modificações no motor.
 
-## The Plugin Manager
+## O Gerenciador de plugins
 
-GB Studio includes a built-in _Plugin Manager_ for browsing, installing, and updating plugins from the [Official GB Studio Plugin Repository](https://github.com/gb-studio-dev/gb-studio-plugins/).
+O GB Studio inclui um _Gerenciador de plugins_ integrado para navegar, instalar e atualizar plugins do [Repositório oficial de plugins do GB Studio](https://github.com/gb-studio-dev/gb-studio-plugins/).
 
-<img title="Plugin Manager" src="/img/screenshots/plugin-manager.png" width="500"/>
+<img title="Gerenciador de plugins" src="/img/screenshots/plugin-manager.png" width="500"/>
 
-To open it, go to the application menu **Plugins → Plugin Manager**.
+Para abri-lo, vá para o menu do aplicativo **Plugins → Gerenciador de plugins**.
 
-<img title="Plugin Menu" src="/img/screenshots/plugin-menu.jpg" className="drop-shadow margin-bottom" width="382"/>
+<img title="Menu de plugins" src="/img/screenshots/plugin-menu.jpg" className="drop-shadow margin-bottom" width="382"/>
 
-### Installing a Plugin
+### Instalando um plugin
 
-1. Search for the plugin you want.
-2. Select it from the list.
-3. Click **Add to Project**.
+1. Pesquise o plugin desejado.
+2. Selecione-o na lista.
+3. Clique em **Adicionar ao projeto**.
 
-### Submit a Plugin
+### Enviar um plugin
 
-If you would like to add your own plugin to the official repository you can follow [these instructions](https://github.com/gb-studio-dev/gb-studio-plugins#submitting-plugins) to submit a pull request.
+Se você deseja adicionar o seu próprio plugin ao repositório oficial, você pode seguir [estas instruções](https://github.com/gb-studio-dev/gb-studio-plugins#submitting-plugins) para enviar um pull request.
 
-## Manually Installing Plugins
+## Instalando plugins manualmente
 
-Some plugins may not be available in the inbuilt plugin manager and will need to be downloaded and installed manually instead.
+Alguns plugins podem não estar disponíveis no gerenciador de plugins integrado e, em vez disso, precisarão ser baixados e instalados manualmente.
 
-To manually install plugins you must first create a `plugins` folder within your project in the same folder as your `.gbsproj` file. You can then place any plugins you have within this folder.
+Para instalar plugins manualmente, você deve primeiro criar uma pasta `plugins` dentro do seu projeto, na mesma pasta do seu arquivo `.gbsproj`. Você pode então colocar quaisquer plugins que tiver dentro desta pasta.
 
-The structure should look something like this:
+A estrutura deve se parecer com isso:
 
 <img src="/img/screenshots/plugins-file-structure.png" className="event-preview" />
 
-You may need to close and reopen your project after adding plugins for the changes to appear.
+Você pode precisar fechar e reabrir o seu projeto após adicionar plugins para que as alterações apareçam.
 
-## Asset Plugins
+## Plugins de ativos
 
-The simplest kind of plugin you can make for GB Studio is an asset plugin, these allow you to share sprites, backgrounds, fonts, sounds, anything that is normally placed in the `assets` folder.
+O tipo mais simples de plugin que você pode criar para o GB Studio é um plugin de ativos, eles permitem que você compartilhe sprites, imagens de fundo, fontes, sons, qualquer coisa que normalmente é colocada na pasta `assets`.
 
-To create an asset plugin first create a new folder within your `plugins` folder with the name you want to give your plugin (Above we used `assetPlugin` as the name). Within that folder you can create any of the normal project `asset` folders (such as `backgrounds`) and place files within it. These assets will appear as normal in your project but are now easier to package up and share between projects or with others.
+Para criar um plugin de ativos, primeiro crie uma nova pasta dentro da sua pasta `plugins` com o nome que você deseja dar ao seu plugin (Acima nós usamos `assetPlugin` como o nome). Dentro dessa pasta você pode criar qualquer uma das pastas `asset` normais do projeto (como `backgrounds`) e colocar arquivos dentro dela. Esses ativos aparecerão normalmente no seu projeto, mas agora são mais fáceis de empacotar e compartilhar entre projetos ou com outras pessoas.
 
-[Download Example Asset Plugin](/assets/plugins/assetExamplePlugin.zip)
+[Baixar exemplo de plugin de ativos](/assets/plugins/assetExamplePlugin.zip)
 
-## Script Event Plugins
+## Plugins de eventos de script
 
-These plugins allow you to create new script events that will appear anywhere you use [Scripting Events](/docs/scripting).
+Esses plugins permitem que você crie novos eventos de script que aparecerão em qualquer lugar em que você usar [Eventos de script](/docs/scripting).
 
-To create a script event plugin first create a new folder within your `plugins` folder with the name you want to give your plugin (Such as `myPlugin`). Within that folder create an `events` folder, and within that you can place the Javascript definition of your events. See the [GB Studio source](https://github.com/chrismaltby/gb-studio/tree/develop/src/lib/events) for examples of how these files should be structured and how they generate [GBVM](/docs/scripting/gbvm) output. Note your event plugin Javascript filename MUST begin with `event` e.g. `eventMyFirstEvent.js`.
+Para criar um plugin de eventos de script, primeiro crie uma nova pasta dentro da sua pasta `plugins` com o nome que deseja dar ao seu plugin (como `myPlugin`). Dentro dessa pasta crie uma pasta `events`, e dentro dela você pode colocar a definição em Javascript dos seus eventos. Veja o [código-fonte do GB Studio](https://github.com/chrismaltby/gb-studio/tree/develop/src/lib/events) para obter exemplos de como esses arquivos devem ser estruturados e como eles geram a saída [GBVM](/docs/scripting/gbvm). Observe que o nome do arquivo Javascript do seu plugin de evento DEVE começar com `event`, ex.: `eventMyFirstEvent.js`.
 
-[Download Example Script Event Plugin](/assets/plugins/eventExamplePlugin.zip)
+[Baixar exemplo de plugin de eventos de script](/assets/plugins/eventExamplePlugin.zip)
 
-## Engine Plugins
+## Plugins de motor
 
-An engine plugin allows similar functionality to [ejecting your engine](/docs/extending-gbstudio/engine-eject) but allows just changing single files or you can use it to add completely new files to the engine.
+Um plugin de motor permite uma funcionalidade semelhante a [ejetar o seu motor](/docs/extending-gbstudio/engine-eject), mas permite alterar apenas arquivos únicos ou você pode usá-lo para adicionar arquivos completamente novos ao motor.
 
-Engine plugins contain an `engine` folder which follows the same structure as an ejected game engine. Below you can download an example plugin that adds a new game engine function that causes the screen to flash (only when Color mode is disabled) and also includes a script event plugin to allow calling the new function.
+Os plugins de motor contêm uma pasta `engine` que segue a mesma estrutura de um motor de jogo ejetado. Abaixo, você pode baixar um exemplo de plugin que adiciona uma nova função ao motor de jogo que faz a tela piscar (apenas quando o Modo de cores está desabilitado) e também inclui um plugin de eventos de script para permitir a chamada da nova função.
 
 :::info
-Your engine plugin needs to specify which version of the GB Studio engine is supported, you can do this by making sure you include `engine/engine.json` in your plugin with at least the supported engine version included `{"version": "4.0.0-e0"}`
+O seu plugin de motor precisa especificar qual versão do motor do GB Studio é compatível. Você pode fazer isso certificando-se de incluir `engine/engine.json` no seu plugin com pelo menos a versão do motor compatível incluída `{"version": "4.0.0-e0"}`
 :::
 
-[Download Example Engine Plugin](/assets/plugins/engineExamplePlugin.zip)
+[Baixar exemplo de plugin de motor](/assets/plugins/engineExamplePlugin.zip)
 
-### Engine Fields
+### Campos do motor
 
-Engine plugins can define additional fields that will appear in your [Engine Settings](/docs/settings#engine-settings).
+Os plugins de motor podem definir campos adicionais que aparecerão nas suas [Configurações do motor](/docs/settings#engine-settings).
 
-By defining the following field, and adding the variable `max_jump_height` to your version of `platform.c` in the plugin you can expose variables for updating from settings or scripts using [Engine Field](/docs/scripting/script-glossary/engine-fields) events.
+Ao definir o seguinte campo e adicionar a variável `max_jump_height` à sua versão do arquivo `platform.c` no plugin, você pode expor variáveis para atualização a partir das configurações ou de scripts usando eventos de [Campo do motor](/docs/scripting/script-glossary/engine-fields).
 
 ```
 {
@@ -86,11 +86,11 @@ By defining the following field, and adding the variable `max_jump_height` to yo
 }
 ```
 
-To see how engine fields can be used within your plugin you can review the inbuilt [engine.json](https://github.com/chrismaltby/gb-studio/blob/develop/appData/engine/engine.json) file.
+Para ver como os campos do motor podem ser usados dentro do seu plugin, você pode revisar o arquivo integrado [engine.json](https://github.com/chrismaltby/gb-studio/blob/develop/appData/engine/engine.json).
 
-### Additional Scene Types
+### Tipos de cena adicionais
 
-Engine plugins can also define additional [scene types](/docs/project-editor/scenes/types).
+Os plugins de motor também podem definir [tipos de cena](/docs/project-editor/scenes/types) adicionais.
 
 ```
 {
@@ -123,39 +123,39 @@ Engine plugins can also define additional [scene types](/docs/project-editor/sce
 }
 ```
 
-Each scene type contains the following in it's `engine.json` entry:
+Cada tipo de cena contém o seguinte na sua entrada `engine.json`:
 
-- **key** A unique id for this scene type.
-- **label** The human readabile name that will appear in GB Studio for this scene type.
-- **files** The engine files required for your scene type.
-- **extraActorCollisionFlags** (optional) A list of collision flags which will appear for each actor placed in this scene in the [collision groups](/docs/project-editor/actors#collision-groups) editor.
-- **collisionTiles** (optional) A list of collision tiles which will appear when [editing collisions](/docs/project-editor/scenes/collisions) for scenes using this scene type. The "icon" field is pixel data encoded in a hex string, you can use the [GB Studio Collision Tile Generator](https://chrismaltby.github.io/gbs-collision-tile-generator/) tool to generate these.
+- **key** Um ID exclusivo para este tipo de cena.
+- **label** O nome legível por humanos que aparecerá no GB Studio para este tipo de cena.
+- **files** Os arquivos do motor necessários para o seu tipo de cena.
+- **extraActorCollisionFlags** (opcional) Uma lista de marcadores de colisão que aparecerão para cada ator colocado nesta cena no editor de [grupos de colisão](/docs/project-editor/actors#collision-groups).
+- **collisionTiles** (opcional) Uma lista de tiles de colisão que aparecerão ao [editar colisões](/docs/project-editor/scenes/collisions) para cenas usando este tipo de cena. O campo "icon" consiste em dados de pixel codificados em uma string hexadecimal. Você pode usar a ferramenta [GB Studio Collision Tile Generator](https://chrismaltby.github.io/gbs-collision-tile-generator/) para gerá-los.
 
-When adding additional scene types you will also need to define two functions in your custom engine:
+Ao adicionar tipos de cena adicionais, você também precisará definir duas funções no seu motor personalizado:
 
 ```
 void SCENEKEY_init(void) BANKED { }
 ```
 
-and
+e
 
 ```
 void SCENEKEY_update(void) BANKED { }
 ```
 
-In this case those functions would be named `battle_init` and `battle_update`.
+Neste caso, essas funções se chamariam `battle_init` e `battle_update`.
 
-The `init` function will be called once as the scene is loaded and the `update` function will be called every frame allowing you to create custom game modes.
+A função `init` será chamada uma vez à medida que a cena for carregada e a função `update` será chamada a cada quadro, permitindo que você crie modos de jogo personalizados.
 
-If your custom scene defines global variables, prefix them to avoid potential naming collisions with future engine updates.  
-For example, use `UBYTE battle_hp` instead of `UBYTE hp`.
+Se a sua cena personalizada define variáveis globais, adicione prefixos a elas para evitar possíveis conflitos de nomenclatura com futuras atualizações do motor.  
+Por exemplo, use `UBYTE battle_hp` em vez de `UBYTE hp`.
 
 :::info
 
-Although plugins can override the built-in scene types, this is not recommended. Overriding core scene types can make it harder for users to upgrade to future versions of GB Studio without conflicts.
+Embora os plugins possam substituir os tipos de cena integrados, isso não é recomendado. Substituir os tipos de cena principais pode dificultar para os usuários atualizarem para versões futuras do GB Studio sem conflitos.
 
-Prefer creating new scene types where possible or contributing improvements to the [built-in scene types](https://github.com/chrismaltby/gbvm/tree/main/src/states).
+Dê preferência a criar novos tipos de cena sempre que possível ou a contribuir com melhorias para os [tipos de cena integrados](https://github.com/chrismaltby/gbvm/tree/main/src/states).
 
 :::
 
-[Download Example Scene Type Plugin](/assets/plugins/sceneTypeExamplePlugin.zip)
+[Baixar exemplo de plugin de tipo de cena](/assets/plugins/sceneTypeExamplePlugin.zip)

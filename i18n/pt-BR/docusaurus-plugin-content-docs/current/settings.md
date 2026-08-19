@@ -2,91 +2,91 @@
 sidebar_position: 11
 ---
 
-# Settings
+# Configurações
 
-Clicking the _Project View Button_ and selecting _Settings_ will take you to a list of your project's settings.
+Clicar no _Botão de visão do projeto_ e selecionar _Configurações_ levará você a uma lista das configurações do seu projeto.
 
-## Color Options
+## Opções de cor
 
-GB Studio has support for multiple color modes, each provides different features, [limitations](/docs/project-editor/scenes/limits) and device compatibility.
+O GB Studio é compatível com vários modos de cor, cada um oferecendo diferentes recursos, [limitações](/docs/project-editor/scenes/limits) e compatibilidade com dispositivos.
 
-<img title="Color Settings" src="/img/screenshots/color-settings-v420.jpg" width="650" className="drop-shadow" />
+<img title="Configurações de cor" src="/img/screenshots/color-settings-v420.jpg" width="650" className="drop-shadow" />
 
-- **Monochrome**  
-  Allows your game to run on all devices, using four colors only.  
-  Supported platforms: **GB**, **GB Color**, **Super GB**, **Analogue Pocket**
+- **Monocromático**  
+  Permite que seu jogo seja executado em todos os dispositivos, usando apenas quatro cores.  
+  Plataformas compatíveis: **GB**, **GB Color**, **Super GB**, **Analogue Pocket**
 
-- **Color + Monochrome** -
-  Allows your game to run on monochrome and color devices.  
-  Color palettes can be used to [color your scenes](/docs/project-editor/scenes/color) on compatible devices.  
-  Supported platforms: **GB** (Monochrome only), **GB Color**, **Super GB**, **Analogue Pocket**
+- **Cor + Monocromático** -
+  Permite que seu jogo seja executado em dispositivos monocromáticos e coloridos.  
+  Paletas de cores podem ser usadas para [colorir as suas cenas](/docs/project-editor/scenes/color) em dispositivos compatíveis.  
+  Plataformas compatíveis: **GB** (Somente monocromático), **GB Color**, **Super GB**, **Analogue Pocket**
 
-- **Color Only** Increases the amount of [tiles available](/docs/project-editor/scenes/limits) in each scene for displaying backgrounds and sprites. Allows your game to run on color devices only.  
-  Supported platforms: **GB Color**, **Analogue Pocket**
+- **Apenas cor** Aumenta a quantidade de [tiles disponíveis](/docs/project-editor/scenes/limits) em cada cena para exibir imagens de fundo e sprites. Permite que seu jogo seja executado somente em dispositivos coloridos.  
+  Plataformas compatíveis: **GB Color**, **Analogue Pocket**
 
-Depending on the chosen color mode you may then also see additional settings.
+Dependendo do modo de cores escolhido, você também pode ver configurações adicionais.
 
-<img title="Additional Color Settings" src="/img/screenshots/color-settings2-v420.jpg" width="650" className="drop-shadow margin-bottom" />
+<img title="Configurações de cor adicionais" src="/img/screenshots/color-settings2-v420.jpg" width="650" className="drop-shadow margin-bottom" />
 
-- **Color Correction**  
-  Modifies your color palettes to closer match how they would appear on original hardware. On a physical GBC screen, colors appear more washed out than on modern monitors. Many emulators (including the one built into GB Studio) account for this, so turning on color correction allows your colors to appear as expected. If you prefer not to use this, you can disable the feature, causing hex colors in your palettes to appear as they would on a modern monitor.
+- **Correção de cor**  
+  Modifica as suas paletas de cores para corresponder mais de perto a como elas apareceriam no hardware original. Em uma tela física do GBC, as cores parecem mais desbotadas do que em monitores modernos. Muitos emuladores (incluindo o embutido no GB Studio) levam isso em consideração, então ativar a correção de cor permite que as suas cores apareçam conforme o esperado. Se preferir não usar isso, você pode desativar o recurso, fazendo com que as cores hexadecimais em suas paletas apareçam como estariam em um monitor moderno.
 
-- **Automatic Tile Flip**  
-  Color Only scenes have the ability to flip background tiles horizontally, vertically, or both, allowing scenes to use less tile memory. This is a fully automatic process. However, if you prefer not to use it (for example, if you need strict control over the order of tiles in memory for scripting), you can disable it for your project here. Alternatively, you can turn this feature on/off per scene in the _Scene Editor_ sidebar from the top right dropdown in Color Only scenes.
+- **Inversão automática de tile**  
+  Cenas do modo Apenas cor têm a capacidade de inverter os tiles de fundo horizontalmente, verticalmente ou ambos, permitindo que as cenas usem menos memória de tiles. Este é um processo totalmente automático. No entanto, se você preferir não usá-lo (por exemplo, se precisar de controle estrito sobre a ordem dos tiles na memória para scripts), você pode desativá-lo para o seu projeto aqui. Como alternativa, você pode ativar/desativar esse recurso por cena na barra lateral do _Editor de cena_ no menu suspenso superior direito em cenas do modo Apenas cor.
 
-<img title="Default Monochrome Palettes" src="/img/screenshots/color-settings3-v420.jpg" width="650" className="drop-shadow margin-bottom" />
+<img title="Paletas monocromáticas padrão" src="/img/screenshots/color-settings3-v420.jpg" width="650" className="drop-shadow margin-bottom" />
 
-- **Default Monochrome Palettes**  
-  Allows you to set the background palette (BGP) and two sprite palettes (OBP0 and OBP1) which are used when running a game without color.
+- **Paletas monocromáticas padrão**  
+  Permite que você defina a paleta de fundo (BGP) e duas paletas de sprite (OBP0 e OBP1) que são usadas ao executar um jogo sem cor.
 
-<img title="Default Color Palettes" src="/img/screenshots/color-settings4-v420.jpg" width="650" className="drop-shadow margin-bottom" />
+<img title="Paletas de cor padrão" src="/img/screenshots/color-settings4-v420.jpg" width="650" className="drop-shadow margin-bottom" />
 
-- **Default Background and Sprite Palettes**  
-  When color mode is either `Color + Monochrome` or `Color Only` you can select up to 8 Default Background Palettes and 8 Default Sprite Palettes, these are the palettes that every new scene in your game will use unless you specifically override them. See [Coloring a Scene](/docs/project-editor/scenes/color) for how to use background palettes.
+- **Paletas de fundo e sprite padrão**  
+  Quando o modo de cores for `Cor + Monocromático` ou `Apenas cor`, você pode selecionar até 8 Paletas de fundo padrão e 8 Paletas de sprite padrão. Estas são as paletas que toda nova cena no seu jogo usará, a menos que você as substitua especificamente. Veja [Colorindo uma cena](/docs/project-editor/scenes/color) para saber como usar paletas de fundo.
 
-## Super GB Options
+## Opções do Super GB
 
-To enable support for Super GB click the `Enable Super GB Mode` checkbox.
+Para habilitar a compatibilidade com o Super GB, marque a caixa de seleção `Habilitar modo Super GB`.
 
 <img title="SGB" src="/img/screenshots/sgb-mode.png" width="650" className="drop-shadow margin-bottom" />
 
-This mode will allow you to set a custom `256px × 224px` border image and color palette to use when your game is run on compatible hardware or emulators.
+Este modo permitirá que você defina uma imagem de borda personalizada de `256px × 224px` e uma paleta de cores para usar quando o seu jogo for executado em hardware ou emuladores compatíveis.
 
-The first time you build your game after enabling this mode a default border image will be copied to your project in `assets/sgb/border.png`, edit this image to replace the border with your own.
+Na primeira vez que você compilar o seu jogo após ativar este modo, uma imagem de borda padrão será copiada para o seu projeto em `assets/sgb/border.png`. Edite esta imagem para substituir a borda pela sua própria.
 
-## Scene Types
+## Tipos de cena
 
-GB Studio includes multiple built-in [Scene Types](/docs/project-editor/scenes/types) that define how a scene behaves. You can also add your own scene types by [extending GB Studio](/docs/category/extending-gb-studio).
+O GB Studio inclui vários [Tipos de cena](/docs/project-editor/scenes/types) integrados que definem como uma cena se comporta. Você também pode adicionar os seus próprios tipos de cena ao [ampliar o GB Studio](/docs/category/extending-gb-studio).
 
-Use this section to enable only the scene types you need, and to configure settings for each type.
+Use esta seção para ativar apenas os tipos de cena que você precisa e para configurar as definições de cada tipo.
 
-<img title="Scene Type Settings" src="/img/screenshots/scene-settings-v420.jpg" width="650" className="drop-shadow margin-bottom" />
+<img title="Configurações de tipo de cena" src="/img/screenshots/scene-settings-v420.jpg" width="650" className="drop-shadow margin-bottom" />
 
-This section also allows you to replace the default player sprite sheet that will be used for scenes of that type.
+Esta seção também permite que você substitua a folha de sprite padrão do jogador que será usada para as cenas desse tipo.
 
-You can override the player sprite sheet for an individual scene in the [scene’s properties](/docs/project-editor/scenes/#scene-properties), or at runtime [using scripts](/docs/scripting/script-glossary/actor#set-player-sprite-sheet).
+Você pode substituir a folha de sprite do jogador para uma cena individual nas [propriedades da cena](/docs/project-editor/scenes/#scene-properties), ou em tempo de execução [usando scripts](/docs/scripting/script-glossary/actor#set-player-sprite-sheet).
 
-### Engine Settings
+### Configurações do motor
 
-Depending on which scene types are enabled, you’ll see a list of engine settings for those types. These let you fine-tune how your game feels, such as adjusting gravity in _Platformer_ scenes or changing _Top Down 2D_ scenes to use a 16px grid.
+Dependendo de quais tipos de cena estão ativados, você verá uma lista de configurações do motor para esses tipos. Elas permitem que você ajuste como o seu jogo é sentido, como ajustar a gravidade em cenas de _Plataforma_ ou alterar cenas de _Visão superior 2D_ para usar uma grade de 16px.
 
-<img title="Engine Settings" src="/img/screenshots/engine-settings.png" width="650" className="drop-shadow margin-bottom" />
+<img title="Configurações do motor" src="/img/screenshots/engine-settings.png" width="650" className="drop-shadow margin-bottom" />
 
-To reset to the original values you can use the _Restore Default_ button.
+Para redefinir para os valores originais, você pode usar o botão _Restaurar o padrão_.
 
-## UI Elements & Fonts
+## Elementos de IU e fontes
 
-Use this section to view the frame image used for dialogue windows in your game, the cursor image used in menus and to select the default font for your project. Clicking the cursor or frame image will open them in your selected image editor, alternatively you can find the files in your project's `assets/ui` folder.
+Use esta seção para ver a imagem do quadro usada para as janelas de diálogo no seu jogo, a imagem do cursor usada em menus e para selecionar a fonte padrão para o seu projeto. Clicar no cursor ou na imagem do quadro irá abri-los no seu editor de imagens selecionado; alternativamente, você pode encontrar os arquivos na pasta `assets/ui` do seu projeto.
 
-<img title="UI Elements" src="/img/screenshots/ui-elements-v3.png" width="650" className="drop-shadow" />
+<img title="Elementos de IU" src="/img/screenshots/ui-elements-v3.png" width="650" className="drop-shadow" />
 
-### Fonts
+### Fontes
 
-Fonts can be found in `assets/fonts` and consist of a `.png` image and `.json` definition file sharing the same name. For example, `gbs-mono.png` and `gbs-mono.json`. A font's .png image should contain characters with a maximum size of 8px by 8px, arranged in rows 16 characters wide.
+As fontes podem ser encontradas em `assets/fonts` e consistem em uma imagem `.png` e um arquivo de definição `.json` compartilhando o mesmo nome. Por exemplo, `gbs-mono.png` e `gbs-mono.json`. A imagem .png de uma fonte deve conter caracteres com um tamanho máximo de 8px por 8px, dispostos em linhas com 16 caracteres de largura.
 
-<img title="GBS Mono example" src="/img/screenshots/gbs-mono.png" width="256" className="drop-shadow margin-bottom" />
+<img title="Exemplo de GBS Mono" src="/img/screenshots/gbs-mono.png" width="256" className="drop-shadow margin-bottom" />
 
-By default, fonts use an [ASCII mapping](https://en.wikipedia.org/wiki/ASCII#Character_set) with character code 32 (Space) mapping to the top left character in your font. You can provide a custom mapping by editing your font's `.json` file as follows.
+Por padrão, as fontes usam um [mapeamento ASCII](https://en.wikipedia.org/wiki/ASCII#Character_set) com o código de caractere 32 (Espaço) mapeado para o caractere superior esquerdo da sua fonte. Você pode fornecer um mapeamento personalizado editando o arquivo `.json` da sua fonte conforme a seguir.
 
 ```
 {
@@ -99,60 +99,60 @@ By default, fonts use an [ASCII mapping](https://en.wikipedia.org/wiki/ASCII#Cha
 }
 ```
 
-In this example using a `ヲ` character will now display character 166 from your `.png`.
+Neste exemplo, usar um caractere `ヲ` agora exibirá o caractere 166 do seu `.png`.
 
-**Please note** that as the first 32 ASCII characters are not included in your image you need to account for this in your mapping, for example if you wanted to map the character `?` to the second tile in your `.png` you would set the mapping to be `"?": 33`
+**Observe que** como os 32 primeiros caracteres ASCII não estão incluídos na sua imagem, você precisa levar isso em consideração no seu mapeamento. Por exemplo, se você quisesse mapear o caractere `?` para o segundo tile no seu `.png`, você definiria o mapeamento como `"?": 33`
 
-You can create variable width fonts (with characters less than 8px wide) by filling the right edge of your font's characters with magenta `#ff00ff` like the example below.
+Você pode criar fontes de largura variável (com caracteres com menos de 8px de largura) preenchendo a borda direita dos caracteres da sua fonte com magenta `#ff00ff` como no exemplo abaixo.
 
 <img src="/img/screenshots/gbs-var.png" width="256" className="drop-shadow margin-bottom" />
 
-When [Color Mode](#gb-color-options) is enabled, UI elements and fonts adopt the colors chosen for GB Color background palette #8. See [Coloring a Scene](/docs/project-editor/scenes/color) for how to use background palettes.
+Quando o [Modo de cores](#gb-color-options) está habilitado, os elementos da IU e fontes adotam as cores escolhidas para a paleta de fundo #8 do GB Color. Veja [Colorindo uma cena](/docs/project-editor/scenes/color) para saber como usar paletas de fundo.
 
-## Music Format
+## Formato de música
 
-The music format chooses which music engine to use in your game, this in turn determines the format of the music files supported in your project.
+O formato de música escolhe qual motor de música usar no seu jogo, isso por sua vez determina o formato dos arquivos de música suportados no seu projeto.
 
-The recommended setting is `UGE (hUGEDriver)` (`.uge` files), as this enables you to use the inbuilt music editor, though if you have created a project in GB Studio 2.0 or below you will need to keep this setting as `MOD (GBT Player)` (`.mod` files) to maintain compatibility with your existing music files.
+A configuração recomendada é `UGE (hUGEDriver)` (arquivos `.uge`), pois isso permite que você use o editor de música integrado, embora se você tiver criado um projeto no GB Studio 2.0 ou inferior você precisará manter essa configuração como `MOD (GBT Player)` (arquivos `.mod`) para manter a compatibilidade com os seus arquivos de música existentes.
 
-<img title="Music Driver" src="/img/screenshots/music-driver.png" width="650" className="drop-shadow margin-bottom" />
+<img title="Motor de música" src="/img/screenshots/music-driver.png" width="650" className="drop-shadow margin-bottom" />
 
-See [Music](/docs/assets/music) for more information.
+Veja [Música](/docs/assets/music) para obter mais informações.
 
-## Controls
+## Controles
 
-The _Controls_ section allows you to override the default controls used when playing your game from a web build and the _Play Window_.
+A seção _Controles_ permite que você substitua os controles padrão usados ao jogar o seu jogo a partir de uma compilação web e da _Janela de jogo_.
 
-To edit the controls for a button click on the input box and while the input is highlighted type the key you wish to assign. To remove all the assigned keys click the input and then press the _Backspace_ key on your keyboard.
+Para editar os controles de um botão, clique na caixa de entrada e enquanto a entrada estiver destacada, digite a tecla que você deseja atribuir. Para remover todas as teclas atribuídas, clique na entrada e, em seguida, pressione a tecla _Backspace_ no seu teclado.
 
-<img title="Controls" src="/img/screenshots/controls-v3.png" width="650" className="drop-shadow margin-bottom" />
+<img title="Controles" src="/img/screenshots/controls-v3.png" width="650" className="drop-shadow margin-bottom" />
 
-To reset to the original controls you can use the _Restore Default_ button.
+Para redefinir para os controles originais, você pode usar o botão _Restaurar o padrão_.
 
-## Cartridge Type
+## Tipo de cartucho
 
-The _Cartridge Type_ section allows you to choose which Memory Bank Controller you want to use and if you want to enable Batteryless Saving for compatible Flash Carts.
+A seção _Tipo de cartucho_ permite que você escolha qual Controlador de Banco de Memória deseja usar e se deseja ativar o Salvamento sem bateria para Cartuchos Flash compatíveis.
 
-If you don't know what these settings mean it's best to keep this as the default of MBC5, with Batteryless disabled which you can do by using the _Restore Default_ button.
+Se você não sabe o que essas configurações significam, é melhor manter isso como o padrão de MBC5, com o recurso sem bateria desativado, o que você pode fazer usando o botão _Restaurar o padrão_.
 
-## Build Options
+## Opções de compilação
 
-The _Build Options_ section allows you to modify settings relating to building your project.
+A seção _Opções de compilação_ permite que você modifique as configurações relacionadas à compilação do seu projeto.
 
-<img title="Build Options" src="/img/screenshots/build-settings-v420.png" width="650" className="drop-shadow margin-bottom" />
+<img title="Opções de compilação" src="/img/screenshots/build-settings-v420.png" width="650" className="drop-shadow margin-bottom" />
 
-- **ROM Filename**  
-  By default, exported ROMs use your project name as the file name. You can override it here (don't include a file extension, this will automatically use `.gb` or `.gbc` depending on your selected color mode).
+- **Nome do arquivo ROM**  
+  Por padrão, as ROMs exportadas usam o nome do seu projeto como o nome do arquivo. Você pode substituí-lo aqui (não inclua a extensão do arquivo, isso usará automaticamente `.gb` ou `.gbc` dependendo do modo de cores selecionado).
 
-- **Open Build Log On Warnings**  
-  Choose if the [Build Log](/docs/debugger#build-log) should be displayed automatically when warnings are displayed such as "too many unique tiles or palettes used in a scene". If you're choosing to ignore these warnings it can be helpful to disable them, otherwise it will be displayed every time your game runs. Please note that _errors_ building your project will always open the [Build Log](/docs/debugger#build-log) regardless of this setting.
+- **Abrir registro de compilação em avisos**  
+  Escolha se o [Registro de compilação](/docs/debugger#build-log) deve ser exibido automaticamente quando avisos forem exibidos, como "muitos tiles ou paletas únicos usados em uma cena". Se você está optando por ignorar esses avisos, pode ser útil desativá-los, caso contrário, ele será exibido toda vez que seu jogo for executado. Por favor, observe que os _erros_ ao compilar seu projeto sempre abrirão o [Registro de compilação](/docs/debugger#build-log), independentemente dessa configuração.
 
-- **Generate Debugging Files**  
-  When using `Export ROM`, additional debugging files (such as `game.cdb`) are generated which allow improved debugging when testing your game in compatible emulators such as [Emulicious](https://emulicious.net/).
+- **Gerar arquivos de depuração**  
+  Ao usar a opção `Exportar ROM`, arquivos de depuração adicionais (como `game.cdb`) são gerados, os quais permitem uma depuração melhorada ao testar o seu jogo em emuladores compatíveis como o [Emulicious](https://emulicious.net/).
 
-- **Open Build Folder on Export**  
-  When exporting a ROM, GB Studio will open the folder containing the exported files in your operating system's file browser. Disable this option if you'd prefer it not to open automatically.
+- **Abrir pasta da compilação ao exportar**  
+  Ao exportar uma ROM, o GB Studio abrirá a pasta contendo os arquivos exportados no navegador de arquivos do seu sistema operacional. Desative esta opção se preferir que ela não seja aberta automaticamente.
 
-## Custom HTML Header
+## Cabeçalho HTML personalizado
 
-You can use the _Custom HTML Header_ section to add content to the HTML `<head>` when generating a web build of your game. You can use this to add any custom CSS or Javascript you want to the web build HTML page.
+Você pode usar a seção _Cabeçalho HTML personalizado_ para adicionar conteúdo ao `<head>` do HTML ao gerar uma compilação da web do seu jogo. Você pode usar isso para adicionar qualquer CSS ou Javascript personalizado que desejar à página HTML da compilação da web.

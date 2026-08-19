@@ -1,16 +1,16 @@
-# Error
+# Erro
 
-Oh no, you encounted an error in GB Studio...
+Ah não, você encontrou um erro no GB Studio...
 
-At this point before doing anything you should make a back up of you project folder just in case anything happens.
+Neste momento, antes de fazer qualquer coisa, você deve fazer um backup da pasta do seu projeto para o caso de algo acontecer.
 
-Once you've made a backup you may still be able to save your project using `File / Save` in the menu. If this fails revert back to the backup.
+Depois de fazer um backup, você ainda pode conseguir salvar o seu projeto usando `Arquivo / Salvar` no menu. Se isso falhar, reverta para o backup.
 
-## Reporting Issues
+## Relatando problemas
 
-If you've come across an error in GB Studio it would be greatly appreciated if you file an issue at:
+Se você se deparou com um erro no GB Studio, seria muito apreciado se você abrisse um issue em:
 https://github.com/chrismaltby/gb-studio/issues
 
-## Getting Help
+## Obtendo ajuda
 
-The best place to get help when GB Studio isn't working is either the [Discord channel](https://discord.gg/bxerKnc) or on Reddit at [/r/GBStudio](https://www.reddit.com/r/gbstudio).
+O melhor lugar para obter ajuda quando o GB Studio não estiver funcionando é no [Canal do Discord](https://discord.gg/bxerKnc) ou no Reddit em [/r/GBStudio](https://www.reddit.com/r/gbstudio).

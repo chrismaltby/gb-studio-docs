@@ -2,52 +2,52 @@
 sidebar_position: 10
 ---
 
-# Migration Guide
+# Guia de migração
 
-## GB Studio 3 to 4
+## GB Studio 3 para 4
 
-### Music
+### Música
 
-GB Studio 3.2.1 and below had an issue where wave instrument lengths were being saved in a way that was incompatible with hUGETracker. From 4.0.0 onwards this issue has been fixed but `.uge` files created with older GB Studio versions may not sound correct if you have set length values on your wave instruments.
+O GB Studio 3.2.1 e versões anteriores tinham um problema em que as durações dos instrumentos de onda estavam sendo salvas de uma maneira incompatível com o hUGETracker. Da versão 4.0.0 em diante, esse problema foi corrigido, mas arquivos `.uge` criados com versões mais antigas do GB Studio podem não soar corretamente se você tiver definido valores de duração nos seus instrumentos de onda.
 
-If you find that your music is affected by this issue you can use this migrator tool to fix your files.
+Se você descobrir que a sua música é afetada por este problema, você pode usar esta ferramenta de migração para corrigir os seus arquivos.
 
 https://chrismaltby.github.io/gbs-uge-migrator/
 
 ### Plugins
 
-If your project uses any [plugins](/docs/extending-gbstudio/plugins) then it's possible you may need to download newer versions for compatibility with GB Studio 4.
+Se o seu projeto usa algum [plugin](/docs/extending-gbstudio/plugins), é possível que você precise baixar versões mais recentes para ter compatibilidade com o GB Studio 4.
 
-If using [engine plugins](/docs/extending-gbstudio/plugins#engine-plugins) it is now a requirement that the plugin contain an `engine.json` file stating which engine version it is intended to work with. Plugin authors will need to create a file `PLUGIN/engine/engine.json` containing at least the following:
+Se usar [plugins de motor](/docs/extending-gbstudio/plugins#engine-plugins), agora é um requisito que o plugin contenha um arquivo `engine.json` declarando com qual versão do motor ele deve funcionar. Os autores de plugins precisarão criar um arquivo `PLUGIN/engine/engine.json` contendo pelo menos o seguinte:
 ```
 {"version": "4.0.0-e0"}
 ```
-Replacing `4.0.0-e0` with the engine version the plugin supports.
+Substituindo `4.0.0-e0` pela versão do motor compatível com o plugin.
 
-## GB Studio 2 to 3
+## GB Studio 2 para 3
 
-GB Studio 3.0 introduces a number of changes to previous versions in an effort to improve and future proof the game engine and project format. While we try our best to automate as much of the migration as possible there are a few instances where it was not possible to do that this time and you may need to make some changes to your project if you wish to migrate from previous GB Studio versions.
+O GB Studio 3.0 introduz uma série de mudanças em relação às versões anteriores em um esforço para melhorar e preparar o motor de jogo e o formato do projeto para o futuro. Embora tentemos o nosso melhor para automatizar o máximo possível da migração, há algumas instâncias em que não foi possível fazer isso desta vez e você pode precisar fazer algumas alterações no seu projeto se quiser migrar de versões anteriores do GB Studio.
 
-### Actors
+### Atores
 
-- Actors will now always animate while stationary (allowing idle animations), which may cause issues when you want to step through animations manually (like checkboxes in the GB Studio 2.0 sample game menu scenes), if you wish to control an animation manually as before, set the Actor’s animation speed to “None”. You should also consider using the new [Sprite Editor](/docs/assets/sprites#sprite-editor) and [Animation States](/docs/assets/sprites#animation-states) as you can accomplish similar goals with a lot more flexibility.
+- Os atores agora sempre serão animados enquanto estiverem parados (permitindo animações em repouso), o que pode causar problemas quando você deseja avançar pelas animações manualmente (como caixas de seleção nas cenas de menu do jogo de exemplo do GB Studio 2.0). Se você desejar controlar uma animação manualmente como antes, defina a velocidade da animação do ator para “Nenhuma”. Você também deve considerar o uso do novo [Editor de sprites](/docs/assets/sprites#sprite-editor) e dos [Estados de animação](/docs/assets/sprites#animation-states), pois você pode alcançar objetivos semelhantes com muito mais flexibilidade.
 
-- If you have many actors in a scene that use `Actor Set Sprite Sheet` events you may find your sprite tile counter has become too high. This is because in GB Studio 3.0 we made a different tradeoff in how to handle this situation, previously all scripted sprite sheets needed to be loaded into memory as the scene initialised limiting how many unique sprites could be used in a single scene, instead we now reserve memory for every actor that uses scripted sprite sheets but you can apply as many sprite sheets as you want to a single actor. The recommended solution is to replace switching sprite sheets with using [Animation States](/docs/assets/sprites#animation-states) instead. For an example of a scene affected by this compare the scene "Space Battle" from the GBC Sample Project in GB Studio 2 with the version in GB Studio 3, where ship explosion animations are now part of the enemy sprite animations rather than a separate sprite sheet.
+- Se você tiver muitos atores em uma cena que usam eventos `Definir folha de sprite do ator`, poderá perceber que o contador de tiles do seu sprite ficou muito alto. Isso ocorre porque no GB Studio 3.0 adotamos uma abordagem diferente sobre como lidar com essa situação: anteriormente, todas as folhas de sprite roteirizadas precisavam ser carregadas na memória à medida que a cena era inicializada, limitando quantos sprites únicos podiam ser usados em uma única cena; em vez disso, agora nós reservamos memória para cada ator que usa folhas de sprite roteirizadas, mas você pode aplicar quantas folhas de sprite desejar a um único ator. A solução recomendada é substituir a troca de folhas de sprite pelo uso dos [Estados de animação](/docs/assets/sprites#animation-states). Para ver um exemplo de uma cena afetada por isso, compare a cena "Space Battle" do Projeto de Exemplo do GBC no GB Studio 2 com a versão no GB Studio 3, onde as animações de explosão da nave agora fazem parte das animações de sprite do inimigo em vez de uma folha de sprite separada.
 
-- If you are migrating from GB Studio 2 you may notice the per scene actor limits is now reduced to 20 actors per scene, this may increase in future releases. Depending on how you were using actors you may be able to use larger sprites to achieve the same effect.
+- Se você estiver migrando do GB Studio 2, poderá notar que o limite de atores por cena agora está reduzido para 20 atores por cena; isso pode aumentar em versões futuras. Dependendo de como você estava usando os atores, pode ser capaz de usar sprites maiores para alcançar o mesmo efeito.
 
 ### Sprites
 
-- The default player sprite is now set per scene type (_Top Down 2D_, _Platformer_, etc), so there is no need to switch to a different player sprite manually anymore in the scene init script, unless you wish to do so conditionally. When migrating a project using multiple scene types you will need to set the default player sprite for each scene type from the [Settings View](/docs/settings#scene-types).
+- O sprite padrão do jogador agora é definido por tipo de cena (_Visão superior 2D_, _Plataforma_, etc.), então não há mais necessidade de mudar para um sprite de jogador diferente manualmente no script inicial da cena, a menos que você deseje fazer isso condicionalmente. Ao migrar um projeto que usa vários tipos de cena, você precisará definir o sprite padrão do jogador para cada tipo de cena na [Visualização de configurações](/docs/settings#scene-types).
 
-- Collision bounding boxes can now be configured per sprite. Previously all actors had a collision box of `16px` x `16px` and the player had a collision box of `8px` x `16px`. When migrating your project we set the spritesheet you set as the player default to use a `8px` x `16px` collision box to maintain compatibility with previous versions but if you ever changed the player sprite though scripts you may also need to set the collision boxes on these sprites manually using the [Sprite Editor](/docs/assets/sprites#sprite-editor).
+- As caixas de colisão agora podem ser configuradas por sprite. Anteriormente, todos os atores tinham uma caixa de colisão de `16px` x `16px` e o jogador tinha uma caixa de colisão de `8px` x `16px`. Ao migrar o seu projeto, definimos a folha de sprite que você configurou como padrão do jogador para usar uma caixa de colisão de `8px` x `16px` a fim de manter a compatibilidade com as versões anteriores, mas se você tiver alterado o sprite do jogador por meio de scripts, poderá também precisar definir as caixas de colisão nesses sprites manualmente usando o [Editor de sprites](/docs/assets/sprites#sprite-editor).
 
-- Platformer player sprites now have a custom jump and climb animation which you will need to configure. To use these go into the [Sprite Editor](/docs/assets/sprites#sprite-editor), select your platform player sprite, and in the right hand sidebar set the animation type to “Platform Player” which adds a few more animations you can define for the sprite, see [Animation Settings](/docs/assets/sprites#animation-settings) for more information.
+- Os sprites de jogador de plataforma agora têm uma animação de pulo e escalada personalizada que você precisará configurar. Para usá-las, vá para o [Editor de sprites](/docs/assets/sprites#sprite-editor), selecione o seu sprite de jogador de plataforma e, na barra lateral direita, defina o tipo de animação para “Jogador de plataforma”, o que adiciona mais algumas animações que você pode definir para o sprite. Veja [Configurações de animação](/docs/assets/sprites#animation-settings) para obter mais informações.
 
-### Scenes
+### Cenas
 
-- Ladder tiles now snap the player sprite to the center of the tile while climbing. If you are using ladders in your game, make sure to test them as you may need to reposition the collision tiles to match the new alignment.
+- Os tiles de escada agora ajustam o sprite do jogador ao centro do tile durante a escalada. Se você estiver usando escadas no seu jogo, certifique-se de testá-las, pois você pode precisar reposicionar os tiles de colisão para corresponder ao novo alinhamento.
 
-### Save / Load
+### Salvar / Carregar
 
-- When loading a saved game, the game engine now continues any scripts that were previously running. This means that if you included a message such as “It is now safe to turn off your system.” immediately after the save, it will also be shown when loading that game. The save data event now includes an _On Save_ callback. This will only be called when you save, and not when you load the game back. If you were previously displaying a message after saving, you will likely need to move it into the _On Save_ script. See the save points in the latest example projects for how to implement this.
+- Ao carregar um jogo salvo, o motor do jogo agora continua quaisquer scripts que estavam sendo executados anteriormente. Isso significa que se você incluiu uma mensagem como "Agora é seguro desligar o seu sistema." imediatamente após o salvamento, ela também será exibida ao carregar esse jogo. O evento de salvar dados agora inclui um callback _Ao salvar_. Ele só será chamado quando você salvar, e não quando carregar o jogo de volta. Se antes você exibia uma mensagem após salvar, provavelmente precisará movê-la para o script _Ao salvar_. Veja os pontos de salvamento nos projetos de exemplo mais recentes para saber como implementar isso.
