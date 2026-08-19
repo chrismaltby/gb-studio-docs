@@ -41,7 +41,7 @@ const config = {
       pl: {
         label: "Polski",
 	  },
-      pt-BR: {
+      "pt-BR": {
         label: "Português (Brasil)",
       },
     },
