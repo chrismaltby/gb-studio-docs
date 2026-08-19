@@ -6,7 +6,7 @@ sidebar_position: 4
 
 A visualização padrão para o _Editor de projetos_ como mostrado abaixo é a _Área do jogo_. É aqui que você pode criar o seu jogo combinando cenas, adicionando atores e gatilhos e, em seguida, construindo eventos de script para adicionar interações.
 
-<img title="Editor de projetos" src="/img/screenshots/project-editor-v420.jpg" width="1258" />
+<img title="Editor de projetos" src="/img/screenshots/project-editor-v420-PTBR.jpg" width="1258" />
 
 Use as _Ferramentas do editor_ para alternar entre os modos de Seleção, Adição, Borracha, Colisão e Desenho de cor.
 

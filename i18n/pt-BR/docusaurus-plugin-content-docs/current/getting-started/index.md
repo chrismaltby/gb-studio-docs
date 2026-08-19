@@ -6,7 +6,7 @@ sidebar_position: 3
 
 Ao abrir o GB Studio pela primeira vez, você verá a janela _Novo projeto_.
 
-<img title="Novo projeto" src="/img/screenshots/new-project-v420.png" width="752" />
+<img title="Novo projeto" src="/img/screenshots/new-project-v420-PTBR.png" width="752" />
 
 :::tip
 
@@ -20,7 +20,7 @@ Se você tem um projeto existente, pode abri-lo por aqui clicando em _Abrir_ e n
 
 Dê um nome ao seu projeto para começar (não se preocupe, você pode alterar isso depois) e escolha um modelo de projeto. Se você é novo no GB Studio, eu recomendaria usar o modelo _Projeto de amostra_, que contém algumas cenas e scripts de exemplo já configurados para que você tenha uma pequena ideia do que é possível fazer. Clique em _Criar projeto_ e você será levado ao _Editor de projetos_.
 
-<img title="Primeiros Passos" src="/img/screenshots/getting-started-v420.jpg" width="1258" />
+<img title="Primeiros Passos" src="/img/screenshots/getting-started-v420-PTBR.jpg" width="1258" />
 
 Assim que vir esta tela, você pode clicar no _botão de Reproduzir_ no canto superior direito, que irá compilar e executar o projeto.
 

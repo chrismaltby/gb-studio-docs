@@ -10,7 +10,7 @@ Ele foi projetado para ser utilizável por pessoas com pouco ou nenhum conhecime
 
 Você pode gerar arquivos ROM que podem ser executados em um emulador, em uma página da web ou no hardware real de um Game Boy.
 
-<img title="Novo projeto" src="/img/screenshots/game-easy.png" width="592" />
+<img title="Novo projeto" src="/img/screenshots/game-easy-PTBR.png" width="592" />
 
 ## Apoie
 

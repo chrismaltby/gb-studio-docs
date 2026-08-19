@@ -4,7 +4,7 @@
 
 Ao jogar o seu jogo dentro do GB Studio, use os seguintes controles do teclado:
 
-<object data="/img/manual/keyboard-controls.svg" class="margin-bottom" />
+<object data="/img/manual/keyboard-controls-PTBR.svg" class="margin-bottom" />
 
 Esses controles podem ser modificados a qualquer momento indo até a seção Controles nas [Configurações](/docs/settings).
 
