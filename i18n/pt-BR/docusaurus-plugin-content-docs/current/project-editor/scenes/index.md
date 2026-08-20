@@ -10,7 +10,7 @@ Uma cena é uma única tela do seu jogo, ela pode conter vários [atores](/docs/
 
 Clique no botão **` + `** nas _Ferramentas do editor_ e selecione _Cena_ no menu. Clique em qualquer espaço vazio na _Janela de visualização do projeto_ para posicionar a nova cena.
 
-<div className="drop-shadow margin-bottom"><img src="/img/screenshots/add-scene-v4.gif" width="320" className="clip-bottom" /></div>
+<div className="drop-shadow margin-bottom"><img src="/img/screenshots/add-scene-v4-PTBR.gif" width="320" className="clip-bottom" /></div>
 
 Você pode usar a _Barra lateral do editor_ para dar um nome à sua cena e uma imagem de fundo dos ativos do seu projeto. Veja a documentação sobre [Imagens de fundo](/docs/assets/backgrounds) para obter mais informações sobre como adicionar imagens de fundo.
 
@@ -42,13 +42,13 @@ Quando uma cena é mais larga que 20 tiles (160px), o modo de paralaxe fica disp
 
 Quando o modo de paralaxe está habilitado, você pode dividir a imagem de fundo em até três fatias, que podem ser modificadas para rolar em velocidades diferentes conforme a câmera se move no jogo.
 
-<img src="/img/screenshots/parallax-v420.jpg" style={{width:550}} />
+<img src="/img/screenshots/parallax-v420-PTBR.jpg" style={{width:550}} />
 
 ## Limites da câmera
 
 Quando uma cena é mais larga que 20 tiles (160px) ou mais alta que 18 tiles (144px), a capacidade de limitar os limites da câmera de uma cena fica disponível. Você pode habilitá-la clicando no botão <img className="gbs-icon" title="Botão de alternar limites da câmera" src="/img/screenshots/camera-bounds-button.png" width="22" /> à direita do Seletor de Imagem de fundo.
 
-<img className="margin-bottom" src="/img/screenshots/camera-bounds-v420.jpg" style={{width:550}} />
+<img className="margin-bottom" src="/img/screenshots/camera-bounds-v420-PTBR.jpg" style={{width:550}} />
 
 Quando habilitado, isso permite que você defina a área mínima e máxima que será visível pela câmera na sua cena. Também é possível definir esses valores dinamicamente usando um evento [Definir limites da câmera](/docs/scripting/script-glossary/camera#set-camera-bounds).
 
@@ -65,7 +65,7 @@ Ao usar o evento [Trocar cena](/docs/scripting/script-glossary/scene#change-scen
 Para ajudar a corrigir este problema, você pode especificar um [conjunto de tiles](/docs/assets/tilesets) que é compartilhado entre as duas cenas. Conjuntos de tiles são imagens da pasta `assets/tilesets`. Quando duas cenas compartilham um conjunto de tiles comum, os tiles comuns sempre serão carregados nos mesmos locais na memória, permitindo transições mais fluidas.
 
 Ex.: estas duas cenas têm o mesmo conjunto de tiles em comum
-<img src="/img/screenshots/common-tilesets.png" className="drop-shadow margin-bottom" />
+<img src="/img/screenshots/common-tilesets-PTBR.png" className="drop-shadow margin-bottom" />
 
 o que permite alternar instantaneamente entre elas
 

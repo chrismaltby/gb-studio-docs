@@ -6,13 +6,13 @@ sidebar_position: 1
 
 O Navegador é a barra lateral à esquerda que permite navegar rapidamente pelo seu projeto.
 
-<img title="Navegador" src="/img/screenshots/navigator-v4.png" width="246" className="drop-shadow" />
+<img title="Navegador" src="/img/screenshots/navigator-v4-PTBR.png" width="246" className="drop-shadow" />
 
 ## Menu de contexto
 
 Ao clicar com o botão direito nos itens no Navegador, você pode abrir um menu de contexto. O menu de contexto da cena mostrado abaixo permite definir rótulos de cor, definir a cena como a cena inicial para o seu projeto, renomear e apagar a cena.
 
-<img title="Navegador" src="/img/screenshots/navigator-context-menu-v420.jpg" width="412" className="drop-shadow margin-bottom" />
+<img title="Navegador" src="/img/screenshots/navigator-context-menu-v420-PTBR.jpg" width="412" className="drop-shadow margin-bottom" />
 
 ## Pastas
 
@@ -20,11 +20,11 @@ Se as suas cenas, scripts, paletas ou ativos contiverem caracteres `/` ou `\` em
 
 Ex.: Nomear uma cena como `caves/Underground`, como mostrado abaixo:
 
-<img title="Renomear pastas no Navegador" src="/img/screenshots/navigator-folders-rename-v4.png" width="246" className="drop-shadow margin-bottom" />
+<img title="Renomear pastas no Navegador" src="/img/screenshots/navigator-folders-rename-v4-PTBR.png" width="246" className="drop-shadow margin-bottom" />
 
 fará com que ela apareça no navegador como `Underground` com uma pasta chamada `caves`:
 
-<img title="Pastas do Navegador" src="/img/screenshots/navigator-folders-v4.png" width="246" className="drop-shadow margin-bottom" />
+<img title="Pastas do Navegador" src="/img/screenshots/navigator-folders-v4-PTBR.png" width="246" className="drop-shadow margin-bottom" />
 
 :::warning
 Ao renomear ativos, como Imagens de fundo, para dentro de pastas usando o Navegador, os arquivos físicos no seu projeto (`.png` etc.) também serão movidos para a nova estrutura de pastas especificada. É importante salvar o seu projeto após fazer alterações como esta, pois mover esses arquivos sem salvar pode fazer com que o aplicativo não consiga localizar os ativos na próxima vez que você carregar o seu projeto.
