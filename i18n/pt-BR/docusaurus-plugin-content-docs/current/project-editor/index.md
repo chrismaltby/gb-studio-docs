@@ -55,7 +55,7 @@ Veja a documentação sobre os [Atalhos de teclado](/docs/getting-started/keyboa
 
 Usando o _Botão de visualização do projeto_ você pode alternar entre as diferentes visualizações do seu projeto e seus ativos.
 
-<img title="Seleção de cenas em caixa" src="/img/screenshots/project-view-btn.gif" width="320" className="drop-shadow" />
+<img title="Seleção de cenas em caixa" src="/img/screenshots/project-view-btn-PTBR.gif" width="320" className="drop-shadow" />
 
 - **Área do jogo:** Crie o seu jogo combinando [cenas](/docs/project-editor/scenes), [atores](/docs/project-editor/actors) e [gatilhos](/docs/project-editor/triggers).
 
