@@ -12,7 +12,7 @@ Para obter mais informações sobre o modo de desenho usado para a _Ferramenta d
 
 Se a sua imagem já for um arquivo `.png` colorido, você pode tentar mudar para o uso de Paletas de fundo no `Automático` usando a _Barra lateral do editor_.
 
-<div className="drop-shadow margin-bottom"><img src="/img/screenshots/auto-color.gif" width="320" className="clip-bottom" /></div>
+<div className="drop-shadow margin-bottom"><img src="/img/screenshots/auto-color-PTBR.gif" width="320" className="clip-bottom" /></div>
 
 :::info
 Você precisará ter o cuidado de seguir os mesmos requisitos sobre cores únicas por cena e tile ao usar Paletas de fundo automáticas se quiser que as suas imagens sejam exibidas corretamente. Por exemplo, usar mais de 7 paletas de cores únicas fará com que a paleta 8 seja substituída, o que significa que as janelas de diálogo e menu podem não aparecer corretamente para aquela cena.
@@ -24,7 +24,7 @@ Ao usar as Paletas de fundo automáticas, os tiles monocromáticos também são 
 
 O campo do tipo Paletas de fundo também inclui a capacidade de _Extrair paletas_ de uma imagem de fundo colorida.
 
-<div className="drop-shadow margin-bottom"><img src="/img/screenshots/extract-palettes.jpg" width="320" className="clip-bottom" /></div>
+<div className="drop-shadow margin-bottom"><img src="/img/screenshots/extract-palettes-PTBR.jpg" width="320" className="clip-bottom" /></div>
 
 Selecionar esta opção irá ler a imagem de fundo colorida atualmente selecionada e criar as paletas necessárias, pintar os tiles na sua cena e também criará uma imagem de [Sobrecarga monocromática](/docs/assets/backgrounds#monochrome-overrides) para a sua imagem de fundo.
 
