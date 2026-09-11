@@ -1,0 +1,8 @@
+{
+  "label": "Learning Path",
+  "position": 9,
+  "link": {
+    "type": "doc",
+    "id": "learning-path/index"
+  }
+}
